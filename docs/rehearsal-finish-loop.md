@@ -30,7 +30,7 @@ Read the complete export privately before committing it. The guide's sole conten
 
 ## Retain the actual official offline check
 
-Complete the rehearsal's human-authored `README.md` and `FACTORY.md`, final `mandates/`, genuinely completed stage folders and actual export first. Invoke the configured harness interpreter from the pinned challenge checkout:
+Complete the rehearsal's `README.md` and `FACTORY.md`, final `mandates/`, genuinely completed stage folders and actual export first. Operator-assisted practice narratives must identify their authorship and unscored rehearsal scope. A mechanical toy-check PASS does not establish final-submission narrative authorship: the participant must still write the judged README/FACTORY as directed in the guide's Check and submit section. This scope distinction is an interpretation of the separate toy exercise, not an organizer waiver. Invoke the configured harness interpreter from the pinned challenge checkout:
 
 ```sh
 cd /absolute/challenge
