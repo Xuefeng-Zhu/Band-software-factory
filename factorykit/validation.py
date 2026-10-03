@@ -21,6 +21,7 @@ REQUIRED_OBSERVATIONS = (
     "all_seat_directed_replies", "all_seat_checkout_commit_visibility",
     "toy_pm_assignment_peer_handoffs", "toy_independent_fixed_candidate_review",
     "toy_missing_peer_delayed_message", "toy_isolated_harness", "semantic_generic_instructions",
+    "toy_full_room_export", "toy_offline_submission_check",
 )
 
 
@@ -221,6 +222,85 @@ def doctor(config: dict) -> dict:
     return report
 
 
+def toy_repository_digest(config: dict) -> str:
+    """Bind checked file contents and layout, including empty stages/nested Git."""
+    root = Path(config["paths"]["rehearsal"])
+    ignored = {"node_modules", "__pycache__", ".venv", "venv", "target", "dist"}
+    entries = {}
+    for path in sorted(root.rglob("*")):
+        relative = path.relative_to(root)
+        if relative.parts[0] == ".git" or ignored.intersection(relative.parts):
+            continue
+        if ".git" in relative.parts and relative.name != ".git":
+            continue
+        if path.is_symlink():
+            entries[str(relative)] = {"type": "symlink", "target": os.readlink(path)}
+            continue
+        kind = "directory" if path.is_dir() else "file" if path.is_file() else "other"
+        if ".git" in relative.parts:
+            # The official layout check rejects a stage's .git file OR directory;
+            # bind the marker's presence/type, while ignoring its internal history.
+            if relative.name == ".git":
+                entries[str(relative)] = {"type": kind, "exists": path.exists()}
+            continue
+        entries[str(relative)] = {"type": kind}
+        if path.is_file():
+            entries[str(relative)]["sha256"] = digest(path)
+    return digest(canonical(entries))
+
+
+def _referenced_evidence(item: dict, reference: object) -> bool:
+    if not isinstance(reference, dict) or reference not in item.get("evidence", []):
+        return False
+    path = Path(reference.get("path", ""))
+    return path.is_absolute() and path.is_file() and path.stat().st_size > 0 and reference.get("sha256") == digest(path)
+
+
+def _toy_export_valid(config: dict, item: dict) -> bool:
+    """Check recorded provenance and shape, never synthesize a room download."""
+    export = item.get("room_export", {})
+    if not isinstance(export, dict):
+        return False
+    reference = export.get("file")
+    if not _referenced_evidence(item, reference):
+        return False
+    expected = Path(config["paths"]["rehearsal"]) / "room.json"
+    if Path(reference["path"]) != expected or export.get("room_id") != config["band"].get("rehearsal_room_id") or not export.get("room_id"):
+        return False
+    if (export.get("method") != "band_console_full_session" or not export.get("downloaded_at")
+            or export.get("after_work_complete") is not True):
+        return False
+    if export.get("contents") == "credential_redaction_only":
+        if not _referenced_evidence(item, export.get("redaction_incident")):
+            return False
+    elif export.get("contents") != "unchanged":
+        return False
+    room = json.loads(expected.read_text())
+    messages = room.get("messages") if isinstance(room, dict) else None
+    return (isinstance(room, dict) and room.get("scope", "full") == "full"
+            and isinstance(messages, list) and bool(messages)
+            and all(isinstance(message, dict) for message in messages))
+
+
+def _toy_check_valid(config: dict, item: dict, exports: list[dict]) -> bool:
+    if len(exports) != 1 or exports[0].get("status") != "PASS" or exports[0].get("observed") is not True or not _toy_export_valid(config, exports[0]):
+        return False
+    reference = item.get("invocation")
+    if not _referenced_evidence(item, reference):
+        return False
+    invocation = json.loads(Path(reference["path"]).read_text())
+    if not isinstance(invocation, dict):
+        return False
+    expected = [config["runtime"]["harness_python"], "-m", "harness", "check", config["paths"]["rehearsal"], "--track", "toy"]
+    snapshot = toy_repository_digest(config)
+    return (invocation.get("argv") == expected and invocation.get("cwd") == config["paths"]["challenge"]
+            and type(invocation.get("exit_code")) is int and invocation["exit_code"] == 0
+            and bool(invocation.get("started_at")) and bool(invocation.get("finished_at"))
+            and isinstance(invocation.get("stdout"), str) and isinstance(invocation.get("stderr"), str)
+            and invocation.get("repository_before_sha256") == snapshot
+            and invocation.get("repository_after_sha256") == snapshot)
+
+
 def observations(config: dict) -> tuple[list[dict], list[str]]:
     path = Path(config["paths"]["runs"]) / "readiness/observations.json"
     try:
@@ -247,6 +327,15 @@ def observations(config: dict) -> tuple[list[dict], list[str]]:
             valid = valid and target.is_absolute() and target.is_file() and entry.get("sha256") == digest(target) and target.stat().st_size > 0
         if not isinstance(evidence, list):
             valid = False
+        if valid and name in {"toy_full_room_export", "toy_offline_submission_check"}:
+            try:
+                if name == "toy_full_room_export":
+                    valid = _toy_export_valid(config, item)
+                else:
+                    exports = [entry for entry in entries if isinstance(entry, dict) and entry.get("id") == "toy_full_room_export"]
+                    valid = _toy_check_valid(config, item, exports)
+            except (OSError, ValueError, TypeError, KeyError):
+                valid = False
         if not valid:
             blockers.append(f"Observed readiness evidence missing/invalid: {name}")
         else:

@@ -81,6 +81,10 @@ For the rehearsal use `--track toy` and its separate actual repository path, nev
 
 `harness check` validates metadata, whole-room export, corresponding mandate files, runtime lines, reciprocal mentions, mandate vocabulary and credential shapes. It builds nothing. Before the run, missing application and room artifacts are EXPECTED_MISSING, not a valid submission. A placeholder room export is prohibited. Skipped/deselected/empty suites, missing browser dependencies and startup errors are never passing evidence.
 
+## Toy finish-loop readiness
+
+The guide permits stopping the toy at a completed stage (lines 746–749), but directs a full-room download and successful official offline check to rehearse submission gates (lines 817–830). Before judged readiness, record `toy_full_room_export` and `toy_offline_submission_check` using the [evidence schema and procedure](rehearsal-finish-loop.md). Completing all four toy stages is not required. A missing download, unreviewed provenance or failed/stale offline check remains a blocker.
+
 ## Full-room export and credential incidents
 
 After the work is complete, open the actual room in BAND Desktop, use its top-right `⋮` menu and select **Open in Band**. In the web console under **Sessions**, open that same room. Use the room's `⋮` menu, then **Download → Download full session**. Never choose **Download filtered**. UI sender/event filters do not matter for a full-session download.

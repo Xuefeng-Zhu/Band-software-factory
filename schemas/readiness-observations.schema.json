@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Factory readiness observations",
+  "description": "Structural schema. Runtime additionally requires one passing record per ID, current hashes, real files, configured room provenance and the exact successful offline invocation. NOT_TESTED examples cannot authorize launch.",
+  "type": "object",
+  "required": [
+    "configuration_sha256",
+    "source_lock_sha256",
+    "observations"
+  ],
+  "properties": {
+    "configuration_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_lock_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/observation"
+      }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "observed",
+        "evidence"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "permissions_agent_write_git",
+            "permissions_docker_build",
+            "permissions_browser",
+            "permissions_development_network",
+            "band_registration_room_visibility",
+            "all_seat_directed_replies",
+            "all_seat_checkout_commit_visibility",
+            "toy_pm_assignment_peer_handoffs",
+            "toy_independent_fixed_candidate_review",
+            "toy_missing_peer_delayed_message",
+            "toy_isolated_harness",
+            "semantic_generic_instructions",
+            "toy_full_room_export",
+            "toy_offline_submission_check"
+          ]
+        },
+        "status": {
+          "enum": [
+            "NOT_TESTED",
+            "PASS",
+            "FAIL",
+            "BLOCKED"
+          ]
+        },
+        "observed": {
+          "type": "boolean"
+        },
+        "observer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "room_export": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "invocation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/evidence"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PASS"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "observer",
+              "observed_at"
+            ],
+            "properties": {
+              "observed": {
+                "const": true
+              },
+              "observer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "observed_at": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PASS"
+              },
+              "id": {
+                "const": "toy_full_room_export"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "room_export"
+            ],
+            "properties": {
+              "room_export": {
+                "$ref": "#/$defs/room_export"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PASS"
+              },
+              "id": {
+                "const": "toy_offline_submission_check"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "invocation"
+            ],
+            "properties": {
+              "invocation": {
+                "$ref": "#/$defs/evidence"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "room_export": {
+      "type": "object",
+      "required": [
+        "file",
+        "room_id",
+        "method",
+        "downloaded_at",
+        "after_work_complete",
+        "contents"
+      ],
+      "properties": {
+        "file": {
+          "$ref": "#/$defs/evidence"
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "const": "band_console_full_session"
+        },
+        "downloaded_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "after_work_complete": {
+          "const": true
+        },
+        "contents": {
+          "enum": [
+            "unchanged",
+            "credential_redaction_only"
+          ]
+        },
+        "redaction_incident": {
+          "$ref": "#/$defs/evidence"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "contents": {
+                "const": "credential_redaction_only"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "redaction_incident"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

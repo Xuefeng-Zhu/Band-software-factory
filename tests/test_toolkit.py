@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from factorykit.common import FactoryError, canonical, contains_secret, digest, load_config, redact, run_command, verify_sources, write_json, utc_now
 from factorykit.operations import freeze, harness, launch_prepare, pristine_result, validate_launch_request
 from factorykit.tasks import generate, verify_tasks
-from factorykit.validation import doctor, observations, validate
+from factorykit.validation import doctor, observations, toy_repository_digest, validate
 from factorykit.workitems import validate_item
 
 
@@ -433,6 +433,146 @@ class LaunchTests(Fixture):
         records, blockers = observations(self.config)
         self.assertFalse(records)
         self.assertTrue(any("toy_isolated_harness" in value for value in blockers))
+
+
+class ToyFinishLoopTests(Fixture):
+    """Synthetic evidence tests; these do not represent a downloaded live room."""
+    def setUp(self):
+        super().setUp()
+        self.config["band"]["rehearsal_room_id"] = "synthetic-rehearsal-room"
+        self.room = Path(self.config["paths"]["rehearsal"]) / "room.json"
+        write_json(self.room, {"scope": "full", "messages": [{"senderId": "fixture-seat", "senderType": "agent", "messageType": "text", "content": "Synthetic fixture only"}]})
+        self.invocation_path = Path(self.config["paths"]["runs"]) / "toy-check.json"
+        self.export = {"id": "toy_full_room_export", "status": "PASS", "observed": True,
+                       "observed_at": "2026-10-03T00:00:00Z", "observer": "synthetic test",
+                       "evidence": [{"path": str(self.room), "sha256": digest(self.room)}],
+                       "room_export": {"file": {"path": str(self.room), "sha256": digest(self.room)},
+                                       "room_id": self.config["band"]["rehearsal_room_id"], "method": "band_console_full_session",
+                                       "downloaded_at": "2026-10-03T00:00:00Z", "after_work_complete": True, "contents": "unchanged"}}
+        snapshot = toy_repository_digest(self.config)
+        self.invocation = {"argv": [self.config["runtime"]["harness_python"], "-m", "harness", "check", self.config["paths"]["rehearsal"], "--track", "toy"],
+                           "cwd": self.config["paths"]["challenge"], "started_at": "2026-10-03T00:00:00Z", "finished_at": "2026-10-03T00:00:01Z",
+                           "exit_code": 0, "stdout": "Synthetic successful check", "stderr": "",
+                           "repository_before_sha256": snapshot, "repository_after_sha256": snapshot}
+        self.check = {"id": "toy_offline_submission_check", "status": "PASS", "observed": True,
+                      "observed_at": "2026-10-03T00:00:01Z", "observer": "synthetic test"}
+        self.save_observations()
+
+    def save_observations(self, include_export=True):
+        write_json(self.invocation_path, self.invocation)
+        ref = {"path": str(self.invocation_path), "sha256": digest(self.invocation_path)}
+        self.check.update(evidence=[ref], invocation=ref)
+        write_json(Path(self.config["paths"]["runs"]) / "readiness/observations.json", {
+            "configuration_sha256": digest(canonical(self.config)),
+            "source_lock_sha256": digest(Path(self.config["paths"]["factory"]) / "config/source-lock.json"),
+            "observations": ([self.export] if include_export else []) + [self.check]})
+
+    def accepted(self):
+        return {item["id"] for item in observations(self.config)[0]}
+
+    def test_hash_bound_finish_loop_records_accepted_without_live_operations(self):
+        with patch("factorykit.validation.run_command") as run:
+            self.assertEqual(self.accepted(), {"toy_full_room_export", "toy_offline_submission_check"})
+        run.assert_not_called()
+
+    def test_new_loop_gates_remain_required_when_absent(self):
+        path = Path(self.config["paths"]["runs"]) / "readiness/observations.json"
+        path.unlink()
+        blockers = observations(self.config)[1]
+        self.assertTrue(any("toy_full_room_export" in value for value in blockers))
+        self.assertTrue(any("toy_offline_submission_check" in value for value in blockers))
+
+    def test_successful_check_without_full_export_provenance_rejected(self):
+        self.save_observations(include_export=False)
+        self.assertNotIn("toy_offline_submission_check", self.accepted())
+        for field, value in (("method", "api_page"), ("room_id", "different-room"), ("after_work_complete", False), ("contents", "edited")):
+            with self.subTest(field=field):
+                original = self.export["room_export"][field]
+                self.export["room_export"][field] = value
+                self.save_observations()
+                self.assertEqual(self.accepted(), set())
+                self.export["room_export"][field] = original
+
+    def test_filtered_or_malformed_room_never_accepted_even_rehashed(self):
+        for room in ({"scope": "filtered", "messages": [{}]}, {"scope": "full", "messages": []}, {"scope": "full", "messages": ["not a message"]}, []):
+            with self.subTest(room=room):
+                write_json(self.room, room)
+                ref = {"path": str(self.room), "sha256": digest(self.room)}
+                self.export["evidence"] = [ref]
+                self.export["room_export"]["file"] = ref
+                self.save_observations()
+                self.assertEqual(self.accepted(), set())
+
+    def test_export_drift_rejected(self):
+        self.room.write_text(self.room.read_text() + " ")
+        self.assertEqual(self.accepted(), set())
+
+    def test_failed_or_wrong_official_invocation_rejected(self):
+        original = copy.deepcopy(self.invocation)
+        variants = [{"exit_code": 1}, {"exit_code": False}, {"cwd": self.config["paths"]["factory"]},
+                    {"argv": [sys.executable, "-m", "harness", "check", self.config["paths"]["result"], "--track", "tablekeeper"]},
+                    {"argv": [sys.executable, "-m", "harness", "run", "--track", "toy"]},
+                    {"repository_before_sha256": "not the checked files"}, {"stdout": None}]
+        for update in variants:
+            with self.subTest(update=update):
+                self.invocation = original | update
+                self.save_observations()
+                self.assertEqual(self.accepted(), {"toy_full_room_export"})
+
+    def test_check_invalidated_by_later_repository_changes(self):
+        (Path(self.config["paths"]["rehearsal"]) / "README.md").write_text("Changed after the check")
+        self.assertEqual(self.accepted(), {"toy_full_room_export"})
+
+    def test_check_invalidated_by_new_empty_stage_directory(self):
+        (Path(self.config["paths"]["rehearsal"]) / "stage-2").mkdir()
+        self.assertEqual(self.accepted(), {"toy_full_room_export"})
+
+    def test_check_invalidated_by_nested_git_file_or_directory(self):
+        stage = Path(self.config["paths"]["rehearsal"]) / "stage-1"
+        stage.mkdir()
+        snapshot = toy_repository_digest(self.config)
+        self.invocation.update(repository_before_sha256=snapshot, repository_after_sha256=snapshot)
+        self.save_observations()
+        self.assertIn("toy_offline_submission_check", self.accepted())
+        marker = stage / ".git"
+        for kind in ("directory", "file"):
+            with self.subTest(kind=kind):
+                marker.mkdir() if kind == "directory" else marker.write_text("gitdir: synthetic-test-only")
+                self.assertNotEqual(snapshot, toy_repository_digest(self.config))
+                self.assertEqual(self.accepted(), {"toy_full_room_export"})
+                marker.rmdir() if kind == "directory" else marker.unlink()
+        # Ordinary root repository history is not an offline-layout change.
+        root_git = stage.parent / ".git"
+        root_git.mkdir()
+        (root_git / "HEAD").write_text("synthetic-test-only")
+        self.assertEqual(snapshot, toy_repository_digest(self.config))
+        self.assertIn("toy_offline_submission_check", self.accepted())
+
+    def test_check_invalidated_by_identical_byte_symlink_replacement(self):
+        checked = Path(self.config["paths"]["rehearsal"]) / "README.md"
+        target = self.root / "same-bytes.txt"
+        checked.write_text("Synthetic identical bytes")
+        target.write_bytes(checked.read_bytes())
+        snapshot = toy_repository_digest(self.config)
+        self.invocation.update(repository_before_sha256=snapshot, repository_after_sha256=snapshot)
+        self.save_observations()
+        self.assertIn("toy_offline_submission_check", self.accepted())
+        checked.unlink()
+        checked.symlink_to(target)
+        self.assertNotEqual(snapshot, toy_repository_digest(self.config))
+        self.assertEqual(self.accepted(), {"toy_full_room_export"})
+
+    def test_documented_redaction_requires_hashed_incident_evidence(self):
+        self.export["room_export"]["contents"] = "credential_redaction_only"
+        self.save_observations()
+        self.assertEqual(self.accepted(), set())
+        incident = Path(self.config["paths"]["runs"]) / "synthetic-incident.json"
+        write_json(incident, {"synthetic": True, "credential_values": "omitted"})
+        ref = {"path": str(incident), "sha256": digest(incident)}
+        self.export["room_export"]["redaction_incident"] = ref
+        self.export["evidence"].append(ref)
+        self.save_observations()
+        self.assertEqual(self.accepted(), {"toy_full_room_export", "toy_offline_submission_check"})
 
 
 class WorkItemTests(Fixture):

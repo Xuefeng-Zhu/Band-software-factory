@@ -1,5 +1,6 @@
 # BLOCKED_WITH_ACTIONS
 
+> Historical preparation snapshot. Current paths, approvals, live rehearsal results and remaining gates are in [BUILD-START.md](BUILD-START.md). Old NOT_TESTED states and commands below are retained as history, not current launch instructions.
 The preparation toolkit is implemented and locally tested. The factory is **not ready for a judged dispatch**: SDK authentication/access to the configured rooms, approved consumption limits, unattended execution permissions and the toy rehearsal still need evidence. Seven persistent BAND identities have now been created, with parked native templates. No judged task was sent, no Tablekeeper implementation was seeded, and no repository was published or submitted.
 
 Absolute workspace:
