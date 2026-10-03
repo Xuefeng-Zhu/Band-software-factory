@@ -103,8 +103,12 @@ count. It survives restarts. Token enforcement is based on observed provider
 notifications, so an in-flight turn can exceed the threshold before cancellation.
 It is **not a provider-side hard dollar cap**. Monetary spend remains UNAVAILABLE
 unless independently reported; `spend_cap_usd` records explicit approved authority,
-and does not manufacture cost accounting. No inference starts until budgets are
-approved and finite.
+and does not manufacture cost accounting. The optional [subscription-only policy](budget-policy.md)
+uses verified existing ChatGPT authentication and a shared rehearsal/judged
+ledger without a dollar-cap claim. It remains unapproved. The constrained
+authentication probe passed without inference; see
+`runs/build-start/subscription-auth-probe.json`. No inference starts until budgets are approved
+and finite and all other launch prerequisites pass.
 
 The SDK turn timeout and an outer deadline bound work. A persistent whole-session
 deadline conservatively applies `stage_timeout_seconds` across the supervisor
@@ -138,8 +142,8 @@ revalidated in the actual chosen environment. Host Chromium success
 outside that sandbox does not prove agent browser permission. Seven BAND identities and both room memberships are now verified through the native CLI; their workers are stopped and templates detached. SDK credentials, SDK room access and approved consumption authority remain unavailable. The
 runner therefore remains blocked for real seat startup. No host
 `danger-full-access` or falsely labeled `external-sandbox` fallback is provided.
-The adapter structure and 50 current local utility/guard tests are verified
-(`runs/model-upgrade/verification-00.json`, 0.654 seconds); the new CLI model
+The adapter structure and 63 local utility/guard tests are verified
+(`runs/build-start/verification-00.json`); the new CLI model
 catalog is observed without an inference turn, while live BAND seat
 collaboration, provider turns, isolated agent Git/browser/Docker behavior and a
 complete toy rehearsal are not claimed.

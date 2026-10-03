@@ -191,20 +191,9 @@ def load_config(path: str | Path) -> dict:
             raise FactoryError(f"Seat {seat['id']} mandate path must be absolute")
         if Path(seat["mandate"]).resolve().parent != Path(config["paths"]["factory"]).resolve() / "mandates":
             raise FactoryError("Mandates must be direct children of factory/mandates")
-    limits = config["budgets"]
-    for key in ("max_active_seats", "max_repairs", "turn_timeout_seconds", "stage_timeout_seconds", "overall_timeout_seconds", "max_turns_per_seat", "max_total_tokens"):
-        value = limits.get(key)
-        if isinstance(value, bool) or not isinstance(value, int) or value < 1:
-            raise FactoryError(f"budgets.{key} requires a finite positive integer")
-    if "ack_timeout_seconds" in limits and (isinstance(limits["ack_timeout_seconds"], bool) or not isinstance(limits["ack_timeout_seconds"], int) or limits["ack_timeout_seconds"] < 1):
-        raise FactoryError("ack_timeout_seconds requires a finite positive integer")
-    cap = limits.get("spend_cap_usd")
-    if cap is not None and (isinstance(cap, bool) or not isinstance(cap, (int, float)) or not 0 < cap < float("inf")):
-        raise FactoryError("spend_cap_usd must be a finite positive number or null")
-    if limits["max_active_seats"] > 7:
-        raise FactoryError("max_active_seats cannot exceed seven")
-    if limits["turn_timeout_seconds"] > limits["stage_timeout_seconds"] or limits["stage_timeout_seconds"] > limits["overall_timeout_seconds"]:
-        raise FactoryError("Timeouts must satisfy turn <= stage <= overall")
+    from .budgets import budget_errors
+    if errors := budget_errors(config["budgets"]):
+        raise FactoryError("; ".join(errors))
     return config
 
 

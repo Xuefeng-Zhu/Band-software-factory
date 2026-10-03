@@ -1,6 +1,6 @@
 # Seven-seat BAND factory preparation
 
-**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The model/runtime update selects gpt-6-astra on project-local Codex CLI 0.160.0; 50 current utility tests passed, and all six regenerated task packets verified. The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. SDK connection and rehearsal remain unverified. See `docs/READINESS.md` for the final observed results and smallest remaining actions.
+**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The user has authorized starting the build; [current build-start findings](docs/BUILD-START.md) explain the remaining execution requirements. The model/runtime selects gpt-6-astra on project-local Codex CLI 0.160.0. The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. SDK connection and rehearsal remain unverified. See `docs/READINESS.md` for the preparation and model-upgrade evidence.
 
 Workspace: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace`
 

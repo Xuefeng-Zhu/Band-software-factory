@@ -18,12 +18,22 @@ def child(path):
  except Exception as e:out['loopback_bind']=type(e).__name__
  print(json.dumps(out));return 0
 
+def build_command(factory,repo,child_script,python,permission_profile=':workspace',config_overrides=()):
+ """Codex 0.160 sandbox syntax; no legacy sandbox override or widened default."""
+ command=[str(factory/'scripts/codex-local'),'sandbox','--permission-profile',permission_profile,'--include-managed-config','--cd',str(repo)]
+ for value in config_overrides:command.extend(['-c',value])
+ return command+['--',str(python),str(child_script),'--child',str(repo)]
+
 def main():
- p=argparse.ArgumentParser();p.add_argument('--child',type=Path);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__)
+ p.add_argument('--child',type=Path)
+ p.add_argument('--permission-profile',default=':workspace',help='Named supported permission profile; defaults to the narrow built-in :workspace profile')
+ p.add_argument('--config-override',action='append',default=[],metavar='KEY=TOML',help='Optional non-secret runtime override; repeat to define a reviewed named profile')
+ a=p.parse_args()
  if a.child:return child(a.child)
  f=Path(__file__).resolve().parents[1];w=f.parent;run=w/'runs'/('permissions-'+uuid.uuid4().hex[:10]); repo=run/'scratch';repo.mkdir(parents=True)
  subprocess.run(['git','-C',str(repo),'init','-b','main'],check=True,capture_output=True)
- command=[str(f/'scripts/codex-local'),'sandbox','macos','--permissions-profile',':workspace','-c','model_reasoning_effort="medium"','-c','sandbox_mode="workspace-write"','-c','approval_policy="never"','-C',str(repo),sys.executable,str(Path(__file__).resolve()),'--child',str(repo)]
+ command=build_command(f,repo,Path(__file__).resolve(),sys.executable,a.permission_profile,a.config_override)
  r=subprocess.run(command,capture_output=True,text=True,timeout=30)
  data={'observed_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'command':command,'exit_code':r.returncode,'stdout':r.stdout,'stderr':r.stderr,'scope':'Disposable setup probe only; no model turn or BAND activity'}
  (run/'evidence.json').write_text(json.dumps(data,indent=2)+'\n');print(json.dumps(data,indent=2));print('Evidence:',run/'evidence.json')

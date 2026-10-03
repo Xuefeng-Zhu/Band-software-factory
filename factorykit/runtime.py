@@ -26,6 +26,7 @@ from typing import Any
 
 import psutil
 import yaml
+from .budgets import API_ENVIRONMENT, budget_blockers, codex_argv, subscription_auth_errors, subscription_only
 
 SDK_VERSION = "4.0.0"
 EMITTED = ("tool_calls", "task_events", "usage")
@@ -62,6 +63,8 @@ def get_config(args) -> dict:
 async def discover_models(config: dict) -> dict:
     """Only initialize + model/list; never create a thread or inference turn."""
     from band.integrations.codex.stdio_client import CodexStdioClient
+    # Discovery reads the existing account without imposing login restrictions.
+    # Subscription authentication is checked separately before any seat launch.
     command = [config["runtime"]["codex_command"], "app-server", "--listen", "stdio://"]
     client = CodexStdioClient(command=command, cwd=config["paths"]["factory"])
     try:
@@ -178,14 +181,10 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
     for check in ("permissions_agent_write_git", "permissions_docker_build", "permissions_browser", "permissions_development_network"):
         if check not in verified_permissions:
             errors.append(f"Verified agent permission evidence is required: {check} (host-only checks do not suffice).")
-    if not limits.get("approved"):
-        errors.append("Token/time/spend budget has not been approved (budgets.approved=false).")
-    if not isinstance(limits.get("spend_cap_usd"), (int, float)) or limits["spend_cap_usd"] < 0:
-        errors.append("Set an explicitly approved spend_cap_usd; local SDK cannot enforce provider dollar billing.")
-    for name in ["max_active_seats", "turn_timeout_seconds", "stage_timeout_seconds", "overall_timeout_seconds", "max_turns_per_seat", "max_total_tokens"]:
-        value = limits.get(name)
-        if not isinstance(value, (int, float)) or not 0 < value < float("inf"):
-            errors.append(f"budgets.{name} must be positive and finite.")
+    errors.extend(budget_blockers(limits))
+    errors.extend(subscription_auth_errors(config))
+    if subscription_only(limits) and any((state_dir(config) / f"budget-{other}.json").exists() for other in ("rehearsal", "judged")):
+        errors.append("Subscription aggregate accounting cannot migrate existing per-mode ledgers automatically; reconcile prior consumption before authorizing a new session.")
     assigned = [room_workspace(config, seat, mode) for seat in config["seats"]]
     if limits.get("max_active_seats", 3) > 1 and len(assigned) != len(set(assigned)):
         errors.append("Shared checkouts require max_active_seats=1; use the real single-writer fallback.")
@@ -258,8 +257,8 @@ def adapter_config(config: dict, seat: dict, mode: str):
     options = dict(
         transport="stdio", model=seat.get("model") or config["runtime"].get("model"),
         workspace_for_room=resolve,
-        codex_command=(config["runtime"]["codex_command"], "app-server", "--listen", "stdio://"),
-        codex_env={"GIT_AUTHOR_NAME": seat["git_name"], "GIT_COMMITTER_NAME": seat["git_name"], "GIT_AUTHOR_EMAIL": seat["git_email"], "GIT_COMMITTER_EMAIL": seat["git_email"]},
+        codex_command=tuple(codex_argv(config, "app-server", "--listen", "stdio://")),
+        codex_env={"GIT_AUTHOR_NAME": seat["git_name"], "GIT_COMMITTER_NAME": seat["git_name"], "GIT_AUTHOR_EMAIL": seat["git_email"], "GIT_COMMITTER_EMAIL": seat["git_email"], **({name: "" for name in API_ENVIRONMENT} if subscription_only(config["budgets"]) else {})},
         custom_section=standing_instructions(config, seat),
         reasoning_effort=seat["reasoning_effort"], reasoning_summary="none",
         approval_policy="never", approval_mode="auto_decline", approval_timeout_decision="decline", approval_text_notifications=False,
@@ -313,12 +312,17 @@ class RoomPreprocessor:
 
 class BudgetLedger:
     """Single supervisor owns this persistent ledger; no polling/turn count reset."""
-    def __init__(self, limits: dict, path: Path, room: str):
+    def __init__(self, limits: dict, path: Path, room: str, allowed_rooms: list[str] | None = None):
         self.limits, self.path = limits, path
+        self.room, self.allowed_rooms = room, sorted(allowed_rooms) if allowed_rooms else None
+        if self.allowed_rooms and (room not in self.allowed_rooms or len(set(self.allowed_rooms)) != 2):
+            raise GateError("Subscription ledger requires both distinct configured rooms and an allowed active room.")
         self.stop = asyncio.Event()
         self.semaphore = asyncio.Semaphore(int(limits["max_active_seats"]))
-        self.data = json.loads(path.read_text()) if path.exists() else {"room_id": room, "started_epoch": time.time(), "turns": {}, "tokens": 0, "token_threads": {}, "stopped_reason": None}
-        if self.data["room_id"] != room:
+        self.data = json.loads(path.read_text()) if path.exists() else {"room_id": None if self.allowed_rooms else room, "room_ids": self.allowed_rooms, "started_epoch": None if self.allowed_rooms else time.time(), "turns": {}, "tokens": 0, "token_threads": {}, "stopped_reason": None}
+        if self.allowed_rooms and self.data.get("room_ids") != self.allowed_rooms:
+            raise GateError("Subscription ledger room scope changed; reconcile consumption before authorizing a new session.")
+        if not self.allowed_rooms and self.data["room_id"] != room:
             raise GateError("Budget ledger belongs to another room; select a new runs directory.")
         self.save()
 
@@ -329,9 +333,14 @@ class BudgetLedger:
     def reason(self, seat: str | None = None) -> str | None:
         if self.data.get("stopped_reason"):
             return self.data["stopped_reason"]
-        if time.time() - self.data["started_epoch"] >= self.limits["overall_timeout_seconds"]:
+        if self.allowed_rooms and self.data.get("room_stopped_reasons", {}).get(self.room):
+            return self.data["room_stopped_reasons"][self.room]
+        elapsed = time.time() - self.data["started_epoch"] if self.data["started_epoch"] is not None else 0
+        if elapsed >= self.limits["overall_timeout_seconds"]:
             return "overall time budget exhausted"
-        if time.time() - self.data["started_epoch"] >= self.limits["stage_timeout_seconds"]:
+        stage_started = self.data.get("room_started_epochs", {}).get(self.room) if self.allowed_rooms else self.data["started_epoch"]
+        stage_elapsed = time.time() - stage_started if stage_started is not None else 0
+        if stage_elapsed >= self.limits["stage_timeout_seconds"]:
             return "conservative whole-session stage time budget exhausted"
         if self.data["tokens"] >= self.limits["max_total_tokens"]:
             return "observed token budget exhausted"
@@ -342,7 +351,13 @@ class BudgetLedger:
     def reserve(self, seat: str) -> bool:
         if self.reason(seat):
             return False
+        if self.data["started_epoch"] is None:
+            self.data["started_epoch"] = time.time()
         self.data["turns"][seat] = self.data["turns"].get(seat, 0) + 1
+        if self.allowed_rooms:
+            self.data.setdefault("room_started_epochs", {}).setdefault(self.room, time.time())
+            scoped = self.data.setdefault("room_turns", {}).setdefault(self.room, {})
+            scoped[seat] = scoped.get(seat, 0) + 1
         self.save()
         return True
 
@@ -352,7 +367,7 @@ class BudgetLedger:
         thread = metadata.get("codex_thread_id")
         total = metadata.get("codex_total_tokens")
         if thread and isinstance(total, int) and total >= 0:
-            key = seat + ":" + thread
+            key = (self.room + ":" if self.allowed_rooms else "") + seat + ":" + thread
             previous = self.data["token_threads"].get(key, 0)
             self.data["tokens"] += max(0, total - previous)
             self.data["token_threads"][key] = max(previous, total)
@@ -361,9 +376,23 @@ class BudgetLedger:
                 self.halt(self.reason())
 
     def halt(self, reason: str):
-        self.data["stopped_reason"] = reason
+        if self.allowed_rooms and reason == "conservative whole-session stage time budget exhausted":
+            self.data.setdefault("room_stopped_reasons", {})[self.room] = reason
+        else:
+            self.data["stopped_reason"] = reason
         self.save()
         self.stop.set()
+
+
+def session_ledger(config: dict, mode: str) -> BudgetLedger:
+    """Subscription caps are shared across rehearsal and judged sessions."""
+    room = config["band"][f"{mode}_room_id"]
+    if subscription_only(config["budgets"]):
+        if any((state_dir(config) / f"budget-{other}.json").exists() for other in ("rehearsal", "judged")):
+            raise GateError("Existing per-mode ledgers require explicit consumption reconciliation before subscription-only work.")
+        rooms = [config["band"][f"{other}_room_id"] for other in ("rehearsal", "judged")]
+        return BudgetLedger(config["budgets"], state_dir(config) / "budget-subscription.json", room, allowed_rooms=rooms)
+    return BudgetLedger(config["budgets"], state_dir(config) / f"budget-{mode}.json", room)
 
 
 class AuditedTools:
@@ -567,10 +596,10 @@ def cmd_status(args) -> int:
         return 0
     live = is_owned(record.get("parent", {}), record.get("token"))
     result = {"status": record.get("status", "starting") if live else "stopped", "owned_parent_alive": live, "pid": record.get("parent", {}).get("pid"), "mode": record.get("mode"), "seats": record.get("seats", []), "owned_children_alive": sum(is_owned(p) for p in record.get("children", [])), "updated_at": record.get("updated_at"), "last_error": record.get("last_error")}
-    ledger = state_dir(config) / f"budget-{record.get('mode')}.json"
+    ledger = state_dir(config) / ("budget-subscription.json" if subscription_only(config["budgets"]) else f"budget-{record.get('mode')}.json")
     if ledger.exists():
         data = json.loads(ledger.read_text())
-        result["budget"] = {k: data.get(k) for k in ["tokens", "turns", "stopped_reason", "started_epoch"]}
+        result["budget"] = {k: data.get(k) for k in ["tokens", "turns", "stopped_reason", "started_epoch", "room_ids", "room_started_epochs", "room_turns", "room_stopped_reasons"]}
     print(json.dumps(result, indent=2))
     return 0
 
@@ -624,7 +653,7 @@ async def serve(config: dict, mode: str, token: str):
     from band.runtime.types import SessionConfig
     require_ready(config, mode)
     room = config["band"][f"{mode}_room_id"]
-    ledger = BudgetLedger(config["budgets"], state_dir(config) / f"budget-{mode}.json", room)
+    ledger = session_ledger(config, mode)
     if ledger.reason():
         raise GateError(ledger.reason())
     creds = credentials(config)

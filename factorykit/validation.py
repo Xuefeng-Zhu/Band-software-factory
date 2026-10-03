@@ -12,6 +12,7 @@ import sys
 import tempfile
 
 from .common import FactoryError, canonical, contains_secret, digest, run_command, utc_now, verify_sources, write_json
+from .budgets import budget_blockers, subscription_auth_errors, subscription_only
 
 REQUIRED_OBSERVATIONS = (
     "permissions_agent_write_git", "permissions_docker_build", "permissions_browser",
@@ -90,11 +91,7 @@ def validate(config: dict, check_sources: bool = True) -> dict:
                 errors.append("Official mandate vocabulary check returned malformed output")
     else:
         blockers.append("Install pinned official harness dependencies")
-    budgets = config["budgets"]
-    if not budgets.get("approved"):
-        blockers.append("Approve finite active-work and consumption budgets before live seat work")
-    if budgets.get("spend_cap_usd") is None:
-        blockers.append("Set an approved spend cap or documented subscription quota policy with verified enforcement")
+    blockers.extend(budget_blockers(config["budgets"]))
     for key in ("rehearsal_room_id", "judged_room_id"):
         if not config["band"].get(key):
             blockers.append(f"Discover and configure BAND {key}")
@@ -124,6 +121,9 @@ def doctor(config: dict) -> dict:
     for name, argv in commands.items():
         result = run_command(argv, config["paths"]["challenge"], timeout=15)
         add(name, "PASS" if result["exit_code"] == 0 else "FAIL", result)
+    if subscription_only(config["budgets"]):
+        auth_errors = subscription_auth_errors(config)
+        add("subscription_auth", "FAIL" if auth_errors else "PASS", auth_errors or "ChatGPT authentication verified without inference; provider costs unmeasured")
     try:
         from band.adapters import CodexAdapter, CodexAdapterConfig  # noqa: F401
         add("band_sdk", "PASS", {"version": version("band-sdk"), "adapter": "band.adapters.CodexAdapter"})
