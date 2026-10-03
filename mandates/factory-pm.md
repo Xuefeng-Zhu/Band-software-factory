@@ -1,5 +1,5 @@
 Harness: Codex
-Model: gpt-5.5
+Model: gpt-6-astra
 
 # Factory PM
 

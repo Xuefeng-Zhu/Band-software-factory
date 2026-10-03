@@ -5,7 +5,7 @@ Dispatch mode: separate; stages: 2.
 Execute only stage 2. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch.
 This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
-Configuration SHA-256: a2ed5464a26ed35f35864d53a8af80596c401f671084e2670518109300a74a9a
+Configuration SHA-256: 43cc5c3f3ee8171ee3abdf8b2c739be2e2d21b6e32c0894bd3e0b141c95e89ac
 
 ## Absolute workspace paths
 - challenge: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge`
@@ -16,13 +16,13 @@ Configuration SHA-256: a2ed5464a26ed35f35864d53a8af80596c401f671084e267051810930
 - Assigned output checkout: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/result`
 
 ## Actual roster
-- pm: Factory PM; handle: @frankzhu94/factory-pm; identity: 7d26ccf7-2921-4b38-9e16-ca8ebfa2a448; harness: Codex; model: gpt-5.5
-- architect: Factory Architect; handle: @frankzhu94/factory-architect; identity: 974df2f1-b5e8-4873-a1ce-93658e0404a4; harness: Codex; model: gpt-5.5
-- designer: Factory Designer; handle: @frankzhu94/factory-designer; identity: a6ee2e58-62bd-4ba9-b573-f164bb3e41d2; harness: Codex; model: gpt-5.5
-- backend: Factory Backend; handle: @frankzhu94/factory-backend; identity: b2f43e4e-7727-44bb-9154-6cdc2b781749; harness: Codex; model: gpt-5.5
-- frontend: Factory Frontend; handle: @frankzhu94/factory-frontend; identity: 5ba8923d-b3d9-4b56-818f-3bef60ea617d; harness: Codex; model: gpt-5.5
-- qa: Factory QA; handle: @frankzhu94/factory-qa; identity: 8e450576-69cd-416c-bc2a-a3a771f020d3; harness: Codex; model: gpt-5.5
-- reviewer: Factory Reviewer; handle: @frankzhu94/factory-reviewer; identity: 02e4a78d-7d9d-4c77-bf32-b3810a9cfacb; harness: Codex; model: gpt-5.5
+- pm: Factory PM; handle: @frankzhu94/factory-pm; identity: 7d26ccf7-2921-4b38-9e16-ca8ebfa2a448; harness: Codex; model: gpt-6-astra
+- architect: Factory Architect; handle: @frankzhu94/factory-architect; identity: 974df2f1-b5e8-4873-a1ce-93658e0404a4; harness: Codex; model: gpt-6-astra
+- designer: Factory Designer; handle: @frankzhu94/factory-designer; identity: a6ee2e58-62bd-4ba9-b573-f164bb3e41d2; harness: Codex; model: gpt-6-astra
+- backend: Factory Backend; handle: @frankzhu94/factory-backend; identity: b2f43e4e-7727-44bb-9154-6cdc2b781749; harness: Codex; model: gpt-6-astra
+- frontend: Factory Frontend; handle: @frankzhu94/factory-frontend; identity: 5ba8923d-b3d9-4b56-818f-3bef60ea617d; harness: Codex; model: gpt-6-astra
+- qa: Factory QA; handle: @frankzhu94/factory-qa; identity: 8e450576-69cd-416c-bc2a-a3a771f020d3; harness: Codex; model: gpt-6-astra
+- reviewer: Factory Reviewer; handle: @frankzhu94/factory-reviewer; identity: 02e4a78d-7d9d-4c77-bf32-b3810a9cfacb; harness: Codex; model: gpt-6-astra
 
 ## Finite work limits
 ```json

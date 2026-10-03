@@ -105,7 +105,8 @@ def freeze(config: dict) -> dict:
         for path in sorted((root / folder).rglob("*")):
             if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc":
                 files[str(path.relative_to(root))] = digest(path)
-    for name in ("AGENTS.md", "pyproject.toml", "uv.lock", "config/source-lock.json", "config/harness-requirements.lock"):
+    for name in ("AGENTS.md", "pyproject.toml", "uv.lock", "config/source-lock.json", "config/harness-requirements.lock",
+                 "tooling/codex/package.json", "tooling/codex/package-lock.json"):
         path = root / name
         if path.is_file():
             files[name] = digest(path)

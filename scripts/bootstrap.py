@@ -11,8 +11,8 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--install-browser',action='store_true');a=p.parse_args()
  factory=Path(__file__).resolve().parents[1]; workspace=factory.parent; challenge=workspace/'challenge';runs=workspace/'runs'
  lock=json.loads((factory/'config/source-lock.json').read_text())
- uv=shutil.which('uv');git=shutil.which('git')
- if not uv or not git: raise SystemExit('Install uv and Git first; no global installation is performed here.')
+ uv=shutil.which('uv');git=shutil.which('git');npm=shutil.which('npm')
+ if not uv or not git or not npm: raise SystemExit('Install uv, Git, and npm first; no global installation is performed here.')
  if not challenge.exists():
   run([git,'clone','--no-checkout',lock['challenge']['url'],challenge]);run([git,'-C',challenge,'checkout','--detach',lock['challenge']['commit']])
  actual=subprocess.check_output([git,'-C',str(challenge),'rev-parse','HEAD'],text=True).strip()
@@ -21,7 +21,8 @@ def main():
   file=challenge/name
   if hashlib.sha256(file.read_bytes()).hexdigest()!=expected:raise SystemExit('Pinned source mismatch: '+name)
  runs.mkdir(exist_ok=True)
- env=dict(os.environ,UV_CACHE_DIR=str(runs/'uv-cache'),PLAYWRIGHT_BROWSERS_PATH=str(runs/'browsers'))
+ env=dict(os.environ,UV_CACHE_DIR=str(runs/'uv-cache'),PLAYWRIGHT_BROWSERS_PATH=str(runs/'browsers'),npm_config_cache=str(runs/'npm-cache'))
+ run([npm,'ci','--ignore-scripts','--no-audit','--no-fund','--prefix',factory/'tooling/codex'],env=env)
  run([uv,'sync','--project',factory,'--frozen','--python','3.13.5'],env=env)
  harness=runs/'harness-venv'
  if not harness.exists():run([uv,'venv',harness,'--python','3.13.5'],env=env)

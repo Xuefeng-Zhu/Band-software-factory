@@ -8,3 +8,4 @@ config/factory.yaml
 agent_config.yaml
 *.log
 .DS_Store
+tooling/codex/node_modules/

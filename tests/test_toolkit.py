@@ -7,6 +7,7 @@ from __future__ import annotations
 import copy
 import json
 import os
+import runpy
 import signal
 from pathlib import Path
 import subprocess
@@ -18,8 +19,8 @@ from unittest.mock import MagicMock, patch
 import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from factorykit.common import FactoryError, canonical, contains_secret, digest, load_config, redact, run_command, verify_sources, write_json
-from factorykit.operations import harness, pristine_result, validate_launch_request
+from factorykit.common import FactoryError, canonical, contains_secret, digest, load_config, redact, run_command, verify_sources, write_json, utc_now
+from factorykit.operations import freeze, harness, launch_prepare, pristine_result, validate_launch_request
 from factorykit.tasks import generate, verify_tasks
 from factorykit.validation import doctor, observations, validate
 from factorykit.workitems import validate_item
@@ -65,6 +66,31 @@ class Fixture(unittest.TestCase):
 
     def tearDown(self):
         self.temp.cleanup()
+
+
+class BootstrapTests(Fixture):
+    def main_function(self):
+        namespace = runpy.run_path(str(Path(__file__).resolve().parents[1] / "scripts/bootstrap.py"))
+        main = namespace["main"]
+        main.__globals__["__file__"] = str(Path(self.config["paths"]["factory"]) / "scripts/bootstrap.py")
+        return main
+
+    def test_restores_pinned_codex_without_scripts_or_global_cache(self):
+        main = self.main_function()
+        with patch.object(sys, "argv", ["bootstrap.py"]), patch("shutil.which", side_effect=lambda name: "/tools/" + name), patch("subprocess.check_output", return_value="a" * 40), patch.dict(main.__globals__, {"run": MagicMock()}) as namespace, patch("builtins.print"):
+            run = namespace["run"]
+            main()
+        npm_calls = [call for call in run.call_args_list if call.args[0][0] == "/tools/npm"]
+        self.assertEqual(len(npm_calls), 1)
+        self.assertEqual(npm_calls[0].args[0], ["/tools/npm", "ci", "--ignore-scripts", "--no-audit", "--no-fund", "--prefix", Path(self.config["paths"]["factory"]).resolve() / "tooling/codex"])
+        self.assertEqual(npm_calls[0].kwargs["env"]["npm_config_cache"], str(Path(self.config["paths"]["runs"]).resolve() / "npm-cache"))
+
+    def test_missing_npm_stops_before_dependency_or_checkout_mutation(self):
+        main = self.main_function()
+        with patch.object(sys, "argv", ["bootstrap.py"]), patch("shutil.which", side_effect=lambda name: None if name == "npm" else "/tools/" + name), patch.dict(main.__globals__, {"run": MagicMock()}) as namespace:
+            with self.assertRaisesRegex(SystemExit, "npm"):
+                main()
+            namespace["run"].assert_not_called()
 
 
 class ConfigTests(Fixture):
@@ -333,6 +359,40 @@ class TaskTests(Fixture):
 
 
 class LaunchTests(Fixture):
+    def ready_freeze_fixture(self):
+        self.config["launch"]["practice_mode"] = True
+        factory = Path(self.config["paths"]["factory"])
+        for name in ("AGENTS.md", "pyproject.toml", "uv.lock", "config/harness-requirements.lock", "tooling/codex/package.json", "tooling/codex/package-lock.json"):
+            path = factory / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("synthetic utility fixture\n")
+        write_json(Path(self.config["paths"]["runs"]) / "doctor-latest.json", {"status": "PASS", "created_at": utc_now(), "configuration_sha256": digest(canonical(self.config))})
+        with patch("factorykit.tasks.verify_sources", return_value=[]):
+            generate(self.config)
+
+    def test_codex_lock_tampering_invalidates_prepared_launch(self):
+        self.ready_freeze_fixture()
+        with patch("factorykit.operations.validate", return_value={"errors": [], "launch_blockers": []}), patch("factorykit.operations.observations", return_value=([], [])), patch("factorykit.operations.pristine_result", return_value=[]), patch("factorykit.runtime.preflight_runtime", return_value=[]):
+            frozen = freeze(self.config)
+        self.assertEqual(frozen["status"], "READY_TO_LAUNCH")
+        for name in ("tooling/codex/package.json", "tooling/codex/package-lock.json"):
+            self.assertEqual(frozen["files"][name], digest(Path(self.config["paths"]["factory"]) / name))
+        lock = Path(self.config["paths"]["factory"]) / "tooling/codex/package-lock.json"
+        lock.write_text("changed synthetic dependency lock\n")
+        with patch("factorykit.operations.observations", return_value=([], [])), patch("factorykit.operations.pristine_result", return_value=[]), patch("factorykit.operations.verify_sources", return_value=[]):
+            result = launch_prepare(self.config, "all", None)
+        self.assertEqual(result["status"], "BLOCKED_WITH_ACTIONS")
+        self.assertIn("Frozen input changed: tooling/codex/package-lock.json", result["blockers"])
+        self.assertFalse((Path(self.config["paths"]["runs"]) / "launch/ledger.json").exists())
+
+    def test_missing_codex_dependency_lock_blocks_freeze(self):
+        self.ready_freeze_fixture()
+        (Path(self.config["paths"]["factory"]) / "tooling/codex/package-lock.json").unlink()
+        with patch("factorykit.operations.validate", return_value={"errors": [], "launch_blockers": []}), patch("factorykit.operations.observations", return_value=([], [])), patch("factorykit.operations.pristine_result", return_value=[]), patch("factorykit.runtime.preflight_runtime", return_value=[]):
+            frozen = freeze(self.config)
+        self.assertEqual(frozen["status"], "BLOCKED_WITH_ACTIONS")
+        self.assertIn("Freeze input missing: tooling/codex/package-lock.json", frozen["blockers"])
+
     def test_mixed_and_duplicate_dispatch_forbidden(self):
         self.assertEqual(validate_launch_request({}, "all", None), [1, 2, 3, 4])
         ledger = {"mode": "all", "entries": [{"stages": [1, 2, 3, 4], "state": "PREPARED"}]}

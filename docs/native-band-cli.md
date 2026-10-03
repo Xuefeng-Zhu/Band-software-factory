@@ -6,6 +6,20 @@ persistent identities with **parked** native Codex runtime templates. This adds 
 supported identity-creation path; the factory's execution runtime remains the
 pinned Python SDK adapter.
 
+The current selected runtime is project-local Codex CLI **0.160.0** and the
+explicit model is **gpt-6-astra**, selected as the current flagship through OpenAI's
+[latest-model guidance](https://developers.openai.com/api/docs/guides/latest-model). Existing medium/high role efforts remain
+unchanged. Fresh SDK discovery confirms Astra is available; the catalog default is
+gpt-6.1-sol. This selection does not imply a working native runtime, a completed
+model turn or new permissions. All seven parked default templates were updated through supported native configuration
+to the project-local 0.160.0 executable. Model-settings reads confirmed gpt-6-astra
+for each default and both existing rooms (21 settings), preserving the role efforts.
+All workers remained stopped with host PID 0. No `--apply-and-restart`, wake or model
+turn occurred. Evidence: `runs/model-upgrade/native-template-summary.json` and
+`band-{seat}.json`. Dormant cached thread metadata may still display the initial
+gpt-5.5; use the documented runtime-settings reads for the persisted selection.
+The SDK runner uses its own explicit current model configuration.
+
 Useful supported CLI surfaces:
 
 - `band agent create`: persistent agent identity and parked template;
@@ -56,4 +70,4 @@ evidence-backed implementation and rehearsal, not only different launch flags.
 Creating parked identities is registration preparation. It does not prove a
 connected seat, a directed response, SDK authentication, shared checkout visibility,
 Git/browser/Docker/development-network permissions, or a complete toy rehearsal.
-The initial inspection was read-only. Subsequent preparation created seven persistent identities and two rooms, saved generic mandates, selected tools-only telemetry, verified native room membership and stopped only the factory peer workers. See `runs/preparation/band-roster.json` and `band-*-participants.json`. No task message or model turn was started; no SDK key was returned. Native initialize probes failed and their logs are retained.
+The initial inspection was read-only. Subsequent preparation created seven persistent identities and two rooms, saved generic mandates, selected tools-only telemetry, verified native room membership and stopped only the factory peer workers. See `runs/preparation/band-roster.json` and `band-*-participants.json`. No task message or model turn was started; no SDK key was returned. Earlier native initialize probes with CLI 0.133.0 failed and their logs are retained under `runs/preparation/`; they do not establish the behavior of 0.160.0. Fresh no-turn SDK model discovery is recorded at `runs/model-upgrade/models-0.160.0.json`. Native runtime execution and required permissions for the new CLI remain unverified.

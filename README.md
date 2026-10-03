@@ -1,6 +1,6 @@
 # Seven-seat BAND factory preparation
 
-**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. SDK connection and rehearsal remain unverified. See `docs/READINESS.md` for the final observed results and smallest remaining actions.
+**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The model/runtime update selects gpt-6-astra on project-local Codex CLI 0.160.0; 50 current utility tests passed, and all six regenerated task packets verified. The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. SDK connection and rehearsal remain unverified. See `docs/READINESS.md` for the final observed results and smallest remaining actions.
 
 Workspace: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace`
 
@@ -28,7 +28,7 @@ scripts/factory launch-prepare --mode all
 
 The local `config/factory.yaml` already records the created identities and rooms and is intentionally ignored by Git. For a fresh clone, first copy `config/factory.example.yaml` to `config/factory.yaml` **only if absent**, resolve its absolute paths, and configure the existing verified roster; examples do not register agents. Create `runs/`, `rehearsal/toy-result/` and `result/`, then initialize the latter two as separate empty Git repositories. Never reinitialize, clean or overwrite an existing run to manufacture pristine state. Restore SDK keys separately through the restricted credential path.
 
-`bootstrap.py` installs only local dependencies from `uv.lock` and the hash-locked official harness requirements. It clones the pinned challenge only if absent; an existing different revision is rejected. Existing sources are never refreshed. Python 3.13.5 is used (the guide requires 3.12+). On another machine, explicitly update every absolute path and the local Codex executable wrapper, regenerate packets and invalidate/rebuild readiness evidence. Do not carry over registration or permission attestations.
+`bootstrap.py` restores local dependencies from `uv.lock`, the hash-locked official harness requirements and the pinned Codex package lock at `tooling/codex/package-lock.json`. The Codex runtime is project-local; no global CLI installation or global configuration replacement is required. It clones the pinned challenge only if absent; an existing different revision is rejected. Existing sources are never refreshed. Python 3.13.5 is used (the guide requires 3.12+). On another machine, explicitly update every absolute path and the local Codex executable wrapper, regenerate packets and invalidate/rebuild readiness evidence. Do not carry over registration or permission attestations.
 
 `validate` checks structural correctness; a PASS may still have launch blockers. `validate --ready` fails on those blockers. `freeze` records a blocked manifest when live prerequisites are missing. `launch-prepare` never sends a message; when ready it reserves the chosen mode/stages under a locked ledger. A reserved dispatch must not be repeated on uncertainty. `dispatch-record` records the real room event reference after the authorized UI action. Separate mode is `launch-prepare --mode separate --stage N` and requires prior independent acceptance; mixing modes or duplicating stages is rejected.
 
@@ -38,17 +38,17 @@ The local `config/factory.yaml` already records the created identities and rooms
 
 | Seat ID | Stable requested display name | Intended harness/model | Actual handle/registration |
 |---|---|---|---|
-| pm | Factory PM | Codex / gpt-5.5 | @frankzhu94/factory-pm / identity created; SDK unverified |
-| architect | Factory Architect | Codex / gpt-5.5 | @frankzhu94/factory-architect / identity created; SDK unverified |
-| designer | Factory Designer | Codex / gpt-5.5 | @frankzhu94/factory-designer / identity created; SDK unverified |
-| backend | Factory Backend | Codex / gpt-5.5 | @frankzhu94/factory-backend / identity created; SDK unverified |
-| frontend | Factory Frontend | Codex / gpt-5.5 | @frankzhu94/factory-frontend / identity created; SDK unverified |
-| qa | Factory QA | Codex / gpt-5.5 | @frankzhu94/factory-qa / identity created; SDK unverified |
-| reviewer | Factory Reviewer | Codex / gpt-5.5 | @frankzhu94/factory-reviewer / identity created; SDK unverified |
+| pm | Factory PM | Codex / gpt-6-astra | @frankzhu94/factory-pm / identity created; SDK unverified |
+| architect | Factory Architect | Codex / gpt-6-astra | @frankzhu94/factory-architect / identity created; SDK unverified |
+| designer | Factory Designer | Codex / gpt-6-astra | @frankzhu94/factory-designer / identity created; SDK unverified |
+| backend | Factory Backend | Codex / gpt-6-astra | @frankzhu94/factory-backend / identity created; SDK unverified |
+| frontend | Factory Frontend | Codex / gpt-6-astra | @frankzhu94/factory-frontend / identity created; SDK unverified |
+| qa | Factory QA | Codex / gpt-6-astra | @frankzhu94/factory-qa / identity created; SDK unverified |
+| reviewer | Factory Reviewer | Codex / gpt-6-astra | @frankzhu94/factory-reviewer / identity created; SDK unverified |
 
-The mandates' first two lines record the selected harness/model, not observed seat execution. Codex CLI 0.133.0 through band-sdk 4.0.0 was inspected. `model/list` returned gpt-5.5 as default through existing ChatGPT authentication without starting inference. Native identity creation and room membership are recorded separately; actual SDK seat execution and model usage remain live prerequisites. Preparation subagents are not BAND seats.
+The mandates' first two lines record the selected harness/model, not observed seat execution. All seven seats now select **gpt-6-astra**, the current flagship resolved through OpenAI's [latest-model guidance](https://developers.openai.com/api/docs/guides/latest-model), using project-local **Codex CLI 0.160.0** and band-sdk 4.0.0. The authenticated fresh `initialize` + `model/list` check confirmed gpt-6-astra with both the existing medium and high role efforts; no inference turn was started. The catalog's default is gpt-6.1-sol, so this is an explicit flagship selection, not a claim that Astra is the newest chronological model or the runtime default. Evidence: `runs/model-upgrade/models-0.160.0.json`. Earlier CLI 0.133.0 discovery selected gpt-5.5; that observation remains historical evidence, not the current selection. Native identity creation and room membership are recorded separately; actual SDK seat execution and model usage remain live prerequisites. Preparation subagents are not BAND seats.
 
-BAND Desktop 0.4.12 is installed and signed in. Seven real identities and two rooms were created through its supported CLI; actual UUIDs and room IDs are in the local configuration and `runs/preparation/`. The seven factory native workers have been stopped while preserving their identities and parked templates. See `docs/native-band-cli.md` for the integration boundary.
+BAND Desktop 0.4.12 is installed and signed in. Seven real identities and two rooms were created through its supported CLI; actual UUIDs and room IDs are in the local configuration and `runs/preparation/`. The seven factory native workers have been stopped while preserving their identities and parked templates. Their project-local 0.160.0 templates and gpt-6-astra settings were updated without restart; the default plus both room settings were verified for all seven seats. See `runs/model-upgrade/native-template-summary.json`. See `docs/native-band-cli.md` for the integration boundary.
 
 The remaining credential action is to obtain supported SDK API keys for these existing identities through [BAND Agents](https://app.band.ai/agents). The native CLI creation result provides no key, and its documented surface has no export command. Do not read private daemon/keychain state. If the dashboard cannot issue SDK keys for owned identities, use the official **New Agent → Remote Agent** flow and explicitly replace the roster/room memberships before revalidating; do not silently substitute agents. See the [official SDK setup](https://docs.band.ai/integrations/sdks/tutorials/setup).
 
@@ -75,7 +75,7 @@ scripts/factory harness --track toy --all --mode isolated
 
 Each invocation has its own evidence directory and propagates the official exit code. Failed logs remain. The wrapper invokes only options observed in official `--help`. The actual toy build and isolated check have **not** run: BAND credentials, approved budget and unattended permissions are missing, and Docker's daemon is stopped.
 
-Read `docs/environment.md` before configuring execution access. The current Codex sandbox permits file writes but denied Git commits, development networking and localhost binding in a real disposable probe. The runner does not enable unrestricted host access. Prepare and verify a disposable environment or a narrowly supported permission profile; broader access requires a reviewed integration change. Docker socket access is significant privilege. Host browser smoke success does not prove agent browser permissions.
+Read `docs/environment.md` before configuring execution access. The earlier Codex CLI 0.133.0 disposable sandbox probe allowed file writes but denied Git commits, development networking and localhost binding. Those failures are retained; permission evidence for the selected 0.160.0 CLI is NOT_TESTED until revalidated. The version/model change does not establish new permissions. The runner does not enable unrestricted host access. Prepare and verify a disposable environment or a narrowly supported permission profile; broader access requires a reviewed integration change. Docker socket access is significant privilege. Host browser smoke success does not prove agent browser permissions.
 
 ## Freeze, then dispatch once later
 

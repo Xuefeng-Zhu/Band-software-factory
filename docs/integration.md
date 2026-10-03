@@ -1,11 +1,21 @@
 # Official BAND and Codex integration
 
-This package installs **band-sdk 4.0.0** and drives the authenticated **Codex CLI
-0.133.0** app server over stdio. `scripts/codex-local` sets a CLI-supported default
-reasoning effort without changing the user's global configuration. Model discovery
-on this machine returned `gpt-5.5`, `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.3-codex`, and
-`gpt-5.2`; the runtime is explicitly configured for `gpt-5.5`. The app's displayed
-model is not evidence that the CLI supports the same model.
+This package pins **band-sdk 4.0.0** and project-local **Codex CLI 0.160.0**
+for the stdio app server. The npm package and integrity lock live in
+`tooling/codex/`; `scripts/codex-local` selects that local executable without
+changing the user's global CLI or configuration.
+
+All seven seats explicitly select **gpt-6-astra**, the current flagship identified
+by OpenAI's [latest-model guidance](https://developers.openai.com/api/docs/guides/latest-model). Fresh authenticated
+`initialize` + `model/list` confirmed Astra and support for the existing medium/high
+role efforts; see `runs/model-upgrade/models-0.160.0.json`. No inference turn was
+started. The same catalog lists gpt-6.1-sol as its default, so this is a deliberate
+flagship selection rather than a newest-chronological-model or default claim.
+
+Earlier CLI 0.133.0 discovery offered gpt-5.5 as its default and did not list Astra.
+That observation and its initial configuration workaround remain historical evidence.
+The app's displayed model is not substituted for the fresh CLI catalog, and model
+availability is not a proof of live BAND execution or tool permissions. The native parked templates also persist the new local executable and model without restart; supported settings reads verified the default and both rooms for every seat. The SDK selects the current model explicitly from its configuration.
 
 ```sh
 ./scripts/factory discover-models
@@ -50,8 +60,11 @@ creates commits, worktrees, or result implementation during setup.
 
 ## Registration without fabricated identities
 
-Use the official BAND dashboard to create seven Remote Agents. Place each real
-UUID and key in the owner-only credentials file outside repositories, using the
+Seven actual owned identities and both rooms already exist. Obtain SDK keys for
+those identities through a supported BAND dashboard flow. If that flow is unavailable,
+use the official Remote Agent flow as an explicit roster and room-membership replacement,
+then regenerate tasks and verification; never silently substitute identities. Place
+each verified UUID and key in the owner-only credentials file outside repositories, using the
 seat ids `pm`, `architect`, `designer`, `backend`, `frontend`, `qa`, `reviewer` as
 YAML keys. Each key maps to `agent_id` and `api_key`. Set actual room UUIDs in the
 configuration; rehearsal and judged rooms must differ.
@@ -118,11 +131,15 @@ as successful connections.
 
 ## Current observed boundary
 
-The configured host `workspace-write` sandbox passed file writes but blocked Git
-index writes, development networking and loopback bind. Host Chromium success
+The earlier CLI 0.133.0 host `workspace-write` sandbox passed file writes but blocked
+Git index writes, development networking and loopback bind. Those failures remain
+historical evidence; permissions with the changed 0.160.0 CLI are NOT_TESTED until
+revalidated in the actual chosen environment. Host Chromium success
 outside that sandbox does not prove agent browser permission. Seven BAND identities and both room memberships are now verified through the native CLI; their workers are stopped and templates detached. SDK credentials, SDK room access and approved consumption authority remain unavailable. The
 runner therefore remains blocked for real seat startup. No host
 `danger-full-access` or falsely labeled `external-sandbox` fallback is provided.
-The official SDK integration and local guard tests are verified; live BAND seat
+The adapter structure and 50 current local utility/guard tests are verified
+(`runs/model-upgrade/verification-00.json`, 0.654 seconds); the new CLI model
+catalog is observed without an inference turn, while live BAND seat
 collaboration, provider turns, isolated agent Git/browser/Docker behavior and a
 complete toy rehearsal are not claimed.

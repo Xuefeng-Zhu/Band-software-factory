@@ -1,2 +1,4 @@
 #!/bin/sh
-exec /Users/frank/.nvm/versions/node/v24.14.1/bin/codex -c 'model_reasoning_effort="medium"' "$@"
+set -eu
+factory_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+exec "$factory_root/tooling/codex/node_modules/.bin/codex" -c 'model_reasoning_effort="medium"' "$@"

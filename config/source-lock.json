@@ -153,6 +153,22 @@
       "requested_url": "https://learn.chatgpt.com/docs/agent-approvals-security.md",
       "retrieved_at": "2026-10-03T06:11:36.000218+00:00",
       "sha256": "bb78bd122fc94a9871630e39d74d38fc3aa204deddbc3ead74da9b76f99e2afb"
+    },
+    {
+      "bytes": 19099,
+      "final_url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/model-upgrade-latest.md",
+      "requested_url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "retrieved_at": "2026-10-03T07:15:08.241480+00:00",
+      "sha256": "9d2d9c5988230927a2253fb78b7d6c0cd68bf885419847b94618467f0c468ec0"
+    },
+    {
+      "bytes": 19099,
+      "final_url": "https://developers.openai.com/api/docs/guides/latest-model/gpt-6-astra.md#migration-quickstart",
+      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/model-upgrade-migration.md",
+      "requested_url": "https://developers.openai.com/api/docs/guides/latest-model/gpt-6-astra.md#migration-quickstart",
+      "retrieved_at": "2026-10-03T07:15:08.241480+00:00",
+      "sha256": "9d2d9c5988230927a2253fb78b7d6c0cd68bf885419847b94618467f0c468ec0"
     }
   ],
   "frozen_sources": true,
@@ -173,8 +189,20 @@
   "local_model_discovery": {
     "evidence_path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/runtime/models.json",
     "inference_started": false,
-    "selected": "gpt-5.5",
-    "sha256": "51c97974d43fe1ba2ef6d1537e6b7bbac13aa42b1ddc174e6a4a23bd5fe016e4"
+    "selected": "gpt-6-astra",
+    "sha256": "8270f62498732a0c550b45799261cf57ac915275e6cfa44ce630d5c4a73b1576"
+  },
+  "model_upgrade": {
+    "cli_package": "@openai/codex@0.160.0",
+    "guide_url": "https://developers.openai.com/api/docs/guides/latest-model",
+    "migration_guide_url": "https://developers.openai.com/api/docs/guides/latest-model/gpt-6-astra.md#migration-quickstart",
+    "no_inference": true,
+    "package_lock_sha256": "96d56cc75319eb74a91f78308b624a57b76cc9c24f5010002407b20e544c20f4",
+    "previous_evidence": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/model-upgrade/previous",
+    "recorded_at": "2026-10-03T07:11:15.346194+00:00",
+    "requested": "use latest model instead",
+    "selected": "gpt-6-astra",
+    "selection_basis": "Official latestModelInfo resolver returns current flagship gpt-6-astra; authenticated model/list confirms availability. GPT-6.1 Sol is the catalog default, a distinct selection."
   },
   "preparation_environment_updated_at": "2026-10-03T06:54:12.733378+00:00",
   "refresh_policy": "No automatic source or dependency refresh. Create a new separately pinned preparation for changes; never refresh during a judged run.",
@@ -196,7 +224,7 @@
     "band_desktop": "0.4.12",
     "band_sdk": "4.0.0",
     "chromium": "153.0.8010.12 build1243",
-    "codex": "0.133.0",
+    "codex": "0.160.0",
     "docker_client": "29.4.0",
     "docker_daemon": "NOT_TESTED: configured OrbStack daemon stopped",
     "factory_python": "3.13.5",

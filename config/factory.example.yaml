@@ -13,8 +13,8 @@ runtime:
   sandbox: workspace-write
   approval_policy: never
   approval_mode: auto_decline
-  model: gpt-5.5
-  version: 0.133.0
+  model: gpt-6-astra
+  version: 0.160.0
   sdk_version: 4.0.0
   allow_network: false
 band:
@@ -46,12 +46,12 @@ seats:
   agent_id: null
   mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-pm.md
   harness: Codex
-  model: gpt-5.5
+  model: gpt-6-astra
   reasoning_effort: medium
   git_name: Factory PM
   git_email: pm@factory.invalid
   registration_verified: false
-  cli_version: 0.133.0
+  cli_version: 0.160.0
   sdk_version: 4.0.0
 - id: architect
   display_name: Factory Architect
@@ -59,12 +59,12 @@ seats:
   agent_id: null
   mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-architect.md
   harness: Codex
-  model: gpt-5.5
+  model: gpt-6-astra
   reasoning_effort: high
   git_name: Factory Architect
   git_email: architect@factory.invalid
   registration_verified: false
-  cli_version: 0.133.0
+  cli_version: 0.160.0
   sdk_version: 4.0.0
 - id: designer
   display_name: Factory Designer
@@ -72,12 +72,12 @@ seats:
   agent_id: null
   mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-designer.md
   harness: Codex
-  model: gpt-5.5
+  model: gpt-6-astra
   reasoning_effort: medium
   git_name: Factory Designer
   git_email: designer@factory.invalid
   registration_verified: false
-  cli_version: 0.133.0
+  cli_version: 0.160.0
   sdk_version: 4.0.0
 - id: backend
   display_name: Factory Backend
@@ -85,12 +85,12 @@ seats:
   agent_id: null
   mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-backend.md
   harness: Codex
-  model: gpt-5.5
+  model: gpt-6-astra
   reasoning_effort: medium
   git_name: Factory Backend
   git_email: backend@factory.invalid
   registration_verified: false
-  cli_version: 0.133.0
+  cli_version: 0.160.0
   sdk_version: 4.0.0
 - id: frontend
   display_name: Factory Frontend
@@ -98,12 +98,12 @@ seats:
   agent_id: null
   mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-frontend.md
   harness: Codex
-  model: gpt-5.5
+  model: gpt-6-astra
   reasoning_effort: medium
   git_name: Factory Frontend
   git_email: frontend@factory.invalid
   registration_verified: false
-  cli_version: 0.133.0
+  cli_version: 0.160.0
   sdk_version: 4.0.0
 - id: qa
   display_name: Factory QA
@@ -111,12 +111,12 @@ seats:
   agent_id: null
   mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-qa.md
   harness: Codex
-  model: gpt-5.5
+  model: gpt-6-astra
   reasoning_effort: high
   git_name: Factory QA
   git_email: qa@factory.invalid
   registration_verified: false
-  cli_version: 0.133.0
+  cli_version: 0.160.0
   sdk_version: 4.0.0
 - id: reviewer
   display_name: Factory Reviewer
@@ -124,10 +124,10 @@ seats:
   agent_id: null
   mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-reviewer.md
   harness: Codex
-  model: gpt-5.5
+  model: gpt-6-astra
   reasoning_effort: high
   git_name: Factory Reviewer
   git_email: reviewer@factory.invalid
   registration_verified: false
-  cli_version: 0.133.0
+  cli_version: 0.160.0
   sdk_version: 4.0.0
