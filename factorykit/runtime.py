@@ -13,6 +13,7 @@ import hashlib
 import importlib.metadata
 import json
 import logging
+import math
 import os
 from pathlib import Path
 import re
@@ -115,6 +116,15 @@ def register_commands(subparsers) -> None:
     parser = subparsers.add_parser("start-seats", help="Start gated BAND seats as one owned supervisor")
     parser.add_argument("--mode", choices=["rehearsal", "judged"], default="rehearsal")
     parser.set_defaults(func=cmd_start)
+    parser = subparsers.add_parser("authorize-recovery", help="Record an explicitly approved one-use rehearsal stage-limit exception; no seats start")
+    parser.add_argument("--operator-id", required=True)
+    parser.add_argument("--approval-reference", required=True)
+    parser.add_argument("--duration-seconds", type=int, required=True)
+    parser.add_argument("--confirm-stage-limit-exception", action="store_true")
+    parser.set_defaults(func=cmd_authorize_recovery)
+    parser = subparsers.add_parser("start-recovery", help="Consume a one-use PM/Architect connectivity allowance")
+    parser.add_argument("--allowance", required=True)
+    parser.set_defaults(func=cmd_start_recovery, mode="rehearsal")
     parser = subparsers.add_parser("seat-status", help="Inspect the owned supervisor and local budget state")
     parser.set_defaults(func=cmd_status)
     parser = subparsers.add_parser("stop-seats", help="Stop only identity-verified factory-owned processes")
@@ -129,6 +139,7 @@ def main() -> int:
     worker = sub.add_parser("_serve", help=argparse.SUPPRESS)
     worker.add_argument("--mode", required=True, choices=["rehearsal", "judged"])
     worker.add_argument("--owner-token", required=True)
+    worker.add_argument("--recovery-id")
     worker.set_defaults(func=cmd_serve)
     args = parser.parse_args()
     try:
@@ -141,6 +152,184 @@ def main() -> int:
 
 class GateError(RuntimeError):
     """A safe, deliberately redacted actionable preflight error."""
+
+
+STAGE_STOP = "conservative whole-session stage time budget exhausted"
+RECOVERY_SEATS = ("pm", "architect")
+RECOVERY_TOOLS = frozenset({"band_send_message", "band_get_participants", "band_add_participant", "band_no_reply"})
+
+
+def recovery_path(config, identity, claim=False):
+    if not re.fullmatch(r"[a-f0-9]{32}", identity or ""):
+        raise GateError("Invalid recovery allowance identity.")
+    return state_dir(config) / "recovery" / (identity + (".claim.json" if claim else ".json"))
+
+
+def recovery_digest(data):
+    from .common import canonical, digest
+    return digest(canonical({k: v for k, v in data.items() if k != "updated_at"}))
+
+
+def recovery_record(config, data, duration, operator, approval, *, created=None):
+    """Prepare an allowance; callers must explicitly authorize its creation."""
+    from .common import canonical, digest
+    now = time.time() if created is None else created
+    if type(now) not in (float, int) or not math.isfinite(now):
+        raise GateError("Recovery creation time must be finite.")
+    room = config["band"]["rehearsal_room_id"]
+    seats = {s["id"]: s["agent_id"] for s in config["seats"] if s["id"] in RECOVERY_SEATS}
+    if (not subscription_only(config["budgets"]) or budget_blockers(config["budgets"])
+            or config["budgets"]["max_active_seats"] != 1 or set(seats) != set(RECOVERY_SEATS)
+            or not all(seats.values()) or len(set(seats.values())) != 2):
+        raise GateError("Recovery requires approved subscription budgets and one active PM/Architect seat.")
+    if (type(duration) is not int or not 1 <= duration <= 600 or not isinstance(operator, str) or not re.fullmatch(r"[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}", operator)
+            or operator in {s["agent_id"] for s in config["seats"]} or not isinstance(approval, str) or not approval.strip() or len(approval) > 300):
+        raise GateError("Recovery requires 1..600 seconds, the human operator UUID and an explicit approval reference.")
+    if (data.get("room_ids") != sorted([room, config["band"]["judged_room_id"]])
+            or data.get("stopped_reason") or data.get("room_stopped_reasons", {}).get(room) != STAGE_STOP
+            or any(type(v) not in (int, float) or not math.isfinite(v) for v in
+                   (data.get("started_epoch"), data.get("room_started_epochs", {}).get(room)))):
+        raise GateError("Only the existing rehearsal stage-time halt is eligible for recovery.")
+    limits = config["budgets"]
+    if (now < data["room_started_epochs"][room] + limits["stage_timeout_seconds"]
+            or now + duration > data["started_epoch"] + limits["overall_timeout_seconds"]
+            or data["tokens"] >= limits["max_total_tokens"]
+            or any(data["turns"].get(seat, 0) >= limits["max_turns_per_seat"] for seat in RECOVERY_SEATS)):
+        raise GateError("Recovery cannot extend the original overall/token/turn limits or an unexpired stage.")
+    identity = secrets.token_hex(16)
+    return {"version": 1, "id": identity, "room_id": room, "seats": seats,
+            "operator_id": operator, "approval_reference": approval, "created_epoch": now,
+            "expires_epoch": now + duration, "duration_seconds": duration,
+            "configuration_sha256": digest(canonical(config)), "ledger_sha256": recovery_digest(data),
+            "original_started_epoch": data["started_epoch"], "original_room_started_epoch": data["room_started_epochs"][room],
+            "original_room_stop_reason": STAGE_STOP, "marker": "FACTORY-RECOVERY-" + identity,
+            "scope": "Connectivity only: PM may restore exactly Architect once; marked directed replies; no product work."}
+
+
+def load_recovery(config, identity, owner_token=None):
+    from .common import canonical, digest
+    path = recovery_path(config, identity)
+    record = json.loads(path.read_text())
+    data = json.loads((state_dir(config) / "budget-subscription.json").read_text())
+    # Revalidate every authority-bearing field, not merely the presence of a file.
+    expected = recovery_record(config, data, record.get("duration_seconds"), record.get("operator_id"), record.get("approval_reference"), created=record.get("created_epoch"))
+    fixed = ("room_id", "seats", "configuration_sha256", "ledger_sha256", "original_started_epoch", "original_room_started_epoch", "original_room_stop_reason", "scope")
+    if (record.get("version") != 1 or record.get("id") != identity or any(record.get(k) != expected[k] for k in fixed)
+            or record.get("marker") != "FACTORY-RECOVERY-" + identity
+            or type(record.get("created_epoch")) not in (float, int)
+            or type(record.get("expires_epoch")) not in (float, int)
+            or not math.isfinite(record["expires_epoch"])
+            or not record["created_epoch"] <= time.time() < record.get("expires_epoch", 0)
+            or record["expires_epoch"] != record["created_epoch"] + record["duration_seconds"]):
+        raise GateError("Recovery allowance is expired, changed or bound to different configuration/accounting.")
+    claim = recovery_path(config, identity, claim=True)
+    if owner_token is not None:
+        claimed = json.loads(claim.read_text())
+        if claimed.get("owner_token") != owner_token or claimed.get("allowance_sha256") != digest(path):
+            raise GateError("Recovery allowance ownership does not match this supervisor.")
+    elif claim.exists():
+        raise GateError("Recovery allowance is one-use and has already been claimed.")
+    return record
+
+
+def cmd_authorize_recovery(args):
+    config = get_config(args)
+    if not args.confirm_stage_limit_exception:
+        raise GateError("Explicit approval of the expired stage-limit exception is required.")
+    with launch_lock(config):
+        owner = read_registry(config)
+        if is_owned(owner.get("parent", {}), owner.get("token")) or any(is_owned(p) for p in owner.get("children", [])):
+            raise GateError("Stop the owned supervisor and children before authorizing recovery.")
+        data = json.loads((state_dir(config) / "budget-subscription.json").read_text())
+        record = recovery_record(config, data, args.duration_seconds, args.operator_id, args.approval_reference)
+        path = recovery_path(config, record["id"])
+        path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+        metadata = path.parent.lstat()
+        if not stat.S_ISDIR(metadata.st_mode) or metadata.st_uid != os.getuid() or stat.S_IMODE(metadata.st_mode) & 0o077:
+            raise GateError("Recovery records require an owned private directory.")
+        save_json(path, record)
+    print(json.dumps({"allowance": str(path), **record}, indent=2))
+    return 0
+
+
+def recovery_message_allowed(record, msg):
+    try:
+        created = getattr(msg, "created_at", None) or datetime.fromisoformat(msg.inserted_at)
+        expected_type = "User" if msg.sender_id == record["operator_id"] else "Agent"
+        return (msg.sender_id in {record["operator_id"], *record["seats"].values()}
+                and msg.sender_type == expected_type and str(msg.message_type) == "text"
+                and re.search(r"(?<![\w-])" + re.escape(record["marker"]) + r"(?![\w-])", msg.content) is not None
+                and created.tzinfo is not None and created.utcoffset() is not None
+                and record["created_epoch"] <= created.timestamp() < record["expires_epoch"]
+                and time.time() < record["expires_epoch"])
+    except (AttributeError, ValueError, TypeError, OverflowError):
+        return False
+
+
+class RecoveryHistoryConverter:
+    """Public converter seam: fresh recovery threads; old history stays untouched."""
+    def set_agent_name(self, name):
+        pass
+
+    def convert(self, raw):
+        from band.integrations.codex.types import CodexSessionState
+        return CodexSessionState()
+
+
+def recovery_adapter_config(config, seat, record, disabled_servers=()):
+    # SDK turn/start sandboxPolicy also constrains restored Codex threads.
+    from copy import deepcopy
+    isolated = deepcopy(config)
+    isolated["runtime"].pop("docker_host", None)
+    conf = adapter_config(isolated, seat, "rehearsal")
+    boundary = ("\n# Operator-authorized connectivity recovery\n" + json.dumps(record)
+                + "\nIgnore prior product assignments. Perform only this marked PM/Architect connectivity check. "
+                  "Never implement, test or edit products; no shell commands are needed. Prefix every room reply "
+                  "with the marker. PM may restore only the configured Architect as member once. "
+                  "Architect only acknowledges connectivity to PM. End with no_reply when complete.")
+    if any(not re.fullmatch(r"[A-Za-z0-9_-]+", name) for name in disabled_servers):
+        raise GateError("Cannot safely disable an inherited MCP server name.")
+    disabled = [item for name in sorted(disabled_servers) for item in ("-c", f"mcp_servers.{name}.enabled=false")]
+    return conf.model_copy(update={"codex_command": tuple(codex_argv(config, *SEAT_MEMORY_CONFIG, *disabled,
+        "-c", 'sandbox_mode="read-only"', "-c", "features.shell_tool=false",
+        "-c", "features.multi_agent=false", "-c", "features.apps=false", "-c", "features.plugins=false",
+        "-c", 'web_search="disabled"', "app-server", "--listen", "stdio://")),
+        "sandbox": "read-only", "sandbox_policy": {"type": "readOnly"},
+        "codex_env": {**conf.codex_env, "DOCKER_HOST": "", "DOCKER_CONTEXT": "", "BUILDX_CONFIG": ""},
+        "custom_section": conf.custom_section + boundary,
+        "turn_timeout_s": min(config["budgets"]["turn_timeout_seconds"], max(0.01, record["expires_epoch"] - time.time())),
+        "turn_settle_timeout_s": 0, "approval_mode": "auto_decline", "inject_history_on_resume_failure": False})
+
+
+async def recovery_configs(config, record):
+    """Read effective config without threads; disable and verify inherited MCP."""
+    from band.integrations.codex.stdio_client import CodexStdioClient
+    async def read(conf, cwd):
+        client = CodexStdioClient(command=conf.codex_command, cwd=cwd, env=conf.codex_env)
+        try:
+            async with asyncio.timeout(min(20, max(0, record["expires_epoch"] - time.time()))):
+                await client.connect()
+                await client.initialize(client_name="factory_recovery_policy", client_title="Factory recovery policy", client_version="1.0")
+                result = await client.request("config/read", {"cwd": cwd, "includeLayers": False})
+                effective = result.get("config")
+                if not isinstance(effective, dict):
+                    raise GateError("Recovery effective configuration is unavailable.")
+                return effective
+        finally:
+            await client.close()
+    configs = {}
+    for seat in (s for s in config["seats"] if s["id"] in RECOVERY_SEATS):
+        cwd = str(room_workspace(config, seat, "rehearsal"))
+        initial = await read(recovery_adapter_config(config, seat, record), cwd)
+        conf = recovery_adapter_config(config, seat, record, (initial.get("mcp_servers") or {}).keys())
+        checked = await read(conf, cwd)
+        if (any(server.get("enabled", True) for server in (checked.get("mcp_servers") or {}).values())
+                or any(checked.get("features", {}).get(feature) is not False for feature in ("shell_tool", "multi_agent", "apps", "plugins"))
+                or checked.get("web_search") != "disabled" or checked.get("sandbox_mode") != "read-only"
+                or time.time() >= record["expires_epoch"]):
+            raise GateError("Recovery tool and permission restrictions could not be verified.")
+        configs[seat["id"]] = conf
+    return configs
 
 
 def credentials(config: dict) -> dict:
@@ -334,9 +523,9 @@ def slash_command(content: str) -> bool:
 
 class RoomPreprocessor:
     """Supported Agent.create(preprocessor=) seam; filters before hydration/tools."""
-    def __init__(self, room: str | None):
+    def __init__(self, room: str | None, recovery=None):
         from band.preprocessing.default import DefaultPreprocessor
-        self.room = room
+        self.room, self.recovery = room, recovery
         self.default = DefaultPreprocessor()
 
     async def process(self, ctx, event, agent_id):
@@ -344,6 +533,8 @@ class RoomPreprocessor:
         if not self.room or not isinstance(event, MessageEvent) or event.room_id != self.room:
             return None
         if not event.payload or slash_command(event.payload.content):
+            return None
+        if self.recovery and not recovery_message_allowed(self.recovery, event.payload):
             return None
         inp = await self.default.process(ctx=ctx, event=event, agent_id=agent_id)
         if inp and slash_command(inp.msg.content):
@@ -353,8 +544,11 @@ class RoomPreprocessor:
 
 class BudgetLedger:
     """Single supervisor owns this persistent ledger; no polling/turn count reset."""
-    def __init__(self, limits: dict, path: Path, room: str, allowed_rooms: list[str] | None = None):
+    def __init__(self, limits: dict, path: Path, room: str, allowed_rooms: list[str] | None = None, recovery=None):
         self.limits, self.path = limits, path
+        self.recovery, self.recovery_stop_reason = recovery, None
+        if recovery and (not allowed_rooms or room != recovery["room_id"] or limits["max_active_seats"] != 1):
+            raise GateError("Recovery cannot apply outside its original rehearsal room and one-seat limit.")
         self.room, self.allowed_rooms = room, sorted(allowed_rooms) if allowed_rooms else None
         if self.allowed_rooms and (room not in self.allowed_rooms or len(set(self.allowed_rooms)) != 2):
             raise GateError("Subscription ledger requires both distinct configured rooms and an allowed active room.")
@@ -374,19 +568,32 @@ class BudgetLedger:
     def reason(self, seat: str | None = None) -> str | None:
         if self.data.get("stopped_reason"):
             return self.data["stopped_reason"]
-        if self.allowed_rooms and self.data.get("room_stopped_reasons", {}).get(self.room):
-            return self.data["room_stopped_reasons"][self.room]
         elapsed = time.time() - self.data["started_epoch"] if self.data["started_epoch"] is not None else 0
         if elapsed >= self.limits["overall_timeout_seconds"]:
             return "overall time budget exhausted"
-        stage_started = self.data.get("room_started_epochs", {}).get(self.room) if self.allowed_rooms else self.data["started_epoch"]
-        stage_elapsed = time.time() - stage_started if stage_started is not None else 0
-        if stage_elapsed >= self.limits["stage_timeout_seconds"]:
-            return "conservative whole-session stage time budget exhausted"
         if self.data["tokens"] >= self.limits["max_total_tokens"]:
             return "observed token budget exhausted"
         if seat and self.data["turns"].get(seat, 0) >= self.limits["max_turns_per_seat"]:
             return f"turn budget exhausted for {seat}"
+        room_stop = self.data.get("room_stopped_reasons", {}).get(self.room) if self.allowed_rooms else None
+        if room_stop and room_stop != STAGE_STOP:
+            return room_stop
+        stage_started = self.data.get("room_started_epochs", {}).get(self.room) if self.allowed_rooms else self.data["started_epoch"]
+        if self.recovery:
+            if self.recovery_stop_reason:
+                return self.recovery_stop_reason
+            if time.time() >= self.recovery["expires_epoch"]:
+                return "recovery allowance expired"
+            if (room_stop != STAGE_STOP or self.data["started_epoch"] != self.recovery["original_started_epoch"]
+                    or stage_started != self.recovery["original_room_started_epoch"]):
+                return "recovery accounting scope changed"
+            if seat and seat not in RECOVERY_SEATS:
+                return "seat is outside recovery scope"
+            return None
+        if room_stop:
+            return room_stop
+        if stage_started is not None and time.time() - stage_started >= self.limits["stage_timeout_seconds"]:
+            return STAGE_STOP
         return None
 
     def reserve(self, seat: str) -> bool:
@@ -400,6 +607,17 @@ class BudgetLedger:
             scoped = self.data.setdefault("room_turns", {}).setdefault(self.room, {})
             scoped[seat] = scoped.get(seat, 0) + 1
         self.save()
+        return True
+
+    def reserve_event(self, seat, msg):
+        seen = self.data.setdefault("recovery_seen_events", {}).setdefault(self.recovery["id"], []) if self.recovery else []
+        if self.recovery and (not recovery_message_allowed(self.recovery, msg) or msg.id in seen):
+            return False
+        if not self.reserve(seat):
+            return False
+        if self.recovery:
+            seen.append(msg.id)
+            self.save()
         return True
 
     def record(self, seat: str, metadata: dict):
@@ -417,6 +635,10 @@ class BudgetLedger:
                 self.halt(self.reason())
 
     def halt(self, reason: str):
+        if self.recovery and reason in {"recovery allowance expired", "recovery accounting scope changed"}:
+            self.recovery_stop_reason = reason
+            self.stop.set()
+            return
         if self.allowed_rooms and reason == "conservative whole-session stage time budget exhausted":
             self.data.setdefault("room_stopped_reasons", {})[self.room] = reason
         else:
@@ -425,14 +647,16 @@ class BudgetLedger:
         self.stop.set()
 
 
-def session_ledger(config: dict, mode: str) -> BudgetLedger:
+def session_ledger(config: dict, mode: str, recovery=None) -> BudgetLedger:
     """Subscription caps are shared across rehearsal and judged sessions."""
     room = config["band"][f"{mode}_room_id"]
+    if recovery and mode != "rehearsal":
+        raise GateError("Judged recovery allowances are prohibited.")
     if subscription_only(config["budgets"]):
         if any((state_dir(config) / f"budget-{other}.json").exists() for other in ("rehearsal", "judged")):
             raise GateError("Existing per-mode ledgers require explicit consumption reconciliation before subscription-only work.")
         rooms = [config["band"][f"{other}_room_id"] for other in ("rehearsal", "judged")]
-        return BudgetLedger(config["budgets"], state_dir(config) / "budget-subscription.json", room, allowed_rooms=rooms)
+        return BudgetLedger(config["budgets"], state_dir(config) / "budget-subscription.json", room, allowed_rooms=rooms, recovery=recovery)
     return BudgetLedger(config["budgets"], state_dir(config) / f"budget-{mode}.json", room)
 
 
@@ -444,6 +668,16 @@ class AuditedTools:
 
     def __getattr__(self, name):
         return getattr(self.tools, name)
+
+    async def execute_tool_call_structured(self, tool_name, arguments):
+        from band.runtime.tools.agent import AgentTools
+        metadata = arguments.get("metadata") or {}
+        if tool_name == "band_send_event" and any(k.startswith("codex_") or k == "band_usage" for k in metadata):
+            raise GateError("Model-authored events cannot forge adapter accounting or thread metadata.")
+        return await AgentTools.execute_tool_call_structured(self, tool_name, arguments)
+
+    async def execute_tool_call(self, tool_name, arguments):
+        return (await self.execute_tool_call_structured(tool_name, arguments)).value
 
     async def add_participant(self, identifier: str, role: str = "member"):
         matched = next((s for s in self.roster if identifier in {s.get("agent_id"), s.get("handle"), "@" + str(s.get("handle", "")).lstrip("@")} ), None)
@@ -473,6 +707,70 @@ class AuditedTools:
             safe = {k: v for k, v in metadata.items() if k in {"codex_event_type", "codex_thread_id", "codex_turn_id", "codex_room_id", "codex_turn_status", "codex_duration_s", "codex_total_tokens", "codex_input_tokens", "codex_output_tokens", "codex_reasoning_tokens", "codex_turn_total_tokens", "band_usage"}}
             output.write(json.dumps({"at": timestamp(), "seat": self.seat, "type": message_type, "metadata": safe}) + "\n")
         return await self.tools.send_event(content=content, message_type=message_type, metadata=metadata)
+
+
+class RecoveryTools(AuditedTools):
+    """Filter both new schemas and execution of schemas retained in old threads."""
+    def get_openai_tool_schemas(self, **kwargs):
+        return [s for s in self.tools.get_openai_tool_schemas(**kwargs)
+                if s.get("function", s).get("name") in RECOVERY_TOOLS]
+
+    async def execute_tool_call_structured(self, tool_name, arguments):
+        from band.runtime.tools.agent import AgentTools
+        if tool_name not in RECOVERY_TOOLS or self.ledger.reason(self.seat):
+            raise GateError("Recovery tool or deadline is outside the explicit allowance.")
+        return await AgentTools.execute_tool_call_structured(self, tool_name, arguments)
+
+    async def send_message(self, content, mentions=None):
+        record = self.ledger.recovery
+        if self.ledger.reason(self.seat):
+            raise GateError("Recovery is no longer active.")
+        # ID-bearing dicts bypass handle/name lookup, so aliases cannot redirect.
+        aliases = {record["operator_id"]: record["operator_id"]}
+        handles = {record["operator_id"]: ""}
+        for seat in self.roster:
+            if seat["id"] in RECOVERY_SEATS:
+                identity, handle = seat["agent_id"], seat["handle"].lstrip("@")
+                aliases.update({identity: identity, handle: identity})
+                handles[identity] = handle
+        canonical = []
+        for mention in mentions or []:
+            value = mention.get("id", mention.get("handle", "")) if isinstance(mention, dict) else mention
+            if not isinstance(value, str) or value.lstrip("@") not in aliases:
+                raise GateError("Recovery messages may address only the operator, PM or Architect.")
+            identity = aliases[value.lstrip("@")]
+            canonical.append({"id": identity, "handle": handles[identity]})
+        if any(value not in handles for value in re.findall(r"@\[\[([^]]+)\]\]", content)):
+            raise GateError("Recovery message contains an out-of-scope mention.")
+        if record["marker"] not in content:
+            content = record["marker"] + " " + content
+        return await self.tools.send_message(content=content, mentions=canonical)
+
+    async def add_participant(self, identifier, role="member"):
+        record = self.ledger.recovery
+        architect = next(s for s in self.roster if s["id"] == "architect")
+        if (self.ledger.reason(self.seat) or self.seat != "pm" or role != "member"
+                or identifier not in {architect["agent_id"], architect["handle"], "@" + architect["handle"].lstrip("@")}):
+            raise GateError("Recovery may only restore the exact Architect as member.")
+        participants = await self.tools.get_participants()
+        if any((p if isinstance(p, dict) else p.model_dump()).get("id") == architect["agent_id"] for p in participants):
+            return {"id": architect["agent_id"], "status": "already_in_room"}
+        if self.ledger.reason(self.seat):
+            raise GateError("Recovery expired during participant lookup.")
+        attempts = self.ledger.data.setdefault("recovery_membership_attempts", {})
+        if attempts.get(record["id"], 0):
+            raise GateError("This one-use recovery has already attempted Architect restoration.")
+        attempts[record["id"]] = 1
+        self.ledger.save()
+        if self.ledger.reason(self.seat):
+            raise GateError("Recovery expired while persisting restoration attempt.")
+        # Call the maintained generated endpoint with the frozen UUID directly;
+        # the generic add helper resolves handles/names before IDs.
+        from band.runtime.tools.agent import ParticipantRequest
+        await self.tools.rest.agent_api_participants.add_agent_chat_participant(
+            chat_id=record["room_id"], participant=ParticipantRequest(participant_id=architect["agent_id"], role="member"),
+            request_options={"max_retries": 0, "timeout_in_seconds": min(20, max(0.001, record["expires_epoch"] - time.time()))})
+        return {"id": architect["agent_id"], "name": architect["display_name"], "role": "member", "status": "added"}
 
 
 async def probe_registration(config: dict, mode: str) -> dict:
@@ -601,6 +899,14 @@ def judged_launch_errors(config: dict) -> list[str]:
 
 
 def cmd_start(args) -> int:
+    return start_supervisor(args)
+
+
+def cmd_start_recovery(args) -> int:
+    return start_supervisor(args, args.allowance)
+
+
+def start_supervisor(args, recovery_id=None) -> int:
     config = get_config(args)
     require_ready(config, args.mode)
     with launch_lock(config):
@@ -609,15 +915,28 @@ def cmd_start(args) -> int:
             raise GateError("Factory supervisor is already running; use seat-status.")
         if old and any(is_owned(p) for p in old.get("children", [])):
             raise GateError("Owned child processes remain from previous supervisor; use stop-seats first.")
+        recovery = load_recovery(config, recovery_id) if recovery_id else None
         token = secrets.token_hex(24)
+        if recovery:
+            from .common import digest
+            claim = recovery_path(config, recovery_id, claim=True)
+            fd = os.open(claim, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+            with os.fdopen(fd, "w") as output:
+                json.dump({"owner_token": token, "allowance_sha256": digest(recovery_path(config, recovery_id)), "claimed_at": timestamp()}, output)
         command = [config["runtime"]["python"], "-m", "factorykit.runtime", "--config", str(Path(args.config).resolve()), "_serve", "--mode", args.mode, "--owner-token", token]
+        if recovery:
+            command.extend(["--recovery-id", recovery_id])
         logfile = state_dir(config) / "supervisor.log"
         with logfile.open("ab") as output:
             child = subprocess.Popen(command, cwd=config["paths"]["factory"], stdout=output, stderr=output, start_new_session=True)
         record = {"token": token, "parent": process_identity(psutil.Process(child.pid)), "children": [], "mode": args.mode, "started_at": timestamp(), "config_sha256": fingerprint(config), "log": str(logfile)}
+        if recovery:
+            record["recovery"] = {"id": recovery_id, "expires_epoch": recovery["expires_epoch"]}
         save_json(registry_path(config), record)
     # Read local ready-state handshake; PID existence alone is never success.
     deadline = time.monotonic() + min(45 * len(config["seats"]) + 10, config["budgets"]["overall_timeout_seconds"])
+    if recovery:
+        deadline = min(deadline, time.monotonic() + max(0, recovery["expires_epoch"] - time.time()))
     while time.monotonic() < deadline:
         if not is_owned(record["parent"], token):
             raise GateError("Supervisor exited before all seats connected; consult sanitized supervisor status.")
@@ -636,7 +955,7 @@ def cmd_status(args) -> int:
         print(json.dumps({"status": "not_started"}))
         return 0
     live = is_owned(record.get("parent", {}), record.get("token"))
-    result = {"status": record.get("status", "starting") if live else "stopped", "owned_parent_alive": live, "pid": record.get("parent", {}).get("pid"), "mode": record.get("mode"), "seats": record.get("seats", []), "owned_children_alive": sum(is_owned(p) for p in record.get("children", [])), "updated_at": record.get("updated_at"), "last_error": record.get("last_error")}
+    result = {"status": record.get("status", "starting") if live else "stopped", "owned_parent_alive": live, "pid": record.get("parent", {}).get("pid"), "mode": record.get("mode"), "seats": record.get("seats", []), "owned_children_alive": sum(is_owned(p) for p in record.get("children", [])), "updated_at": record.get("updated_at"), "last_error": record.get("last_error"), "recovery": record.get("recovery")}
     ledger = state_dir(config) / ("budget-subscription.json" if subscription_only(config["budgets"]) else f"budget-{record.get('mode')}.json")
     if ledger.exists():
         data = json.loads(ledger.read_text())
@@ -687,16 +1006,19 @@ def cmd_stop(args) -> int:
         return 0
 
 
-async def serve(config: dict, mode: str, token: str):
+async def serve(config: dict, mode: str, token: str, recovery_id=None):
     from band import Agent
     from band.adapters import CodexAdapter
     from band.core.types import Emit, Capability
     from band.runtime.types import SessionConfig
     require_ready(config, mode)
     room = config["band"][f"{mode}_room_id"]
-    ledger = session_ledger(config, mode)
+    recovery = load_recovery(config, recovery_id, token) if recovery_id else None
+    ledger = session_ledger(config, mode, recovery)
+    seats = [s for s in config["seats"] if not recovery or s["id"] in RECOVERY_SEATS]
     if ledger.reason():
         raise GateError(ledger.reason())
+    configs = await recovery_configs(config, recovery) if recovery else {}
     creds = credentials(config)
     agents = []
     loop = asyncio.get_running_loop()
@@ -709,20 +1031,28 @@ async def serve(config: dict, mode: str, token: str):
             excluded = ["band_remove_participant", "band_create_chatroom", "band_lookup_peers"]
             if seat["id"] != "pm":
                 excluded.append("band_add_participant")
-            super().__init__(config=adapter_config(config, seat, mode), emit=[Emit.TOOL_CALLS, Emit.TASK_EVENTS, Emit.USAGE], capabilities=[Capability.TASKS], exclude_tools=excluded)
+            super().__init__(config=configs[seat["id"]] if recovery else adapter_config(config, seat, mode), emit=[Emit.TOOL_CALLS, Emit.TASK_EVENTS, Emit.USAGE], capabilities=[Capability.TASKS], exclude_tools=excluded, history_converter=RecoveryHistoryConverter() if recovery else None)
 
         async def on_event(self, inp):
             if inp.room_id != room or slash_command(inp.msg.content):
                 return
+            if recovery and not recovery_message_allowed(recovery, inp.msg):
+                return
             async with ledger.semaphore:
-                if not ledger.reserve(self.seat["id"]):
+                if recovery and not recovery_message_allowed(recovery, inp.msg):
                     return
-                wrapped = AuditedTools(inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
+                if not ledger.reserve_event(self.seat["id"], inp.msg):
+                    return
+                wrapper = RecoveryTools if recovery else AuditedTools
+                wrapped = wrapper(inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
                 try:
-                    async with asyncio.timeout(config["budgets"]["turn_timeout_seconds"] + 15):
+                    timeout = config["budgets"]["turn_timeout_seconds"] + 15
+                    if recovery:
+                        timeout = min(timeout, max(0, recovery["expires_epoch"] - time.time()))
+                    async with asyncio.timeout(timeout):
                         await super().on_event(replace(inp, tools=wrapped))
                 except TimeoutError:
-                    ledger.halt("outer turn deadline exceeded")
+                    ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
 
     async def heartbeat():
         while not ledger.stop.is_set():
@@ -734,16 +1064,16 @@ async def serve(config: dict, mode: str, token: str):
                 record["children"] = [process_identity(p) for p in psutil.Process().children(recursive=True)]
             except psutil.Error:
                 pass
-            record.update(status="running", updated_at=timestamp(), seats=[s["id"] for s in config["seats"]])
+            record.update(status="running", updated_at=timestamp(), seats=[s["id"] for s in seats])
             save_json(registry_path(config), record)
             reason = ledger.reason()
-            if all(ledger.reason(s["id"]) for s in config["seats"]):
+            if all(ledger.reason(s["id"]) for s in seats):
                 reason = reason or "all seats reached their turn budgets"
             if reason:
                 ledger.halt(reason)
                 return
             try:
-                await asyncio.wait_for(ledger.stop.wait(), timeout=1)
+                await asyncio.wait_for(ledger.stop.wait(), timeout=min(1, max(0, recovery["expires_epoch"] - time.time())) if recovery else 1)
             except TimeoutError:
                 pass
 
@@ -755,12 +1085,14 @@ async def serve(config: dict, mode: str, token: str):
             await asyncio.sleep(0.1)
         else:
             raise GateError("Missing matching supervisor ownership registry.")
-        for seat in config["seats"]:
+        for seat in seats:
+            if ledger.reason():
+                raise GateError(ledger.reason())
             value = creds[seat["id"]]
             adapter = GuardedCodexAdapter(seat)
-            agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=SessionConfig(max_message_retries=1, max_cycle_seconds=config["budgets"]["turn_timeout_seconds"] + 20), preprocessor=RoomPreprocessor(room))
+            agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=SessionConfig(max_message_retries=1, max_cycle_seconds=config["budgets"]["turn_timeout_seconds"] + 20), preprocessor=RoomPreprocessor(room, recovery))
             agents.append(agent)
-            await asyncio.wait_for(agent.start(), timeout=45)
+            await asyncio.wait_for(agent.start(), timeout=min(45, max(0, recovery["expires_epoch"] - time.time())) if recovery else 45)
             record = read_registry(config)
             if record.get("token") == token:
                 record["children"] = [process_identity(p) for p in psutil.Process().children(recursive=True)]
@@ -776,7 +1108,7 @@ async def serve(config: dict, mode: str, token: str):
             except psutil.Error:
                 pass
             save_json(registry_path(config), record)
-        await asyncio.gather(*(agent.stop(timeout=5) for agent in agents), return_exceptions=True)
+        await asyncio.gather(*(agent.stop(timeout=0 if recovery else 5) for agent in agents), return_exceptions=True)
         record = read_registry(config)
         if record.get("token") == token:
             record.update(status="stopped", updated_at=timestamp())
@@ -788,7 +1120,7 @@ def cmd_serve(args) -> int:
     logging.disable(logging.CRITICAL)
     config = get_config(args)
     try:
-        asyncio.run(serve(config, args.mode, args.owner_token))
+        asyncio.run(serve(config, args.mode, args.owner_token, args.recovery_id))
         return 0
     except Exception as error:
         record = read_registry(config)
