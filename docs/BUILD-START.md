@@ -15,9 +15,9 @@ The user authorized starting the build, moving the workspace into `/Users/frank/
 
 ## Remaining build gates
 
-The relocated SDK Docker build and Chromium interaction checks passed through the implemented adapter configuration. All 73 utility tests and all six exact task-packet checks passed. Refresh the proof bindings after the now-verified event access flags, then run the real seven-seat toy rehearsal. Record directed replies, checkout and commit visibility, meaningful handoffs, independent review of an exact candidate, recovery behavior and the official isolated harness result. Only a complete matching readiness freeze permits the judged PM dispatch.
+The relocated SDK Docker build and Chromium interaction checks passed through the implemented adapter configuration. All 73 utility tests and all six exact task-packet checks passed. The proof bindings were refreshed after the verified event-access flags. The first real toy rehearsal reached the PM and stopped at a nested operator-preflight error. Correct the operator/seat handoff and refresh evidence before resuming. Record directed replies, checkout and commit visibility, meaningful handoffs, independent review of an exact candidate, recovery behavior and the official isolated harness result. Only a complete matching readiness freeze permits the judged PM dispatch.
 
-The judged application and toy repositories still have zero commits and no product implementation. Enrollment is verified. The user-authorized closed solo team [MillieMoon](https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon) was created successfully, and its blank submission form is accessible. No entry was submitted. The published deadline is October 5, 2026, 23:59 America/Los_Angeles; recheck the clock and event state before launch.
+The judged application repository remains pristine with zero commits. The toy repository also has no commits or implementation; the PM created seven copied mandates and retained its preflight failure evidence. Enrollment is verified. The user-authorized closed solo team [MillieMoon](https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon) was created successfully, and its blank submission form is accessible. No entry was submitted. The published deadline is October 5, 2026, 23:59 America/Los_Angeles; recheck the clock and event state before launch.
 
 ## Evidence history
 
@@ -26,3 +26,21 @@ The judged application and toy repositories still have zero commits and no produ
 ## Current guide audit
 
 The current official participant guide was fetched separately on October 3 and compared byte-for-byte with the pinned copy: identical, SHA-256 `1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4`. `runs/guide-audit/comparison.json` records this. The challenge checkout was not refreshed. Full compliance still needs real collaborative stage outputs, independent acceptance, whole-room export, video, human-authored final narratives and the final public submission repository. Current GitHub visibility is private.
+
+## Live rehearsal attempt
+
+On October 3 at 17:49:25 UTC, the original toy packet was delivered once to room `cc7450cf-e003-4b3d-9baf-2d3ceb97d378`, event `7787c5a6-fea9-40b3-ae39-3ad7adda2a94`. BAND normalized only the PM mention to its UUID; all four exact official specification payloads were verified unchanged. The earlier HTTP 404 attempt was confirmed unsent and retained separately.
+
+The PM replied and verified input hashes, then attempted to repeat the operator-only subscription-authentication probe from inside the restricted seat. Two nested app-server initialization attempts failed. The PM reported BLOCKED, event `a219955e-c831-49df-ad67-da04a82eb542`, and preserved `.evidence/pm-preflight-20261003T175218Z/`. No peer assignment or implementation began. All factory-owned rehearsal processes were then stopped.
+
+The persistent ledger records 952,004 reported tokens: 948,905 input and 3,099 output, including 884,608 cached input tokens. These are runtime counters, not measured dollar charges. Auditing both SDK and factory accounting found cumulative deltas counted once. The approved 1,000,000-token cap remains unchanged; a higher ceiling has been requested before more inference.
+
+Your account is verified as an owner of the rehearsal room. Adding it to the separate judged room remains pending explicit permission after automatic approval review rejected that membership change. No judged task was dispatched. Full guide compliance is still pending actual stage outputs and final submission evidence.
+
+## Corrections after the rehearsal
+
+The launcher still enforces authentication, finite approved budgets, identity registration and recorded permission evidence before connecting seats. Shared runtime and task instructions now assign those checks explicitly to the operator, so seats verify their own assigned operations instead of starting nested authentication probes. Worktree guidance also matches the enforced single-writer permissions.
+
+The PM's developer context included shared Codex memory about previous factory preparation. New seat processes now disable memory use and generation with process-local configuration overrides documented in the [official Codex schema](https://learn.chatgpt.com/docs/config-schema.json); global settings are unchanged. Existing Codex session history is retained. The SDK resumes the previous PM thread for the existing rehearsal room, so restarting does not remove its already-injected memory. The untouched judged room has no prior task thread. A clean rehearsal-context decision and renewed live evidence are required before claiming that this correction is verified in execution.
+
+All 73 setup tests pass after these changes. The six regenerated packets preserve exact official specifications. The original dispatched toy packet is retained under `runs/rehearsal-launch/dispatched-rehearsal-toy.md`; regenerated files are not evidence of a second dispatch. No second model run has started and no approved consumption counter was reset.

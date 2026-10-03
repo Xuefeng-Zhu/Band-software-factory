@@ -183,11 +183,17 @@
     },
     {
       "contents_saved": false,
+      "hash_history": [
+        {
+          "sha256": "be06228906f11dfe1eaf0d863e6859c6fbce2fe0c6049341d125218fcfa478fc",
+          "superseded_at": "2026-10-03T17:58:32.394709+00:00"
+        }
+      ],
       "kind": "inherited Codex runtime configuration",
       "path": "/Users/frank/.codex/config.toml",
-      "previous_sha256": "b01f304fbd0a96dd89dd05520d4ebb2ee7e045384393461e3e47c4c3910efcee",
-      "revalidated_at": "2026-10-03T17:15:48.292857+00:00",
-      "sha256": "be06228906f11dfe1eaf0d863e6859c6fbce2fe0c6049341d125218fcfa478fc"
+      "previous_sha256": "be06228906f11dfe1eaf0d863e6859c6fbce2fe0c6049341d125218fcfa478fc",
+      "revalidated_at": "2026-10-03T17:58:32.394709+00:00",
+      "sha256": "405acb83ddb5632a517af1766de7c685fdc31b95b5352c04c88fc8c7e2de842d"
     }
   ],
   "local_model_discovery": {

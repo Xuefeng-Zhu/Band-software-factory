@@ -4,29 +4,29 @@
   "tasks": {
     "judged-all-stages.md": {
       "mode": "all",
-      "sha256": "c885be8dc70ab93e986077e8b09ce1b69b2e7ea307cc01b36167e032b4fec506",
+      "sha256": "15e84cc1d9389bbf93386ec33457143323c50e1c933fb34477250163d0c8481f",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 8936,
+          "offset": 10141,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 28679,
+          "offset": 29884,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         },
         {
           "bytes": 13060,
-          "offset": 39457,
+          "offset": 40662,
           "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
           "source": "tablekeeper/spec/stage-3.md"
         },
         {
           "bytes": 6276,
-          "offset": 52841,
+          "offset": 54046,
           "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4",
           "source": "tablekeeper/spec/stage-4.md"
         }
@@ -41,11 +41,11 @@
     },
     "judged-stage-1.md": {
       "mode": "separate",
-      "sha256": "5b6ab2012cec50b1221be56e855be43165a1479c21afe0a81ecc51a14e74acb0",
+      "sha256": "9ba8367d279600c2233b8eb03cdb172a3494fecab088dffd73227ae80adce107",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 9008,
+          "offset": 10213,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         }
@@ -57,17 +57,17 @@
     },
     "judged-stage-2.md": {
       "mode": "separate",
-      "sha256": "2eab6a308187d6d01ad1a98c7af8a3fca6e9ba45b5876c81e6864b8f7651b4fc",
+      "sha256": "b2ac3e048b8aabc075146bc4a3e9f7ede2a057cb4ccb739679f90130a6f58a77",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 9008,
+          "offset": 10213,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 28751,
+          "offset": 29956,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         }
@@ -79,23 +79,23 @@
     },
     "judged-stage-3.md": {
       "mode": "separate",
-      "sha256": "30103a843ad55dbd7643c8e06cd43466147b1ba81c3f7be2a7a96265fc2f7440",
+      "sha256": "d94d6dcb43b89f1105604baf29bda64f719788d206d1a23a0175c81c495be722",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 9008,
+          "offset": 10213,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 28751,
+          "offset": 29956,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         },
         {
           "bytes": 13060,
-          "offset": 39529,
+          "offset": 40734,
           "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
           "source": "tablekeeper/spec/stage-3.md"
         }
@@ -107,29 +107,29 @@
     },
     "judged-stage-4.md": {
       "mode": "separate",
-      "sha256": "6a3112a2022003bd4e90d54a32dc858698fbda566dbe3e2e873d11d3e34b4318",
+      "sha256": "27902c6a1d86aae76cd965b7d8dcd505868c59308e2f4e84392e8af96b01b9f6",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 9008,
+          "offset": 10213,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 28751,
+          "offset": 29956,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         },
         {
           "bytes": 13060,
-          "offset": 39529,
+          "offset": 40734,
           "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
           "source": "tablekeeper/spec/stage-3.md"
         },
         {
           "bytes": 6276,
-          "offset": 52913,
+          "offset": 54118,
           "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4",
           "source": "tablekeeper/spec/stage-4.md"
         }
@@ -141,29 +141,29 @@
     },
     "rehearsal-toy.md": {
       "mode": "practice-all",
-      "sha256": "fdaa47de4402f3e52e2f274a652bf36ac95ca21492d99f1dd41034703d8dba18",
+      "sha256": "9f363ff76305881ff596354d47a197d72c5bdecfa734d5f29884b307626804bd",
       "spec_payloads": [
         {
           "bytes": 1895,
-          "offset": 7520,
+          "offset": 8806,
           "sha256": "b3fa4b5341480bc76e4d44a914e4503cbe96460a3d89504a5dd5e1d8fab42d2d",
           "source": "toy/spec/stage-1.md"
         },
         {
           "bytes": 906,
-          "offset": 9707,
+          "offset": 10993,
           "sha256": "8b4800455e681bedcdded8407fb170766d5a73aa91de6feed65782ac3379b493",
           "source": "toy/spec/stage-2.md"
         },
         {
           "bytes": 934,
-          "offset": 10905,
+          "offset": 12191,
           "sha256": "2b4e208b30ec0d505f8703bfec1dd38051d7b229868da37b13bab44abdaa485c",
           "source": "toy/spec/stage-3.md"
         },
         {
           "bytes": 1210,
-          "offset": 12131,
+          "offset": 13417,
           "sha256": "f27a23a7cad8f6fbfc67856ab1dab829b6b91908928ae32f4d41b0263525c955",
           "source": "toy/spec/stage-4.md"
         }

@@ -72,6 +72,7 @@ class RuntimeTests(unittest.TestCase):
     def test_adapter_constructs_with_supported_workspace_resolver(self):
         from band.adapters import CodexAdapter
         from band.core.types import Emit
+        from factorykit.tasks import LAUNCHER_BOUNDARY
         seat = self.config["seats"][0]
         seat["mandate"] = str(self.root / "mandate.md")
         Path(seat["mandate"]).write_text("Test instructions")
@@ -89,11 +90,18 @@ class RuntimeTests(unittest.TestCase):
         self.assertIn(Emit.TASK_EVENTS, adapter.features.emit)
         self.assertEqual(conf.codex_env["GIT_AUTHOR_NAME"], seat["git_name"])
         self.assertIn("Full handoffs and receipts", conf.custom_section)
+        self.assertIn(LAUNCHER_BOUNDARY, conf.custom_section)
         with patch.dict(os.environ, {"CODEX_SYSTEM_PROMPT": "override", "CODEX_ENABLE_SELF_CONFIG_TOOLS": "true", "CODEX_SANDBOX": "danger-full-access"}):
             protected = adapter_config(self.config, seat, "rehearsal")
         self.assertIsNone(protected.system_prompt)
         self.assertFalse(protected.enable_self_config_tools)
         self.assertEqual(protected.sandbox, "workspace-write")
+        command = list(protected.codex_command)
+        for override in ("memories.use_memories=false", "memories.generate_memories=false", "features.memories=false"):
+            self.assertEqual(command.count(override), 1)
+            index = command.index(override)
+            self.assertEqual(command[index - 1], "-c")
+            self.assertLess(index, command.index("app-server"))
 
     def test_judged_start_cannot_bypass_ready_freeze(self):
         self.assertIn("Judged start requires a READY_TO_LAUNCH freeze.", judged_launch_errors(self.config))
@@ -112,6 +120,8 @@ class RuntimeTests(unittest.TestCase):
         index = argv.index(expected[1]) - 1
         self.assertEqual(argv[index:index + len(expected)], expected)
         self.assertLess(index, argv.index("app-server"))
+        for override in ("memories.use_memories=false", "memories.generate_memories=false", "features.memories=false"):
+            self.assertIn(override, argv[:argv.index("app-server")])
         adapter = CodexAdapter(conf)
         thread, turn = {}, {}
         adapter._apply_thread_sandbox(thread, room_id="room-allowed")

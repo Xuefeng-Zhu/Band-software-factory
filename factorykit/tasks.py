@@ -6,6 +6,23 @@ from pathlib import Path
 
 from .common import FactoryError, canonical, digest, source_lock, verify_sources, write_json
 
+LAUNCHER_BOUNDARY = """## Launcher admission and seat execution
+The launcher checks authentication, approved finite budgets, registered identities
+and recorded permission evidence before connecting seats. For a seat connected by
+this launcher, those admission gates have already been enforced by the operator;
+do not repeat them inside the task sandbox.
+Do not run operator-only doctor, preflight, registration/authentication probes,
+freeze, launch, start-seats or stop-seats commands; do not call
+subscription_auth_probe or preflight_runtime or create nested Codex app servers.
+Use the injected roster, limits and workspace metadata to execute the delivered
+task. Test required operations in your assigned workspace and report any actual
+denied operation with evidence; do not reinterpret an operator probe's sandbox
+failure as a failed task prerequisite or try to repair operator infrastructure.
+Admission does not establish product correctness, seat smoke results, peer
+collaboration or stage acceptance. Perform those assigned checks and retain their
+actual evidence within the existing permissions and limits.
+"""
+
 JUDGED_PREFERENCES = """## Task preferences and ownership
 Product proposal: Tablekeeper, a coherent restaurant reservation experience.
 Starting technical proposal: TypeScript, React/Vite, a small Node HTTP API, SQLite,
@@ -44,13 +61,13 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
              f"Packet state: {'BLOCKED_UNRESOLVED_ROSTER' if unresolved else 'REQUIRES_READY_FREEZE' if track == 'tablekeeper' else 'REQUIRES_REHEARSAL_PREFLIGHT'}",
              f"Dispatch mode: {mode}; stages: {', '.join(map(str, stages))}.",
              (f"Execute only stage {stages[0]}. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch." if mode == "separate" else "Execute stages 1 through 4 once in increasing order, with an independent gate before advancing."),
-             ("This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH." if track == "tablekeeper" else "Practice packet: run only after rehearsal runtime preflight passes and finite live budgets are approved. A judged freeze is not required for rehearsal."),
+             ("This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH." if track == "tablekeeper" else "Operator dispatch prerequisite: rehearsal runtime preflight must pass and finite live budgets must be approved before the launcher connects seats. A judged freeze is not required for rehearsal. Seats do not rerun operator preflight."),
              f"Pinned challenge commit: {source_lock(config)['challenge']['commit']}",
              f"Configuration SHA-256: {digest(canonical(config))}", "", "## Absolute workspace paths"]
     lines.extend(f"- {name}: `{value}`" for name, value in paths.items())
     lines.extend([f"- Assigned output checkout: `{paths['result'] if track == 'tablekeeper' else paths['rehearsal']}`", "", "## Actual roster"])
     # Operational guidance belongs in dispatch metadata, not track-specific mandates.
-    lines[-1] = "## Execution environment"
+    lines[-1] = LAUNCHER_BOUNDARY + "\n## Execution environment"
     output = paths["result"] if track == "tablekeeper" else paths["rehearsal"]
     lines.extend([
         f"- Writable product checkout and Git metadata: `{output}`. One active writer is enforced.",
@@ -81,8 +98,10 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
         "carry requirements, owner, revision, paths, evidence, limitations and next recipient.",
         "For oversized packets, number every part and obtain complete-set receipt before execution.",
         "Keep all seven identities registered; keep implementation concurrency within the limit.",
-        "Use separate worktrees under runs only after the first BAND-authored commit; otherwise",
-        "enforce one writer. PM integrates attributable commits without rewriting history.",
+        "Use the assigned shared checkout with one active writer. Use separate worktrees only",
+        "after the operator has provisioned their writable roots and enabled parallel mode;",
+        "do not create worktrees under operator-owned runs. PM integrates attributable commits",
+        "without rewriting history.",
         "Reviewer independently verifies a clean checkout of an exact integrated candidate.",
         "Retain failed evidence; stop/replan after the repair ceiling or repeated identical failure.",
         ("This is unscored practice; eligibility is not claimed. Simulate an autonomous run:" if practice else "Human stage dispatch is the only human input during the judged run. Do not solicit"),

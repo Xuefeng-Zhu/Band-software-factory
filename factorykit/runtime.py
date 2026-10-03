@@ -30,6 +30,13 @@ from .budgets import API_ENVIRONMENT, budget_blockers, codex_argv, subscription_
 
 SDK_VERSION = "4.0.0"
 EMITTED = ("tool_calls", "task_events", "usage")
+# Process-local isolation for new seat sessions. Existing thread history remains
+# intact; these flags do not remove context already stored in a resumed thread.
+SEAT_MEMORY_CONFIG = (
+    "-c", "memories.use_memories=false",
+    "-c", "memories.generate_memories=false",
+    "-c", "features.memories=false",
+)
 
 
 def timestamp() -> str:
@@ -288,7 +295,7 @@ def adapter_config(config: dict, seat: dict, mode: str):
     options = dict(
         transport="stdio", model=seat.get("model") or config["runtime"].get("model"),
         workspace_for_room=resolve,
-        codex_command=tuple(codex_argv(config, *profile_args, "app-server", "--listen", "stdio://")),
+        codex_command=tuple(codex_argv(config, *profile_args, *SEAT_MEMORY_CONFIG, "app-server", "--listen", "stdio://")),
         codex_env={"GIT_AUTHOR_NAME": seat["git_name"], "GIT_COMMITTER_NAME": seat["git_name"], "GIT_AUTHOR_EMAIL": seat["git_email"], "GIT_COMMITTER_EMAIL": seat["git_email"], **({name: "" for name in API_ENVIRONMENT} if subscription_only(config["budgets"]) else {}), **docker_environment(config, seat, mode)},
         custom_section=standing_instructions(config, seat),
         reasoning_effort=seat["reasoning_effort"], reasoning_summary="none",
@@ -309,9 +316,11 @@ def adapter_config(config: dict, seat: dict, mode: str):
 
 
 def standing_instructions(config: dict, seat: dict) -> str:
+    from .tasks import LAUNCHER_BOUNDARY
     root = Path(config["paths"]["factory"])
     sections = [Path(seat["mandate"]).read_text()]
     sections.extend(path.read_text() for path in sorted((root / "protocols").glob("*.md")))
+    sections.append(LAUNCHER_BOUNDARY)
     roster = [{k: s.get(k) for k in ("id", "display_name", "handle", "agent_id", "model", "harness", "reasoning_effort")} for s in config["seats"]]
     sections.append("# Frozen runtime metadata\n" + json.dumps({"seat": seat["id"], "roster": roster, "budgets": config["budgets"], "slash_commands": "disabled; model, reasoning and permissions are immutable"}, indent=2))
     return "\n\n".join(sections)

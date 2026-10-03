@@ -1,6 +1,6 @@
 # Seven-seat BAND factory preparation
 
-**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The user has authorized starting the build; [current build-start findings](docs/BUILD-START.md) explain the remaining execution requirements. The model/runtime selects gpt-6-astra on project-local Codex CLI 0.160.0. The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. All seven SDK identities and rehearsal room memberships have been verified without inference. Live seat execution and the toy rehearsal remain unverified. See `docs/READINESS.md` for the preparation and model-upgrade evidence.
+**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The user has authorized starting the build; [current build-start findings](docs/BUILD-START.md) explain the remaining execution requirements. The model/runtime selects gpt-6-astra on project-local Codex CLI 0.160.0. The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. All seven SDK identities and rehearsal room memberships have been verified without inference. The PM completed one live rehearsal turn, then stopped at a nested operator-preflight error. The complete seven-seat rehearsal remains unverified; owned runtime processes are stopped. See `docs/READINESS.md` for the preparation and model-upgrade evidence.
 
 Workspace: `/Users/frank/mygit/Tablekeeper`
 

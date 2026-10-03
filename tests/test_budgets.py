@@ -93,7 +93,9 @@ class SubscriptionBudgetTests(unittest.TestCase):
         self.assertIn('model_provider="openai"', argv)
         self.assertIn('openai_base_url=""', argv)
         conf = adapter_config(self.config, self.config["seats"][0], "rehearsal")
-        self.assertEqual(list(conf.codex_command), argv)
+        self.assertEqual(list(conf.codex_command), codex_argv(self.config,
+            "-c", "memories.use_memories=false", "-c", "memories.generate_memories=false", "-c", "features.memories=false",
+            "app-server", "--listen", "stdio://"))
 
     def test_probe_reads_only_auth_and_effective_config_for_every_workspace(self):
         client = AsyncMock()

@@ -15,6 +15,22 @@ Configuration SHA-256: 854b7a57d6f48adbb6580f42c101f18fb171e9be490c47ed6237d0317
 - result: `/Users/frank/mygit/Tablekeeper/result`
 - Assigned output checkout: `/Users/frank/mygit/Tablekeeper/result`
 
+## Launcher admission and seat execution
+The launcher checks authentication, approved finite budgets, registered identities
+and recorded permission evidence before connecting seats. For a seat connected by
+this launcher, those admission gates have already been enforced by the operator;
+do not repeat them inside the task sandbox.
+Do not run operator-only doctor, preflight, registration/authentication probes,
+freeze, launch, start-seats or stop-seats commands; do not call
+subscription_auth_probe or preflight_runtime or create nested Codex app servers.
+Use the injected roster, limits and workspace metadata to execute the delivered
+task. Test required operations in your assigned workspace and report any actual
+denied operation with evidence; do not reinterpret an operator probe's sandbox
+failure as a failed task prerequisite or try to repair operator infrastructure.
+Admission does not establish product correctness, seat smoke results, peer
+collaboration or stage acceptance. Perform those assigned checks and retain their
+actual evidence within the existing permissions and limits.
+
 ## Execution environment
 - Writable product checkout and Git metadata: `/Users/frank/mygit/Tablekeeper/result`. One active writer is enforced.
 - Store team test logs, screenshots and results under `/Users/frank/mygit/Tablekeeper/result/.evidence` in unique run directories; keep generated caches out of commits.
@@ -68,8 +84,10 @@ PM assigns material work in the BAND room using the verified actual handles. Han
 carry requirements, owner, revision, paths, evidence, limitations and next recipient.
 For oversized packets, number every part and obtain complete-set receipt before execution.
 Keep all seven identities registered; keep implementation concurrency within the limit.
-Use separate worktrees under runs only after the first BAND-authored commit; otherwise
-enforce one writer. PM integrates attributable commits without rewriting history.
+Use the assigned shared checkout with one active writer. Use separate worktrees only
+after the operator has provisioned their writable roots and enabled parallel mode;
+do not create worktrees under operator-owned runs. PM integrates attributable commits
+without rewriting history.
 Reviewer independently verifies a clean checkout of an exact integrated candidate.
 Retain failed evidence; stop/replan after the repair ceiling or repeated identical failure.
 Human stage dispatch is the only human input during the judged run. Do not solicit

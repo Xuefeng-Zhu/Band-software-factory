@@ -313,12 +313,19 @@ class TaskTests(Fixture):
         self.assertEqual(len(verify_tasks(self.config)["tasks"]), 6)
 
     def test_rehearsal_has_no_circular_freeze_gate(self):
+        from factorykit.tasks import LAUNCHER_BOUNDARY
         self.generate()
         tasks = Path(self.config["paths"]["factory"]) / "tasks"
         toy = (tasks / "rehearsal-toy.md").read_text()
         self.assertNotIn("Do not dispatch before the freeze reports", toy)
         self.assertIn("judged freeze is not required", toy)
+        self.assertIn("Operator dispatch prerequisite:", toy)
+        self.assertIn("Seats do not rerun operator preflight.", toy)
+        self.assertIn(LAUNCHER_BOUNDARY, toy)
+        self.assertIn("Use the assigned shared checkout with one active writer.", toy)
+        self.assertIn("do not create worktrees under operator-owned runs.", toy)
         separate = (tasks / "judged-stage-2.md").read_text()
+        self.assertIn(LAUNCHER_BOUNDARY, separate)
         self.assertIn("Execute only stage 2", separate)
         self.assertNotIn("Attempt all stages", separate)
 

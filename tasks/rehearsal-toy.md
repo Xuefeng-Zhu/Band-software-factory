@@ -3,7 +3,7 @@
 Packet state: REQUIRES_REHEARSAL_PREFLIGHT
 Dispatch mode: practice-all; stages: 1, 2, 3, 4.
 Execute stages 1 through 4 once in increasing order, with an independent gate before advancing.
-Practice packet: run only after rehearsal runtime preflight passes and finite live budgets are approved. A judged freeze is not required for rehearsal.
+Operator dispatch prerequisite: rehearsal runtime preflight must pass and finite live budgets must be approved before the launcher connects seats. A judged freeze is not required for rehearsal. Seats do not rerun operator preflight.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
 Configuration SHA-256: 854b7a57d6f48adbb6580f42c101f18fb171e9be490c47ed6237d03179122600
 
@@ -14,6 +14,22 @@ Configuration SHA-256: 854b7a57d6f48adbb6580f42c101f18fb171e9be490c47ed6237d0317
 - runs: `/Users/frank/mygit/Tablekeeper/runs`
 - result: `/Users/frank/mygit/Tablekeeper/result`
 - Assigned output checkout: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`
+
+## Launcher admission and seat execution
+The launcher checks authentication, approved finite budgets, registered identities
+and recorded permission evidence before connecting seats. For a seat connected by
+this launcher, those admission gates have already been enforced by the operator;
+do not repeat them inside the task sandbox.
+Do not run operator-only doctor, preflight, registration/authentication probes,
+freeze, launch, start-seats or stop-seats commands; do not call
+subscription_auth_probe or preflight_runtime or create nested Codex app servers.
+Use the injected roster, limits and workspace metadata to execute the delivered
+task. Test required operations in your assigned workspace and report any actual
+denied operation with evidence; do not reinterpret an operator probe's sandbox
+failure as a failed task prerequisite or try to repair operator infrastructure.
+Admission does not establish product correctness, seat smoke results, peer
+collaboration or stage acceptance. Perform those assigned checks and retain their
+actual evidence within the existing permissions and limits.
 
 ## Execution environment
 - Writable product checkout and Git metadata: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`. One active writer is enforced.
@@ -68,8 +84,10 @@ PM assigns material work in the BAND room using the verified actual handles. Han
 carry requirements, owner, revision, paths, evidence, limitations and next recipient.
 For oversized packets, number every part and obtain complete-set receipt before execution.
 Keep all seven identities registered; keep implementation concurrency within the limit.
-Use separate worktrees under runs only after the first BAND-authored commit; otherwise
-enforce one writer. PM integrates attributable commits without rewriting history.
+Use the assigned shared checkout with one active writer. Use separate worktrees only
+after the operator has provisioned their writable roots and enabled parallel mode;
+do not create worktrees under operator-owned runs. PM integrates attributable commits
+without rewriting history.
 Reviewer independently verifies a clean checkout of an exact integrated candidate.
 Retain failed evidence; stop/replan after the repair ceiling or repeated identical failure.
 This is unscored practice; eligibility is not claimed. Simulate an autonomous run:
