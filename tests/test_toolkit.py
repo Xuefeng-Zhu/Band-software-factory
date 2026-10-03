@@ -562,6 +562,19 @@ class ToyFinishLoopTests(Fixture):
         self.assertNotEqual(snapshot, toy_repository_digest(self.config))
         self.assertEqual(self.accepted(), {"toy_full_room_export"})
 
+    def test_check_invalidated_by_file_symlink_referent_content_change(self):
+        checked = Path(self.config["paths"]["rehearsal"]) / "README.md"
+        target = self.root / "readme-target.txt"
+        target.write_text("Synthetic original bytes")
+        checked.symlink_to(target)
+        snapshot = toy_repository_digest(self.config)
+        self.invocation.update(repository_before_sha256=snapshot, repository_after_sha256=snapshot)
+        self.save_observations()
+        self.assertIn("toy_offline_submission_check", self.accepted())
+        target.write_text("Synthetic changed bytes behind the same link")
+        self.assertNotEqual(snapshot, toy_repository_digest(self.config))
+        self.assertEqual(self.accepted(), {"toy_full_room_export"})
+
     def test_documented_redaction_requires_hashed_incident_evidence(self):
         self.export["room_export"]["contents"] = "credential_redaction_only"
         self.save_observations()

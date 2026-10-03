@@ -235,6 +235,9 @@ def toy_repository_digest(config: dict) -> str:
             continue
         if path.is_symlink():
             entries[str(relative)] = {"type": "symlink", "target": os.readlink(path)}
+            # The official offline checker follows file links when reading them.
+            if path.is_file():
+                entries[str(relative)]["sha256"] = digest(path)
             continue
         kind = "directory" if path.is_dir() else "file" if path.is_file() else "other"
         if ".git" in relative.parts:
