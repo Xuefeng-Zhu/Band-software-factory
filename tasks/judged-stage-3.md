@@ -5,7 +5,7 @@ Dispatch mode: separate; stages: 3.
 Execute only stage 3. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch.
 This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
-Configuration SHA-256: 854b7a57d6f48adbb6580f42c101f18fb171e9be490c47ed6237d03179122600
+Configuration SHA-256: c4eaec908d1ca67b8908a2b086bbaf01d50a649560364ed94fb3f977a64c42e8
 
 ## Absolute workspace paths
 - challenge: `/Users/frank/mygit/Tablekeeper/challenge`
@@ -67,7 +67,7 @@ Keep challenge and factory inputs outside the submitted repository. The official
   "billing_mode": "subscription_only",
   "max_active_seats": 1,
   "max_repairs": 3,
-  "max_total_tokens": 1000000,
+  "max_total_tokens": 100000000,
   "max_turns_per_seat": 100,
   "overall_timeout_seconds": 28800,
   "paid_provisioning_allowed": false,

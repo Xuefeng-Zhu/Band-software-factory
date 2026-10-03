@@ -1,32 +1,32 @@
 {
-  "configuration_sha256": "854b7a57d6f48adbb6580f42c101f18fb171e9be490c47ed6237d03179122600",
+  "configuration_sha256": "c4eaec908d1ca67b8908a2b086bbaf01d50a649560364ed94fb3f977a64c42e8",
   "schema_version": 1,
   "tasks": {
     "judged-all-stages.md": {
       "mode": "all",
-      "sha256": "15e84cc1d9389bbf93386ec33457143323c50e1c933fb34477250163d0c8481f",
+      "sha256": "9ca665cb43e93ac4f12be43b0ce14abb6701e438879f59071fc4fdf925d94d16",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 10141,
+          "offset": 10143,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 29884,
+          "offset": 29886,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         },
         {
           "bytes": 13060,
-          "offset": 40662,
+          "offset": 40664,
           "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
           "source": "tablekeeper/spec/stage-3.md"
         },
         {
           "bytes": 6276,
-          "offset": 54046,
+          "offset": 54048,
           "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4",
           "source": "tablekeeper/spec/stage-4.md"
         }
@@ -41,11 +41,11 @@
     },
     "judged-stage-1.md": {
       "mode": "separate",
-      "sha256": "9ba8367d279600c2233b8eb03cdb172a3494fecab088dffd73227ae80adce107",
+      "sha256": "c2bd9e013c5329d44ac5e5c6d0cdd9d0d94ca6f9c4359a66d5a1bc201d4803cb",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 10213,
+          "offset": 10215,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         }
@@ -57,17 +57,17 @@
     },
     "judged-stage-2.md": {
       "mode": "separate",
-      "sha256": "b2ac3e048b8aabc075146bc4a3e9f7ede2a057cb4ccb739679f90130a6f58a77",
+      "sha256": "a2c870be481760d150d72738cbe147be8d83196221e480b6ce24609b28015bb9",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 10213,
+          "offset": 10215,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 29956,
+          "offset": 29958,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         }
@@ -79,23 +79,23 @@
     },
     "judged-stage-3.md": {
       "mode": "separate",
-      "sha256": "d94d6dcb43b89f1105604baf29bda64f719788d206d1a23a0175c81c495be722",
+      "sha256": "47f1916f33cbd6a25a567f21f9e0410f71fb886eaba9a7e0c38e6694fc4f6488",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 10213,
+          "offset": 10215,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 29956,
+          "offset": 29958,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         },
         {
           "bytes": 13060,
-          "offset": 40734,
+          "offset": 40736,
           "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
           "source": "tablekeeper/spec/stage-3.md"
         }
@@ -107,29 +107,29 @@
     },
     "judged-stage-4.md": {
       "mode": "separate",
-      "sha256": "27902c6a1d86aae76cd965b7d8dcd505868c59308e2f4e84392e8af96b01b9f6",
+      "sha256": "ca947cf28a91026c90d0a97514004171216f8580ed2f2a2815fce2e401a470e2",
       "spec_payloads": [
         {
           "bytes": 19419,
-          "offset": 10213,
+          "offset": 10215,
           "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
           "source": "tablekeeper/spec/stage-1.md"
         },
         {
           "bytes": 10454,
-          "offset": 29956,
+          "offset": 29958,
           "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
           "source": "tablekeeper/spec/stage-2.md"
         },
         {
           "bytes": 13060,
-          "offset": 40734,
+          "offset": 40736,
           "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
           "source": "tablekeeper/spec/stage-3.md"
         },
         {
           "bytes": 6276,
-          "offset": 54118,
+          "offset": 54120,
           "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4",
           "source": "tablekeeper/spec/stage-4.md"
         }
@@ -141,29 +141,29 @@
     },
     "rehearsal-toy.md": {
       "mode": "practice-all",
-      "sha256": "9f363ff76305881ff596354d47a197d72c5bdecfa734d5f29884b307626804bd",
+      "sha256": "3253fc25e2e6cbcb71f67eb7e25d525d70da7a52fec03da6465c87c855bd2420",
       "spec_payloads": [
         {
           "bytes": 1895,
-          "offset": 8806,
+          "offset": 8808,
           "sha256": "b3fa4b5341480bc76e4d44a914e4503cbe96460a3d89504a5dd5e1d8fab42d2d",
           "source": "toy/spec/stage-1.md"
         },
         {
           "bytes": 906,
-          "offset": 10993,
+          "offset": 10995,
           "sha256": "8b4800455e681bedcdded8407fb170766d5a73aa91de6feed65782ac3379b493",
           "source": "toy/spec/stage-2.md"
         },
         {
           "bytes": 934,
-          "offset": 12191,
+          "offset": 12193,
           "sha256": "2b4e208b30ec0d505f8703bfec1dd38051d7b229868da37b13bab44abdaa485c",
           "source": "toy/spec/stage-3.md"
         },
         {
           "bytes": 1210,
-          "offset": 13417,
+          "offset": 13419,
           "sha256": "f27a23a7cad8f6fbfc67856ab1dab829b6b91908928ae32f4d41b0263525c955",
           "source": "toy/spec/stage-4.md"
         }
