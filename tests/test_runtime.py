@@ -13,6 +13,7 @@ from factorykit.runtime import (
     credentials, is_owned, preflight_runtime, process_identity, room_workspace,
     slash_command,
     judged_launch_errors,
+    docker_environment,
 )
 import psutil
 import yaml
@@ -39,6 +40,7 @@ class RuntimeTests(unittest.TestCase):
         self.config["budgets"]["approved"] = False
         # Keep baseline coverage independent of the evolving example defaults.
         self.config["runtime"].pop("permission_profile", None)
+        self.config["runtime"].pop("docker_host", None)
         self.config["runtime"].update(sandbox="workspace-write", allow_network=False, approval_policy="never", approval_mode="auto_decline")
 
     def tearDown(self):
@@ -133,6 +135,41 @@ class RuntimeTests(unittest.TestCase):
         self.assertFalse(any("Invalid runtime.permission_profile" in error for error in blockers))
         for check in ("permissions_agent_write_git", "permissions_docker_build", "permissions_browser", "permissions_development_network"):
             self.assertTrue(any(check in error for error in blockers))
+
+    def test_docker_environment_is_private_isolated_and_pinned_for_each_room(self):
+        self.config["runtime"].update(permission_profile={"name": "factory-test", "domains": ["pypi.org"], "unix_sockets": ["/tmp/factory-test.sock"]}, docker_host="unix:///tmp/factory-test.sock")
+        self.config["band"]["judged_room_id"] = "room-judged"
+        paths = []
+        with patch("factorykit.runtime.tempfile.gettempdir", return_value=str(self.root)), patch.dict(os.environ, {"DOCKER_HOST": "tcp://wrong:2375", "DOCKER_CONTEXT": "wrong", "BUILDX_CONFIG": "/not-writable"}):
+            for mode in ("rehearsal", "judged"):
+                for seat in self.config["seats"][:2]:
+                    conf = adapter_config(self.config, seat, mode)
+                    self.assertEqual(conf.codex_env["DOCKER_HOST"], "unix:///tmp/factory-test.sock")
+                    self.assertEqual(conf.codex_env["DOCKER_CONTEXT"], "")
+                    directory = Path(conf.codex_env["BUILDX_CONFIG"])
+                    self.assertEqual(directory.parent, self.root.resolve())
+                    self.assertEqual(directory.stat().st_mode & 0o777, 0o700)
+                    self.assertEqual(docker_environment(self.config, seat, mode)["BUILDX_CONFIG"], str(directory))
+                    paths.append(directory)
+            other = copy.deepcopy(self.config)
+            other["paths"]["factory"] += "-other"
+            self.assertNotIn(Path(docker_environment(other, other["seats"][0], "rehearsal")["BUILDX_CONFIG"]), paths)
+        self.assertEqual(len(set(paths)), 4)
+
+    def test_docker_state_rejects_symlink_and_shared_directory(self):
+        self.config["runtime"].update(permission_profile={"name": "factory-test", "domains": ["pypi.org"], "unix_sockets": ["/tmp/factory-test.sock"]}, docker_host="unix:///tmp/factory-test.sock")
+        seat = self.config["seats"][0]
+        with patch("factorykit.runtime.tempfile.gettempdir", return_value=str(self.root)):
+            directory = Path(docker_environment(self.config, seat, "rehearsal")["BUILDX_CONFIG"])
+            directory.rmdir()
+            directory.symlink_to(self.root / "result", target_is_directory=True)
+            with self.assertRaises(GateError):
+                docker_environment(self.config, seat, "rehearsal")
+            directory.unlink()
+            directory.mkdir(mode=0o755)
+            with self.assertRaises(GateError):
+                docker_environment(self.config, seat, "rehearsal")
+            self.assertEqual(list((self.root / "result").iterdir()), [])
 
     def test_pm_membership_restore_is_exact_and_bounded(self):
         async def scenario():

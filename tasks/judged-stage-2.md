@@ -5,7 +5,7 @@ Dispatch mode: separate; stages: 2.
 Execute only stage 2. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch.
 This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
-Configuration SHA-256: 1c95630cbb083266285b116a829441535e28f3925dafa2100045944e3344690c
+Configuration SHA-256: 854b7a57d6f48adbb6580f42c101f18fb171e9be490c47ed6237d03179122600
 
 ## Absolute workspace paths
 - challenge: `/Users/frank/mygit/Tablekeeper/challenge`
@@ -14,6 +14,17 @@ Configuration SHA-256: 1c95630cbb083266285b116a829441535e28f3925dafa2100045944e3
 - runs: `/Users/frank/mygit/Tablekeeper/runs`
 - result: `/Users/frank/mygit/Tablekeeper/result`
 - Assigned output checkout: `/Users/frank/mygit/Tablekeeper/result`
+
+## Execution environment
+- Writable product checkout and Git metadata: `/Users/frank/mygit/Tablekeeper/result`. One active writer is enforced.
+- Store team test logs, screenshots and results under `/Users/frank/mygit/Tablekeeper/result/.evidence` in unique run directories; keep generated caches out of commits.
+- Use the platform temporary directory for clean exact-candidate review clones outside stage folders and for dependency caches. Read-only access to sources and factory tools does not grant write access to their directories.
+- The runs directory contains operator-owned control records. Do not alter launcher, usage, dispatch or readiness files or attempt to broaden permissions.
+- Pinned harness interpreter: `/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python`. Run the official `-m harness run` from the challenge directory, with `--track tablekeeper`, an absolute `--repo` and `--out` inside your writable evidence directory. Use `--mode isolated` for acceptance; inspect its `--help` for the exact stage options.
+- The factory harness wrapper writes operator evidence under runs; use the official harness directly for seat-owned checks.
+- Docker uses the pinned local socket and private temporary buildx state supplied by the launcher. Do not override them or mount host credentials, broaden host access, or run privileged containers.
+- Browser execution on this Mac uses Chromium inside the official harness Docker image. Native macOS Chromium is blocked by the seat sandbox. For rendered checks, use an isolated test network and copy screenshots back into your evidence directory; the final service must still satisfy the official no-outbound-network harness.
+- Put npm/pip/uv dependency caches inside the writable checkout or temporary directory. No global package or system configuration changes are needed.
 
 ## Actual roster
 - pm: Factory PM; handle: @frankzhu94/factory-pm; identity: 7d26ccf7-2921-4b38-9e16-ca8ebfa2a448; harness: Codex; model: gpt-6-astra

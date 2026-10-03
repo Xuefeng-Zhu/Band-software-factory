@@ -73,10 +73,12 @@
   },
   "clock_observed_utc": "2026-10-03T06:05:35Z",
   "deadline": {
-    "account_registration_verified": false,
+    "account_registration_verified": true,
     "event_page_consistent": true,
+    "last_verified_at": "2026-10-03T17:29:49.153165+00:00",
     "source": "challenge/docs/participant-guide.md",
-    "submission_ui_verified": false,
+    "submission_ui_verified": true,
+    "team_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon",
     "time": "2026-10-05T23:59:00-07:00",
     "time_remains_at_retrieval": true,
     "timezone": "America/Los_Angeles"
@@ -206,6 +208,7 @@
     "selected": "gpt-6-astra",
     "selection_basis": "Official latestModelInfo resolver returns current flagship gpt-6-astra; authenticated model/list confirms availability. GPT-6.1 Sol is the catalog default, a distinct selection."
   },
+  "participant_guide_rechecked_at": "2026-10-03T17:29:49.153165+00:00",
   "preparation_environment_updated_at": "2026-10-03T06:54:12.733378+00:00",
   "refresh_policy": "No automatic source or dependency refresh. Create a new separately pinned preparation for changes; never refresh during a judged run.",
   "required_source_locations": {

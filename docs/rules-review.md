@@ -71,10 +71,10 @@ The service runs as one image. The harness ignores Compose and communicates over
 The following are **future commands after team-authored outputs exist**, not claims they were run successfully. They use this preparation's exact paths and verified official CLI flags. Run from the pinned challenge directory. Every `--out` directory must be new; choose a new suffix for repeat checks and keep failures.
 
 ```sh
-cd '/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge'
-'/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/harness-venv/bin/python' -m harness run --track tablekeeper --repo '/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/result' --stage 1 --mode isolated --out '/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/checks/judged-s1-final-001'
-'/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/harness-venv/bin/python' -m harness run --track tablekeeper --repo '/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/result' --all --mode isolated --out '/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/checks/judged-all-final-001'
-'/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/harness-venv/bin/python' -m harness check '/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/result' --track tablekeeper
+cd '/Users/frank/mygit/Tablekeeper/challenge'
+'/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python' -m harness run --track tablekeeper --repo '/Users/frank/mygit/Tablekeeper/result' --stage 1 --mode isolated --out '/Users/frank/mygit/Tablekeeper/runs/checks/judged-s1-final-001'
+'/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python' -m harness run --track tablekeeper --repo '/Users/frank/mygit/Tablekeeper/result' --all --mode isolated --out '/Users/frank/mygit/Tablekeeper/runs/checks/judged-all-final-001'
+'/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python' -m harness check '/Users/frank/mygit/Tablekeeper/result' --track tablekeeper
 ```
 
 For the rehearsal use `--track toy` and its separate actual repository path, never the judged result. Host mode is the default and useful during iteration, but does not block outbound networking. Final validation must use `--mode isolated`, which places service and tester on the harness's internal network. Do not improvise isolation that makes the service unreachable to the tester. The harness runs as a local command executed by a reviewer; it is not a seat and never posts messages itself.
@@ -110,7 +110,7 @@ After explicit user authorization to publish, push attributable history without 
 
 No product implementation decision is made by this review. No unresolved contradiction was found that justifies overriding an exact specification. Registration, actual seat configuration, required permissions, live rehearsal and authorized finite consumption must still be evidenced before readiness.
 
-## Preparation-only review observations
+## Historical preparation-only review observations (before the model upgrade)
 
 Seven mandate headers now identify the selected authenticated runtime as `Harness: Codex` and `Model: gpt-5.5`; their handle metadata remains UNRESOLVED and each explains that active seat execution is unverified. Display-name/file correspondence was inspected for the planned roster. The official harness mandate structural/vocabulary routine reported PASS. A second scan across every mandate and standing protocol using both official graded-track vocabularies reported PASS. One preliminary audit invocation failed because its interpreter path was relative to the wrong directory; the corrected absolute-path invocation exited 0. Neither invocation altered challenge files or ran product checks.
 

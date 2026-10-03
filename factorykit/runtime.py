@@ -249,6 +249,30 @@ def room_workspace(config: dict, seat: dict, mode: str) -> Path:
     return base.resolve()
 
 
+def docker_environment(config: dict, seat: dict, mode: str) -> dict[str, str]:
+    """Keep buildx state inside existing temp permissions, scoped to one seat."""
+    from .validation import runtime_permission_arguments
+    runtime_permission_arguments(config["runtime"])
+    if "docker_host" not in config["runtime"]:
+        return {}
+    if mode not in ("rehearsal", "judged") or not re.fullmatch(r"[a-z][a-z0-9_-]{0,63}", seat["id"]):
+        raise GateError("Docker state requires a known room mode and safe seat identifier.")
+    directory = Path(tempfile.gettempdir()).resolve() / f"factory-buildx-{fingerprint(config)[:16]}-{mode}-{seat['id']}"
+    try:
+        directory.mkdir(mode=0o700)
+    except FileExistsError:
+        pass
+    metadata = directory.lstat()
+    if not stat.S_ISDIR(metadata.st_mode) or metadata.st_uid != os.getuid() or stat.S_IMODE(metadata.st_mode) & 0o077:
+        raise GateError("Buildx temp state must be an owned, private directory; symlinks and shared directories are rejected.")
+    return {
+        "BUILDX_CONFIG": str(directory),
+        "DOCKER_HOST": config["runtime"]["docker_host"],
+        # An inherited context takes precedence over DOCKER_HOST.
+        "DOCKER_CONTEXT": "",
+    }
+
+
 def adapter_config(config: dict, seat: dict, mode: str):
     from band.adapters import CodexAdapterConfig
     from .validation import runtime_permission_arguments
@@ -265,7 +289,7 @@ def adapter_config(config: dict, seat: dict, mode: str):
         transport="stdio", model=seat.get("model") or config["runtime"].get("model"),
         workspace_for_room=resolve,
         codex_command=tuple(codex_argv(config, *profile_args, "app-server", "--listen", "stdio://")),
-        codex_env={"GIT_AUTHOR_NAME": seat["git_name"], "GIT_COMMITTER_NAME": seat["git_name"], "GIT_AUTHOR_EMAIL": seat["git_email"], "GIT_COMMITTER_EMAIL": seat["git_email"], **({name: "" for name in API_ENVIRONMENT} if subscription_only(config["budgets"]) else {})},
+        codex_env={"GIT_AUTHOR_NAME": seat["git_name"], "GIT_COMMITTER_NAME": seat["git_name"], "GIT_AUTHOR_EMAIL": seat["git_email"], "GIT_COMMITTER_EMAIL": seat["git_email"], **({name: "" for name in API_ENVIRONMENT} if subscription_only(config["budgets"]) else {}), **docker_environment(config, seat, mode)},
         custom_section=standing_instructions(config, seat),
         reasoning_effort=seat["reasoning_effort"], reasoning_summary="none",
         approval_policy="never", approval_mode="auto_decline", approval_timeout_decision="decline", approval_text_notifications=False,

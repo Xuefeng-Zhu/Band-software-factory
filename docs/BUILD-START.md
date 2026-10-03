@@ -15,10 +15,14 @@ The user authorized starting the build, moving the workspace into `/Users/frank/
 
 ## Remaining build gates
 
-Complete the relocated SDK Docker and browser checks, regenerate configuration-bound evidence and task packets, then run the real seven-seat toy rehearsal. Record directed replies, checkout and commit visibility, meaningful handoffs, independent review of an exact candidate, recovery behavior and the official isolated harness result. Only a complete matching readiness freeze permits the judged PM dispatch.
+The relocated SDK Docker build and Chromium interaction checks passed through the implemented adapter configuration. All 73 utility tests and all six exact task-packet checks passed. Refresh the proof bindings after the now-verified event access flags, then run the real seven-seat toy rehearsal. Record directed replies, checkout and commit visibility, meaningful handoffs, independent review of an exact candidate, recovery behavior and the official isolated harness result. Only a complete matching readiness freeze permits the judged PM dispatch.
 
-The judged application and toy repositories still have zero commits and no product implementation. Account registration and submission access remain unverified. The published deadline is October 5, 2026, 23:59 America/Los_Angeles; recheck the clock and event state before launch.
+The judged application and toy repositories still have zero commits and no product implementation. Enrollment is verified. The user-authorized closed solo team [MillieMoon](https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon) was created successfully, and its blank submission form is accessible. No entry was submitted. The published deadline is October 5, 2026, 23:59 America/Los_Angeles; recheck the clock and event state before launch.
 
 ## Evidence history
 
 `runs/build-start/` preserves the earlier blocked checks unchanged. `runs/build-resume/budget-authorization.json` records the expanded budget. `runs/relocation/manifest.json` records the move. `runs/runtime/registration-rehearsal.json` contains the successful pre-relocation registration result; configuration changes require fresh probes. Prior path-bound evidence is historical, not current launch proof.
+
+## Current guide audit
+
+The current official participant guide was fetched separately on October 3 and compared byte-for-byte with the pinned copy: identical, SHA-256 `1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4`. `runs/guide-audit/comparison.json` records this. The challenge checkout was not refreshed. Full compliance still needs real collaborative stage outputs, independent acceptance, whole-room export, video, human-authored final narratives and the final public submission repository. Current GitHub visibility is private.

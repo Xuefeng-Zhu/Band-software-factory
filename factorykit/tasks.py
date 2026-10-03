@@ -49,6 +49,21 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
              f"Configuration SHA-256: {digest(canonical(config))}", "", "## Absolute workspace paths"]
     lines.extend(f"- {name}: `{value}`" for name, value in paths.items())
     lines.extend([f"- Assigned output checkout: `{paths['result'] if track == 'tablekeeper' else paths['rehearsal']}`", "", "## Actual roster"])
+    # Operational guidance belongs in dispatch metadata, not track-specific mandates.
+    lines[-1] = "## Execution environment"
+    output = paths["result"] if track == "tablekeeper" else paths["rehearsal"]
+    lines.extend([
+        f"- Writable product checkout and Git metadata: `{output}`. One active writer is enforced.",
+        f"- Store team test logs, screenshots and results under `{output}/.evidence` in unique run directories; keep generated caches out of commits.",
+        "- Use the platform temporary directory for clean exact-candidate review clones outside stage folders and for dependency caches. Read-only access to sources and factory tools does not grant write access to their directories.",
+        "- The runs directory contains operator-owned control records. Do not alter launcher, usage, dispatch or readiness files or attempt to broaden permissions.",
+        f"- Pinned harness interpreter: `{config['runtime']['harness_python']}`. Run the official `-m harness run` from the challenge directory, with `--track {track}`, an absolute `--repo` and `--out` inside your writable evidence directory. Use `--mode isolated` for acceptance; inspect its `--help` for the exact stage options.",
+        "- The factory harness wrapper writes operator evidence under runs; use the official harness directly for seat-owned checks.",
+        "- Docker uses the pinned local socket and private temporary buildx state supplied by the launcher. Do not override them or mount host credentials, broaden host access, or run privileged containers.",
+        "- Browser execution on this Mac uses Chromium inside the official harness Docker image. Native macOS Chromium is blocked by the seat sandbox. For rendered checks, use an isolated test network and copy screenshots back into your evidence directory; the final service must still satisfy the official no-outbound-network harness.",
+        "- Put npm/pip/uv dependency caches inside the writable checkout or temporary directory. No global package or system configuration changes are needed.",
+        "", "## Actual roster",
+    ])
     for seat in config["seats"]:
         handle = "@" + seat["handle"].lstrip("@") if seat.get("handle") else "UNRESOLVED — do not send"
         lines.append(f"- {seat['id']}: {seat['display_name']}; handle: {handle}; identity: {seat.get('agent_id') or 'UNRESOLVED'}; harness: {seat['harness']}; model: {seat.get('model') or 'UNRESOLVED'}")

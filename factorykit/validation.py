@@ -35,6 +35,8 @@ def runtime_permission_arguments(runtime: dict) -> list[str]:
     if runtime.get("allow_network", False) is not False:
         raise FactoryError("Legacy allow_network must be false or absent; network access requires an exact named permission profile")
     if "permission_profile" not in runtime:
+        if "docker_host" in runtime:
+            raise FactoryError("runtime.docker_host requires a named permission profile with its exact Unix socket")
         if runtime.get("sandbox") != "workspace-write":
             raise FactoryError("Runtime requires workspace-write sandbox or an explicit narrow permission_profile")
         return []
@@ -44,11 +46,16 @@ def runtime_permission_arguments(runtime: dict) -> list[str]:
     if not isinstance(profile, dict):
         raise FactoryError("runtime.permission_profile must be a mapping with name and exact domains")
     try:
-        return profile_arguments(**profile)
+        arguments = profile_arguments(**profile)
     except TypeError:
         raise FactoryError("runtime.permission_profile requires name/domains and permits only allow_local_binding/unix_sockets as optional fields") from None
     except ValueError as error:
         raise FactoryError(f"Invalid runtime.permission_profile: {error}") from None
+    if "docker_host" in runtime:
+        host = runtime["docker_host"]
+        if not isinstance(host, str) or not host.startswith("unix:///") or host[len("unix://"):] not in profile.get("unix_sockets", ()):
+            raise FactoryError("runtime.docker_host must be a Unix URI matching an exact permission_profile.unix_sockets entry")
+    return arguments
 
 
 def validate(config: dict, check_sources: bool = True) -> dict:

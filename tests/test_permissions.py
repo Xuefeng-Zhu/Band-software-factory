@@ -12,6 +12,17 @@ def settings(arguments):
 
 
 class PermissionProfileTests(unittest.TestCase):
+    def test_docker_host_requires_exact_allowlisted_unix_socket(self):
+        base = {"sandbox": "workspace-write", "allow_network": False, "approval_policy": "never"}
+        profile = {"name": "factory-seat", "domains": ["pypi.org"], "unix_sockets": ["/tmp/factory.sock"]}
+        valid = dict(base, permission_profile=profile, docker_host="unix:///tmp/factory.sock")
+        self.assertEqual(runtime_permission_arguments(valid), profile_arguments(**profile))
+        for host in (None, "", "tcp://localhost:2375", "unix:///tmp/other.sock", "unix:///tmp/factory.sock?query", "unix://remote/tmp/factory.sock"):
+            with self.subTest(host=host), self.assertRaises(FactoryError):
+                runtime_permission_arguments(dict(valid, docker_host=host))
+        with self.assertRaises(FactoryError):
+            runtime_permission_arguments(dict(base, docker_host="unix:///tmp/factory.sock"))
+
     def test_runtime_rejects_malformed_unknown_and_conflicting_fields(self):
         base = {"sandbox": "workspace-write", "allow_network": False, "approval_policy": "never"}
         profile = {"name": "factory-seat", "domains": ["pypi.org"]}
