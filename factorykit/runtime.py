@@ -162,6 +162,8 @@ def credentials(config: dict) -> dict:
 
 
 def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
+    from .common import FactoryError
+    from .validation import observations, runtime_permission_arguments
     errors = []
     rt, bd, limits = config["runtime"], config["band"], config["budgets"]
     if importlib.metadata.version("band-sdk") != SDK_VERSION:
@@ -170,12 +172,15 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
         errors.append(f"Set band.{mode}_room_id to the verified existing room UUID.")
     if bd.get("rehearsal_room_id") and bd.get("rehearsal_room_id") == bd.get("judged_room_id"):
         errors.append("Rehearsal and judged rooms must be distinct.")
-    if rt.get("sandbox") != "workspace-write" or rt.get("approval_policy") != "never" or rt.get("approval_mode") != "auto_decline" or rt.get("allow_network"):
-        errors.append("Runtime requires workspace-write, never, auto_decline and allow_network=false.")
+    try:
+        runtime_permission_arguments(rt)
+    except FactoryError as error:
+        errors.append(str(error))
+    if rt.get("approval_mode") != "auto_decline":
+        errors.append("Runtime requires auto_decline approval mode.")
     # Use the same hash-bound observed evidence as freeze, but only permission
     # prerequisites: requiring completed toy collaboration here would deadlock
     # the very rehearsal needed to obtain that proof.
-    from .validation import observations
     observed, _ = observations(config)
     verified_permissions = {item["id"] for item in observed}
     for check in ("permissions_agent_write_git", "permissions_docker_build", "permissions_browser", "permissions_development_network"):
@@ -246,6 +251,8 @@ def room_workspace(config: dict, seat: dict, mode: str) -> Path:
 
 def adapter_config(config: dict, seat: dict, mode: str):
     from band.adapters import CodexAdapterConfig
+    from .validation import runtime_permission_arguments
+    profile_args = runtime_permission_arguments(config["runtime"])
     room = config["band"][f"{mode}_room_id"]
     workspace = room_workspace(config, seat, mode)
     if not workspace.is_dir():
@@ -257,12 +264,13 @@ def adapter_config(config: dict, seat: dict, mode: str):
     options = dict(
         transport="stdio", model=seat.get("model") or config["runtime"].get("model"),
         workspace_for_room=resolve,
-        codex_command=tuple(codex_argv(config, "app-server", "--listen", "stdio://")),
+        codex_command=tuple(codex_argv(config, *profile_args, "app-server", "--listen", "stdio://")),
         codex_env={"GIT_AUTHOR_NAME": seat["git_name"], "GIT_COMMITTER_NAME": seat["git_name"], "GIT_AUTHOR_EMAIL": seat["git_email"], "GIT_COMMITTER_EMAIL": seat["git_email"], **({name: "" for name in API_ENVIRONMENT} if subscription_only(config["budgets"]) else {})},
         custom_section=standing_instructions(config, seat),
         reasoning_effort=seat["reasoning_effort"], reasoning_summary="none",
         approval_policy="never", approval_mode="auto_decline", approval_timeout_decision="decline", approval_text_notifications=False,
-        sandbox="workspace-write", sandbox_policy={"type": "workspaceWrite", "writableRoots": [str(workspace)], "networkAccess": False},
+        sandbox=None if profile_args else "workspace-write",
+        sandbox_policy=None if profile_args else {"type": "workspaceWrite", "writableRoots": [str(workspace)], "networkAccess": False},
         turn_timeout_s=config["budgets"]["turn_timeout_seconds"],
         enable_self_config_tools=False, emit_turn_task_markers=False, emit_turn_lifecycle_events=True,
         stream_reasoning_events=False, stream_commentary_events=False, stream_plan_events=False,

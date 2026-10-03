@@ -13,6 +13,7 @@ import tempfile
 
 from .common import FactoryError, canonical, contains_secret, digest, run_command, utc_now, verify_sources, write_json
 from .budgets import budget_blockers, subscription_auth_errors, subscription_only
+from .permissions import profile_arguments
 
 REQUIRED_OBSERVATIONS = (
     "permissions_agent_write_git", "permissions_docker_build", "permissions_browser",
@@ -21,6 +22,33 @@ REQUIRED_OBSERVATIONS = (
     "toy_pm_assignment_peer_handoffs", "toy_independent_fixed_candidate_review",
     "toy_missing_peer_delayed_message", "toy_isolated_harness", "semantic_generic_instructions",
 )
+
+
+def runtime_permission_arguments(runtime: dict) -> list[str]:
+    """Validate configured isolation and return immutable named-profile args.
+
+    Legacy settings remain a narrow fallback only. Profile-backed adapters must
+    omit both SDK sandbox fields so they cannot replace the selected profile.
+    """
+    if runtime.get("approval_policy") != "never":
+        raise FactoryError("Runtime requires never approval policy")
+    if runtime.get("allow_network", False) is not False:
+        raise FactoryError("Legacy allow_network must be false or absent; network access requires an exact named permission profile")
+    if "permission_profile" not in runtime:
+        if runtime.get("sandbox") != "workspace-write":
+            raise FactoryError("Runtime requires workspace-write sandbox or an explicit narrow permission_profile")
+        return []
+    if runtime.get("sandbox") not in (None, "workspace-write"):
+        raise FactoryError("Named permission profiles cannot be combined with broader legacy sandbox settings")
+    profile = runtime["permission_profile"]
+    if not isinstance(profile, dict):
+        raise FactoryError("runtime.permission_profile must be a mapping with name and exact domains")
+    try:
+        return profile_arguments(**profile)
+    except TypeError:
+        raise FactoryError("runtime.permission_profile requires name/domains and permits only allow_local_binding/unix_sockets as optional fields") from None
+    except ValueError as error:
+        raise FactoryError(f"Invalid runtime.permission_profile: {error}") from None
 
 
 def validate(config: dict, check_sources: bool = True) -> dict:
@@ -33,9 +61,10 @@ def validate(config: dict, check_sources: bool = True) -> dict:
     model = config["runtime"].get("model")
     if not model:
         blockers.append("Resolve and pin a model from the authenticated runtime")
-    allowed_sandbox = config["runtime"].get("sandbox") == "workspace-write"
-    if not allowed_sandbox or config["runtime"].get("approval_policy") != "never":
-        errors.append("Factory requires workspace-write sandbox and never approval policy; broader isolation needs separately verified support")
+    try:
+        runtime_permission_arguments(config["runtime"])
+    except FactoryError as error:
+        errors.append(str(error))
     paths = config["paths"]
     for seat in config["seats"]:
         name = seat["id"]

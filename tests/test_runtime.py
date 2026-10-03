@@ -22,7 +22,10 @@ FACTORY = Path(__file__).resolve().parents[1]
 
 class RuntimeTests(unittest.TestCase):
     def setUp(self):
-        self.config = yaml.safe_load((FACTORY / "config/factory.yaml").read_text())
+        self.config = yaml.safe_load((FACTORY / "config/factory.example.yaml").read_text())
+        self.config["paths"]["factory"] = str(FACTORY)
+        for seat in self.config["seats"]:
+            seat["mandate"] = str(FACTORY / "mandates" / f"factory-{seat['id']}.md")
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
         self.config["paths"]["runs"] = str(self.root / "runs")
@@ -33,6 +36,10 @@ class RuntimeTests(unittest.TestCase):
         self.config["band"]["rehearsal_room_id"] = "room-allowed"
         self.config["band"]["credentials_file"] = str(self.root / "credentials.yaml")
         self.config["budgets"]["max_active_seats"] = 1
+        self.config["budgets"]["approved"] = False
+        # Keep baseline coverage independent of the evolving example defaults.
+        self.config["runtime"].pop("permission_profile", None)
+        self.config["runtime"].update(sandbox="workspace-write", allow_network=False, approval_policy="never", approval_mode="auto_decline")
 
     def tearDown(self):
         self.temp.cleanup()
@@ -88,6 +95,44 @@ class RuntimeTests(unittest.TestCase):
 
     def test_judged_start_cannot_bypass_ready_freeze(self):
         self.assertIn("Judged start requires a READY_TO_LAUNCH freeze.", judged_launch_errors(self.config))
+
+    def test_named_profile_inherits_on_both_sdk_thread_and_turn_without_environment_override(self):
+        from band.adapters import CodexAdapter
+        from factorykit.permissions import profile_arguments
+        profile = {"name": "factory-test", "domains": ["pypi.org", "localhost", "127.0.0.1"], "allow_local_binding": True, "unix_sockets": ["/tmp/factory-test.sock"]}
+        self.config["runtime"]["permission_profile"] = profile
+        with patch.dict(os.environ, {"CODEX_SANDBOX": "danger-full-access", "CODEX_SANDBOX_POLICY": '{"type":"dangerFullAccess"}'}):
+            conf = adapter_config(self.config, self.config["seats"][0], "rehearsal")
+        self.assertIsNone(conf.sandbox)
+        self.assertIsNone(conf.sandbox_policy)
+        argv = list(conf.codex_command)
+        expected = profile_arguments(**profile)
+        index = argv.index(expected[1]) - 1
+        self.assertEqual(argv[index:index + len(expected)], expected)
+        self.assertLess(index, argv.index("app-server"))
+        adapter = CodexAdapter(conf)
+        thread, turn = {}, {}
+        adapter._apply_thread_sandbox(thread, room_id="room-allowed")
+        adapter._apply_turn_sandbox(turn, room_id="room-allowed")
+        self.assertEqual(thread, {})
+        self.assertEqual(turn, {})
+
+    def test_invalid_profile_cannot_fall_back_to_legacy_adapter(self):
+        from factorykit.common import FactoryError
+        self.config["runtime"]["permission_profile"] = {"name": "factory-test", "domains": ["*"]}
+        with self.assertRaises(FactoryError):
+            adapter_config(self.config, self.config["seats"][0], "rehearsal")
+        with patch("factorykit.runtime.subscription_auth_errors", return_value=[]):
+            blockers = preflight_runtime(self.config)
+        self.assertTrue(any("Invalid runtime.permission_profile" in error for error in blockers))
+
+    def test_valid_profile_does_not_replace_required_observed_permission_evidence(self):
+        self.config["runtime"]["permission_profile"] = {"name": "factory-test", "domains": ["pypi.org"]}
+        with patch("factorykit.runtime.subscription_auth_errors", return_value=[]):
+            blockers = preflight_runtime(self.config)
+        self.assertFalse(any("Invalid runtime.permission_profile" in error for error in blockers))
+        for check in ("permissions_agent_write_git", "permissions_docker_build", "permissions_browser", "permissions_development_network"):
+            self.assertTrue(any(check in error for error in blockers))
 
     def test_pm_membership_restore_is_exact_and_bounded(self):
         async def scenario():
