@@ -5,15 +5,15 @@ Dispatch mode: practice-all; stages: 1, 2, 3, 4.
 Execute stages 1 through 4 once in increasing order, with an independent gate before advancing.
 Practice packet: run only after rehearsal runtime preflight passes and finite live budgets are approved. A judged freeze is not required for rehearsal.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
-Configuration SHA-256: 43cc5c3f3ee8171ee3abdf8b2c739be2e2d21b6e32c0894bd3e0b141c95e89ac
+Configuration SHA-256: 1c95630cbb083266285b116a829441535e28f3925dafa2100045944e3344690c
 
 ## Absolute workspace paths
-- challenge: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge`
-- factory: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory`
-- rehearsal: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/rehearsal/toy-result`
-- runs: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs`
-- result: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/result`
-- Assigned output checkout: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/rehearsal/toy-result`
+- challenge: `/Users/frank/mygit/Tablekeeper/challenge`
+- factory: `/Users/frank/mygit/Tablekeeper/factory`
+- rehearsal: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`
+- runs: `/Users/frank/mygit/Tablekeeper/runs`
+- result: `/Users/frank/mygit/Tablekeeper/result`
+- Assigned output checkout: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`
 
 ## Actual roster
 - pm: Factory PM; handle: @frankzhu94/factory-pm; identity: 7d26ccf7-2921-4b38-9e16-ca8ebfa2a448; harness: Codex; model: gpt-6-astra
@@ -27,16 +27,19 @@ Configuration SHA-256: 43cc5c3f3ee8171ee3abdf8b2c739be2e2d21b6e32c0894bd3e0b141c
 ## Finite work limits
 ```json
 {
-  "ack_timeout_seconds": 60,
-  "approved": false,
+  "ack_timeout_seconds": 120,
+  "api_billing_allowed": false,
+  "approved": true,
+  "billing_mode": "subscription_only",
   "max_active_seats": 1,
-  "max_repairs": 2,
-  "max_total_tokens": 100000,
-  "max_turns_per_seat": 20,
-  "overall_timeout_seconds": 7200,
+  "max_repairs": 3,
+  "max_total_tokens": 1000000,
+  "max_turns_per_seat": 100,
+  "overall_timeout_seconds": 28800,
+  "paid_provisioning_allowed": false,
   "spend_cap_usd": null,
-  "stage_timeout_seconds": 1800,
-  "turn_timeout_seconds": 180
+  "stage_timeout_seconds": 14400,
+  "turn_timeout_seconds": 600
 }
 ```
 
@@ -67,7 +70,7 @@ Check every seat can see its assigned checkout and a committed change; preserve
 directed replies for every seat and isolated final-container evidence.
 
 ## Exact official specification — toy/spec/stage-1.md
-Source: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge/toy/spec/stage-1.md
+Source: /Users/frank/mygit/Tablekeeper/challenge/toy/spec/stage-1.md
 SHA-256: b3fa4b5341480bc76e4d44a914e4503cbe96460a3d89504a5dd5e1d8fab42d2d
 
 <!-- BEGIN EXACT SPEC toy/spec/stage-1.md -->
@@ -113,7 +116,7 @@ There are no accounts, passwords, tokens, idempotency keys, or database requirem
 <!-- END EXACT SPEC toy/spec/stage-1.md -->
 
 ## Exact official specification — toy/spec/stage-2.md
-Source: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge/toy/spec/stage-2.md
+Source: /Users/frank/mygit/Tablekeeper/challenge/toy/spec/stage-2.md
 SHA-256: 8b4800455e681bedcdded8407fb170766d5a73aa91de6feed65782ac3379b493
 
 <!-- BEGIN EXACT SPEC toy/spec/stage-2.md -->
@@ -142,7 +145,7 @@ Stage 1 must still pass.
 <!-- END EXACT SPEC toy/spec/stage-2.md -->
 
 ## Exact official specification — toy/spec/stage-3.md
-Source: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge/toy/spec/stage-3.md
+Source: /Users/frank/mygit/Tablekeeper/challenge/toy/spec/stage-3.md
 SHA-256: 2b4e208b30ec0d505f8703bfec1dd38051d7b229868da37b13bab44abdaa485c
 
 <!-- BEGIN EXACT SPEC toy/spec/stage-3.md -->
@@ -168,7 +171,7 @@ and write the same number have lost an increment, and the final read will show i
 <!-- END EXACT SPEC toy/spec/stage-3.md -->
 
 ## Exact official specification — toy/spec/stage-4.md
-Source: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge/toy/spec/stage-4.md
+Source: /Users/frank/mygit/Tablekeeper/challenge/toy/spec/stage-4.md
 SHA-256: f27a23a7cad8f6fbfc67856ab1dab829b6b91908928ae32f4d41b0263525c955
 
 <!-- BEGIN EXACT SPEC toy/spec/stage-4.md -->

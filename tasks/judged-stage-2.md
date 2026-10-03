@@ -5,15 +5,15 @@ Dispatch mode: separate; stages: 2.
 Execute only stage 2. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch.
 This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
-Configuration SHA-256: 43cc5c3f3ee8171ee3abdf8b2c739be2e2d21b6e32c0894bd3e0b141c95e89ac
+Configuration SHA-256: 1c95630cbb083266285b116a829441535e28f3925dafa2100045944e3344690c
 
 ## Absolute workspace paths
-- challenge: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge`
-- factory: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory`
-- rehearsal: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/rehearsal/toy-result`
-- runs: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs`
-- result: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/result`
-- Assigned output checkout: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/result`
+- challenge: `/Users/frank/mygit/Tablekeeper/challenge`
+- factory: `/Users/frank/mygit/Tablekeeper/factory`
+- rehearsal: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`
+- runs: `/Users/frank/mygit/Tablekeeper/runs`
+- result: `/Users/frank/mygit/Tablekeeper/result`
+- Assigned output checkout: `/Users/frank/mygit/Tablekeeper/result`
 
 ## Actual roster
 - pm: Factory PM; handle: @frankzhu94/factory-pm; identity: 7d26ccf7-2921-4b38-9e16-ca8ebfa2a448; harness: Codex; model: gpt-6-astra
@@ -27,16 +27,19 @@ Configuration SHA-256: 43cc5c3f3ee8171ee3abdf8b2c739be2e2d21b6e32c0894bd3e0b141c
 ## Finite work limits
 ```json
 {
-  "ack_timeout_seconds": 60,
-  "approved": false,
+  "ack_timeout_seconds": 120,
+  "api_billing_allowed": false,
+  "approved": true,
+  "billing_mode": "subscription_only",
   "max_active_seats": 1,
-  "max_repairs": 2,
-  "max_total_tokens": 100000,
-  "max_turns_per_seat": 20,
-  "overall_timeout_seconds": 7200,
+  "max_repairs": 3,
+  "max_total_tokens": 1000000,
+  "max_turns_per_seat": 100,
+  "overall_timeout_seconds": 28800,
+  "paid_provisioning_allowed": false,
   "spend_cap_usd": null,
-  "stage_timeout_seconds": 1800,
-  "turn_timeout_seconds": 180
+  "stage_timeout_seconds": 14400,
+  "turn_timeout_seconds": 600
 }
 ```
 
@@ -87,7 +90,7 @@ Clearly mark optional visual ideas. QA independently authors actual behavior tes
 covering late search responses, conflicts, lost responses, retries and upgrades.
 
 ## Exact official specification — tablekeeper/spec/stage-1.md
-Source: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge/tablekeeper/spec/stage-1.md
+Source: /Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md
 SHA-256: 9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f
 
 <!-- BEGIN EXACT SPEC tablekeeper/spec/stage-1.md -->
@@ -567,7 +570,7 @@ as well as the resulting bookings. No batch UI is required.
 <!-- END EXACT SPEC tablekeeper/spec/stage-1.md -->
 
 ## Exact official specification — tablekeeper/spec/stage-2.md
-Source: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge/tablekeeper/spec/stage-2.md
+Source: /Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-2.md
 SHA-256: b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc
 
 <!-- BEGIN EXACT SPEC tablekeeper/spec/stage-2.md -->

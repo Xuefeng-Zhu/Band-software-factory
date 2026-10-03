@@ -68,7 +68,7 @@
       "toy/test/stage_3/test_concurrency.py": "24bb15079739fa8f101d072b6af4bc074ee4566bf8cd565dbe83cd873bf4e6f4",
       "toy/test/stage_4/test_increment_by.py": "82129e199950ecb02dc258ca66379d5e35c59e155d87bd5ab2f96cc3e88cfb0d"
     },
-    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/challenge",
+    "path": "/Users/frank/mygit/Tablekeeper/challenge",
     "url": "https://github.com/band-ai/dark-factory-wearedevs.git"
   },
   "clock_observed_utc": "2026-10-03T06:05:35Z",
@@ -85,7 +85,7 @@
     {
       "bytes": 307785,
       "final_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/event.html",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/event.html",
       "requested_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
       "retrieved_at": "2026-10-03T06:07:41.816404+00:00",
       "sha256": "19a4daeebcc631b66ab6b040488ee98f1869b5ba7734788cfffcffa59c20ae31"
@@ -93,7 +93,7 @@
     {
       "bytes": 267155,
       "final_url": "https://github.com/band-ai/dark-factory-wearedevs",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/challenge.html",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/challenge.html",
       "requested_url": "https://github.com/band-ai/dark-factory-wearedevs",
       "retrieved_at": "2026-10-03T06:07:42.498096+00:00",
       "sha256": "e41add07c6a95b111baaa5d67918769e0be92a16c578c9d0a079b719096b5fe0"
@@ -101,7 +101,7 @@
     {
       "bytes": 46357,
       "final_url": "https://raw.githubusercontent.com/band-ai/dark-factory-wearedevs/main/docs/participant-guide.md",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/participant-guide.md",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/participant-guide.md",
       "requested_url": "https://raw.githubusercontent.com/band-ai/dark-factory-wearedevs/main/docs/participant-guide.md",
       "retrieved_at": "2026-10-03T06:07:42.697870+00:00",
       "sha256": "1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4"
@@ -109,7 +109,7 @@
     {
       "bytes": 12057,
       "final_url": "https://docs.band.ai/band-desktop.md",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/band-desktop.md",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/band-desktop.md",
       "requested_url": "https://docs.band.ai/band-desktop.md",
       "retrieved_at": "2026-10-03T06:07:43.112971+00:00",
       "sha256": "9ee6620fbefd2404f6852ba4c638c31fd768d5086d4496e4a9e3ac9db8069e53"
@@ -117,7 +117,7 @@
     {
       "bytes": 20642,
       "final_url": "https://docs.band.ai/integrations/sdks/tutorials/codex.md",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/band-codex.md",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/band-codex.md",
       "requested_url": "https://docs.band.ai/integrations/sdks/tutorials/codex.md",
       "retrieved_at": "2026-10-03T06:07:43.505636+00:00",
       "sha256": "b4606dceb702aba15558a120dd1b21f3a21078333027155596bc12ecce42ceeb"
@@ -125,7 +125,7 @@
     {
       "bytes": 16236,
       "final_url": "https://docs.band.ai/integrations/sdks/tutorials/setup.md",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/band-setup.md",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/band-setup.md",
       "requested_url": "https://docs.band.ai/integrations/sdks/tutorials/setup.md",
       "retrieved_at": "2026-10-03T06:07:43.908766+00:00",
       "sha256": "7708ce299932caed53b7f7a35a22160b7d0ebd35f753ec82d460895fd48bc0fb"
@@ -133,7 +133,7 @@
     {
       "bytes": 392011,
       "final_url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/codex-agents.html",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/codex-agents.html",
       "requested_url": "https://developers.openai.com/codex/guides/agents-md",
       "retrieved_at": "2026-10-03T06:07:44.217511+00:00",
       "sha256": "4eb7d8a458b9d1af298ac051f114c4f9787bf3dfb930b9cee2fcffd9e6bbb0e0"
@@ -141,7 +141,7 @@
     {
       "bytes": 369389,
       "final_url": "https://learn.chatgpt.com/docs/security",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/codex-security.html",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/codex-security.html",
       "requested_url": "https://developers.openai.com/codex/security",
       "retrieved_at": "2026-10-03T06:07:44.501094+00:00",
       "sha256": "82c9b311c88e5a8bd97f92ad571f1aaabb524cc96404ffe5588e5a5381d91b2c"
@@ -149,7 +149,7 @@
     {
       "bytes": 37249,
       "final_url": "https://learn.chatgpt.com/docs/agent-approvals-security.md",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/codex-permissions.md",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/codex-permissions.md",
       "requested_url": "https://learn.chatgpt.com/docs/agent-approvals-security.md",
       "retrieved_at": "2026-10-03T06:11:36.000218+00:00",
       "sha256": "bb78bd122fc94a9871630e39d74d38fc3aa204deddbc3ead74da9b76f99e2afb"
@@ -157,7 +157,7 @@
     {
       "bytes": 19099,
       "final_url": "https://developers.openai.com/api/docs/guides/latest-model",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/model-upgrade-latest.md",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/model-upgrade-latest.md",
       "requested_url": "https://developers.openai.com/api/docs/guides/latest-model",
       "retrieved_at": "2026-10-03T07:15:08.241480+00:00",
       "sha256": "9d2d9c5988230927a2253fb78b7d6c0cd68bf885419847b94618467f0c468ec0"
@@ -165,7 +165,7 @@
     {
       "bytes": 19099,
       "final_url": "https://developers.openai.com/api/docs/guides/latest-model/gpt-6-astra.md#migration-quickstart",
-      "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/model-upgrade-migration.md",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/sources/model-upgrade-migration.md",
       "requested_url": "https://developers.openai.com/api/docs/guides/latest-model/gpt-6-astra.md#migration-quickstart",
       "retrieved_at": "2026-10-03T07:15:08.241480+00:00",
       "sha256": "9d2d9c5988230927a2253fb78b7d6c0cd68bf885419847b94618467f0c468ec0"
@@ -183,11 +183,13 @@
       "contents_saved": false,
       "kind": "inherited Codex runtime configuration",
       "path": "/Users/frank/.codex/config.toml",
-      "sha256": "b01f304fbd0a96dd89dd05520d4ebb2ee7e045384393461e3e47c4c3910efcee"
+      "previous_sha256": "b01f304fbd0a96dd89dd05520d4ebb2ee7e045384393461e3e47c4c3910efcee",
+      "revalidated_at": "2026-10-03T17:15:48.292857+00:00",
+      "sha256": "be06228906f11dfe1eaf0d863e6859c6fbce2fe0c6049341d125218fcfa478fc"
     }
   ],
   "local_model_discovery": {
-    "evidence_path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/runtime/models.json",
+    "evidence_path": "/Users/frank/mygit/Tablekeeper/runs/runtime/models.json",
     "inference_started": false,
     "selected": "gpt-6-astra",
     "sha256": "8270f62498732a0c550b45799261cf57ac915275e6cfa44ce630d5c4a73b1576"
@@ -198,7 +200,7 @@
     "migration_guide_url": "https://developers.openai.com/api/docs/guides/latest-model/gpt-6-astra.md#migration-quickstart",
     "no_inference": true,
     "package_lock_sha256": "96d56cc75319eb74a91f78308b624a57b76cc9c24f5010002407b20e544c20f4",
-    "previous_evidence": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/runs/model-upgrade/previous",
+    "previous_evidence": "/Users/frank/mygit/Tablekeeper/runs/model-upgrade/previous",
     "recorded_at": "2026-10-03T07:11:15.346194+00:00",
     "requested": "use latest model instead",
     "selected": "gpt-6-astra",
@@ -236,5 +238,6 @@
     "playwright": "1.63.0",
     "system_python": "3.14.3",
     "uv": "0.11.2"
-  }
+  },
+  "workspace_relocated_at": "2026-10-03T17:15:48.292857+00:00"
 }

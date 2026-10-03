@@ -1,16 +1,24 @@
 # Seven-seat BAND factory preparation
 
-**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The user has authorized starting the build; [current build-start findings](docs/BUILD-START.md) explain the remaining execution requirements. The model/runtime selects gpt-6-astra on project-local Codex CLI 0.160.0. The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. SDK connection and rehearsal remain unverified. See `docs/READINESS.md` for the preparation and model-upgrade evidence.
+**Status: BLOCKED_WITH_ACTIONS. No judged task was dispatched.** The user has authorized starting the build; [current build-start findings](docs/BUILD-START.md) explain the remaining execution requirements. The model/runtime selects gpt-6-astra on project-local Codex CLI 0.160.0. The toolkit is locally tested, the official challenge is pinned, and seven BAND identities exist. All seven SDK identities and rehearsal room memberships have been verified without inference. Live seat execution and the toy rehearsal remain unverified. See `docs/READINESS.md` for the preparation and model-upgrade evidence.
 
-Workspace: `/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace`
+Workspace: `/Users/frank/mygit/Tablekeeper`
 
 The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools. `rehearsal/toy-result/` is an empty independent practice repository. `runs/` holds evidence, environments, browser binaries and future worktrees. `result/` is a fresh Git repository with **zero commits and no product files**. No stage Dockerfiles, schemas, product prototypes or domain behavior tests have been seeded.
 
 All commands below run from the absolute factory directory:
 
 ```sh
-cd '/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory'
+cd '/Users/frank/mygit/Tablekeeper/factory'
 ```
+
+## Repositories and progress
+
+- Application: https://github.com/Xuefeng-Zhu/Tablekeeper — local `../result`, currently empty pending the first BAND-authored product commit.
+- Factory tools: https://github.com/Xuefeng-Zhu/Tablekeeper-factory — this repository, committed and pushed at verified milestones.
+- Challenge: the pinned official upstream checkout; never refreshed during the frozen build.
+
+The workspace was moved to `/Users/frank/mygit/Tablekeeper`. Historical logs retain their original paths and are not current permission attestations. Credentials remain outside this workspace. The approved local ceiling is 1,000,000 reported tokens and eight hours across rehearsal and build, one active seat, with no API billing or paid provisioning. The checked-in example stays unapproved by default.
 
 ## Reproduce and inspect
 
@@ -34,23 +42,23 @@ The local `config/factory.yaml` already records the created identities and rooms
 
 `submission-check` runs the official offline check and marks missing pre-build artifacts `EXPECTED_MISSING`. This is not a passing submission. The final form, `submission-check --final`, includes additional manual evidence gates and must be reviewed by a person.
 
-## Seven real identities created; SDK verification still required
+## Seven real identities verified; live execution pending
 
 | Seat ID | Stable requested display name | Intended harness/model | Actual handle/registration |
 |---|---|---|---|
-| pm | Factory PM | Codex / gpt-6-astra | @frankzhu94/factory-pm / identity created; SDK unverified |
-| architect | Factory Architect | Codex / gpt-6-astra | @frankzhu94/factory-architect / identity created; SDK unverified |
-| designer | Factory Designer | Codex / gpt-6-astra | @frankzhu94/factory-designer / identity created; SDK unverified |
-| backend | Factory Backend | Codex / gpt-6-astra | @frankzhu94/factory-backend / identity created; SDK unverified |
-| frontend | Factory Frontend | Codex / gpt-6-astra | @frankzhu94/factory-frontend / identity created; SDK unverified |
-| qa | Factory QA | Codex / gpt-6-astra | @frankzhu94/factory-qa / identity created; SDK unverified |
-| reviewer | Factory Reviewer | Codex / gpt-6-astra | @frankzhu94/factory-reviewer / identity created; SDK unverified |
+| pm | Factory PM | Codex / gpt-6-astra | @frankzhu94/factory-pm / SDK identity and rehearsal membership verified |
+| architect | Factory Architect | Codex / gpt-6-astra | @frankzhu94/factory-architect / SDK identity and rehearsal membership verified |
+| designer | Factory Designer | Codex / gpt-6-astra | @frankzhu94/factory-designer / SDK identity and rehearsal membership verified |
+| backend | Factory Backend | Codex / gpt-6-astra | @frankzhu94/factory-backend / SDK identity and rehearsal membership verified |
+| frontend | Factory Frontend | Codex / gpt-6-astra | @frankzhu94/factory-frontend / SDK identity and rehearsal membership verified |
+| qa | Factory QA | Codex / gpt-6-astra | @frankzhu94/factory-qa / SDK identity and rehearsal membership verified |
+| reviewer | Factory Reviewer | Codex / gpt-6-astra | @frankzhu94/factory-reviewer / SDK identity and rehearsal membership verified |
 
 The mandates' first two lines record the selected harness/model, not observed seat execution. All seven seats now select **gpt-6-astra**, the current flagship resolved through OpenAI's [latest-model guidance](https://developers.openai.com/api/docs/guides/latest-model), using project-local **Codex CLI 0.160.0** and band-sdk 4.0.0. The authenticated fresh `initialize` + `model/list` check confirmed gpt-6-astra with both the existing medium and high role efforts; no inference turn was started. The catalog's default is gpt-6.1-sol, so this is an explicit flagship selection, not a claim that Astra is the newest chronological model or the runtime default. Evidence: `runs/model-upgrade/models-0.160.0.json`. Earlier CLI 0.133.0 discovery selected gpt-5.5; that observation remains historical evidence, not the current selection. Native identity creation and room membership are recorded separately; actual SDK seat execution and model usage remain live prerequisites. Preparation subagents are not BAND seats.
 
 BAND Desktop 0.4.12 is installed and signed in. Seven real identities and two rooms were created through its supported CLI; actual UUIDs and room IDs are in the local configuration and `runs/preparation/`. The seven factory native workers have been stopped while preserving their identities and parked templates. Their project-local 0.160.0 templates and gpt-6-astra settings were updated without restart; the default plus both room settings were verified for all seven seats. See `runs/model-upgrade/native-template-summary.json`. See `docs/native-band-cli.md` for the integration boundary.
 
-The remaining credential action is to obtain supported SDK API keys for these existing identities through [BAND Agents](https://app.band.ai/agents). The native CLI creation result provides no key, and its documented surface has no export command. Do not read private daemon/keychain state. If the dashboard cannot issue SDK keys for owned identities, use the official **New Agent → Remote Agent** flow and explicitly replace the roster/room memberships before revalidating; do not silently substitute agents. See the [official SDK setup](https://docs.band.ai/integrations/sdks/tutorials/setup).
+Supported SDK keys for all seven existing identities were retrieved through the BAND Desktop Info panel and saved privately. A real SDK registration probe matched every configured UUID, handle and rehearsal membership. No identities were replaced and no keys are stored in Git. Re-run registration after local configuration changes.
 
 Credentials belong at the configured absolute `band.credentials_file`, outside every repository. A non-secret shape is in `config/agent-credentials.example.yaml`; private parent mode must be `0700`, file mode `0600`. Do not paste keys into the room or chat. Non-secret identity/model/room settings belong in `config/factory.yaml` (ignored by factory Git). Confirm SDK REST and websocket endpoints refer to the same BAND environment.
 
@@ -73,9 +81,9 @@ scripts/factory harness --track toy --stage 1 --mode host
 scripts/factory harness --track toy --all --mode isolated
 ```
 
-Each invocation has its own evidence directory and propagates the official exit code. Failed logs remain. The wrapper invokes only options observed in official `--help`. The actual toy build and isolated check have **not** run: BAND credentials, approved budget and unattended permissions are missing, and Docker's daemon is stopped.
+Each invocation has its own evidence directory and propagates the official exit code. Failed logs remain. The wrapper invokes only options observed in official `--help`. The actual toy build and isolated check have **not** run. Credentials and the finite subscription budget are configured; OrbStack Docker 29.4.0 is running. Verification of the full seat permission boundary and the seven-seat rehearsal remains required.
 
-Read `docs/environment.md` before configuring execution access. The earlier Codex CLI 0.133.0 disposable sandbox probe allowed file writes but denied Git commits, development networking and localhost binding. Those failures are retained; permission evidence for the selected 0.160.0 CLI is NOT_TESTED until revalidated. The version/model change does not establish new permissions. The runner does not enable unrestricted host access. Prepare and verify a disposable environment or a narrowly supported permission profile; broader access requires a reviewed integration change. Docker socket access is significant privilege. Host browser smoke success does not prove agent browser permissions.
+Read `docs/environment.md` before configuring execution access. The earlier Codex CLI 0.133.0 disposable sandbox probe allowed file writes but denied Git commits, development networking and localhost binding. Those failures are retained. A current 0.160.0 SDK probe confirmed inherited named permissions for Git writes, exact-domain dependency networking and localhost binding; Docker and browser verification are being completed. The version/model change does not establish new permissions. The runner does not enable unrestricted host access. Prepare and verify a disposable environment or a narrowly supported permission profile; the named profile is validated through explicit host and socket allowlists. Docker socket access is significant privilege. Host browser smoke success does not prove agent browser permissions.
 
 ## Freeze, then dispatch once later
 
@@ -97,4 +105,4 @@ The alternative mode uses `tasks/judged-stage-1.md` through `judged-stage-4.md` 
 
 `templates/` contains empty records; the judged PM, Architect, Designer, engineers and QA create actual decisions, implementation, rendered designs and tests after dispatch. `submission-templates/` contains human authoring aids for README, FACTORY, demo, slides, description and checklist. No presentation outcomes are invented.
 
-Follow `docs/rules-review.md` for the official full-room download and narrow credential-incident exception. Never synthesize `room.json`; retain failures and history. Final packaging includes only genuinely completed independent stage folders, mandates, human-written README/FACTORY, full room export and real room video. Run official offline and isolated checks against a fresh clone and inspect the export for private content before public release. Publishing a repository, changing visibility, uploading or submitting requires a separate explicit user instruction.
+Follow `docs/rules-review.md` for the official full-room download and narrow credential-incident exception. Never synthesize `room.json`; retain failures and history. Final packaging includes only genuinely completed independent stage folders, mandates, human-written README/FACTORY, full room export and real room video. Run official offline and isolated checks against a fresh clone and inspect the export for private content before public release. The user authorized private GitHub repositories and incremental progress commits. Public visibility, entry submission and unrelated uploads still require separate authorization.

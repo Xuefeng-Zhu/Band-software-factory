@@ -3,7 +3,7 @@ seats:
   display_name: Factory PM
   handle: null
   agent_id: null
-  mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-pm.md
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md
   harness: Codex
   model: gpt-6-astra
   reasoning_effort: medium
@@ -16,7 +16,7 @@ seats:
   display_name: Factory Architect
   handle: null
   agent_id: null
-  mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-architect.md
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md
   harness: Codex
   model: gpt-6-astra
   reasoning_effort: high
@@ -29,7 +29,7 @@ seats:
   display_name: Factory Designer
   handle: null
   agent_id: null
-  mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-designer.md
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md
   harness: Codex
   model: gpt-6-astra
   reasoning_effort: medium
@@ -42,7 +42,7 @@ seats:
   display_name: Factory Backend
   handle: null
   agent_id: null
-  mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-backend.md
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md
   harness: Codex
   model: gpt-6-astra
   reasoning_effort: medium
@@ -55,7 +55,7 @@ seats:
   display_name: Factory Frontend
   handle: null
   agent_id: null
-  mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-frontend.md
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md
   harness: Codex
   model: gpt-6-astra
   reasoning_effort: medium
@@ -68,7 +68,7 @@ seats:
   display_name: Factory QA
   handle: null
   agent_id: null
-  mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-qa.md
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md
   harness: Codex
   model: gpt-6-astra
   reasoning_effort: high
@@ -81,7 +81,7 @@ seats:
   display_name: Factory Reviewer
   handle: null
   agent_id: null
-  mandate: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/mandates/factory-reviewer.md
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md
   harness: Codex
   model: gpt-6-astra
   reasoning_effort: high
