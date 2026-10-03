@@ -1,0 +1,25 @@
+# Empty operational record. Complete requirements must be pasted into the room handoff.
+id: null
+owner: null
+next_recipient: null
+dependencies: []
+state: PROPOSED
+goal: null
+requirements: []
+requirement_source_hashes: []
+starting_revision: null
+workspace_paths: []
+ownership_boundaries: []
+acceptance_conditions: []
+candidate_commit: null
+commands: []
+results: []
+evidence_paths: []
+limitations: []
+room_event_references: []
+created_at_utc: null
+updated_at_utc: null
+remaining_limits: {}
+bounded_next_action: null
+reviewer: null
+room_event: null

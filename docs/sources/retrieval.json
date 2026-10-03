@@ -1,0 +1,74 @@
+[
+  {
+    "requested_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
+    "final_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/event.html",
+    "sha256": "19a4daeebcc631b66ab6b040488ee98f1869b5ba7734788cfffcffa59c20ae31",
+    "bytes": 307785,
+    "retrieved_at": "2026-10-03T06:07:41.816404+00:00"
+  },
+  {
+    "requested_url": "https://github.com/band-ai/dark-factory-wearedevs",
+    "final_url": "https://github.com/band-ai/dark-factory-wearedevs",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/challenge.html",
+    "sha256": "e41add07c6a95b111baaa5d67918769e0be92a16c578c9d0a079b719096b5fe0",
+    "bytes": 267155,
+    "retrieved_at": "2026-10-03T06:07:42.498096+00:00"
+  },
+  {
+    "requested_url": "https://raw.githubusercontent.com/band-ai/dark-factory-wearedevs/main/docs/participant-guide.md",
+    "final_url": "https://raw.githubusercontent.com/band-ai/dark-factory-wearedevs/main/docs/participant-guide.md",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/participant-guide.md",
+    "sha256": "1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4",
+    "bytes": 46357,
+    "retrieved_at": "2026-10-03T06:07:42.697870+00:00"
+  },
+  {
+    "requested_url": "https://docs.band.ai/band-desktop.md",
+    "final_url": "https://docs.band.ai/band-desktop.md",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/band-desktop.md",
+    "sha256": "9ee6620fbefd2404f6852ba4c638c31fd768d5086d4496e4a9e3ac9db8069e53",
+    "bytes": 12057,
+    "retrieved_at": "2026-10-03T06:07:43.112971+00:00"
+  },
+  {
+    "requested_url": "https://docs.band.ai/integrations/sdks/tutorials/codex.md",
+    "final_url": "https://docs.band.ai/integrations/sdks/tutorials/codex.md",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/band-codex.md",
+    "sha256": "b4606dceb702aba15558a120dd1b21f3a21078333027155596bc12ecce42ceeb",
+    "bytes": 20642,
+    "retrieved_at": "2026-10-03T06:07:43.505636+00:00"
+  },
+  {
+    "requested_url": "https://docs.band.ai/integrations/sdks/tutorials/setup.md",
+    "final_url": "https://docs.band.ai/integrations/sdks/tutorials/setup.md",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/band-setup.md",
+    "sha256": "7708ce299932caed53b7f7a35a22160b7d0ebd35f753ec82d460895fd48bc0fb",
+    "bytes": 16236,
+    "retrieved_at": "2026-10-03T06:07:43.908766+00:00"
+  },
+  {
+    "requested_url": "https://developers.openai.com/codex/guides/agents-md",
+    "final_url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/codex-agents.html",
+    "sha256": "4eb7d8a458b9d1af298ac051f114c4f9787bf3dfb930b9cee2fcffd9e6bbb0e0",
+    "bytes": 392011,
+    "retrieved_at": "2026-10-03T06:07:44.217511+00:00"
+  },
+  {
+    "requested_url": "https://developers.openai.com/codex/security",
+    "final_url": "https://learn.chatgpt.com/docs/security",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/codex-security.html",
+    "sha256": "82c9b311c88e5a8bd97f92ad571f1aaabb524cc96404ffe5588e5a5381d91b2c",
+    "bytes": 369389,
+    "retrieved_at": "2026-10-03T06:07:44.501094+00:00"
+  },
+  {
+    "requested_url": "https://learn.chatgpt.com/docs/agent-approvals-security.md",
+    "final_url": "https://learn.chatgpt.com/docs/agent-approvals-security.md",
+    "path": "/Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/hackathon-workspace/factory/docs/sources/codex-permissions.md",
+    "sha256": "bb78bd122fc94a9871630e39d74d38fc3aa204deddbc3ead74da9b76f99e2afb",
+    "bytes": 37249,
+    "retrieved_at": "2026-10-03T06:11:36.000218+00:00"
+  }
+]

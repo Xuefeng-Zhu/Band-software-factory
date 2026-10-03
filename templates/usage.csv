@@ -1,0 +1,1 @@
+run_id,phase,work_item,seat_handle,harness,exact_model,measurement_status,input_tokens,output_tokens,other_units,cost_currency,measured_cost,estimated_cost,measurement_source,start_utc,end_utc,commit_id,room_event_reference,artifact_absolute_path,limitations

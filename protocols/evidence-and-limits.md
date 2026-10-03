@@ -1,0 +1,15 @@
+# Evidence, permissions and limits
+
+Before work begins, frozen configuration must provide finite limits for active writers, acknowledgment waits, work duration, repair attempts, stage duration and total consumption. A missing consumption authorization is a blocker. Use a lower task-specific limit when one applies. Do not assume account subscriptions are unlimited. Stop new work at the applicable limit, preserve artifacts and return an evidenced outcome.
+
+Record UTC timestamps and local timezone where a human deadline matters. Every test, rendered review, defect, acceptance, integration and usage record identifies work item, exact full revision, responsible verified handle, room event references, absolute artifact paths and observed outcome. Preserve failed attempts; use a new evidence directory for every execution. Do not overwrite failures with a later green result.
+
+Distinguish PASS, FAIL and NOT_TESTED. Missing tools, missing credentials, an absent browser, skipped or empty suites, nonzero startup, a disconnected process and a generated configuration do not prove integration. Distinguish unit tests with fake subprocesses, host checks, real browser checks, actual connected seats, isolated container checks and official external judgment. Report only the layer observed.
+
+Measure elapsed time from recorded start and end events. Record usage only from supported provider or adapter reporting, preserving the source and units. If monetary cost or consumption cannot be measured, label it UNAVAILABLE; estimates belong in a separate clearly labeled field and cannot satisfy a measured-cost claim. Do not request hidden reasoning. Keep supported task lifecycle events needed for continuity, concise decisions and observable tool execution evidence.
+
+Use the narrowest verified execution permissions that cover assigned work. Do not globally change safeguards, escalate host permissions or mislabel an ordinary host as an external sandbox. Docker control is a significant privilege; use only the environment and socket access authorized in preflight. Agent networking and dependency downloads during development are separate from a delivered application's runtime restrictions; verify each independently.
+
+Credentials stay outside repositories in restricted local configuration. Do not dump environment variables, authorization headers, credential files, private state exports or broad debug logs. Use synthetic data and conservative logging. A room export can include tool output, so the same rule applies to ordinary tool calls. If permission is missing during an unattended run, fail the affected work with evidence rather than requesting a human approval or silently broadening access.
+
+No seat is authorized by these instructions to publish a repository, change visibility, submit an entry, purchase a service or erase evidence. Required human actions are resolved before dispatch or after the final run outcome.
