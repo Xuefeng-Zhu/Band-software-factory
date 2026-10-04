@@ -1,6 +1,11 @@
 """Finite consumption policy; importing this module never checks credentials."""
 from __future__ import annotations
 
+import json
+import math
+from pathlib import Path
+import time
+
 
 FINITE_LIMITS = (
     "max_active_seats", "max_repairs", "turn_timeout_seconds",
@@ -49,6 +54,65 @@ def budget_blockers(limits: dict) -> list[str]:
     if not subscription_only(limits) and limits.get("spend_cap_usd") is None:
         errors.append("Set an approved positive spend_cap_usd with provider billing enforcement, or explicitly approve the subscription_only policy")
     return errors
+
+
+def persisted_budget_blockers(config: dict, *, now: float | None = None, require_existing: bool = False) -> list[str]:
+    """Inspect aggregate consumption without constructing/writing a ledger.
+
+    An absent ledger is normal before first rehearsal. Room stage halts remain
+    live-start concerns: a completed rehearsal must not block a fresh judged room.
+    """
+    limits = config["budgets"]
+    if not subscription_only(limits):
+        return []
+    path = Path(config["paths"]["runs"]) / "runtime/budget-subscription.json"
+    if not path.exists() and not path.is_symlink():
+        return ["Judged readiness requires the existing cumulative budget ledger; preserve rehearsal accounting before launch."] if require_existing else []
+    invalid = ["Existing cumulative budget ledger is malformed or has changed scope; preserve it before launch."]
+    try:
+        if path.is_symlink():
+            return invalid
+        data = json.loads(path.read_text())
+        instant = time.time() if now is None else now
+        rooms = sorted(config["band"][f"{mode}_room_id"] for mode in ("rehearsal", "judged"))
+        seats = {seat["id"] for seat in config["seats"]}
+        def counts(value, allowed=None):
+            return (isinstance(value, dict) and (allowed is None or set(value).issubset(allowed))
+                    and all(isinstance(k, str) and type(v) is int and v >= 0 for k, v in value.items()))
+        def epoch(value):
+            return type(value) in (int, float) and math.isfinite(value) and 0 < value <= instant
+        if (not isinstance(data, dict) or not {"room_id", "room_ids", "started_epoch", "tokens", "turns", "token_threads", "stopped_reason"}.issubset(data)
+                or type(instant) not in (int, float) or not math.isfinite(instant)
+                or len(set(rooms)) != 2 or not all(rooms) or data["room_id"] is not None or data["room_ids"] != rooms
+                or type(data["tokens"]) is not int or data["tokens"] < 0
+                or not counts(data["turns"], seats) or not counts(data["token_threads"])
+                or (data["stopped_reason"] is not None and (not isinstance(data["stopped_reason"], str) or not data["stopped_reason"]))):
+            return invalid
+        origins = data.get("room_started_epochs", {})
+        room_turns = data.get("room_turns", {})
+        room_stops = data.get("room_stopped_reasons", {})
+        if (any(not isinstance(value, dict) or not set(value).issubset(rooms) for value in (origins, room_turns, room_stops))
+                or any(not epoch(value) for value in origins.values())
+                or any(not counts(value, seats) for value in room_turns.values())
+                or any(not isinstance(value, str) or not value for value in room_stops.values())):
+            return invalid
+        start = data["started_epoch"]
+        if start is None:
+            if data["tokens"] or any(data["turns"].values()) or data["token_threads"] or origins or room_turns or room_stops:
+                return invalid
+        elif not epoch(start) or any(value < start for value in origins.values()):
+            return invalid
+        blockers = []
+        if data["stopped_reason"]:
+            blockers.append("Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required.")
+        if start is not None and instant - start >= limits["overall_timeout_seconds"]:
+            blockers.append("Cumulative overall time budget exhausted.")
+        if data["tokens"] >= limits["max_total_tokens"]:
+            blockers.append("Cumulative observed token budget exhausted.")
+        blockers.extend(f"Cumulative turn budget exhausted for {seat}." for seat, value in sorted(data["turns"].items()) if value >= limits["max_turns_per_seat"])
+        return blockers
+    except (OSError, ValueError, TypeError, KeyError):
+        return invalid
 
 
 # This is an authentication restriction, not a promise of zero charge or a

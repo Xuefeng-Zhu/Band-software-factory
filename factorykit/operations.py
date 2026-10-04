@@ -11,6 +11,7 @@ import uuid
 from datetime import datetime, timezone
 
 from .common import FactoryError, canonical, digest, run_command, source_lock, utc_now, verify_sources, write_json
+from .budgets import persisted_budget_blockers
 from .tasks import verify_tasks
 from .validation import observations, validate
 
@@ -112,6 +113,7 @@ def freeze(config: dict) -> dict:
             files[name] = digest(path)
         else:
             blockers.append(f"Freeze input missing: {name}")
+    blockers.extend(persisted_budget_blockers(config, require_existing=True))
     blockers = sorted(set(blockers))
     manifest = {"schema_version": 1, "created_at": utc_now(),
                 "status": "BLOCKED_WITH_ACTIONS" if blockers else "READY_TO_LAUNCH",
@@ -182,6 +184,7 @@ def launch_prepare(config: dict, mode: str, stage: int | None) -> dict:
         frozen_task = frozen.get("tasks", {}).get(task.name, {}).get("sha256")
         if frozen_task != digest(task):
             blockers.append("Dispatch task differs from frozen packet")
+        blockers.extend(persisted_budget_blockers(config, require_existing=True))
         pm = next(seat for seat in config["seats"] if seat["id"] == "pm")
         instructions = ["# Launch preparation — no message has been sent", "",
                         f"Status: {'BLOCKED_WITH_ACTIONS' if blockers else 'PREPARED_NOT_DISPATCHED'}",

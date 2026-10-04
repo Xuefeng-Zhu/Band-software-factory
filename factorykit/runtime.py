@@ -27,7 +27,7 @@ from typing import Any
 
 import psutil
 import yaml
-from .budgets import API_ENVIRONMENT, budget_blockers, codex_argv, subscription_auth_errors, subscription_only
+from .budgets import API_ENVIRONMENT, budget_blockers, codex_argv, persisted_budget_blockers, subscription_auth_errors, subscription_only
 
 SDK_VERSION = "4.0.0"
 EMITTED = ("tool_calls", "task_events", "usage")
@@ -438,6 +438,7 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
         errors.append(f"Run probe-registration --mode {mode} after finalizing configuration; matching proof is missing.")
     if mode == "judged" and not config.get("launch", {}).get("practice_mode") and not config.get("launch", {}).get("submission_open_verified"):
         errors.append("Judged launch is blocked until the event submission window is verified open.")
+    errors.extend(persisted_budget_blockers(config, require_existing=mode == "judged"))
     return errors
 
 
@@ -903,10 +904,10 @@ def judged_launch_errors(config: dict) -> list[str]:
     from .common import canonical, digest, verify_sources
     from .tasks import verify_tasks
     from .operations import pristine_result
-    errors = []
+    errors = persisted_budget_blockers(config, require_existing=True)
     freeze = Path(config["paths"]["runs"]) / "freeze/latest.json"
     if not freeze.is_file():
-        return ["Judged start requires a READY_TO_LAUNCH freeze."]
+        return errors + ["Judged start requires a READY_TO_LAUNCH freeze."]
     frozen = json.loads(freeze.read_text())
     if frozen.get("status") != "READY_TO_LAUNCH":
         errors.append("Judged start requires a READY_TO_LAUNCH freeze.")
