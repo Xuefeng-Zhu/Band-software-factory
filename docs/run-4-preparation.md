@@ -4,7 +4,7 @@ Status: **RUNNING — one dispatch verified on October 4, 2026 at 11:41 AM Pacif
 
 Room event: `8f18562f-be68-4d4b-9789-d4b0b30c4d14`. The initial body matches the frozen packet after only BAND's PM mention normalization. [Launch evidence](../evidence/run4-launch-20261004/) preserves the approval, exact configuration changes, READY freeze and verified message.
 
-Application attempts use [Tablekeeper](https://github.com/Xuefeng-Zhu/Tablekeeper), with a new independent history on each `run-N` branch. Reusable tools remain in [Tablekeeper-factory](https://github.com/Xuefeng-Zhu/Tablekeeper-factory). The local Run 4 checkout is empty except for `.git`, with an unborn `run-4` branch and the canonical origin. GitHub cannot expose that branch until its first real agent-authored commit.
+Application attempts use [Tablekeeper](https://github.com/Xuefeng-Zhu/Tablekeeper), with a new independent history on each `run-N` branch. Reusable tools remain in [Tablekeeper-factory](https://github.com/Xuefeng-Zhu/Tablekeeper-factory). The local Run 4 checkout was empty except for `.git` at launch. The PM has now created and pushed its first attributable commit, `3eb5566b431caf6f6ca04469e5b241aacbf0e495`, recording scope, requirements and stage dependencies. The [run-4 branch](https://github.com/Xuefeng-Zhu/Tablekeeper/tree/run-4) is available on GitHub and will advance as the agents commit progress.
 
 The new BAND room is `0b882870-2e49-4d39-bc40-2bf47cc46f08`, named **MillieMoon · Tablekeeper · Run 4**. All seven registered seats are present with the participant. The room received exactly one initial human task message; subsequent messages are autonomous agent work. The roster retains Codex CLI 0.160.0, BAND SDK 4.0.0 and `gpt-6-astra`, one active seat at a time. A fresh authenticated model catalog confirms the configured model and reasoning settings.
 
@@ -34,3 +34,9 @@ The old [Tablekeeper-run-3](https://github.com/Xuefeng-Zhu/Tablekeeper-run-3) re
 The guide calls for a fresh room and result repository; it does not explicitly discuss hosting independent attempts as branches in one GitHub repository. This setup retains a fresh independent local repository for each try and follows the participant's explicit hosting preference. Choose the completed branch as the normal-clone default before final submission checks. Human authorship requirements for README and FACTORY remain a disclosure/compliance issue because their current drafts were AI-assisted at the participant's request. This preparation does not approve or perform final submission.
 
 Live evidence is retained under `/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/`. Selected non-secret receipts are archived in `evidence/run4-preparation-20261004/`; their hashes identify exact local originals.
+
+## Initial live observation
+
+The PM's first six-part handoff `S1-ARCH-D1` was complete and acknowledged by the Architect, with zero recovery notices at that observation. One active turn was observed, with no overlapping turns. These observations establish initial operation, not product acceptance.
+
+The independent postlaunch audit verified the single dispatch, exact packet apart from one BAND mention normalization, immutable freeze inputs and effective deadline. Starting the SDK added only the judged checkout's trust section to global Codex configuration; removing that section in memory reproduces the locked bytes exactly. The frozen lock remains unchanged. A future restart must audit this metadata difference before passing source verification; it is not permission to change judged instructions or resend the task.

@@ -80,6 +80,18 @@
       "bytes": 1067,
       "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/dispatch-verification.json",
       "sha256": "6c3d691199403ea15e15a2c9f8d1960b47969623a36cf93ea274ed8a42c68c20"
+    },
+    {
+      "archive": "launch/initial-runtime-observation.json",
+      "bytes": 7787,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/initial-runtime-observation.json",
+      "sha256": "5f60f88100ac1a0a6561fe008875f4e22b4111c7b19fc7b90b82d4c7ca2c38e2"
+    },
+    {
+      "archive": "launch/postlaunch-audit.json",
+      "bytes": 8014,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/postlaunch-audit.json",
+      "sha256": "3183fb4012f1de6b159ea7e3a349a5a549a9f103bde2f21497f0fe20cb9f0c8a"
     }
   ],
   "scope": "Authorization, READY freeze and verified initial dispatch. No product acceptance. Local evidence retains original copies.",

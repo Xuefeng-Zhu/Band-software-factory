@@ -20,12 +20,14 @@
       "deadline_utc": "2026-10-05T02:35:03.700437+00:00",
       "dispatch_event": "8f18562f-be68-4d4b-9789-d4b0b30c4d14",
       "first_push": "git push -u origin HEAD:refs/heads/run-4",
-      "head": "UNBORN",
+      "head": "3eb5566b431caf6f6ca04469e5b241aacbf0e495",
+      "head_observed_at": "2026-10-04T18:45:28.897534+00:00",
+      "head_scope": "First PM planning commit verified locally and through git ls-remote; live branch may advance.",
       "id": "run-4",
       "launch_approved": true,
       "live_accounting": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/runtime/budget-subscription.json",
       "live_configuration": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory.yaml",
-      "remote_branch_created": false,
+      "remote_branch_created": true,
       "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
       "status": "DISPATCHED_RUNTIME_RUNNING"
     }

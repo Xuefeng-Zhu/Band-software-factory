@@ -1,0 +1,228 @@
+{
+  "accounting": {
+    "approved": true,
+    "cumulative_reported_tokens": 86606710,
+    "cumulative_turns": {
+      "architect": 36,
+      "backend": 54,
+      "designer": 15,
+      "frontend": 5,
+      "pm": 184,
+      "qa": 11,
+      "reviewer": 22
+    },
+    "current_room_reported_tokens": 595133,
+    "current_room_started_epoch": 1791139367.698096,
+    "current_room_stopped_reason": null,
+    "current_room_thread_usage": {
+      "0b882870-2e49-4d39-bc40-2bf47cc46f08:architect:01a1083b-e9a2-75d1-84e8-c760161eb0bc": 134566,
+      "0b882870-2e49-4d39-bc40-2bf47cc46f08:pm:01a10839-cbd5-7700-b8af-f0a78c783582": 460567
+    },
+    "current_room_turns": {
+      "architect": 3,
+      "pm": 1
+    },
+    "global_stopped_reason": null,
+    "original_started_epoch": 1791049765.700437,
+    "overall_deadline_epoch": 1791167703.700437,
+    "token_ceiling": 286011577
+  },
+  "all_seven_sdk_contexts_connected": true,
+  "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+  "deliveries": {
+    "S1-ARCH-D1": {
+      "acknowledged": false,
+      "acks": {},
+      "complete": true,
+      "first_at": 1791139492.643955,
+      "recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "total": 6
+    }
+  },
+  "dispatch_event_id": "8f18562f-be68-4d4b-9789-d4b0b30c4d14",
+  "initial_dispatch_pm_turn": [
+    {
+      "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "deadline_at": 1791139967.6993191,
+      "ended_at": 1791139505.971874,
+      "incident_ids": [
+        "turn:pm:184:8f18562f-be68-4d4b-9789-d4b0b30c4d14"
+      ],
+      "reason_code": "",
+      "started_at": 1791139367.699369,
+      "status": "completed",
+      "trigger_event_id": "8f18562f-be68-4d4b-9789-d4b0b30c4d14",
+      "turn_id": "pm:184:8f18562f-be68-4d4b-9789-d4b0b30c4d14"
+    }
+  ],
+  "limitations": [
+    "Files are individually atomic snapshots read over the stated interval; live state continues changing.",
+    "SDK queue/processing state is local; it does not prove the remote backlog is empty.",
+    "Initial health and reported usage do not establish completion, independent review, or acceptance of any judged stage."
+  ],
+  "local_lifecycle": {
+    "max_one_admitted_turn_now": true,
+    "overlapping_turn_intervals": [],
+    "running_turn_ids": [
+      "architect:36:7eb02bdc-eb64-47c7-8181-13a9894c8376"
+    ],
+    "turns": [
+      {
+        "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "deadline_at": 1791139967.6993191,
+        "ended_at": 1791139505.971874,
+        "incident_ids": [
+          "turn:pm:184:8f18562f-be68-4d4b-9789-d4b0b30c4d14"
+        ],
+        "reason_code": "",
+        "started_at": 1791139367.699369,
+        "status": "completed",
+        "trigger_event_id": "8f18562f-be68-4d4b-9789-d4b0b30c4d14",
+        "turn_id": "pm:184:8f18562f-be68-4d4b-9789-d4b0b30c4d14"
+      },
+      {
+        "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "deadline_at": 1791140105.9731998,
+        "ended_at": 1791139516.914785,
+        "incident_ids": [],
+        "reason_code": "",
+        "started_at": 1791139505.9732292,
+        "status": "completed",
+        "trigger_event_id": "a1665cd8-3fa2-480b-958a-e6ac4677d8b2",
+        "turn_id": "architect:34:a1665cd8-3fa2-480b-958a-e6ac4677d8b2"
+      },
+      {
+        "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "deadline_at": 1791140117.4152231,
+        "ended_at": 1791139528.14374,
+        "incident_ids": [],
+        "reason_code": "",
+        "started_at": 1791139517.415306,
+        "status": "completed",
+        "trigger_event_id": "a8ecc3b5-6de3-479d-8c7a-cba4a10fc5cc",
+        "turn_id": "architect:35:a8ecc3b5-6de3-479d-8c7a-cba4a10fc5cc"
+      },
+      {
+        "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "deadline_at": 1791140128.714127,
+        "incident_ids": [],
+        "reason_code": "",
+        "started_at": 1791139528.714242,
+        "status": "running",
+        "trigger_event_id": "7eb02bdc-eb64-47c7-8181-13a9894c8376",
+        "turn_id": "architect:36:7eb02bdc-eb64-47c7-8181-13a9894c8376"
+      }
+    ]
+  },
+  "notices": {},
+  "observed_at": "2026-10-04T18:45:33.986511+00:00",
+  "owner": {
+    "identity_verified_alive": true,
+    "last_error": null,
+    "pid": 77057,
+    "seats": [
+      "pm",
+      "architect",
+      "designer",
+      "backend",
+      "frontend",
+      "qa",
+      "reviewer"
+    ],
+    "started_at": "2026-10-04T18:42:44.556245+00:00",
+    "status": "running",
+    "updated_at": "2026-10-04T18:45:33.056829+00:00"
+  },
+  "read_started_at": "2026-10-04T18:45:33.985609+00:00",
+  "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+  "scope": "Read-only initial Run4 runtime/SDK queue/accounting witness. No room messages, model starts, product/source/config edits or process signals by observer. This does not claim any stage acceptance.",
+  "source_snapshots": {
+    "budget": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/runtime/budget-subscription.json",
+      "sha256_at_read": "cff00129ac556fed3d525283a85f99f30c38fb494abc6c0f5bf4ceb86e712b3a"
+    },
+    "owner": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/runtime/owner.json",
+      "sha256_at_read": "dbb1663c5cae8a5be1e2f96de706c78bae5f4001d349025c1ed88c72f0db0d62"
+    },
+    "workflow": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/runtime/workflow-0b882870-2e49-4d39-bc40-2bf47cc46f08.json",
+      "sha256_at_read": "6b8a45cdb6457d9a00a74b785e10e2c572f18543a0ca00d169f20a78631e14a5"
+    }
+  },
+  "status": "INITIAL_RUNTIME_HEALTHY",
+  "workflow": {
+    "active_turn_ids": [
+      "architect:36:7eb02bdc-eb64-47c7-8181-13a9894c8376"
+    ],
+    "notice_attempts": 0,
+    "sdk_execution_busy": true,
+    "sdk_execution_contexts": [
+      {
+        "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "processing": true,
+        "queued_events": 3,
+        "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+        "running": true,
+        "state": "processing"
+      },
+      {
+        "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+        "running": true,
+        "state": "idle"
+      }
+    ],
+    "seconds_to_next_deadline": 595.6550991535187,
+    "state": "busy",
+    "unknown_notices": [],
+    "unresolved_incident_ids": [
+      "turn:pm:184:8f18562f-be68-4d4b-9789-d4b0b30c4d14"
+    ]
+  }
+}

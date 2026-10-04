@@ -1,0 +1,13 @@
+{
+  "acknowledgments": {
+    "974df2f1-b5e8-4873-a1ce-93658e0404a4": "6bc33c01-7c3a-4656-9365-c3c91f65c473"
+  },
+  "delivery_id": "S1-ARCH-D1",
+  "notice_count": 0,
+  "observed_at": "2026-10-04T18:47:39.233248+00:00",
+  "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+  "scope": "First PM-to-Architect handoff received; no stage acceptance implied.",
+  "status": "COMPLETE_AND_ACKNOWLEDGED",
+  "total_parts": 6,
+  "workflow_sha256_at_read": "917c97a1fd2d056db8e6fd2ae40edd3f8bba64479ad484846229480b9bea8e00"
+}

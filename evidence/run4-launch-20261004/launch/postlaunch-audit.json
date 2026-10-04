@@ -1,0 +1,163 @@
+{
+  "created_at": "2026-10-04T18:47:20.474578+00:00",
+  "status": "PASS_EXACT_ONCE_DISPATCH_AND_FINITE_BOUNDS_WITH_RECORDED_TRUST_DRIFT",
+  "scope": "Independent postlaunch read-only audit of saved native room readback, one-shot send record, dispatch ledger, exact frozen inputs and runtime deadline enforcement. No API send, model turn, process action or source/config edit.",
+  "dispatch": {
+    "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+    "human_event_id": "8f18562f-be68-4d4b-9789-d4b0b30c4d14",
+    "event_at": "2026-10-04T18:41:23.136881Z",
+    "human_text_events_in_complete_readback": 1,
+    "before_dispatch_membership_events": 7,
+    "operator_cli_invocations_recorded": 1,
+    "operator_retries": 0,
+    "all_stages_reserved_once": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "ledger_state": "DISPATCHED",
+    "task": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/tasks/judged-all-stages.md",
+      "sha256": "65015752e97931ed4aa41a1a98d53f915d957de3a724f3d3f5cc5b50c9abe3c6"
+    },
+    "body_bytes": 60953,
+    "actual_event_content_sha256": "854bbf04f448d282d9af71394ab4d17afab52074b1f17e477b722e7f30c8bc76",
+    "exact_after_only_normalization": {
+      "count": 1,
+      "from": "@frankzhu94/factory-pm",
+      "to": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]"
+    },
+    "freeze_sha256": "7ba3cf9e3ca154d267f305bd615f3fa4a8ec5ff9adaa02ee75635f5a57fed083",
+    "limitations": [
+      "Exactly one human dispatch is established by the complete recorded post-send snapshot, one immutable-attempt claim and one ledger entry. No later API survey was made by this audit.",
+      "The native CLI internal retry policy was not inspected; the actual room snapshot has one human text event. No resend occurred after the initial normalization mismatch."
+    ]
+  },
+  "frozen_integrity": {
+    "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+    "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+    "all_frozen_inputs_match": true,
+    "frozen_input_count": 34,
+    "runtime_fingerprint_matches": true,
+    "factory_docs_commit": "57adfb3",
+    "frozen_runtime_and_instruction_changes_since_d99171b": [],
+    "mutable_global_config_exception": {
+      "source_verifier_errors": [
+        "Locked reference document changed or missing: config.toml"
+      ],
+      "locked_sha256": "1b416d671669717a63e356cb383e49e57bdc00a0f0bb9462b13ad28bf29cc5d9",
+      "actual_sha256": "033855305ea9a7fd7489a412745dd6dfb2e03672e2ed69e8a690411d618f117f",
+      "only_extra_bytes": "One exact projects section for /Users/frank/mygit/Tablekeeper/result-run-4 with trust_level=trusted",
+      "reconstructed_sha256_after_in_memory_removal": "1b416d671669717a63e356cb383e49e57bdc00a0f0bb9462b13ad28bf29cc5d9",
+      "reconstructs_locked_bytes": true,
+      "files_modified_by_auditor": false,
+      "interpretation": "Runtime startup auto-trust is consistent with the exact added section. The audit proves exact bytes, not the writer identity. No model/permission/instruction setting otherwise changed. The frozen lock remains unchanged; current source verification would block a future fresh start until separately reconciled. Historical prelaunch READY remains its recorded result."
+    }
+  },
+  "bounds": {
+    "approved": true,
+    "authorization": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+      "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+    },
+    "max_active_seats": 1,
+    "additional_reported_tokens_approved": 200000000,
+    "baseline_reported_tokens": 86011577,
+    "cumulative_token_ceiling": 286011577,
+    "turn_timeout_seconds": 600,
+    "outer_turn_shutdown_grace_seconds": 15,
+    "max_turns_per_seat_cumulative": 1000,
+    "max_repairs": 3,
+    "ack_timeout_seconds": 120,
+    "original_started_epoch": 1791049765.700437,
+    "overall_timeout_seconds": 117938,
+    "effective_overall_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+    "room_started_epoch": 1791139367.698096,
+    "whole_room_timeout_seconds": 28800,
+    "room_deadline_utc": "2026-10-05T02:42:47.698096+00:00",
+    "earlier_binding_cutoff": "overall",
+    "billing_mode": "subscription_only",
+    "api_billing_allowed": false,
+    "paid_provisioning_allowed": false,
+    "implementation": [
+      "BudgetLedger.reason compares elapsed wall time against the preserved original epoch and the amended finite overall timeout, then token and per-seat cumulative limits.",
+      "GuardedCodexAdapter acquires the single shared semaphore and checks reserve_event before admission; the turn clock starts at admission, before adapter initialization.",
+      "Adapter timeout is600 seconds; outer coroutine timeout is615 seconds and owned SDK stop allows bounded cleanup.",
+      "Heartbeat checks reason and halts on limits, normally at one-second intervals; receipt watchdog cannot extend the global/room deadlines.",
+      "SDK usage deltas are accumulated once per room/seat/thread and do not reset after new rooms or restarts."
+    ],
+    "limits": [
+      "These are local runtime controls, not a provider billing or subscription-quota guarantee. Delayed usage reporting and an in-flight turn may overshoot the token threshold.",
+      "Deadline checks and bounded shutdown are not a claim of zero-latency process termination at the cutoff.",
+      "No live timeout, token-exhaustion or crash test was induced during this judged run."
+    ]
+  },
+  "runtime_snapshot": {
+    "record_updated_at": "2026-10-04T18:47:19.838593+00:00",
+    "reported_status": "running",
+    "mode": "judged",
+    "supervisor_pid": 77057,
+    "connected_seat_ids": [
+      "pm",
+      "architect",
+      "designer",
+      "backend",
+      "frontend",
+      "qa",
+      "reviewer"
+    ],
+    "tokens_snapshot": 87194421,
+    "turns_snapshot": {
+      "architect": 39,
+      "backend": 54,
+      "designer": 15,
+      "frontend": 5,
+      "pm": 184,
+      "qa": 11,
+      "reviewer": 22
+    },
+    "note": "Registry/counter snapshot only; no signal or worker action performed."
+  },
+  "evidence": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/dispatch-verification.json",
+      "sha256": "6c3d691199403ea15e15a2c9f8d1960b47969623a36cf93ea274ed8a42c68c20"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/ledger.json",
+      "sha256": "71bb65886f7bc6262f70d71b5315982813f7b7e901b24db02f948ac952f5e5ab"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/send-attempt.json",
+      "sha256": "a2027c5091a6476186fba6903eb7fe37b2bdb551d85d5ae8246e7f848fd03ec2"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/send-once.py",
+      "sha256": "e90243d15f1c17fbd2a74e0e0d6207f643d7fa720a2f8d6d2fbcd4dd087af39c"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/room-after-dispatch.json",
+      "sha256": "e640ce5292e70aa40d930fb96f50e8992471936bd7782925dfa13276b0f51e42"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/room-immediately-before.json",
+      "sha256": "8c5aac7c9b34f28b3df4c8ab261226b3a86dc9042d2a900ac130126019de2c94"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/freeze/latest.json",
+      "sha256": "7ba3cf9e3ca154d267f305bd615f3fa4a8ec5ff9adaa02ee75635f5a57fed083"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+      "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341"
+    }
+  ],
+  "actions": {
+    "api_sends": 0,
+    "model_turns": 0,
+    "process_actions": 0,
+    "config_source_global_edits": 0,
+    "only_written_artifact": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/postlaunch-audit.json"
+  }
+}
