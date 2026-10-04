@@ -1,0 +1,30 @@
+{
+  "work_item": "ARCH-S1-STORAGE",
+  "candidate": "12e43a92dd6e037ac27dfb2189f18eed35a32fbc",
+  "owner": "@frankzhu94/factory-architect",
+  "command": [
+    "docker",
+    "exec",
+    "tk-arch-storage-check",
+    "python",
+    "/checks/probe.py"
+  ],
+  "start_utc": "2026-10-04T21:56:00.621190+00:00",
+  "end_utc": "2026-10-04T21:56:15.196637+00:00",
+  "elapsed_seconds": 14.575403875001939,
+  "exit_status": 0,
+  "docker_state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 32144,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-04T21:55:47.164285926Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "container_id": "bb276779d776b1d504a7082c75c65b8f713ac0b3948af9961fe94e856f6f5a3a"
+}

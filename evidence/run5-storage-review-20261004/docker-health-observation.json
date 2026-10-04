@@ -1,0 +1,79 @@
+{
+  "assessment": "Docker info and exact probe-container inspect both failed to respond within8 seconds at22:07UTC, and the public OrbStack configuration read failed to respond within5seconds. Configured memory could not be independently verified. The owned BAND supervisor remained live with Backend active. These observations do not establish the cause, permanent engine failure, or a terminal BAND run.",
+  "finished_at": "2026-10-04T22:07:08.365909+00:00",
+  "host_memory_bytes": {
+    "available": 1231699968,
+    "total": 8589934592
+  },
+  "limitations": [
+    "Configured/container memory limits do not prove available VM memory or the cause of exit137.",
+    "A Docker client timeout establishes lack of response only for that request window; it does not establish permanent engine failure or authorize intervention.",
+    "Only the exact named probe container was inspected; unrelated container inventories, credentials and full raw config were not retained."
+  ],
+  "local_configuration_check": {
+    "checked_at": "2026-10-04T22:08:06.993239+00:00",
+    "configured_memory": "UNVERIFIED",
+    "parse_result": "Not readable as JSON/YAML by safe parser (ScannerError); no raw contents retained or alternative decoding attempted.",
+    "path": "/Users/frank/.orbstack/vmconfig.json",
+    "resource_fields_recovered": false,
+    "sha256": "01e08cbdf83c3b4eea567072fbd4fa6161d698e2a93793fe9a5cdd368c571024"
+  },
+  "observations": {
+    "docker_info": {
+      "elapsed_seconds": 8.011,
+      "error_class": "client_read_timeout",
+      "finished_at": "2026-10-04T22:07:08.330458+00:00",
+      "operator_attempts": 1,
+      "started_at": "2026-10-04T22:07:00.319514+00:00",
+      "timed_out": true,
+      "timeout_seconds": 8
+    },
+    "named_container_inspect": {
+      "elapsed_seconds": 8.008,
+      "error_class": "client_read_timeout",
+      "finished_at": "2026-10-04T22:07:08.329854+00:00",
+      "operator_attempts": 1,
+      "started_at": "2026-10-04T22:07:00.322061+00:00",
+      "timed_out": true,
+      "timeout_seconds": 8
+    },
+    "orbstack_config": {
+      "elapsed_seconds": 5.007,
+      "error_class": "client_read_timeout",
+      "finished_at": "2026-10-04T22:07:05.331447+00:00",
+      "operator_attempts": 1,
+      "started_at": "2026-10-04T22:07:00.324912+00:00",
+      "timed_out": true,
+      "timeout_seconds": 5
+    }
+  },
+  "observed_at": "2026-10-04T22:07:00.318165+00:00",
+  "orbstack_process_metadata": [
+    {
+      "create_time": 1791047010.753001,
+      "name": "OrbStack",
+      "pid": 14839,
+      "status": "running"
+    },
+    {
+      "create_time": 1791047012.464229,
+      "name": "OrbStack Helper",
+      "pid": 14843,
+      "status": "sleeping"
+    }
+  ],
+  "scope": "Read-only infrastructure diagnosis; one Docker info, one inspect of the exact named Architect probe, one read-only OrbStack config query, relevant process metadata and owned supervisor validation. No engine/container/process/config/runtime/product mutation, no BAND inference or messages.",
+  "socket": "/Users/frank/.orbstack/run/docker.sock",
+  "supervisor": {
+    "active_turn_ids": [
+      "backend:94:eefbf77c-370c-4d0c-bf47-0d13682133f0"
+    ],
+    "checked_at": "2026-10-04T22:07:08.362970+00:00",
+    "owned_identity_live": true,
+    "owner_sha256": "8ea2b6a94d864e57e51d78f27a840ee82bbdba6a56d129d0fdb3962dd0c0b828",
+    "owner_status": "running",
+    "owner_updated_at": "2026-10-04T22:07:08.078660+00:00",
+    "recorded_pid": 710,
+    "workflow_state": "busy"
+  }
+}

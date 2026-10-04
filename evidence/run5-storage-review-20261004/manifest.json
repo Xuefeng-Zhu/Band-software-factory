@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-10-04T22:09:34.966581+00:00",
+  "candidate": "12e43a92dd6e037ac27dfb2189f18eed35a32fbc",
+  "architecture_decision": "REJECTED",
+  "release_acceptance": "PENDING",
+  "accepted_run5_stages": [],
+  "pm_action": "Backend repair1/3 assigned by PM in actual room",
+  "infrastructure": "Docker requests timed out during bounded22:07UTC checks; cause and persistence unknown. BAND supervisor remained owned/live.",
+  "operator_intervention": "Read-only observations and evidence preservation only; no message, restart, container action, source/config or product change.",
+  "files": [
+    {
+      "path": "public-decisions.json",
+      "provenance": "Two original public event objects selected from the text-only room observation; wrapper added by operator",
+      "bytes": 3228,
+      "sha256": "329cb1a5bdec74de356d36e4eddc9799d1a9188cbe74ced01a45e7ceea116ceb"
+    },
+    {
+      "path": "docker-health-observation.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/docker-health-observation.json",
+      "bytes": 3492,
+      "sha256": "52fd7bb36d8ca650f6a921925f7c891844e8257442a78ba88300f1b3817882b4"
+    },
+    {
+      "path": "probe-2153Z/execution.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2153Z/execution.json",
+      "bytes": 987,
+      "sha256": "d43e64b76309a3b711d80d81c355c61c936ec08c274f8928cdd4eb402daa00b1"
+    },
+    {
+      "path": "probe-2153Z/probe.jsonl",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2153Z/probe.jsonl",
+      "bytes": 1427,
+      "sha256": "c1e0afec62907d61d2c43ed2bf2bd1472d749eadf45bee69074b5d23bc0fc368"
+    },
+    {
+      "path": "probe-2156Z/execution.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2156Z/execution.json",
+      "bytes": 805,
+      "sha256": "ab3ce9e7f0b1f734a6d1ed7ac624b692dca3d74ee0fd27dd2ea5e13e9aa8a83f"
+    },
+    {
+      "path": "probe-2156Z/probe.jsonl",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2156Z/probe.jsonl",
+      "bytes": 3479,
+      "sha256": "0b8f30f3c68a2b0998b12248055bd44cfa7d6635091fc9fc62be4d506e5b49c5"
+    },
+    {
+      "path": "probe-2158Z/probe.jsonl",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2158Z/probe.jsonl",
+      "bytes": 332,
+      "sha256": "670fcaa05b7219aafd50c0dd2467010a3c8646b3362c8c063cbfaa8bd28f8f13"
+    },
+    {
+      "path": "probe-2158Z/stop-attempt.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2158Z/stop-attempt.json",
+      "bytes": 289,
+      "sha256": "cb275e9bb3dc4fa968a8ce3ded91ee772cfe302ca031b283116026d96e1006d0"
+    }
+  ]
+}

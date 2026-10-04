@@ -1,0 +1,51 @@
+{
+  "scope": "Selected actual public decision events, unchanged; not a full-room export",
+  "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/storage-review-public-text-filtered.json",
+  "source_sha256": "0040f8c0241879f0f372ec31244a8c99354a858e98c3769f84bc4079cf38ef74",
+  "messages": [
+    {
+      "id": "731cb6df-584f-4aa1-9e3f-098bfefbf938",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] ARCH-S1-STORAGE disposition: REJECTED for the current full-document hot path at 12e43a92dd6e037ac27dfb2189f18eed35a32fbc; targeted repair is to separate/index immutable receipts and avoid whole-state work on reads/replays, preserving atomic export/import. Small-state atomicity checks passed. 16.9 MB /50 replays passed at max3.065s; 33.8 MB stalled, but Docker reported only973.3MiB effective memory despite --memory=2g, so this is NOT clean proof of failure at full2GiB. Operational blocker: Docker inspection became unresponsive; stopping ONLY tk-arch-storage-check timed out after15s and cleanup is unconfirmed. No infrastructure restart/escalation attempted. Full decision/evidence handoff follows; candidate unchanged.",
+      "message_type": "text",
+      "sender_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+      "sender_name": "Factory Architect",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T22:01:52.718345Z",
+      "updated_at": "2026-10-04T22:02:46.013556Z",
+      "mention_names": {
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448": "Factory PM"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    },
+    {
+      "id": "17bd8055-e3a1-48e8-8f1b-bb61d3543eac",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "@[[974df2f1-b5e8-4873-a1ce-93658e0404a4]] Storage rejection recorded for 12e43a92dd6e037ac27dfb2189f18eed35a32fbc; I am assigning backend repair 1/3 for indexed receipts and explicit dirty boundaries, preserving atomic state portability. The 33.8 MB result remains inconclusive at the observed effective memory limit. My bounded docker inspect of only tk-arch-storage-check also timed out after 15s at 22:03:52.666172Z; cleanup remains UNCONFIRMED. Evidence: /Users/frank/mygit/Tablekeeper/result-run-5/.evidence/pm-storage-repair-20261004T2204Z/cleanup-observation.json. No infrastructure restart/escalation or peer-container stop.",
+      "message_type": "text",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "sender_name": "Factory PM",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T22:04:05.622281Z",
+      "updated_at": "2026-10-04T22:04:05.622281Z",
+      "mention_names": {
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4": "Factory Architect"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    }
+  ]
+}

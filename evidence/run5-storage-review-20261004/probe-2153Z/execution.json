@@ -1,0 +1,27 @@
+{
+  "work_item": "ARCH-S1-STORAGE",
+  "candidate": "12e43a92dd6e037ac27dfb2189f18eed35a32fbc",
+  "owner": "@frankzhu94/factory-architect",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cpus=2",
+    "--memory=2g",
+    "-v",
+    "/private/tmp/arch-s1-storage-8tX5aU/review/stage-1/tablekeeper:/app/tablekeeper:ro",
+    "-v",
+    "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2153Z:/checks:ro",
+    "sha256:584265ccec0f3551cafa07a899356d8b160b4c9320654632a1c9010bf0ca820c",
+    "python",
+    "/checks/probe.py"
+  ],
+  "start_utc": "2026-10-04T21:54:53.652808+00:00",
+  "end_utc": "2026-10-04T21:54:58.610325+00:00",
+  "elapsed_seconds": 4.957132499999716,
+  "exit_status": 137,
+  "stdout_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2153Z/probe.jsonl",
+  "stderr_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/arch-s1-storage-20261004T2153Z/probe.stderr"
+}

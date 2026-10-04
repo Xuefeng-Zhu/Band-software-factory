@@ -1,0 +1,11 @@
+{
+  "exit_status": "TIMEOUT_15S",
+  "result": "Container stop not confirmed; Docker daemon response unavailable",
+  "command": [
+    "docker",
+    "kill",
+    "tk-arch-storage-check"
+  ],
+  "start_utc": "2026-10-04T21:58:49.891070+00:00",
+  "end_utc": "2026-10-04T21:59:04.904051+00:00"
+}
