@@ -1,0 +1,8 @@
+{
+  "blockers": [],
+  "dispatch_performed": false,
+  "instructions": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/launch-instructions.md",
+  "preparation_id": "184fea374ec846aaa7e263094d606acb",
+  "status": "PREPARED_NOT_DISPATCHED",
+  "task": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/tasks/judged-all-stages.md"
+}

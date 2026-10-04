@@ -1,0 +1,90 @@
+{
+  "created_at": "2026-10-04T18:38:53.900511+00:00",
+  "status": "PASS_EXACT_APPROVAL_AND_CLOCK_AMENDMENT",
+  "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+  "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+  "source_lock_unchanged": true,
+  "source_errors": [],
+  "approval": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+    "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+  },
+  "old_configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/before-run4-preparation-20261004-factory.yaml",
+    "sha256": "582e72c29c9bce82641fa80dbfabe17e4e59b24ba569c63e8069cc98224fb4d3"
+  },
+  "current_configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory.yaml",
+    "sha256": "72436ab8adced9e445fc30dfa22fa49d0a99581832fe47f49f6dc90a0bca18b2"
+  },
+  "changes": [
+    {
+      "path": "budgets.approved",
+      "before": false,
+      "after": true
+    },
+    {
+      "path": "budgets.overall_timeout_seconds",
+      "before": 116675,
+      "after": 117938
+    }
+  ],
+  "no_other_configuration_change": true,
+  "previous_observations": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/observations-before-launch-authorization.json",
+    "sha256": "3ee08bd3381c3de9ccf2fb81e844a451546ce26755df11efb4c03229e76aa9c2"
+  },
+  "permissions_revalidation": "The two finite authorization/clock values do not alter assigned roots, adapter command, transport, model, networking, Git/Docker/browser permissions or source inputs. Original diagnostic timestamps/raw proof hashes retained; no permission command repeated.",
+  "semantic_revalidation": {
+    "old_review": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/semantic-review.json",
+      "sha256": "b32b0f1535708802987aa37e9b87d9d40acbeafca9a2bcf00fff0b336b9c5968"
+    },
+    "standing_source_files_unchanged": true,
+    "standing_text_before_runtime_metadata_unchanged": true,
+    "only_rendered_change": "The two reviewed budget values inside frozen runtime metadata. No product or branch instruction is added.",
+    "previous_rendered_hashes": {
+      "pm": "f78d81d3ea6ce3fdea8fa6860534c7aa6c7ffee063ed35bec14a855b6c1d31ac",
+      "architect": "98f42ed97d32f082c9cf46d1233e9280a467be2898621882cbccd127bfaae989",
+      "designer": "b46b50f2a032f573e3e1c74f67227966e137c2776d6642a6d8f4a555518a62c4",
+      "backend": "87214ba8e66f3b3a0c8353ad060b995c467ac4820920e8fb6a24aabf958a22f8",
+      "frontend": "dcd0b9991bc168e4422f153a852fd4d9ffbbaf4ea40ea1f5a9e43b3c2f7d707a",
+      "qa": "b8cd67dc95df4421cde9d5a9d56e2d627ff3fcf3f27640d82ee844c46b3e2328",
+      "reviewer": "66a5f145c8cf32149173a4089c396fc4a2575ebb4b67c871f928c8c9def5e8c0"
+    },
+    "current_rendered_hashes": {
+      "pm": "62cefd5759e9e08f0dd57c22ee208530202748ff96b752e63336e3bb0de37aff",
+      "architect": "c7144ef24dbd5026d30038cb6a847b6973ded68a0b05aaae3afdad2fdc1fcb24",
+      "designer": "77bc11b5eec4eab4b6e3f0b6be902f95a185df14cd7dcfcd02271fa04a315bbf",
+      "backend": "0fc771c4d5c67c2cf656a18f1c4991c9c6fcf5f37018c1b4440046cd82e65d74",
+      "frontend": "24ccaba2bb9b98dc079845ca5ec189627e3d78cfe4c74f864b760379aff94c57",
+      "qa": "f6c8dab461534488b17d2aa241afcfc348382ed7bf14788e30da490818d089fd",
+      "reviewer": "a9753037c13d1e17660ac23a1e8e274c80ae228ff52cba2e6a8c83d9ee127447"
+    }
+  },
+  "ledger_reconciliation": {
+    "before": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/before-runtime-budget-subscription.json",
+      "sha256": "ca8345fe6f0881ee8e8922e1e94d6a6f68d6970bf2e82be2a30549ccfddfe1e9"
+    },
+    "current": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/runtime/budget-subscription.json",
+      "sha256": "77f3be4073cd6463eaf08a3aa4bd0e0725058201b4eaef1ca60f1a6c29616cb0"
+    },
+    "only_change": "stopped_reason cleared under the explicit new finite authorization",
+    "tokens_preserved": 86011577,
+    "original_started_epoch_preserved": 1791049765.700437,
+    "turns_preserved": {
+      "architect": 33,
+      "backend": 54,
+      "designer": 15,
+      "frontend": 5,
+      "pm": 183,
+      "qa": 11,
+      "reviewer": 22
+    },
+    "all_other_fields_equal": true
+  },
+  "scope": "Independent read-only exact-delta audit. No model, message, registration call or permission execution by this audit. This is evidence rebinding, not automatic launch authorization beyond approval.json."
+}

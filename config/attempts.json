@@ -1,33 +1,38 @@
 {
-  "schema_version": 1,
-  "purpose": "Operator branch registry; not a runtime configuration or launch approval",
   "application_repository": "https://github.com/Xuefeng-Zhu/Tablekeeper.git",
-  "factory_repository": "https://github.com/Xuefeng-Zhu/Tablekeeper-factory.git",
-  "branch_pattern": "run-N",
-  "navigation_branch": "main",
   "attempts": [
     {
-      "id": "run-2",
       "branch": "run-2",
+      "id": "run-2",
       "preserved_head": "86ad17c600fd994bcb55c222049b7d0546f2e472",
       "status": "PRESERVED"
     },
     {
-      "id": "run-3",
       "branch": "run-3",
+      "historical_checkout": "/Users/frank/mygit/Tablekeeper/result-run-3",
+      "id": "run-3",
       "preserved_head": "dc4cf0c4dcf8b96e155f156694960df7fc1f4745",
-      "status": "PRESERVED",
-      "historical_checkout": "/Users/frank/mygit/Tablekeeper/result-run-3"
+      "status": "PRESERVED"
     },
     {
-      "id": "run-4",
       "branch": "run-4",
-      "status": "PREPARED_NOT_DISPATCHED",
       "checkout": "/Users/frank/mygit/Tablekeeper/result-run-4",
-      "head": "UNBORN",
-      "remote_branch_created": false,
+      "deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+      "dispatch_event": "8f18562f-be68-4d4b-9789-d4b0b30c4d14",
       "first_push": "git push -u origin HEAD:refs/heads/run-4",
-      "launch_approved": false
+      "head": "UNBORN",
+      "id": "run-4",
+      "launch_approved": true,
+      "live_accounting": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/runtime/budget-subscription.json",
+      "live_configuration": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory.yaml",
+      "remote_branch_created": false,
+      "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+      "status": "DISPATCHED_RUNTIME_RUNNING"
     }
-  ]
+  ],
+  "branch_pattern": "run-N",
+  "factory_repository": "https://github.com/Xuefeng-Zhu/Tablekeeper-factory.git",
+  "navigation_branch": "main",
+  "purpose": "Operator branch registry; not a runtime configuration or launch approval",
+  "schema_version": 1
 }

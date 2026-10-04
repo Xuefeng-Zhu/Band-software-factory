@@ -1,0 +1,51 @@
+{
+  "additional_token_limit": 200000000,
+  "approval_observed_at": "2026-10-04T18:35:04+00:00",
+  "approval_time_basis": "UTC clock observed at start of response to this user message; no earlier timestamp inferred",
+  "authorization_context": "Direct response after the assistant requested approval of the concrete Run 4 budget and launch package: 200 million additional reported tokens, eight hours, one active seat, 1000 cumulative turns per seat, existing ChatGPT subscription only; no API billing or paid provisioning.",
+  "baseline_reported_tokens": 86011577,
+  "budgets": {
+    "ack_timeout_seconds": 120,
+    "api_billing_allowed": false,
+    "approved": true,
+    "billing_mode": "subscription_only",
+    "max_active_seats": 1,
+    "max_repairs": 3,
+    "max_total_tokens": 286011577,
+    "max_turns_per_seat": 1000,
+    "overall_timeout_seconds": 117938,
+    "paid_provisioning_allowed": false,
+    "spend_cap_usd": null,
+    "stage_timeout_seconds": 28800,
+    "turn_timeout_seconds": 600
+  },
+  "changed_config_keys": [
+    "budgets.approved",
+    "budgets.overall_timeout_seconds"
+  ],
+  "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+  "current_ledger_sha256": "77f3be4073cd6463eaf08a3aa4bd0e0725058201b4eaef1ca60f1a6c29616cb0",
+  "dispatch_performed": false,
+  "dispatches_authorized": 1,
+  "effective_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+  "forbidden_actions": [
+    "API billing",
+    "paid provisioning",
+    "duplicate dispatch",
+    "human steering during judged build",
+    "final hackathon submission"
+  ],
+  "human_response": "continue",
+  "only_ledger_change": "stopped_reason cleared under this new authorization; all counters, original epoch, room starts and historical room stops preserved",
+  "original_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "previous_global_stop_reason": "Approved queue repair rehearsal completed and closed; fresh explicit authorization and consumption reconciliation required before more live work.",
+  "prior_ledger_sha256": "ca8345fe6f0881ee8e8922e1e94d6a6f68d6970bf2e82be2a30549ccfddfe1e9",
+  "repository": {
+    "branch": "run-4",
+    "repository_url": "https://github.com/Xuefeng-Zhu/Tablekeeper.git"
+  },
+  "requested_deadline_utc": "2026-10-05T02:35:04+00:00",
+  "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+  "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+  "status": "AUTHORIZED_FOR_ONE_RUN4_DISPATCH"
+}

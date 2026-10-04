@@ -1,0 +1,21 @@
+{
+  "actual_sha256": "854bbf04f448d282d9af71394ab4d17afab52074b1f17e477b722e7f30c8bc76",
+  "at": "2026-10-04T18:42:42.947880+00:00",
+  "event_id": "8f18562f-be68-4d4b-9789-d4b0b30c4d14",
+  "exact_after_only_pm_mention_normalization": true,
+  "full_readback_sha256": "e640ce5292e70aa40d930fb96f50e8992471936bd7782925dfa13276b0f51e42",
+  "human_text_count": 1,
+  "inserted_at": "2026-10-04T18:41:23.136881Z",
+  "normalization": {
+    "count": 1,
+    "from": "@frankzhu94/factory-pm",
+    "to": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]"
+  },
+  "raw_exact_match": false,
+  "recipient_pm_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+  "room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+  "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+  "status": "PASS_WITH_BAND_MENTION_NORMALIZATION",
+  "submitted_sha256": "65015752e97931ed4aa41a1a98d53f915d957de3a724f3d3f5cc5b50c9abe3c6",
+  "verification_note": "First comparison used plain UUID syntax and stopped; exact diff showed only BAND double-bracket mention syntax. No resend, model work, or task change occurred."
+}
