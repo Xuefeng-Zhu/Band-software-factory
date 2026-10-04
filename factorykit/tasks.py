@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from .common import FactoryError, canonical, digest, source_lock, verify_sources, write_json
+from .common import FactoryError, artifact_path, canonical, digest, product_repository, source_lock, verify_sources, write_json
 
 LAUNCHER_BOUNDARY = """## Launcher admission and seat execution
 The launcher checks authentication, approved finite budgets, registered identities
@@ -66,6 +66,15 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
              f"Configuration SHA-256: {digest(canonical(config))}", "", "## Absolute workspace paths"]
     lines.extend(f"- {name}: `{value}`" for name, value in paths.items())
     lines.extend([f"- Assigned output checkout: `{paths['result'] if track == 'tablekeeper' else paths['rehearsal']}`", "", "## Actual roster"])
+    if track == "tablekeeper" and (product := product_repository(config)):
+        lines[-1:-1] = [
+            "## Attempt repository and branch",
+            f"- Exact origin fetch and push URL: `{product['repository_url']}`.",
+            f"- Assigned branch: `{product['branch']}`; push new attributable progress commits with `git push origin HEAD:refs/heads/{product['branch']}`.",
+            "- Begin from the assigned empty, unborn branch. Do not check out, merge, cherry-pick or copy implementation from another attempt or the repository's default branch.",
+            "- Preserve all other branches. Do not force-push, rewrite history, change origin or create another application repository.",
+            "",
+        ]
     # Operational guidance belongs in dispatch metadata, not track-specific mandates.
     lines[-1] = LAUNCHER_BOUNDARY + "\n## Execution environment"
     output = paths["result"] if track == "tablekeeper" else paths["rehearsal"]
@@ -146,7 +155,7 @@ def generate(config: dict) -> dict:
     errors = verify_sources(config)
     if errors:
         raise FactoryError("; ".join(errors))
-    directory = Path(config["paths"]["factory"]) / "tasks"
+    directory = artifact_path(config, "tasks")
     directory.mkdir(parents=True, exist_ok=True)
     specs = [("rehearsal-toy.md", "toy", [1, 2, 3, 4], "practice-all"),
              ("judged-all-stages.md", "tablekeeper", [1, 2, 3, 4], "all")]
@@ -162,7 +171,7 @@ def generate(config: dict) -> dict:
 
 
 def verify_tasks(config: dict) -> dict:
-    directory = Path(config["paths"]["factory"]) / "tasks"
+    directory = artifact_path(config, "tasks")
     try:
         manifest = json.loads((directory / "task-manifest.json").read_text())
         if manifest["configuration_sha256"] != digest(canonical(config)):

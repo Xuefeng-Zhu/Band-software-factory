@@ -10,7 +10,7 @@ import shlex
 import uuid
 from datetime import datetime, timezone
 
-from .common import FactoryError, canonical, digest, run_command, source_lock, utc_now, verify_sources, write_json
+from .common import FactoryError, artifact_path, canonical, digest, product_repository, run_command, source_lock, utc_now, verify_sources, write_json
 from .budgets import persisted_budget_blockers
 from .tasks import verify_tasks
 from .validation import observations, validate
@@ -61,7 +61,20 @@ def pristine_result(config: dict) -> list[str]:
     tracked = run_command(["git", "ls-files"], root)
     if tracked["exit_code"] or tracked["stdout"].strip():
         return ["Result has indexed files or Git state could not be verified"]
-    return []
+    try:
+        product = product_repository(config)
+    except FactoryError as error:
+        return [str(error)]
+    blockers = []
+    if product:
+        branch = run_command(["git", "symbolic-ref", "--quiet", "HEAD"], root)
+        if branch["exit_code"] or branch["stdout"].strip() != f"refs/heads/{product['branch']}":
+            blockers.append("Result branch does not match product.branch")
+        for mode in ([], ["--push"]):
+            origin = run_command(["git", "remote", "get-url", *mode, "--all", "origin"], root)
+            if origin["exit_code"] or origin["stdout"].splitlines() != [product["repository_url"]]:
+                blockers.append(f"Result origin {'push' if mode else 'fetch'} URL does not match product.repository_url")
+    return blockers
 
 
 def freeze(config: dict) -> dict:
@@ -108,20 +121,28 @@ def freeze(config: dict) -> dict:
                 files[str(path.relative_to(root))] = digest(path)
     for name in ("AGENTS.md", "pyproject.toml", "uv.lock", "config/source-lock.json", "config/harness-requirements.lock",
                  "tooling/codex/package.json", "tooling/codex/package-lock.json"):
+        if name == "config/source-lock.json" and "source_lock" in config.get("artifacts", {}):
+            continue
         path = root / name
         if path.is_file():
             files[name] = digest(path)
         else:
             blockers.append(f"Freeze input missing: {name}")
+    lock_path = artifact_path(config, "source_lock")
+    lock_sha256 = digest(lock_path) if lock_path.is_file() else None
+    if lock_sha256 is None:
+        blockers.append("Configured source lock is missing")
     blockers.extend(persisted_budget_blockers(config, require_existing=True))
     blockers = sorted(set(blockers))
     manifest = {"schema_version": 1, "created_at": utc_now(),
                 "status": "BLOCKED_WITH_ACTIONS" if blockers else "READY_TO_LAUNCH",
-                "configuration_sha256": digest(canonical(config)), "source_lock_sha256": files.get("config/source-lock.json"),
+                "configuration_sha256": digest(canonical(config)), "source_lock_sha256": lock_sha256,
                 "files": files, "tasks": tasks["tasks"], "seats": config["seats"], "budgets": config["budgets"],
                 "observed_checks": evidence, "blockers": blockers,
                 "usage": {"measured_preparation_cost_usd": None, "measured_rehearsal_cost_usd": None, "status": "UNAVAILABLE"},
                 "dispatch_performed": False}
+    if "source_lock" in config.get("artifacts", {}):
+        manifest["source_lock_path"] = str(lock_path)
     path = Path(config["paths"]["runs"]) / "freeze/latest.json"
     write_json(path, manifest)
     archive = evidence_directory(config, "freeze")
@@ -174,13 +195,16 @@ def launch_prepare(config: dict, mode: str, stage: int | None) -> dict:
             target = Path(config["paths"]["factory"]) / name
             if not target.is_file() or digest(target) != expected:
                 blockers.append(f"Frozen input changed: {name}")
+        lock_path = artifact_path(config, "source_lock")
+        if not lock_path.is_file() or digest(lock_path) != frozen.get("source_lock_sha256"):
+            blockers.append("Configured source lock changed after freeze")
         blockers.extend(verify_sources(config))
         verify_tasks(config)
         if not ledger["entries"]:
             blockers.extend(pristine_result(config))
         _, evidence_blockers = observations(config)
         blockers.extend(evidence_blockers)
-        task = Path(config["paths"]["factory"]) / "tasks" / ("judged-all-stages.md" if mode == "all" else f"judged-stage-{stage}.md")
+        task = artifact_path(config, "tasks") / ("judged-all-stages.md" if mode == "all" else f"judged-stage-{stage}.md")
         frozen_task = frozen.get("tasks", {}).get(task.name, {}).get("sha256")
         if frozen_task != digest(task):
             blockers.append("Dispatch task differs from frozen packet")

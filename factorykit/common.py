@@ -163,6 +163,9 @@ def load_config(path: str | Path) -> dict:
     paths = [Path(config["paths"][key]).resolve() for key in ("challenge", "factory", "rehearsal", "runs", "result")]
     if len(set(paths)) != len(paths) or any(a in b.parents for a in paths for b in paths if a != b):
         raise FactoryError("Operational workspace paths must be distinct, non-nested directories")
+    product_repository(config)
+    for name in ("source_lock", "tasks"):
+        artifact_path(config, name)
     for key in ("python", "harness_python", "codex_command", "browser_path"):
         value = config["runtime"].get(key)
         if not isinstance(value, str) or not Path(value).is_absolute():
@@ -202,8 +205,55 @@ def load_config(path: str | Path) -> dict:
     return config
 
 
+def product_repository(config: dict) -> dict | None:
+    """Optional exact publication target for a fresh, independent attempt."""
+    if "product" not in config:
+        return None
+    product = config["product"]
+    if not isinstance(product, dict) or set(product) != {"repository_url", "branch"}:
+        raise FactoryError("product requires exactly repository_url and branch")
+    origin, branch = product["repository_url"], product["branch"]
+    # Keep credentials and executable/prompt syntax out of dispatch metadata.
+    remote = r"(?:https://[A-Za-z0-9][A-Za-z0-9.-]*(?::[0-9]+)?/|git@[A-Za-z0-9][A-Za-z0-9.-]*:)[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)+"
+    if not isinstance(origin, str) or not re.fullmatch(remote, origin):
+        raise FactoryError("product.repository_url must be a credential-free HTTPS or git@host:path repository URL")
+    if (not isinstance(branch, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._/-]*", branch)
+            or branch == "HEAD" or ".." in branch
+            or any(not part or part.startswith(".") or part.endswith((".", ".lock")) for part in branch.split("/"))):
+        raise FactoryError("product.branch must be a literal Git branch name using letters, digits, dots, underscores, slashes or hyphens")
+    return product
+
+
+def artifact_path(config: dict, name: str) -> Path:
+    """Resolve optional run-owned inputs without overwriting historical defaults."""
+    defaults = {"source_lock": "config/source-lock.json", "tasks": "tasks"}
+    if name not in defaults:
+        raise FactoryError("Unknown factory artifact")
+    artifacts = config.get("artifacts", {})
+    if not isinstance(artifacts, dict) or set(artifacts) - defaults.keys():
+        raise FactoryError("artifacts permits only source_lock and tasks paths")
+    scoped = {}
+    runs = Path(config["paths"]["runs"]).resolve()
+    for key, value in artifacts.items():
+        if not isinstance(value, str) or not Path(value).is_absolute():
+            raise FactoryError(f"artifacts.{key} must be an absolute path under paths.runs")
+        path = Path(value).resolve()
+        if runs not in path.parents:
+            raise FactoryError(f"artifacts.{key} must remain under paths.runs, including symlink targets")
+        if (key == "source_lock" and path.is_dir()) or (key == "tasks" and path.exists() and not path.is_dir()):
+            raise FactoryError(f"artifacts.{key} has the wrong file type")
+        if key == "tasks" and path.exists() and any(child.is_symlink() for child in path.rglob("*")):
+            raise FactoryError("artifacts.tasks must not contain symlinks")
+        scoped[key] = path
+    if len(scoped) == 2:
+        lock, tasks = scoped["source_lock"], scoped["tasks"]
+        if lock == tasks or lock in tasks.parents or tasks in lock.parents:
+            raise FactoryError("Artifact source lock and task paths must not overlap")
+    return scoped.get(name, Path(config["paths"]["factory"]) / defaults[name])
+
+
 def source_lock(config: dict) -> dict:
-    path = Path(config["paths"]["factory"]) / "config/source-lock.json"
+    path = artifact_path(config, "source_lock")
     try:
         value = json.loads(path.read_text())
         challenge = value["challenge"]
@@ -213,7 +263,7 @@ def source_lock(config: dict) -> dict:
             raise ValueError()
         return value
     except (OSError, ValueError, KeyError, TypeError):
-        raise FactoryError("Missing or malformed factory/config/source-lock.json") from None
+        raise FactoryError("Missing or malformed configured source lock") from None
 
 
 def verify_sources(config: dict) -> list[str]:

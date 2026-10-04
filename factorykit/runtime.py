@@ -921,7 +921,7 @@ def require_ready(config, mode):
 
 def judged_launch_errors(config: dict) -> list[str]:
     """Connect judged seats only against the exact ready frozen launch."""
-    from .common import canonical, digest, verify_sources
+    from .common import artifact_path, canonical, digest, verify_sources
     from .tasks import verify_tasks
     from .operations import pristine_result
     errors = persisted_budget_blockers(config, require_existing=True)
@@ -938,6 +938,9 @@ def judged_launch_errors(config: dict) -> list[str]:
         path = (root / name).resolve()
         if not path.is_relative_to(root) or not path.is_file() or digest(path) != expected:
             errors.append(f"Frozen input changed: {name}")
+    lock_path = artifact_path(config, "source_lock")
+    if not lock_path.is_file() or digest(lock_path) != frozen.get("source_lock_sha256"):
+        errors.append("Configured source lock changed after freeze.")
     errors.extend(verify_sources(config))
     try:
         tasks = verify_tasks(config)

@@ -11,7 +11,7 @@ import shutil
 import sys
 import tempfile
 
-from .common import FactoryError, canonical, contains_secret, digest, run_command, utc_now, verify_sources, write_json
+from .common import FactoryError, artifact_path, canonical, contains_secret, digest, run_command, utc_now, verify_sources, write_json
 from .budgets import budget_blockers, subscription_auth_errors, subscription_only
 from .permissions import profile_arguments
 
@@ -198,7 +198,7 @@ def doctor(config: dict) -> dict:
     saved = {}
     try:
         saved = json.loads((Path(config["paths"]["runs"]) / "readiness/observations.json").read_text())
-        lock_path = Path(config["paths"]["factory"]) / "config/source-lock.json"
+        lock_path = artifact_path(config, "source_lock")
         if saved.get("configuration_sha256") != digest(canonical(config)) or saved.get("source_lock_sha256") != digest(lock_path):
             saved = {}
     except (OSError, ValueError, AttributeError):
@@ -311,7 +311,7 @@ def observations(config: dict) -> tuple[list[dict], list[str]]:
     except (OSError, ValueError):
         return [], [f"Observed readiness evidence missing: {name}" for name in REQUIRED_OBSERVATIONS]
     records, blockers = [], []
-    lock_path = Path(config["paths"]["factory"]) / "config/source-lock.json"
+    lock_path = artifact_path(config, "source_lock")
     if (not isinstance(report, dict) or report.get("configuration_sha256") != digest(canonical(config))
             or not lock_path.is_file() or report.get("source_lock_sha256") != digest(lock_path)):
         return [], ["Readiness observations do not match the current configuration and source lock"]
