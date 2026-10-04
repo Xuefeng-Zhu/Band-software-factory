@@ -1,0 +1,243 @@
+{
+  "actions": {
+    "config_ledger_source_observation_writes": 0,
+    "messages_sent": 0,
+    "model_turns": 0,
+    "workers_started_or_stopped": 0
+  },
+  "checkout": {
+    "HEAD_unborn": true,
+    "branch": "run-5",
+    "entries": [
+      ".git"
+    ],
+    "object_counts": {
+      "count": "0",
+      "garbage": "0",
+      "in-pack": "0",
+      "packs": "0",
+      "prune-packable": "0",
+      "size": "0",
+      "size-garbage": "0",
+      "size-pack": "0"
+    },
+    "origin": "https://github.com/Xuefeng-Zhu/Tablekeeper.git",
+    "path": "/Users/frank/mygit/Tablekeeper/result-run-5",
+    "status_empty": true
+  },
+  "configuration_after_read": {
+    "budget_approved": true,
+    "canonical_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+    "file_sha256": "b0db7033eed0d4aaa851e23f7f42403a0df98b82450e782ea0b3e73b1cd25960"
+  },
+  "configuration_at_read": {
+    "budget_approved": true,
+    "canonical_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+    "file_sha256": "b0db7033eed0d4aaa851e23f7f42403a0df98b82450e782ea0b3e73b1cd25960",
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml"
+  },
+  "events": {
+    "count": 7,
+    "event_metadata": [
+      {
+        "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "id": "d0c5d0d5-a85d-4897-9224-fae6e28cd377",
+        "inserted_at": "2026-10-04T20:44:38.311908Z",
+        "message_type": "participant",
+        "sender_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "sender_type": "Agent",
+        "updated_at": "2026-10-04T20:44:38.311908Z"
+      },
+      {
+        "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "id": "c78e4374-1d14-46f8-891a-49de89bf16be",
+        "inserted_at": "2026-10-04T20:44:38.488464Z",
+        "message_type": "participant",
+        "sender_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+        "sender_type": "Agent",
+        "updated_at": "2026-10-04T20:44:38.488464Z"
+      },
+      {
+        "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "id": "158b4a02-bae0-4062-959a-7ec0126c9ad6",
+        "inserted_at": "2026-10-04T20:44:38.647610Z",
+        "message_type": "participant",
+        "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+        "sender_type": "Agent",
+        "updated_at": "2026-10-04T20:44:38.647610Z"
+      },
+      {
+        "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "id": "48b41d15-867e-4c8b-9374-b492069bf273",
+        "inserted_at": "2026-10-04T20:44:38.875969Z",
+        "message_type": "participant",
+        "sender_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+        "sender_type": "Agent",
+        "updated_at": "2026-10-04T20:44:38.875969Z"
+      },
+      {
+        "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "id": "f8e5668b-7658-4a13-9844-5baff208bd98",
+        "inserted_at": "2026-10-04T20:44:39.112052Z",
+        "message_type": "participant",
+        "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+        "sender_type": "Agent",
+        "updated_at": "2026-10-04T20:44:39.112052Z"
+      },
+      {
+        "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "id": "4f86ffe9-a052-4eda-8ded-de16fa59449f",
+        "inserted_at": "2026-10-04T20:44:39.285973Z",
+        "message_type": "participant",
+        "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+        "sender_type": "Agent",
+        "updated_at": "2026-10-04T20:44:39.285973Z"
+      },
+      {
+        "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "id": "0e4752db-cbc2-4e63-9270-cba7a10d07a5",
+        "inserted_at": "2026-10-04T20:44:39.460989Z",
+        "message_type": "participant",
+        "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+        "sender_type": "User",
+        "updated_at": "2026-10-04T20:44:39.460989Z"
+      }
+    ],
+    "has_more": false,
+    "metadata": {
+      "last_included_mutation_sequence": 0,
+      "limit": 100,
+      "next_cursor": null,
+      "page": 1,
+      "total_pages": 1
+    },
+    "text_task_tool_thought_count": 0,
+    "types": {
+      "participant": 7
+    }
+  },
+  "finished_at": "2026-10-04T21:01:48.524853+00:00",
+  "identity": {
+    "handle": "frankzhu94",
+    "id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60"
+  },
+  "limitations": [
+    "Point-in-time pre-dispatch observation only; parent owns concurrent approval/configuration reconciliation and subsequent launch.",
+    "Public native CLI metadata only, not Download full session export. Whoami email and all other profile fields discarded; no credentials retained."
+  ],
+  "read_proof_metadata": [
+    {
+      "argv": [
+        "/Applications/Band.app/Contents/MacOS/band",
+        "whoami",
+        "--profile",
+        "default",
+        "--json"
+      ],
+      "exit_code": 0,
+      "finished_at": "2026-10-04T21:01:48.191264+00:00",
+      "operator_retries": 0,
+      "started_at": "2026-10-04T21:01:47.922445+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e31eb0b4592d711b8e00bf7a12ea0d35b084392acddd9b3124136fe3aaea31fa"
+    },
+    {
+      "argv": [
+        "/Applications/Band.app/Contents/MacOS/band",
+        "room",
+        "participants",
+        "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "--profile",
+        "default"
+      ],
+      "exit_code": 0,
+      "finished_at": "2026-10-04T21:01:48.261175+00:00",
+      "operator_retries": 0,
+      "started_at": "2026-10-04T21:01:48.191390+00:00",
+      "stderr_sha256": "2bfe10cb75d38ac888b365f166409c1051452866a27bc858da4fbee71b6a93db",
+      "stdout_sha256": "a3b266a9a0b5734c35d46aff1191cf743b93ade25ae550c3dd62489054f0ef30"
+    },
+    {
+      "argv": [
+        "/Applications/Band.app/Contents/MacOS/band",
+        "room",
+        "messages",
+        "12cde259-0fcd-4551-84c7-52c443cb5600",
+        "--page",
+        "1",
+        "--profile",
+        "default",
+        "--json"
+      ],
+      "exit_code": 0,
+      "finished_at": "2026-10-04T21:01:48.400334+00:00",
+      "operator_retries": 0,
+      "started_at": "2026-10-04T21:01:48.261506+00:00",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cdf56db1ed8e9fb96d7206a43320a3bc35bad70531d17010758704a3ec93914e"
+    }
+  ],
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "roster": [
+    {
+      "handle": "frankzhu94/factory-reviewer",
+      "id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-frontend",
+      "id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-pm",
+      "id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "role": "owner",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94",
+      "id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+      "role": "member",
+      "type": "User"
+    },
+    {
+      "handle": "frankzhu94/factory-qa",
+      "id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-architect",
+      "id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-designer",
+      "id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-backend",
+      "id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "role": "member",
+      "type": "Agent"
+    }
+  ],
+  "run4_owned_processes": {
+    "owned_children_alive": [],
+    "owned_parent_alive": false,
+    "owner_record": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/runtime/owner.json",
+    "owner_sha256": "166676353a8dcc4f116223c572aef3f1d35ad4de1ad6f8242bdaca4e23c221d2",
+    "parent_pid": 77057,
+    "recorded_children": 40,
+    "status": "stopped",
+    "validation": "PID creation time and exact recorded command line; parent token also validated by runtime.is_owned"
+  },
+  "started_at": "2026-10-04T21:01:47.922058+00:00",
+  "status": "PASS_PRE_DISPATCH_READ_ONLY"
+}

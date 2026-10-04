@@ -1,0 +1,93 @@
+{
+  "created_at": "2026-10-04T21:06:28.068107+00:00",
+  "status": "PASS_FINAL_READY_AUTHORIZATION_AUDIT",
+  "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "freeze": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/freeze/latest.json",
+    "sha256": "345c1c27413467a703c30034b99a857f9f2622baff8275016bdf1ea0955961b1"
+  },
+  "approval": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+    "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+  },
+  "revalidation": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+    "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+  },
+  "verified": {
+    "only_configuration_change": "budgets.approved false to true",
+    "only_ledger_change": "stopped_reason cleared; every other field exactly preserved",
+    "all_counters_original_epoch_and_old_room_halts_preserved": true,
+    "source_verification_errors": [],
+    "frozen_inputs_matching": 34,
+    "seven_rendered_sections_only_approval_literal_changes": true,
+    "rendered_hashes": {
+      "pm": "a3799e0aa1d70f8afcf77dc66c752be0c2838ea7dba6fc85bdc2dd414d0278fd",
+      "architect": "c7144ef24dbd5026d30038cb6a847b6973ded68a0b05aaae3afdad2fdc1fcb24",
+      "designer": "77bc11b5eec4eab4b6e3f0b6be902f95a185df14cd7dcfcd02271fa04a315bbf",
+      "backend": "677e190bc1640fda9d8af89c2c3dd2dde85a14f1721728fdfbf4296880ba8796",
+      "frontend": "24ccaba2bb9b98dc079845ca5ec189627e3d78cfe4c74f864b760379aff94c57",
+      "qa": "9ff9a6822db203d4749dc65566719b9b38a0100d83217587d629a69824805d9d",
+      "reviewer": "2fce60efef66ed5693be509aacae508b3890c8ea5994efafeaf6cabbae5cd691"
+    },
+    "readiness_observations_valid": 14,
+    "observation_errors": [],
+    "historical_observation_times_preserved": true,
+    "registration_observation_refreshed_by_parent": true,
+    "doctor": "PASS",
+    "packets_matching_freeze": 6,
+    "only_packet_changes": [
+      "configuration hash header",
+      "approved flag in runtime metadata"
+    ],
+    "new_workflow_remains_not_live_rehearsed": true,
+    "fresh_approval_not_inherited": true,
+    "freeze_status": "READY_TO_LAUNCH",
+    "freeze_blockers": [],
+    "dispatch_performed_at_freeze": false
+  },
+  "budget": {
+    "baseline_reported_tokens": 145683099,
+    "cumulative_token_ceiling": 286011577,
+    "remaining_reported_tokens": 140328478,
+    "original_started_epoch": 1791049765.700437,
+    "overall_timeout_seconds": 117938,
+    "deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+    "limits": {
+      "max_active_seats": 1,
+      "max_repairs": 3,
+      "turn_timeout_seconds": 600,
+      "stage_timeout_seconds": 28800,
+      "overall_timeout_seconds": 117938,
+      "max_turns_per_seat": 1000,
+      "max_total_tokens": 286011577,
+      "approved": true,
+      "spend_cap_usd": null,
+      "ack_timeout_seconds": 120,
+      "billing_mode": "subscription_only",
+      "api_billing_allowed": false,
+      "paid_provisioning_allowed": false
+    },
+    "dispatches_authorized": 1
+  },
+  "task": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/tasks/judged-all-stages.md",
+    "sha256": "85ceb4e9574bf3e63355017708eff69b9894688732082e2f3c4af142ff9f9178"
+  },
+  "findings": [],
+  "limitations": [
+    "This is a pre-dispatch READY snapshot, not message delivery, completed model work or product acceptance.",
+    "Root owns the exact-once dispatch and its ledger; this audit neither sends nor consumes dispatch authority.",
+    "Historical rehearsal dates remain original; revised early-QA workflow is NOT_LIVE_REHEARSED.",
+    "Current permission/registration prerequisites are from separate saved proofs; this audit ran no API or model probe."
+  ],
+  "actions": {
+    "messages_sent": 0,
+    "model_turns": 0,
+    "api_probes": 0,
+    "workers_started_or_stopped": 0,
+    "config_source_ledger_old_artifact_mutations": 0,
+    "only_output": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/final-ready-audit.json"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "expected_dispatch_event_id": "d5861cdd-0b57-4393-a97f-0dfb9201cec2",
+  "finished_at": "2026-10-04T21:09:12.739180+00:00",
+  "limitations": [
+    "Process health and receipts do not establish stage or product acceptance.",
+    "Only public text events and operational lifecycle/queue/counter metadata inspected; hidden reasoning excluded.",
+    "SDK queue state is local ingress observation, not proof remote server backlog empty."
+  ],
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "scope": "Bounded read-only Run5 initial owned runtime and public text observation; no messages/model calls/process changes/product or controlfile writes",
+  "snapshots": [
+    {
+      "deliveries": [],
+      "global_halt": null,
+      "health": {
+        "active_turn_ids": [
+          "pm:282:d5861cdd-0b57-4393-a97f-0dfb9201cec2"
+        ],
+        "notice_attempts": 0,
+        "sdk_execution_busy": true,
+        "sdk_execution_contexts": [
+          {
+            "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+            "processing": true,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "processing"
+          },
+          {
+            "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          }
+        ],
+        "seconds_to_next_deadline": 493.899621963501,
+        "state": "busy",
+        "unknown_notices": [],
+        "unresolved_incident_ids": []
+      },
+      "observed_at": "2026-10-04T21:09:12.354699+00:00",
+      "owned_parent_alive": true,
+      "owner_updated_at": "2026-10-04T21:09:12.303818+00:00",
+      "public_text": {
+        "agent_events": [
+          {
+            "content_sha256": "e140ec80c2b9d81db6a57e3e9d50f0d6a22604a2bae896ed109eea7dafc6716b",
+            "id": "d1f3350d-fc98-44b4-a076-61baa3eeec71",
+            "inserted_at": "2026-10-04T21:08:05.584781Z",
+            "public_text_excerpt": "@[[7f9319c7-ef4f-4c9b-88aa-97e1edb15c60]] The saved freeze reports READY_TO_LAUNCH for the dispatched configuration, and all seven configured identities are present. The assigned run-5 branch is empty; origin fetch succeeded without importing another attempt. I’m establishing the requirements map, then assigning QA boundary planning before architecture and implementation. Stages will advance only after independent acceptance.",
+            "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+            "sender_type": "Agent",
+            "updated_at": "2026-10-04T21:08:05.584781Z"
+          }
+        ],
+        "has_more": false,
+        "human_events": [
+          {
+            "content_sha256": "2601f125efeef45cd1d91240d933f572a09995ea40631eda5d733864b2b7df78",
+            "id": "d5861cdd-0b57-4393-a97f-0dfb9201cec2",
+            "inserted_at": "2026-10-04T21:06:55.943682Z"
+          }
+        ],
+        "page": 1,
+        "page_messages": 2,
+        "raw_response_sha256": "bf53c57c912ed4772f934e4b7b5f466591089d297a55cc0b8624eb798fb3eb3e",
+        "read_at": "2026-10-04T21:09:12.738486+00:00"
+      },
+      "read_completed_at": "2026-10-04T21:09:12.737682+00:00",
+      "room_halt": null,
+      "room_turns": {
+        "pm": 1
+      },
+      "seat_ids": [
+        "pm",
+        "architect",
+        "designer",
+        "backend",
+        "frontend",
+        "qa",
+        "reviewer"
+      ],
+      "source_hashes": {
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/budget-subscription.json": "9edee8f14e10041abf023217e9d07e4fae0904695aad9db95a2bfbe3e443dbaf",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/owner.json": "b025625220c5eb9ea73489f4b3cf2bacf4f55ac08bf500821a7975bc6ac1f1c5",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/workflow-12cde259-0fcd-4551-84c7-52c443cb5600.json": "164ab4d5bdef9132cb0ccf7ba0b4c0c40c9aca11dc34b820c1e847f660d3e528"
+      },
+      "status": "running",
+      "supervisor_pid": 710,
+      "tokens_cumulative": 145955520,
+      "tokens_current_room": 272421,
+      "turns": {
+        "pm:282:d5861cdd-0b57-4393-a97f-0dfb9201cec2": {
+          "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+          "deadline_at": 1791148646.203836,
+          "incident_ids": [],
+          "reason_code": "",
+          "started_at": 1791148046.203937,
+          "status": "running",
+          "trigger_event_id": "d5861cdd-0b57-4393-a97f-0dfb9201cec2"
+        }
+      }
+    }
+  ],
+  "status": "HEALTHY_INITIAL_PM_RECEIPT_OBSERVED"
+}

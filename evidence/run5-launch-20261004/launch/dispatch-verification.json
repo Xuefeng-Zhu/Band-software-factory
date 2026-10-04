@@ -1,0 +1,21 @@
+{
+  "actual_sha256": "2601f125efeef45cd1d91240d933f572a09995ea40631eda5d733864b2b7df78",
+  "at": "2026-10-04T21:07:09.358085+00:00",
+  "event_id": "d5861cdd-0b57-4393-a97f-0dfb9201cec2",
+  "exact_after_only_pm_mention_normalization": true,
+  "full_readback_sha256": "b0655718f8d81a30f735fb5361dfcde7f89187022b42c0e9afd240d81274e68d",
+  "human_text_count": 1,
+  "inserted_at": "2026-10-04T21:06:55.943682Z",
+  "normalization": {
+    "count": 1,
+    "from": "@frankzhu94/factory-pm",
+    "to": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]"
+  },
+  "raw_exact_match": false,
+  "recipient_pm_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+  "retries_by_operator": 0,
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+  "status": "PASS_WITH_BAND_MENTION_NORMALIZATION",
+  "submitted_sha256": "85ceb4e9574bf3e63355017708eff69b9894688732082e2f3c4af142ff9f9178"
+}

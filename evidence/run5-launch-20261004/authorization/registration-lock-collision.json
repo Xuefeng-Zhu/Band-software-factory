@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-04T21:02:39.378026+00:00",
+  "cause": "Rehearsal registration held shared factory operation lock while the two probes were started concurrently",
+  "dispatch_attempts": 0,
+  "initial_error": "AgentAlreadyRunningError",
+  "model_turns": 0,
+  "operation": "read-only judged registration",
+  "resolution": "Waited for rehearsal exit0; retry judged probe sequentially"
+}

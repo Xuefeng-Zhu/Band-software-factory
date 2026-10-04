@@ -1,0 +1,51 @@
+{
+  "approval_observed_at": "2026-10-04T20:59:53+00:00",
+  "approval_time_basis": "UTC clock at start of response to direct user approval; deadline is unchanged, not restarted",
+  "authorization_context": "Direct reply to concrete Run5 package: one dispatch, remaining140328478 reported tokens, one active seat, existing October4 7:35PM PDT deadline, ChatGPT subscription only.",
+  "baseline_reported_tokens": 145683099,
+  "budgets": {
+    "ack_timeout_seconds": 120,
+    "api_billing_allowed": false,
+    "approved": true,
+    "billing_mode": "subscription_only",
+    "max_active_seats": 1,
+    "max_repairs": 3,
+    "max_total_tokens": 286011577,
+    "max_turns_per_seat": 1000,
+    "overall_timeout_seconds": 117938,
+    "paid_provisioning_allowed": false,
+    "spend_cap_usd": null,
+    "stage_timeout_seconds": 28800,
+    "turn_timeout_seconds": 600
+  },
+  "changed_config_keys": [
+    "budgets.approved"
+  ],
+  "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "cumulative_token_ceiling": 286011577,
+  "current_ledger_sha256": "2c43988e2a50259969e4ac8cdf16cf9f7cdd98a5100d106b74081f223c87db15",
+  "dispatch_performed": false,
+  "dispatches_authorized": 1,
+  "effective_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+  "forbidden_actions": [
+    "API billing",
+    "paid provisioning",
+    "duplicate dispatch",
+    "human steering during judged build",
+    "public release",
+    "final submission"
+  ],
+  "human_response": "approve",
+  "only_ledger_change": "Clear stopped_reason only for this new authorized Run5 launch; all existing counters, original epoch, old room starts and old room stops retained.",
+  "original_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "previous_global_stop_reason": "Run4 closed after coordinator final BLOCKED outcome: three repair cycles exhausted; no further model work authorized for this attempt.",
+  "prior_ledger_sha256": "2c5b31367965d61d4c157ea66a3a1c30406e5a9b7f51f62c6367827d62505f6d",
+  "remaining_token_limit": 140328478,
+  "repository": {
+    "branch": "run-5",
+    "repository_url": "https://github.com/Xuefeng-Zhu/Tablekeeper.git"
+  },
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "status": "AUTHORIZED_FOR_ONE_RUN5_DISPATCH"
+}

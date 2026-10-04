@@ -1,0 +1,2053 @@
+{
+  "blockers": [],
+  "budgets": {
+    "ack_timeout_seconds": 120,
+    "api_billing_allowed": false,
+    "approved": true,
+    "billing_mode": "subscription_only",
+    "max_active_seats": 1,
+    "max_repairs": 3,
+    "max_total_tokens": 286011577,
+    "max_turns_per_seat": 1000,
+    "overall_timeout_seconds": 117938,
+    "paid_provisioning_allowed": false,
+    "spend_cap_usd": null,
+    "stage_timeout_seconds": 28800,
+    "turn_timeout_seconds": 600
+  },
+  "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "created_at": "2026-10-04T21:03:29.427536+00:00",
+  "dispatch_performed": false,
+  "files": {
+    "AGENTS.md": "784139e91e5ec30229961a0e8a74d23ec0f20702f3c147e252b08ebe42fc9529",
+    "agents/README.md": "610307306b55430ff45e873604432d16276e09e3037d981fe929910b39b8d4b8",
+    "config/harness-requirements.lock": "98af911b8df3e8506a8764f35527441e91e5fc2382eb31fb6f2bf4d76988afbb",
+    "factorykit/__init__.py": "a95e2e69ac0ab73b74eeb20cd45f509baa9bae9b671673aba14a75b010951bfc",
+    "factorykit/budgets.py": "b5552bec8f4af652c235f723c861220a325337bd1c5c7b7f8ab64e7425fbf47f",
+    "factorykit/cli.py": "b4432170a0b7e3cb167a3f0f9ad6adb1918e5aedadcda55d55645d4caf8783b1",
+    "factorykit/common.py": "b7b754b774c51325a4be6db051bd5146ad9ecb90b0b8f4f193217dbe4c45a96f",
+    "factorykit/operations.py": "321c293942462673bb45089c1be9de5a148bd4b565f1c582fe3d8a416a5f8180",
+    "factorykit/permissions.py": "fa28cec5cd524b4674ed686bdf27c6b0dafb589112d003c7ae0b35f83c67f02c",
+    "factorykit/runtime.py": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341",
+    "factorykit/tasks.py": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3",
+    "factorykit/validation.py": "5ce7e1fa6b1af1e32b1c0a14dfbe3e4b635f625a7578399f991921e0d583b346",
+    "factorykit/workflow.py": "b845ce8b5a96b256f6057a713379677485b82298b0213065ff05748c5a74206f",
+    "factorykit/workflow_runtime.py": "5e3504b37283ab26345ecf7bdb36afa41f5ce22827906d0d878898f28ad56add",
+    "factorykit/workitems.py": "5821c39d03639130639eb9dfe79352abde830dcdf3cb6551f7952c51ee8370e8",
+    "mandates/factory-architect.md": "c613e55d3d2af4c20814d305270290c93979df12d367532db022141a42bab1e5",
+    "mandates/factory-backend.md": "703ad1ef3c58335b37268c03260253d70ffc1912743481e00fac031b7b7ce04f",
+    "mandates/factory-designer.md": "f01611180f98a11e8711ba7c85f7e30f79d338063cd3243de02652ccf2c5ea65",
+    "mandates/factory-frontend.md": "2faf05aaba37d42ed37bc4eb8f976b4f2d627eac90cdcf8820f839aa671b51ae",
+    "mandates/factory-pm.md": "0e64c264f3fc7aa8310bb988146c8dcb0b60d5a51a23e60eb2318adfce0184b8",
+    "mandates/factory-qa.md": "6a825a40e4c5521ba2f9ca7fff24f0c777819ad26ab35a801ef36126d77f4651",
+    "mandates/factory-reviewer.md": "73702baf4028b4f5c42a77d8d5f5f993e6fa192d244ce75e959538f1221c5870",
+    "protocols/collaboration.md": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b",
+    "protocols/evidence-and-limits.md": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6",
+    "protocols/git-and-review.md": "09e212f1ff2c4f8c31383e721e4fb9e3ce4d1b5098cfe4596bd3a1e0ef8b31f7",
+    "pyproject.toml": "d08ea4e5213b1c9e51c4f6a4fec730afed4528e221777269c4679160096447c1",
+    "scripts/bootstrap.py": "3331c8a1c4d23f866b6ba3d0ab54d7d2759375969a7a3e5cc00763fccbbc19ce",
+    "scripts/codex-local": "db57b3ce018bc3d8d5dce62cb71d809956bb8e00e488e27b521ed22e82a36e9a",
+    "scripts/factory": "0664b25367880eae8633ed409950ffe228d60631cd6977e8a5d8877cc39454f7",
+    "scripts/permission_probe.py": "346daf4c11ca900bb62a69bbbfd01dd0559dd068d4823a41a5db3c28ad5a04ce",
+    "scripts/runtime": "60ad0961932854a10659bdaed9cac1a9c7edaeb130cbc072f56ad294889b15c1",
+    "tooling/codex/package-lock.json": "96d56cc75319eb74a91f78308b624a57b76cc9c24f5010002407b20e544c20f4",
+    "tooling/codex/package.json": "ba8407352770dc5809eab3a9e93d6db2ac4426827af2c50b23d770cce5340e5d",
+    "uv.lock": "46ca153100ee9189c5e6d110757fddaaa913344a89c6f1e73b78da631643746e"
+  },
+  "observed_checks": [
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/assigned-2026-10-04T204605.977894+0000.json",
+          "sha256": "ff6925b727983c5b68051dab4c117e137d46b280b7046b845ac54232c343dd7f"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/quick-adapter-20261004T204607Z.json",
+          "sha256": "a479583ba8cca37442588d7985bb077831225d24155e46ce8171232cc262d499"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/summary.json",
+          "sha256": "8da835ea721c1d358e52a57534794ac092a74baf0c6b0f9cbb14557f17f2a08b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "id": "permissions_agent_write_git",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Configuration did not change between raw probes and this summary. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T20:46:18.400224+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+      },
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.865198+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/quick-adapter-20261004T204607Z.json",
+          "sha256": "a479583ba8cca37442588d7985bb077831225d24155e46ce8171232cc262d499"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/build-adapter-20261004T204610Z.json",
+          "sha256": "33e85cbb6a9ddc6c0bfa020db1ebd8832713c8185fce0641d07c5fa607e4071d"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/cleanup-adapter-20261004T204618Z.json",
+          "sha256": "35b4b8abb72ee7df56da6099caa78296d0722328b6ebd13e7aba40df18d4e182"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/summary.json",
+          "sha256": "8da835ea721c1d358e52a57534794ac092a74baf0c6b0f9cbb14557f17f2a08b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "id": "permissions_docker_build",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Configuration did not change between raw probes and this summary. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T20:46:18.400224+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+      },
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.865280+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/browser-adapter-20261004T204613Z.json",
+          "sha256": "4df44504614f71219962380da7ad58b26a8ae080c43ee19860e488cf8e144752"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/cleanup-adapter-20261004T204618Z.json",
+          "sha256": "35b4b8abb72ee7df56da6099caa78296d0722328b6ebd13e7aba40df18d4e182"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/summary.json",
+          "sha256": "8da835ea721c1d358e52a57534794ac092a74baf0c6b0f9cbb14557f17f2a08b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "id": "permissions_browser",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Configuration did not change between raw probes and this summary. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T20:46:18.400224+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+      },
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.865349+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/quick-adapter-20261004T204607Z.json",
+          "sha256": "a479583ba8cca37442588d7985bb077831225d24155e46ce8171232cc262d499"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/assigned-2026-10-04T204605.977894+0000.json",
+          "sha256": "ff6925b727983c5b68051dab4c117e137d46b280b7046b845ac54232c343dd7f"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/summary.json",
+          "sha256": "8da835ea721c1d358e52a57534794ac092a74baf0c6b0f9cbb14557f17f2a08b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "id": "permissions_development_network",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Configuration did not change between raw probes and this summary. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T20:46:18.400224+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+      },
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.865415+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/registration-rehearsal.json",
+          "sha256": "6ab7b366a2fa297129807f967657466789a436d3d0d06da7ec991090d9662392"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/registration-judged.json",
+          "sha256": "c503e56f3fbadbff8dd5f605dd674921c5e1183e060830bcd87d3a18ae71acab"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/pre-dispatch-independent-audit.json",
+          "sha256": "e79856e36be2e1d99bf47a79d4de7adccaf95211b92144fcc6ee4e2f6d11cffd"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "id": "band_registration_room_visibility",
+      "limitations": [
+        "Registration and membership prove identity visibility only; no new model collaboration has been run."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T21:02:35.307214+00:00",
+      "observer": "Codex preparation operator using maintained BAND SDK identity/membership and authenticated native CLI event reads",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.865485+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Fresh final-approved configuration verifies all seven registered identities and both room memberships; independent supported-read audit verifies exact eight-member judged roster and membership-only events. No model response or product acceptance claimed.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/live-repair-evidence-audit.json",
+          "sha256": "674ffa727213a50cebaa60fd91a798c1759048805a05c441d9aab3e4f4ca912e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/visibility-tool-proof.json",
+          "sha256": "e2a01f34a928ab7a8c3ff618e45de5a79633a7b523f1380578d9b7b2cc91bd5f"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/band-full-session-original.json",
+          "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/completed-runtime-and-consumption.json",
+          "sha256": "66b554a6cd5b58517e8d33354e303ae8489fca21e5db00675e52b820725330bc"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "new_execution_performed": false,
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "all_seat_directed_replies",
+      "limitations": [
+        "Read-only visibility and communication only; operator later changed practice packaging, not application source.",
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T06:32:33.949697+00:00",
+      "observer": "Independent runtime preparation agent, verified against actual Codex tool outputs and unchanged full BAND export",
+      "original_scope": "One complete PM assignment reached all six exact peers; all seven seats participated in directed actual replies and full Backend receipt in the current bound room.",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866173+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: One complete PM assignment reached all six exact peers; all seven seats participated in directed actual replies and full Backend receipt in the current bound room.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/live-repair-evidence-audit.json",
+          "sha256": "674ffa727213a50cebaa60fd91a798c1759048805a05c441d9aab3e4f4ca912e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/visibility-tool-proof.json",
+          "sha256": "e2a01f34a928ab7a8c3ff618e45de5a79633a7b523f1380578d9b7b2cc91bd5f"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/band-full-session-original.json",
+          "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/completed-runtime-and-consumption.json",
+          "sha256": "66b554a6cd5b58517e8d33354e303ae8489fca21e5db00675e52b820725330bc"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "new_execution_performed": false,
+            "new_root_boundary": "Original all-seven visibility proof concerns committed historical practice README at its recorded revision. Fresh exact Run4 root access is separately proven by actual no-model shared-adapter diagnostics; no committed file exists in the unborn Run4 checkout.",
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "all_seat_checkout_commit_visibility",
+      "limitations": [
+        "Read-only visibility and communication only; operator later changed practice packaging, not application source.",
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T06:32:33.949697+00:00",
+      "observer": "Independent runtime preparation agent, verified against actual Codex tool outputs and unchanged full BAND export",
+      "original_scope": "Actual command stdout from all seven current-room threads independently matches committed README.md at aa2840c328527fbe33e80f1cff1e200ab1fea7aa in the configured repair-result checkout. No claim of new product review.",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866247+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: Actual command stdout from all seven current-room threads independently matches committed README.md at aa2840c328527fbe33e80f1cff1e200ab1fea7aa in the configured repair-result checkout. No claim of new product review.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T202308Z-text-events.json",
+          "sha256": "976f4b1230bd8894a3bc548fd7cb05979ce7ef32f0d474fc8fbe50382e5ef319"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/stage1-rehearsal-evidence-20261003T2024.json",
+          "sha256": "c95255dbe75c02c4a375548ddf0f08e553dc531c6c2a59cb5fad776ed141b72e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/historical-toy-carry-forward-audit.json",
+          "sha256": "fbf3931b7a0f394973a64a0818164c69c606dfe4e8dee4620fb7d83c032e1753"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "revalidation": {
+            "amendment": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/budget-amendments/20261004-approved/approval-and-application.json",
+              "sha256": "3c338f980bceb82347edbbbf16fe0cfdfd38834b2a270501d8197a8213496f70"
+            },
+            "at": "2026-10-04T03:44:59.718693+00:00",
+            "original_configuration_sha256": "c4eaec908d1ca67b8908a2b086bbaf01d50a649560364ed94fb3f977a64c42e8",
+            "reason": "Only the approved overall elapsed-time ceiling changed; original factual observation and evidence retained."
+          },
+          "run2_revalidation": {
+            "at": "2026-10-04T04:22:22.643185+00:00",
+            "configuration_change": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/configuration-and-accounting.json",
+              "sha256": "ff2f5c07617651a8e421d1f527739d2cad42a7ad4c506429efa8b7fa86b257fc"
+            },
+            "original_configuration_sha256": "89589f825e63653b5b048b389fe4ccabc77522913a686d647396d5067f215df9",
+            "reason": "Historical rehearsal fact retained with original timestamps, limitations and raw bytes; new room and repaired Git access are separately verified.",
+            "source_input_change": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/source-input-reconciliation.json",
+              "sha256": "d55a7ab1d6c44368691fcc1a58a89ad4aaa69b1a3a96ac4f9a53c1e492440d20"
+            }
+          },
+          "run3_revalidation": {
+            "at": "2026-10-04T06:22:00.373855+00:00",
+            "configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "new_execution_performed": false,
+            "observer": "Independent rules-review preparation agent",
+            "original_configuration_sha256": "f1509e2834ce572f8467a4119021d869b597f36ec7b700aac2942f7181a7630d",
+            "original_report": {
+              "bytes": 38519,
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/observations-before.json",
+              "sha256": "1944ffb41039ec3885caf40ba7f8d49a19af6af0992ebde88815e28d3a6360be"
+            },
+            "original_source_lock_sha256": "c0d2631c00c8b6fbf81081e9ae8891d62c0b7791d37fd3be24e69e0c10b047bb",
+            "reason": "Original historical Stage1 evidence retained with its execution timestamp and observer. Accepted candidate, Git ancestry, Stage1 tree, four file bytes and all evidence hashes independently revalidated in both original and cloned rehearsal roots. Changes to rooms, standing communication protocol and finite turn cap are separately assessed; they are not described as a new product review.",
+            "scope": "Only the three listed historical Stage1 observations. Append this under a new run3_revalidation key rather than replacing earlier history; add this audit’s path/SHA-256 to evidence after saving.",
+            "source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a"
+          },
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "new_execution_performed": false,
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "toy_pm_assignment_peer_handoffs",
+      "limitations": [
+        "ToyStage1 only; no later-stage or final-package acceptance.",
+        "All-seat replies/committed visibility and missing-peer/delayed-message rehearsal are still separately required.",
+        "Public text event capture is not the official full-session export.",
+        "Earlier blocked launch and QA invalid/failed attempts remain preserved.",
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-03T20:25:07.005051+00:00",
+      "observer": "Codex preparation agent inspecting real BAND public events, attributable commit and independent Reviewer evidence",
+      "original_scope": "Stage1 real PM assignment, complete exact source handoff, reciprocal Backend/QA/Reviewer receipts and deliveries.",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866315+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: Stage1 real PM assignment, complete exact source handoff, reciprocal Backend/QA/Reviewer receipts and deliveries.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T202308Z-text-events.json",
+          "sha256": "976f4b1230bd8894a3bc548fd7cb05979ce7ef32f0d474fc8fbe50382e5ef319"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/stage1-rehearsal-evidence-20261003T2024.json",
+          "sha256": "c95255dbe75c02c4a375548ddf0f08e553dc531c6c2a59cb5fad776ed141b72e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/acceptance-record.txt",
+          "sha256": "dd437f16d8cd985f538f0592d94896c76f430b711be50d0fe710d3e01fb59b82"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/commands.json",
+          "sha256": "45bf65fc057c776a4f44aa8ecda10190a3fd8a9508e0c564ae9afb8c23e3b96f"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/revision.log",
+          "sha256": "5db87ee6abaf53bc10f1d0c13a29080ba520122a4c0f67ccf0f1ea084646fee1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T202308Z.json",
+          "sha256": "767d6a5284920f551026bada29a2627d2fc52192805ddd89399a18894c98c13d"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/historical-toy-carry-forward-audit.json",
+          "sha256": "fbf3931b7a0f394973a64a0818164c69c606dfe4e8dee4620fb7d83c032e1753"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "record_note": "The empty clean.log stdout is retained on disk and in commands.json; this record references the nonempty command record and contemporaneous Git witness because readiness requires nonempty evidence artifacts.",
+          "revalidation": {
+            "amendment": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/budget-amendments/20261004-approved/approval-and-application.json",
+              "sha256": "3c338f980bceb82347edbbbf16fe0cfdfd38834b2a270501d8197a8213496f70"
+            },
+            "at": "2026-10-04T03:44:59.719506+00:00",
+            "original_configuration_sha256": "c4eaec908d1ca67b8908a2b086bbaf01d50a649560364ed94fb3f977a64c42e8",
+            "reason": "Only the approved overall elapsed-time ceiling changed; original factual observation and evidence retained."
+          },
+          "run2_revalidation": {
+            "at": "2026-10-04T04:22:22.643774+00:00",
+            "configuration_change": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/configuration-and-accounting.json",
+              "sha256": "ff2f5c07617651a8e421d1f527739d2cad42a7ad4c506429efa8b7fa86b257fc"
+            },
+            "original_configuration_sha256": "89589f825e63653b5b048b389fe4ccabc77522913a686d647396d5067f215df9",
+            "reason": "Historical rehearsal fact retained with original timestamps, limitations and raw bytes; new room and repaired Git access are separately verified.",
+            "source_input_change": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/source-input-reconciliation.json",
+              "sha256": "d55a7ab1d6c44368691fcc1a58a89ad4aaa69b1a3a96ac4f9a53c1e492440d20"
+            }
+          },
+          "run3_revalidation": {
+            "at": "2026-10-04T06:22:00.373855+00:00",
+            "configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "new_execution_performed": false,
+            "observer": "Independent rules-review preparation agent",
+            "original_configuration_sha256": "f1509e2834ce572f8467a4119021d869b597f36ec7b700aac2942f7181a7630d",
+            "original_report": {
+              "bytes": 38519,
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/observations-before.json",
+              "sha256": "1944ffb41039ec3885caf40ba7f8d49a19af6af0992ebde88815e28d3a6360be"
+            },
+            "original_source_lock_sha256": "c0d2631c00c8b6fbf81081e9ae8891d62c0b7791d37fd3be24e69e0c10b047bb",
+            "reason": "Original historical Stage1 evidence retained with its execution timestamp and observer. Accepted candidate, Git ancestry, Stage1 tree, four file bytes and all evidence hashes independently revalidated in both original and cloned rehearsal roots. Changes to rooms, standing communication protocol and finite turn cap are separately assessed; they are not described as a new product review.",
+            "scope": "Only the three listed historical Stage1 observations. Append this under a new run3_revalidation key rather than replacing earlier history; add this audit’s path/SHA-256 to evidence after saving.",
+            "source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a"
+          },
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "new_execution_performed": false,
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "toy_independent_fixed_candidate_review",
+      "limitations": [
+        "ToyStage1 only; no later-stage or final-package acceptance.",
+        "All-seat replies/committed visibility and missing-peer/delayed-message rehearsal are still separately required.",
+        "Public text event capture is not the official full-session export.",
+        "Earlier blocked launch and QA invalid/failed attempts remain preserved.",
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-03T20:25:07.005051+00:00",
+      "observer": "Codex preparation agent inspecting real BAND public events, attributable commit and independent Reviewer evidence",
+      "original_scope": "Distinct Reviewer accepted exact Backend candidate bdfc842 from a clean detached review clone; no reviewer repairs.",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866378+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: Distinct Reviewer accepted exact Backend candidate bdfc842 from a clean detached review clone; no reviewer repairs.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/live-repair-evidence-audit.json",
+          "sha256": "674ffa727213a50cebaa60fd91a798c1759048805a05c441d9aab3e4f4ca912e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/visibility-tool-proof.json",
+          "sha256": "e2a01f34a928ab7a8c3ff618e45de5a79633a7b523f1380578d9b7b2cc91bd5f"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/band-full-session-original.json",
+          "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/completed-runtime-and-consumption.json",
+          "sha256": "66b554a6cd5b58517e8d33354e303ae8489fca21e5db00675e52b820725330bc"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/recovery-20261003T2253/independent-success-audit.json",
+          "sha256": "a69f53057ebe756aa85f622ae76f0ff05846fbfd5b71ebe7929722bd0ef2da80"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T204930Z-delivery-execution.json",
+          "sha256": "729431d5413949148d9a01f5acf3bdbdf1f7eb1ecbb533b7e04fbe8d27e86366"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/independent-final-rehearsal-audit.json",
+          "sha256": "87d3861f3f1e1476a0ada98c8d9a87208f6b2be49e6ef3fddddbd0272749b13c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/room.json",
+          "sha256": "f34276e8fe262c2c9cc2b7cc08242d4b0f4f279f72ca46859a77574b5dff9c26"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "historical_missing_member_observation": {
+            "evidence": [
+              {
+                "path": "/Users/frank/mygit/Tablekeeper/runs/recovery-20261003T2253/independent-success-audit.json",
+                "sha256": "a69f53057ebe756aa85f622ae76f0ff05846fbfd5b71ebe7929722bd0ef2da80"
+              },
+              {
+                "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T204930Z-delivery-execution.json",
+                "sha256": "729431d5413949148d9a01f5acf3bdbdf1f7eb1ecbb533b7e04fbe8d27e86366"
+              }
+            ],
+            "id": "toy_missing_peer_delayed_message",
+            "limitations": [
+              "Operator-created unscored fault under explicit one-use exception; earlier failed attempt retained.",
+              "No claim of autonomous delivery retry timer, retransmission, duplicate handling, product correctness or judged-stage acceptance.",
+              "Fresh full-session export and offline recheck remain separately blocked pending Mac unlock."
+            ],
+            "observed": true,
+            "observed_at": "2026-10-03T23:00:17.895893+00:00",
+            "observer": "Codex preparation operator with independent rules-review audit of actual BAND/SDK evidence",
+            "revalidation": {
+              "amendment": {
+                "path": "/Users/frank/mygit/Tablekeeper/runs/budget-amendments/20261004-approved/approval-and-application.json",
+                "sha256": "3c338f980bceb82347edbbbf16fe0cfdfd38834b2a270501d8197a8213496f70"
+              },
+              "at": "2026-10-04T03:44:59.731327+00:00",
+              "original_configuration_sha256": "c4eaec908d1ca67b8908a2b086bbaf01d50a649560364ed94fb3f977a64c42e8",
+              "reason": "Only the approved overall elapsed-time ceiling changed; original factual observation and evidence retained."
+            },
+            "run2_revalidation": {
+              "at": "2026-10-04T04:22:22.654232+00:00",
+              "configuration_change": {
+                "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/configuration-and-accounting.json",
+                "sha256": "ff2f5c07617651a8e421d1f527739d2cad42a7ad4c506429efa8b7fa86b257fc"
+              },
+              "original_configuration_sha256": "89589f825e63653b5b048b389fe4ccabc77522913a686d647396d5067f215df9",
+              "reason": "Historical rehearsal fact retained with original timestamps, limitations and raw bytes; new room and repaired Git access are separately verified.",
+              "source_input_change": {
+                "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/source-input-reconciliation.json",
+                "sha256": "d55a7ab1d6c44368691fcc1a58a89ad4aaa69b1a3a96ac4f9a53c1e492440d20"
+              }
+            },
+            "scope": "Observed bounded missing-peer recovery: PM exact-member restoration once, roster verification, actual Architect acknowledgment and PM receipt/outcome. Separate natural multipart incomplete-to-complete delivery was observed before single execution.",
+            "status": "PASS"
+          },
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "new_execution_performed": false,
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+            "supplementary_current_repair": {
+              "audit": {
+                "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/independent-final-rehearsal-audit.json",
+                "sha256": "87d3861f3f1e1476a0ada98c8d9a87208f6b2be49e6ef3fddddbd0272749b13c"
+              },
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "scope": "The separately dated completed PM/Backend-only exercise proves actual post-deadline local-SDK busy deferral and genuine PM-origin notice, peer missing-part request, reassembly and ACK. Original missing-member restoration remains separately historical. Other five seats were idle; no product or seven-seat new collaboration claim."
+            }
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "toy_missing_peer_delayed_message",
+      "limitations": [
+        "No member was removed in the new room.",
+        "Synthetic withheld-part exercise; no new product execution or acceptance.",
+        "No live 600-second timeout, crash-restart, unknown-send or duplicate-send recovery proof.",
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T06:32:33.949697+00:00",
+      "observer": "Independent runtime audit plus retained separately dated historical missing-member evidence",
+      "original_scope": "Composite evidence: original exact-member restoration and reciprocal callback remain historical; current synthetic delayed-part exercise actually observed timed notice, PM recovery request, missing part, received-payload digest calculation, canonical ACK and idle workflow.",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866441+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: Composite evidence: original exact-member restoration and reciprocal callback remain historical; current synthetic delayed-part exercise actually observed timed notice, PM recovery request, missing part, received-payload digest calculation, canonical ACK and idle workflow.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/stage1-rehearsal-evidence-20261003T2024.json",
+          "sha256": "c95255dbe75c02c4a375548ddf0f08e553dc531c6c2a59cb5fad776ed141b72e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/official-command.json",
+          "sha256": "8a9d72e8c1972e0190b9b534ff83bf7554b1ca28f49f08a06a9edc54991e25bb"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/isolated/report.json",
+          "sha256": "56a2e915e2c6e33812e019013bddd3937ee16bbc819ca9314548ac7702d77f1b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/isolated/stage-1.counts.json",
+          "sha256": "b8d566f50e2370f0b554bbc1d882048135a7120de6a94644fb2dbb88d8db39e4"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/historical-toy-carry-forward-audit.json",
+          "sha256": "fbf3931b7a0f394973a64a0818164c69c606dfe4e8dee4620fb7d83c032e1753"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "revalidation": {
+            "amendment": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/budget-amendments/20261004-approved/approval-and-application.json",
+              "sha256": "3c338f980bceb82347edbbbf16fe0cfdfd38834b2a270501d8197a8213496f70"
+            },
+            "at": "2026-10-04T03:44:59.720712+00:00",
+            "original_configuration_sha256": "c4eaec908d1ca67b8908a2b086bbaf01d50a649560364ed94fb3f977a64c42e8",
+            "reason": "Only the approved overall elapsed-time ceiling changed; original factual observation and evidence retained."
+          },
+          "run2_revalidation": {
+            "at": "2026-10-04T04:22:22.645256+00:00",
+            "configuration_change": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/configuration-and-accounting.json",
+              "sha256": "ff2f5c07617651a8e421d1f527739d2cad42a7ad4c506429efa8b7fa86b257fc"
+            },
+            "original_configuration_sha256": "89589f825e63653b5b048b389fe4ccabc77522913a686d647396d5067f215df9",
+            "reason": "Historical rehearsal fact retained with original timestamps, limitations and raw bytes; new room and repaired Git access are separately verified.",
+            "source_input_change": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-2/source-input-reconciliation.json",
+              "sha256": "d55a7ab1d6c44368691fcc1a58a89ad4aaa69b1a3a96ac4f9a53c1e492440d20"
+            }
+          },
+          "run3_revalidation": {
+            "at": "2026-10-04T06:22:00.373855+00:00",
+            "configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "new_execution_performed": false,
+            "observer": "Independent rules-review preparation agent",
+            "original_configuration_sha256": "f1509e2834ce572f8467a4119021d869b597f36ec7b700aac2942f7181a7630d",
+            "original_report": {
+              "bytes": 38519,
+              "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/observations-before.json",
+              "sha256": "1944ffb41039ec3885caf40ba7f8d49a19af6af0992ebde88815e28d3a6360be"
+            },
+            "original_source_lock_sha256": "c0d2631c00c8b6fbf81081e9ae8891d62c0b7791d37fd3be24e69e0c10b047bb",
+            "reason": "Original historical Stage1 evidence retained with its execution timestamp and observer. Accepted candidate, Git ancestry, Stage1 tree, four file bytes and all evidence hashes independently revalidated in both original and cloned rehearsal roots. Changes to rooms, standing communication protocol and finite turn cap are separately assessed; they are not described as a new product review.",
+            "scope": "Only the three listed historical Stage1 observations. Append this under a new run3_revalidation key rather than replacing earlier history; add this audit’s path/SHA-256 to evidence after saving.",
+            "source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a"
+          },
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "new_execution_performed": false,
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "toy_isolated_harness",
+      "limitations": [
+        "ToyStage1 only; no later-stage or final-package acceptance.",
+        "All-seat replies/committed visibility and missing-peer/delayed-message rehearsal are still separately required.",
+        "Public text event capture is not the official full-session export.",
+        "Earlier blocked launch and QA invalid/failed attempts remain preserved.",
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-03T20:25:07.005051+00:00",
+      "observer": "Codex preparation agent inspecting real BAND public events, attributable commit and independent Reviewer evidence",
+      "original_scope": "Official isolated toy Stage1 only, independent Reviewer clean-clone invocation exit0 and8/8 collected checks passed.",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866503+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: Official isolated toy Stage1 only, independent Reviewer clean-clone invocation exit0 and8/8 collected checks passed.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/audit-plan.json",
+          "sha256": "043b9c3edf95f30e315e4a840a1b38232a4e43a5fc93bc92ebce9914ca9db8d4"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/standing-instruction-update.json",
+          "sha256": "7cd7975f022a20885206a8784719f4f467e16f8c68d8ad294f118fddb273bbb9"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "id": "semantic_generic_instructions",
+      "limitations": [
+        "The changed early-QA and boundary-coverage workflow has not been live-rehearsed; old communication/toy proof does not establish this revised workflow or predict product acceptance.",
+        "No provider call, assembled-prompt inspection, guarantee of memory absence, model response or new room collaboration is claimed.",
+        "Run5 approved=false; no historical approval is inherited. After any later approved budget/time amendment, re-render and append exact-delta/hash reconciliation rather than rewriting this snapshot."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T20:50:13.851299+00:00",
+      "observer": "Independent preparation auditor of actual rendered custom instructions and source ancestry",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866565+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Fresh rendering of actual seven custom standing sections under final unapproved Run5 configuration; source-delta and instruction-ancestry review, no assembled provider prompt or live behavior claim.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result/room.json",
+          "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/full-session-export-provenance.json",
+          "sha256": "8446c8f8bac4a0460c5f489a4e9a14dad5ab0ed52561457c2544d4434dc100d1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "341ca1c655d557bdfb92caacdbb8c16b32aefa3cab6c8532ee663ee51f105663"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "current_room_export_and_package": "Configured practice room and repository remain unchanged. A fresh newest-page read agrees with the original genuine full export; official check remains bound to the exact current whole-package digest.",
+            "new_execution_performed": false,
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "toy_full_room_export",
+      "limitations": [
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T06:28:27.845006+00:00",
+      "observer": "Codex preparation operator using authenticated BAND console Download full session",
+      "original_scope": "Current communication rehearsal only; historical application-authoring room remains separately preserved.",
+      "room_export": {
+        "after_work_complete": true,
+        "contents": "unchanged",
+        "downloaded_at": "2026-10-04T06:26:54.512Z",
+        "file": {
+          "path": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result/room.json",
+          "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1"
+        },
+        "method": "band_console_full_session",
+        "room_id": "64e39921-47b1-4f55-8180-54edf5946c34"
+      },
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866627+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: Current communication rehearsal only; historical application-authoring room remains separately preserved.",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/toy-offline-check-20261004T063519Z-f23b3b8de0/invocation.json",
+          "sha256": "9d3eb8422cf8aa53fbf9676eb3e0d3b6840bc317a1c53ed92ac3f09e66325a16"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+          "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "341ca1c655d557bdfb92caacdbb8c16b32aefa3cab6c8532ee663ee51f105663"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+          "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        }
+      ],
+      "historical_revalidation_records": {
+        "records": {
+          "run4_launch_authorization_revalidation": {
+            "approval": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/authorization/approval.json",
+              "sha256": "8a224473d23747fb1304a8c36aa89e30ef4904abbb5e4496f362bf734a17296c"
+            },
+            "at": "2026-10-04T18:38:53.900511+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/launch-authorization-revalidation.json",
+              "sha256": "86a37c33085cfb929d160e46d8b99541205212d0042843174b50b9bd19750a44"
+            },
+            "configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+            "original_observation_time_preserved": true,
+            "previous_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "scope": "Original preparation limitations describing approved=false apply to their original snapshot. The current allowance is authorized only by the explicit new approval record; no historical approval is inherited.",
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          },
+          "run4_revalidation": {
+            "at": "2026-10-04T18:25:15.727798+00:00",
+            "audit": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+              "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+            },
+            "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+            "current_room_export_and_package": "Configured practice room and repository remain unchanged. A fresh newest-page read agrees with the original genuine full export; official check remains bound to the exact current whole-package digest.",
+            "new_execution_performed": false,
+            "observer": "Independent readiness evidence auditor",
+            "original_configuration_sha256": "1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691",
+            "original_report": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+              "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742"
+            },
+            "original_source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+            "scope": "Original observed timestamp, observer, event/commit provenance and limitations remain historical. This revalidation checks preserved evidence and current supporting prerequisites; it does not attribute old work to Run4 or authorize new live work.",
+            "source_lock_reconciliation": {
+              "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+              "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+            },
+            "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+          }
+        },
+        "scope": "All embedded approval and earlier-run reconciliation records are historical provenance only; none authorize Run5."
+      },
+      "id": "toy_offline_submission_check",
+      "invocation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/toy-offline-check-20261004T063519Z-f23b3b8de0/invocation.json",
+        "sha256": "9d3eb8422cf8aa53fbf9676eb3e0d3b6840bc317a1c53ed92ac3f09e66325a16"
+      },
+      "limitations": [
+        "Historical rehearsal fact retained for the same seven identities; this is not a new Run4 model response, implementation, review or acceptance. No prior approval carries forward.",
+        "Original observation date is preserved; this is not a new Run5 response, implementation, review or acceptance.",
+        "Four changed generic mandate paragraphs have static review only; the revised early-QA and boundary-coverage workflow is NOT_LIVE_REHEARSED.",
+        "All historical approval references are inactive for Run5; no new model rehearsal or judged dispatch is authorized."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T06:35:20.070485+00:00",
+      "observer": "Codex preparation operator running the pinned official offline checker",
+      "original_scope": "Current practice packaging, full-export shape, matching mandate metadata, reciprocal mentions and credential-pattern checks; no fresh stage behavior or final human narrative authorship claim.",
+      "run5_launch_authorization_revalidation": {
+        "approval": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        "at": "2026-10-04T21:03:24.866688+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+        "original_observation_time_preserved": true,
+        "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "scope": "Earlier approved=false caveats describe their snapshots. Current authorization comes only from explicit Run5 approval, not historical evidence.",
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "run5_revalidation": {
+        "at": "2026-10-04T20:50:13.851299+00:00",
+        "audit": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+        "new_execution_performed": false,
+        "observer": "Independent readiness evidence auditor",
+        "original_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+        "original_source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+        "prior_approval_inherited": false,
+        "source_lock_reconciliation": {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+      },
+      "scope": "Historical rehearsal only, not Run5 execution: Current practice packaging, full-export shape, matching mandate metadata, reciprocal mentions and credential-pattern checks; no fresh stage behavior or final human narrative authorship claim.",
+      "status": "PASS"
+    }
+  ],
+  "schema_version": 1,
+  "seats": [
+    {
+      "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "cli_version": "0.160.0",
+      "display_name": "Factory PM",
+      "git_email": "pm@factory.invalid",
+      "git_name": "Factory PM",
+      "handle": "frankzhu94/factory-pm",
+      "harness": "Codex",
+      "id": "pm",
+      "judged_cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "mandate": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "registration_verified": true,
+      "sdk_version": "4.0.0"
+    },
+    {
+      "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+      "cli_version": "0.160.0",
+      "display_name": "Factory Architect",
+      "git_email": "architect@factory.invalid",
+      "git_name": "Factory Architect",
+      "handle": "frankzhu94/factory-architect",
+      "harness": "Codex",
+      "id": "architect",
+      "judged_cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "mandate": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high",
+      "registration_verified": true,
+      "sdk_version": "4.0.0"
+    },
+    {
+      "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+      "cli_version": "0.160.0",
+      "display_name": "Factory Designer",
+      "git_email": "designer@factory.invalid",
+      "git_name": "Factory Designer",
+      "handle": "frankzhu94/factory-designer",
+      "harness": "Codex",
+      "id": "designer",
+      "judged_cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "mandate": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "registration_verified": true,
+      "sdk_version": "4.0.0"
+    },
+    {
+      "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "cli_version": "0.160.0",
+      "display_name": "Factory Backend",
+      "git_email": "backend@factory.invalid",
+      "git_name": "Factory Backend",
+      "handle": "frankzhu94/factory-backend",
+      "harness": "Codex",
+      "id": "backend",
+      "judged_cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "mandate": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "registration_verified": true,
+      "sdk_version": "4.0.0"
+    },
+    {
+      "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+      "cli_version": "0.160.0",
+      "display_name": "Factory Frontend",
+      "git_email": "frontend@factory.invalid",
+      "git_name": "Factory Frontend",
+      "handle": "frankzhu94/factory-frontend",
+      "harness": "Codex",
+      "id": "frontend",
+      "judged_cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "mandate": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "medium",
+      "registration_verified": true,
+      "sdk_version": "4.0.0"
+    },
+    {
+      "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "cli_version": "0.160.0",
+      "display_name": "Factory QA",
+      "git_email": "qa@factory.invalid",
+      "git_name": "Factory QA",
+      "handle": "frankzhu94/factory-qa",
+      "harness": "Codex",
+      "id": "qa",
+      "judged_cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "mandate": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high",
+      "registration_verified": true,
+      "sdk_version": "4.0.0"
+    },
+    {
+      "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "cli_version": "0.160.0",
+      "display_name": "Factory Reviewer",
+      "git_email": "reviewer@factory.invalid",
+      "git_name": "Factory Reviewer",
+      "handle": "frankzhu94/factory-reviewer",
+      "harness": "Codex",
+      "id": "reviewer",
+      "judged_cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "mandate": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+      "model": "gpt-6-astra",
+      "reasoning_effort": "high",
+      "registration_verified": true,
+      "sdk_version": "4.0.0"
+    }
+  ],
+  "source_lock_path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock.json",
+  "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "status": "READY_TO_LAUNCH",
+  "tasks": {
+    "judged-all-stages.md": {
+      "mode": "all",
+      "sha256": "85ceb4e9574bf3e63355017708eff69b9894688732082e2f3c4af142ff9f9178",
+      "spec_payloads": [
+        {
+          "bytes": 19419,
+          "offset": 10718,
+          "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+          "source": "tablekeeper/spec/stage-1.md"
+        },
+        {
+          "bytes": 10454,
+          "offset": 30461,
+          "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
+          "source": "tablekeeper/spec/stage-2.md"
+        },
+        {
+          "bytes": 13060,
+          "offset": 41239,
+          "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
+          "source": "tablekeeper/spec/stage-3.md"
+        },
+        {
+          "bytes": 6276,
+          "offset": 54623,
+          "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4",
+          "source": "tablekeeper/spec/stage-4.md"
+        }
+      ],
+      "stages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "track": "tablekeeper"
+    },
+    "judged-stage-1.md": {
+      "mode": "separate",
+      "sha256": "db1f6a86e7f1dd7c8bc65bb823d99585c20a568f2118f469eedd7def4a5e8509",
+      "spec_payloads": [
+        {
+          "bytes": 19419,
+          "offset": 10790,
+          "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+          "source": "tablekeeper/spec/stage-1.md"
+        }
+      ],
+      "stages": [
+        1
+      ],
+      "track": "tablekeeper"
+    },
+    "judged-stage-2.md": {
+      "mode": "separate",
+      "sha256": "2d252b2d37f0bf585289075e0459f9eeef76c7a6792d7970434fad4d39c82a13",
+      "spec_payloads": [
+        {
+          "bytes": 19419,
+          "offset": 10790,
+          "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+          "source": "tablekeeper/spec/stage-1.md"
+        },
+        {
+          "bytes": 10454,
+          "offset": 30533,
+          "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
+          "source": "tablekeeper/spec/stage-2.md"
+        }
+      ],
+      "stages": [
+        2
+      ],
+      "track": "tablekeeper"
+    },
+    "judged-stage-3.md": {
+      "mode": "separate",
+      "sha256": "3fe6b989d3211b20b92b82d06204af41a5674e0a1adc9e1b5a1404aef69b0b9c",
+      "spec_payloads": [
+        {
+          "bytes": 19419,
+          "offset": 10790,
+          "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+          "source": "tablekeeper/spec/stage-1.md"
+        },
+        {
+          "bytes": 10454,
+          "offset": 30533,
+          "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
+          "source": "tablekeeper/spec/stage-2.md"
+        },
+        {
+          "bytes": 13060,
+          "offset": 41311,
+          "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
+          "source": "tablekeeper/spec/stage-3.md"
+        }
+      ],
+      "stages": [
+        3
+      ],
+      "track": "tablekeeper"
+    },
+    "judged-stage-4.md": {
+      "mode": "separate",
+      "sha256": "e8445a96c425a07c12a4470e3a2e94934a4b3ab05b620d3c762b43816b5ab26b",
+      "spec_payloads": [
+        {
+          "bytes": 19419,
+          "offset": 10790,
+          "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+          "source": "tablekeeper/spec/stage-1.md"
+        },
+        {
+          "bytes": 10454,
+          "offset": 30533,
+          "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc",
+          "source": "tablekeeper/spec/stage-2.md"
+        },
+        {
+          "bytes": 13060,
+          "offset": 41311,
+          "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe",
+          "source": "tablekeeper/spec/stage-3.md"
+        },
+        {
+          "bytes": 6276,
+          "offset": 54695,
+          "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4",
+          "source": "tablekeeper/spec/stage-4.md"
+        }
+      ],
+      "stages": [
+        4
+      ],
+      "track": "tablekeeper"
+    },
+    "rehearsal-toy.md": {
+      "mode": "practice-all",
+      "sha256": "188b745372bfa025b09ba4eb90152ca3392bf7fcdcc43211c41f7cbadbcd6c4c",
+      "spec_payloads": [
+        {
+          "bytes": 1895,
+          "offset": 8854,
+          "sha256": "b3fa4b5341480bc76e4d44a914e4503cbe96460a3d89504a5dd5e1d8fab42d2d",
+          "source": "toy/spec/stage-1.md"
+        },
+        {
+          "bytes": 906,
+          "offset": 11041,
+          "sha256": "8b4800455e681bedcdded8407fb170766d5a73aa91de6feed65782ac3379b493",
+          "source": "toy/spec/stage-2.md"
+        },
+        {
+          "bytes": 934,
+          "offset": 12239,
+          "sha256": "2b4e208b30ec0d505f8703bfec1dd38051d7b229868da37b13bab44abdaa485c",
+          "source": "toy/spec/stage-3.md"
+        },
+        {
+          "bytes": 1210,
+          "offset": 13465,
+          "sha256": "f27a23a7cad8f6fbfc67856ab1dab829b6b91908928ae32f4d41b0263525c955",
+          "source": "toy/spec/stage-4.md"
+        }
+      ],
+      "stages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "track": "toy"
+    }
+  },
+  "usage": {
+    "measured_preparation_cost_usd": null,
+    "measured_rehearsal_cost_usd": null,
+    "status": "UNAVAILABLE"
+  }
+}

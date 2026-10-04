@@ -1,0 +1,121 @@
+{
+  "created_at": "2026-10-04T21:09:35.786074+00:00",
+  "status": "PASS_SCOPED_POSTLAUNCH_AUDIT_WITH_EXPECTED_TRUST_ONLY_DRIFT",
+  "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "source_lock": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock.json",
+    "sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+  },
+  "freeze": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/freeze/latest.json",
+    "sha256": "345c1c27413467a703c30034b99a857f9f2622baff8275016bdf1ea0955961b1"
+  },
+  "frozen_inputs_matching": 34,
+  "task_hashes_matching": 6,
+  "single_dispatch": {
+    "event_id": "d5861cdd-0b57-4393-a97f-0dfb9201cec2",
+    "inserted_at": "2026-10-04T21:06:55.943682Z",
+    "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+    "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+    "recipient_pm_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+    "single_complete_readback_page": true,
+    "human_text_count": 1,
+    "other_events": 7,
+    "operator_cli_invocations": 1,
+    "operator_retries": 0,
+    "submitted_packet": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/tasks/judged-all-stages.md",
+      "sha256": "85ceb4e9574bf3e63355017708eff69b9894688732082e2f3c4af142ff9f9178"
+    },
+    "actual_body_sha256": "2601f125efeef45cd1d91240d933f572a09995ea40631eda5d733864b2b7df78",
+    "exact_except_single_pm_mention_normalization": true,
+    "normalization": {
+      "from": "@frankzhu94/factory-pm",
+      "to": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]",
+      "count": 1
+    },
+    "dispatch_verification": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/dispatch-verification.json",
+      "sha256": "bc918a6eaefa05f07e10fdd255053be81867c1bf64d386c74f48d6cdc73b1580"
+    },
+    "actual_room_readback": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/room-after-dispatch.json",
+      "sha256": "b0655718f8d81a30f735fb5361dfcde7f89187022b42c0e9afd240d81274e68d"
+    },
+    "ledger": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/ledger.json",
+      "sha256": "cd3e211750ef286b5c69665f3968cf95a9ebae8d2cc010e29014969bfbf1a93e"
+    },
+    "ledger_state": "DISPATCHED",
+    "preparation_id": "eec1906dd47642dba720406f5f67d62f",
+    "freeze_and_task_bindings_match": true
+  },
+  "cumulative_bounds": {
+    "observed_at": "2026-10-04T21:09:35.786074+00:00",
+    "ledger_snapshot_sha256": "9edee8f14e10041abf023217e9d07e4fae0904695aad9db95a2bfbe3e443dbaf",
+    "original_started_epoch": 1791049765.700437,
+    "overall_timeout_seconds": 117938,
+    "effective_overall_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+    "new_room_started_epoch": 1791148046.201921,
+    "initial_baseline_tokens": 145683099,
+    "reported_tokens_at_snapshot": 145955520,
+    "new_reported_tokens_at_snapshot": 272421,
+    "cumulative_ceiling": 286011577,
+    "all_old_room_starts_turns_halts_preserved": true,
+    "seat_turns_monotonic": true,
+    "original_room_accounting_scope_preserved": true,
+    "global_stopped_reason_at_snapshot": null,
+    "max_active_seats": 1,
+    "turn_limit": 1000,
+    "max_repairs_per_work_item": 3,
+    "mechanism": "BudgetLedger.reason checks original elapsed time, observed total tokens, turns and per-room halts before admission and heartbeat; send_window uses the minimum applicable deadline; heartbeat halts/stops owned agents when a limit is observed.",
+    "code_references": [
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+        "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341",
+        "line": 587
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+        "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341",
+        "line": 1171
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/workflow_runtime.py",
+        "sha256": "5e3504b37283ab26345ecf7bdb36afa41f5ce22827906d0d878898f28ad56add",
+        "line": 74
+      }
+    ]
+  },
+  "global_trust_drift": {
+    "path": "/Users/frank/.codex/config.toml",
+    "locked_sha256": "b27ac2e603b5937efcaf6f6ae298bc6f04ebc6534d0932521f978634ea5f6e92",
+    "current_sha256": "ae097cbaad9535aa027c25658e366de50145ae0364d51b71b76b427e2d8844ec",
+    "removed_only_in_memory": "[projects.\"/Users/frank/mygit/Tablekeeper/result-run-5\"]\ntrust_level = \"trusted\"\n\n",
+    "removed_block_sha256": "b843ad300bce111ffacf99b26881457df6aa779854ca53146a8c8e114311fc7a",
+    "exact_run5_trust_block_count": 1,
+    "reconstructed_sha256": "b27ac2e603b5937efcaf6f6ae298bc6f04ebc6534d0932521f978634ea5f6e92",
+    "exact_prior_bytes_reconstructed": true,
+    "source_verification_errors": [
+      "Locked reference document changed or missing: config.toml"
+    ],
+    "global_config_and_frozen_lock_modified_by_auditor": false,
+    "consequence": "Historical READY/freeze provenance remains intact. A future restart/source preflight currently fails the locked config.toml check and needs separately scoped reconciliation before any restart; do not modify the live frozen inputs."
+  },
+  "material_launch_blockers": [],
+  "limitations": [
+    "Single-dispatch proof is the complete immediate post-send room snapshot plus one operator invocation and one DISPATCHED ledger entry; this audit did not query later live room activity or prove the transport implementation never retries.",
+    "Observed usage changes during execution; this snapshot is not a final consumption total or a guarantee against in-flight reporting overshoot.",
+    "Deadline is the original accounting cutoff enforced through admission/send gates and reactive heartbeat shutdown; this audit did not run a timeout or claim instantaneous cancellation.",
+    "No product acceptance or live validation of the revised early-QA workflow is asserted.",
+    "SDK-added trust-only drift is preserved and explicitly scoped; it is not silently accepted as readiness for a future restart."
+  ],
+  "actions": {
+    "new_model_turns": 0,
+    "room_messages": 0,
+    "api_probes": 0,
+    "worker_actions": 0,
+    "config_lock_global_product_mutations": 0,
+    "only_written_artifact": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/postlaunch-audit.json"
+  }
+}

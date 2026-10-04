@@ -1,0 +1,85 @@
+{
+  "approval": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+    "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+  },
+  "changes": [
+    {
+      "after": true,
+      "before": false,
+      "path": "budgets.approved"
+    }
+  ],
+  "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "created_at": "2026-10-04T21:02:39.376911+00:00",
+  "current_configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml",
+    "sha256": "b0db7033eed0d4aaa851e23f7f42403a0df98b82450e782ea0b3e73b1cd25960"
+  },
+  "ledger_reconciliation": {
+    "all_other_fields_equal": true,
+    "before": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/before-budget-subscription.json",
+      "sha256": "2c5b31367965d61d4c157ea66a3a1c30406e5a9b7f51f62c6367827d62505f6d"
+    },
+    "current": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/budget-subscription.json",
+      "sha256": "2c43988e2a50259969e4ac8cdf16cf9f7cdd98a5100d106b74081f223c87db15"
+    },
+    "old_room_stops_preserved": true,
+    "only_change": "stopped_reason cleared under explicit new Run5 authorization",
+    "original_started_epoch_preserved": 1791049765.700437,
+    "tokens_preserved": 145683099,
+    "turns_preserved": {
+      "architect": 41,
+      "backend": 87,
+      "designer": 15,
+      "frontend": 5,
+      "pm": 281,
+      "qa": 19,
+      "reviewer": 43
+    }
+  },
+  "no_other_configuration_change": true,
+  "old_configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/before-factory.yaml",
+    "sha256": "98f9725440365781c82cb57de88f0136deba63202c253537f3ca031f002a0ffa"
+  },
+  "permissions_revalidation": "Only the explicit approved flag changed. Assigned roots, adapter, network, Git, Docker, browser, model and source inputs are identical; original diagnostic timestamps and hashes retained.",
+  "previous_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "previous_observations": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/before-readiness-observations.json",
+    "sha256": "02abac3a1304c824c2fac9cfd268e4464003223f1bad9fb1ee4f41a836c67c02"
+  },
+  "scope": "Exact-delta evidence rebinding after direct user approval. No model turn or task message. Historical rehearsal does not establish revised QA workflow.",
+  "semantic_revalidation": {
+    "current_rendered_hashes": {
+      "architect": "c7144ef24dbd5026d30038cb6a847b6973ded68a0b05aaae3afdad2fdc1fcb24",
+      "backend": "677e190bc1640fda9d8af89c2c3dd2dde85a14f1721728fdfbf4296880ba8796",
+      "designer": "77bc11b5eec4eab4b6e3f0b6be902f95a185df14cd7dcfcd02271fa04a315bbf",
+      "frontend": "24ccaba2bb9b98dc079845ca5ec189627e3d78cfe4c74f864b760379aff94c57",
+      "pm": "a3799e0aa1d70f8afcf77dc66c752be0c2838ea7dba6fc85bdc2dd414d0278fd",
+      "qa": "9ff9a6822db203d4749dc65566719b9b38a0100d83217587d629a69824805d9d",
+      "reviewer": "2fce60efef66ed5693be509aacae508b3890c8ea5994efafeaf6cabbae5cd691"
+    },
+    "old_review": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+      "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+    },
+    "only_rendered_change": "approved false to true once in frozen runtime metadata; all other bytes match",
+    "previous_rendered_hashes": {
+      "architect": "84ca242e90d54afbd0611e388df8d2194576929cd5c439a7eb0768c14006797b",
+      "backend": "fb32de0ffd949cc78ad5a03a2d7a430940355bc3dd09476eab471dbb9b4c4b16",
+      "designer": "5dae9dbde9929b999cc241932940a06e0989da95023c05c9894a5f2aa7aa91e2",
+      "frontend": "2c2eb063b87d50abef694de66654ca97fbc112537991be43896b398d8b938a20",
+      "pm": "9e464f43750d9952432f0f856005acd1db52a51bf4f7145fc78e81aaa8ea1008",
+      "qa": "6cb8a83ed0b6083813375bddb9a9b7674a6e4aeb7f2a1bf3ac8b90d87e2107c6",
+      "reviewer": "8212a6e3da150d0e4db1aa3affa87e1d97a487d7d21e96ae2c0ec594f951d801"
+    },
+    "standing_source_files_unchanged": true
+  },
+  "source_errors": [],
+  "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "source_lock_unchanged": true,
+  "status": "PASS_EXACT_APPROVAL_ONLY_AMENDMENT"
+}

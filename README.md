@@ -1,6 +1,8 @@
 # Seven-seat BAND factory preparation
 
-**Status: Run 4 is stopped and closed with a BLOCKED outcome; no stage was accepted.** Independent review rejected candidate `7edd47cccf839e8ec175c1e7e7252f40d80cf191` after valid dates below year 1000 failed required behavior. The official isolated suite passed 120/120, but that result did not waive the independently reproduced defect. All three repair cycles were exhausted; stages 2–4 were not started. See [Run 4 outcome and evidence](docs/run4-outcome.md).
+**Status: Run 5 is running after one approved dispatch; no accepted stage is claimed.** Its task was sent once on October 4, 2026 at 2:06 PM PDT, with all seven seats connected and at most one active model seat. The original cumulative token ceiling and 7:35 PM PDT deadline remain unchanged. See [the approved launch and dispatch record](docs/run-5-preparation.md).
+
+Run 4 is stopped and closed with a BLOCKED outcome and no accepted stage. Independent review rejected candidate `7edd47cccf839e8ec175c1e7e7252f40d80cf191` after valid dates below year 1000 failed required behavior. The official isolated suite passed 120/120, but that result did not waive the independently reproduced defect. All three repair cycles were exhausted; stages 2–4 were not started. See [Run 4 outcome and evidence](docs/run4-outcome.md).
 
 The private [Tablekeeper `run-4` branch](https://github.com/Xuefeng-Zhu/Tablekeeper/tree/run-4) ends at `13bc38fc1d4396c70c42b529eab369d6f84a0186`. Its unchanged full BAND export contains 3,774 events and exactly one human task dispatch. Final packaging preserved the acknowledgment receipt and room export without changing the rejected Stage 1 product tree. All owned workers stopped on October 4, 2026 at 1:32:48 PM Pacific.
 
@@ -10,9 +12,9 @@ The full BAND session is committed unchanged as `room.json` on the private [Tabl
 
 Run 3 stopped at `2026-10-04T08:47:13Z` with `blocked_coordinator_self_notice` while Backend was still processing a twelve-part handoff. The repaired runtime passes **224 offline factory tests** and now also passes a separately authorized **live communication rehearsal**: overdue local SDK processing deferred a false notice, and one genuine PM→Backend notice recovered a deliberately missing original part. The rehearsal used **1,931,411 additional reported tokens**, stopped all owned workers within ten minutes, and preserved Run 3. See the [live result and evidence](docs/queue-repair-live-result.md).
 
-Run 4 used **59,671,522 reported tokens**, bringing preserved cumulative usage to **145,683,099 tokens**, including cached input. Its allowance is closed and no build is running. Original Run 3 configuration/freeze remain preserved; the closed Run 4 ledger records all prior counters and blocks further model work for that attempt. Run 4 preparation passed 240 offline factory utility tests; those tests establish factory behavior, not product acceptance.
+Run 4 used **59,671,522 reported tokens**, ending with preserved cumulative usage of **145,683,099 tokens**, including cached input. Its allowance remains closed. Original Run 3 configuration/freeze remain preserved; the closed Run 4 ledger records all prior counters and blocks further model work for that attempt. Run 4 preparation passed 240 offline factory utility tests; those tests establish factory behavior, not product acceptance.
 
-**Run 5 is prepared and awaits one new launch approval.** Its independent checkout is empty and its fresh room has no task messages. Current preparation checks pass; the revised early-QA workflow is not live-rehearsed. The proposal reuses the existing remaining token ceiling and 7:35 PM PDT deadline. See [the concrete launch review](docs/run-5-preparation.md).
+Run 5 was approved at `2026-10-04T20:59:53Z` to use the **140,328,478 reported tokens remaining at authorization**, within the unchanged cumulative ceiling of **286,011,577**. No accounting or elapsed-time origin was reset. Its initially empty independent checkout has published [the `run-5` branch](https://github.com/Xuefeng-Zhu/Tablekeeper/tree/run-5); remote head `0b193c068341b5e81f82b354e25eab12355e77dc` was observed at 2:08 PM PDT. The live branch may advance. The revised early-QA workflow was not separately live-rehearsed; initial execution is not product acceptance.
 
 Workspace: `/Users/frank/mygit/Tablekeeper`
 
@@ -31,7 +33,7 @@ Application attempts now share **[Xuefeng-Zhu/Tablekeeper](https://github.com/Xu
 - `run-3`: exact preserved application history and full room export; independently accepted Stage 1.
 - `run-2`: exact preserved prior application history.
 - `run-4`: closed rejected Stage 1 checkpoint at `13bc38fc1d4396c70c42b529eab369d6f84a0186`, with the full room export; no accepted stage.
-- `run-5`: prepared local unborn branch; no dispatch and no remote branch yet.
+- `run-5`: one verified dispatch, runtime in progress; remote head `0b193c068341b5e81f82b354e25eab12355e77dc` observed at `2026-10-04T21:08:57Z`, with no accepted stage claimed.
 - Factory tools: https://github.com/Xuefeng-Zhu/Tablekeeper-factory — this separate repository, committed and pushed at verified milestones.
 - Challenge: the pinned official upstream checkout; never refreshed during the frozen build.
 - Earlier standalone repositories remain historical copies. Future attempts use the shared application repository.
