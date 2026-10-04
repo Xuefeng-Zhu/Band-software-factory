@@ -27,7 +27,7 @@ from typing import Any
 
 import psutil
 import yaml
-from .budgets import API_ENVIRONMENT, budget_blockers, codex_argv, persisted_budget_blockers, subscription_auth_errors, subscription_only
+from .budgets import API_ENVIRONMENT, budget_blockers, codex_argv, persisted_budget_blockers, room_scope, subscription_auth_errors, subscription_only
 
 SDK_VERSION = "4.0.0"
 EMITTED = ("tool_calls", "task_events", "usage")
@@ -185,7 +185,11 @@ def recovery_record(config, data, duration, operator, approval, *, created=None)
     if (type(duration) is not int or not 1 <= duration <= 600 or not isinstance(operator, str) or not re.fullmatch(r"[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}", operator)
             or operator in {s["agent_id"] for s in config["seats"]} or not isinstance(approval, str) or not approval.strip() or len(approval) > 300):
         raise GateError("Recovery requires 1..600 seconds, the human operator UUID and an explicit approval reference.")
-    if (data.get("room_ids") != sorted([room, config["band"]["judged_room_id"]])
+    try:
+        _, cumulative_rooms = room_scope(config)
+    except ValueError as error:
+        raise GateError(str(error)) from None
+    if (data.get("room_ids") != cumulative_rooms
             or data.get("stopped_reason") or data.get("room_stopped_reasons", {}).get(room) != STAGE_STOP
             or any(type(v) not in (int, float) or not math.isfinite(v) for v in
                    (data.get("started_epoch"), data.get("room_started_epochs", {}).get(room)))):
@@ -375,6 +379,10 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
     if bd.get("rehearsal_room_id") and bd.get("rehearsal_room_id") == bd.get("judged_room_id"):
         errors.append("Rehearsal and judged rooms must be distinct.")
     try:
+        room_scope(config)
+    except ValueError as error:
+        errors.append(str(error))
+    try:
         runtime_permission_arguments(rt)
     except FactoryError as error:
         errors.append(str(error))
@@ -551,18 +559,22 @@ class RoomPreprocessor:
 
 class BudgetLedger:
     """Single supervisor owns this persistent ledger; no polling/turn count reset."""
-    def __init__(self, limits: dict, path: Path, room: str, allowed_rooms: list[str] | None = None, recovery=None):
+    def __init__(self, limits: dict, path: Path, room: str, allowed_rooms: list[str] | None = None, recovery=None, active_rooms: list[str] | None = None):
         self.limits, self.path = limits, path
         self.recovery, self.recovery_stop_reason = recovery, None
         if recovery and (not allowed_rooms or room != recovery["room_id"] or limits["max_active_seats"] != 1):
             raise GateError("Recovery cannot apply outside its original rehearsal room and one-seat limit.")
         self.room, self.allowed_rooms = room, sorted(allowed_rooms) if allowed_rooms else None
-        if self.allowed_rooms and (room not in self.allowed_rooms or len(set(self.allowed_rooms)) != 2):
-            raise GateError("Subscription ledger requires both distinct configured rooms and an allowed active room.")
+        if self.allowed_rooms:
+            active = active_rooms if active_rooms is not None else self.allowed_rooms
+            if (len(active) != 2 or len(set(active)) != 2 or room not in active
+                    or not set(active).issubset(self.allowed_rooms)
+                    or len(set(self.allowed_rooms)) != len(self.allowed_rooms)):
+                raise GateError("Subscription ledger requires two distinct current rooms; archived rooms are accounting-only.")
         self.stop = asyncio.Event()
         self.semaphore = asyncio.Semaphore(int(limits["max_active_seats"]))
         self.data = json.loads(path.read_text()) if path.exists() else {"room_id": None if self.allowed_rooms else room, "room_ids": self.allowed_rooms, "started_epoch": None if self.allowed_rooms else time.time(), "turns": {}, "tokens": 0, "token_threads": {}, "stopped_reason": None}
-        if self.allowed_rooms and self.data.get("room_ids") != self.allowed_rooms:
+        if self.allowed_rooms and (self.data.get("room_ids") != self.allowed_rooms or self.data.get("room_id") is not None):
             raise GateError("Subscription ledger room scope changed; reconcile consumption before authorizing a new session.")
         if not self.allowed_rooms and self.data["room_id"] != room:
             raise GateError("Budget ledger belongs to another room; select a new runs directory.")
@@ -656,14 +668,22 @@ class BudgetLedger:
 
 def session_ledger(config: dict, mode: str, recovery=None) -> BudgetLedger:
     """Subscription caps are shared across rehearsal and judged sessions."""
+    if mode not in ("rehearsal", "judged"):
+        raise GateError("Only the current rehearsal or judged room can be active.")
     room = config["band"][f"{mode}_room_id"]
     if recovery and mode != "rehearsal":
         raise GateError("Judged recovery allowances are prohibited.")
     if subscription_only(config["budgets"]):
         if any((state_dir(config) / f"budget-{other}.json").exists() for other in ("rehearsal", "judged")):
             raise GateError("Existing per-mode ledgers require explicit consumption reconciliation before subscription-only work.")
-        rooms = [config["band"][f"{other}_room_id"] for other in ("rehearsal", "judged")]
-        return BudgetLedger(config["budgets"], state_dir(config) / "budget-subscription.json", room, allowed_rooms=rooms, recovery=recovery)
+        try:
+            active, rooms = room_scope(config)
+        except ValueError as error:
+            raise GateError(str(error)) from None
+        path = state_dir(config) / "budget-subscription.json"
+        if len(rooms) > len(active) and not path.exists():
+            raise GateError("Archived room accounting requires its existing cumulative ledger; no reset is allowed.")
+        return BudgetLedger(config["budgets"], path, room, allowed_rooms=rooms, recovery=recovery, active_rooms=active)
     return BudgetLedger(config["budgets"], state_dir(config) / f"budget-{mode}.json", room)
 
 

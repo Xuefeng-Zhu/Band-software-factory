@@ -5,6 +5,7 @@ import json
 import math
 from pathlib import Path
 import time
+from uuid import UUID
 
 
 FINITE_LIMITS = (
@@ -56,6 +57,29 @@ def budget_blockers(limits: dict) -> list[str]:
     return errors
 
 
+def room_scope(config: dict) -> tuple[list[str], list[str]]:
+    """Return current messaging rooms and cumulative accounting rooms.
+
+    Archived UUIDs retain consumption only; this helper never changes a ledger.
+    Adding a room requires explicit reconciliation of its persisted exact scope.
+    """
+    band = config["band"]
+    active = [band.get(f"{mode}_room_id") for mode in ("rehearsal", "judged")]
+    archived = band.get("archived_room_ids", [])
+    if (any(not isinstance(room, str) or not room.strip() or room != room.strip() for room in active)
+            or len(set(active)) != 2):
+        raise ValueError("Cumulative accounting requires two distinct configured active rooms.")
+    if not isinstance(archived, list):
+        raise ValueError("band.archived_room_ids must be a list of exact canonical room UUIDs.")
+    try:
+        valid = all(isinstance(room, str) and str(UUID(room)) == room for room in archived)
+    except ValueError:
+        valid = False
+    if not valid or len(set(archived)) != len(archived) or set(active).intersection(archived):
+        raise ValueError("band.archived_room_ids requires unique canonical UUIDs disjoint from active rooms.")
+    return active, sorted(active + archived)
+
+
 def persisted_budget_blockers(config: dict, *, now: float | None = None, require_existing: bool = False) -> list[str]:
     """Inspect aggregate consumption without constructing/writing a ledger.
 
@@ -65,16 +89,19 @@ def persisted_budget_blockers(config: dict, *, now: float | None = None, require
     limits = config["budgets"]
     if not subscription_only(limits):
         return []
+    invalid = ["Existing cumulative budget ledger is malformed or has changed scope; preserve it before launch."]
+    try:
+        active, rooms = room_scope(config)
+    except (ValueError, TypeError, KeyError):
+        return invalid
     path = Path(config["paths"]["runs"]) / "runtime/budget-subscription.json"
     if not path.exists() and not path.is_symlink():
-        return ["Judged readiness requires the existing cumulative budget ledger; preserve rehearsal accounting before launch."] if require_existing else []
-    invalid = ["Existing cumulative budget ledger is malformed or has changed scope; preserve it before launch."]
+        return ["Judged readiness requires the existing cumulative budget ledger; preserve rehearsal accounting before launch."] if require_existing or len(rooms) > len(active) else []
     try:
         if path.is_symlink():
             return invalid
         data = json.loads(path.read_text())
         instant = time.time() if now is None else now
-        rooms = sorted(config["band"][f"{mode}_room_id"] for mode in ("rehearsal", "judged"))
         seats = {seat["id"] for seat in config["seats"]}
         def counts(value, allowed=None):
             return (isinstance(value, dict) and (allowed is None or set(value).issubset(allowed))
@@ -83,7 +110,7 @@ def persisted_budget_blockers(config: dict, *, now: float | None = None, require
             return type(value) in (int, float) and math.isfinite(value) and 0 < value <= instant
         if (not isinstance(data, dict) or not {"room_id", "room_ids", "started_epoch", "tokens", "turns", "token_threads", "stopped_reason"}.issubset(data)
                 or type(instant) not in (int, float) or not math.isfinite(instant)
-                or len(set(rooms)) != 2 or not all(rooms) or data["room_id"] is not None or data["room_ids"] != rooms
+                or data["room_id"] is not None or data["room_ids"] != rooms
                 or type(data["tokens"]) is not int or data["tokens"] < 0
                 or not counts(data["turns"], seats) or not counts(data["token_threads"])
                 or (data["stopped_reason"] is not None and (not isinstance(data["stopped_reason"], str) or not data["stopped_reason"]))):

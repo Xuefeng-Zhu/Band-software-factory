@@ -191,7 +191,12 @@ def load_config(path: str | Path) -> dict:
             raise FactoryError(f"Seat {seat['id']} mandate path must be absolute")
         if Path(seat["mandate"]).resolve().parent != Path(config["paths"]["factory"]).resolve() / "mandates":
             raise FactoryError("Mandates must be direct children of factory/mandates")
-    from .budgets import budget_errors
+    from .budgets import budget_errors, room_scope
+    if "archived_room_ids" in config["band"]:
+        try:
+            room_scope(config)
+        except ValueError as error:
+            raise FactoryError(str(error)) from None
     if errors := budget_errors(config["budgets"]):
         raise FactoryError("; ".join(errors))
     return config
