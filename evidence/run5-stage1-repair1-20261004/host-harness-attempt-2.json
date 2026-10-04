@@ -1,0 +1,22 @@
+{
+  "revision": "",
+  "track": "tablekeeper",
+  "stages": {
+    "1": "error"
+  },
+  "highest_contiguous": 0,
+  "started_at": "2026-10-04T22:10:55.063445+00:00",
+  "finished_at": "2026-10-04T22:10:55.166872+00:00",
+  "schema_version": 2,
+  "run_id": "7d44694ac8f54de09c2f781d86f89dbc",
+  "mode": "host",
+  "provenance": "external-url",
+  "state": "running",
+  "pytest_args": [],
+  "suite_digest": "8d7e7d9bb94893b67dff0a19ee8ecb8d6888db7208ed269f64b29c0a661a17a7",
+  "checks": {},
+  "overshoot": null,
+  "claimed_stage": null,
+  "share": null,
+  "upgrade_sources": {}
+}

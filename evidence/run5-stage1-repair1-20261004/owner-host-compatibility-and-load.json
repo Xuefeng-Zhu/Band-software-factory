@@ -1,0 +1,39 @@
+{
+  "work_item": "BUILD-S1-REPAIR1",
+  "revision": "249e5712624d20ca02c9680eb6ec60ff3865bcb8",
+  "owner": "@frankzhu94/factory-backend",
+  "layer": "host Python 3.13; no CPU/memory isolation; NOT Docker",
+  "start": "2026-10-04T22:10:54.517073+00:00",
+  "end": "2026-10-04T22:10:54.847665+00:00",
+  "results": {
+    "real_old_to_new_import_and_original_receipts": "PASS",
+    "modest_state": {
+      "receipts": 50,
+      "reservations": 33,
+      "history_events": 97,
+      "snapshot_bytes": 1203932
+    },
+    "replay": {
+      "max_seconds": 0.015743166994070634,
+      "p95_seconds": 0.012938458006829023,
+      "statuses": {
+        "200": 50
+      }
+    },
+    "reads": {
+      "max_seconds": 0.011916791991097853,
+      "p95_seconds": 0.01145087499753572,
+      "statuses": {
+        "200": 50
+      }
+    },
+    "writes": {
+      "max_seconds": 0.02929775000666268,
+      "p95_seconds": 0.02783737500431016,
+      "statuses": {
+        "201": 50
+      }
+    },
+    "interleaved_snapshot_receipt_atomicity": "PASS"
+  }
+}

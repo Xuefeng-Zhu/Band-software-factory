@@ -1,0 +1,15 @@
+test_cutoff (test_core.Rules.test_cutoff) ... ok
+test_dst (test_core.Rules.test_dst) ... ok
+test_historical (test_core.Rules.test_historical) ... ok
+test_json (test_core.Rules.test_json) ... ok
+test_password (test_core.Rules.test_password) ... ok
+test_transaction_rollback (test_core.Rules.test_transaction_rollback) ... ok
+test_failed_batch_and_receipt_insert_roll_back (test_storage.Storage.test_failed_batch_and_receipt_insert_roll_back) ... ok
+test_legacy_logical_snapshot_and_atomic_replace (test_storage.Storage.test_legacy_logical_snapshot_and_atomic_replace) ... ok
+test_noop_and_repeated_cancel_have_no_writes (test_storage.Storage.test_noop_and_repeated_cancel_have_no_writes) ... ok
+test_replay_and_reads_ignore_receipts_and_histories (test_storage.Storage.test_replay_and_reads_ignore_receipts_and_histories) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.413s
+
+OK

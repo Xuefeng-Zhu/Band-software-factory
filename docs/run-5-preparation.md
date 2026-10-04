@@ -49,3 +49,7 @@ The included [accounting audit](../evidence/run5-stage1-owner-checkpoint-2026100
 ## Storage rejection and first repair
 
 Architect rejected the first candidate's storage design at `12e43a92dd6e037ac27dfb2189f18eed35a32fbc`; PM assigned Backend repair 1 of 3. Atomicity and the completed 16.9 MB stress checks passed, but the larger probe is inconclusive because its observed effective memory did not establish the required 2 GiB environment. Docker later failed to answer bounded read-only requests; the BAND supervisor remained live. No stage acceptance is established. See [retained decisions, probes and infrastructure observations](../evidence/run5-storage-review-20261004/README.md).
+
+## First repair candidate and independent QA assignment
+
+The repaired implementation `249e5712624d20ca02c9680eb6ec60ff3865bcb8` and record commit `68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1` are preserved on `run-5`. Ten owner unit tests, eleven HTTP groups and original-export compatibility passed on host Python 3.13. Two optional host harness attempts failed before tests; repaired-candidate Docker/resource/isolated verification remains blocked. Original-candidate green tests are not inherited acceptance. PM assigned independent QA to the fixed repaired candidate without advancing later stages. See [repair evidence and limits](../evidence/run5-stage1-repair1-20261004/README.md).

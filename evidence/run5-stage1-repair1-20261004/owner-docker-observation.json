@@ -1,0 +1,7 @@
+{
+  "status": "TIMEOUT",
+  "timeout_seconds": 8,
+  "start": "2026-10-04T22:07:39.716844+00:00",
+  "end": "2026-10-04T22:07:47.741582+00:00",
+  "command": "docker inspect --format '{{.State.Status}}' tk-arch-storage-check"
+}

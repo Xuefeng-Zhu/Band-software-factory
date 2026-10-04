@@ -1,0 +1,66 @@
+{
+  "created_at": "2026-10-04T22:19:06.480198+00:00",
+  "scope": "OWNER_HOST_ONLY_REPAIR_CHECKPOINT_NOT_ACCEPTANCE",
+  "repair_attempt": 1,
+  "max_repairs": 3,
+  "implementation_commit": "249e5712624d20ca02c9680eb6ec60ff3865bcb8",
+  "record_commit": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "stage1_tree": "dcd8a24da027ffa9b988f1c39f2141196d1d2a9a",
+  "product_tree_unchanged_by_record": true,
+  "remote_run5_head_observed": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "results": {
+    "owner_host_unit": "10/10 PASS",
+    "owner_host_http_groups": "11/11 PASS",
+    "old_to_repaired_state_import": "PASS on host processes",
+    "official_host_harness": "Two prerequisite errors before tests; NOT_TESTED",
+    "repaired_container_build_and_isolated_harness": "BLOCKED/NOT_TESTED",
+    "resource_conformance": "UNVERIFIED",
+    "independent_qa": "ASSIGNED by PM; no result in this snapshot",
+    "reviewer_acceptance": "PENDING",
+    "accepted_run5_stages": []
+  },
+  "files": [
+    {
+      "path": "owner-host-unit.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair1-20261004T2206Z/unit-1.log",
+      "bytes": 927,
+      "sha256": "d790cb98b2b7393d360c1c5cefb26d8818e4cd375da78599965cff13215ce0ad"
+    },
+    {
+      "path": "owner-host-http-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair1-20261004T2206Z/http-results-1.json",
+      "bytes": 1447,
+      "sha256": "8ce8ab5e2cbd6726e4357e725a13f9cd571e7b11655f013c06c380ecc942e132"
+    },
+    {
+      "path": "owner-host-compatibility-and-load.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair1-20261004T2206Z/host-probe-results.json",
+      "bytes": 1029,
+      "sha256": "cc9531fff497861622bcee65ec6bacc59382d63bae02926e1f804c1752dce708"
+    },
+    {
+      "path": "host-harness-attempt-1.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair1-20261004T2206Z/host-harness-1/report.json",
+      "bytes": 569,
+      "sha256": "3379fc5a8be23d85e806a43cbe20552ce73fc1a266ef620886cfcf0a48235ac7"
+    },
+    {
+      "path": "host-harness-attempt-2.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair1-20261004T2206Z/host-harness-2/report.json",
+      "bytes": 569,
+      "sha256": "4e2f36f03c16ab9eccf7fb47c7bc4fa756bfe1a44d6a3177a60325bd4fe50ced"
+    },
+    {
+      "path": "owner-docker-observation.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair1-20261004T2206Z/docker-observation.json",
+      "bytes": 223,
+      "sha256": "ddcba11d44c91d39448d969ccceb4aa132f43bfcc12f39f41ac45ba55566cfd1"
+    },
+    {
+      "path": "backend-stage-1-repair1.md",
+      "source": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1:records/backend-stage-1-repair1.md",
+      "bytes": 8075,
+      "sha256": "33b30a9f3e30968c150c70ba695ec0183f30ff1a39dff5769bdbcca533fb5358"
+    }
+  ]
+}
