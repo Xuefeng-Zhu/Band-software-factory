@@ -1,0 +1,177 @@
+{
+  "created_at": "2026-10-04T21:26:11.088802+00:00",
+  "evidence_cutoff_utc": "2026-10-04T21:14:01.903528Z",
+  "status": "AI_ASSISTED_DRAFT_NOT_FOR_SUBMISSION",
+  "factory_head_when_read": "4e08774ed8569faa2251312e90693796c485e68b",
+  "scope": "Offline narrative preparation under packaging only; no current product inspection or runtime mutation. No live outcome inferred from launch receipts.",
+  "sources": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run-5-preparation.md",
+      "sha256": "dd19e0573d7e6361d13ac3447e3673433c40ecd7cf81dae20b31bea101255aff",
+      "bytes": 7521
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run4-outcome.md",
+      "sha256": "ca94259c1ff54b0a599a778c0461267ee0ed5594bb7208ede4012a057ef246ba",
+      "bytes": 3915
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/manifest.json",
+      "sha256": "f72e3e9ccbbcc9b2e8e131980d09a093377452fa50482a211cde1e34f195bf38",
+      "bytes": 6416
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/factory.yaml",
+      "sha256": "b0db7033eed0d4aaa851e23f7f42403a0df98b82450e782ea0b3e73b1cd25960",
+      "bytes": 5746
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/authorization/approval.json",
+      "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e",
+      "bytes": 2378
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/launch/dispatch-verification.json",
+      "sha256": "bc918a6eaefa05f07e10fdd255053be81867c1bf64d386c74f48d6cdc73b1580",
+      "bytes": 909
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/launch/first-handoff-observation.json",
+      "sha256": "f76c9962c19c32ec4193d5f818e344fa06fcb6d3d7ce6daf844d633696472d5d",
+      "bytes": 7187
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/README.md",
+      "sha256": "38dc64879ff8d7af461c7b7898d71a2ece5ccfafede343961c01266270c4949e",
+      "bytes": 715
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/FACTORY.md",
+      "sha256": "3ef3039029192bb02430a998e89fd0c9b0e847c3f960849f69b92ad5143f96a2",
+      "bytes": 921
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/submission-description.md",
+      "sha256": "3f9d7e569998275410399013c8be48c2779dcbbeac8cfd9a7d1929efd1005075",
+      "bytes": 492
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md",
+      "sha256": "9dcacb6de06cbc899402540c579fc0a4a69a51dfda832794c3e2253f44fd3a1e",
+      "bytes": 2555
+    }
+  ],
+  "drafts": [
+    {
+      "path": "README.draft.md",
+      "sha256": "2247bf2f8c29c01964305f2762d0c78f47e29f1f81edfe04d7aa1bed6340525b",
+      "words": 472
+    },
+    {
+      "path": "FACTORY.draft.md",
+      "sha256": "2d1c4eebf789e915d5d09eadd6ecff7dbb078505ea543c98d2928189e332d933",
+      "words": 2502
+    },
+    {
+      "path": "submission-description.draft.md",
+      "sha256": "4c88f7205e268344923380114b4da92a780181f5f000a619458712eae0ae6ddc",
+      "words": 337
+    }
+  ],
+  "missing_evidence": [
+    "final exact candidate and independent stage acceptance",
+    "final full-session export and provenance/privacy review",
+    "final usage and elapsed time",
+    "final isolated and offline packaging checks plus clean startup verification",
+    "real-room video and presentation",
+    "participant authorship resolution",
+    "public access and final submission authorization/receipt"
+  ],
+  "updated_at": "2026-10-04T22:51:18.605766+00:00",
+  "revision_note": "Added participant-requested current2048MiBcap and second operator interruption; setup commands unchanged and not executed.",
+  "initial_manifest_sha256": "cd7eb28e16b083eb70139931f62c9ce5d5e86fe12870d1f87f1bf1d537bff748",
+  "portable_setup_sources": [
+    {
+      "path": "README.md",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "47567d1d5d8d41d10dd7dcf00093b023fe9c76c2dc0f7cfcfef6b49fcfeb5958"
+    },
+    {
+      "path": "scripts/bootstrap.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "3331c8a1c4d23f866b6ba3d0ab54d7d2759375969a7a3e5cc00763fccbbc19ce"
+    },
+    {
+      "path": "scripts/codex-local",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "db57b3ce018bc3d8d5dce62cb71d809956bb8e00e488e27b521ed22e82a36e9a"
+    },
+    {
+      "path": "factorykit/cli.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "b4432170a0b7e3cb167a3f0f9ad6adb1918e5aedadcda55d55645d4caf8783b1"
+    },
+    {
+      "path": "factorykit/runtime.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341"
+    },
+    {
+      "path": "factorykit/budgets.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "b5552bec8f4af652c235f723c861220a325337bd1c5c7b7f8ab64e7425fbf47f"
+    },
+    {
+      "path": "factorykit/validation.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "5ce7e1fa6b1af1e32b1c0a14dfbe3e4b635f625a7578399f991921e0d583b346"
+    },
+    {
+      "path": "factorykit/common.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "b7b754b774c51325a4be6db051bd5146ad9ecb90b0b8f4f193217dbe4c45a96f"
+    },
+    {
+      "path": "config/factory.example.yaml",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "48767ec016b1171044a3ea478349c6f8153a8c8f9b18b16d9ee8628088ff2f3e"
+    },
+    {
+      "path": "docs/native-band-cli.md",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "82268a55e2a284e02f146f8cd29ce8b4c290c3cf987aa0a90d42e3b53b243c4f"
+    },
+    {
+      "path": "docs/rehearsal-finish-loop.md",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "09c9f2fd90120a55a72d9c8747c329b2f3175214607bf25bf9815255f0187efb"
+    }
+  ],
+  "setup_validation": {
+    "shell_blocks_syntax_checked": 7,
+    "parser_command_names": [
+      "discover-models",
+      "dispatch-record",
+      "doctor",
+      "freeze",
+      "generate-tasks",
+      "harness",
+      "launch-prepare",
+      "probe-registration",
+      "seat-status",
+      "start-seats",
+      "stop-seats",
+      "validate",
+      "verify-tasks"
+    ],
+    "clean_machine_execution": "NOT_TESTED",
+    "live_runtime_commands_executed": 0
+  },
+  "revision_history": [
+    {
+      "updated_at": "2026-10-04T22:46:04.497926+00:00",
+      "revision_note": "FACTORY draft adds source-checked portable setup and operator intervention disclosure; README/description remain at initial launch cutoff. No commands executed beyond shell syntax validation.",
+      "factory_draft_sha256": "7fa896f495a0b54fa1b0fa63b7c9d586f06534e225800956647d0eaaece4df4c"
+    }
+  ]
+}

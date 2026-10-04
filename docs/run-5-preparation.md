@@ -69,3 +69,9 @@ Backend delivered `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d`, with the same prod
 ## Portable setup draft
 
 The [expanded FACTORY draft](../evidence/run5-portable-setup-draft-20261004/FACTORY.draft.md) adds concrete installation, authentication, configuration, rehearsal and freeze command forms, linked to factory commit `a8562b2`. Seven shell blocks passed syntax checks and 13 command names matched parser source; no setup/auth/model/runtime command was executed. Clean-machine reproducibility remains unverified. Initial narrative manifests are retained alongside the revision, and AI assistance, participant review, private-access prerequisites and the operator infrastructure intervention remain disclosed.
+
+## Current user-selected memory cap and future preflight fix
+
+The participant requested a 2 GiB cap. At 22:49 UTC the operator set OrbStack to 2048 MiB, performed one required restart after scoped workload checks, and restored the same two owner containers. Docker reports 2,073,866,240 bytes; the earlier 4 GiB setting is historical. [Exact cap and verification evidence](../evidence/run5-user-2g-cap-20261004/README.md) discloses this second operator intervention and the resource-verification limits.
+
+The future [Docker resource-preflight PR](https://github.com/Xuefeng-Zhu/Tablekeeper-factory/pull/1) passed 253 utility tests. It checks configured capacity before doctor/start/dispatch readiness and detected the expected capacity shortfall in one read-only live query. It remains unmerged while Run 5 is frozen. It does not raise the user's cap or authorize another run.
