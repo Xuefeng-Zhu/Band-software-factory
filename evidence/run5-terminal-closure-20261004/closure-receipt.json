@@ -1,0 +1,29 @@
+{
+  "started_at": "2026-10-04T23:33:06.246649+00:00",
+  "completed_at": "2026-10-04T23:33:07.598829+00:00",
+  "pm_final_event": "fe9e5ec6-69c5-4871-868f-284fdf84cceb",
+  "pm_final_at": "2026-10-04T23:29:24.626626Z",
+  "command": [
+    "scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml",
+    "stop-seats"
+  ],
+  "before_pid": 710,
+  "before_idle": true,
+  "all_seven_contexts_drained": true,
+  "after_owned_parent_alive": false,
+  "after_owned_children_alive": 0,
+  "before_budget_sha256": "13631cb7cde562f45029c659cff613fc5f61c1d256bb77717dc41ecfbf2394f2",
+  "after_budget_sha256": "13631cb7cde562f45029c659cff613fc5f61c1d256bb77717dc41ecfbf2394f2",
+  "ledger_bytes_unchanged": true,
+  "run5_reported_tokens": 75831611,
+  "total_reported_tokens": 221514710,
+  "product_closeout": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+  "product_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "product_outcome": "Stage 1 rejected; stages 2-4 unimplemented",
+  "no_budget_reset": true,
+  "semantic_halt_added": false,
+  "docker_changed": false,
+  "video": "deferred by user"
+}

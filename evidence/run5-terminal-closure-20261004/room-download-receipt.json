@@ -1,0 +1,48 @@
+{
+  "saved_at": "2026-10-04T23:35:05.328797+00:00",
+  "source_download": "/Users/frank/Downloads/MillieMoon-Tablekeeper-Run-5.json",
+  "download_method": "Band web console: Conversation options > Download > Download full session",
+  "download_event_observer": "CUA waiter timed out; completed native file verified in Downloads with exact matching room, full scope and terminal events",
+  "bytes": 7505750,
+  "sha256": "c934ff785a565d1198a12c9a806217897217046f317dc9ef961730a647ef3e3e",
+  "room": {
+    "id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+    "title": "MillieMoon \u00b7 Tablekeeper \u00b7 Run 5"
+  },
+  "scope": "full",
+  "filters": {
+    "participants": [],
+    "types": [
+      "text",
+      "thought",
+      "memory",
+      "participant",
+      "system"
+    ]
+  },
+  "exportedAt": "2026-10-04T23:33:31.490Z",
+  "message_count": 4602,
+  "unique_ids": 4602,
+  "types": {
+    "participant": 7,
+    "text": 195,
+    "task": 1306,
+    "tool_call": 1547,
+    "tool_result": 1547
+  },
+  "sender_types": {
+    "Agent": 4600,
+    "User": 2
+  },
+  "human_text_ids": [
+    "d5861cdd-0b57-4393-a97f-0dfb9201cec2"
+  ],
+  "pm_final_present": true,
+  "latest_message_time": "2026-10-04T23:31:32.191Z",
+  "credential_pattern_findings": [],
+  "privacy_review": "pattern scan only; broader review pending",
+  "unchanged_bytes_preserved": true,
+  "human_sender_type": "User",
+  "human_text_count": 1,
+  "human_dispatch_verified": true
+}
