@@ -1,10 +1,10 @@
 {
-  "configuration_sha256": "c4eaec908d1ca67b8908a2b086bbaf01d50a649560364ed94fb3f977a64c42e8",
+  "configuration_sha256": "89589f825e63653b5b048b389fe4ccabc77522913a686d647396d5067f215df9",
   "schema_version": 1,
   "tasks": {
     "judged-all-stages.md": {
       "mode": "all",
-      "sha256": "9ca665cb43e93ac4f12be43b0ce14abb6701e438879f59071fc4fdf925d94d16",
+      "sha256": "df668c1c9a2b5202d05ce6fd35f11a4253b5e3b1c404f9fa08d68213a058f77d",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -41,7 +41,7 @@
     },
     "judged-stage-1.md": {
       "mode": "separate",
-      "sha256": "c2bd9e013c5329d44ac5e5c6d0cdd9d0d94ca6f9c4359a66d5a1bc201d4803cb",
+      "sha256": "c41d48ad1bf58d0a4ea256be2597863a71d8c7a3b01dce50d667797f35f3d484",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -57,7 +57,7 @@
     },
     "judged-stage-2.md": {
       "mode": "separate",
-      "sha256": "a2c870be481760d150d72738cbe147be8d83196221e480b6ce24609b28015bb9",
+      "sha256": "67bf683254332ff22e2f6cb57ea7ff11de297e6f5568d1bc0f697b11ed77fcc7",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -79,7 +79,7 @@
     },
     "judged-stage-3.md": {
       "mode": "separate",
-      "sha256": "47f1916f33cbd6a25a567f21f9e0410f71fb886eaba9a7e0c38e6694fc4f6488",
+      "sha256": "b01242a0fbcaa39537ca1fd4cac65ca5631b94370456f059792fbed12894ebfd",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -107,7 +107,7 @@
     },
     "judged-stage-4.md": {
       "mode": "separate",
-      "sha256": "ca947cf28a91026c90d0a97514004171216f8580ed2f2a2815fce2e401a470e2",
+      "sha256": "d2b55fe2828b43d341d5b997116e1be4d83798a4b58d24942a30b4fac00a2b8d",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -141,7 +141,7 @@
     },
     "rehearsal-toy.md": {
       "mode": "practice-all",
-      "sha256": "3253fc25e2e6cbcb71f67eb7e25d525d70da7a52fec03da6465c87c855bd2420",
+      "sha256": "967e6201df77f69144b6d28e07428b956fe788c4b110864fde888ee5f8c51e63",
       "spec_payloads": [
         {
           "bytes": 1895,
