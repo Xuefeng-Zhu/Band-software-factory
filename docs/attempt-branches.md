@@ -8,7 +8,7 @@ The participant chose this workflow on October 4, 2026: application attempts sha
 | --- | --- | --- | --- |
 | Run 2 | `run-2` | `86ad17c600fd994bcb55c222049b7d0546f2e472` | `../result` contains the navigation `main`; the preserved original is branch `run-2` |
 | Run 3 | `run-3` | `dc4cf0c4dcf8b96e155f156694960df7fc1f4745` | `../result-run-3` remains unchanged as the historical checkout |
-| Run 4 | `run-4` | First published commit `3eb5566b431caf6f6ca04469e5b241aacbf0e495`; live branch advances | `../result-run-4`; origin is the canonical repository |
+| Run 4 | `run-4` | Final preserved head `13bc38fc1d4396c70c42b529eab369d6f84a0186`; BLOCKED with no accepted stage | `../result-run-4`; origin is the canonical repository |
 
 Run 2 and Run 3 were copied as exact commit histories, without rewriting, merging or squashing. The old Run 3 GitHub repository remains available. The canonical `main` is an attempt index with retained Run 2 files; it is not the base for a fresh judged build.
 
@@ -22,9 +22,11 @@ Run 4 was initialized at `/Users/frank/mygit/Tablekeeper/result-run-4` with `pus
 git push -u origin HEAD:refs/heads/run-4
 ```
 
-A branch without any commit cannot exist on GitHub. Run 4 has now published its first agent-authored commit. The exact destination and observed head are recorded in `config/attempts.json`; this operator registry is not itself runtime authorization.
+A branch without any commit cannot exist on GitHub. Run 4 began empty, published attributable agent progress, and is now closed. Its final head preserves the rejected product and complete room export; it is not a base for another attempt. The exact destination and observed head are recorded in `config/attempts.json`; this operator registry is not itself runtime authorization.
 
-Run 4 preparation now has its own scoped configuration, a new BAND room, fresh permission and registration checks, and deterministically generated complete task packets. The participant approved its finite allowance and one launch; the READY freeze and verified dispatch are retained in `evidence/run4-launch-20261004/`. Preserve the original Run 3 configuration, packet bytes, source lock, dispatch ledger and room export. Run 4 carries forward the full reconciled cumulative usage; its separate finite allowance was explicitly approved before model work. Repository organization alone never opens a closed budget.
+Run 4 used its own scoped configuration, a new BAND room, fresh permission and registration checks, and deterministically generated complete task packets. The participant approved its finite allowance and one launch; the READY freeze and verified dispatch are retained in `evidence/run4-launch-20261004/`. Independent review ultimately rejected Stage 1 despite 120/120 official isolated checks, and all three repair cycles were exhausted. No stage was accepted and stages 2–4 were not started. All owned workers stopped and the allowance closed at `2026-10-04T20:32:48Z`. See [the final outcome](run4-outcome.md) and `evidence/run4-closure-20261004/`.
+
+Preserve the original Run 3 configuration, packet bytes, source lock, dispatch ledger and room export. Run 4 retained the full reconciled cumulative history: 59,671,522 additional reported tokens and 145,683,099 cumulative. Repository organization and unused allowance never reopen a closed attempt. Any later attempt needs its own approved scope and fresh independent checkout; this document does not record another attempt as created or launched.
 
 The task generator now accepts the canonical GitHub URL and branch through optional `product` configuration and emits the explicit push destination in judged packets. The pristine gate checks both the assigned branch and every effective origin fetch/push URL. Do not manually edit a generated packet: deterministic task verification must still pass. Earlier attempt branches are archived evidence and must not seed the new implementation. The factory and challenge remain outside the application worktree. Once the agents create commits, normal worktrees may be used if the particular workflow permits them.
 
@@ -49,4 +51,4 @@ artifacts:
 
 Artifact overrides must stay beneath that configuration's `paths.runs`; lock and task paths cannot overlap or escape through symlinks. Omitting these fields preserves the original defaults. Freeze records the configured lock hash, and both launch preparation and direct judged start reject a changed lock.
 
-The Run 4 review lives in `docs/run-4-preparation.md`. Preparation does not approve the proposed allowance, open the closed usage ledger or send a task.
+The historical preparation and launch review lives in [run-4-preparation.md](run-4-preparation.md); [run4-outcome.md](run4-outcome.md) records the closed result. Preparation alone does not approve an allowance, open a closed usage ledger or send a task.

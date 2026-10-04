@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-04T20:46:49.628779+00:00",
+  "purpose": "Selected unchanged Run 4 closure evidence; the full room export remains in the application repository",
+  "files": [
+    {
+      "path": "closed-runtime.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/closure/closed-runtime.json",
+      "bytes": 751,
+      "sha256": "24fd66cf4be0a90f8bf5be7055ea3e9b35139e334b030c80afff9581c896afa1"
+    },
+    {
+      "path": "closure-intent.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/closure/closure-intent.json",
+      "bytes": 574,
+      "sha256": "e6d7afdf3ec37ea5b35ed46a3bdc247c1cb4cf3108763e61845e93b79d00a1be"
+    },
+    {
+      "path": "full-session-export-provenance.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/closure/full-session-export-provenance.json",
+      "bytes": 1664,
+      "sha256": "1a47d9fded559705fedb1aacfd4c37abf36d9a9f99d39562b3e4b18ae544f621"
+    },
+    {
+      "path": "coordinator-outcome.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-4/planning/outcome.json",
+      "bytes": 2793,
+      "sha256": "15808d0fb784599e3d3fdb34e77fa3c6a4137e4ae740a088ff84cb64288436bf"
+    },
+    {
+      "path": "official-stage1-report.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-4/.evidence/S1-REVIEW2-20261004T200934Z/official/report.json",
+      "bytes": 1612,
+      "sha256": "6a5c188f00d8cb2458b14a76cbc096715ffbeaa6bcc41af8f1c3ab49fb29b430"
+    },
+    {
+      "path": "calendar-check.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-4/.evidence/S1-REVIEW2-20261004T200934Z/calendar-check.stdout",
+      "bytes": 1497,
+      "sha256": "8238e86079e57bee8ac5971f0118c06f922b9019105d7ee0e89df444176faa9c"
+    }
+  ],
+  "application_snapshot": {
+    "head": "13bc38fc1d4396c70c42b529eab369d6f84a0186",
+    "stage1_tree": "be50513daabf911fa11a1df6a6050cdba30f18d4",
+    "status": "",
+    "remote_tracking_head": "13bc38fc1d4396c70c42b529eab369d6f84a0186"
+  },
+  "room_export_sha256": "2942e13db3ab99f208e6c3cf228160126ff8d6dbda62f46cf2c5572c5cda8dd3",
+  "room_export_event_count": 3774,
+  "human_text_count": 1,
+  "limitations": "Historical coordinator outcome predates the final full-session export and supported token accounting; original statements were not rewritten."
+}

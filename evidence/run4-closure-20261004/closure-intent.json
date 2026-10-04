@@ -1,0 +1,10 @@
+{
+  "all_sdk_queues_locally_empty": true,
+  "at": "2026-10-04T20:32:46.909463+00:00",
+  "no_active_turns": true,
+  "outcome_path": "/Users/frank/mygit/Tablekeeper/result-run-4/planning/outcome.json",
+  "outcome_sha256": "15808d0fb784599e3d3fdb34e77fa3c6a4137e4ae740a088ff84cb64288436bf",
+  "owned_supervisor_pid": 77057,
+  "reason": "Coordinator recorded final BLOCKED outcome after exhausted repair allowance; all seven seats idle. Preserve failed run before next factory attempt.",
+  "scope": "Stop only verified owned Run4 supervisor; no room task or product changes."
+}

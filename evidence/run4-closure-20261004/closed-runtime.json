@@ -1,0 +1,14 @@
+{
+  "all_counters_preserved": true,
+  "at": "2026-10-04T20:32:48.070853+00:00",
+  "closed_ledger_sha256": "101200e05fb464e58b2203c1c1f077080140b4f62940fc9530631ae6c73c64d8",
+  "cumulative_tokens": 145683099,
+  "global_stop_reason": "Run4 closed after coordinator final BLOCKED outcome: three repair cycles exhausted; no further model work authorized for this attempt.",
+  "original_started_epoch": 1791049765.700437,
+  "owned_children_alive": 0,
+  "owned_parent_alive": false,
+  "prior_ledger_sha256": "5f1f65e693641ee8a81d5cf0935db58b1509dc807bccd4f20f9b3a07fc8679e6",
+  "room_stop_reason": "Final Stage1 rejected; repair ceiling exhausted; closed after complete acknowledged handoffs.",
+  "run4_tokens": 59671522,
+  "status": "STOPPED_AND_CLOSED"
+}
