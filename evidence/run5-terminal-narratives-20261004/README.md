@@ -1,0 +1,7 @@
+# Run 5 terminal narrative sources
+
+These unchanged AI-assisted source drafts record the rejected Run 5 product, final accounting, genuine room export/privacy review and later 120/120 supplied isolated Stage 1 checks. The drafts predate completion of their private application package; statements that packaging remained pending reflect that snapshot. They are preserved for provenance, not substituted for the current root documents on the canonical private `run-5` branch.
+
+The initial metadata package was committed as `2d3406b7d305eee21a5555315046f793460e2a08`. A subsequent metadata-only update `fe843c4ba870d37d86b98275d121e4f0df7fa1cb` reconciled completed packaging. Later documentation review corrected a remaining stale export-placement sentence and disclosed additional global Codex configuration drift. Product tree `13192852a7341f8d7e6b2bc6076c9e59cfa3843b` remains unchanged. Final package-check receipts are retained separately.
+
+`draft-source-manifest.json` is the original source inventory, including references outside this archive; this archive's `manifest.json` binds only the exact selected files copied here. Earlier draft versions remain in the operator preparation archive and prior factory evidence commits. The participant-written narrative requirement remains unresolved; these drafts do not claim human authorship, independent product acceptance, public release or submission. Video is explicitly deferred.

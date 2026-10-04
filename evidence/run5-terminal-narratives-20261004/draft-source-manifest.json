@@ -1,0 +1,403 @@
+{
+  "created_at": "2026-10-04T21:26:11.088802+00:00",
+  "evidence_cutoff_utc": "2026-10-04T23:39:52.891765Z",
+  "status": "AI_ASSISTED_TERMINAL_PRODUCT_DRAFT_NOT_FOR_SUBMISSION",
+  "factory_head_when_read": "4e08774ed8569faa2251312e90693796c485e68b",
+  "scope": "Offline packaging narratives only; immutable product records and retained closure/status/budget snapshots read. No product tests, runtime commands, BAND operations or new presentation.",
+  "sources": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run-5-preparation.md",
+      "sha256": "dd19e0573d7e6361d13ac3447e3673433c40ecd7cf81dae20b31bea101255aff",
+      "bytes": 7521
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run4-outcome.md",
+      "sha256": "ca94259c1ff54b0a599a778c0461267ee0ed5594bb7208ede4012a057ef246ba",
+      "bytes": 3915
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/manifest.json",
+      "sha256": "f72e3e9ccbbcc9b2e8e131980d09a093377452fa50482a211cde1e34f195bf38",
+      "bytes": 6416
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/factory.yaml",
+      "sha256": "b0db7033eed0d4aaa851e23f7f42403a0df98b82450e782ea0b3e73b1cd25960",
+      "bytes": 5746
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/authorization/approval.json",
+      "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e",
+      "bytes": 2378
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/launch/dispatch-verification.json",
+      "sha256": "bc918a6eaefa05f07e10fdd255053be81867c1bf64d386c74f48d6cdc73b1580",
+      "bytes": 909
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/launch/first-handoff-observation.json",
+      "sha256": "f76c9962c19c32ec4193d5f818e344fa06fcb6d3d7ce6daf844d633696472d5d",
+      "bytes": 7187
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/README.md",
+      "sha256": "38dc64879ff8d7af461c7b7898d71a2ece5ccfafede343961c01266270c4949e",
+      "bytes": 715
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/FACTORY.md",
+      "sha256": "3ef3039029192bb02430a998e89fd0c9b0e847c3f960849f69b92ad5143f96a2",
+      "bytes": 921
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/submission-description.md",
+      "sha256": "3f9d7e569998275410399013c8be48c2779dcbbeac8cfd9a7d1929efd1005075",
+      "bytes": 492
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md",
+      "sha256": "9dcacb6de06cbc899402540c579fc0a4a69a51dfda832794c3e2253f44fd3a1e",
+      "bytes": 2555
+    }
+  ],
+  "drafts": [
+    {
+      "path": "README.draft.md",
+      "sha256": "f18eb107e0d498868eb5c89a4b75a4b216ec964a9e5573252fe86cf9a7658bdf",
+      "bytes": 7209,
+      "words": 887
+    },
+    {
+      "path": "FACTORY.draft.md",
+      "sha256": "f31ee06ebc895127398e8985bcb8dd8ccc3d3538e5af3973ffbe1dd3feb8ce35",
+      "bytes": 28207,
+      "words": 3465
+    },
+    {
+      "path": "submission-description.draft.md",
+      "sha256": "9ced987fdb45e02879d7466e5da9c0bd122ae36b19808bdfbf31620d2a39589f",
+      "bytes": 5309,
+      "words": 656
+    }
+  ],
+  "missing_evidence": [
+    "private placement of verified room export and final narratives plus package commit",
+    "appropriate final offline packaging checks",
+    "independent acceptance absent; broader heavy-state/resource/performance conformance unverified",
+    "Stages 2\u20134 and their real UI verification are absent",
+    "real room video explicitly deferred",
+    "update historical 23:03 presentation in a separate task",
+    "participant authorship resolution",
+    "public access and final submission authorization/receipt"
+  ],
+  "updated_at": "2026-10-04T23:44:19.288292+00:00",
+  "revision_note": "Added post-run fresh-clone supplied Stage 1 isolated result (120/120) without overriding independent rejection; Stage 2 probe yields no credit; genuine full export metadata and completed bounded private-preservation privacy review. Package placement/commit still pending. Application target references use FACTORY.md; operator source inventories are explicitly outside the app checkout.",
+  "initial_manifest_sha256": "cd7eb28e16b083eb70139931f62c9ce5d5e86fe12870d1f87f1bf1d537bff748",
+  "portable_setup_sources": [
+    {
+      "path": "README.md",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "47567d1d5d8d41d10dd7dcf00093b023fe9c76c2dc0f7cfcfef6b49fcfeb5958"
+    },
+    {
+      "path": "scripts/bootstrap.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "3331c8a1c4d23f866b6ba3d0ab54d7d2759375969a7a3e5cc00763fccbbc19ce"
+    },
+    {
+      "path": "scripts/codex-local",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "db57b3ce018bc3d8d5dce62cb71d809956bb8e00e488e27b521ed22e82a36e9a"
+    },
+    {
+      "path": "factorykit/cli.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "b4432170a0b7e3cb167a3f0f9ad6adb1918e5aedadcda55d55645d4caf8783b1"
+    },
+    {
+      "path": "factorykit/runtime.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341"
+    },
+    {
+      "path": "factorykit/budgets.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "b5552bec8f4af652c235f723c861220a325337bd1c5c7b7f8ab64e7425fbf47f"
+    },
+    {
+      "path": "factorykit/validation.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "5ce7e1fa6b1af1e32b1c0a14dfbe3e4b635f625a7578399f991921e0d583b346"
+    },
+    {
+      "path": "factorykit/common.py",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "b7b754b774c51325a4be6db051bd5146ad9ecb90b0b8f4f193217dbe4c45a96f"
+    },
+    {
+      "path": "config/factory.example.yaml",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "48767ec016b1171044a3ea478349c6f8153a8c8f9b18b16d9ee8628088ff2f3e"
+    },
+    {
+      "path": "docs/native-band-cli.md",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "82268a55e2a284e02f146f8cd29ce8b4c290c3cf987aa0a90d42e3b53b243c4f"
+    },
+    {
+      "path": "docs/rehearsal-finish-loop.md",
+      "commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+      "sha256": "09c9f2fd90120a55a72d9c8747c329b2f3175214607bf25bf9815255f0187efb"
+    }
+  ],
+  "setup_validation": {
+    "shell_blocks_syntax_checked": 7,
+    "parser_command_names": [
+      "discover-models",
+      "dispatch-record",
+      "doctor",
+      "freeze",
+      "generate-tasks",
+      "harness",
+      "launch-prepare",
+      "probe-registration",
+      "seat-status",
+      "start-seats",
+      "stop-seats",
+      "validate",
+      "verify-tasks"
+    ],
+    "clean_machine_execution": "NOT_TESTED",
+    "live_runtime_commands_executed": 0
+  },
+  "revision_history": [
+    {
+      "updated_at": "2026-10-04T22:46:04.497926+00:00",
+      "revision_note": "FACTORY draft adds source-checked portable setup and operator intervention disclosure; README/description remain at initial launch cutoff. No commands executed beyond shell syntax validation.",
+      "factory_draft_sha256": "7fa896f495a0b54fa1b0fa63b7c9d586f06534e225800956647d0eaaece4df4c"
+    },
+    {
+      "updated_at": "2026-10-04T22:51:18.605766+00:00",
+      "revision_note": "Added participant-requested current2048MiBcap and second operator interruption; setup commands unchanged and not executed.",
+      "retained_manifest": "archive/pre-terminal-product-outcome-20261004/draft-source-manifest.json",
+      "retained_manifest_sha256": "1ef8376c9fdbaacb76535c12651c3edfa370b976092cc9e03cb0418a2b981195"
+    },
+    {
+      "updated_at": "2026-10-04T23:34:15.708399+00:00",
+      "revision_note": "Recorded final product rejection, exhausted 3/3 repairs and unimplemented Stages 2\u20134; retained setup recipe, both infrastructure interventions, explicit video deferral and AI-assisted authorship limits.",
+      "retained_manifest": "archive/terminal-product-before-runtime-closure-20261004/draft-source-manifest.json",
+      "retained_manifest_sha256": "5c4f5ce218d930b3404f7a8ed95d01f346264adf595e7b7d2410ed8a41a9f67e"
+    },
+    {
+      "updated_at": "2026-10-04T23:35:59.791918+00:00",
+      "revision_note": "Terminal rejection plus verified drained worker shutdown and final reported-token ledger; downloaded full-session export validation/packaging still pending. No product/frozen/runtime edits or new deck.",
+      "retained_manifest": "archive/before-postrun-harness-and-room-review-20261004/draft-source-manifest.json",
+      "retained_manifest_sha256": "8bce39c1a61b98716f1aa3756c31d12e8e3b0484b36f5748c95a8e4b5667683a"
+    }
+  ],
+  "terminal_product": {
+    "disposition": "STOP_REPLAN_REJECTED_NO_ACCEPTED_STAGE",
+    "rejected_candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+    "record_only_closeout": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+    "stage_1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+    "repairs_used": 3,
+    "repair_limit": 3,
+    "stages_2_to_4": "UNIMPLEMENTED",
+    "pm_final_event": "fe9e5ec6-69c5-4871-868f-284fdf84cceb",
+    "pm_final_event_time_utc": "2026-10-04T23:29:24.626626Z",
+    "event_observation_provenance": "Coordinator supplied public-event observation; full-session export pending. Product disposition independently confirmed in immutable Git records.",
+    "runtime_closure": "STOPPED; all seven contexts drained, no owned parent/children alive",
+    "final_usage": {
+      "run5_reported_tokens": 75831611,
+      "cumulative_reported_tokens": 221514710,
+      "includes_cached_input": true,
+      "dollar_cost": "UNMEASURED",
+      "subscription_quota": "NOT_MEASURED"
+    },
+    "full_session_export": {
+      "status": "VERIFIED_FULL_EXPORT_BOUNDED_PRIVACY_REVIEW_COMPLETE_PRIVATE_PACKAGING_PENDING",
+      "sha256": "c934ff785a565d1198a12c9a806217897217046f317dc9ef961730a647ef3e3e",
+      "bytes": 7505750,
+      "exported_at_utc": "2026-10-04T23:33:31.490Z",
+      "unique_events": 4602,
+      "text_events": 195,
+      "user_text_count": 1,
+      "user_text_ids": [
+        "d5861cdd-0b57-4393-a97f-0dfb9201cec2"
+      ],
+      "pm_final_present": true,
+      "privacy_status": "NO_ACTIONABLE_FINDINGS_IN_BOUNDED_REVIEW",
+      "publication_authorized": false
+    }
+  },
+  "terminal_sources": [
+    {
+      "repository": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "commit": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+      "path": "records/stage-1-stop.md",
+      "git_blob": "f78483dbe06c6e724d8c90c46ea32fe0d15547d2",
+      "sha256": "6fcc4d8a8ae667880d5f62ecab2708d0b1e31976ae70c11ab63672445450409c",
+      "bytes": 3266
+    },
+    {
+      "repository": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "commit": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+      "path": "records/gate-stage-1-final-review.md",
+      "git_blob": "001b7df0c22d87ee232943e7aa064c5044eab346",
+      "sha256": "4f1d9b29cf0e07d5870e8fb67c7e757ce3eebb5fca7b26422ab4a73231f1b76e",
+      "bytes": 16283
+    }
+  ],
+  "preserved_archives": [
+    {
+      "path": "archive/pre-terminal-product-outcome-20261004",
+      "manifest_sha256": "97eb72e0bc5a91e4f959826c472a81750cdbd4ac5fe215261c94846a4332c523"
+    },
+    {
+      "path": "archive/initial-launch-drafts-20261004",
+      "manifest_sha256": "7c020994296beb5927a6b347516ae4ed0e846f97bc2baf87e80fefc4cf2f6dae"
+    },
+    {
+      "path": "archive/terminal-product-before-runtime-closure-20261004",
+      "manifest_sha256": "ec3622c7e9a51ae879de8cd50d0fb741459f0c57a752e09a2e3d0c28c1bc288d"
+    },
+    {
+      "path": "archive/before-postrun-harness-and-room-review-20261004",
+      "manifest_sha256": "2c2a3492144379146b44b6748c795d50a951ccd7f160843054788a9359052a44"
+    }
+  ],
+  "narrative_validation": {
+    "setup_shell_blocks_unchanged": true,
+    "initial_manifest_unchanged": true,
+    "product_tree_same_in_record_closeout": true,
+    "runtime_commands_executed": 0,
+    "band_messages_sent": 0,
+    "product_tests_executed": 0,
+    "new_presentation_generated": false,
+    "room_token_sum_matches_recorded_final": true,
+    "wall_clock_intervals_derived_from_recorded_timestamps": true,
+    "room_export_hash_matches_review": true,
+    "postrun_suite_counts_and_scope_from_retained_reports": true
+  },
+  "runtime_closure": {
+    "started_at_utc": "2026-10-04T23:33:06.246649+00:00",
+    "completed_at_utc": "2026-10-04T23:33:07.598829+00:00",
+    "ledger_sha256_before_and_after": "13631cb7cde562f45029c659cff613fc5f61c1d256bb77717dc41ecfbf2394f2",
+    "dispatch_to_product_terminal_seconds": 8548.682944,
+    "dispatch_to_shutdown_seconds": 8771.655147,
+    "interpretation": "Wall-clock timestamp differences; not active inference time; Docker-container cleanup not implied."
+  },
+  "closure_sources": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/closure-receipt.json",
+      "sha256": "a2aecb2aa6973c5718c05fd274ac82c09c3a2cf0414319de0f74b21d95ca0238",
+      "bytes": 1136
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/before-status.json",
+      "sha256": "41ed3c0ac6aeed4d0ff80f0574d2feac8465ea61c92807a0f62e829279cfb982",
+      "bytes": 5230
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/after-status.json",
+      "sha256": "d759a3ae73b58db74a40b0b1a649d014ade9cb38c7ebeb38e42a7fe0f1b7a525",
+      "bytes": 5230
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/before-budget.json",
+      "sha256": "13631cb7cde562f45029c659cff613fc5f61c1d256bb77717dc41ecfbf2394f2",
+      "bytes": 7339
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/after-budget.json",
+      "sha256": "13631cb7cde562f45029c659cff613fc5f61c1d256bb77717dc41ecfbf2394f2",
+      "bytes": 7339
+    }
+  ],
+  "postrun_isolated": {
+    "candidate": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+    "stage_1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+    "started_at": "2026-10-04T23:38:15.483787+00:00",
+    "ended_at": "2026-10-04T23:38:56.297110+00:00",
+    "exit_code": 0,
+    "stage1_collected": 120,
+    "stage1_passed": 120,
+    "stage1_failed": 0,
+    "stage1_errors": 0,
+    "stage1_skipped": 0,
+    "stage1_deselected": 0,
+    "present_stage_folders": [
+      1
+    ],
+    "stage2_overshoot_probe": {
+      "collected": 25,
+      "passed": 0,
+      "failed": 1,
+      "stopped_at_first_failure": true,
+      "stage2_folder_present": false,
+      "stage2_credit": false
+    },
+    "user_orbstack_memory_mib": 2048,
+    "fresh_checkout_clean_after": true,
+    "independently_accepted_stages": 0,
+    "scope": "Post-run operator supplied-suite layer only; does not overturn independent product rejection or establish full four-stage/resource conformance."
+  },
+  "postrun_sources": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/clone-receipt.json",
+      "sha256": "2a6a866ac368365023b5acd190577d162604bcd85f7134e0bc01fa60692a15eb",
+      "bytes": 1314
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-command.json",
+      "sha256": "1226ff72efe56d18296718757d76edf3d470ee13424add2ef50a7b459a2949a2",
+      "bytes": 956
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-command.log",
+      "sha256": "991597dd76796ed68f9dd50c35374500e32be8dee2dc761e831207393aca966d",
+      "bytes": 899
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/summary.json",
+      "sha256": "742bfcd719188d08f0473487466aa705b489c06a46fbcfdb77a212ef7230484c",
+      "bytes": 272
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/report.json",
+      "sha256": "3a937675ec346f65df860da95997ee2cb3b56421ab667261f4b441828f1cd424",
+      "bytes": 1597
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-1.counts.json",
+      "sha256": "b18fabdbadab8f1094c6b47d09dd89a3e3215cb6c471340343c5f8787e30b77b",
+      "bytes": 499
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-2.counts.json",
+      "sha256": "eda65c567c034428ce279c5889411791eb2abcdb677b963767db110ae8095fbd",
+      "bytes": 216
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/room-download-receipt.json",
+      "sha256": "3e7c969398d5de1c7e1f7a61b8f7dad4c174551b1c03b7e71dc10ed3a00647d7",
+      "bytes": 1431
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/room-privacy-review.json",
+      "sha256": "52cd4025e92dd324cceb6ed88edde6767cbaca669fa14b8fc035d7f5e548a94b",
+      "bytes": 4838
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/room-full-session.json",
+      "sha256": "c934ff785a565d1198a12c9a806217897217046f317dc9ef961730a647ef3e3e",
+      "bytes": 7505750
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/owned-test-containers-stopped.json",
+      "sha256": "6a7408c2784d43020c3b39f6742799f7c1e8f90bd7e33d0dac3343dc7120c716",
+      "bytes": 1040
+    }
+  ]
+}
