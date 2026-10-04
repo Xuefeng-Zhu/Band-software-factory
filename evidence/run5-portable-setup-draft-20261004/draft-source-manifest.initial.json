@@ -1,0 +1,92 @@
+{
+  "created_at": "2026-10-04T21:26:11.088802+00:00",
+  "evidence_cutoff_utc": "2026-10-04T21:14:01.903528Z",
+  "status": "AI_ASSISTED_DRAFT_NOT_FOR_SUBMISSION",
+  "factory_head_when_read": "4e08774ed8569faa2251312e90693796c485e68b",
+  "scope": "Offline narrative preparation under packaging only; no current product inspection or runtime mutation. No live outcome inferred from launch receipts.",
+  "sources": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run-5-preparation.md",
+      "sha256": "dd19e0573d7e6361d13ac3447e3673433c40ecd7cf81dae20b31bea101255aff",
+      "bytes": 7521
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run4-outcome.md",
+      "sha256": "ca94259c1ff54b0a599a778c0461267ee0ed5594bb7208ede4012a057ef246ba",
+      "bytes": 3915
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/manifest.json",
+      "sha256": "f72e3e9ccbbcc9b2e8e131980d09a093377452fa50482a211cde1e34f195bf38",
+      "bytes": 6416
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/factory.yaml",
+      "sha256": "b0db7033eed0d4aaa851e23f7f42403a0df98b82450e782ea0b3e73b1cd25960",
+      "bytes": 5746
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/authorization/approval.json",
+      "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e",
+      "bytes": 2378
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/launch/dispatch-verification.json",
+      "sha256": "bc918a6eaefa05f07e10fdd255053be81867c1bf64d386c74f48d6cdc73b1580",
+      "bytes": 909
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/launch/first-handoff-observation.json",
+      "sha256": "f76c9962c19c32ec4193d5f818e344fa06fcb6d3d7ce6daf844d633696472d5d",
+      "bytes": 7187
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/README.md",
+      "sha256": "38dc64879ff8d7af461c7b7898d71a2ece5ccfafede343961c01266270c4949e",
+      "bytes": 715
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/FACTORY.md",
+      "sha256": "3ef3039029192bb02430a998e89fd0c9b0e847c3f960849f69b92ad5143f96a2",
+      "bytes": 921
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/submission-description.md",
+      "sha256": "3f9d7e569998275410399013c8be48c2779dcbbeac8cfd9a7d1929efd1005075",
+      "bytes": 492
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md",
+      "sha256": "9dcacb6de06cbc899402540c579fc0a4a69a51dfda832794c3e2253f44fd3a1e",
+      "bytes": 2555
+    }
+  ],
+  "drafts": [
+    {
+      "path": "README.draft.md",
+      "sha256": "2247bf2f8c29c01964305f2762d0c78f47e29f1f81edfe04d7aa1bed6340525b",
+      "words": 472
+    },
+    {
+      "path": "FACTORY.draft.md",
+      "sha256": "dcf421ed59886cfeee99f29cb86b905d9122ed849f29d69b3e33f22507cb3d53",
+      "words": 864
+    },
+    {
+      "path": "submission-description.draft.md",
+      "sha256": "4c88f7205e268344923380114b4da92a780181f5f000a619458712eae0ae6ddc",
+      "words": 337
+    }
+  ],
+  "missing_evidence": [
+    "final exact candidate and independent stage acceptance",
+    "final full-session export and provenance/privacy review",
+    "final usage and elapsed time",
+    "final isolated and offline packaging checks plus clean startup verification",
+    "real-room video and presentation",
+    "participant authorship resolution",
+    "public access and final submission authorization/receipt"
+  ],
+  "updated_at": "2026-10-04T21:27:25.781862+00:00",
+  "revision_note": "Clarified that the approval timestamp is the observed clock reading, not the exact user message timestamp."
+}

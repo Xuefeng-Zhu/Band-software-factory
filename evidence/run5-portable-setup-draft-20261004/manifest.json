@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-10-04T22:46:04.499243+00:00",
+  "status": "AI_ASSISTED_DRAFT_SOURCE_VALIDATED_ONLY",
+  "files": [
+    {
+      "path": "FACTORY.draft.md",
+      "sha256": "7fa896f495a0b54fa1b0fa63b7c9d586f06534e225800956647d0eaaece4df4c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/FACTORY.draft.md"
+    },
+    {
+      "path": "draft-source-manifest.json",
+      "sha256": "254c4cd4722a1572c94ca34de93518b388f8ebdaec2dff2229c1810ac101a637",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/draft-source-manifest.json"
+    },
+    {
+      "path": "draft-source-manifest.initial.json",
+      "sha256": "cd7eb28e16b083eb70139931f62c9ce5d5e86fe12870d1f87f1bf1d537bff748",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/draft-source-manifest.initial.json"
+    }
+  ]
+}

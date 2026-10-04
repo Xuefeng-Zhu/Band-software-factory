@@ -65,3 +65,7 @@ The [independent QA preservation package](../evidence/run5-stage1-independent-qa
 ## Second repair candidate
 
 Backend delivered `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d`, with the same product tree as tested implementation `7e82648b4f4feb1c74015f9c551626ba3a36851c`. Both independent QA failures have owner host fail-to-pass evidence; 14 unit tests and 11 HTTP groups passed on Python 3.13. PM acknowledged the complete return at 22:41:21 UTC. Independent QA, Reviewer acceptance and repaired-candidate container/isolation/resource checks remain pending. See [the retained repair record](../evidence/run5-stage1-repair2-20261004/README.md).
+
+## Portable setup draft
+
+The [expanded FACTORY draft](../evidence/run5-portable-setup-draft-20261004/FACTORY.draft.md) adds concrete installation, authentication, configuration, rehearsal and freeze command forms, linked to factory commit `a8562b2`. Seven shell blocks passed syntax checks and 13 command names matched parser source; no setup/auth/model/runtime command was executed. Clean-machine reproducibility remains unverified. Initial narrative manifests are retained alongside the revision, and AI assistance, participant review, private-access prerequisites and the operator infrastructure intervention remain disclosed.
