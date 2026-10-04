@@ -1,0 +1,7 @@
+# Run 5 final private package verification
+
+The private canonical `run-5` branch and local judged checkout are synchronized at `268a0bb327ac6ec596f1c7bd4f2847e93f288d35`. The root package contains README, FACTORY, seven mandates, unchanged genuine full-session room.json and the attempted Stage 1. Stages 2–4 are not replaced by misleading placeholders. Product tree `13192852a7341f8d7e6b2bc6076c9e59cfa3843b` is unchanged from the independently rejected candidate.
+
+The initial offline package check and the final metadata-tree check both passed; original receipts/logs remain separate. The final result binds exact Git tree `f27ee27944dd89e36fc63c4a554e142142692d95` and room hash. The post-run 120/120 supplied isolated Stage 1 result is preserved separately; product code did not change while metadata was packaged. Neither check overturns the receipt-consistency rejection or completes the four-stage goal.
+
+The terminal presentation's selected 30 artifacts are saved in the factory repository at `b386bcc` with editable PPTX, PDF, source, genuine still and rendered QA. It remains an AI-assisted draft. The earlier 30-group goal audit is retained unchanged with its original pending presentation/package-check statuses; [the completion addendum](package-completion-addendum.json) supersedes those two pending artifact facts. The goal remains incomplete, video remains expressly deferred, participant authorship is unresolved, and no new model run, public release or submission is authorized.

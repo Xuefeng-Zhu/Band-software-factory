@@ -115,3 +115,7 @@ The harness also probed Stage 2 against Stage 1 and stopped at the first expecte
 ## Terminal presentation and private package
 
 The [terminal outcome presentation draft](../evidence/run5-terminal-presentation-20261004/README.md) replaces the earlier snapshot for review. It contains six editable slides and a PDF, all visually checked in Artifact Tool and LibreOffice rendering, with genuine terminal room evidence. Its 23:46 UTC snapshot records the rejected product, later supplied-test pass, final accounting and deferred video; it does not claim independent acceptance, human authorship, public release or submission. All 30 selected files match their source manifest. The [unchanged terminal narrative sources](../evidence/run5-terminal-narratives-20261004/README.md) preserve the pre-packaging draft history separately from later factual wording corrections.
+
+## Final private package verification
+
+The [final package receipts](../evidence/run5-final-package-20261004/README.md) bind the canonical private `run-5` and synchronized clean local checkout at `268a0bb327ac6ec596f1c7bd4f2847e93f288d35`. The official offline check passed on the exact final metadata tree; product and full-room export bytes remain unchanged. The terminal presentation is complete as an AI-assisted draft, while video remains deferred. The retained whole-goal audit and its artifact-completion addendum explicitly leave the four-stage product, independent acceptance and remaining authorization/review obligations incomplete.

@@ -1,0 +1,17 @@
+{
+  "start": "2026-10-04T23:46:11.992480+00:00",
+  "end": "2026-10-04T23:46:12.484363+00:00",
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+    "-m",
+    "harness",
+    "check",
+    "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result",
+    "--track",
+    "tablekeeper"
+  ],
+  "exit_code": 0,
+  "staged_root_tree": "3853266bd4829ab423a534ff942151a1ff871be8",
+  "unchanged_stage1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "scope": "Offline layout/room/mandate/credential-pattern checks, not product acceptance"
+}
