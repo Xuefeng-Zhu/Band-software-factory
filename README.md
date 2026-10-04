@@ -4,7 +4,7 @@
 
 Workspace: `/Users/frank/mygit/Tablekeeper`
 
-The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools. `rehearsal/toy-result/` holds only the separate BAND-authored toy application and its retained history. `runs/` holds evidence, environments, browser binaries and future worktrees. `result/` began Run 2 as an empty Git repository. The BAND PM has now committed the product brief, requirements map, queue and seven mandates at `2e91c86a49c509e73289831aa0539f2e458e57b0`; the Architect has acknowledged the complete Stage 1 handoff. No judged stage is accepted at this checkpoint. No application code was seeded before dispatch.
+The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools. `rehearsal/toy-result/` holds only the separate BAND-authored toy application and its retained history. `runs/` holds evidence, environments, browser binaries and future worktrees. `result/` began Run 2 as an empty Git repository. The BAND PM has now committed the product brief, requirements map, queue and seven mandates at `2e91c86a49c509e73289831aa0539f2e458e57b0`; the Architect delivered decision commit `2c717c77d408e55b66831a70567c17cc1b3779dc`, accepted by PM in record commit `c521bc6`. Backend acknowledged the complete implementation handoff at 04:46:13 UTC and began Stage 1. All three progress commits are privately pushed. No judged stage is accepted at this checkpoint. No application code was seeded before dispatch.
 
 All commands below run from the absolute factory directory:
 
