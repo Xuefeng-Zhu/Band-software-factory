@@ -1,0 +1,27 @@
+{
+  "archived_room_id": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+  "budget_approved": false,
+  "configuration_path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml",
+  "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "created_at": "2026-10-04T20:45:41.288338+00:00",
+  "effective_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+  "global_halt_preserved": "Run4 closed after coordinator final BLOCKED outcome: three repair cycles exhausted; no further model work authorized for this attempt.",
+  "launch_blocked": true,
+  "ledger_after_sha256": "2c5b31367965d61d4c157ea66a3a1c30406e5a9b7f51f62c6367827d62505f6d",
+  "ledger_before_sha256": "101200e05fb464e58b2203c1c1f077080140b4f62940fc9530631ae6c73c64d8",
+  "max_total_tokens": 286011577,
+  "model_turns": 0,
+  "only_ledger_change": "append new room UUID to room_ids; all other fields exactly equal",
+  "original_started_epoch": 1791049765.700437,
+  "overall_timeout_seconds": 117938,
+  "previous_configuration_sha256": "35603df78d72c4ded9978d254104af325d1d01c06735cc47efc47d884f290249",
+  "remaining_to_proposed_ceiling": 140328478,
+  "room_halts_preserved": {
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08": "Final Stage1 rejected; repair ceiling exhausted; closed after complete acknowledged handoffs.",
+    "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac": "completed communication-only rehearsal; no further work authorized",
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378": "conservative whole-session stage time budget exhausted"
+  },
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "room_messages": 0,
+  "tokens": 145683099
+}

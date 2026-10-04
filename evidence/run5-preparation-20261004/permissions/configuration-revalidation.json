@@ -1,0 +1,9 @@
+{
+  "configuration_unchanged": true,
+  "created_at": "2026-10-04T20:47:41.318372+00:00",
+  "current_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "original_probe_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "scope": "No configuration change after probes. Raw source-lock binding retained; final scoped-lock reconciliation only attests the exact recorded scratch trust addition.",
+  "source_lock_reconciliation": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+  "source_lock_sha256": "d79a2016dee3bf56f7016781fd37caf05a4b41c086558e7d6c58ba4cb60c7ca8"
+}

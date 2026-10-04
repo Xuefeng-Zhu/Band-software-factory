@@ -1,0 +1,66 @@
+{
+  "additional_evidence": {
+    "configuration-revalidation.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json",
+      "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b"
+    },
+    "model-discovery.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/model-discovery.json",
+      "sha256": "b93cd5fcc36abce72c7870b8ef4970b8db935c07dde6df123d7a7ce49770e61c"
+    },
+    "probe-input-audit.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/probe-input-audit.json",
+      "sha256": "5cb7070c0bbe3a0d3b2d2ec9cd9d52b889f2fd856ebcbe461e16702f7dc00856"
+    },
+    "subscription-auth.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/subscription-auth.json",
+      "sha256": "5e809e83d06a6b84e20d09c7f637fef61bc6b48d7f627ba7dc6f92369a42bfc6"
+    }
+  },
+  "budget_approved": false,
+  "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "configured_model": "gpt-6-astra",
+  "evidence": {
+    "assigned": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/assigned-2026-10-04T204605.977894+0000.json",
+      "sha256": "ff6925b727983c5b68051dab4c117e137d46b280b7046b845ac54232c343dd7f"
+    },
+    "browser": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/browser-adapter-20261004T204613Z.json",
+      "sha256": "4df44504614f71219962380da7ad58b26a8ae080c43ee19860e488cf8e144752"
+    },
+    "build": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/build-adapter-20261004T204610Z.json",
+      "sha256": "33e85cbb6a9ddc6c0bfa020db1ebd8832713c8185fce0641d07c5fa607e4071d"
+    },
+    "cleanup": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/cleanup-adapter-20261004T204618Z.json",
+      "sha256": "35b4b8abb72ee7df56da6099caa78296d0722328b6ebd13e7aba40df18d4e182"
+    },
+    "quick": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/quick-adapter-20261004T204607Z.json",
+      "sha256": "a479583ba8cca37442588d7985bb077831225d24155e46ce8171232cc262d499"
+    }
+  },
+  "limitations": [
+    "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+    "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+    "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+    "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+    "Raw proof hashes and timestamps retained. Configuration did not change between raw probes and this summary. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+  ],
+  "model_changed": false,
+  "model_turns": 0,
+  "observed_at": "2026-10-04T20:46:18.400224+00:00",
+  "original_probe_configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "original_probe_source_lock_sha256": "d79a2016dee3bf56f7016781fd37caf05a4b41c086558e7d6c58ba4cb60c7ca8",
+  "revalidated_at": "2026-10-04T20:47:41.370564+00:00",
+  "room_messages": 0,
+  "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+  "source_lock_reconciliation": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+    "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+  },
+  "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "status": "PASS_PERMISSION_PREPARATION_ONLY"
+}

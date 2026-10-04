@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-10-04T20:45:41.288338+00:00",
+  "current_scoped_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "history": [
+    {
+      "current_config_reference_sha256": "033855305ea9a7fd7489a412745dd6dfb2e03672e2ed69e8a690411d618f117f",
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/launch/postlaunch-audit.json",
+      "exact_previous_reconstructed": true,
+      "key_added": "projects./Users/frank/mygit/Tablekeeper/result-run-4.trust_level",
+      "previous_config_reference_sha256": "1b416d671669717a63e356cb383e49e57bdc00a0f0bb9462b13ad28bf29cc5d9",
+      "reason": "Exact Run4 assigned-checkout trust section only; in-memory removal reconstructs prior locked bytes. No global file write and no challenge/docs change."
+    },
+    {
+      "current_config_reference_sha256": "b27ac2e603b5937efcaf6f6ae298bc6f04ebc6534d0932521f978634ea5f6e92",
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/probe-input-audit.json",
+      "exact_previous_reconstructed": true,
+      "key_added": "projects./Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/scratch.trust_level",
+      "previous_config_reference_sha256": "033855305ea9a7fd7489a412745dd6dfb2e03672e2ed69e8a690411d618f117f",
+      "reason": "Run5 zero-inference SDK initialization added only the exact neutral permission scratch trust section; in-memory removal reproduces prior config hash. No global file write; challenge/docs/model/permissions unchanged."
+    }
+  ],
+  "previous_scoped_lock_sha256": "d79a2016dee3bf56f7016781fd37caf05a4b41c086558e7d6c58ba4cb60c7ca8",
+  "reconciled_at": "2026-10-04T20:47:41.318372+00:00",
+  "scope": "Run5 scoped copy only; Run4/default locks unchanged"
+}

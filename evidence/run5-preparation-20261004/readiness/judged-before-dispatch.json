@@ -1,0 +1,105 @@
+{
+  "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "event_type_counts": {
+    "participant": 7
+  },
+  "events_count": 7,
+  "limitations": [
+    "Read-only public API/CLI record, not native Download full session export. Event bodies omitted; exact IDs/type/timestamps retained."
+  ],
+  "messages_sent": 0,
+  "metadata": {
+    "has_more": false,
+    "last_included_mutation_sequence": 0,
+    "limit": 100,
+    "next_cursor": null,
+    "page": 1,
+    "total_pages": 1
+  },
+  "method": "Authenticated native BAND CLI room messages, all event types, complete page1, default human profile",
+  "model_turns": 0,
+  "observed_at": "2026-10-04T20:50:08.122143+00:00",
+  "raw_api_event_metadata": [
+    {
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "id": "d0c5d0d5-a85d-4897-9224-fae6e28cd377",
+      "inserted_at": "2026-10-04T20:44:38.311908Z",
+      "message_type": "participant",
+      "sender_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+      "sender_name": "Factory Architect",
+      "sender_type": "Agent",
+      "updated_at": "2026-10-04T20:44:38.311908Z"
+    },
+    {
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "id": "c78e4374-1d14-46f8-891a-49de89bf16be",
+      "inserted_at": "2026-10-04T20:44:38.488464Z",
+      "message_type": "participant",
+      "sender_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+      "sender_name": "Factory Designer",
+      "sender_type": "Agent",
+      "updated_at": "2026-10-04T20:44:38.488464Z"
+    },
+    {
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "id": "158b4a02-bae0-4062-959a-7ec0126c9ad6",
+      "inserted_at": "2026-10-04T20:44:38.647610Z",
+      "message_type": "participant",
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "sender_name": "Factory Backend",
+      "sender_type": "Agent",
+      "updated_at": "2026-10-04T20:44:38.647610Z"
+    },
+    {
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "id": "48b41d15-867e-4c8b-9374-b492069bf273",
+      "inserted_at": "2026-10-04T20:44:38.875969Z",
+      "message_type": "participant",
+      "sender_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+      "sender_name": "Factory Frontend",
+      "sender_type": "Agent",
+      "updated_at": "2026-10-04T20:44:38.875969Z"
+    },
+    {
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "id": "f8e5668b-7658-4a13-9844-5baff208bd98",
+      "inserted_at": "2026-10-04T20:44:39.112052Z",
+      "message_type": "participant",
+      "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "sender_name": "Factory QA",
+      "sender_type": "Agent",
+      "updated_at": "2026-10-04T20:44:39.112052Z"
+    },
+    {
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "id": "4f86ffe9-a052-4eda-8ded-de16fa59449f",
+      "inserted_at": "2026-10-04T20:44:39.285973Z",
+      "message_type": "participant",
+      "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "sender_name": "Factory Reviewer",
+      "sender_type": "Agent",
+      "updated_at": "2026-10-04T20:44:39.285973Z"
+    },
+    {
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "id": "0e4752db-cbc2-4e63-9270-cba7a10d07a5",
+      "inserted_at": "2026-10-04T20:44:39.460989Z",
+      "message_type": "participant",
+      "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+      "sender_name": "Frank Zhu",
+      "sender_type": "User",
+      "updated_at": "2026-10-04T20:44:39.460989Z"
+    }
+  ],
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "sdk_agent_view": {
+    "events_count": 0,
+    "has_more": false,
+    "limitation": "Agent message endpoint omits membership events; native full-type room listing establishes membership-only count.",
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/judged-agent-api-before-dispatch.json",
+    "sha256": "279d8cd2123bb00f410da3dc26d674bd715656fcd392686cc900bfe8b80a744e"
+  },
+  "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "status": "PASS_PRISTINE_NEW_ROOM",
+  "text_task_tool_thought_events": 0
+}

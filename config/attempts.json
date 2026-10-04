@@ -50,6 +50,23 @@
         4
       ],
       "status": "STOPPED_AND_CLOSED"
+    },
+    {
+      "baseline_cumulative_reported_tokens": 145683099,
+      "branch": "run-5",
+      "checkout": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "configuration": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml",
+      "deadline_utc": "2026-10-05T02:35:03.700437Z",
+      "dispatch_event": null,
+      "head": "UNBORN",
+      "id": "run-5",
+      "launch_approved": false,
+      "preparation_evidence": "evidence/run5-preparation-20261004/manifest.json",
+      "proposed_remaining_reported_tokens": 140328478,
+      "remote_branch_created": false,
+      "review_document": "docs/run-5-preparation.md",
+      "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "status": "PREPARED_AWAITING_LAUNCH_APPROVAL"
     }
   ],
   "branch_pattern": "run-N",

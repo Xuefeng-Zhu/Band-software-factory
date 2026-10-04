@@ -9,6 +9,7 @@ The participant chose this workflow on October 4, 2026: application attempts sha
 | Run 2 | `run-2` | `86ad17c600fd994bcb55c222049b7d0546f2e472` | `../result` contains the navigation `main`; the preserved original is branch `run-2` |
 | Run 3 | `run-3` | `dc4cf0c4dcf8b96e155f156694960df7fc1f4745` | `../result-run-3` remains unchanged as the historical checkout |
 | Run 4 | `run-4` | Final preserved head `13bc38fc1d4396c70c42b529eab369d6f84a0186`; BLOCKED with no accepted stage | `../result-run-4`; origin is the canonical repository |
+| Run 5 | `run-5` | UNBORN; prepared, approval pending and no dispatch | `../result-run-5`; independent empty repository, same canonical origin |
 
 Run 2 and Run 3 were copied as exact commit histories, without rewriting, merging or squashing. The old Run 3 GitHub repository remains available. The canonical `main` is an attempt index with retained Run 2 files; it is not the base for a fresh judged build.
 
@@ -26,7 +27,7 @@ A branch without any commit cannot exist on GitHub. Run 4 began empty, published
 
 Run 4 used its own scoped configuration, a new BAND room, fresh permission and registration checks, and deterministically generated complete task packets. The participant approved its finite allowance and one launch; the READY freeze and verified dispatch are retained in `evidence/run4-launch-20261004/`. Independent review ultimately rejected Stage 1 despite 120/120 official isolated checks, and all three repair cycles were exhausted. No stage was accepted and stages 2–4 were not started. All owned workers stopped and the allowance closed at `2026-10-04T20:32:48Z`. See [the final outcome](run4-outcome.md) and `evidence/run4-closure-20261004/`.
 
-Preserve the original Run 3 configuration, packet bytes, source lock, dispatch ledger and room export. Run 4 retained the full reconciled cumulative history: 59,671,522 additional reported tokens and 145,683,099 cumulative. Repository organization and unused allowance never reopen a closed attempt. Any later attempt needs its own approved scope and fresh independent checkout; this document does not record another attempt as created or launched.
+Preserve the original Run 3 configuration, packet bytes, source lock, dispatch ledger and room export. Run 4 retained the full reconciled cumulative history: 59,671,522 additional reported tokens and 145,683,099 cumulative. Repository organization and unused allowance never reopen a closed attempt. Any later attempt needs its own approved scope and fresh independent checkout; Run 5 is now separately prepared, with no model work or task dispatch. See [its launch review](run-5-preparation.md).
 
 The task generator now accepts the canonical GitHub URL and branch through optional `product` configuration and emits the explicit push destination in judged packets. The pristine gate checks both the assigned branch and every effective origin fetch/push URL. Do not manually edit a generated packet: deterministic task verification must still pass. Earlier attempt branches are archived evidence and must not seed the new implementation. The factory and challenge remain outside the application worktree. Once the agents create commits, normal worktrees may be used if the particular workflow permits them.
 

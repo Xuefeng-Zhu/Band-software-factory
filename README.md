@@ -12,6 +12,8 @@ Run 3 stopped at `2026-10-04T08:47:13Z` with `blocked_coordinator_self_notice` w
 
 Run 4 used **59,671,522 reported tokens**, bringing preserved cumulative usage to **145,683,099 tokens**, including cached input. Its allowance is closed and no build is running. Original Run 3 configuration/freeze remain preserved; the closed Run 4 ledger records all prior counters and blocks further model work for that attempt. Run 4 preparation passed 240 offline factory utility tests; those tests establish factory behavior, not product acceptance.
 
+**Run 5 is prepared and awaits one new launch approval.** Its independent checkout is empty and its fresh room has no task messages. Current preparation checks pass; the revised early-QA workflow is not live-rehearsed. The proposal reuses the existing remaining token ceiling and 7:35 PM PDT deadline. See [the concrete launch review](docs/run-5-preparation.md).
+
 Workspace: `/Users/frank/mygit/Tablekeeper`
 
 The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools; `runs/` holds evidence and environments. The completed queue rehearsal used the empty `rehearsal/queue-repair-result/`; the earlier repair practice remains in `rehearsal/repair-result/`. `rehearsal/toy-result/` retains the original toy application and history. The initially empty `result-run-3/` is independent of prior `result/`. The canonical `run-2` branch preserves four BAND-authored progress commits ending at `86ad17c600fd994bcb55c222049b7d0546f2e472`, with 120/120 owner-run isolated Stage 1 checks but no independent stage acceptance. Its stages 2–4 remain unimplemented. No prior application source was seeded into the fresh Run 3 repository. The `result/` checkout now holds the navigation `main` branch; `result-run-4/` retains Run 4's rejected implementation, attributable history and full room export on the same application remote.
@@ -29,6 +31,7 @@ Application attempts now share **[Xuefeng-Zhu/Tablekeeper](https://github.com/Xu
 - `run-3`: exact preserved application history and full room export; independently accepted Stage 1.
 - `run-2`: exact preserved prior application history.
 - `run-4`: closed rejected Stage 1 checkpoint at `13bc38fc1d4396c70c42b529eab369d6f84a0186`, with the full room export; no accepted stage.
+- `run-5`: prepared local unborn branch; no dispatch and no remote branch yet.
 - Factory tools: https://github.com/Xuefeng-Zhu/Tablekeeper-factory — this separate repository, committed and pushed at verified milestones.
 - Challenge: the pinned official upstream checkout; never refreshed during the frozen build.
 - Earlier standalone repositories remain historical copies. Future attempts use the shared application repository.

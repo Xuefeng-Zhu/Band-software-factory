@@ -1,0 +1,131 @@
+{
+  "created_at": "2026-10-04T20:53:50.319177+00:00",
+  "files": [
+    {
+      "bytes": 5747,
+      "path": "factory.yaml",
+      "sha256": "98f9725440365781c82cb57de88f0136deba63202c253537f3ca031f002a0ffa",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml"
+    },
+    {
+      "bytes": 17777,
+      "path": "source-lock.json",
+      "sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock.json"
+    },
+    {
+      "bytes": 1793,
+      "path": "source-lock-history.json",
+      "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json"
+    },
+    {
+      "bytes": 1648,
+      "path": "configuration-and-accounting.json",
+      "sha256": "6930756f3067313b8c98a44aae70bf228e5453310127990a71f03d04be6ec12b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/configuration-and-accounting.json"
+    },
+    {
+      "bytes": 944,
+      "path": "launch-proposal.json",
+      "sha256": "d62de1def725601c963d100b9833c9d70e7e82ba0dbcd3da9062b90d459acd4c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch-proposal.json"
+    },
+    {
+      "bytes": 2232,
+      "path": "judged-room.json",
+      "sha256": "d5087f109c10507066e1c558ab4eb6240b1e786cb3fd672c57522d0ce7bd9c1b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/judged-room.json"
+    },
+    {
+      "bytes": 339,
+      "path": "checkout-preparation.json",
+      "sha256": "31f611c8fc125e2391f613f619b51d2edd26e080b15af5118ebbdd0a790c8d6a",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/checkout-preparation.json"
+    },
+    {
+      "bytes": 865,
+      "path": "submission-window.json",
+      "sha256": "020cf356c5deb4843a39742d325fac60df35e907c69a3be4323a5595d18f85cc",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/submission-window.json"
+    },
+    {
+      "bytes": 10560,
+      "path": "semantic-review.json",
+      "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json"
+    },
+    {
+      "bytes": 3421,
+      "path": "readiness-carry-forward-audit.json",
+      "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json"
+    },
+    {
+      "bytes": 6558,
+      "path": "standing-instruction-update.json",
+      "sha256": "7cd7975f022a20885206a8784719f4f467e16f8c68d8ad294f118fddb273bbb9",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/standing-instruction-update.json"
+    },
+    {
+      "bytes": 19,
+      "path": "official-mandate-vocabulary.log",
+      "sha256": "339acc3b09add3c3d0e689adf17878a1bd264d3a3f00fccce7db538630e20066",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/official-mandate-vocabulary.log"
+    },
+    {
+      "bytes": 522,
+      "path": "mandate-validation-tests.log",
+      "sha256": "5e82a74e41d3fd22f0499b65ed4857c71d0f9cbc665da1080e0a1fe08166186c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/mandate-validation-tests.log"
+    },
+    {
+      "bytes": 309,
+      "path": "readiness/validation.json",
+      "sha256": "c74eacbd671955fcf693f6d347cd3292baf8ef0f1443a132f437271ab0d11b56",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/validation.json"
+    },
+    {
+      "bytes": 4097,
+      "path": "readiness/judged-before-dispatch.json",
+      "sha256": "d87c62d3ed5c6a53c8ac926838502935a06c273c97ecd3c633a929b1a08cc04d",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/judged-before-dispatch.json"
+    },
+    {
+      "bytes": 4265,
+      "path": "permissions/summary.json",
+      "sha256": "8da835ea721c1d358e52a57534794ac092a74baf0c6b0f9cbb14557f17f2a08b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/summary.json"
+    },
+    {
+      "bytes": 690,
+      "path": "permissions/configuration-revalidation.json",
+      "sha256": "b48cb0d90008e224b91f5e13c77aa9a0a1bf724cdab06671209d5cfa7553da8b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/configuration-revalidation.json"
+    },
+    {
+      "bytes": 898,
+      "path": "registration-proof-audit.json",
+      "sha256": "9a2c0444ff6fef9a9439af2f7148f9ae601362a6fd60baf8b58c5ba17108ec86",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/registration-proof-audit.json"
+    },
+    {
+      "bytes": 110683,
+      "path": "freeze/latest.json",
+      "sha256": "884201a88e0e1f55a78264ee1a43438ea7336ea6f78f559360201c9d866933fd",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/freeze/latest.json"
+    },
+    {
+      "bytes": 5429,
+      "path": "tasks/task-manifest.json",
+      "sha256": "e37a816a73f25fc7b88ca687b506a71ef331ec2d75ff6923540ddca0b25e4ee6",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/tasks/task-manifest.json"
+    }
+  ],
+  "freeze_blockers": [
+    "Approve finite active-work and consumption budgets before live seat work (budgets.approved=false)",
+    "Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required."
+  ],
+  "freeze_status": "BLOCKED_WITH_ACTIONS",
+  "scope": "Run5 reviewed preparation snapshot only; no launch authorization or task dispatch"
+}

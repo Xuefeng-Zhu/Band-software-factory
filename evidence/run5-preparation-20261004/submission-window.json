@@ -1,0 +1,16 @@
+{
+  "observed_at": "2026-10-04T20:44:07.165760+00:00",
+  "observer": "Codex preparation operator using current Chrome accessibility UI; fresh event page and Submit Project navigation",
+  "event_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
+  "observed_deadline_label": "Submission deadline Oct 5, 11:59 PM PDT",
+  "deadline_utc": "2026-10-06T06:59:00Z",
+  "enrollment_label": "Enrolled (disabled)",
+  "submission_link_present": true,
+  "submission_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon/submission",
+  "submission_form_observed": "Basic Information; Step1of3;0%;Title,ShortDescription,LongDescription,Categories,EventTracks,TechnologiesUsed;Next button",
+  "team": "MillieMoon",
+  "form_fields_edited": false,
+  "form_submitted": false,
+  "status": "OPEN_FORM_VERIFIED",
+  "eligibility_guaranteed": false
+}

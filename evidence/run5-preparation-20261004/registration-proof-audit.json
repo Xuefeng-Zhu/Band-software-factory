@@ -1,0 +1,18 @@
+{
+  "adapter": "SilentAdapter, auto_subscribe_existing_rooms=false, working state disabled; sequential start/identity+membership read/stop only",
+  "budget_sha256_before_and_after": "2c5b31367965d61d4c157ea66a3a1c30406e5a9b7f51f62c6367827d62505f6d",
+  "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "created_at": "2026-10-04T20:47:01.192643+00:00",
+  "messages_sent": 0,
+  "model_turns": 0,
+  "rooms": {
+    "judged": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/registration-judged.json",
+      "sha256": "5da5332bd2c7fb579f709cef75f020e0930562c9f72862ec16a48b3e01808db2"
+    },
+    "rehearsal": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/registration-rehearsal.json",
+      "sha256": "3179e3c6aff2836d0529026ec21b6b5ba5c19122c345cd2fa734794e0b1d3e08"
+    }
+  }
+}

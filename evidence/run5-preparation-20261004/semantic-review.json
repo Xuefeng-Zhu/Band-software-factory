@@ -1,0 +1,237 @@
+{
+  "created_at": "2026-10-04T20:50:13.851299+00:00",
+  "status": "PASS_SCOPED_STATIC_GENERIC_INSTRUCTIONS_REVIEW",
+  "scope": "Fresh rendering of actual seven custom standing sections under final unapproved Run5 configuration; source-delta and instruction-ancestry review, no assembled provider prompt or live behavior claim.",
+  "configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml",
+    "sha256": "98f9725440365781c82cb57de88f0136deba63202c253537f3ca031f002a0ffa"
+  },
+  "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "configured_source_lock": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock.json",
+    "sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+  },
+  "source_verification_issues": [],
+  "standing_files": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md",
+      "sha256": "c613e55d3d2af4c20814d305270290c93979df12d367532db022141a42bab1e5",
+      "bytes": 5722,
+      "changed_since_run4": false
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "sha256": "703ad1ef3c58335b37268c03260253d70ffc1912743481e00fac031b7b7ce04f",
+      "bytes": 6131,
+      "changed_since_run4": true,
+      "exact_addition_removal_reconstructs_prior": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md",
+      "sha256": "f01611180f98a11e8711ba7c85f7e30f79d338063cd3243de02652ccf2c5ea65",
+      "bytes": 5761,
+      "changed_since_run4": false
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md",
+      "sha256": "2faf05aaba37d42ed37bc4eb8f976b4f2d627eac90cdcf8820f839aa671b51ae",
+      "bytes": 5664,
+      "changed_since_run4": false
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "sha256": "0e64c264f3fc7aa8310bb988146c8dcb0b60d5a51a23e60eb2318adfce0184b8",
+      "bytes": 7125,
+      "changed_since_run4": true,
+      "exact_addition_removal_reconstructs_prior": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md",
+      "sha256": "6a825a40e4c5521ba2f9ca7fff24f0c777819ad26ab35a801ef36126d77f4651",
+      "bytes": 6167,
+      "changed_since_run4": true,
+      "exact_addition_removal_reconstructs_prior": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+      "sha256": "73702baf4028b4f5c42a77d8d5f5f993e6fa192d244ce75e959538f1221c5870",
+      "bytes": 6244,
+      "changed_since_run4": true,
+      "exact_addition_removal_reconstructs_prior": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/collaboration.md",
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b",
+      "bytes": 8027,
+      "changed_since_run4": false
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/evidence-and-limits.md",
+      "sha256": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6",
+      "bytes": 3542,
+      "changed_since_run4": false
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/git-and-review.md",
+      "sha256": "09e212f1ff2c4f8c31383e721e4fb9e3ce4d1b5098cfe4596bd3a1e0ef8b31f7",
+      "bytes": 2708,
+      "changed_since_run4": false
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/agents/README.md",
+      "sha256": "610307306b55430ff45e873604432d16276e09e3037d981fe929910b39b8d4b8",
+      "bytes": 1172,
+      "changed_since_run4": false
+    }
+  ],
+  "rendered_custom_sections": [
+    {
+      "seat": "pm",
+      "sha256": "9e464f43750d9952432f0f856005acd1db52a51bf4f7145fc78e81aaa8ea1008",
+      "bytes": 24969,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "architect",
+      "sha256": "84ca242e90d54afbd0611e388df8d2194576929cd5c439a7eb0768c14006797b",
+      "bytes": 23573,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "designer",
+      "sha256": "5dae9dbde9929b999cc241932940a06e0989da95023c05c9894a5f2aa7aa91e2",
+      "bytes": 23611,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "backend",
+      "sha256": "fb32de0ffd949cc78ad5a03a2d7a430940355bc3dd09476eab471dbb9b4c4b16",
+      "bytes": 23980,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "frontend",
+      "sha256": "2c2eb063b87d50abef694de66654ca97fbc112537991be43896b398d8b938a20",
+      "bytes": 23514,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "qa",
+      "sha256": "6cb8a83ed0b6083813375bddb9a9b7674a6e4aeb7f2a1bf3ac8b90d87e2107c6",
+      "bytes": 24011,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "reviewer",
+      "sha256": "8212a6e3da150d0e4db1aa3affa87e1d97a487d7d21e96ae2c0ec594f951d801",
+      "bytes": 24094,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    }
+  ],
+  "rendering_source": {
+    "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+    "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341"
+  },
+  "launcher_boundary_source": {
+    "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/tasks.py",
+    "sha256": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3"
+  },
+  "prior_semantic_baseline": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/semantic-review.json",
+    "sha256": "b32b0f1535708802987aa37e9b87d9d40acbeafca9a2bcf00fff0b336b9c5968"
+  },
+  "four_paragraph_independent_audit": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/audit-plan.json",
+    "sha256": "043b9c3edf95f30e315e4a840a1b38232a4e43a5fc93bc92ebce9914ca9db8d4"
+  },
+  "source_lock_history": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+    "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+  },
+  "conclusions": [
+    "All seven actual sections combine exact configured mandate, unchanged generic shared protocols, generic launcher boundary and runtime metadata. No product path, remote, branch or track-specific requirements enter standing text.",
+    "Only four mandate paragraphs differ from the previously reviewed eleven standing files; deleting each exact new paragraph in memory reconstructs its prior hash. New paragraphs describe requirement-derived boundary/representation verification and early QA scheduling for arbitrary software domains.",
+    "Unchanged independent review, work ownership, finite recovery and full-handoff rules still apply. QA planning can precede implementation, with executable checks scheduled at the first runnable checkpoint.",
+    "Observed and untested coverage classes must remain distinct; passing samples never override a failed required gate.",
+    "Task-specific content remains in root-generated dispatch packets, not standing instructions. This audit did not generate packets."
+  ],
+  "instruction_inheritance": {
+    "global_agents": {
+      "path": "/Users/frank/.codex/AGENTS.md",
+      "sha256": "c0457c99c6c0dfba1ccab3e3b93b774e834be5dc1765cfc5fa1d48c44bdc24f2"
+    },
+    "global_agents_semantics": "Generic user GitHub workflow preferences only.",
+    "global_config_sha256": "b27ac2e603b5937efcaf6f6ae298bc6f04ebc6534d0932521f978634ea5f6e92",
+    "nondefault_top_level_instruction_or_discovery_keys_present": [],
+    "global_override_exists": false,
+    "checkout_roots": {
+      "result": {
+        "path": "/Users/frank/mygit/Tablekeeper/result-run-5",
+        "instruction_files": [],
+        "git_root": "/Users/frank/mygit/Tablekeeper/result-run-5"
+      },
+      "rehearsal": {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result",
+        "instruction_files": [],
+        "git_root": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result"
+      }
+    },
+    "ancestor_note": "The independent Git roots have no AGENTS.md or AGENTS.override.md. Exclusion of /Users/frank/AGENTS.md outside these roots follows pinned discovery behavior; this is a static inference, not provider prompt introspection.",
+    "memory_argv": [
+      "-c",
+      "memories.use_memories=false",
+      "-c",
+      "memories.generate_memories=false",
+      "-c",
+      "features.memories=false"
+    ],
+    "skill_roots_configured": []
+  },
+  "findings": [],
+  "limitations": [
+    "The changed early-QA and boundary-coverage workflow has not been live-rehearsed; old communication/toy proof does not establish this revised workflow or predict product acceptance.",
+    "No provider call, assembled-prompt inspection, guarantee of memory absence, model response or new room collaboration is claimed.",
+    "Run5 approved=false; no historical approval is inherited. After any later approved budget/time amendment, re-render and append exact-delta/hash reconciliation rather than rewriting this snapshot."
+  ],
+  "actions": {
+    "model_turns": 0,
+    "room_messages": 0,
+    "source_config_product_global_edits": false,
+    "rendered_in_memory_only": true
+  }
+}

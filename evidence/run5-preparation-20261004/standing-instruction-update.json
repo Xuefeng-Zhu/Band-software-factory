@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-10-04T20:35:37.798571+00:00",
+  "status": "PASS",
+  "scope": "Four future-attempt mandate paragraphs only; no runtime, task, specification or budget changes",
+  "prior_manifest": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/closure/standing-before/manifest.json",
+  "prior_manifest_sha256": "7912d048478e380837301ad0574ac9121915071812e90348187e5c15520ca2fb",
+  "files": [
+    {
+      "seat": "pm",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "before_sha256": "d2ff661c5c55b9056f913ce006271ed6c8267f85e0b14d98a054105871ad70b5",
+      "after_sha256": "0e64c264f3fc7aa8310bb988146c8dcb0b60d5a51a23e60eb2318adfce0184b8",
+      "added_words": 55,
+      "added_paragraph": "Before the first implementation handoff, have QA add representative boundary cases to the existing requirements map: valid extremes, adjacent invalid inputs, required representation or equality rules, and overlapping error conditions where specified. Schedule these checks at the earliest runnable checkpoint. Track observed and untested classes separately; a supplied sample suite does not close those gaps."
+    },
+    {
+      "seat": "backend",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "before_sha256": "c95440a1948c41f7e4425e56bfaea15fac7297a6567bbdcae4259eba78596c3d",
+      "after_sha256": "703ad1ef3c58335b37268c03260253d70ffc1912743481e00fac031b7b7ce04f",
+      "added_words": 58,
+      "added_paragraph": "Before reusing a shared parser, formatter, comparator or serializer across operations, test its specified range and representation rules in the target execution environment. Cover valid boundary values, required distinctions and permitted equivalences, including parse\u2013format\u2013parse behavior where applicable. Do not assume library defaults preserve required precision, width or ordering. Retain a regression for each repaired failure before requesting review."
+    },
+    {
+      "seat": "qa",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md",
+      "before_sha256": "465f52faab343ece25506dd8eab2cbf22bed58094b06f149df2482a308062453",
+      "after_sha256": "6a825a40e4c5521ba2f9ca7fff24f0c777819ad26ab35a801ef36126d77f4651",
+      "added_words": 55,
+      "added_paragraph": "Derive a compact input-class matrix directly from the requirements before inspecting implementation details. Include valid extremes as well as malformed inputs, representation boundaries, and combinations that exercise specified error precedence. Execute the highest-risk cases against the earliest runnable checkpoint using independent expected results. Report uncovered classes explicitly; avoid exhaustive combinations unsupported by the available time."
+    },
+    {
+      "seat": "reviewer",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+      "before_sha256": "4a917851b0af3bc8ce0a3cf57641dcb1476f64c3fde6cdaef44d589562697d95",
+      "after_sha256": "73702baf4028b4f5c42a77d8d5f5f993e6fa192d244ce75e959538f1221c5870",
+      "added_words": 58,
+      "added_paragraph": "Alongside required suites, independently select boundary and representation checks from the requirements and coverage gaps. Test the clean fixed candidate in its required execution environment. Collect findings from independent checks that remain safe and runnable within the review budget before returning the decision. Reverify prior defects and related cases after repair; passing samples never waive a required failure."
+    }
+  ],
+  "checks": [
+    {
+      "id": "official-mandate-vocabulary",
+      "command": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-c",
+        "from harness.check import _mandates; from pathlib import Path; import json,sys; errors=_mandates(Path(sys.argv[1]), \"tablekeeper\"); print(json.dumps({\"errors\": errors}, indent=2)); raise SystemExit(bool(errors))",
+        "/Users/frank/mygit/Tablekeeper/factory"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+      "started_at": "2026-10-04T20:35:37.553077+00:00",
+      "finished_at": "2026-10-04T20:35:37.590528+00:00",
+      "exit_code": 0,
+      "log": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/official-mandate-vocabulary.log",
+      "log_sha256": "339acc3b09add3c3d0e689adf17878a1bd264d3a3f00fccce7db538630e20066"
+    },
+    {
+      "id": "mandate-validation-tests",
+      "command": [
+        "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_toolkit.ConfigTests.test_ordinary_unresolved_prose_is_not_a_placeholder",
+        "test_toolkit.ConfigTests.test_explicit_and_metadata_placeholders_still_block",
+        "test_toolkit.ConfigTests.test_mandate_wrong_model_and_domain_instruction_rejected"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/factory",
+      "started_at": "2026-10-04T20:35:37.590758+00:00",
+      "finished_at": "2026-10-04T20:35:37.726509+00:00",
+      "exit_code": 0,
+      "log": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/mandate-validation-tests.log",
+      "log_sha256": "5e82a74e41d3fd22f0499b65ed4857c71d0f9cbc665da1080e0a1fe08166186c"
+    },
+    {
+      "id": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/factory",
+      "started_at": "2026-10-04T20:35:37.726757+00:00",
+      "finished_at": "2026-10-04T20:35:37.780197+00:00",
+      "exit_code": 0,
+      "log": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/diff-check.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "diff": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/standing-instruction-update.patch",
+  "diff_sha256": "4a1378570326149129d604ae6c1fb501c4042ecf9c66d586a05ba7042296eee6",
+  "semantic_review": {
+    "status": "PASS",
+    "basis": "Read each added paragraph against existing role workflow and operating contract. Added text requests requirement-derived boundaries, representation tests and bounded independent review without naming application concepts, endpoints, languages, schemas, hidden checks, fixture values or implementation decisions. Existing acceptance authority and all recovery/consumption limits remain byte-identical.",
+    "limitations": "Static mandate and vocabulary review only; no claim that a future live attempt will pass product acceptance."
+  }
+}

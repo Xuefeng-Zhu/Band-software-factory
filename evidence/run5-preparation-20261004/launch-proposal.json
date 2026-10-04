@@ -1,0 +1,24 @@
+{
+  "api_billing_allowed": false,
+  "baseline_cumulative_tokens": 145683099,
+  "billing_mode": "subscription_only",
+  "budget_approved": false,
+  "created_at": "2026-10-04T20:53:50.293221+00:00",
+  "cumulative_token_ceiling": 286011577,
+  "deadline_utc": "2026-10-05T02:35:03.700437Z",
+  "draft_freeze_sha256": "884201a88e0e1f55a78264ee1a43438ea7336ea6f78f559360201c9d866933fd",
+  "max_active_seats": 1,
+  "max_repairs_per_work_item": 3,
+  "no_clock_or_consumption_reset": true,
+  "no_public_release_or_submission": true,
+  "one_initial_dispatch": true,
+  "paid_provisioning_allowed": false,
+  "remaining_reported_tokens": 140328478,
+  "repository": {
+    "branch": "run-5",
+    "repository_url": "https://github.com/Xuefeng-Zhu/Tablekeeper.git"
+  },
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "status": "AWAITING_EXPLICIT_RUN5_LAUNCH_APPROVAL",
+  "task_sha256": "f7397635aa9d3511de990aa4d45c6de70b0d87c2202481466aac994112806b67"
+}

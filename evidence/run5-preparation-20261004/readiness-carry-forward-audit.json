@@ -1,0 +1,61 @@
+{
+  "created_at": "2026-10-04T20:50:13.851299+00:00",
+  "status": "PASS_SCOPED_HISTORICAL_EVIDENCE_REVALIDATION",
+  "configuration_sha256": "42c5e43d4c46eef4e7f91feeb1e38aa4903f9b016dd37177aa695a18638a9a7a",
+  "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2",
+  "original_report": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/observations.json",
+    "sha256": "473527c976e723594f2b974dbfd35dbc23eb66051dbf41184468c77ac47253ad"
+  },
+  "audit_plan": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/audit-plan.json",
+    "sha256": "043b9c3edf95f30e315e4a840a1b38232a4e43a5fc93bc92ebce9914ca9db8d4"
+  },
+  "source_lock_history": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+    "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+  },
+  "semantic_review": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+    "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+  },
+  "historical_evidence_files_checked": 26,
+  "all_saved_hashes_match": true,
+  "same_seven_identity_model_harness_effort_records": true,
+  "toy": {
+    "root": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result",
+    "head": "40e1f166e1a501bdf5830c56ba8de638a30e2491",
+    "accepted_candidate": "bdfc842110f057ae4e9997d62f33196a6cbc03ed",
+    "accepted_is_ancestor": true,
+    "accepted_stage1_tree": "a3b17d9f7939409d36e6d215c64670ced70a187c",
+    "current_stage1_tree": "a3b17d9f7939409d36e6d215c64670ced70a187c",
+    "stage1_trees_equal": true,
+    "whole_repository_digest": "a57846671b575a14853a78fa3101ddbc7551f8440d0733bf9f02bb07f2d5c630",
+    "actual_export_valid_for_current_config": true,
+    "old_offline_invocation_matches_current_package_and_config": true
+  },
+  "room_freshness": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+    "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+  },
+  "runtime_and_protocols_changed_since_run4": false,
+  "runtime_source_hash_unchanged_since_run4": true,
+  "limitations": [
+    "Only original historical rehearsal behavior is carried, retaining original timestamps, observer, raw bytes, room IDs, commit identity and limitations. This is evidence revalidation, not fresh execution.",
+    "Toy offline package still contains its historical mandates; it cannot validate behavior of four revised Run5 paragraphs. Fresh current static mandate/rendering proof is recorded separately.",
+    "Early QA planning, compact input-class matrix and new boundary-verification workflow remain NOT_LIVE_REHEARSED. No new model rehearsal was authorized or performed.",
+    "Original Run4 and earlier approval/amendment references retained below are historical only and grant no Run5 authorization.",
+    "Newest rehearsal page matches100 original events and predates genuine full export; no new full export was fabricated and this is not exhaustive rereading of historical events."
+  ],
+  "authorization": {
+    "model_work_approved": false,
+    "prior_approval_inherited": false,
+    "run5_dispatches_authorized": 0
+  },
+  "actions": {
+    "new_model_executions": 0,
+    "room_messages": 0,
+    "old_evidence_mutations": 0,
+    "product_edits": 0
+  }
+}
