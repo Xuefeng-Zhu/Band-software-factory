@@ -5,15 +5,15 @@ Dispatch mode: practice-all; stages: 1, 2, 3, 4.
 Execute stages 1 through 4 once in increasing order, with an independent gate before advancing.
 Operator dispatch prerequisite: rehearsal runtime preflight must pass and finite live budgets must be approved before the launcher connects seats. A judged freeze is not required for rehearsal. Seats do not rerun operator preflight.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
-Configuration SHA-256: f1509e2834ce572f8467a4119021d869b597f36ec7b700aac2942f7181a7630d
+Configuration SHA-256: 1434400dfbbda37a4b8ea21b29f4db785b898b1d3055845e0d6abd9ec21fb691
 
 ## Absolute workspace paths
 - challenge: `/Users/frank/mygit/Tablekeeper/challenge`
 - factory: `/Users/frank/mygit/Tablekeeper/factory`
-- rehearsal: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`
+- rehearsal: `/Users/frank/mygit/Tablekeeper/rehearsal/repair-result`
 - runs: `/Users/frank/mygit/Tablekeeper/runs`
-- result: `/Users/frank/mygit/Tablekeeper/result`
-- Assigned output checkout: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`
+- result: `/Users/frank/mygit/Tablekeeper/result-run-3`
+- Assigned output checkout: `/Users/frank/mygit/Tablekeeper/rehearsal/repair-result`
 
 ## Launcher admission and seat execution
 The launcher checks authentication, approved finite budgets, registered identities
@@ -32,8 +32,8 @@ collaboration or stage acceptance. Perform those assigned checks and retain thei
 actual evidence within the existing permissions and limits.
 
 ## Execution environment
-- Writable product checkout and Git metadata: `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result`. One active writer is enforced.
-- Store team test logs, screenshots and results under `/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence` in unique run directories; keep generated caches out of commits.
+- Writable product checkout and Git metadata: `/Users/frank/mygit/Tablekeeper/rehearsal/repair-result`. One active writer is enforced.
+- Store team test logs, screenshots and results under `/Users/frank/mygit/Tablekeeper/rehearsal/repair-result/.evidence` in unique run directories; keep generated caches out of commits.
 - Use the platform temporary directory for clean exact-candidate review clones outside stage folders and for dependency caches. Read-only access to sources and factory tools does not grant write access to their directories.
 - The runs directory contains operator-owned control records. Do not alter launcher, usage, dispatch or readiness files or attempt to broaden permissions.
 - Pinned harness interpreter: `/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python`. Run the official `-m harness run` from the challenge directory, with `--track toy`, an absolute `--repo` and `--out` inside your writable evidence directory. Use `--mode isolated` for acceptance; inspect its `--help` for the exact stage options.
@@ -68,7 +68,7 @@ Keep challenge and factory inputs outside the submitted repository. The official
   "max_active_seats": 1,
   "max_repairs": 3,
   "max_total_tokens": 100000000,
-  "max_turns_per_seat": 100,
+  "max_turns_per_seat": 300,
   "overall_timeout_seconds": 70834,
   "paid_provisioning_allowed": false,
   "spend_cap_usd": null,

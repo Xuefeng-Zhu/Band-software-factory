@@ -1,4 +1,16 @@
-# Build progress — October 3, 2026
+# Build progress — current status and retained history
+
+**Current status: approved live factory-repair rehearsal underway; no live PASS or Run 3 judged dispatch is claimed.** The user approved two fresh rooms with the same seven agents plus Frank, an independent private [Tablekeeper-run-3](https://github.com/Xuefeng-Zhu/Tablekeeper-run-3) repository, and a cap of **300 cumulative turns per seat**. All prior counters remain counted. The 100,000,000 reported-token ceiling, one active seat, four-hour room window, 600-second turn bound and other limits are unchanged. The overall cutoff remains **October 4, 2026 at 06:29:59.700437 PDT** (13:29:59.700437 UTC), measured from the retained original clock origin; API billing and paid provisioning remain disallowed.
+
+The approved repair-rehearsal room is `64e39921-47b1-4f55-8180-54edf5946c34`, using `rehearsal/repair-result/`. The approved Run 3 judged room is `9b059f6b-ee17-44bd-99cd-0277cf602a81`, bound to the separate `result-run-3/` checkout and private remote. That repository is empty with zero commits, awaiting the repair rehearsal/readiness gate. Prior Run 2's `result/`, room, commits, checks and failed handoff remain untouched; no old product code or acceptance was copied into Run 3.
+
+At **2026-10-04T06:16:55.973093Z**, the initial repair-rehearsal packet was dispatched exactly once as event `3ea2c8f3-cf11-47b3-b699-1bd3cff9a6db`. Actual content matched SHA-256 `b251a282240f52a0260e554e8b6435bed00359445c2a8fc7938a59c7f757114f`; `runs/repair-rehearsal-20261004/dispatch-verification.json` records the one initial human text and exact match. This proves dispatch, not successful live receipt timers, failure recovery or task completion.
+
+`runs/judged-attempts/attempt-3/` retains approval, both exact room rosters, configuration/accounting changes, source-input reconciliation, the native-parked audit and scoped static genericity/fresh-room review. The accounting change preserved 24,009,633 reported tokens and all prior turn/time history; subsequent live use continues accumulating. Fresh non-inference checks in `runs/run3-permission-probe/` verify adapter command execution, assigned-root Git/write/private fetch, allowed networking, Docker build and network-isolated Chromium. These checks and the 211 offline tests are scoped preparation evidence; they do not establish a live rehearsal PASS or judged readiness. Live results will be recorded separately before a new judged freeze or dispatch.
+
+## Historical checkpoints — earlier status statements retained
+
+The dated notes below preserve the sequence of prior approvals, limits, launches, failures and repairs. Their then-current status does not override the current status above.
 
 The user authorized starting the build, moving the workspace into `/Users/frank/mygit/Tablekeeper`, creating private GitHub repositories, and committing progress. Actual judged implementation remains assigned to the seven real BAND seats after rehearsal.
 
