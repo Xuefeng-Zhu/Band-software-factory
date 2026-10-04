@@ -1,0 +1,67 @@
+{
+  "captured_at": "2026-10-04T22:42:37.492521+00:00",
+  "candidate": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "implementation": "7e82648b4f4feb1c74015f9c551626ba3a36851c",
+  "stage1_trees": {
+    "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d": "6000d94a5acbcab53438120b6d7f2624b4eceba4",
+    "7e82648b4f4feb1c74015f9c551626ba3a36851c": "6000d94a5acbcab53438120b6d7f2624b4eceba4"
+  },
+  "observed_remote_head": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "files": [
+    {
+      "path": "before.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/before.json",
+      "sha256": "1962fedcd8766735522df1b6795b84a05b64399f69ec5aef77bca64240251b95"
+    },
+    {
+      "path": "after.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/after.json",
+      "sha256": "190d45ce64c5351d7cf99d57e4feeeb0cd9abcc98a131d78955b71b23a6495a2"
+    },
+    {
+      "path": "verification.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/verification.json",
+      "sha256": "a741e7a5a5d10ecd119abb93aa3b78c1cb03b544d05950c33490097e6db195c4"
+    },
+    {
+      "path": "http-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/http-results.json",
+      "sha256": "accc6cdc383c64599c3783453e49cf8dee1ecc6dd62f8a83970fdcbb7b8add4f"
+    },
+    {
+      "path": "reproduce.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/reproduce.py",
+      "sha256": "18b2fb18a660bfcac281ad3ba0684326b472074eaecfda8b937cb7b7bf811353"
+    },
+    {
+      "path": "verify.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/verify.py",
+      "sha256": "6d3141bc67d69dcc430262939110a0789361089131f3c6e803135bf3a6314e7b"
+    },
+    {
+      "path": "unit-committed.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/unit-committed.log",
+      "sha256": "1ba53e74592b5cfab67d5a69dbcbce39200b979e696bb40f64d077056987d254"
+    },
+    {
+      "path": "http-run.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/http-run.log",
+      "sha256": "f24c4175d9298bea2114ed0f8a03f0a6871a71fdfdaf89dee43680a17a4fc50d"
+    },
+    {
+      "path": "backend-stage-1-repair2.md",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/records/backend-stage-1-repair2.md",
+      "sha256": "dd7f3e1583415e4be45caf0f262fbeca2151fa6481ca68ba8ea8b06a66a2d8da"
+    },
+    {
+      "path": "actual-return-and-ack.json",
+      "source": "native BAND public text query",
+      "sha256": "fbd12c2b9605ce32d9447a89ef778b303b2b2932935d426e894b81291e6709a1"
+    },
+    {
+      "path": "README.md",
+      "source": "operator preservation summary",
+      "sha256": "e6902199849904b26c35e8e998f47f7cd34096030fe7bb32419c11a1720496f7"
+    }
+  ]
+}

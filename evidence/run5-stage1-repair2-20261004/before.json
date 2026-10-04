@@ -1,0 +1,27 @@
+{
+  "work_item": "BUILD-S1-REPAIR2",
+  "owner": "@frankzhu94/factory-backend",
+  "revision": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "start": "2026-10-04T22:35:52.188927+00:00",
+  "end": "2026-10-04T22:35:52.271509+00:00",
+  "results": [
+    {
+      "defect": "QA-S1-DATE-MAX",
+      "observed_status": 422,
+      "error": "validation_failed",
+      "slot_count": 0,
+      "local_labels": [],
+      "tables": [],
+      "expected_status": 200
+    },
+    {
+      "defect": "QA-S1-QUERY-DIGITS",
+      "observed_status": 400,
+      "error": "malformed_request",
+      "slot_count": 0,
+      "local_labels": [],
+      "tables": [],
+      "expected_status": 200
+    }
+  ]
+}

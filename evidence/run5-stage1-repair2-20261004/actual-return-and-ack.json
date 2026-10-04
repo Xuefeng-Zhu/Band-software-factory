@@ -1,0 +1,50 @@
+{
+  "observed_at": "2026-10-04T22:42:37.491434+00:00",
+  "scope": "Selected public events, not the official full-session export",
+  "events": [
+    {
+      "id": "26f6b6f0-db5b-4a99-bfd5-c4db2d47038a",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "HANDOFF-ACK delivery BUILD-S1-REPAIR2-RETURN-D1; SHA-256 e7c183902a300aed4c0b234f5c8e2bc4349ac67a9fdf06ca9ede42981cf56109; sender @[[b2f43e4e-7727-44bb-9154-6cdc2b781749]]",
+      "message_type": "text",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "sender_name": "Factory PM",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T22:41:21.572593Z",
+      "updated_at": "2026-10-04T22:41:21.868773Z",
+      "mention_names": {
+        "b2f43e4e-7727-44bb-9154-6cdc2b781749": "Factory Backend"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    },
+    {
+      "id": "7df7904c-345c-4c04-9021-1a5782840e77",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] BUILD-S1-REPAIR2 fixed candidate 4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d pushed; clean checkout and identical tested/final product tree verified. Complete four-part return sent, digest e7c183902a300aed4c0b234f5c8e2bc4349ac67a9fdf06ca9ede42981cf56109. Both exact defects have host fail-to-pass evidence; 14 units and 11 unchanged QA groups PASS. Independent acceptance and Docker/resource gates remain blocked/pending. Writer lease released; receipt pending.",
+      "message_type": "text",
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "sender_name": "Factory Backend",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T22:39:39.704604Z",
+      "updated_at": "2026-10-04T22:42:29.517287Z",
+      "mention_names": {
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448": "Factory PM"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    }
+  ]
+}

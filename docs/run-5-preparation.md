@@ -61,3 +61,7 @@ At 22:22 UTC, inspection confirmed an OOM-killed review container and a 1 GiB gl
 QA independently rejected the first repaired candidate for valid maximum-year availability and a 5,000-digit decimal query count. PM acknowledged the complete return at 22:31:47 UTC and accepted both findings for repair 2 of 3; Stage 1 remains unaccepted and later stages have not advanced.
 
 The [independent QA preservation package](../evidence/run5-stage1-independent-qa-20261004/README.md) retains the exact reviewed revision, two executable defect reproductions, overlapping passing groups, per-class limits, and the later actual PM receipt. Its host checks do not establish repaired-candidate container or isolated acceptance.
+
+## Second repair candidate
+
+Backend delivered `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d`, with the same product tree as tested implementation `7e82648b4f4feb1c74015f9c551626ba3a36851c`. Both independent QA failures have owner host fail-to-pass evidence; 14 unit tests and 11 HTTP groups passed on Python 3.13. PM acknowledged the complete return at 22:41:21 UTC. Independent QA, Reviewer acceptance and repaired-candidate container/isolation/resource checks remain pending. See [the retained repair record](../evidence/run5-stage1-repair2-20261004/README.md).
