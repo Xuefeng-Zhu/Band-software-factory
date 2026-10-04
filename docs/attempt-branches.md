@@ -24,12 +24,29 @@ git push -u origin HEAD:refs/heads/run-4
 
 A branch without any commit cannot exist on GitHub yet. Its current local name and exact future remote destination are recorded in `config/attempts.json`. This metadata is an operator registry, not runtime authorization or a READY result.
 
-A future Run 4 launch needs its own scoped configuration, a new BAND room, fresh permission/config/source checks, generated complete task and a new freeze. Preserve the original Run 3 configuration, packet bytes, source lock, dispatch ledger and room export. Carry forward the full reconciled cumulative usage and obtain a new finite allowance before starting model work. The approved repository organization does not reopen the closed rehearsal budget.
+Run 4 preparation now has its own scoped configuration, a new BAND room, fresh permission and registration checks, and deterministically generated complete task packets. Its final freeze and launch remain gated by a newly approved finite allowance. Preserve the original Run 3 configuration, packet bytes, source lock, dispatch ledger and room export. Carry forward the full reconciled cumulative usage and obtain a new finite allowance before starting model work. The approved repository organization does not reopen the closed rehearsal budget.
 
-Add the canonical GitHub URL, branch name and explicit push destination through the task generator and new scoped configuration before generating and freezing the complete future dispatch. Do not manually edit a generated packet: deterministic task verification must still pass. Earlier attempt branches are archived evidence and must not seed the new implementation. The factory and challenge remain outside the application worktree. Once the agents create commits, normal worktrees may be used if the particular workflow permits them.
+The task generator now accepts the canonical GitHub URL and branch through optional `product` configuration and emits the explicit push destination in judged packets. The pristine gate checks both the assigned branch and every effective origin fetch/push URL. Do not manually edit a generated packet: deterministic task verification must still pass. Earlier attempt branches are archived evidence and must not seed the new implementation. The factory and challenge remain outside the application worktree. Once the agents create commits, normal worktrees may be used if the particular workflow permits them.
 
 The pinned guide calls for a fresh room and fresh result repository after a restart. This arrangement retains a fresh independent local repository and publishes each attempt's independent history to one shared GitHub repository; the guide does not explicitly discuss branch-per-attempt hosting. For final submission, make the chosen completed branch the normal-clone default after selection, then run the official checks against a fresh clone and verify its files. Do not submit the navigation branch or infer submission approval.
 
 ## Verification and evidence
 
-`../runs/repository-consolidation-20261004/` records original and canonical branch heads, the empty Run 4 checkout and migration checks. The factory runtime code and its pristine gate are unchanged. Run 3's source, room export and original launch evidence are unchanged; only references for future repository organization have changed.
+`../runs/repository-consolidation-20261004/` records original and canonical branch heads, the empty Run 4 checkout and migration checks. The factory now checks the exact branch and origin, and resolves optional attempt-owned source locks and tasks. Existing configurations retain their original paths and packet bytes. Run 3's source, room export, configuration, packets and original launch evidence remain unchanged.
+
+## Scoped configuration
+
+Optional attempt metadata is validated before task generation or launch:
+
+```yaml
+product:
+  repository_url: https://github.com/Xuefeng-Zhu/Tablekeeper.git
+  branch: run-4
+artifacts:
+  source_lock: /Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock.json
+  tasks: /Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/tasks
+```
+
+Artifact overrides must stay beneath that configuration's `paths.runs`; lock and task paths cannot overlap or escape through symlinks. Omitting these fields preserves the original defaults. Freeze records the configured lock hash, and both launch preparation and direct judged start reject a changed lock.
+
+The Run 4 review lives in `docs/run-4-preparation.md`. Preparation does not approve the proposed allowance, open the closed usage ledger or send a task.

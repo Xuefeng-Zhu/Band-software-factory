@@ -1,0 +1,151 @@
+{
+  "created_at": "2026-10-04T18:18:30.236489+00:00",
+  "status": "PASS_NO_P1_P2_FINDINGS",
+  "scope": "Independent focused code/integrity review of optional branch publication metadata and scoped source-lock/task artifacts. No production execution proof.",
+  "configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory.yaml",
+    "sha256": "582e72c29c9bce82641fa80dbfabe17e4e59b24ba569c63e8069cc98224fb4d3",
+    "bytes": 5706
+  },
+  "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "files": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/common.py",
+      "sha256": "b7b754b774c51325a4be6db051bd5146ad9ecb90b0b8f4f193217dbe4c45a96f",
+      "bytes": 14395
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/operations.py",
+      "sha256": "321c293942462673bb45089c1be9de5a148bd4b565f1c582fe3d8a416a5f8180",
+      "bytes": 16826
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+      "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341",
+      "bytes": 71386
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/tasks.py",
+      "sha256": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3",
+      "bytes": 16525
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/validation.py",
+      "sha256": "5ce7e1fa6b1af1e32b1c0a14dfbe3e4b635f625a7578399f991921e0d583b346",
+      "bytes": 20284
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tests/test_attempt_branches.py",
+      "sha256": "755909bdde119f0338989f9ab62245142828f4d6b930c9f83152e6c50ad923f1",
+      "bytes": 12998
+    }
+  ],
+  "findings": [],
+  "reviewed_behaviors": [
+    "Optional product metadata preserves legacy configs when absent. It rejects extra/missing fields, URL credentials/whitespace/control text and unsafe branch/refspec syntax.",
+    "Fresh result gate retains independent .git, UNBORN HEAD, empty worktree/index requirements and validates exact symbolic branch, every effective origin fetch URL and every effective push URL. Wrong or additional push URLs fail before first dispatch.",
+    "Product destination appears in judged packets only. Explicit push refspec avoids dependence on default branch or upstream. Complete task instructs no prior-attempt source, no rewriting and no origin changes.",
+    "Configured source_lock/tasks overrides resolve strictly below the run root, reject wrong types, path overlap, symlink escape and task child symlinks. Missing override preserves old paths.",
+    "Source verification, task generation/verification, observation binding, doctor, freeze, launch preparation and direct judged-start all consume the selected lock/task paths.",
+    "Scoped lock bytes are separately frozen and verified before prepared dispatch and direct judged start. The configuration digest binds the selected paths; changing whitespace alone in the lock invalidates frozen launch.",
+    "This change does not relax finite approved budget, closed ledger, fresh result, registration, source integrity or observed readiness gates.",
+    "Original Run3 configuration and committed source/task inputs remain byte-identical to their preserved comparison."
+  ],
+  "old_default_input_preservation": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/config/source-lock.json",
+      "sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+      "bytes": 17068,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-all-stages.md",
+      "sha256": "2b4d428d2fd9e859e5557a848fecfe38950eff92c60c977c3ab7979cdf63845a",
+      "bytes": 60405,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-2.md",
+      "sha256": "8ddabf0b3632c7968ea54d465d8186a49d0070fa5c97383a86eaa63c1b834f64",
+      "bytes": 40493,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-3.md",
+      "sha256": "0e7d12d9a6050bfc779b65fb1b9fcbc09d24a5183b2e20c832653a8ae5c2ff26",
+      "bytes": 53877,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-4.md",
+      "sha256": "b0a220d67ffdfbdf72b296365ee45b9752cbc9944918133e2e6ca81b33abf2f3",
+      "bytes": 60477,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/task-manifest.json",
+      "sha256": "4b6166ada5a0c064a17a8d38fdb12b71acf0634d29b407740f420777713be9e3",
+      "bytes": 5429,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/rehearsal-toy.md",
+      "sha256": "e873dcaaf166ac3f1f61bd43861614ec1acbddde82985188791e0fe6cf31752b",
+      "bytes": 14693,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-1.md",
+      "sha256": "303b6942db02d30594e5806ee6ca6967c0f7f7b71eff22c279979822a78487f4",
+      "bytes": 29715,
+      "comparison": "committed HEAD",
+      "unchanged": true
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/config/factory.yaml",
+      "sha256": "729b9461b8ff462d6101da994ac679fa9eeede7babd0f5638b055396ed60df47",
+      "bytes": 4917,
+      "comparison": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/before/factory.yaml",
+      "unchanged": true
+    }
+  ],
+  "actual_run4_pristine_errors": [],
+  "independent_tests": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_attempt_branches.py",
+      "-v"
+    ],
+    "cwd": "/Users/frank/mygit/Tablekeeper/factory",
+    "exit_code": 0,
+    "test_count": 16,
+    "elapsed_seconds_reported": 1.559,
+    "scope": "Observed earlier in this auditor turn; real temporary Git repositories plus mocked runtime/doctor dependencies. No model, room or external remote."
+  },
+  "limitations": [
+    "This audit reviews the listed exact file hashes. Later source changes require review of the new diff.",
+    "Publication-target validation is a pre-first-dispatch gate and task instruction, not a continuous Git or network authorization boundary after the run begins.",
+    "A branch in shared hosting is the requested workflow; the guide does not explicitly discuss branch-per-attempt hosting. Fresh local independent history remains enforced.",
+    "No preflight, source-lock readiness, model or submission success follows from utility tests."
+  ],
+  "actions": {
+    "model_turns": 0,
+    "room_messages": 0,
+    "network_calls": 0,
+    "source_config_product_global_edits": false,
+    "audit_artifacts_only": true
+  }
+}

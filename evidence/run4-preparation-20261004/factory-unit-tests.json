@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "/Users/frank/mygit/Tablekeeper/factory",
+  "started_at": "2026-10-04T18:22:47.112447+00:00",
+  "finished_at": "2026-10-04T18:22:49.886487+00:00",
+  "exit_code": 0,
+  "log": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory-unit-tests.log",
+  "log_sha256": "b21c68b5cdad21d0baf9b70dea67c15ce389e2cda8efa63d917a7199c2bbfc26",
+  "scope": "Offline factory utility tests only; no model or BAND dispatch",
+  "source_hashes": {
+    "factorykit/common.py": "b7b754b774c51325a4be6db051bd5146ad9ecb90b0b8f4f193217dbe4c45a96f",
+    "factorykit/tasks.py": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3",
+    "factorykit/operations.py": "321c293942462673bb45089c1be9de5a148bd4b565f1c582fe3d8a416a5f8180",
+    "factorykit/validation.py": "5ce7e1fa6b1af1e32b1c0a14dfbe3e4b635f625a7578399f991921e0d583b346",
+    "factorykit/runtime.py": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341",
+    "tests/test_attempt_branches.py": "755909bdde119f0338989f9ab62245142828f4d6b930c9f83152e6c50ad923f1"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "created_at": "2026-10-04T18:23:44.203490+00:00",
+  "files": [
+    {
+      "before_sha256": "729b9461b8ff462d6101da994ac679fa9eeede7babd0f5638b055396ed60df47",
+      "current_sha256": "729b9461b8ff462d6101da994ac679fa9eeede7babd0f5638b055396ed60df47",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/config/factory.yaml",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+      "current_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/config/source-lock.json",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "2b7f1b3d889fd69bb7c176151e6b7fb9adda33610135c589fdd616a8719dde28",
+      "current_sha256": "2b7f1b3d889fd69bb7c176151e6b7fb9adda33610135c589fdd616a8719dde28",
+      "path": "/Users/frank/mygit/Tablekeeper/runs/freeze/latest.json",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "833e414e33000d339904a172db2e4cddb4ced829472b9dbefa72ee8409692f3f",
+      "current_sha256": "833e414e33000d339904a172db2e4cddb4ced829472b9dbefa72ee8409692f3f",
+      "path": "/Users/frank/mygit/Tablekeeper/runs/launch/ledger.json",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e",
+      "current_sha256": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e",
+      "path": "/Users/frank/mygit/Tablekeeper/runs/runtime/budget-subscription.json",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "2b4d428d2fd9e859e5557a848fecfe38950eff92c60c977c3ab7979cdf63845a",
+      "current_sha256": "2b4d428d2fd9e859e5557a848fecfe38950eff92c60c977c3ab7979cdf63845a",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-all-stages.md",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "303b6942db02d30594e5806ee6ca6967c0f7f7b71eff22c279979822a78487f4",
+      "current_sha256": "303b6942db02d30594e5806ee6ca6967c0f7f7b71eff22c279979822a78487f4",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-1.md",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "8ddabf0b3632c7968ea54d465d8186a49d0070fa5c97383a86eaa63c1b834f64",
+      "current_sha256": "8ddabf0b3632c7968ea54d465d8186a49d0070fa5c97383a86eaa63c1b834f64",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-2.md",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "0e7d12d9a6050bfc779b65fb1b9fcbc09d24a5183b2e20c832653a8ae5c2ff26",
+      "current_sha256": "0e7d12d9a6050bfc779b65fb1b9fcbc09d24a5183b2e20c832653a8ae5c2ff26",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-3.md",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "b0a220d67ffdfbdf72b296365ee45b9752cbc9944918133e2e6ca81b33abf2f3",
+      "current_sha256": "b0a220d67ffdfbdf72b296365ee45b9752cbc9944918133e2e6ca81b33abf2f3",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/judged-stage-4.md",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "e873dcaaf166ac3f1f61bd43861614ec1acbddde82985188791e0fe6cf31752b",
+      "current_sha256": "e873dcaaf166ac3f1f61bd43861614ec1acbddde82985188791e0fe6cf31752b",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/rehearsal-toy.md",
+      "unchanged": true
+    },
+    {
+      "before_sha256": "4b6166ada5a0c064a17a8d38fdb12b71acf0634d29b407740f420777713be9e3",
+      "current_sha256": "4b6166ada5a0c064a17a8d38fdb12b71acf0634d29b407740f420777713be9e3",
+      "path": "/Users/frank/mygit/Tablekeeper/factory/tasks/task-manifest.json",
+      "unchanged": true
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,148 @@
+{
+  "created_at": "2026-10-04T18:26:55.241157+00:00",
+  "dispatch_performed": false,
+  "factory_code_commit": "d99171b",
+  "files": [
+    {
+      "archive": "factory.yaml",
+      "bytes": 5706,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory.yaml",
+      "sha256": "582e72c29c9bce82641fa80dbfabe17e4e59b24ba569c63e8069cc98224fb4d3"
+    },
+    {
+      "archive": "source-lock.json",
+      "bytes": 17068,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock.json",
+      "sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+    },
+    {
+      "archive": "source-lock-history.json",
+      "bytes": 1550,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+      "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+    },
+    {
+      "archive": "budget-proposal.json",
+      "bytes": 1206,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/budget-proposal.json",
+      "sha256": "a6d25e85f12b4e7e112aca302cb8266bbd55822c87324746226ddcc5e1f12b2b"
+    },
+    {
+      "archive": "budget-preservation-audit.json",
+      "bytes": 942,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/budget-preservation-audit.json",
+      "sha256": "101e78ac0b89e401c862e5f6dc0808427e649709ef7c96ddab253fe59cda960d"
+    },
+    {
+      "archive": "historical-preservation-audit.json",
+      "bytes": 3681,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/historical-preservation-audit.json",
+      "sha256": "0fc9cb881c80d9eacdfe42edbaf339c1582df722166977a70745909190a9c227"
+    },
+    {
+      "archive": "factory-unit-tests.json",
+      "bytes": 1210,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory-unit-tests.json",
+      "sha256": "7a72fdfdc2943f57adbdc0a67aaebb50b87be0e0ae1ccd0adc9a497bedee51e0"
+    },
+    {
+      "archive": "factory-unit-tests.log",
+      "bytes": 38668,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory-unit-tests.log",
+      "sha256": "b21c68b5cdad21d0baf9b70dea67c15ce389e2cda8efa63d917a7199c2bbfc26"
+    },
+    {
+      "archive": "source-change-review.json",
+      "bytes": 7087,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-change-review.json",
+      "sha256": "d2f114f2c8d57304c8a1532a10de28f1e4c8e97b7da22f3a6d59f3c69e12bca1"
+    },
+    {
+      "archive": "semantic-review.json",
+      "bytes": 9518,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/semantic-review.json",
+      "sha256": "b32b0f1535708802987aa37e9b87d9d40acbeafca9a2bcf00fff0b336b9c5968"
+    },
+    {
+      "archive": "readiness-carry-forward-audit.json",
+      "bytes": 17400,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness-carry-forward-audit.json",
+      "sha256": "db9f6389146d90f2216b5c57d8a6a6c8b9efd5c8e7d77fa719ebd9e484c93244"
+    },
+    {
+      "archive": "submission-window.json",
+      "bytes": 817,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/submission-window.json",
+      "sha256": "61264d28ee262837cfd12448e4b82de333367e4a45779bed263576b3714c6cb6"
+    },
+    {
+      "archive": "judged-room.json",
+      "bytes": 2232,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/judged-room.json",
+      "sha256": "2c16c3cbe3ce75bde9d9437713ee686a76df1340c675e3f13e9444c45ca2e8e2"
+    },
+    {
+      "archive": "doctor-latest.json",
+      "bytes": 10979,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/doctor-latest.json",
+      "sha256": "6ca4f15f78a86c7d70259ee25e6c071bd20f249653edde9c09dfdb15f2f45749"
+    },
+    {
+      "archive": "permissions/summary.json",
+      "bytes": 4270,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/summary.json",
+      "sha256": "18ab281d127e444440f2203bd1004250c15e0a990c31ba89b36b403648340a96"
+    },
+    {
+      "archive": "permissions/permission-observations.json",
+      "bytes": 12139,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/permission-observations.json",
+      "sha256": "697c8c041c6728d5a9811d6bffde0a07b16b253c99b67326b21f320384dec5e0"
+    },
+    {
+      "archive": "permissions/probe-input-audit.json",
+      "bytes": 3280,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/probe-input-audit.json",
+      "sha256": "34c9a5731d5dc330e10c318323ab1227690bff9bd09148de204c04d50dc07d96"
+    },
+    {
+      "archive": "permissions/configuration-revalidation.json",
+      "bytes": 832,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+      "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+    },
+    {
+      "archive": "readiness/observations.json",
+      "bytes": 64048,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/observations.json",
+      "sha256": "3ee08bd3381c3de9ccf2fb81e844a451546ce26755df11efb4c03229e76aa9c2"
+    },
+    {
+      "archive": "readiness/validation.json",
+      "bytes": 989,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/validation.json",
+      "sha256": "9b8b2a8396f0e384395058f01120081a2d0025211791fe89d5e75f044b2cc199"
+    },
+    {
+      "archive": "freeze/latest.json",
+      "bytes": 76484,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/freeze/latest.json",
+      "sha256": "60b8489fc17b1d201970baa2d88eab0a6284ad2c60d052f1b708a7477c42e778"
+    },
+    {
+      "archive": "tasks/task-manifest.json",
+      "bytes": 5429,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/tasks/task-manifest.json",
+      "sha256": "c4c85eb9029143b269fcd782ae3407848435274997909d9a53d7135c55c1f544"
+    },
+    {
+      "archive": "tasks/judged-all-stages.md",
+      "bytes": 60954,
+      "original_path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/tasks/judged-all-stages.md",
+      "sha256": "7c71b3a7acc5d79773c6f1daa4cd16005d52741fceb1b9d4cf64055feb4134ee"
+    }
+  ],
+  "model_work_started": false,
+  "purpose": "Selected non-secret preparation snapshots; evidence paths refer to retained local originals, not a portable launch authorization. Recompute deadline and configuration-dependent evidence after explicit approval.",
+  "status": "BLOCKED_WITH_ACTIONS"
+}

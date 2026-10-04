@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-04T18:25:15.826982+00:00",
+  "status": "PASS_OBSERVATION_REFERENCES_ONLY",
+  "observation_report": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/readiness/observations.json",
+    "sha256": "3ee08bd3381c3de9ccf2fb81e844a451546ce26755df11efb4c03229e76aa9c2"
+  },
+  "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+  "valid_observations": 14,
+  "required_observations": 14,
+  "observation_blockers": [],
+  "configuration_budget_blockers": [
+    "Approve finite active-work and consumption budgets before live seat work (budgets.approved=false)"
+  ],
+  "persisted_budget_blockers": [
+    "Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required."
+  ],
+  "model_work_approved": false,
+  "room_messages_sent": 0,
+  "model_turns": 0,
+  "launch_ready_claim": false
+}

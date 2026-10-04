@@ -1,0 +1,28 @@
+{
+  "challenge_pin_unchanged": true,
+  "changes": [
+    {
+      "basis": "readiness-carry-forward-audit.json verifies exact two trust-only additions; no instruction content changes",
+      "new_sha256": "3133dc7ecb9344ee879057745bcb7bd055ffcab3794b022a90c71bb90c93b666",
+      "path": "/Users/frank/.codex/config.toml",
+      "previous_sha256": "f34aabc2421ecf19b8d34d42c853c882f466477313685bdde9ec248a3c4edb39"
+    },
+    {
+      "basis": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/probe-input-audit.json",
+        "sha256": "34c9a5731d5dc330e10c318323ab1227690bff9bd09148de204c04d50dc07d96"
+      },
+      "new_sha256": "1b416d671669717a63e356cb383e49e57bdc00a0f0bb9462b13ad28bf29cc5d9",
+      "path": "/Users/frank/.codex/config.toml",
+      "previous_sha256": "3133dc7ecb9344ee879057745bcb7bd055ffcab3794b022a90c71bb90c93b666",
+      "scope": "Only SDK-added trust for the neutral Run 4 permission scratch directory; reconstructed the exact prior bytes in memory."
+    }
+  ],
+  "created_at": "2026-10-04T18:14:23.702529+00:00",
+  "current_scoped_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be",
+  "draft_pending_probe_trust_audit": false,
+  "original_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+  "previous_scoped_lock_sha256": "7d07189467084bf27ee4a15ec30987483a4c771e4fef3b79ba483137170c1724",
+  "purpose": "Run4 scoped source lock derived from untouched Run3 lock",
+  "reconciled_at": "2026-10-04T18:21:58.163665+00:00"
+}

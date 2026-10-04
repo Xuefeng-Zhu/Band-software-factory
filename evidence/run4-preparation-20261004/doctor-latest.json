@@ -1,0 +1,337 @@
+{
+  "checks": [
+    {
+      "evidence": {
+        "architecture": "arm64",
+        "release": "25.6.0",
+        "system": "Darwin"
+      },
+      "id": "platform",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "executable": "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python",
+        "version": "3.13.5"
+      },
+      "id": "python",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "git",
+          "--version"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:44.317862+00:00",
+        "started_at": "2026-10-04T18:23:44.297462+00:00",
+        "stderr": "",
+        "stdout": "git version 2.54.0 (Apple Git-157)\n"
+      },
+      "id": "git",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "node",
+          "--version"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:44.417384+00:00",
+        "started_at": "2026-10-04T18:23:44.317897+00:00",
+        "stderr": "",
+        "stdout": "v24.14.1\n"
+      },
+      "id": "node",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "npm",
+          "--version"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:44.683854+00:00",
+        "started_at": "2026-10-04T18:23:44.417421+00:00",
+        "stderr": "",
+        "stdout": "11.19.0\n"
+      },
+      "id": "npm",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "docker",
+          "--version"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:44.904036+00:00",
+        "started_at": "2026-10-04T18:23:44.683908+00:00",
+        "stderr": "",
+        "stdout": "Docker version 29.4.0, build 9d7ad9f\n"
+      },
+      "id": "docker_cli",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "docker",
+          "info",
+          "--format",
+          "{{.ServerVersion}}"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:45.222873+00:00",
+        "started_at": "2026-10-04T18:23:44.904069+00:00",
+        "stderr": "",
+        "stdout": "29.4.0\n"
+      },
+      "id": "docker_daemon",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "/Users/frank/mygit/Tablekeeper/factory/scripts/codex-local",
+          "--version"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:45.367344+00:00",
+        "started_at": "2026-10-04T18:23:45.223017+00:00",
+        "stderr": "",
+        "stdout": "codex-cli 0.160.0\n"
+      },
+      "id": "codex_version",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "/Users/frank/mygit/Tablekeeper/factory/scripts/codex-local",
+          "login",
+          "status"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:45.540387+00:00",
+        "started_at": "2026-10-04T18:23:45.367421+00:00",
+        "stderr": "Logged in using ChatGPT\n",
+        "stdout": ""
+      },
+      "id": "codex_auth",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+          "-m",
+          "harness",
+          "--help"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:45.614432+00:00",
+        "started_at": "2026-10-04T18:23:45.540438+00:00",
+        "stderr": "",
+        "stdout": "usage: python -m harness [-h] {run,check} ...\n\npositional arguments:\n  {run,check}\n    run        run a track's suites against a service\n    check      validate a submission repository, offline\n\noptions:\n  -h, --help   show this help message and exit\n"
+      },
+      "id": "harness_help",
+      "status": "PASS"
+    },
+    {
+      "evidence": "ChatGPT authentication verified without inference; provider costs unmeasured",
+      "id": "subscription_auth",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "adapter": "band.adapters.CodexAdapter",
+        "version": "4.0.0"
+      },
+      "id": "band_sdk",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "executables": {
+          "band": "/Users/frank/.local/bin/band",
+          "jam": "/Users/frank/.local/bin/jam"
+        },
+        "note": "The supported Python SDK is the selected transport; a separate CLI is optional",
+        "required": false
+      },
+      "id": "band_cli",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "checked_paths": [
+          "/Applications/Band Desktop.app",
+          "/Applications/BAND.app",
+          "/Applications/Band.app",
+          "/Applications/Jam.app",
+          "/Users/frank/Applications/Band Desktop.app",
+          "/Users/frank/Applications/BAND.app",
+          "/Users/frank/Applications/Band.app",
+          "/Users/frank/Applications/Jam.app"
+        ],
+        "installed_candidates": [
+          "/Applications/BAND.app",
+          "/Applications/Band.app"
+        ],
+        "note": "Installation availability only; account sign-in and room visibility require live verification"
+      },
+      "id": "band_desktop",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+          "-c",
+          "from playwright.sync_api import sync_playwright; p=sync_playwright().start(); b=p.chromium.launch(headless=True); page=b.new_page(); page.set_content('<title>Factory browser probe</title>'); print(page.title()); b.close(); p.stop()"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:47.890873+00:00",
+        "started_at": "2026-10-04T18:23:46.703663+00:00",
+        "stderr": "",
+        "stdout": "Factory browser probe\n"
+      },
+      "id": "browser_launch",
+      "status": "PASS"
+    },
+    {
+      "evidence": "/Users/frank/mygit/Tablekeeper/challenge",
+      "id": "path_challenge",
+      "status": "PASS"
+    },
+    {
+      "evidence": "/Users/frank/mygit/Tablekeeper/factory",
+      "id": "path_factory",
+      "status": "PASS"
+    },
+    {
+      "evidence": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result",
+      "id": "path_rehearsal",
+      "status": "PASS"
+    },
+    {
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004",
+      "id": "path_runs",
+      "status": "PASS"
+    },
+    {
+      "evidence": "/Users/frank/mygit/Tablekeeper/result-run-4",
+      "id": "path_result",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "argv": [
+          "git",
+          "init",
+          "-q",
+          "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/doctor-write-v_eizkua/repo"
+        ],
+        "cwd": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/doctor-write-v_eizkua",
+        "exit_code": 0,
+        "finished_at": "2026-10-04T18:23:47.924381+00:00",
+        "started_at": "2026-10-04T18:23:47.891406+00:00",
+        "stderr": "",
+        "stdout": ""
+      },
+      "id": "host_scratch_write_git",
+      "status": "PASS"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "permissions_agent_write_git",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "permissions_docker_build",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "permissions_browser",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "permissions_development_network",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "band_registration_room_visibility",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "all_seat_directed_replies",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "all_seat_checkout_commit_visibility",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "toy_pm_assignment_peer_handoffs",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "toy_independent_fixed_candidate_review",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "toy_missing_peer_delayed_message",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "toy_isolated_harness",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "semantic_generic_instructions",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "toy_full_room_export",
+      "status": "NOT_TESTED"
+    },
+    {
+      "evidence": "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration",
+      "id": "toy_offline_submission_check",
+      "status": "NOT_TESTED"
+    }
+  ],
+  "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "created_at": "2026-10-04T18:23:47.925814+00:00",
+  "status": "PASS",
+  "usage": {
+    "measured_cost_usd": null,
+    "status": "UNAVAILABLE"
+  }
+}

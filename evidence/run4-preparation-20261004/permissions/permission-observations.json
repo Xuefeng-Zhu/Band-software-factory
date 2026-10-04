@@ -1,0 +1,176 @@
+{
+  "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "created_at": "2026-10-04T18:22:56.319811+00:00",
+  "observations": [
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/assigned-2026-10-04T181536.574388+0000.json",
+          "sha256": "a1e9380fab019df0038c29c7facf4e663f4386398e52eb1789ebbaa5950c1235"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/quick-adapter-20261004T181538Z.json",
+          "sha256": "46bd2df2485f12cfe81d11c0971771a2d557451fee86cc5f4b16896a15aaf88c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/summary.json",
+          "sha256": "18ab281d127e444440f2203bd1004250c15e0a990c31ba89b36b403648340a96"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        }
+      ],
+      "id": "permissions_agent_write_git",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false remains unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Sole post-probe config change is submission-window metadata, exactly reconstructed and explicitly attested. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T18:15:48.597227+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/quick-adapter-20261004T181538Z.json",
+          "sha256": "46bd2df2485f12cfe81d11c0971771a2d557451fee86cc5f4b16896a15aaf88c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/build-adapter-20261004T181540Z.json",
+          "sha256": "e3956ab7a5ef26a9b0bd6a6b93e4fddeb2b3109393c0078ba45685255903a14a"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/cleanup-adapter-20261004T181548Z.json",
+          "sha256": "6e349238db7e57f16b3ba3641d0095e1ecad3649285329053c47614b058f82dd"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/summary.json",
+          "sha256": "18ab281d127e444440f2203bd1004250c15e0a990c31ba89b36b403648340a96"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        }
+      ],
+      "id": "permissions_docker_build",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false remains unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Sole post-probe config change is submission-window metadata, exactly reconstructed and explicitly attested. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T18:15:48.597227+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/browser-adapter-20261004T181543Z.json",
+          "sha256": "72a95975c803091c761222cbe4ac5d812be17a2e275642adb4fdb0cd41b2401e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/cleanup-adapter-20261004T181548Z.json",
+          "sha256": "6e349238db7e57f16b3ba3641d0095e1ecad3649285329053c47614b058f82dd"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/summary.json",
+          "sha256": "18ab281d127e444440f2203bd1004250c15e0a990c31ba89b36b403648340a96"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        }
+      ],
+      "id": "permissions_browser",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false remains unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Sole post-probe config change is submission-window metadata, exactly reconstructed and explicitly attested. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T18:15:48.597227+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/quick-adapter-20261004T181538Z.json",
+          "sha256": "46bd2df2485f12cfe81d11c0971771a2d557451fee86cc5f4b16896a15aaf88c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/assigned-2026-10-04T181536.574388+0000.json",
+          "sha256": "a1e9380fab019df0038c29c7facf4e663f4386398e52eb1789ebbaa5950c1235"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/summary.json",
+          "sha256": "18ab281d127e444440f2203bd1004250c15e0a990c31ba89b36b403648340a96"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock-history.json",
+          "sha256": "c0f08029ffe17f45d2e467ec5aff96ab7e34aeacb441893a2ecc514c57734e6c"
+        }
+      ],
+      "id": "permissions_development_network",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false remains unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Sole post-probe config change is submission-window metadata, exactly reconstructed and explicitly attested. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-04T18:15:48.597227+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "2af45d8d3c1a5976843a128d1daffd410a7548a69a3b4f22cf36698cae76da0a"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Importable four permission entries only; main readiness state and original observations unchanged",
+  "source_lock_sha256": "29886410540e8a9e741666680e840eaddf225d35bf2d320268a99470dd52a8be"
+}

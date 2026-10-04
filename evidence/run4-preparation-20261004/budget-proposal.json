@@ -1,0 +1,18 @@
+{
+  "status": "PROPOSED_NOT_APPROVED",
+  "at": "2026-10-04T18:14:00.888886+00:00",
+  "baseline_reported_tokens": 86011577,
+  "additional_token_ceiling": 200000000,
+  "proposed_cumulative_token_ceiling": 286011577,
+  "elapsed_window_seconds_from_future_approval": 28800,
+  "cumulative_max_turns_per_seat": 1000,
+  "max_active_seats": 1,
+  "turn_timeout_seconds": 600,
+  "ack_timeout_seconds": 120,
+  "max_repairs": 3,
+  "billing": "existing ChatGPT subscription only; no API billing or paid provisioning",
+  "original_started_epoch_preserved": 1791049765.700437,
+  "current_stop_reason_preserved": "Approved queue repair rehearsal completed and closed; fresh explicit authorization and consumption reconciliation required before more live work.",
+  "draft_overall_seconds_note": "Draft uses preparation time plus eight hours. Final deadline must be computed from actual approval, then packets/evidence regenerated or re-attested; never reset original epoch/counters.",
+  "reason": "Run3 used58,265,038reportedtokens and~128minutes forStage1+Stage2planning. Remaining13,988,423underold100Mcap is insufficient evidence-backed allowance foranotherfullattempt.200M/8h is a ceiling, not acompletionguarantee."
+}

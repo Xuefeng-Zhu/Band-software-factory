@@ -1,0 +1,362 @@
+{
+  "created_at": "2026-10-04T18:13:40.598085+00:00",
+  "status": "PREPARATION_AUDIT_ONLY_LAUNCH_NOT_AUTHORIZED",
+  "scope": "Read-only evidence audit; no models, room messages, source/config/global setting modifications, or product edits. This JSON is the only written artifact.",
+  "current_state": {
+    "source": {
+      "issues": [
+        "Locked reference document changed or missing: config.toml"
+      ],
+      "lock": {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/config/source-lock.json",
+        "sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+        "bytes": 17068
+      },
+      "global_config": {
+        "current_sha256": "3133dc7ecb9344ee879057745bcb7bd055ffcab3794b022a90c71bb90c93b666",
+        "pinned_sha256": "f34aabc2421ecf19b8d34d42c853c882f466477313685bdde9ec248a3c4edb39",
+        "removed_only_in_memory": [
+          {
+            "project_path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/scratch",
+            "exact_block_count": 1,
+            "block_sha256": "e98d515b0f3872fe2c58513d4bf1469a67cce425ea89793c43c899742decb450"
+          },
+          {
+            "project_path": "/Users/frank/mygit/Tablekeeper/rehearsal/queue-repair-result",
+            "exact_block_count": 1,
+            "block_sha256": "b83f0a112dd82de9066a812d4df1aa36a067857798407a26a7eb4b0951f1fbc5"
+          }
+        ],
+        "reconstructed_sha256": "f34aabc2421ecf19b8d34d42c853c882f466477313685bdde9ec248a3c4edb39",
+        "exact_trust_only_reconstruction_matches": true
+      },
+      "factory_head": {
+        "exit_code": 0,
+        "stdout": "079f7c1aa65910e1bf87d11e6802ac93d3167539"
+      },
+      "runtime_diff_since_live_repair": {
+        "exit_code": 0,
+        "stdout": ""
+      }
+    },
+    "toy": {
+      "root": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result",
+      "current_digest": "a57846671b575a14853a78fa3101ddbc7551f8440d0733bf9f02bb07f2d5c630",
+      "full_export_valid": true,
+      "offline_check_valid": true,
+      "head": {
+        "exit_code": 0,
+        "stdout": "40e1f166e1a501bdf5830c56ba8de638a30e2491"
+      },
+      "accepted_candidate": "bdfc842110f057ae4e9997d62f33196a6cbc03ed",
+      "accepted_ancestor": {
+        "exit_code": 0,
+        "stdout": ""
+      },
+      "accepted_stage1_tree": {
+        "exit_code": 0,
+        "stdout": "a3b17d9f7939409d36e6d215c64670ced70a187c"
+      },
+      "current_stage1_tree": {
+        "exit_code": 0,
+        "stdout": "a3b17d9f7939409d36e6d215c64670ced70a187c"
+      },
+      "stage1_diff": {
+        "exit_code": 0,
+        "stdout": ""
+      }
+    },
+    "all_prior_readiness_evidence_hashes_valid": true,
+    "prior_observation_report": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/observations.json",
+      "sha256": "27a0ff44e326e8f11dc7c657fa3bd154a2f40f1bea664591cd71133d9d8d1742",
+      "bytes": 35407
+    },
+    "evidence_references": [
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run3-permission-probe/quick-adapter-20261004T060428Z.json",
+        "sha256": "a021976c310d445aae8e4057aec65bbad460cabed7ce8cf341878cb75e2a614e",
+        "bytes": 8265,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run3-permission-probe/assigned-rehearsal-2026-10-04T060618.830395+0000.json",
+        "sha256": "9594b307fd32d9cb78fb3d986e360df85db50b76ab0866666b5a6cb430e49385",
+        "bytes": 1482,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run3-permission-probe/assigned-judged-2026-10-04T060620.260553+0000.json",
+        "sha256": "dd18a39ac688196464da5c047d0665f162be6052305a23c2354be430584407e0",
+        "bytes": 1316,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run3-permission-probe/summary.json",
+        "sha256": "0a1d2f4cf2d6a3cf06a694732aad51be9d423b2c47846a567eda91d728c5110b",
+        "bytes": 2327,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/source-input-reconciliation.json",
+        "sha256": "54ca6b1ec3b8d9afc752fd7bd14c319f68cefa5398738a3921a55ee79b3b1812",
+        "bytes": 1083,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run3-permission-probe/build-adapter-20261004T060625Z.json",
+        "sha256": "b3aa39a37d2ff7374ef647f74fe69e91b4ce3f2f5a4c3ebc38786b3ec322dae0",
+        "bytes": 6341,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run3-permission-probe/browser-adapter-20261004T060738Z.json",
+        "sha256": "615211cb6b7e9da4d78fe187277debf17e27aa62a212fcf0374ab00e57eea669",
+        "bytes": 4529,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/runtime/registration-rehearsal.json",
+        "sha256": "48321dc92e6c0b62adcde8c07db7e2c50204e4a3d0057e6d5651f7ca7dce12c7",
+        "bytes": 1857,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/runtime/registration-judged.json",
+        "sha256": "826856e1fb0a9c639a297c30627246c5ac722a48d64b207137c2e5f00af08405",
+        "bytes": 1854,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/rehearsal-room.json",
+        "sha256": "3746866991b168652d2961700b37cd595ce7052085ec5421b0b46f543662ff38",
+        "bytes": 2212,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/judged-room.json",
+        "sha256": "55ad3a418ba2bfeb9158faec9206424e23390ca12d0bd36149626e464682a3a4",
+        "bytes": 2208,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/live-repair-evidence-audit.json",
+        "sha256": "674ffa727213a50cebaa60fd91a798c1759048805a05c441d9aab3e4f4ca912e",
+        "bytes": 25297,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/visibility-tool-proof.json",
+        "sha256": "e2a01f34a928ab7a8c3ff618e45de5a79633a7b523f1380578d9b7b2cc91bd5f",
+        "bytes": 15950,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/band-full-session-original.json",
+        "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1",
+        "bytes": 265658,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/completed-runtime-and-consumption.json",
+        "sha256": "66b554a6cd5b58517e8d33354e303ae8489fca21e5db00675e52b820725330bc",
+        "bytes": 3353,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T202308Z-text-events.json",
+        "sha256": "976f4b1230bd8894a3bc548fd7cb05979ce7ef32f0d474fc8fbe50382e5ef319",
+        "bytes": 142887,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/readiness/stage1-rehearsal-evidence-20261003T2024.json",
+        "sha256": "c95255dbe75c02c4a375548ddf0f08e553dc531c6c2a59cb5fad776ed141b72e",
+        "bytes": 1756,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/historical-toy-carry-forward-audit.json",
+        "sha256": "fbf3931b7a0f394973a64a0818164c69c606dfe4e8dee4620fb7d83c032e1753",
+        "bytes": 26254,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/acceptance-record.txt",
+        "sha256": "dd437f16d8cd985f538f0592d94896c76f430b711be50d0fe710d3e01fb59b82",
+        "bytes": 13656,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/commands.json",
+        "sha256": "45bf65fc057c776a4f44aa8ecda10190a3fd8a9508e0c564ae9afb8c23e3b96f",
+        "bytes": 2675,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/revision.log",
+        "sha256": "5db87ee6abaf53bc10f1d0c13a29080ba520122a4c0f67ccf0f1ea084646fee1",
+        "bytes": 41,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T202308Z.json",
+        "sha256": "767d6a5284920f551026bada29a2627d2fc52192805ddd89399a18894c98c13d",
+        "bytes": 39881,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/recovery-20261003T2253/independent-success-audit.json",
+        "sha256": "a69f53057ebe756aa85f622ae76f0ff05846fbfd5b71ebe7929722bd0ef2da80",
+        "bytes": 12385,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/rehearsal-observation/20261003T204930Z-delivery-execution.json",
+        "sha256": "729431d5413949148d9a01f5acf3bdbdf1f7eb1ecbb533b7e04fbe8d27e86366",
+        "bytes": 8143,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/official-command.json",
+        "sha256": "8a9d72e8c1972e0190b9b534ff83bf7554b1ca28f49f08a06a9edc54991e25bb",
+        "bytes": 693,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/isolated/report.json",
+        "sha256": "56a2e915e2c6e33812e019013bddd3937ee16bbc819ca9314548ac7702d77f1b",
+        "bytes": 882,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/isolated/stage-1.counts.json",
+        "sha256": "b8d566f50e2370f0b554bbc1d882048135a7120de6a94644fb2dbb88d8db39e4",
+        "bytes": 166,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/judged-attempts/attempt-3/semantic-and-fresh-room-audit.json",
+        "sha256": "25e0a262c7317c2abea29938740a56c7a23a625419140e0457bc938067157faf",
+        "bytes": 14555,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result/room.json",
+        "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1",
+        "bytes": 265658,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/repair-rehearsal-20261004/full-session-export-provenance.json",
+        "sha256": "8446c8f8bac4a0460c5f489a4e9a14dad5ab0ed52561457c2544d4434dc100d1",
+        "bytes": 1428,
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/toy-offline-check-20261004T063519Z-f23b3b8de0/invocation.json",
+        "sha256": "9d3eb8422cf8aa53fbf9676eb3e0d3b6840bc317a1c53ed92ac3f09e66325a16",
+        "bytes": 861,
+        "matches_saved_hash": true
+      }
+    ],
+    "run4_pristine": {
+      "entries": [
+        ".git"
+      ],
+      "branch": {
+        "exit_code": 0,
+        "stdout": "run-4"
+      },
+      "head": {
+        "exit_code": 128,
+        "stdout": ""
+      },
+      "index": {
+        "exit_code": 0,
+        "stdout": ""
+      },
+      "origin": {
+        "exit_code": 0,
+        "stdout": "https://github.com/Xuefeng-Zhu/Tablekeeper.git"
+      }
+    }
+  },
+  "carry_forward": {
+    "historical_toy_stage1": [
+      "toy_pm_assignment_peer_handoffs",
+      "toy_independent_fixed_candidate_review",
+      "toy_isolated_harness"
+    ],
+    "requirement": "Keep original timestamp, observer, room, candidate and limitations; append new Run4 revalidation with actual config/source hash and this audit, never relabel as a new execution.",
+    "full_export_and_offline_check": "Can carry only if configured rehearsal remains repair-result / 64e39921-47b1-4f55-8180-54edf5946c34, bytes/digest and original invocation stay exact, and no later room activity makes the export stale. A fresh supported room read can confirm no later event. The newer queue repair export cannot substitute for a toy application package.",
+    "all_seat_directed_and_commit_visibility": "Historical current-seven-seat proof can be retained with explicit original scope; fresh SDK registration and exact Run4 assigned-root access need separate verification. Do not claim new room has model replies or committed content before launch. New live rehearsal would require fresh finite allowance.",
+    "missing_peer_and_delayed": "Retain historical actual member restoration separately; latest queue-repair audit proves overdue local-queue deferral and PM-origin notice/recipient request/reassembly route. Other five seats remained idle in that exercise; no seven-seat fresh reply proof is implied.",
+    "queue_repair_evidence": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/independent-final-rehearsal-audit.json",
+      "sha256": "87d3861f3f1e1476a0ada98c8d9a87208f6b2be49e6ef3fddddbd0272749b13c",
+      "bytes": 24134
+    }
+  },
+  "needs_fresh_for_run4": [
+    "Exact new result-root and .git neutral write/remove plus disposable scratch commit permissions through actual maintained adapter, preserving UNBORN branch and empty index/worktree.",
+    "Docker/socket/browser/development-network permission checks under final adapter configuration; prior unchanged environment proof is historical only.",
+    "Authenticated model discovery and subscription-only effective account/config checks; no inference needed.",
+    "Fresh seven-identity registration and eight-member new judged-room roster, with membership-only pre-dispatch events.",
+    "Independent semantic audit of current standing files and rendered per-seat instructions with final config/source binding; only task packet may contain product requirements.",
+    "Source-lock reconciliation records precise trust-only additions after probes; preserve original Run3 source-lock and freeze byte-for-byte.",
+    "Deterministic regenerated full specs and branch-push destination, task hash verification, current doctor and both rehearsal/judged preflight.",
+    "Budget proposal can be prepared now, but approval remains false and stopped ledger preserved until exact finite new allowance is approved. Then append new room scope and approved ceiling/time amendment without resetting prior history.",
+    "Freeze before approval truthfully remains BLOCKED; after only approved budget/clock change, rebind reviewed evidence via append-only audit and rerun no-model gates before dispatch."
+  ],
+  "budget_proposal_not_approved": {
+    "baseline_tokens": 86011577,
+    "original_cap": 100000000,
+    "original_remaining_tokens_not_authorization": 13988423,
+    "original_started_epoch": 1791049765.700437,
+    "prior_turns": {
+      "architect": 33,
+      "backend": 54,
+      "designer": 15,
+      "frontend": 5,
+      "pm": 183,
+      "qa": 11,
+      "reviewer": 22
+    },
+    "global_stopped_reason": "Approved queue repair rehearsal completed and closed; fresh explicit authorization and consumption reconciliation required before more live work.",
+    "run3_reported_tokens": 58265038,
+    "run3_elapsed_minutes_approx": 128.45,
+    "proposed_additional_tokens": 200000000,
+    "proposed_cumulative_ceiling": 286011577,
+    "proposed_duration_seconds": 28800,
+    "proposed_one_room_stage_timeout_seconds": 28800,
+    "max_active_seats": 1,
+    "turn_timeout_seconds": 600,
+    "ack_timeout_seconds": 120,
+    "max_repairs": 3,
+    "proposed_cumulative_turn_cap_per_seat": 1000,
+    "billing_mode": "subscription_only",
+    "api_billing_allowed": false,
+    "paid_provisioning_allowed": false,
+    "rationale": "Run3 used 58.265M tokens for Stage1 and Stage2 planning. Existing cap leaves only13.988M and PM183/300 leaves117 turns. A larger finite envelope reduces premature exhaustion but cannot guarantee all four stages. All old counters and origin remain preserved. Reported tokens include cached input and are not subscription quota or measured monetary spend.",
+    "approval_required": true
+  },
+  "deadline": {
+    "official_live_guide_url": "https://raw.githubusercontent.com/band-ai/dark-factory-wearedevs/main/docs/participant-guide.md",
+    "live_retrieved_bytes": 46357,
+    "live_guide_sha256": "1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4",
+    "byte_equal_to_pinned": true,
+    "official_close": "2026-10-05T23:59:00-07:00",
+    "primary_event_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
+    "event_page_agrees_on_public_repo_room_video_requirements": true,
+    "current_signed_in_submission_ui_open": "NOT_VERIFIED_BY_THIS_AUDITOR"
+  },
+  "no_claims": [
+    "READY_TO_LAUNCH",
+    "new model work or room messages",
+    "new application implementation or acceptance",
+    "final participant authorship",
+    "public release",
+    "final submission"
+  ]
+}

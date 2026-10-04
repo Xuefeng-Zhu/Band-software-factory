@@ -1,0 +1,11 @@
+{
+  "current_configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "current_value": true,
+  "exact_prior_canonical_reconstructed": true,
+  "original_probe_configuration_sha256": "7217afe3fee52f9c602b43315ccdbd93e7785af90440fc25599da14f5c3674ef",
+  "original_value": false,
+  "revalidated_at": "2026-10-04T18:21:05.769595+00:00",
+  "scope": "Read-only exact canonical hash comparison. This launch event-window metadata does not affect adapter command/environment, permissions, assigned checkout, model, SDK, or approved=false budgets. Permission observations retain their actual time and original raw proof hashes. No config or lock written.",
+  "sole_changed_key": "launch.submission_open_verified",
+  "source_lock_sha256": "7d07189467084bf27ee4a15ec30987483a4c771e4fef3b79ba483137170c1724"
+}

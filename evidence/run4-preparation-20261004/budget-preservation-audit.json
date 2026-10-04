@@ -1,0 +1,14 @@
+{
+  "added_room": "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+  "counters_and_prior_room_stops_unchanged": true,
+  "created_at": "2026-10-04T18:26:07.382711+00:00",
+  "global_stop_reason_retained": "Approved queue repair rehearsal completed and closed; fresh explicit authorization and consumption reconciliation required before more live work.",
+  "new_allowance_approved": false,
+  "only_changed_key": "room_ids",
+  "original_ledger_sha256": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e",
+  "registration_checks": "Both current runtime fingerprints match; prior audit attempt compared canonical pretty JSON digest to runtime compact JSON fingerprint and stopped without writing. Corrected to runtime fingerprint function.",
+  "scoped_ledger_sha256": "ca8345fe6f0881ee8e8922e1e94d6a6f68d6970bf2e82be2a30549ccfddfe1e9",
+  "started_epoch": 1791049765.700437,
+  "status": "PASS_CLOSED_PREPARATION_ONLY",
+  "tokens": 86011577
+}

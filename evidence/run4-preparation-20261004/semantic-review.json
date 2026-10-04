@@ -1,0 +1,216 @@
+{
+  "created_at": "2026-10-04T18:18:30.236489+00:00",
+  "status": "PASS_SCOPED_STATIC_GENERIC_INSTRUCTIONS_REVIEW",
+  "scope": "Semantic review of actual standing_instructions output and source files using current unapproved Run4 config; no provider-assembled prompt or live launch asserted.",
+  "configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/factory.yaml",
+    "sha256": "582e72c29c9bce82641fa80dbfabe17e4e59b24ba569c63e8069cc98224fb4d3",
+    "bytes": 5706
+  },
+  "configuration_sha256": "4d0e530523985c7c7d1a6a47a7d26faafc7aedad4c5823f6aba2abc98df962a7",
+  "configured_source_lock": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run4-preparation-20261004/source-lock.json",
+    "sha256": "7d07189467084bf27ee4a15ec30987483a4c771e4fef3b79ba483137170c1724",
+    "bytes": 17068
+  },
+  "standing_files": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md",
+      "sha256": "c613e55d3d2af4c20814d305270290c93979df12d367532db022141a42bab1e5",
+      "bytes": 5722
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "sha256": "c95440a1948c41f7e4425e56bfaea15fac7297a6567bbdcae4259eba78596c3d",
+      "bytes": 5666
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md",
+      "sha256": "f01611180f98a11e8711ba7c85f7e30f79d338063cd3243de02652ccf2c5ea65",
+      "bytes": 5761
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md",
+      "sha256": "2faf05aaba37d42ed37bc4eb8f976b4f2d627eac90cdcf8820f839aa671b51ae",
+      "bytes": 5664
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "sha256": "d2ff661c5c55b9056f913ce006271ed6c8267f85e0b14d98a054105871ad70b5",
+      "bytes": 6715
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md",
+      "sha256": "465f52faab343ece25506dd8eab2cbf22bed58094b06f149df2482a308062453",
+      "bytes": 5709
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+      "sha256": "4a917851b0af3bc8ce0a3cf57641dcb1476f64c3fde6cdaef44d589562697d95",
+      "bytes": 5819
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/collaboration.md",
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b",
+      "bytes": 8027
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/evidence-and-limits.md",
+      "sha256": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6",
+      "bytes": 3542
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/git-and-review.md",
+      "sha256": "09e212f1ff2c4f8c31383e721e4fb9e3ce4d1b5098cfe4596bd3a1e0ef8b31f7",
+      "bytes": 2708
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/agents/README.md",
+      "sha256": "610307306b55430ff45e873604432d16276e09e3037d981fe929910b39b8d4b8",
+      "bytes": 1172
+    }
+  ],
+  "rendered_custom_sections": [
+    {
+      "seat": "pm",
+      "sha256": "f78d81d3ea6ce3fdea8fa6860534c7aa6c7ffee063ed35bec14a855b6c1d31ac",
+      "bytes": 24559,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "architect",
+      "sha256": "98f42ed97d32f082c9cf46d1233e9280a467be2898621882cbccd127bfaae989",
+      "bytes": 23573,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "designer",
+      "sha256": "b46b50f2a032f573e3e1c74f67227966e137c2776d6642a6d8f4a555518a62c4",
+      "bytes": 23611,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "backend",
+      "sha256": "87214ba8e66f3b3a0c8353ad060b995c467ac4820920e8fb6a24aabf958a22f8",
+      "bytes": 23515,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "frontend",
+      "sha256": "dcd0b9991bc168e4422f153a852fd4d9ffbbaf4ea40ea1f5a9e43b3c2f7d707a",
+      "bytes": 23514,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "qa",
+      "sha256": "b8cd67dc95df4421cde9d5a9d56e2d627ff3fcf3f27640d82ee844c46b3e2328",
+      "bytes": 23553,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    },
+    {
+      "seat": "reviewer",
+      "sha256": "66a5f145c8cf32149173a4089c396fc4a2575ebb4b67c871f928c8c9def5e8c0",
+      "bytes": 23669,
+      "domain_pattern_matches": [],
+      "contains_product_url": false,
+      "contains_attempt_branch": false,
+      "contains_product_checkout_path": false,
+      "budget_approval_literal": false,
+      "persisted_rendered_file": false
+    }
+  ],
+  "rendering_source": {
+    "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+    "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341",
+    "bytes": 71386
+  },
+  "launcher_boundary_source": {
+    "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/tasks.py",
+    "sha256": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3",
+    "bytes": 16525
+  },
+  "conclusions": [
+    "All seven mandates keep role authority, ownership, complete addressed handoffs, evidence, independent fixed-candidate review and bounded recovery generic.",
+    "Shared protocols describe collaboration, artifact integrity, Git isolation, permissions, observable evidence and finite budgets; no product endpoint, entity schema, required product route or technology choice is injected.",
+    "Rendered sections comprise exact mandate, three shared protocols, generic launcher boundary and seat/roster/budget metadata. Product publication URL, branch and result path are absent from every rendered standing section.",
+    "The new branch and source artifact metadata remains operator/task configuration and does not leak track-specific requirements into standing instructions.",
+    "The launcher boundary explains observed admission only; it still requires actual product checks and collaboration. Existing instruction wording that runtime smoke remains unverified is generic caution, not new evidence.",
+    "Peer digest ACK is transport receipt only; acceptance remains independent exact-candidate review. Queue notices remain original-sender/recipient operational recovery and do not add human steering."
+  ],
+  "instruction_inheritance": {
+    "global_agents": {
+      "path": "/Users/frank/.codex/AGENTS.md",
+      "sha256": "c0457c99c6c0dfba1ccab3e3b93b774e834be5dc1765cfc5fa1d48c44bdc24f2",
+      "bytes": 599
+    },
+    "global_agents_semantics": "Generic user GitHub workflow preferences only.",
+    "global_config_sha256": "1b416d671669717a63e356cb383e49e57bdc00a0f0bb9462b13ad28bf29cc5d9",
+    "nondefault_top_level_instruction_or_discovery_keys_present": [],
+    "global_override_exists": false,
+    "checkout_roots": {
+      "judged": {
+        "path": "/Users/frank/mygit/Tablekeeper/result-run-4",
+        "root_instruction_files": [],
+        "git_root": "/Users/frank/mygit/Tablekeeper/result-run-4"
+      },
+      "rehearsal": {
+        "path": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result",
+        "root_instruction_files": [],
+        "git_root": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result"
+      }
+    },
+    "ancestor_note": "/Users/frank/AGENTS.md exists outside these independent Git roots. Pinned documented project-root discovery excludes that ancestor; this is a static inference, not direct provider prompt introspection.",
+    "memory_argv": [
+      "-c",
+      "memories.use_memories=false",
+      "-c",
+      "memories.generate_memories=false",
+      "-c",
+      "features.memories=false"
+    ],
+    "skill_roots_configured": []
+  },
+  "findings": [],
+  "limitations": [
+    "No provider call, assembled prompt inspection, guarantee of memory absence, or current full launch readiness.",
+    "Approved=false is deliberately present in this reviewed configuration. After the exact approved budget amendment, recompute rendered hashes and retain this semantic review with append-only revalidation if only values changed.",
+    "Root operator must bind final observations to the final reviewed source lock/configuration and save fresh room/permission evidence separately."
+  ],
+  "actions": {
+    "model_turns": 0,
+    "room_messages": 0,
+    "network_calls": 0,
+    "source_config_product_global_edits": false,
+    "rendered_in_memory_only": true
+  }
+}
