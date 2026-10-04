@@ -1,0 +1,37 @@
+{
+  "source": "BAND native CLI human-account read; selected public final event only, not a full room export",
+  "argv": [
+    "band",
+    "room",
+    "messages",
+    "12cde259-0fcd-4551-84c7-52c443cb5600",
+    "--type",
+    "text",
+    "--json"
+  ],
+  "query_started_at": "2026-10-04T23:08:08.084842+00:00",
+  "query_finished_at": "2026-10-04T23:08:08.807918+00:00",
+  "exit_code": 0,
+  "message": {
+    "id": "7f7848d9-1ce3-4f34-8f94-4f43643abf0c",
+    "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+    "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] GATE-S1 decision: REJECTED 4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d. Complete 3-part GATE-S1-R1 report/requirements sent, digest 62bc8d8d8a43d658f97c280707ce70531e8217d71ecc448771ae147cffea58ea; receipt pending. Three reproduced defects: reset numeric type error codes, invalid imported receipt responses, and valid 5000-digit fixture capacity. 31/61 focused HTTP assertions pass; 30 failures span these three families. Two controlled host mechanism groups pass. Both clean checkouts remain at the candidate, owned services stopped, evidence lease released. Required Docker/resource gate stays blocked separately. PM owns bounded repair dispatch; no Stage2 advance. Evidence: /Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-20261004T2254Z/decision.md and return-events.json.",
+    "message_type": "text",
+    "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+    "sender_name": "Factory Reviewer",
+    "sender_type": "Agent",
+    "inserted_at": "2026-10-04T23:01:56.714437Z",
+    "updated_at": "2026-10-04T23:05:36.192741Z",
+    "mention_names": {
+      "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448": "Factory PM"
+    },
+    "tool_name": null,
+    "tool_call_id": null,
+    "thought_stream_id": null,
+    "system_event": null,
+    "system_subject": null,
+    "connectivity_account_instance": null,
+    "connectivity_profile": null,
+    "attachments": []
+  }
+}

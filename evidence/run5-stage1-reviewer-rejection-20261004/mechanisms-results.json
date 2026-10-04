@@ -1,0 +1,17 @@
+{
+  "work_item": "GATE-S1",
+  "revision": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "layer": "host in-process with deliberate failure/scheduling injection; not HTTP or container",
+  "start": "2026-10-04T22:57:56.898707+00:00",
+  "end": "2026-10-04T22:57:57.182907+00:00",
+  "results": [
+    {
+      "name": "login-reset-and-identical-import-generation-races",
+      "status": "PASS"
+    },
+    {
+      "name": "receipt-insert-and-replacement-rollback-plus-noop-sql",
+      "status": "PASS"
+    }
+  ]
+}

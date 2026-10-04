@@ -1,0 +1,115 @@
+{
+  "work_item": "GATE-S1",
+  "revision": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "utc": "2026-10-04T22:58:40.829395+00:00",
+  "stage_tree": "6000d94a5acbcab53438120b6d7f2624b4eceba4",
+  "tested_owner_tree": "6000d94a5acbcab53438120b6d7f2624b4eceba4",
+  "record_only_diff": "records/backend-stage-1-repair2.md",
+  "source_clean": true,
+  "clone_clean": true,
+  "paths": {
+    "stage-1/tablekeeper/core.py": {
+      "blob": "ab4b9344ebfa1d7476fb163a7d16dd649a3ccc47",
+      "sha256": "37e5e00ad93894cd84bf3117bd4e2b8422fc244bbf6930818f1c5070e1b0aa7e"
+    },
+    "stage-1/tablekeeper/service.py": {
+      "blob": "378dff9e9923daed24678db37e8038e8e1e985ef",
+      "sha256": "700961f21f23faabc281c08b542276b46255093230c72ccbbb6ebb276509181d"
+    },
+    "stage-1/tablekeeper/store.py": {
+      "blob": "38b996214f742c73b1fa8fb4d3b76b8229442998",
+      "sha256": "a03aeeb9c2952827e762fa07c9bd714738c6d0c8d9a65019399a9af997dae64a"
+    },
+    "stage-1/tablekeeper/state_io.py": {
+      "blob": "905edc771ac150a728b74793a966548caec5c0a0",
+      "sha256": "99d048fac2454f3221ba727dc08ed2984cfa25471944ad61b771bba29e14c6d0"
+    },
+    "stage-1/tablekeeper/server.py": {
+      "blob": "d3696e47ed21376c4f845d09cab7c544904a0ab2",
+      "sha256": "d561a667171a4ef2e9a5862ab97858efd2a5b721fa6869e4ad2279c6ac140ef2"
+    },
+    "stage-1/Dockerfile": {
+      "blob": "7ac9fea5bb16afd16e6e034ddd717667fe4fb5af",
+      "sha256": "50392c6906af36b39d808b0a47d786b81c242c72a03171796a05caa123630ec2"
+    },
+    "stage-1/RUN.md": {
+      "blob": "08cf6bd7bc16694b464e2e1a98ad08eb3c51347d",
+      "sha256": "216f4830a82e720cfa94f03f1ed8e9ed04a306ead94290496e467b5db66217c2"
+    },
+    "tests/qa_stage1_boundaries.py": {
+      "blob": "2549ab4f85f0733b03dc3b74e424b67c5af0d1c3",
+      "sha256": "e4d196a216075fd1c92a540ed91c0de81b3e1743fe1e1ba90dffe78e25633841"
+    },
+    "records/architecture-stage-1.md": {
+      "blob": "4ad8bdbe485087e0494f7ef5989ea373f517e585",
+      "sha256": "e0d585c890c8935fba8153053d59ed0971f2d97cec2a86562cd8cca440888ae9"
+    }
+  },
+  "symlinks_or_submodules": [],
+  "inherited_qa_artifacts": {
+    "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/execution.json": {
+      "sha256": "313e5e52138a06e3a7163cdaf35e46b075dcda0d95bba5833aa6a4255409c2d4",
+      "top_level_keys": [
+        "candidate",
+        "start",
+        "layer",
+        "python_version",
+        "services",
+        "checks",
+        "prior_extra_original_sha256",
+        "end",
+        "own_processes_stopped"
+      ]
+    },
+    "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/provenance.json": {
+      "sha256": "9b6fd9dff75d4cdea5b9e0950dd2975a7f5522bff906d5b468ade15c36e2093d",
+      "top_level_keys": [
+        "work_item",
+        "owner",
+        "candidate",
+        "review_clone",
+        "shared_checkout",
+        "clean_before_and_after",
+        "stage1_tree",
+        "changed_files",
+        "unchanged_files",
+        "at_utc",
+        "incoming_digest",
+        "ack_event",
+        "in_progress_event"
+      ]
+    },
+    "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/focused-results.json": {
+      "sha256": "cd2c38a1e60d70c3fe4a97477a3da3dc84a4fec0a27940b2a8a2a973aca10947",
+      "top_level_keys": [
+        "work_item",
+        "candidate",
+        "layer",
+        "at_utc",
+        "results"
+      ]
+    },
+    "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/baseline.json": {
+      "sha256": "08d9c5350d8e265dfd718fb67d38ca46325cd0425e8f66c0701d14a479251239",
+      "top_level_keys": [
+        "work_item",
+        "responsible_handle",
+        "candidate_commit",
+        "environment",
+        "started_at_utc",
+        "results",
+        "ended_at_utc"
+      ]
+    },
+    "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/extra-results.json": {
+      "sha256": "48433eb595558da6595ce7041c655016d07ea8bf57ccc037d4aea4c2976d4011",
+      "top_level_keys": [
+        "candidate",
+        "layer",
+        "owner",
+        "at_utc",
+        "results"
+      ]
+    }
+  }
+}

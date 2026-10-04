@@ -81,3 +81,9 @@ The future [Docker resource-preflight PR](https://github.com/Xuefeng-Zhu/Tableke
 QA closed both findings against fixed candidate `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d`: five focused, eleven baseline and seven additional host HTTP groups passed. These overlap and are not a count of distinct requirements. PM acknowledged the complete return at 22:50:04 UTC and assigned the independent Reviewer gate. [The preserved QA recheck](../evidence/run5-stage1-qa-recheck-20261004/README.md) includes original reports, command/source provenance and the actual receipt. Container/isolation/resource gates and Stage 1 acceptance remain unverified in this snapshot.
 
 The participant deferred video capture while the Mac is locked. Video remains an incomplete final deliverable; no replacement slideshow or fabricated recording is claimed.
+
+## Independent release rejection and final repair assignment
+
+Reviewer rejected `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d` after reproducing reset numeric-type error-code failures, invalid imported receipt responses and a valid 5,000-digit fixture capacity failure. Its targeted HTTP probe passed 31 of 61 assertions, with 30 failures in those three families; two separate host mechanism groups passed. These are focused results, not an overall specification-completion score. [The retained rejection](../evidence/run5-stage1-reviewer-rejection-20261004/README.md) preserves the exact candidate, original sources/results and actual public final.
+
+PM assigned repair 3 of 3; Backend acknowledged the complete handoff and was observed active at 23:08:47 UTC. The accompanying [real room still](../evidence/run5-stage1-reviewer-rejection-20261004/media/repair3-handoff.jpg) is a screenshot, not video or product acceptance. Docker/resource verification remains separate, and no later stage has advanced.

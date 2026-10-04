@@ -1,0 +1,20 @@
+{
+  "status": "REAL_ROOM_STILL_NOT_VIDEO_OR_PRODUCT_ACCEPTANCE",
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "source_url": "https://app.band.ai/sessions/12cde259-0fcd-4551-84c7-52c443cb5600",
+  "captured_with": "cua_repl browser tab screenshot",
+  "capture_no_earlier_than_latest_visible_event": "2026-10-04T23:06:50Z",
+  "saved_at": "2026-10-04T23:08:43.002019+00:00",
+  "sha256": "2b479b7f518bafe2d2c40915853e11f62e78c234d3f88e0133764fdce2b8466a",
+  "bytes": 96184,
+  "observations": [
+    "VisibleRun5roomname, two Backend partial receipts and complete BUILD-S1-REPAIR3-D1 acknowledgment.",
+    "Sidebar collapsed to hide account email. No credential, private stateexport or unrelated desktop content visible.",
+    "Only read-only room navigation and presentation controls used; no message or runtime control action."
+  ],
+  "limits": [
+    "Still image only; participant deferred video.",
+    "Working avatars do not prove execution concurrency or product acceptance.",
+    "No replacement for genuine full-session export."
+  ]
+}

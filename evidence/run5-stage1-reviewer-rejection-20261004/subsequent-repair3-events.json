@@ -1,0 +1,51 @@
+{
+  "observed_at": "2026-10-04T23:10:07.052536+00:00",
+  "scope": "Selected native public text events; not full-session export",
+  "events": [
+    {
+      "id": "c1090f24-948a-4796-8a9e-81f598fe7da4",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "@[[b2f43e4e-7727-44bb-9154-6cdc2b781749]] @[[02e4a78d-7d9d-4c77-bf32-b3810a9cfacb]] Complete GATE-S1 rejection verified. Candidate 4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d remains rejected for RESET-TYPES, IMPORT-RECEIPTS and FIXTURE-INTEGER; Docker/resource verification is a separate unresolved blocker. I am dispatching repair 3/3 for these three families. No further repair is authorized beyond that ceiling, and no Stage 2 advancement is permitted.",
+      "message_type": "text",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "sender_name": "Factory PM",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T23:03:29.817120Z",
+      "updated_at": "2026-10-04T23:05:52.980510Z",
+      "mention_names": {
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb": "Factory Reviewer",
+        "b2f43e4e-7727-44bb-9154-6cdc2b781749": "Factory Backend"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    },
+    {
+      "id": "f21beaac-e8aa-4148-873c-bf7218b796eb",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "HANDOFF-ACK delivery BUILD-S1-REPAIR3-D1; SHA-256 706a0acc5fd63e3ffdaa71ddf8654ccca119728aaced236109816ce77ba1d188; sender @[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]",
+      "message_type": "text",
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "sender_name": "Factory Backend",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T23:06:50.575454Z",
+      "updated_at": "2026-10-04T23:06:50.727148Z",
+      "mention_names": {
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448": "Factory PM"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    }
+  ]
+}
