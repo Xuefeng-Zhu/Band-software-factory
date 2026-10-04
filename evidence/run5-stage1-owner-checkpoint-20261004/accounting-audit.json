@@ -1,0 +1,352 @@
+{
+  "actions_taken": [
+    "Wrote this accounting audit only."
+  ],
+  "authoritative_accounting": {
+    "baseline_reported_tokens": 145683099,
+    "changed_thread_keys_only_run5_room": true,
+    "current_cumulative_reported_tokens": 162035187,
+    "decreasing_cumulative_reports": 0,
+    "duplicate_cumulative_reports_ignored": 61,
+    "mechanism": "SDK keeps monotonic cumulative counters per thread and turn-start anchors. Factory adds only max(0, new cumulative minus saved high-water mark), keyed by room:seat:thread. It does not add cumulative reports, per-turn totals, reasoning counts or band_usage again. Existing high-water marks persist across restarts. No double-counting observed in this exact stable snapshot.",
+    "per_thread": {
+      "12cde259-0fcd-4551-84c7-52c443cb5600:architect:01a108ce-e454-74a0-99a5-f9248977f1ae": {
+        "events": 31,
+        "last_at": "2026-10-04T21:39:17.000075+00:00",
+        "max_input": 1657952,
+        "max_output": 14739,
+        "max_reasoning": 1472,
+        "max_total": 1672691,
+        "seat": "architect",
+        "thread_id": "01a108ce-e454-74a0-99a5-f9248977f1ae"
+      },
+      "12cde259-0fcd-4551-84c7-52c443cb5600:backend:01a108da-efc1-7c43-a4ce-2043a6af4dc8": {
+        "events": 33,
+        "last_at": "2026-10-04T21:48:55.346645+00:00",
+        "max_input": 1676113,
+        "max_output": 15447,
+        "max_reasoning": 746,
+        "max_total": 1691560,
+        "seat": "backend",
+        "thread_id": "01a108da-efc1-7c43-a4ce-2043a6af4dc8"
+      },
+      "12cde259-0fcd-4551-84c7-52c443cb5600:pm:01a108be-3814-7d02-981e-8f474d538fb1": {
+        "events": 124,
+        "last_at": "2026-10-04T21:49:23.300808+00:00",
+        "max_input": 9507531,
+        "max_output": 12667,
+        "max_reasoning": 626,
+        "max_total": 9520198,
+        "seat": "pm",
+        "thread_id": "01a108be-3814-7d02-981e-8f474d538fb1"
+      },
+      "12cde259-0fcd-4551-84c7-52c443cb5600:qa:01a108c0-9a57-7ed0-bcb5-2971e0dabdac": {
+        "events": 63,
+        "last_at": "2026-10-04T21:26:04.760735+00:00",
+        "max_input": 3448389,
+        "max_output": 19250,
+        "max_reasoning": 1423,
+        "max_total": 3467639,
+        "seat": "qa",
+        "thread_id": "01a108c0-9a57-7ed0-bcb5-2971e0dabdac"
+      }
+    },
+    "positive_cumulative_updates": 190,
+    "prior_thread_maxima_unchanged": true,
+    "replayed_thread_maxima_exactly_match_ledger": true,
+    "run5_reported_tokens": 16352088,
+    "sum_thread_maxima_equals_ledger_tokens": true
+  },
+  "bounds": {
+    "budgets_unchanged_from_approval": true,
+    "canonical_config_matches_approval": true,
+    "canonical_config_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+    "cumulative_token_ceiling": 286011577,
+    "cumulative_turns": {
+      "architect": 47,
+      "backend": 91,
+      "designer": 15,
+      "frontend": 5,
+      "pm": 317,
+      "qa": 35,
+      "reviewer": 43
+    },
+    "effective_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+    "enforcement": "Before each reserved model turn, after each cumulative usage report, and in the supervisor heartbeat, runtime checks saved cumulative tokens and original epoch + overall timeout. Reaching a bound sets stop and closes agents; one active seat is gated by a semaphore. Heartbeat normally waits at most one second, with bounded operational sends. Checks use observed reports; in-flight work can overshoot a token threshold or continue briefly during shutdown. This audit does not execute a live exhaustion/shutdown test or measure unreported usage.",
+    "global_stopped_reason": null,
+    "max_active_seats": 1,
+    "max_turns_per_seat": 1000,
+    "original_started_epoch": 1791049765.700437,
+    "original_started_epoch_preserved": true,
+    "overall_timeout_seconds": 117938,
+    "prior_room_starts_preserved": true,
+    "prior_room_stops_preserved": true,
+    "remaining_reported_tokens_at_snapshot": 123976390,
+    "source_lock_matches_approval": true,
+    "source_lock_sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+  },
+  "cache_and_output": {
+    "cached_input_fraction_of_input": 0.9720387096734588,
+    "cached_input_fraction_of_reported_total": 0.9683470392282625,
+    "counts_only_evidence": [
+      {
+        "counts": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 9334912,
+          "input_tokens": 9507531,
+          "output_tokens": 12667,
+          "reasoning_output_tokens": 626,
+          "total_tokens": 9520198
+        },
+        "line": 726,
+        "matched_ledger_total": true,
+        "path": "/Users/frank/.codex/sessions/2026/10/04/rollout-2026-10-04T14-07-26-01a108be-3814-7d02-981e-8f474d538fb1.jsonl",
+        "seat": "pm",
+        "source_snapshot_sha256": "d261033deba128b9eda5272417989f67287270b1cb4f218b07257d8f8cbbb6ab",
+        "thread_id": "01a108be-3814-7d02-981e-8f474d538fb1",
+        "timestamp": "2026-10-04T21:49:22.979Z",
+        "token_count_records_checked": 89,
+        "total_equals_input_plus_output_for_all_checked": true
+      },
+      {
+        "counts": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 3336448,
+          "input_tokens": 3448389,
+          "output_tokens": 19250,
+          "reasoning_output_tokens": 1423,
+          "total_tokens": 3467639
+        },
+        "line": 392,
+        "matched_ledger_total": true,
+        "path": "/Users/frank/.codex/sessions/2026/10/04/rollout-2026-10-04T14-10-02-01a108c0-9a57-7ed0-bcb5-2971e0dabdac.jsonl",
+        "seat": "qa",
+        "source_snapshot_sha256": "6aa482015e93475aaca2d04f7260edd6f7ee864642bb6be7c7abf54ddced6219",
+        "thread_id": "01a108c0-9a57-7ed0-bcb5-2971e0dabdac",
+        "timestamp": "2026-10-04T21:26:04.395Z",
+        "token_count_records_checked": 47,
+        "total_equals_input_plus_output_for_all_checked": true
+      },
+      {
+        "counts": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 1566208,
+          "input_tokens": 1657952,
+          "output_tokens": 14739,
+          "reasoning_output_tokens": 1472,
+          "total_tokens": 1672691
+        },
+        "line": 204,
+        "matched_ledger_total": true,
+        "path": "/Users/frank/.codex/sessions/2026/10/04/rollout-2026-10-04T14-25-39-01a108ce-e454-74a0-99a5-f9248977f1ae.jsonl",
+        "seat": "architect",
+        "source_snapshot_sha256": "10a5eefde7d8ff5215d761c8d9f074b95d1225983f03ae98341999f9a363a968",
+        "thread_id": "01a108ce-e454-74a0-99a5-f9248977f1ae",
+        "timestamp": "2026-10-04T21:39:16.624Z",
+        "token_count_records_checked": 25,
+        "total_equals_input_plus_output_for_all_checked": true
+      },
+      {
+        "counts": {
+          "cache_write_input_tokens": 0,
+          "cached_input_tokens": 1596928,
+          "input_tokens": 1676113,
+          "output_tokens": 15447,
+          "reasoning_output_tokens": 746,
+          "total_tokens": 1691560
+        },
+        "line": 222,
+        "matched_ledger_total": true,
+        "path": "/Users/frank/.codex/sessions/2026/10/04/rollout-2026-10-04T14-38-48-01a108da-efc1-7c43-a4ce-2043a6af4dc8.jsonl",
+        "seat": "backend",
+        "source_snapshot_sha256": "09803a51d916da3b512b751418c1357242365a252751980d2ecf33835767cd91",
+        "thread_id": "01a108da-efc1-7c43-a4ce-2043a6af4dc8",
+        "timestamp": "2026-10-04T21:48:54.882Z",
+        "token_count_records_checked": 29,
+        "total_equals_input_plus_output_for_all_checked": true
+      }
+    ],
+    "finding": "Observed Codex totals equal input + output; cached_input_tokens is included within input and reasoning_output_tokens within output. Repeated context processing, including cache hits, counts toward the approved reported-token ceiling. This number is not newly generated text, uncached tokens, dollars, or ChatGPT account-limit consumption. Raw prompt/reasoning content was neither emitted nor copied.",
+    "matching_source_counts_sum": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 15834496,
+      "input_tokens": 16289985,
+      "output_tokens": 62103,
+      "reasoning_output_tokens": 4267,
+      "total_tokens": 16352088
+    },
+    "raw_counts_match_all_current_threads": true
+  },
+  "created_at": "2026-10-04T21:49:26.908045+00:00",
+  "evidence_sources": [
+    {
+      "frozen_hash_matches": true,
+      "line_references": [
+        588,
+        609,
+        642,
+        730,
+        1177
+      ],
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+      "sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341"
+    },
+    {
+      "frozen_hash_matches": true,
+      "line_references": [
+        90,
+        145
+      ],
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/budgets.py",
+      "sha256": "b5552bec8f4af652c235f723c861220a325337bd1c5c7b7f8ab64e7425fbf47f"
+    },
+    {
+      "frozen_hash_matches": true,
+      "line_references": [
+        74,
+        85
+      ],
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/workflow_runtime.py",
+      "sha256": "5e3504b37283ab26345ecf7bdb36afa41f5ce22827906d0d878898f28ad56add"
+    },
+    {
+      "frozen_hash_matches": "installed SDK source; not a direct freeze.files entry",
+      "line_references": [
+        227,
+        412
+      ],
+      "path": "/Users/frank/mygit/Tablekeeper/factory/.venv/lib/python3.13/site-packages/band/integrations/codex/types.py",
+      "sha256": "7c3d0de3961db983f80aa059a6eecd9f450258cd3df686bffd80dd23dcf15309"
+    },
+    {
+      "frozen_hash_matches": "installed SDK source; not a direct freeze.files entry",
+      "line_references": [
+        1008,
+        1010,
+        2166,
+        2185,
+        2942,
+        2978
+      ],
+      "path": "/Users/frank/mygit/Tablekeeper/factory/.venv/lib/python3.13/site-packages/band/adapters/codex.py",
+      "sha256": "b3738db2e31376726e7edbe953c5f3ac5e26f2681066fb20a109a8a819529a4c"
+    },
+    {
+      "frozen_hash_matches": "installed SDK source; not a direct freeze.files entry",
+      "line_references": [
+        236,
+        261
+      ],
+      "path": "/Users/frank/mygit/Tablekeeper/factory/.venv/lib/python3.13/site-packages/band/core/types.py",
+      "sha256": "cc52f76ab3fc5d5417cc36924b7fd909c4bc1737d240ca5b3e9a012786a5eeb0"
+    }
+  ],
+  "limitations": [
+    "Point-in-time accounting snapshot while the authorized run remains live; later counters will grow.",
+    "Token totals are SDK/Codex-reported, not an independent provider invoice or a ChatGPT usage-limit conversion.",
+    "This does not validate stage behavior, acceptance, product completion, submission eligibility or public release.",
+    "A future restart still has the separately documented SDK-added Run5 global-trust drift; this audit neither changes frozen trust/source bindings nor reattests restart readiness."
+  ],
+  "scope": "Read-only accounting code and counts-only operational metadata; no model calls, tests, BAND sends, process actions, cap changes, or source/config/product edits.",
+  "separate_sdk_telemetry_finding": {
+    "band_usage_counts_by_seat": {
+      "architect": {
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "events": 6,
+        "input_tokens": 1657952,
+        "output_tokens": 16211
+      },
+      "backend": {
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "events": 4,
+        "input_tokens": 1676113,
+        "output_tokens": 16193
+      },
+      "pm": {
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "events": 35,
+        "input_tokens": 9507531,
+        "output_tokens": 13293
+      },
+      "qa": {
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "events": 16,
+        "input_tokens": 3448389,
+        "output_tokens": 20673
+      }
+    },
+    "completed_seat_comparisons": [
+      {
+        "band_usage_input_plus_output": 9520824,
+        "codex_total": 9520198,
+        "excess": 626,
+        "excess_matches_reasoning": true,
+        "seat": "pm"
+      },
+      {
+        "band_usage_input_plus_output": 3469062,
+        "codex_total": 3467639,
+        "excess": 1423,
+        "excess_matches_reasoning": true,
+        "seat": "qa"
+      },
+      {
+        "band_usage_input_plus_output": 1674163,
+        "codex_total": 1672691,
+        "excess": 1472,
+        "excess_matches_reasoning": true,
+        "seat": "architect"
+      },
+      {
+        "band_usage_input_plus_output": 1692306,
+        "codex_total": 1691560,
+        "excess": 746,
+        "excess_matches_reasoning": true,
+        "seat": "backend"
+      }
+    ],
+    "finding": "Installed BAND Codex adapter drops cache dimensions (band_usage cache reads/writes are zero despite nonzero Codex cached-input counters), and adds reasoning into band_usage output. In this observed Codex version output already contains reasoning. Completed-seat aggregates therefore overstate totals by their reasoning count. Factory BudgetLedger ignores band_usage and uses authoritative codex_total_tokens, so the approved ledger is unaffected. Do not substitute band_usage output/cache fields for final cost accounting.",
+    "live_inflight_turn_caveat": "band_usage emits at turn completion and can lag current cumulative usage; its aggregate is not expected to equal the live ledger during an active turn.",
+    "not_changed": true,
+    "responsible_component": {
+      "adapter_lines": [
+        2166,
+        2185
+      ],
+      "adapter_path": "/Users/frank/mygit/Tablekeeper/factory/.venv/lib/python3.13/site-packages/band/adapters/codex.py",
+      "category": "Pinned installed dependency mapping, not factory BudgetLedger source",
+      "distribution": "band-sdk",
+      "installed_version": "4.0.0",
+      "mapping_lines": [
+        236,
+        261
+      ],
+      "mapping_path": "/Users/frank/mygit/Tablekeeper/factory/.venv/lib/python3.13/site-packages/band/core/types.py",
+      "pinned_version": "4.0.0 in scoped source-lock tool_versions.band_sdk and factory dependency lock"
+    },
+    "status": "PROVEN_MAPPING_MISMATCH_NOT_FACTORY_LEDGER_BUG"
+  },
+  "snapshot": {
+    "baseline_path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/before-budget-subscription.json",
+    "baseline_sha256": "2c5b31367965d61d4c157ea66a3a1c30406e5a9b7f51f62c6367827d62505f6d",
+    "event_counts": {
+      "other": 1071,
+      "token_usage": 251,
+      "turn_diff": 25,
+      "turn_lifecycle": 62
+    },
+    "events_bytes": 344286,
+    "events_path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/execution-events.jsonl",
+    "events_sha256": "64eb34e15aa9e9ecf203a402e9e3da213e42b1816e90f836acff6ddc355b418e",
+    "ledger_path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/budget-subscription.json",
+    "ledger_sha256": "e4799c60a2aaf9c85a4e55527719f89fd32c2a95a9d818115b421d22a0be268f",
+    "ledger_stable_during_read": true,
+    "ledger_updated_at": "2026-10-04T21:49:24.024983+00:00",
+    "malformed_lines": 0
+  },
+  "status": "PASS_AUTHORITATIVE_LEDGER_WITH_SEPARATE_SDK_TELEMETRY_LIMITATIONS"
+}
