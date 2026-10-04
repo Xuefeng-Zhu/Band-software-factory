@@ -1,0 +1,8 @@
+test_ordinary_unresolved_prose_is_not_a_placeholder (test_toolkit.ConfigTests.test_ordinary_unresolved_prose_is_not_a_placeholder) ... ok
+test_explicit_and_metadata_placeholders_still_block (test_toolkit.ConfigTests.test_explicit_and_metadata_placeholders_still_block) ... ok
+test_mandate_wrong_model_and_domain_instruction_rejected (test_toolkit.ConfigTests.test_mandate_wrong_model_and_domain_instruction_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.029s
+
+OK
