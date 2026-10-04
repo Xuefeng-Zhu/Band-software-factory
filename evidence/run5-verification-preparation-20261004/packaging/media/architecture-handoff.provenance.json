@@ -1,0 +1,25 @@
+{
+  "status": "REAL_ROOM_STILL_IMAGE_NOT_PRODUCT_OR_VIDEO_ACCEPTANCE",
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "source_url": "https://app.band.ai/sessions/12cde259-0fcd-4551-84c7-52c443cb5600",
+  "captured_with": "cua_repl browser tab screenshot",
+  "capture_window_utc": [
+    "2026-10-04T21:30:26Z",
+    "2026-10-04T21:32:52Z"
+  ],
+  "initial_file_saved_at": "2026-10-04T21:32:08.520379+00:00",
+  "sha256": "58587a837d0c300d29a423fffcebdde624d9d23239d239c4b91ea8592625c4f9",
+  "bytes": 125225,
+  "observations": [
+    "Visible Run5 room name, PM planning acceptance and Stage1 assignment, Architect exact multipart ACK and in-progress statement.",
+    "No message sent or runtime controls used; only read-only navigation and panel visibility.",
+    "Visible content explicitly says product behavior remains NOT_TESTED.",
+    "Participant panel separately showed 1 human and 7 named agent identities; agent descriptions still contain a legacy rehearsal path and are not proof of current execution directory."
+  ],
+  "privacy_review": "Visible screenshot inspected: no credential, private account email or unrelated application content visible.",
+  "limits": [
+    "Still image only, not a recorded video.",
+    "No application UI, stage correctness or acceptance established.",
+    "No replacement for the final genuine full-session export."
+  ]
+}

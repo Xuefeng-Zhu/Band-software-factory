@@ -7,3 +7,9 @@ These retained files were prepared outside the live judged checkout and were not
 - [README draft](packaging/README.draft.md), [FACTORY draft](packaging/FACTORY.draft.md), and [submission description](packaging/submission-description.draft.md): AI-assisted factual drafts using launch evidence through 2026-10-04T21:14:01.903528Z. Final outcomes and participant review remain pending.
 
 The draft source manifest and preservation manifest bind these historical snapshots to file hashes. Their evidence cutoff must not be presented as current run status.
+
+## Actual room visual
+
+![Run5 PM handoff and Architect acknowledgment](packaging/media/architecture-handoff.jpg)
+
+Captured from the real BAND room during architecture work. This is a still image of collaboration, not video or product acceptance. See [capture provenance](packaging/media/architecture-handoff.provenance.json).

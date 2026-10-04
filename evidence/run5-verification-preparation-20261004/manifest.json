@@ -38,8 +38,20 @@
       "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/draft-source-manifest.json",
       "bytes": 3871,
       "sha256": "cd7eb28e16b083eb70139931f62c9ce5d5e86fe12870d1f87f1bf1d537bff748"
+    },
+    {
+      "path": "packaging/media/architecture-handoff.jpg",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/media/architecture-handoff.jpg",
+      "bytes": 125225,
+      "sha256": "58587a837d0c300d29a423fffcebdde624d9d23239d239c4b91ea8592625c4f9"
+    },
+    {
+      "path": "packaging/media/architecture-handoff.provenance.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/media/architecture-handoff.provenance.json",
+      "bytes": 1364,
+      "sha256": "d71fd06e4a1f99210d9b2edee6333d5889bb70e00003c3634a2442fe02d4c374"
     }
   ],
   "credential_shape_scan": "PASS; supplied pattern coverage only, not exhaustive privacy proof",
-  "updated_at": "2026-10-04T21:28:12.638039+00:00"
+  "updated_at": "2026-10-04T21:33:27.622673+00:00"
 }
