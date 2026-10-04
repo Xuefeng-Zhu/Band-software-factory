@@ -1,10 +1,10 @@
 # Seven-seat BAND factory preparation
 
-**Status: approved Run 2 is prepared with fourteen verified readiness observations; final freeze and dispatch are next.** The new BAND room is `7ceee003-80f3-4dbc-abc1-d3a8a13d1800`, containing the same seven real seats and Frank Zhu. The first attempt's failed Git fetch, complete export and original repository are retained; private Git fetch now passes inside the seat sandbox. Original clocks and 17,365,225 consumed tokens remain counted. Codex CLI 0.160.0, SDK 4.0.0 and gpt-6-astra remain pinned. See [current evidence](docs/BUILD-START.md).
+**Status: Run 2 is active. Fourteen readiness checks passed, and the full four-stage packet was dispatched once at 2026-10-04 04:30:14 UTC.** The new BAND room is `7ceee003-80f3-4dbc-abc1-d3a8a13d1800`, containing the same seven real seats and Frank Zhu. The first attempt's failed Git fetch, complete export and original repository are retained; private Git fetch now passes inside the seat sandbox. Original clocks and the 17,365,225 tokens consumed before Run 2 remain counted; live usage continues in the cumulative ledger. Codex CLI 0.160.0, SDK 4.0.0 and gpt-6-astra remain pinned. See [current evidence](docs/BUILD-START.md).
 
 Workspace: `/Users/frank/mygit/Tablekeeper`
 
-The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools. `rehearsal/toy-result/` holds only the separate BAND-authored toy application and its retained history. `runs/` holds evidence, environments, browser binaries and future worktrees. `result/` is a fresh Git repository with **zero commits and no product files**. No stage Dockerfiles, schemas, product prototypes or domain behavior tests have been seeded.
+The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools. `rehearsal/toy-result/` holds only the separate BAND-authored toy application and its retained history. `runs/` holds evidence, environments, browser binaries and future worktrees. `result/` began Run 2 as an empty Git repository. The BAND PM has now committed the product brief, requirements map, queue and seven mandates at `2e91c86a49c509e73289831aa0539f2e458e57b0`; the Architect has acknowledged the complete Stage 1 handoff. No judged stage is accepted at this checkpoint. No application code was seeded before dispatch.
 
 All commands below run from the absolute factory directory:
 
@@ -14,11 +14,11 @@ cd '/Users/frank/mygit/Tablekeeper/factory'
 
 ## Repositories and progress
 
-- Application: https://github.com/Xuefeng-Zhu/Tablekeeper — local `../result`, currently empty pending the first BAND-authored product commit.
+- Application: https://github.com/Xuefeng-Zhu/Tablekeeper — local `../result`, receiving BAND-authored progress commits and private pushes.
 - Factory tools: https://github.com/Xuefeng-Zhu/Tablekeeper-factory — this repository, committed and pushed at verified milestones.
 - Challenge: the pinned official upstream checkout; never refreshed during the frozen build.
 
-The workspace was moved to `/Users/frank/mygit/Tablekeeper`. Historical logs retain their original paths and are not current permission attestations. Credentials remain outside this workspace. The approved local ceiling is 100,000,000 reported tokens including cached input and eight aggregate elapsed hours across rehearsal and build, one active seat, with no API billing or paid provisioning. The clock began at 17:49:25 UTC on October 3; approval preserved existing consumption and the clock origin. The checked-in example stays unapproved by default.
+The workspace was moved to `/Users/frank/mygit/Tablekeeper`. Historical logs retain their original paths and are not current permission attestations. Credentials remain outside this workspace. The approved local ceiling is 100,000,000 reported tokens including cached input and a cumulative elapsed-time deadline of October 4, 2026 at 06:29:59.700437 America/Los_Angeles, one active seat, with no API billing or paid provisioning. The clock began at 17:49:25 UTC on October 3; the later approved extension preserved existing consumption and the clock origin. The four-hour room limit and all per-turn/per-seat limits also remain in force. The checked-in example stays unapproved by default.
 
 ## Reproduce and inspect
 
