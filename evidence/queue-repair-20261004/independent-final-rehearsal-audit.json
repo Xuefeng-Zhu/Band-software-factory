@@ -1,0 +1,644 @@
+{
+  "audited_at": "2026-10-04T17:35:01.792434+00:00",
+  "status": "PASS_SCOPED_LIVE_COMMUNICATION_REHEARSAL",
+  "scope": "Independent actual public message, full export integrity, queue barrier, bounded original-sender recovery, accounting and limited privacy audit. No message, model turn, runtime change or code edit was performed by this auditor.",
+  "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+  "export": {
+    "sha256": "f34276e8fe262c2c9cc2b7cc08242d4b0f4f279f72ca46859a77574b5dff9c26",
+    "bytes": 298961,
+    "scope": "full",
+    "exported_at": "2026-10-04T17:30:45.043Z",
+    "messages": 392,
+    "unique_event_ids": 392,
+    "types": {
+      "participant": 7,
+      "text": 22,
+      "task": 117,
+      "tool_call": 123,
+      "tool_result": 123
+    },
+    "byte_equal_to_original_download": true,
+    "all_22_native_text_events_equal": true
+  },
+  "human_input": {
+    "text_events": 1,
+    "dispatch": {
+      "id": "dcb6d175-0b5a-41cc-8abf-c89b18c59559",
+      "at": "2026-10-04T17:22:12.993259Z",
+      "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60"
+    },
+    "packet_byte_equal": true,
+    "normalization_required": false,
+    "human_mid_exercise_steering": false
+  },
+  "sequence": {
+    "complete_setup": {
+      "id": "672e8932-f7d6-4460-9848-4775effc9aad",
+      "at": "2026-10-04T17:23:35.293923Z",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+    },
+    "setup_receipt": {
+      "id": "dc429911-1a82-41fb-a1e4-df81656137c3",
+      "at": "2026-10-04T17:23:48.449289Z",
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749"
+    },
+    "A": {
+      "delivery_id": "QUEUE-A-D1",
+      "payload_bytes": 216,
+      "payload_sha256": "96f11730eea33e816c0ea745e4592b713c971785d73b7160719c6a673fb79e81",
+      "all_original_part_bodies_exact": true,
+      "part_events": [
+        {
+          "id": "f8b4ba9d-4d25-4b12-b408-52041adbde50",
+          "at": "2026-10-04T17:23:59.610869Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "de4636ec-0406-455e-af7b-b85c99233fe0",
+          "at": "2026-10-04T17:24:07.281040Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "1971a554-1d4c-452a-a770-f9afdf57ff6f",
+          "at": "2026-10-04T17:24:07.952402Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "41ac32b3-2045-4da6-a585-5d68f5fb8290",
+          "at": "2026-10-04T17:24:08.654726Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "4f922e7b-0190-45d9-9f30-c7fc8327004d",
+          "at": "2026-10-04T17:24:09.351150Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "ddf209fe-8e71-4a95-a791-9938585708c1",
+          "at": "2026-10-04T17:24:10.125161Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "b645f596-9c1b-4508-aa29-41ef660e4a70",
+          "at": "2026-10-04T17:24:10.859422Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "7c90ae7a-3f21-432f-936d-fb2380c6aa54",
+          "at": "2026-10-04T17:24:11.583598Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "de214cc7-9fc2-459f-ac8a-3dacb0976209",
+          "at": "2026-10-04T17:24:12.247433Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "846577e6-6b16-4e57-b661-86516a1680ad",
+          "at": "2026-10-04T17:24:12.902288Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "a549946c-b96b-4d54-8385-3a8a0ee71147",
+          "at": "2026-10-04T17:24:13.565750Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "ca7bde5d-4a0c-4903-8e67-e7da0de00b1c",
+          "at": "2026-10-04T17:24:14.303460Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        }
+      ],
+      "ack": {
+        "id": "87995659-f1fa-4267-bf5f-48c3229e40c2",
+        "at": "2026-10-04T17:26:17.738568Z",
+        "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749"
+      }
+    },
+    "B": {
+      "delivery_id": "QUEUE-B-D1",
+      "payload_bytes": 36,
+      "payload_sha256": "cfe87bdc467cf8f1ec05fbb71bce3369517c57759441ca3a5ae3dc7c7fe3f9c5",
+      "all_original_part_bodies_exact": true,
+      "part_events": [
+        {
+          "id": "098f5c50-04fa-4990-9260-51c6801a44d1",
+          "at": "2026-10-04T17:26:28.893802Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        },
+        {
+          "id": "d701d5d2-e6d4-43a9-9200-c0bfc8f1256e",
+          "at": "2026-10-04T17:28:51.857987Z",
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        }
+      ],
+      "ack": {
+        "id": "4029c172-0886-477e-b7af-85ef29af4d5c",
+        "at": "2026-10-04T17:29:06.904669Z",
+        "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749"
+      }
+    },
+    "automatic_notice": {
+      "id": "a8dddf6d-0c1f-4726-bca3-b1f96ea4fd3e",
+      "at": "2026-10-04T17:28:29.442030Z",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+    },
+    "notice_attempt": 1,
+    "notice_claimed_epoch": 1791134909.2515168,
+    "B_ack_deadline_epoch": 1791134908.9488142,
+    "peer_missing_part_request": {
+      "id": "a9e9d3d9-4092-4201-9cd9-b784c0e2824e",
+      "at": "2026-10-04T17:28:39.656008Z",
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749"
+    },
+    "PM_final": {
+      "id": "ae15b3c2-c8ae-4130-a539-1610114221bd",
+      "at": "2026-10-04T17:29:39.374619Z",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+    },
+    "all_text_events_match_required_order": true,
+    "premature_B_request_or_ack": false,
+    "unrelated_agent_text": false
+  },
+  "A_queue_deferral": {
+    "deadline_epoch": 1791134759.671707,
+    "ack_epoch": 1791134777.738568,
+    "ack_after_deadline_seconds": 18.066861152648926,
+    "samples_while_original_A_unresolved_after_deadline_before_ack": 36,
+    "SDK_busy_with_no_admitted_turn_samples": 2,
+    "all_notice_attempts_zero": true,
+    "critical_gap_rows": [
+      {
+        "observed_epoch": 1791134762.980835,
+        "status": "running",
+        "workflow": {
+          "state": "busy",
+          "active_turn_ids": [],
+          "sdk_execution_busy": true,
+          "unresolved_incident_ids": [
+            "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+          ],
+          "seconds_to_next_deadline": null,
+          "notice_attempts": 0,
+          "unknown_notices": [],
+          "sdk_execution_contexts": [
+            {
+              "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": true,
+              "state": "processing",
+              "running": true
+            },
+            {
+              "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            }
+          ]
+        }
+      },
+      {
+        "observed_epoch": 1791134763.486111,
+        "status": "running",
+        "workflow": {
+          "state": "busy",
+          "active_turn_ids": [],
+          "sdk_execution_busy": true,
+          "unresolved_incident_ids": [
+            "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+          ],
+          "seconds_to_next_deadline": null,
+          "notice_attempts": 0,
+          "unknown_notices": [],
+          "sdk_execution_contexts": [
+            {
+              "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": true,
+              "state": "processing",
+              "running": true
+            },
+            {
+              "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            }
+          ]
+        }
+      }
+    ],
+    "first_queue_busy_row": {
+      "observed_epoch": 1791134759.953087,
+      "status": "running",
+      "workflow": {
+        "state": "busy",
+        "active_turn_ids": [
+          "backend:49:a549946c-b96b-4d54-8385-3a8a0ee71147"
+        ],
+        "sdk_execution_busy": true,
+        "unresolved_incident_ids": [
+          "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+        ],
+        "seconds_to_next_deadline": 589.7573881149292,
+        "notice_attempts": 0,
+        "unknown_notices": [],
+        "sdk_execution_contexts": [
+          {
+            "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 1,
+            "processing": true,
+            "state": "processing",
+            "running": true
+          },
+          {
+            "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          }
+        ]
+      }
+    },
+    "source_prefix": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/queue-observations.jsonl",
+      "bytes": 849451,
+      "sha256": "b0941dab0421f3e0bd62946a4ef179709cdd62439d6a431cf5e4871a2c252ba6"
+    },
+    "source_prefix_hash_independently_verified": true,
+    "interim_observer_55_rows_not_used_as_A_count": "The interim report included later B activity; independently filtered A count is36."
+  },
+  "public_command_evidence": {
+    "exec_commands": [
+      {
+        "call_event_id": "89d70864-beb3-449d-97cf-e029c146c55f",
+        "result_event_id": "a976e656-fbbc-41c4-9afb-15af9d2ef1c8",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "tool_call_id": "exec-863114be-4ef1-4417-9b23-89d67d000d34",
+        "command": "/bin/zsh -lc \"python3 -c 'import hashlib; a=\\\"\\\".join(f\\\"fixture-A-part-{i:02d}\\\\n\\\" for i in range(1,13)).encode(\\\"ascii\\\"); b=b\\\"fixture-B-part-01\\\\nfixture-B-part-02\\\\n\\\"; print(\\\"A\\\",len(a),hashlib.sha256(a).hexdigest()); print(\\\"B\\\",len(b),hashlib.sha256(b).hexdigest())'\"",
+        "cwd": "/Users/frank/mygit/Tablekeeper/rehearsal/queue-repair-result",
+        "result": "exit_code=0",
+        "stdout_in_room": false
+      },
+      {
+        "call_event_id": "daa7c6b5-2bcc-4672-881b-4ca6ff1b9b9a",
+        "result_event_id": "15f07577-4a8d-4d16-90c6-0cf5a6a19b6a",
+        "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+        "tool_call_id": "exec-cd07a69e-5e4a-47e8-8653-dd020b9d9cf4",
+        "command": "/bin/zsh -lc \"python3 -c 'import hashlib; p=b\\\"fixture-A-part-01\\\\nfixture-A-part-02\\\\nfixture-A-part-03\\\\nfixture-A-part-04\\\\nfixture-A-part-05\\\\nfixture-A-part-06\\\\nfixture-A-part-07\\\\nfixture-A-part-08\\\\nfixture-A-part-09\\\\nfixture-A-part-10\\\\nfixture-A-part-11\\\\nfixture-A-part-12\\\\n\\\"; d=hashlib.sha256(p).hexdigest(); print(len(p), d); assert len(p)==216 and d==\\\"96f11730eea33e816c0ea745e4592b713c971785d73b7160719c6a673fb79e81\\\"'\"",
+        "cwd": "/Users/frank/mygit/Tablekeeper/rehearsal/queue-repair-result",
+        "result": "exit_code=0",
+        "stdout_in_room": false
+      },
+      {
+        "call_event_id": "f60ba781-3dc3-4e05-b8e3-2047535dfb82",
+        "result_event_id": "c00da1ee-68a4-48b2-9a99-53176e17a0ea",
+        "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+        "tool_call_id": "exec-3f7ba0a5-e71d-4ff5-b6b4-9274f82a01c1",
+        "command": "/bin/zsh -lc \"python3 -c 'import hashlib; p=b\\\"fixture-B-part-01\\\\nfixture-B-part-02\\\\n\\\"; d=hashlib.sha256(p).hexdigest(); print(len(p), d); assert len(p)==36 and d==\\\"cfe87bdc467cf8f1ec05fbb71bce3369517c57759441ca3a5ae3dc7c7fe3f9c5\\\"'\"",
+        "cwd": "/Users/frank/mygit/Tablekeeper/rehearsal/queue-repair-result",
+        "result": "exit_code=0",
+        "stdout_in_room": false
+      }
+    ],
+    "unique_turn_clock_calls": 22,
+    "limitation": "The room records exit_code=0, not command stdout. Backend commands explicitly assert the expected payload lengths and digests; this audit also recomputes digests from actual numbered message bytes."
+  },
+  "runtime_and_budget": {
+    "owner_status": "stopped",
+    "owner_stopped_at": "2026-10-04T17:30:15.829285+00:00",
+    "workflow_state": "idle",
+    "completed_nonoverlapping_turns": 22,
+    "turn_delta_by_seat": {
+      "architect": 0,
+      "backend": 17,
+      "designer": 0,
+      "frontend": 0,
+      "pm": 5,
+      "qa": 0,
+      "reviewer": 0
+    },
+    "unknown_notices": [],
+    "unresolved_incidents": [],
+    "notice_attempts": 1,
+    "baseline_tokens": 84080166,
+    "final_tokens": 86011577,
+    "additional_tokens": 1931411,
+    "approved_additional_limit": 2000000,
+    "remaining_rehearsal_tokens": 68589,
+    "original_origin_preserved": true,
+    "stopped_before_dispatch_plus600": true,
+    "guard_status": "OWNER_ALREADY_STOPPED",
+    "owned_process_identity_checks": [
+      {
+        "pid": 64200,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64280,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64771,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64775,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64852,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64853,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64855,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 65114,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 65207,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 65077,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64284,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64432,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64433,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64434,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64640,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64741,
+        "status": "pid_absent_or_reused"
+      },
+      {
+        "pid": 64632,
+        "status": "pid_absent_or_reused"
+      }
+    ],
+    "process_check_note": "Owner children and SDK running fields are historical stop-time metadata, not a claim those PIDs still run. Fresh process identity checks above are authoritative within OS visibility."
+  },
+  "privacy": {
+    "status": "NO_CONCRETE_CREDENTIAL_MATCH_FOUND",
+    "known_seat_keys_checked": 7,
+    "known_key_matches": 0,
+    "factory_detector_match": false,
+    "broad_pattern_match_counts": {
+      "private_key": 0,
+      "openai_key": 0,
+      "github_token": 0,
+      "aws_access_key": 0,
+      "slack_token": 0,
+      "jwt": 0,
+      "bearer": 0
+    },
+    "expected_nonsecret_exposure": [
+      "participant names and handles",
+      "local workspace paths",
+      "room and event identifiers",
+      "public tool calls and synthetic fixture payloads"
+    ],
+    "scope_limit": "Exact known-key and bounded pattern scans plus selected content review cannot prove absence of every private string. No credential value was printed, stored in this report, or redacted from the original export."
+  },
+  "limitations": [
+    "Synthetic unscored communication test only; no judged product acceptance or judged restart.",
+    "The SDK-only post-deadline gap and bounded PM-origin notice route were actually observed; arbitrary provider outages, remote backlog emptiness and all possible failures are not established.",
+    "No active time or token authorization is extended by this audit.",
+    "No publication, final submission, or human-authorship compliance is claimed."
+  ],
+  "evidence": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/room.json",
+      "bytes": 298961,
+      "sha256": "f34276e8fe262c2c9cc2b7cc08242d4b0f4f279f72ca46859a77574b5dff9c26"
+    },
+    {
+      "path": "/Users/frank/Downloads/MillieMoon-Queue-Repair-Rehearsal.json",
+      "bytes": 298961,
+      "sha256": "f34276e8fe262c2c9cc2b7cc08242d4b0f4f279f72ca46859a77574b5dff9c26"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/room-export-manifest.json",
+      "bytes": 536,
+      "sha256": "e3a89927ce196843a0b4af266c6870d54128775482432550f25e0a39bf5555a8"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/dispatch-packet.md",
+      "bytes": 7652,
+      "sha256": "a3101534d02f5d86c24399c2d50dde84dac0fee6ef149744679943996dacc871"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/dispatch-packet.manifest.json",
+      "bytes": 633,
+      "sha256": "88c314d576e386c40ab4243cf9b6a4359e933633b6c11880fb150a6a55c964b0"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/final-packet-audit.json",
+      "bytes": 7388,
+      "sha256": "923d653b9c4d2a4ef04bb01fbaaf9ccfd425afb961a8e6f1765976ebdd04fd8b"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/independent-text-snapshot-20261004T173017376652Z-page1.json",
+      "bytes": 36672,
+      "sha256": "7dc335242a969be522c285f0d836d0552157e3363426fd2a98f5eee74b6bdeec"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-a-deadline.json",
+      "bytes": 7824,
+      "sha256": "deabac70e80e5ecfff93d01d5482eab95f52b9d7dcb346389796bba58dbeb52c"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-final-operational-audit.json",
+      "bytes": 16456,
+      "sha256": "7f8116c4712de1a32d28bdf5d8af30997676d5c2d46bc6c1f26745946c21be17"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/workflow-4ec4749d-5dff-4d41-ae9b-5a5bc82462ac.json",
+      "bytes": 19822,
+      "sha256": "d564bcd13ebb360276f206324cbba7524dab113c02e6e84ed4d130659e9243c8"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/owner.json",
+      "bytes": 11070,
+      "sha256": "92b18a37572ca542292fbb34078d65dfdd757369225efb2abf86762ec874caeb"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/budget-subscription.json",
+      "bytes": 5619,
+      "sha256": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/before/budget-subscription.json",
+      "bytes": 4977,
+      "sha256": "8616dd56a09d7059b3b19dec5aac45c11d6c67fb06a7338ff6eff1a88fd02d84"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/guard-result.json",
+      "bytes": 96,
+      "sha256": "4527aa228dd02b61f7627fc01bfcb272ffdcf10740d048e73d45886170546d79"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/approval.json",
+      "bytes": 714,
+      "sha256": "8ba5fe900e8e2a450c848f15e0a51f2974c1a90b226b84ebac6a28d6a79bfaae"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/factory.yaml",
+      "bytes": 4987,
+      "sha256": "6b2bf342200ef8e888e1c9f02de9dd742859c42802578fccb4955f8c5e6d0924"
+    }
+  ]
+}

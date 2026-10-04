@@ -1,0 +1,19 @@
+{
+  "bytes": 7652,
+  "configuration_sha256": "cef8e193a0cec8d89016339aa63630ae0e76a6411988c648252dc633e119dbe2",
+  "payloads": {
+    "A": {
+      "bytes": 216,
+      "sha256": "96f11730eea33e816c0ea745e4592b713c971785d73b7160719c6a673fb79e81"
+    },
+    "B": {
+      "bytes": 36,
+      "sha256": "cfe87bdc467cf8f1ec05fbb71bce3369517c57759441ca3a5ae3dc7c7fe3f9c5"
+    }
+  },
+  "recipient": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+  "room": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+  "sha256": "a3101534d02f5d86c24399c2d50dde84dac0fee6ef149744679943996dacc871",
+  "single_initial_human_dispatch": true,
+  "state": "PREPARED_NOT_SENT"
+}

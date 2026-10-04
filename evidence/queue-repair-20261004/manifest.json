@@ -1,0 +1,148 @@
+{
+  "created_at": "2026-10-04T17:36:03.137276+00:00",
+  "scope": "Selected unchanged evidence copies for a synthetic unscored communication rehearsal; private repository only. References in original reports retain original local paths. Omitted full operator files remain there.",
+  "factory_tested_revision": "c53ea314f21ab37f36e927ab503c086bd2ecced9",
+  "files": [
+    {
+      "path": "room.json",
+      "bytes": 298961,
+      "sha256": "f34276e8fe262c2c9cc2b7cc08242d4b0f4f279f72ca46859a77574b5dff9c26",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/room.json"
+    },
+    {
+      "path": "room-export-manifest.json",
+      "bytes": 536,
+      "sha256": "e3a89927ce196843a0b4af266c6870d54128775482432550f25e0a39bf5555a8",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/room-export-manifest.json"
+    },
+    {
+      "path": "dispatch-packet.md",
+      "bytes": 7652,
+      "sha256": "a3101534d02f5d86c24399c2d50dde84dac0fee6ef149744679943996dacc871",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/dispatch-packet.md"
+    },
+    {
+      "path": "dispatch-packet.manifest.json",
+      "bytes": 633,
+      "sha256": "88c314d576e386c40ab4243cf9b6a4359e933633b6c11880fb150a6a55c964b0",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/dispatch-packet.manifest.json"
+    },
+    {
+      "path": "approval.json",
+      "bytes": 714,
+      "sha256": "8ba5fe900e8e2a450c848f15e0a51f2974c1a90b226b84ebac6a28d6a79bfaae",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/approval.json"
+    },
+    {
+      "path": "send-verification.json",
+      "bytes": 789,
+      "sha256": "1b16cc6468ce6457c0dae5f20cac0d0abded61b9b176c6067370e9ee7928e293",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/send-verification.json"
+    },
+    {
+      "path": "final-packet-audit.json",
+      "bytes": 7388,
+      "sha256": "923d653b9c4d2a4ef04bb01fbaaf9ccfd425afb961a8e6f1765976ebdd04fd8b",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/final-packet-audit.json"
+    },
+    {
+      "path": "observer-a-deadline.json",
+      "bytes": 7824,
+      "sha256": "deabac70e80e5ecfff93d01d5482eab95f52b9d7dcb346389796bba58dbeb52c",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-a-deadline.json"
+    },
+    {
+      "path": "observer-final-operational-audit.json",
+      "bytes": 16456,
+      "sha256": "7f8116c4712de1a32d28bdf5d8af30997676d5c2d46bc6c1f26745946c21be17",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-final-operational-audit.json"
+    },
+    {
+      "path": "observer-final-runtime-audit.json",
+      "bytes": 10975,
+      "sha256": "9abc6fd6943acb8da3d26c42dec9ee0dfadf066f5fd6bb244f42907d65e7cd3b",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-final-runtime-audit.json"
+    },
+    {
+      "path": "observer-final-workflow.json",
+      "bytes": 19822,
+      "sha256": "d564bcd13ebb360276f206324cbba7524dab113c02e6e84ed4d130659e9243c8",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-final-workflow.json"
+    },
+    {
+      "path": "observer-final-budget.json",
+      "bytes": 5362,
+      "sha256": "a77f6b128bf21a0bfca72e83037ebde88ac5cc8558ce3b8d914610e3d56ad741",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-final-budget.json"
+    },
+    {
+      "path": "independent-final-rehearsal-audit.json",
+      "bytes": 24134,
+      "sha256": "87d3861f3f1e1476a0ada98c8d9a87208f6b2be49e6ef3fddddbd0272749b13c",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/independent-final-rehearsal-audit.json"
+    },
+    {
+      "path": "queue-observations.jsonl",
+      "bytes": 1548691,
+      "sha256": "31375c720001631ceeb7ce2bb5fb956320e2250c7ebfc177d01be6cd6767204e",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/queue-observations.jsonl"
+    },
+    {
+      "path": "guard-result.json",
+      "bytes": 96,
+      "sha256": "4527aa228dd02b61f7627fc01bfcb272ffdcf10740d048e73d45886170546d79",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/guard-result.json"
+    },
+    {
+      "path": "accounting/canonical-before.json",
+      "bytes": 4977,
+      "sha256": "8616dd56a09d7059b3b19dec5aac45c11d6c67fb06a7338ff6eff1a88fd02d84",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/accounting/canonical-before.json"
+    },
+    {
+      "path": "accounting/scoped-final-raw.json",
+      "bytes": 5362,
+      "sha256": "a77f6b128bf21a0bfca72e83037ebde88ac5cc8558ce3b8d914610e3d56ad741",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/accounting/scoped-final-raw.json"
+    },
+    {
+      "path": "accounting/reconciled-closed.json",
+      "bytes": 5619,
+      "sha256": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/accounting/reconciled-closed.json"
+    },
+    {
+      "path": "accounting/reconciliation.json",
+      "bytes": 1385,
+      "sha256": "da15712acd43170e40f9de1224787ca39f40bca775712d462afe3cb6421d1c6a",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/accounting/reconciliation.json"
+    },
+    {
+      "path": "permissions/global-config-trust-audit.json",
+      "bytes": 816,
+      "sha256": "3c2b7faa279756da95550328a09c748f59ed940dfae14428ee27ee2f2549acfd",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/global-config-trust-audit.json"
+    },
+    {
+      "path": "permissions/preflight.json",
+      "bytes": 1698,
+      "sha256": "aad998251740a5fb255229be089ae6358dd6cc8a8b0732882bbf6abb324ebbe4",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/preflight.json"
+    },
+    {
+      "path": "permissions/summary.json",
+      "bytes": 3688,
+      "sha256": "3bf9d1a4519438fbb63498f9b2c18b6a9021340ea483ae142cb8fce44e941c6c",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/summary.json"
+    },
+    {
+      "path": "independent-text-snapshot-20261004T173017376652Z-page1.json",
+      "bytes": 36672,
+      "sha256": "7dc335242a969be522c285f0d836d0552157e3363426fd2a98f5eee74b6bdeec",
+      "original": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/independent-text-snapshot-20261004T173017376652Z-page1.json"
+    }
+  ],
+  "known_seat_keys_checked": 7,
+  "known_key_matches": 0,
+  "full_export_unchanged": true
+}

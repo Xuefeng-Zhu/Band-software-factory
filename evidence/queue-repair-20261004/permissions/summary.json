@@ -1,0 +1,63 @@
+{
+  "checks": {
+    "assigned_checkout_pristine": "PASS",
+    "browser": "PASS",
+    "cleanup": "PASS",
+    "development_network": "PASS",
+    "docker_build": "PASS",
+    "workspace_write_git": "PASS"
+  },
+  "configuration_sha256": "cef8e193a0cec8d89016339aa63630ae0e76a6411988c648252dc633e119dbe2",
+  "evidence": {
+    "assigned": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/assigned-2026-10-04T171723.098335+0000.json",
+      "sha256": "1fb54b90eff5a0cc861402999b94c1ab49c8a858881085d3263816e51bef6834"
+    },
+    "browser": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/browser-adapter-20261004T171700Z.json",
+      "sha256": "2d89cc35dbbc606fcba9ab845b59059cb287f7d5d5a94af706e8b7773f5851dc"
+    },
+    "build": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/build-adapter-20261004T171657Z.json",
+      "sha256": "a0f2604fcea5eaf5b259dcb8b123bbcdd0f0bc9dca207b5f03449853bf129da4"
+    },
+    "cleanup": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/cleanup-adapter-20261004T171703Z.json",
+      "sha256": "7b38f24fa478c80947bac0dbd58116d9bf7da8d6d555b0c1998b88abc18bfb74"
+    },
+    "quick": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/quick-adapter-20261004T171655Z.json",
+      "sha256": "17647bf1c71d4e28a2d678a297797c739f546b99231394b7aa82a9f20054bb34"
+    }
+  },
+  "limitations": [
+    "Actual no-model permission diagnostics only; no BAND Agent, room messages, live model turn, product implementation, acceptance or collaboration proof.",
+    "Docker daemon access uses the exact approved OrbStack socket; containers in this probe use network none, drop all capabilities, no host mounts and no-new-privileges. Socket access itself is broader than a container sandbox.",
+    "Assigned practice checkout test writes and removes neutral files; it remains .git only, with no commits or remote fetch. Git commit permission is separately proved in disposable scratch.",
+    "Initial assigned-path diagnostic failed from script quoting before writes; failed result and original script are retained. Corrected source and fresh successful evidence are separately hashed."
+  ],
+  "model_turns": 0,
+  "observed_at": "2026-10-04T17:18:23.433140+00:00",
+  "probe_sources": {
+    "assigned-workspace-v1.py": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/assigned-workspace-v1.py",
+      "sha256": "fd9c9905112f2ee30de864b4d86627fb8531928346dc6b178bd48e15f8896789"
+    },
+    "assigned-workspace.py": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/assigned-workspace.py",
+      "sha256": "8db563c888abf780c8661535289553b7cb3f9af22a0f3c97c3c9a01b9431820d"
+    },
+    "container-probe.py": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/container-probe.py",
+      "sha256": "35a9d49fa8c9d32e557f9af66e2e0dbbb98efa3aa905e6986f8ae8bda73b5537"
+    }
+  },
+  "retained_failed_attempt": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/assigned-2026-10-04T171654.256318+0000.json",
+    "sha256": "2de9956d42cdac48ab4858f2569be4c13fc75515c3b32d443cb331c7c573d275"
+  },
+  "room_messages": 0,
+  "scope": "Current scoped PM rehearsal adapter; actual SDK command/exec at assigned checkout and neutral scratch, Docker build, network-none Chromium and owned cleanup; zero model turns",
+  "source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+  "status": "PASS"
+}

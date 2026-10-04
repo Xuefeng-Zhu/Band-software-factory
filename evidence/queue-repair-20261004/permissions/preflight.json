@@ -1,0 +1,31 @@
+{
+  "after_sha256": {
+    "cumulative_scoped_ledger": "c02cc868fb2275269675ed94c9e8a855c541fe9e4d8012ebcc2b8bcad68dda08",
+    "default_config": "729b9461b8ff462d6101da994ac679fa9eeede7babd0f5638b055396ed60df47",
+    "default_ledger": "8616dd56a09d7059b3b19dec5aac45c11d6c67fb06a7338ff6eff1a88fd02d84",
+    "global_codex_config": "4ba65a1bb5a84f307bf50dba27c82f454d00bdd813e1a293d0e1b9c88ace2956",
+    "scoped_config": "6b2bf342200ef8e888e1c9f02de9dd742859c42802578fccb4955f8c5e6d0924",
+    "source_lock": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a"
+  },
+  "before_sha256": {
+    "cumulative_scoped_ledger": "c02cc868fb2275269675ed94c9e8a855c541fe9e4d8012ebcc2b8bcad68dda08",
+    "default_config": "729b9461b8ff462d6101da994ac679fa9eeede7babd0f5638b055396ed60df47",
+    "default_ledger": "8616dd56a09d7059b3b19dec5aac45c11d6c67fb06a7338ff6eff1a88fd02d84",
+    "global_codex_config": "4ba65a1bb5a84f307bf50dba27c82f454d00bdd813e1a293d0e1b9c88ace2956",
+    "scoped_config": "6b2bf342200ef8e888e1c9f02de9dd742859c42802578fccb4955f8c5e6d0924",
+    "source_lock": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a"
+  },
+  "changed_files": [],
+  "configuration_sha256": "cef8e193a0cec8d89016339aa63630ae0e76a6411988c648252dc633e119dbe2",
+  "errors": [],
+  "finished_at": "2026-10-04T17:18:51.307325+00:00",
+  "mode": "rehearsal",
+  "model_turns": 0,
+  "room_messages": 0,
+  "scope": "Actual rehearsal preflight and subscription account/config checks only; no Agent start or ledger writes",
+  "source_verification_errors": [
+    "Locked reference document changed or missing: config.toml"
+  ],
+  "started_at": "2026-10-04T17:18:50.000894+00:00",
+  "status": "PASS"
+}

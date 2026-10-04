@@ -1,0 +1,14 @@
+{
+  "source": "BAND console Conversation options > Download > Download full session",
+  "source_file": "/Users/frank/Downloads/MillieMoon-Queue-Repair-Rehearsal.json",
+  "exported_at": "2026-10-04T17:30:45.043Z",
+  "room": {
+    "id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+    "title": "MillieMoon \u00b7 Queue Repair Rehearsal"
+  },
+  "scope": "full",
+  "messages": 392,
+  "sha256": "f34276e8fe262c2c9cc2b7cc08242d4b0f4f279f72ca46859a77574b5dff9c26",
+  "copied_unchanged": true,
+  "recorded_at": "2026-10-04T17:31:09.970409+00:00"
+}

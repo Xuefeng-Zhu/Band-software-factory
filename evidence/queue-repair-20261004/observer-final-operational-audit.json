@@ -1,0 +1,474 @@
+{
+  "observed_at": "2026-10-04T17:31:25.486886+00:00",
+  "status": "PASS_OPERATIONAL_EXERCISE_IDLE",
+  "scope": "Read-only local SDK queue, workflow receipt and cumulative accounting audit; synthetic unscored communication rehearsal, not judged product or model-reasoning evidence",
+  "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+  "owner": {
+    "status": "stopped",
+    "updated_at": "2026-10-04T17:30:15.829285+00:00",
+    "seats": [
+      "pm",
+      "architect",
+      "designer",
+      "backend",
+      "frontend",
+      "qa",
+      "reviewer"
+    ],
+    "workflow": {
+      "state": "idle",
+      "active_turn_ids": [],
+      "sdk_execution_busy": false,
+      "unresolved_incident_ids": [],
+      "seconds_to_next_deadline": null,
+      "notice_attempts": 1,
+      "unknown_notices": [],
+      "sdk_execution_contexts": [
+        {
+          "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        }
+      ]
+    }
+  },
+  "A": {
+    "delivery_id": "QUEUE-A-D1",
+    "all_parts": 12,
+    "declared_total": 12,
+    "complete": true,
+    "acknowledged": true,
+    "ack_event_id": "87995659-f1fa-4267-bf5f-48c3229e40c2",
+    "actual_ack_utc": "2026-10-04T17:26:17.738568Z",
+    "ack_deadline_utc": "2026-10-04T17:25:59.671707+00:00",
+    "busy_samples_before_ack_after_deadline": 36,
+    "sdk_busy_without_admitted_turn_samples": 2,
+    "sdk_only_gap_rows": [
+      {
+        "observed_epoch": 1791134762.980835,
+        "status": "running",
+        "workflow": {
+          "state": "busy",
+          "active_turn_ids": [],
+          "sdk_execution_busy": true,
+          "unresolved_incident_ids": [
+            "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+          ],
+          "seconds_to_next_deadline": null,
+          "notice_attempts": 0,
+          "unknown_notices": [],
+          "sdk_execution_contexts": [
+            {
+              "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": true,
+              "state": "processing",
+              "running": true
+            },
+            {
+              "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            }
+          ]
+        }
+      },
+      {
+        "observed_epoch": 1791134763.486111,
+        "status": "running",
+        "workflow": {
+          "state": "busy",
+          "active_turn_ids": [],
+          "sdk_execution_busy": true,
+          "unresolved_incident_ids": [
+            "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+          ],
+          "seconds_to_next_deadline": null,
+          "notice_attempts": 0,
+          "unknown_notices": [],
+          "sdk_execution_contexts": [
+            {
+              "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": true,
+              "state": "processing",
+              "running": true
+            },
+            {
+              "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            },
+            {
+              "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+              "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+              "queued_events": 0,
+              "processing": false,
+              "state": "idle",
+              "running": true
+            }
+          ]
+        }
+      }
+    ],
+    "first_busy_row": {
+      "observed_epoch": 1791134759.953087,
+      "status": "running",
+      "workflow": {
+        "state": "busy",
+        "active_turn_ids": [
+          "backend:49:a549946c-b96b-4d54-8385-3a8a0ee71147"
+        ],
+        "sdk_execution_busy": true,
+        "unresolved_incident_ids": [
+          "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+        ],
+        "seconds_to_next_deadline": 589.7573881149292,
+        "notice_attempts": 0,
+        "unknown_notices": [],
+        "sdk_execution_contexts": [
+          {
+            "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 1,
+            "processing": true,
+            "state": "processing",
+            "running": true
+          },
+          {
+            "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          }
+        ]
+      }
+    },
+    "last_busy_row": {
+      "observed_epoch": 1791134777.6311738,
+      "status": "running",
+      "workflow": {
+        "state": "busy",
+        "active_turn_ids": [
+          "backend:50:ca7bde5d-4a0c-4903-8e67-e7da0de00b1c"
+        ],
+        "sdk_execution_busy": true,
+        "unresolved_incident_ids": [
+          "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+        ],
+        "seconds_to_next_deadline": 586.0045533180237,
+        "notice_attempts": 0,
+        "unknown_notices": [],
+        "sdk_execution_contexts": [
+          {
+            "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": true,
+            "state": "processing",
+            "running": true
+          },
+          {
+            "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          },
+          {
+            "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+            "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+            "queued_events": 0,
+            "processing": false,
+            "state": "idle",
+            "running": true
+          }
+        ]
+      }
+    },
+    "all_window_notice_attempts_zero": true
+  },
+  "B": {
+    "delivery_id": "QUEUE-B-D1",
+    "complete": true,
+    "acknowledged": true,
+    "ack_event_id": "4029c172-0886-477e-b7af-85ef29af4d5c",
+    "notice_count": 1,
+    "notice": {
+      "attempt": 1,
+      "claimed_at": 1791134909.2515168,
+      "content_sha256": "4b7252bdcad66390f3178256a2ad69e63fa7db8a4dab03878e83e02b79c7973f",
+      "event_id": "a8dddf6d-0c1f-4726-bca3-b1f96ea4fd3e",
+      "handled_at": 1791134921.947579,
+      "handled_by": [
+        "b2f43e4e-7727-44bb-9154-6cdc2b781749"
+      ],
+      "incident_id": "turn:pm:181:87995659-f1fa-4267-bf5f-48c3229e40c2",
+      "recipient_ids": [
+        "b2f43e4e-7727-44bb-9154-6cdc2b781749"
+      ],
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "sent_at": 1791134909.530957,
+      "status": "sent"
+    },
+    "notice_delay_from_first_part_seconds": 120.30270266532898,
+    "notice_source_and_recipient_match_original": true,
+    "same_incident": true
+  },
+  "bounds": {
+    "dispatch_utc": "2026-10-04T17:22:12.648744Z",
+    "dispatch_hardstop_utc": "2026-10-04T17:32:12.648744Z",
+    "approval_deadline_utc": "2026-10-04T17:42:53Z",
+    "baseline_tokens": 84080166,
+    "current_tokens": 86011577,
+    "additional_reported_tokens": 1931411,
+    "additional_ceiling": 2000000,
+    "absolute_token_ceiling": 86080166,
+    "tokens_within_ceiling": true,
+    "original_started_epoch_unchanged": true,
+    "per_seat_turn_delta": {
+      "architect": 0,
+      "backend": 17,
+      "designer": 0,
+      "frontend": 0,
+      "pm": 5,
+      "qa": 0,
+      "reviewer": 0
+    },
+    "local_turn_intervals_overlap": [],
+    "single_active_turn_observed": true,
+    "all_local_turns_completed": true,
+    "completion_before_dispatch_hardstop": true
+  },
+  "references": {
+    "workflow": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-final-workflow.json",
+      "sha256": "d564bcd13ebb360276f206324cbba7524dab113c02e6e84ed4d130659e9243c8"
+    },
+    "budget": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/observer-final-budget.json",
+      "sha256": "a77f6b128bf21a0bfca72e83037ebde88ac5cc8558ce3b8d914610e3d56ad741"
+    },
+    "public_text_snapshot": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/independent-text-snapshot-20261004T172917094897Z-page1.json",
+      "sha256": "4fdd571be11623ea2d9a51c67358539e42a9908438a3d5f1666acda344444cd4"
+    },
+    "queue_prefix": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/queue-observations.jsonl",
+      "bytes": 1548691,
+      "sha256": "31375c720001631ceeb7ce2bb5fb956320e2250c7ebfc177d01be6cd6767204e"
+    }
+  },
+  "limitations": [
+    "Earlier observer-a-deadline.json had55 unbounded post-deadline samples including subsequent B activity; this final audit correctly restricts A to36 samples before its actual ACK while A remained unresolved.",
+    "LocalSDKqueue evidence does not prove remote backlog absence.",
+    "Declared digest and canonical ACK are supported by public text; this audit does not inspect private model reasoning or independently recover shell stdout.",
+    "Runtime idle/complete was observed within bounds; final owned process stop is separately recorded by the root operator."
+  ]
+}

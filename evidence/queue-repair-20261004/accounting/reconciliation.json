@@ -1,0 +1,34 @@
+{
+  "status": "RECONCILED_AND_CLOSED",
+  "at": "2026-10-04T17:32:56.061551+00:00",
+  "baseline_tokens": 84080166,
+  "final_reported_tokens": 86011577,
+  "additional_reported_tokens": 1931411,
+  "remaining_rehearsal_tokens_not_authorization": 68589,
+  "original_started_epoch": 1791049765.700437,
+  "previous_threads_preserved": 28,
+  "new_threads": 2,
+  "no_owned_writers_alive": true,
+  "all_22_turns_completed_before_stop": true,
+  "canonical_and_scoped_identical": true,
+  "stop_reason": "Approved queue repair rehearsal completed and closed; fresh explicit authorization and consumption reconciliation required before more live work.",
+  "only_postrun_changes": [
+    "stopped_reason",
+    "room_stopped_reasons[new_rehearsal]",
+    "updated_at"
+  ],
+  "hashes": {
+    "baseline": "8616dd56a09d7059b3b19dec5aac45c11d6c67fb06a7338ff6eff1a88fd02d84",
+    "scoped_final_raw": "a77f6b128bf21a0bfca72e83037ebde88ac5cc8558ce3b8d914610e3d56ad741",
+    "reconciled_closed": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e"
+  },
+  "read_only_launch_blockers": {
+    "original": [
+      "Existing cumulative budget ledger is malformed or has changed scope; preserve it before launch."
+    ],
+    "rehearsal": [
+      "Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required."
+    ]
+  },
+  "original_config_and_freeze_modified": false
+}

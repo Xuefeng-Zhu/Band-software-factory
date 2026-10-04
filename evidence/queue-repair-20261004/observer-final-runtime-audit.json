@@ -1,0 +1,346 @@
+{
+  "checked_at": "2026-10-04T17:32:27.750590+00:00",
+  "status": "PASS",
+  "scope": "Read-only final owned-process identity, serialized turn and cumulative token audit; no process signals issued",
+  "owner_status": "stopped",
+  "stopped_at": "2026-10-04T17:30:15.829285+00:00",
+  "seconds_dispatch_to_stopped": 483.1805408000946,
+  "stopped_before_dispatch_600s": true,
+  "guard_result": {
+    "status": "OWNER_ALREADY_STOPPED",
+    "owner_status": "stopped",
+    "at": 1791135015.852662
+  },
+  "processes": [
+    {
+      "role": "parent",
+      "pid": 64200,
+      "recorded_created": 1791134488.368569,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64280,
+      "recorded_created": 1791134533.649248,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64771,
+      "recorded_created": 1791134617.297664,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64775,
+      "recorded_created": 1791134617.530909,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64852,
+      "recorded_created": 1791134618.038819,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64853,
+      "recorded_created": 1791134618.038822,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64855,
+      "recorded_created": 1791134618.038939,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 65114,
+      "recorded_created": 1791134618.581982,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 65207,
+      "recorded_created": 1791134622.969569,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 65077,
+      "recorded_created": 1791134618.435491,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64284,
+      "recorded_created": 1791134533.904522,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64432,
+      "recorded_created": 1791134534.697267,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64433,
+      "recorded_created": 1791134534.697294,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64434,
+      "recorded_created": 1791134534.697363,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64640,
+      "recorded_created": 1791134535.249392,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64741,
+      "recorded_created": 1791134544.413831,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    },
+    {
+      "role": "child",
+      "pid": 64632,
+      "recorded_created": 1791134535.115923,
+      "still_owned_and_alive": false,
+      "pid_exists": false
+    }
+  ],
+  "any_alive_owned_process": false,
+  "turn_count": 22,
+  "all_completed": true,
+  "all_turn_durations_at_most_600": true,
+  "max_turn_duration_seconds": 83.64846611022949,
+  "overlapping_admitted_turns": [],
+  "turns": [
+    {
+      "turn_id": "pm:179:dcb6d175-0b5a-41cc-8abf-c89b18c59559",
+      "started_epoch": 1791134533.645681,
+      "ended_epoch": 1791134617.294147,
+      "duration_seconds": 83.64846611022949,
+      "status": "completed",
+      "deadline_epoch": 1791135133.6454961
+    },
+    {
+      "turn_id": "backend:38:672e8932-f7d6-4460-9848-4775effc9aad",
+      "started_epoch": 1791134617.296036,
+      "ended_epoch": 1791134630.216095,
+      "duration_seconds": 12.920058965682983,
+      "status": "completed",
+      "deadline_epoch": 1791135217.295996
+    },
+    {
+      "turn_id": "pm:180:dc429911-1a82-41fb-a1e4-df81656137c3",
+      "started_epoch": 1791134630.217706,
+      "ended_epoch": 1791134658.6161869,
+      "duration_seconds": 28.398480892181396,
+      "status": "completed",
+      "deadline_epoch": 1791135230.217668
+    },
+    {
+      "turn_id": "backend:39:f8b4ba9d-4d25-4b12-b408-52041adbde50",
+      "started_epoch": 1791134658.617792,
+      "ended_epoch": 1791134670.916379,
+      "duration_seconds": 12.298587083816528,
+      "status": "completed",
+      "deadline_epoch": 1791135258.617763
+    },
+    {
+      "turn_id": "backend:40:de4636ec-0406-455e-af7b-b85c99233fe0",
+      "started_epoch": 1791134671.395158,
+      "ended_epoch": 1791134678.31909,
+      "duration_seconds": 6.923931837081909,
+      "status": "completed",
+      "deadline_epoch": 1791135271.395092
+    },
+    {
+      "turn_id": "backend:41:1971a554-1d4c-452a-a770-f9afdf57ff6f",
+      "started_epoch": 1791134678.886483,
+      "ended_epoch": 1791134684.7601101,
+      "duration_seconds": 5.873627185821533,
+      "status": "completed",
+      "deadline_epoch": 1791135278.8864121
+    },
+    {
+      "turn_id": "backend:42:41ac32b3-2045-4da6-a585-5d68f5fb8290",
+      "started_epoch": 1791134685.2577431,
+      "ended_epoch": 1791134694.71656,
+      "duration_seconds": 9.458816766738892,
+      "status": "completed",
+      "deadline_epoch": 1791135285.2576818
+    },
+    {
+      "turn_id": "backend:43:4f922e7b-0190-45d9-9f30-c7fc8327004d",
+      "started_epoch": 1791134695.191457,
+      "ended_epoch": 1791134702.122439,
+      "duration_seconds": 6.930981874465942,
+      "status": "completed",
+      "deadline_epoch": 1791135295.191416
+    },
+    {
+      "turn_id": "backend:44:ddf209fe-8e71-4a95-a791-9938585708c1",
+      "started_epoch": 1791134702.622397,
+      "ended_epoch": 1791134712.084123,
+      "duration_seconds": 9.461725950241089,
+      "status": "completed",
+      "deadline_epoch": 1791135302.622355
+    },
+    {
+      "turn_id": "backend:45:b645f596-9c1b-4508-aa29-41ef660e4a70",
+      "started_epoch": 1791134712.614939,
+      "ended_epoch": 1791134721.561481,
+      "duration_seconds": 8.946542024612427,
+      "status": "completed",
+      "deadline_epoch": 1791135312.614913
+    },
+    {
+      "turn_id": "backend:46:7c90ae7a-3f21-432f-936d-fb2380c6aa54",
+      "started_epoch": 1791134722.408938,
+      "ended_epoch": 1791134728.933395,
+      "duration_seconds": 6.524456977844238,
+      "status": "completed",
+      "deadline_epoch": 1791135322.408898
+    },
+    {
+      "turn_id": "backend:47:de214cc7-9fc2-459f-ac8a-3dacb0976209",
+      "started_epoch": 1791134729.456665,
+      "ended_epoch": 1791134741.296337,
+      "duration_seconds": 11.839671850204468,
+      "status": "completed",
+      "deadline_epoch": 1791135329.4565911
+    },
+    {
+      "turn_id": "backend:48:846577e6-6b16-4e57-b661-86516a1680ad",
+      "started_epoch": 1791134741.798768,
+      "ended_epoch": 1791134748.889618,
+      "duration_seconds": 7.090849876403809,
+      "status": "completed",
+      "deadline_epoch": 1791135341.79874
+    },
+    {
+      "turn_id": "backend:49:a549946c-b96b-4d54-8385-3a8a0ee71147",
+      "started_epoch": 1791134749.400747,
+      "ended_epoch": 1791134762.398771,
+      "duration_seconds": 12.998023986816406,
+      "status": "completed",
+      "deadline_epoch": 1791135349.400658
+    },
+    {
+      "turn_id": "backend:50:ca7bde5d-4a0c-4903-8e67-e7da0de00b1c",
+      "started_epoch": 1791134762.90167,
+      "ended_epoch": 1791134780.620623,
+      "duration_seconds": 17.718953132629395,
+      "status": "completed",
+      "deadline_epoch": 1791135362.9016051
+    },
+    {
+      "turn_id": "pm:181:87995659-f1fa-4267-bf5f-48c3229e40c2",
+      "started_epoch": 1791134780.622443,
+      "ended_epoch": 1791134792.122738,
+      "duration_seconds": 11.500294923782349,
+      "status": "completed",
+      "deadline_epoch": 1791135380.622415
+    },
+    {
+      "turn_id": "backend:51:098f5c50-04fa-4990-9260-51c6801a44d1",
+      "started_epoch": 1791134792.177963,
+      "ended_epoch": 1791134812.440375,
+      "duration_seconds": 20.262412071228027,
+      "status": "completed",
+      "deadline_epoch": 1791135392.164327
+    },
+    {
+      "turn_id": "backend:52:a8dddf6d-0c1f-4726-bca3-b1f96ea4fd3e",
+      "started_epoch": 1791134909.9092019,
+      "ended_epoch": 1791134921.9445179,
+      "duration_seconds": 12.035315990447998,
+      "status": "completed",
+      "deadline_epoch": 1791135509.908607
+    },
+    {
+      "turn_id": "pm:182:a9e9d3d9-4092-4201-9cd9-b784c0e2824e",
+      "started_epoch": 1791134921.950022,
+      "ended_epoch": 1791134934.250834,
+      "duration_seconds": 12.300812005996704,
+      "status": "completed",
+      "deadline_epoch": 1791135521.949963
+    },
+    {
+      "turn_id": "backend:53:d701d5d2-e6d4-43a9-9200-c0bfc8f1256e",
+      "started_epoch": 1791134934.3028731,
+      "ended_epoch": 1791134949.082578,
+      "duration_seconds": 14.779704809188843,
+      "status": "completed",
+      "deadline_epoch": 1791135534.2908218
+    },
+    {
+      "turn_id": "pm:183:4029c172-0886-477e-b7af-85ef29af4d5c",
+      "started_epoch": 1791134949.086057,
+      "ended_epoch": 1791134981.8360572,
+      "duration_seconds": 32.75000023841858,
+      "status": "completed",
+      "deadline_epoch": 1791135549.085998
+    },
+    {
+      "turn_id": "backend:54:ae15b3c2-c8ae-4130-a539-1610114221bd",
+      "started_epoch": 1791134981.837813,
+      "ended_epoch": 1791134988.649334,
+      "duration_seconds": 6.811521053314209,
+      "status": "completed",
+      "deadline_epoch": 1791135581.837787
+    }
+  ],
+  "reported_tokens": 86011577,
+  "baseline_reported_tokens": 84080166,
+  "additional_reported_tokens": 1931411,
+  "additional_cap": 2000000,
+  "within_additional_cap": true,
+  "references": {
+    "owner": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/owner.json",
+      "sha256": "92b18a37572ca542292fbb34078d65dfdd757369225efb2abf86762ec874caeb"
+    },
+    "workflow": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/workflow-4ec4749d-5dff-4d41-ae9b-5a5bc82462ac.json",
+      "sha256": "d564bcd13ebb360276f206324cbba7524dab113c02e6e84ed4d130659e9243c8"
+    },
+    "budget": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/budget-subscription.json",
+      "sha256": "a77f6b128bf21a0bfca72e83037ebde88ac5cc8558ce3b8d914610e3d56ad741"
+    },
+    "guard_result": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/guard-result.json",
+      "sha256": "4527aa228dd02b61f7627fc01bfcb272ffdcf10740d048e73d45886170546d79"
+    },
+    "official_session_export": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/room.json",
+      "sha256": "f34276e8fe262c2c9cc2b7cc08242d4b0f4f279f72ca46859a77574b5dff9c26"
+    }
+  }
+}

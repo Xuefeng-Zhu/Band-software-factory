@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "finished_at": "2026-10-04T17:22:13.055025+00:00",
+  "hard_stop_epoch": 1791135132.6487439,
+  "packet_sha256": "a3101534d02f5d86c24399c2d50dde84dac0fee6ef149744679943996dacc871",
+  "recipient": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+  "room": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+  "started_at": "2026-10-04T17:22:12.648744+00:00",
+  "started_epoch": 1791134532.6487439,
+  "status": "ROOM_EVENT_VERIFIED_EXACTLY_ONCE",
+  "event_id": "dcb6d175-0b5a-41cc-8abf-c89b18c59559",
+  "event_inserted_at": "2026-10-04T17:22:12.993259Z",
+  "verified_at": "2026-10-04T17:28:04.941698+00:00",
+  "exact_content_sha256": "a3101534d02f5d86c24399c2d50dde84dac0fee6ef149744679943996dacc871",
+  "verification_source": "independent-text-snapshot-20261004T172617062661Z-page1.json"
+}

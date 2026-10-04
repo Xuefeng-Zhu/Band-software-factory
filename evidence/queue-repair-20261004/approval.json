@@ -1,0 +1,18 @@
+{
+  "approved": true,
+  "user_message": "approve",
+  "scope": "Prepared communication-only queue repair rehearsal, new room with existing seven identities plus Frank; no judged application work",
+  "authorization_observed_at": "2026-10-04T17:12:53Z",
+  "overall_deadline_utc": "2026-10-04T17:42:53Z",
+  "additional_reported_token_limit": 2000000,
+  "baseline_reported_tokens": 84080166,
+  "rehearsal_cumulative_token_ceiling": 86080166,
+  "original_cumulative_token_ceiling": 100000000,
+  "max_active_seats": 1,
+  "dispatch_to_stop_seconds": 600,
+  "max_turn_seconds": 600,
+  "max_notices_per_incident": 2,
+  "api_billing_allowed": false,
+  "paid_provisioning_allowed": false,
+  "prior_counters_preserved": true
+}

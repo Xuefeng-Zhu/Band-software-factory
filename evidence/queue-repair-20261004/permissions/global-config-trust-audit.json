@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-04T17:19:51.200805+00:00",
+  "current_global_config_sha256": "4ba65a1bb5a84f307bf50dba27c82f454d00bdd813e1a293d0e1b9c88ace2956",
+  "exact_previous_reconstructed": true,
+  "only_difference": {
+    "key_path": "projects./Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/permissions/scratch.trust_level",
+    "value": "trusted"
+  },
+  "previous_pinned_sha256": "f34aabc2421ecf19b8d34d42c853c882f466477313685bdde9ec248a3c4edb39",
+  "scope": "In-memory byte comparison only; removal of this exact newly auto-added neutral scratch trust section reproduces pinned hash. No other global setting differs. No global config or source-lock write performed.",
+  "source_and_configuration_writes": false,
+  "source_lock_sha256": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a"
+}

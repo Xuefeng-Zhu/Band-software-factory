@@ -1,0 +1,133 @@
+{
+  "audited_at": "2026-10-04T17:20:27.075713+00:00",
+  "status": "PASS_SCOPED_STATIC_PACKET_REVIEW",
+  "scope": "Independent read-only review of final single initial human rehearsal packet, fixture bytes, frozen sender/recipient rules, declared finite limits and local pre-dispatch bindings. No BAND API, message, runtime start or model call was made by this auditor.",
+  "factory_revision": "c53ea314f21ab37f36e927ab503c086bd2ecced9",
+  "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+  "configuration_sha256": "cef8e193a0cec8d89016339aa63630ae0e76a6411988c648252dc633e119dbe2",
+  "runtime_fingerprint": "39350004de62b6ae8b6e5e2beb5b56b220c5d37e0f6ca778e31f544ec7b6f98b",
+  "packet_sha256": "a3101534d02f5d86c24399c2d50dde84dac0fee6ef149744679943996dacc871",
+  "packet_bytes": 7652,
+  "findings": [],
+  "checks": [
+    "One complete ordinary Backend setup and its distinct ASSIGNMENT-READY reply precede A; setup text does not count as a numbered fixture part.",
+    "A requires twelve actual numbered messages, exact216-byte ASCII/LF payload, independently calculated digest and canonical standalone receipt before B.",
+    "Both actors yield turns rather than sleep/poll; B1 explicitly has no proactive request or ACK before the actual automatic notice.",
+    "PM may send original B2 only after the resulting real Backend request; same delivery, payload, digest and sender/recipient bindings remain required.",
+    "B deliberately withholds one synthetic transport part under complete prior test requirements; it does not authorize incomplete judged assignments.",
+    "Messaging, read-only turn clock and local no-network fixture-digest commands are explicitly allowed; product work, files/commits, nested operators, identities, resets and unknown-send retries are excluded.",
+    "Historical proposal authorization wording is explicitly superseded by recorded human approval and the absolute overall deadline.",
+    "Config/manifest canonical hash and packet hash/length match; current SDK registration has seven seats and matches the separate runtime fingerprint.",
+    "Practice checkout contains only.git and correctly declares UNBORN; historical ledger changed only by appending the new room scope.",
+    "Baseline84080166 and cumulative ceiling86080166 enforce the approved2Mdelta; original origins/counters remain. One active seat,600s room/turn,120s ACK and2notices are configured."
+  ],
+  "payloads": {
+    "A": {
+      "bytes": 216,
+      "sha256": "96f11730eea33e816c0ea745e4592b713c971785d73b7160719c6a673fb79e81"
+    },
+    "B": {
+      "bytes": 36,
+      "sha256": "cfe87bdc467cf8f1ec05fbb71bce3369517c57759441ca3a5ae3dc7c7fe3f9c5"
+    }
+  },
+  "membership_scope": {
+    "local_creation_record": "CREATED_AND_VERIFIED with sevenagents plusFrank; PMowner",
+    "registration_checked_at": "2026-10-04T17:15:40.031391+00:00",
+    "fresh_native_membership_only_read": "Reported by parent immediately before this audit; raw snapshot was not independently inspected here. This static PASS is not a new room-history certification."
+  },
+  "limitations": [
+    "No actual model prompt, future adherence, receipt, notice, queue-delay branch, final export or live success is established.",
+    "A may finish before the ACKdeadline; the packet explicitly leaves overdue-queue live proofUNVERIFIED in that outcome.",
+    "Local SDK queue idle is not evidence that remote backlog is empty.",
+    "Operator must enforce stop no later than600seconds from actual dispatch and earlier on any applicable limit. Config600second room clock is an additional independent boundary.",
+    "This is communication-only rehearsal authority, not judged restart, source modification, participant-authorship compliance, publication or submission readiness."
+  ],
+  "evidence": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/dispatch-packet.md",
+      "bytes": 7652,
+      "sha256": "a3101534d02f5d86c24399c2d50dde84dac0fee6ef149744679943996dacc871"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/dispatch-packet.manifest.json",
+      "bytes": 633,
+      "sha256": "88c314d576e386c40ab4243cf9b6a4359e933633b6c11880fb150a6a55c964b0"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/factory.yaml",
+      "bytes": 4987,
+      "sha256": "6b2bf342200ef8e888e1c9f02de9dd742859c42802578fccb4955f8c5e6d0924"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/approval.json",
+      "bytes": 714,
+      "sha256": "8ba5fe900e8e2a450c848f15e0a51f2974c1a90b226b84ebac6a28d6a79bfaae"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/configuration-and-accounting.json",
+      "bytes": 622,
+      "sha256": "8357844dbc5f6196cd89d976cdb0243d89e563988cffdb8264d59bb864130baa"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/rehearsal-room.json",
+      "bytes": 2207,
+      "sha256": "8c1f00cd9ee578d4e999ad03ffa92a7c958d49d64916d5eb0568a7ac6e0c0fb9"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/registration-rehearsal.json",
+      "bytes": 1857,
+      "sha256": "ef387be29ade35b30d5d039e6e40fed9ce23986254de99321d8c4eafcf1086ea"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/before/budget-subscription.json",
+      "bytes": 4977,
+      "sha256": "8616dd56a09d7059b3b19dec5aac45c11d6c67fb06a7338ff6eff1a88fd02d84"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/runtime/budget-subscription.json",
+      "bytes": 5021,
+      "sha256": "c02cc868fb2275269675ed94c9e8a855c541fe9e4d8012ebcc2b8bcad68dda08"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/queue-repair-rehearsal-plan.md",
+      "bytes": 4963,
+      "sha256": "f3a2a31421fb002834abc6c939290a45d56b7fa1dd9ecea3ff04575923782ebf"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "bytes": 6715,
+      "sha256": "d2ff661c5c55b9056f913ce006271ed6c8267f85e0b14d98a054105871ad70b5"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "bytes": 5666,
+      "sha256": "c95440a1948c41f7e4425e56bfaea15fac7297a6567bbdcae4259eba78596c3d"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/collaboration.md",
+      "bytes": 8027,
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/evidence-and-limits.md",
+      "bytes": 3542,
+      "sha256": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/workflow.py",
+      "bytes": 32845,
+      "sha256": "b845ce8b5a96b256f6057a713379677485b82298b0213065ff05748c5a74206f"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/workflow_runtime.py",
+      "bytes": 15260,
+      "sha256": "5e3504b37283ab26345ecf7bdb36afa41f5ce22827906d0d878898f28ad56add"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+      "bytes": 71159,
+      "sha256": "ab09113e8eefafc506b14e73a3c99907e51a765fbea5ae481fe32263ed35a1f7"
+    }
+  ]
+}

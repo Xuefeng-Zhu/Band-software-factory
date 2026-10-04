@@ -1,6 +1,6 @@
 # Proposed communication-only repair rehearsal
 
-State: PREPARED, NOT AUTHORIZED OR DISPATCHED. No model turns, new rooms or messages were created for this plan.
+Historical proposal, now completed under a separately recorded explicit approval on October 4. The exact dispatched packet and verified result are preserved in the [live rehearsal report](queue-repair-live-result.md). The proposal below remains as written; its limits do not authorize another run.
 
 The proposed new room is **MillieMoon · Queue Repair Rehearsal**, containing the same seven configured seat identities and Frank. Only PM and Backend need model turns for this focused exercise. Use a separate empty practice checkout. No judged application build, restart, stage rerun, API billing or paid provisioning is included.
 

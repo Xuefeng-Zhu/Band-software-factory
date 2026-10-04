@@ -1,0 +1,241 @@
+{
+  "observed_at": "2026-10-04T17:26:35.547177+00:00",
+  "scope": "Read-only operational queue/workflow evidence; no BAND calls or reasoning",
+  "delivery_id": "QUEUE-A-D1",
+  "first_part_epoch": 1791134639.671707,
+  "ack_deadline_epoch": 1791134759.671707,
+  "ack_deadline_utc": "2026-10-04T17:25:59.671707+00:00",
+  "delivery_complete": true,
+  "delivery_acknowledged_at_capture": true,
+  "source_prefix": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/queue-repair-live-20261004/queue-observations.jsonl",
+    "bytes": 849451,
+    "sha256": "b0941dab0421f3e0bd62946a4ef179709cdd62439d6a431cf5e4871a2c252ba6"
+  },
+  "queued_or_processing_past_deadline_count": 55,
+  "first_past_deadline": {
+    "observed_epoch": 1791134759.953087,
+    "status": "running",
+    "workflow": {
+      "state": "busy",
+      "active_turn_ids": [
+        "backend:49:a549946c-b96b-4d54-8385-3a8a0ee71147"
+      ],
+      "sdk_execution_busy": true,
+      "unresolved_incident_ids": [
+        "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+      ],
+      "seconds_to_next_deadline": 589.7573881149292,
+      "notice_attempts": 0,
+      "unknown_notices": [],
+      "sdk_execution_contexts": [
+        {
+          "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 1,
+          "processing": true,
+          "state": "processing",
+          "running": true
+        },
+        {
+          "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        }
+      ]
+    }
+  },
+  "last_past_deadline": {
+    "observed_epoch": 1791134795.29678,
+    "status": "running",
+    "workflow": {
+      "state": "busy",
+      "active_turn_ids": [
+        "backend:51:098f5c50-04fa-4990-9260-51c6801a44d1"
+      ],
+      "sdk_execution_busy": true,
+      "unresolved_incident_ids": [
+        "turn:pm:181:87995659-f1fa-4267-bf5f-48c3229e40c2"
+      ],
+      "seconds_to_next_deadline": 596.8794560432434,
+      "notice_attempts": 0,
+      "unknown_notices": [],
+      "sdk_execution_contexts": [
+        {
+          "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": true,
+          "state": "processing",
+          "running": true
+        },
+        {
+          "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        }
+      ]
+    }
+  },
+  "sdk_busy_without_admitted_turn_count": 2,
+  "sdk_busy_without_admitted_turn_first": {
+    "observed_epoch": 1791134762.980835,
+    "status": "running",
+    "workflow": {
+      "state": "busy",
+      "active_turn_ids": [],
+      "sdk_execution_busy": true,
+      "unresolved_incident_ids": [
+        "turn:pm:180:dc429911-1a82-41fb-a1e4-df81656137c3"
+      ],
+      "seconds_to_next_deadline": null,
+      "notice_attempts": 0,
+      "unknown_notices": [],
+      "sdk_execution_contexts": [
+        {
+          "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": true,
+          "state": "processing",
+          "running": true
+        },
+        {
+          "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+          "room_id": "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        }
+      ]
+    }
+  },
+  "limitation": "Queue/PROCESSING past the deadline is observed; an SDK-only gap with no admitted model turn is a separate observation and is not assumed."
+}
