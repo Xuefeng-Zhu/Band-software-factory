@@ -1,0 +1,935 @@
+{
+  "created_at": "2026-10-04T21:19:39.402984+00:00",
+  "status": "GOAL_INCOMPLETE",
+  "purpose": "Full-scope operator baseline against the original request and subsequent authorized judged-build goal. Setup verification is not product completion.",
+  "authority": {
+    "original_request": {
+      "path": "/Users/frank/.codex/attachments/b207a4dc-3590-4171-ad63-ef076fa541b4/Pasted text.txt",
+      "sha256": "4e8cae3211bd01d5e579a07c6ec44cb2fa25900ac5407b8eb5707d6e45a1d233"
+    },
+    "pinned_participant_guide": {
+      "path": "/Users/frank/mygit/Tablekeeper/challenge/docs/participant-guide.md",
+      "sha256": "1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4"
+    },
+    "upstream_commit": "803560d2a678ace1414465c098eb0ab5380ffade",
+    "specs": [
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+        "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f"
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-2.md",
+        "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc"
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-3.md",
+        "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe"
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-4.md",
+        "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4"
+      }
+    ],
+    "later_scope": "User authorized actual build,private GitHub/progress commits,single-repo attempt branches,document drafting,and one finite Run5 dispatch. Parent reports latest goal make everything working.",
+    "guidance": "All exact source clauses remain authoritative; this grouping is an audit summary,not a replacement task packet or test oracle."
+  },
+  "status_definitions": {
+    "VERIFIED": "Only stated layer is directly evidenced; limitations remain material.",
+    "INCOMPLETE": "Required deliverable/work is absent or unfinished in this attempt.",
+    "UNVERIFIED": "No sufficient independent proof for this acceptance layer,even if prerequisites or plans exist.",
+    "OUTSIDE_APPROVED_SCOPE": "Needed for eventual submission or further work,but not authorized by the consumed Run5 launch."
+  },
+  "completion_standard": [
+    "All requested factory capabilities reproducible with truthful evidence and finite ownership/permissions.",
+    "All4 Run5 stage implementations meet full inherited written behavior and independent exact-candidate gates,including integrated Stage2 UI and upgrades; shipped suite labels alone do not establish completion.",
+    "Final repository/documents/genuine room export/media package and fresh-clone checks are completed and inspectable.",
+    "Public release and final submission remain separate authorized actions; cannot claim submission completion without real receipt."
+  ],
+  "snapshot": {
+    "clock_read_utc": "2026-10-04 21:16:41 UTC",
+    "product_head": "808f13609675c3acbc48c09ac843239e3a1762f5",
+    "git_status": "",
+    "tracked_file_count": 14,
+    "stage_directories": [],
+    "accepted_run5_stages": [],
+    "owner_record_status": "running",
+    "owner_record_updated_at": "2026-10-04T21:19:39.066067+00:00",
+    "current_active_turn_ids": [
+      "qa:26:ce2600f1-3e0f-4106-9f7d-d4abef21edd9"
+    ],
+    "workflow_state": "busy",
+    "unresolved_incidents": [],
+    "global_halt": null,
+    "run5_halt": null,
+    "reported_tokens_snapshot": 147713379,
+    "baseline_tokens": 145683099,
+    "run5_reported_delta_snapshot": 2030280,
+    "remaining_total_token_ceiling": 138298198,
+    "ledger_snapshot_sha256": "e772577ea91e6121b37a3742abb7002e14d3e78d913113430afd368b7fa56301",
+    "ledger_updated_at": "2026-10-04T21:19:34.230476+00:00",
+    "factory_deadline_utc": "2026-10-05T02:35:03.700437Z",
+    "event_deadline_utc": "2026-10-06T06:59:00Z",
+    "event_window_proof": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/submission-window.json",
+      "sha256": "020cf356c5deb4843a39742d325fac60df35e907c69a3be4323a5595d18f85cc"
+    },
+    "no_final_spend_usd_available": true,
+    "scope": "Point-in-time filesystem/record baseline; parent separately confirmed process liveness. Active product files can change after read; their hashes are historical snapshots,not frozen inputs."
+  },
+  "requirement_groups": [
+    {
+      "id": "F01",
+      "title": "Pinned authoritative inputs",
+      "status": "VERIFIED",
+      "requirement": "Pinned challenge, four exact specs, guide and integration/instruction docs with source hashes and versions.",
+      "authority": "Original sections2,3; participant guide build procedure",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock.json",
+          "sha256": "5d631804357249b4cd1beb2b8d274906ea5606d937d7f63455e4a36af09bebf2"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/source-lock-history.json",
+          "sha256": "d7ca3c22addc047fc48258d501c5ed630a99ce7ab09196d8140f307da6cbcfd6"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/tasks/task-manifest.json",
+          "sha256": "6ac4aa09e2d65e799c23f6de7f3592cb2ae725bee813295dd15b4f94813f03eb"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Preparation operator",
+      "limitations": [
+        "Frozen sources must not refresh during live run. SDK-added exact result-root trust section is separately audited; current restart source check is blocked until later scoped reconciliation."
+      ]
+    },
+    {
+      "id": "F02",
+      "title": "Isolated workspaces and unseeded product provenance",
+      "status": "VERIFIED",
+      "requirement": "Factory, challenge, toy rehearsal, evidence and fresh judged repository are separate; no operator product seed.",
+      "authority": "Original sections1,3; guide481\u2013495",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/pre-dispatch-independent-audit.json",
+          "sha256": "e79856e36be2e1d99bf47a79d4de7adccaf95211b92144fcc6ee4e2f6d11cffd"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/checkout-preparation.json",
+          "sha256": "31f611c8fc125e2391f613f619b51d2edd26e080b15af5118ebbdd0a790c8d6a"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/postlaunch-audit.json",
+          "sha256": "7f76ecc0f64cf109a92cec7d1ee16ad8a1813689abc25e783048a12cf0702d9a"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Preparation operator",
+      "limitations": [
+        "The fresh-empty claim refers to the observed pre-dispatch state; band-authored product/planning files now exist. Branch hosting is participant preference; guide does not expressly endorse that arrangement."
+      ]
+    },
+    {
+      "id": "F03",
+      "title": "Seven real identities and supported runtime",
+      "status": "VERIFIED",
+      "requirement": "Seven distinct BAND seats with actual handles, own mandates, maintained Codex adapter, explicit Astra model and per-role effort.",
+      "authority": "Original sections1,4,5",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/registration-judged.json",
+          "sha256": "c503e56f3fbadbff8dd5f605dd674921c5e1183e060830bcd87d3a18ae71acab"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/registration-rehearsal.json",
+          "sha256": "6ab7b366a2fa297129807f967657466789a436d3d0d06da7ec991090d9662392"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/models.json",
+          "sha256": "2cb19db41e766f863cd70b3ae6d8f56aab2fda7c31b14559247b7b5aed8ed227"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/factory.yaml",
+          "sha256": "b0db7033eed0d4aaa851e23f7f42403a0df98b82450e782ea0b3e73b1cd25960"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Preparation operator",
+      "limitations": [
+        "Registration/current process activity does not establish meaningful completed ownership by all seven in this attempt."
+      ]
+    },
+    {
+      "id": "F04",
+      "title": "Generic standing instructions and exact task separation",
+      "status": "VERIFIED",
+      "requirement": "All standing mandates, protocols, launcher sections and inherited instructions remain generic; track specs only in dispatched task.",
+      "authority": "Original sections3,4,8; guide607\u2013628",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/semantic-review.json",
+          "sha256": "ff5037b1766137097227e77e72fcfd74f4bf6bb912341cfba50ccc6d046750e1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/launch-authorization-revalidation.json",
+          "sha256": "9140ee61e4c0e51cd0512556fc656625524597a35c28372feb57d9ffb46eb1a6"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/standing-instruction-update.json",
+          "sha256": "7cd7975f022a20885206a8784719f4f467e16f8c68d8ad294f118fddb273bbb9"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/tasks/task-manifest.json",
+          "sha256": "6ac4aa09e2d65e799c23f6de7f3592cb2ae725bee813295dd15b4f94813f03eb"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Preparation operator",
+      "limitations": [
+        "Static rendered review is not provider-prompt introspection or proof that the revised workflow succeeds."
+      ]
+    },
+    {
+      "id": "F05",
+      "title": "Factory utilities and local reproducibility inputs",
+      "status": "VERIFIED",
+      "requirement": "Doctor, validation, task generation, guarded launch, owned process control, harness wrappers and evidence tooling exist with pinned local dependencies.",
+      "authority": "Original sections5,9",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/pyproject.toml",
+          "sha256": "d08ea4e5213b1c9e51c4f6a4fec730afed4528e221777269c4679160096447c1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/config/harness-requirements.lock",
+          "sha256": "98af911b8df3e8506a8764f35527441e91e5fc2382eb31fb6f2bf4d76988afbb"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/tooling/codex/package-lock.json",
+          "sha256": "96d56cc75319eb74a91f78308b624a57b76cc9c24f5010002407b20e544c20f4"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/doctor-latest.json",
+          "sha256": "471c2f67bf20f512e6a37c52217dbb1a1c26f7751c897da682fe6a0856ace71d"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run4-preparation-20261004/factory-unit-tests.json",
+          "sha256": "7a72fdfdc2943f57adbdc0a67aaebb50b87be0e0ae1ccd0adc9a497bedee51e0"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/mandate-validation-tests.log",
+          "sha256": "5e82a74e41d3fd22f0499b65ed4857c71d0f9cbc665da1080e0a1fe08166186c"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Preparation operator",
+      "limitations": [
+        "240 earlier offline utility tests and3 current mandate tests passed in recorded runs; these are not product tests or clean-machine bootstrap proof."
+      ]
+    },
+    {
+      "id": "F06",
+      "title": "Authentication and unattended permissions",
+      "status": "VERIFIED",
+      "requirement": "Current subscription authentication, exact assigned-root writes/Git, allowed development network, Docker socket/build and constrained browser probes pass under supported adapter.",
+      "authority": "Original sections5,6",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/summary.json",
+          "sha256": "8da835ea721c1d358e52a57534794ac092a74baf0c6b0f9cbb14557f17f2a08b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/permission-observations.json",
+          "sha256": "c54bf21e8e34746fa16df2d05515bae3c80c181c5dbb27acf38ad8ea94f15dda"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/permissions/subscription-auth.json",
+          "sha256": "5e809e83d06a6b84e20d09c7f637fef61bc6b48d7f627ba7dc6f92369a42bfc6"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Preparation operator",
+      "limitations": [
+        "Zero-model prerequisite probes do not prove application runtime isolation or product browser behavior. Docker socket grants are explicitly privileged."
+      ]
+    },
+    {
+      "id": "F07",
+      "title": "Toy and communication rehearsal facts",
+      "status": "VERIFIED",
+      "requirement": "Historical toy PM handoff, distinct fixed-candidate Reviewer, isolated toy check, seven-seat replies/checkout visibility and observed recovery are retained.",
+      "authority": "Original sections7,10",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/historical-observations.json",
+          "sha256": "c0a5b8e1632ec9b82e7cb02ae3570a26a7609dbc8759d439a7846f05f3895458"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness-carry-forward-audit.json",
+          "sha256": "a5c0fd8f17e460991487fbcd7ac55fd3e22298d1c139da8065870538cefc0756"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/room-provenance-audit.json",
+          "sha256": "657488fe288c51058c54bc1d0aae3b1dcfa97e9356808950a0ae42a85d207e69"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Preparation operator",
+      "limitations": [
+        "Eight observations retain original timestamps and narrower scopes; toy Stage1 isolated8/8 and communication repair are not a live test of revised early-QA behavior."
+      ]
+    },
+    {
+      "id": "F08",
+      "title": "Finite approved exact-once launch",
+      "status": "VERIFIED",
+      "requirement": "User approved one Run5 all-stage dispatch under preserved token ceiling, original elapsed-time origin and private repository; exact event and frozen packet are bound.",
+      "authority": "Later explicit Run5 approval; original sections6\u20139",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/final-ready-audit.json",
+          "sha256": "53216eaaf2a006892499a9a7a928b1e73f3597965f5cc47295afa5cc64609705"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/dispatch-verification.json",
+          "sha256": "bc918a6eaefa05f07e10fdd255053be81867c1bf64d386c74f48d6cdc73b1580"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/ledger.json",
+          "sha256": "cd3e211750ef286b5c69665f3968cf95a9ebae8d2cc010e29014969bfbf1a93e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/postlaunch-audit.json",
+          "sha256": "7f76ecc0f64cf109a92cec7d1ee16ad8a1813689abc25e783048a12cf0702d9a"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "Operator observes; no steering",
+      "limitations": [
+        "Approval is consumed by this one dispatch; no extra attempt/model rehearsal, public release, paid provisioning or submission is implied."
+      ]
+    },
+    {
+      "id": "F09",
+      "title": "Live first self-contained QA handoff",
+      "status": "VERIFIED",
+      "requirement": "PM sent complete numbered QA assignment; exact recipient acknowledged full digest before work.",
+      "authority": "Original section7",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/first-handoff-observation.json",
+          "sha256": "f76c9962c19c32ec4193d5f818e344fa06fcb6d3d7ce6daf844d633696472d5d"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "BAND PM/QA",
+      "limitations": [
+        "Transport acknowledgment is not acceptance, and QA planning success is still pending."
+      ]
+    },
+    {
+      "id": "F10",
+      "title": "Revised early-QA workflow effectiveness",
+      "status": "UNVERIFIED",
+      "requirement": "New generic QA planning and boundary classes must lead to meaningful tests and independent review of actual implementation.",
+      "authority": "New generic mandate paragraphs; original sections4,10",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/standing-instruction-update.json",
+          "sha256": "7cd7975f022a20885206a8784719f4f467e16f8c68d8ad294f118fddb273bbb9"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/result-run-5/records/qa-boundaries.json",
+          "sha256": "4d1126749e9071ff091a3dfd21c75cbe1389371deb936a4be99f39942bdd6681"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Completed attributable QA plan, executed checks, defect/coverage outcomes and independent release decision on an actual candidate."
+      ],
+      "owner_or_boundary": "BAND QA/PM/Reviewer",
+      "limitations": [
+        "Current file may be uncommitted; no whole workflow live acceptance exists."
+      ]
+    },
+    {
+      "id": "P01",
+      "title": "Product planning and meaningful seven-seat ownership",
+      "status": "INCOMPLETE",
+      "requirement": "PM brief/coverage, architecture decisions, designer specification/rendered review, backend/frontend work, independent QA and Reviewer must each have meaningful attributable ownership.",
+      "authority": "Original sections4,8",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/result-run-5/records/product-brief.md",
+          "sha256": "5326b04c625b9147d1e4e3d0db1fed49f967507d55b358555a480190c550a5bf"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/result-run-5/records/requirements-coverage.csv",
+          "sha256": "32c6aba05c9aae5db40392f0b2f5496fe2dd8825f54598bd37274a4588c751bc"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/result-run-5/records/queue.json",
+          "sha256": "a5740112d17c6466628a535d020a18df8fa972a69ce5e3a38c91421ff85d4e68"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/first-handoff-observation.json",
+          "sha256": "f76c9962c19c32ec4193d5f818e344fa06fcb6d3d7ce6daf844d633696472d5d"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Commit/event-linked role outputs across the completed stages; actual architecture/design before corresponding implementation."
+      ],
+      "owner_or_boundary": "BAND team",
+      "limitations": [
+        "PM initial committed brief and QA work observed; no assertion that all seven have completed meaningful product work."
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "Stage1 API and transactional behavior",
+      "status": "INCOMPLETE",
+      "requirement": "Complete auth/ownership, fixtures/errors, restaurants/availability, booking/list/lookup/cancel/amend, exact idempotency/replay, concurrency, time/DST/all specified dates, atomic portable export/import and1\u20138 booking moves.",
+      "authority": "tablekeeper/spec/stage-1.md sections1\u201311",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+          "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/result-run-5/records/requirements-coverage.csv",
+          "sha256": "32c6aba05c9aae5db40392f0b2f5496fe2dd8825f54598bd37274a4588c751bc"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "stage-1 source,Dockerfile,RUN.md; independently authored requirement checks; exact-candidate Reviewer acceptance; official isolated report with actual counts/exit."
+      ],
+      "owner_or_boundary": "BAND Backend/QA/Reviewer",
+      "limitations": [
+        "No stage-1 directory exists at baseline; prior Run3/4 products or green suites cannot satisfy Run5."
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "Stage2 browser and combined tables",
+      "status": "INCOMPLETE",
+      "requirement": "Extend accepted Stage1 with signup/login/search grid/booking/confirmation/lookup, required routes/testids, approved pairs, concurrency and uncertain/lost-response recovery; preserve sessions/retries through Stage1 import.",
+      "authority": "tablekeeper/spec/stage-2.md; inherited stage1",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-2.md",
+          "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Independent stage-2 source,Dockerfile,RUN.md; real integrated browser tests incl out-of-order search, conflict preservation, same-body/key retry, combinations and populated-state upgrade; exact-candidate acceptance."
+      ],
+      "owner_or_boundary": "BAND Designer/Backend/Frontend/QA/Reviewer",
+      "limitations": [
+        "No stage2 product exists. Successful host browser prerequisites are not API/UI proof."
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "Stage2 product quality and accessibility",
+      "status": "UNVERIFIED",
+      "requirement": "Warm coherent hospitality UI, human-readable labels, clear distinct states, usable375px and desktop layouts without horizontal scrolling, labels, visible focus and adequate contrast.",
+      "authority": "Original designer requirements; stage2 product/visual direction",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-2.md",
+          "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/templates/design-review.md",
+          "sha256": "e51b2637b4c65eb5523f0fb0afc0a6cbed9a3cebbcdc6b57e5acf99339ce4aaf"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/templates/interaction-specification.md",
+          "sha256": "4400f3b034df80c5d9ca649c553efddd6e3bf015586bb08562cee66795e7a38e"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Attributable design specification, rendered review of actual candidate at both widths, screenshots/recording and keyboard/state inspection with defects resolved."
+      ],
+      "owner_or_boundary": "BAND Designer/Frontend/QA",
+      "limitations": [
+        "A screenshot, mock or testid-only UI alone cannot establish these journeys and feedback states."
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "Stage3 policies/history/recurring agreements",
+      "status": "INCOMPLETE",
+      "requirement": "Extend stages1\u20132 with explanations, owner-only history/decisions, immutable effective-dated manager policies, accepted terms/revisions, atomic series adoption and exceptions, combined-table/move semantics and populated-state imports from1\u20132.",
+      "authority": "tablekeeper/spec/stage-3.md; all inherited requirements",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-3.md",
+          "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Independent stage3 folder/build/run docs; policy/date/tie/revision/history/concurrency/series/import tests; earlier suites preserved; exact-candidate independent acceptance."
+      ],
+      "owner_or_boundary": "BAND Architect/Backend/QA/Reviewer",
+      "limitations": [
+        "No stage3 folder or verification exists. No new screen is required for stage3 explanations/history."
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "Stage4 deterministic replanning and amendments",
+      "status": "INCOMPLETE",
+      "requirement": "Extend1\u20133 with authorized closure previews minimizing the specified ordered objectives, accepted-term-preserving atomic plan apply, stale-plan/version rules, closures and atomic recurring amendments retaining exceptions/history; import all prior stage exports.",
+      "authority": "tablekeeper/spec/stage-4.md; all inherited requirements",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-4.md",
+          "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Independent stage4 folder; deterministic/atomic/concurrent/stale/no-op/replay tests and populated-state upgrades; all earlier behavior preserved; exact-candidate independent acceptance."
+      ],
+      "owner_or_boundary": "BAND Architect/Backend/QA/Reviewer",
+      "limitations": [
+        "No stage4 folder or verification exists; existing screens must reflect applied changes."
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "Final application container/resource/network contract",
+      "status": "INCOMPLETE",
+      "requirement": "Every stage runs as one self-contained image with PORT/default8080,0.0.0.0,healthwithin60s,2vCPU/2GiB,up to50 concurrent requests,5s request/10s test-control timeouts, no outbound runtime network and bundled browser assets.",
+      "authority": "stage1 sections2\u20133; guide557\u2013584",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+          "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Real isolated container execution, measured startup/requests/resource evidence and successful build/run instructions for each stage."
+      ],
+      "owner_or_boundary": "BAND Backend/QA/Reviewer",
+      "limitations": [
+        "Factory development network access is distinct from final service runtime restrictions."
+      ]
+    },
+    {
+      "id": "P08",
+      "title": "Independent exact-candidate stage release gates",
+      "status": "INCOMPLETE",
+      "requirement": "Each stage requires distinct Reviewer clean candidate, actual tests and requirement analysis; retain failures, count skips/empty suites as missing proof, never waive failures because samples pass.",
+      "authority": "Original sections4,7,10; guide550\u2013605",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+          "sha256": "73702baf4028b4f5c42a77d8d5f5f993e6fa192d244ce75e959538f1221c5870"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/templates/candidate-acceptance.md",
+          "sha256": "608f3f83f0f0b89da5f70810a918b64d2e3a88b316b21b91471bb6ca14183e21"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Four exact committed candidate acceptances with complete requirement/evidence references and genuine isolated reports; material gaps resolved by the band."
+      ],
+      "owner_or_boundary": "BAND Reviewer",
+      "limitations": [
+        "Official shipped pass counts/claimed-stage labels are directional; full spec compliance remains the user goal, not merely organizer partial-credit thresholds."
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "Incremental independent stage history",
+      "status": "INCOMPLETE",
+      "requirement": "Copy each genuinely accepted earlier stage forward and extend it; each independent service retains own scope without final solution copied backward, nested Git, symlinks or submodules.",
+      "authority": "Original section8; guide426\u2013467,580\u2013584",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/challenge/docs/participant-guide.md",
+          "sha256": "1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/result-run-5/records/queue.json",
+          "sha256": "a5740112d17c6466628a535d020a18df8fa972a69ce5e3a38c91421ff85d4e68"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Attributable progression commits, stage tree comparisons and fresh-clone layout checks; each inherited suite and next-stage overclaim check observed."
+      ],
+      "owner_or_boundary": "BAND PM/team",
+      "limitations": [
+        "No stages exist yet; planning alone does not show incremental implementation."
+      ]
+    },
+    {
+      "id": "S01",
+      "title": "Required repository package",
+      "status": "INCOMPLETE",
+      "requirement": "Selected attempt needs README.md,FACTORY.md,one correctly named mandate per actual seat,real room.json,and each completed independent stage with Dockerfile/RUN.md/source.",
+      "authority": "Original section11; guide394\u2013469",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/REPOSITORY-LAYOUT.md",
+          "sha256": "988796c18889cfec2c9547850120ff9b7a9fb5635c0d4fac598f72badbe5769b"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md",
+          "sha256": "9dcacb6de06cbc899402540c579fc0a4a69a51dfda832794c3e2253f44fd3a1e"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Assemble actual completed outputs after coordinator final report; validate all mandatory files from a fresh clone."
+      ],
+      "owner_or_boundary": "Post-run operator plus band-produced stages",
+      "limitations": [
+        "Seven Run5 mandates exist; README,FACTORY,room.json and stage folders are absent at baseline. To fulfill all-stage goal, all4 stages must exist and be independently accepted; competition minimum differs."
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "Final genuine whole-room export and provenance",
+      "status": "INCOMPLETE",
+      "requirement": "Download full session after completion unchanged as room.json; preserve handoffs,real tools/reviews and history. Inspect privacy; only documented credential rotation/redaction exception.",
+      "authority": "Original section11; guide645\u2013673",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/docs/rules-review.md",
+          "sha256": "6b75e042879f6f824a83d7f426d450666247a8533ed1886da9e06eb173244cfe"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/dispatch-verification.json",
+          "sha256": "bc918a6eaefa05f07e10fdd255053be81867c1bf64d386c74f48d6cdc73b1580"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Authenticated BAND console full-session download after work ends, download provenance/hash, room/commit linkage and privacy inspection."
+      ],
+      "owner_or_boundary": "Post-run operator",
+      "limitations": [
+        "Native page snapshots are not a final full-room export; previous-run exports cannot substitute."
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "Run-specific README and FACTORY narrative",
+      "status": "INCOMPLETE",
+      "requirement": "Explain team/track/repo navigation, reproducible seats/setup, design rationale, failures, costs/time and limits using actual Run5 outcomes.",
+      "authority": "Original section11; guide695\u2013699; user explicitly requested drafting for them",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/README.md",
+          "sha256": "38dc64879ff8d7af461c7b7898d71a2ece5ccfafede343961c01266270c4949e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/FACTORY.md",
+          "sha256": "3ef3039029192bb02430a998e89fd0c9b0e847c3f960849f69b92ad5143f96a2"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run-5-preparation.md",
+          "sha256": "dd19e0573d7e6361d13ac3447e3673433c40ecd7cf81dae20b31bea101255aff"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Complete evidence-backed Run5 drafts with accurate outcomes, assistance disclosure and participant review/authorship handling."
+      ],
+      "owner_or_boundary": "Operator may draft; participant review remains",
+      "limitations": [
+        "Guide asks participant to write these. Existing user instruction permits drafting; do not invent personal lessons or claim participant authorship. Prior-attempt documents are not final Run5 narratives."
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "Presentation, actual-room video and submission description",
+      "status": "INCOMPLETE",
+      "requirement": "Presentation and video demonstrate actual factory room,handoff,result,failure handling and measured scope; video cannot be a substitute slideshow.",
+      "authority": "Original section11; guide74\u201381,135\u2013137,691\u2013699",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/slide-outline.md",
+          "sha256": "ea17dc1b64b9a904873a0684c636aa29d863a644c6d64b6b21362dfa9801851e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/demo-narrative.md",
+          "sha256": "18fc61eafc3a4c8d14fd55ab8383d4858b9269d4941fe7b877981bbb35f84918"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/submission-description.md",
+          "sha256": "3f9d7e569998275410399013c8be48c2779dcbbeac8cfd9a7d1929efd1005075"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Complete presentation, actual-room footage plus produced-result demonstration, truthful description, media playback/visual review and artifact paths."
+      ],
+      "owner_or_boundary": "Operator may prepare factual drafts/evidence capture; outcomes depend on band",
+      "limitations": [
+        "Only empty outlines are evidenced here; no Run5 finished deck/video is claimed. Do not stage room messages."
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "Fresh-clone final checks and manual use",
+      "status": "UNVERIFIED",
+      "requirement": "Clone pushed selected attempt,run offline harness check and all-stage isolated suite,follow each RUN.md cleanly,use UI,inspect room/history/privacy and retain reports.",
+      "authority": "guide841\u2013868; original sections9,11",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md",
+          "sha256": "9dcacb6de06cbc899402540c579fc0a4a69a51dfda832794c3e2253f44fd3a1e"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Fresh clone full commit,official offline exit0,isolated all-stage outputs/counts,manual clean startup and real UI journey proof at that same commit."
+      ],
+      "owner_or_boundary": "Post-run operator/Reviewer; no debugging hints into live judged run",
+      "limitations": [
+        "Old-run or toy checks and current factory doctor cannot satisfy final product package checks."
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Final time/usage/failure reconciliation",
+      "status": "INCOMPLETE",
+      "requirement": "Report measured wall time,reported token counts with preserved cumulative baseline and costs explicitly unavailable if unmeasured; retain failures and separate attempts.",
+      "authority": "Original sections6,11,12",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/postlaunch-audit.json",
+          "sha256": "7f76ecc0f64cf109a92cec7d1ee16ad8a1813689abc25e783048a12cf0702d9a"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/templates/timing.csv",
+          "sha256": "01c086dc105cf7be369009f407126da214a8d17fb90ce2aa3bc3e9c7323d8b81"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/templates/usage.csv",
+          "sha256": "3b6793939366ca77f6089031e731b2264d519bb2b375ed3121954babdc1e947f"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Coordinator final report,closed ledger/final delta,all seats stopped under owned-process rules,final attempt commit/export and truthful limitations."
+      ],
+      "owner_or_boundary": "Operator after final report",
+      "limitations": [
+        "Live counters are not final. Reported tokens include cached input and do not establish subscription quota or USD cost."
+      ]
+    },
+    {
+      "id": "R01",
+      "title": "Independent clean-machine factory reproduction",
+      "status": "UNVERIFIED",
+      "requirement": "Another team can stand the generic factory up from FACTORY and mandates with documented pinned tooling and supported authentication.",
+      "authority": "Original complete reproducible factory; guide124,136,627\u2013628",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/README.md",
+          "sha256": "47567d1d5d8d41d10dd7dcf00093b023fe9c76c2dc0f7cfcfef6b49fcfeb5958"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/pyproject.toml",
+          "sha256": "d08ea4e5213b1c9e51c4f6a4fec730afed4528e221777269c4679160096447c1"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/config/harness-requirements.lock",
+          "sha256": "98af911b8df3e8506a8764f35527441e91e5fc2382eb31fb6f2bf4d76988afbb"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/tooling/codex/package-lock.json",
+          "sha256": "96d56cc75319eb74a91f78308b624a57b76cc9c24f5010002407b20e544c20f4"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Documentation/path audit,portable examples and,if feasible/authorized,a separate clean-environment bootstrap proof without reusing hidden local state."
+      ],
+      "owner_or_boundary": "Operator preparation outside live frozen inputs",
+      "limitations": [
+        "Local working setup and dependency locks are verified; no fresh-machine install is asserted. Do not mutate frozen docs/source used by active seats."
+      ]
+    },
+    {
+      "id": "A01",
+      "title": "Private repository progress commits",
+      "status": "VERIFIED",
+      "requirement": "Use canonical application repository with separate attempt branches; factory tools remain separate; preserve progress history.",
+      "authority": "Later user requests GitHub repository,progress commits,attempt branches only",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/config/attempts.json",
+          "sha256": "36657fa3490a99e55033cf0d8152df967014d91022ac03d0c59c46cf953c3331"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/first-handoff-observation.json",
+          "sha256": "f76c9962c19c32ec4193d5f818e344fa06fcb6d3d7ce6daf844d633696472d5d"
+        }
+      ],
+      "completion_evidence_still_needed": [],
+      "owner_or_boundary": "BAND commits product; operator preserves evidence",
+      "limitations": [
+        "Current Run5 initial commit exists locally; fresh remote publication proof is separately maintained by root. Registry awaiting-launch text can be historical; do not infer current launch state from old registry alone."
+      ]
+    },
+    {
+      "id": "A02",
+      "title": "Public release/judge access",
+      "status": "OUTSIDE_APPROVED_SCOPE",
+      "requirement": "Final entry needs public GitHub judge access and selected completed branch cloneable without BAND membership.",
+      "authority": "guide691\u2013693; launch explicitly excludes public release",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md",
+          "sha256": "9dcacb6de06cbc899402540c579fc0a4a69a51dfda832794c3e2253f44fd3a1e"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "First finish concrete reviewable package/privacy audit; obtain public-release authority before changing visibility or externally publishing."
+      ],
+      "owner_or_boundary": "Requires user authority separate from one launch",
+      "limitations": [
+        "Private GitHub creation/progress pushes were authorized; public visibility was not."
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "Final submission/upload and receipt",
+      "status": "OUTSIDE_APPROVED_SCOPE",
+      "requirement": "Submit selected public repo,presentation and video and retain actual receipt before event closes.",
+      "authority": "guide691\u2013693,868; launch exclusions",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/submission-window.json",
+          "sha256": "020cf356c5deb4843a39742d325fac60df35e907c69a3be4323a5595d18f85cc"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "Complete verified artifacts and a reviewable submission form first; obtain submission authority before final action; preserve real receipt."
+      ],
+      "owner_or_boundary": "Requires user authority separate from one launch",
+      "limitations": [
+        "MillieMoon enrolled/open form was observed20:44:07Z,not submitted; eligibility beyond observed UI is not guaranteed."
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "Extra attempts,paid services or broader live rehearsal",
+      "status": "OUTSIDE_APPROVED_SCOPE",
+      "requirement": "No extra judged dispatch,provider billing or paid provisioning follows merely from the consumed single Run5 launch allowance.",
+      "authority": "Original sections1,6; Run5 exact one-dispatch approval",
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+          "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/ledger.json",
+          "sha256": "cd3e211750ef286b5c69665f3968cf95a9ebae8d2cc010e29014969bfbf1a93e"
+        }
+      ],
+      "completion_evidence_still_needed": [
+        "If current run ends blocked or limits expire, preserve outcome and prepare a concrete bounded next action under existing scope; obtain any additional required launch/spend authority."
+      ],
+      "owner_or_boundary": "Do not alter live frozen factory or feed defect hints to judged seats",
+      "limitations": [
+        "This does not prohibit read-only observation or independent documentary preparation."
+      ]
+    }
+  ],
+  "status_counts": {
+    "VERIFIED": 10,
+    "UNVERIFIED": 4,
+    "INCOMPLETE": 13,
+    "OUTSIDE_APPROVED_SCOPE": 3
+  },
+  "utility_test_provenance": {
+    "earlier_suite_count": 240,
+    "rerun_by_this_audit": false,
+    "listed_source_hashes": [
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/common.py",
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/tasks.py",
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/operations.py",
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/validation.py",
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+        "matches_saved_hash": true
+      },
+      {
+        "path": "/Users/frank/mygit/Tablekeeper/factory/tests/test_attempt_branches.py",
+        "matches_saved_hash": true
+      }
+    ],
+    "current_mandate_checks_record": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/standing-instruction-update.json",
+      "sha256": "7cd7975f022a20885206a8784719f4f467e16f8c68d8ad294f118fddb273bbb9"
+    }
+  },
+  "useful_independent_work_while_band_runs": [
+    {
+      "action": "Prepare factual README/FACTORY drafts in an operator-only Run5 packaging directory",
+      "finish_now": "Populate verified team/roster/model,setup steps,source/launch evidence,budget/recovery facts and known limits; leave stage outcomes explicitly pending.",
+      "guard": "Do not place drafts in live product or frozen instruction paths; do not invent participant rationale or a successful outcome."
+    },
+    {
+      "action": "Prepare concrete presentation/description and video evidence plan",
+      "finish_now": "Build a fact-to-source outline and identify real current room handoff/ACK events for footage; plan actual application demo once a stage exists.",
+      "guard": "Do not fabricate success or stage messages. Real video must show the factory and produced result."
+    },
+    {
+      "action": "Maintain append-only observation/evidence index",
+      "finish_now": "Index approved dispatch,complete handoffs,candidate commits,actual accept/reject events,usage and stage evidence as they appear.",
+      "guard": "Read-only observation; no seat instructions,branch mutations,code fixes or new tests while the judged stage runs."
+    },
+    {
+      "action": "Prepare post-run fresh-clone verification commands and package acceptance matrix",
+      "finish_now": "Use pinned documented harness commands,unique output paths and exact-commit placeholders; include manual RUN.md/UI and privacy inspection steps.",
+      "guard": "Do not execute product tests or transmit failure hints into the active judged run."
+    },
+    {
+      "action": "Audit reproducibility documentation and existing empty templates",
+      "finish_now": "Record stale workstation paths,missing explanation or unresolved documentation gaps in operator notes for post-run editing.",
+      "guard": "No edits to34 frozen inputs,default config,live mandates/protocols or source lock; observed trust drift stays documented."
+    }
+  ],
+  "guardrails": [
+    "No product implementation/domain tests/operator fixes or frozen-file changes were made.",
+    "No BAND messages,model workers,API probes,restarts or live product checks were run by this audit.",
+    "No historical rehearsal or previous-run acceptance is promoted to current Run5 product acceptance.",
+    "Known SDK-added Run5 trust-only config drift remains a future-restart prerequisite,not permission to edit live lock/config."
+  ],
+  "actions": {
+    "files_written": [
+      "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/goal-completion-baseline.json"
+    ],
+    "product_tests": 0,
+    "model_turns": 0,
+    "room_messages": 0,
+    "frozen_source_config_mutations": 0
+  }
+}
