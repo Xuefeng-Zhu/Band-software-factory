@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+    "-m",
+    "harness",
+    "check",
+    "/Users/frank/mygit/Tablekeeper/rehearsal/toy-result",
+    "--track",
+    "toy"
+  ],
+  "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+  "started_at": "2026-10-04T03:21:33.047637+00:00",
+  "finished_at": "2026-10-04T03:21:33.305601+00:00",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "ok \u2014 gates 1, 2 and the mandate part of gate 4 pass. Not checked here: gate 3 (stage-1/ builds and serves /health). Run: python -m harness run --track toy --repo /Users/frank/mygit/Tablekeeper/rehearsal/toy-result --stage 1 --mode isolated\n",
+  "repository_before_sha256": "44083ccb1cfc760ea8c4deaf678368bf66dce06df7557ae11dbfc337bf2362d8",
+  "repository_after_sha256": "44083ccb1cfc760ea8c4deaf678368bf66dce06df7557ae11dbfc337bf2362d8"
+}

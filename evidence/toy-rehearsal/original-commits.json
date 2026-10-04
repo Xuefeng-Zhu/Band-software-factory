@@ -1,0 +1,44 @@
+[
+  {
+    "commit": "bdfc842110f057ae4e9997d62f33196a6cbc03ed",
+    "tree": "a3afb727fc9ca00b3a944a7c189cf14717ca6a6f",
+    "parents": "",
+    "authored_at": "2026-10-03T13:00:57-07:00",
+    "subject": "Implement standalone stage 1 shared counter API"
+  },
+  {
+    "commit": "6ec20a3b7c05c049493f8fd85c5767bcef4311eb",
+    "tree": "7638667a724acb26d47ffcbb48b568e6e0a9b413",
+    "parents": "bdfc842110f057ae4e9997d62f33196a6cbc03ed",
+    "authored_at": "2026-10-03T13:31:03-07:00",
+    "subject": "Add standalone stage 2 shared counter page"
+  },
+  {
+    "commit": "b042c4a73787521a0b98aa4aa7bf9cde5cba5d65",
+    "tree": "08262f1e92f050c8c36c4033f94e1049d0d91fb8",
+    "parents": "6ec20a3b7c05c049493f8fd85c5767bcef4311eb",
+    "authored_at": "2026-10-03T13:33:22-07:00",
+    "subject": "Preserve keyboard focus after confirmed counter updates"
+  },
+  {
+    "commit": "0f2b432d374bf0112638a0572212453ca83832b3",
+    "tree": "d5c99bea0c646d5828962b77e0b317e20e782489",
+    "parents": "b042c4a73787521a0b98aa4aa7bf9cde5cba5d65",
+    "authored_at": "2026-10-03T15:00:07-07:00",
+    "subject": "Package accepted toy stages with full BAND session"
+  },
+  {
+    "commit": "3cd66d19533a50eda711eb8ef732609c61d13cb5",
+    "tree": "40e3b6179767b891410e92f07cda8a26379c24d3",
+    "parents": "0f2b432d374bf0112638a0572212453ca83832b3",
+    "authored_at": "2026-10-03T15:47:49-07:00",
+    "subject": "Preserve failed bounded recovery and updated full session"
+  },
+  {
+    "commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+    "tree": "68a361778da364ce6e864c618fce590d7623f88d",
+    "parents": "3cd66d19533a50eda711eb8ef732609c61d13cb5",
+    "authored_at": "2026-10-03T20:22:48-07:00",
+    "subject": "Complete toy rehearsal package with verified recovery export"
+  }
+]

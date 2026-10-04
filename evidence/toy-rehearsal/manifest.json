@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "packaged_at": "2026-10-04T04:53:57.553082+00:00",
+  "scope": "Unscored, operator-assisted toy rehearsal; accepted stages 1 and 2 only.",
+  "source_repository": "rehearsal/toy-result (local Git repository)",
+  "snapshot_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+  "snapshot_tree": "68a361778da364ce6e864c618fce590d7623f88d",
+  "challenge_commit": "803560d2a678ace1414465c098eb0ab5380ffade",
+  "accepted_revisions": {
+    "stage-1": "bdfc842110f057ae4e9997d62f33196a6cbc03ed",
+    "stage-2": "b042c4a73787521a0b98aa4aa7bf9cde5cba5d65"
+  },
+  "files": [
+    {
+      "path": "project/.gitignore",
+      "bytes": 30,
+      "sha256": "b47831282b2b26e553c0e6e5d8e1211d354eaedcd3dd3c258b88b25235710536",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": ".gitignore"
+      }
+    },
+    {
+      "path": "project/FACTORY.md",
+      "bytes": 10079,
+      "sha256": "b101e2876f66feff564f0528f07a718c30717ea7ea2ad09d3c2058f32064c50a",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "FACTORY.md"
+      }
+    },
+    {
+      "path": "project/README.md",
+      "bytes": 6842,
+      "sha256": "ea9a4c5fff021a54e50a57e7222ae7aa8de6e2a56e56557384191b00e1c81b72",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "README.md"
+      }
+    },
+    {
+      "path": "project/mandates/factory-architect.md",
+      "bytes": 5722,
+      "sha256": "c613e55d3d2af4c20814d305270290c93979df12d367532db022141a42bab1e5",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "mandates/factory-architect.md"
+      }
+    },
+    {
+      "path": "project/mandates/factory-backend.md",
+      "bytes": 5666,
+      "sha256": "c95440a1948c41f7e4425e56bfaea15fac7297a6567bbdcae4259eba78596c3d",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "mandates/factory-backend.md"
+      }
+    },
+    {
+      "path": "project/mandates/factory-designer.md",
+      "bytes": 5761,
+      "sha256": "f01611180f98a11e8711ba7c85f7e30f79d338063cd3243de02652ccf2c5ea65",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "mandates/factory-designer.md"
+      }
+    },
+    {
+      "path": "project/mandates/factory-frontend.md",
+      "bytes": 5664,
+      "sha256": "2faf05aaba37d42ed37bc4eb8f976b4f2d627eac90cdcf8820f839aa671b51ae",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "mandates/factory-frontend.md"
+      }
+    },
+    {
+      "path": "project/mandates/factory-pm.md",
+      "bytes": 6715,
+      "sha256": "d2ff661c5c55b9056f913ce006271ed6c8267f85e0b14d98a054105871ad70b5",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "mandates/factory-pm.md"
+      }
+    },
+    {
+      "path": "project/mandates/factory-qa.md",
+      "bytes": 5709,
+      "sha256": "465f52faab343ece25506dd8eab2cbf22bed58094b06f149df2482a308062453",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "mandates/factory-qa.md"
+      }
+    },
+    {
+      "path": "project/mandates/factory-reviewer.md",
+      "bytes": 5819,
+      "sha256": "4a917851b0af3bc8ce0a3cf57641dcb1476f64c3fde6cdaef44d589562697d95",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "mandates/factory-reviewer.md"
+      }
+    },
+    {
+      "path": "project/room.json",
+      "bytes": 2131784,
+      "sha256": "de97162536931c0bd647ae840bd9db02b6cbb914eafe71d0f983952c830ba572",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "room.json"
+      }
+    },
+    {
+      "path": "project/stage-1/Dockerfile",
+      "bytes": 123,
+      "sha256": "ca0eefe44997a26f4890d4f1addcd6ea42fbd4bf0b7aae289eba16e8d70ace35",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-1/Dockerfile"
+      }
+    },
+    {
+      "path": "project/stage-1/RUN.md",
+      "bytes": 837,
+      "sha256": "9475a3b7ca2ca3be9cc91eb90b7ff16ff941731818f801d972f5587d7d5d38ac",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-1/RUN.md"
+      }
+    },
+    {
+      "path": "project/stage-1/server.py",
+      "bytes": 2619,
+      "sha256": "edb818932e39c581fa300860ae240f33a100ce969535c7d0bf56c8f194e4809d",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-1/server.py"
+      }
+    },
+    {
+      "path": "project/stage-1/test_server.py",
+      "bytes": 3343,
+      "sha256": "805feb92c8725a0a381cb845e21c58fb1204a87f7157ae5f30ecc382ab307d01",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-1/test_server.py"
+      }
+    },
+    {
+      "path": "project/stage-2/Dockerfile",
+      "bytes": 152,
+      "sha256": "293a751d99252374d89160eaf7d87a2aff62bc241dbff2a284d53dd26f4639e3",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-2/Dockerfile"
+      }
+    },
+    {
+      "path": "project/stage-2/RUN.md",
+      "bytes": 1057,
+      "sha256": "53d87a3b8701d4de3ec9cfd52e7c8b19ee76e97132c501e3c31bb6e04636d779",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-2/RUN.md"
+      }
+    },
+    {
+      "path": "project/stage-2/app.js",
+      "bytes": 2004,
+      "sha256": "423e146e960b82b56f746d8504852e1367f24e2a50edb28abb0d24708fb211ee",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-2/app.js"
+      }
+    },
+    {
+      "path": "project/stage-2/index.html",
+      "bytes": 679,
+      "sha256": "e18beaeffc5b2907753fbd836bd1a7b6a435199794ee463c60c790f2a2bb8c5a",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-2/index.html"
+      }
+    },
+    {
+      "path": "project/stage-2/server.py",
+      "bytes": 3309,
+      "sha256": "3615b5eeb17e0fe5ba788f320f37befb180d0ff2175808c9d086ab0bd62bdff9",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-2/server.py"
+      }
+    },
+    {
+      "path": "project/stage-2/style.css",
+      "bytes": 1769,
+      "sha256": "cf096badeaa6d26a2ad753b3a1a304fe4897b2e6a53b228d3c6061197bc5a37a",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-2/style.css"
+      }
+    },
+    {
+      "path": "project/stage-2/test_server.py",
+      "bytes": 4129,
+      "sha256": "3408831fa0d43811f2c7a6d0fece96a7a4c98b32ec0cdb3e44a326e5b5d0f110",
+      "source": {
+        "git_commit": "aa2840c328527fbe33e80f1cff1e200ab1fea7aa",
+        "git_path": "stage-2/test_server.py"
+      }
+    },
+    {
+      "path": "reports/stage-1-reviewer.json",
+      "bytes": 882,
+      "sha256": "56a2e915e2c6e33812e019013bddd3937ee16bbc819ca9314548ac7702d77f1b",
+      "source": {
+        "workspace_path": "rehearsal/toy-result/.evidence/reviewer-s1-20261003T201741Z/isolated/report.json",
+        "bytes_unchanged": true
+      }
+    },
+    {
+      "path": "reports/stage-2-reviewer.json",
+      "bytes": 1170,
+      "sha256": "1eed50c878a550783ecf7daf848f725f4789925be6f18d5f732e144bfdf9a0c8",
+      "source": {
+        "workspace_path": "rehearsal/toy-result/.evidence/reviewer-s2-20261003T204455Z/isolated/report.json",
+        "bytes_unchanged": true
+      }
+    },
+    {
+      "path": "reports/offline-check.json",
+      "bytes": 857,
+      "sha256": "26b69d06ebfc980a3ccb1e7bf13c377653049a6fd155ea5886027ae9c4330b55",
+      "source": {
+        "workspace_path": "runs/toy-offline-check-20261004T032132Z-bfba585145/invocation.json",
+        "bytes_unchanged": true
+      }
+    },
+    {
+      "path": "screenshots/desktop.png",
+      "bytes": 20275,
+      "sha256": "1b12a991440696465698ae97433fa73b7dc6c2df9c5474c5bf65821cdb74b69f",
+      "source": {
+        "workspace_path": "rehearsal/toy-result/.evidence/designer-s2-review-20261003T203943Z/ready-1280.png",
+        "bytes_unchanged": true
+      }
+    },
+    {
+      "path": "screenshots/mobile.png",
+      "bytes": 15501,
+      "sha256": "d085ea8ac89e330aeba6e052248cb0c855cc94e3dae191e6793c02de5599f413",
+      "source": {
+        "workspace_path": "rehearsal/toy-result/.evidence/designer-s2-review-20261003T203943Z/ready-360.png",
+        "bytes_unchanged": true
+      }
+    },
+    {
+      "path": "original-commits.json",
+      "bytes": 1762,
+      "sha256": "f771894ee032a522bfb59bbfeaaac82a7adc9361396f498ebea3a1d6610c082a",
+      "source": {
+        "generated_from": "Original toy Git commit metadata; original repository remains separate."
+      }
+    }
+  ],
+  "room_export": {
+    "scope": "full",
+    "messages": 1616,
+    "exported_at": "2026-10-04T03:18:07.995Z",
+    "bytes_unchanged": true
+  },
+  "packaging_checks": {
+    "tracked_snapshot_files_verified": 22,
+    "accepted_stage_bytes_verified": true,
+    "reviewer_report_revisions_verified": true,
+    "full_room_sha256_verified": true,
+    "recorded_acceptance_and_recovery_events_present": true,
+    "credential_pattern_scan": {
+      "text_files_scanned": 27,
+      "matches": 0
+    },
+    "application_or_harness_rerun": false
+  }
+}

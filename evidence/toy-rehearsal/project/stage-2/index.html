@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shared counter</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Shared counter</h1>
+    <p class="label">Current value</p>
+    <p class="number" data-testid="counter-value"></p>
+    <button type="button" data-testid="increment-button" disabled>Add 1</button>
+    <p class="status" role="status" aria-live="polite" aria-atomic="true">Loading counter…</p>
+    <footer>Shared across browsers. Reload to see the latest value.</footer>
+  </main>
+</body>
+</html>

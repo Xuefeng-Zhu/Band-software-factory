@@ -1,0 +1,54 @@
+{
+  "revision": "b042c4a73787521a0b98aa4aa7bf9cde5cba5d65",
+  "track": "toy",
+  "stages": {
+    "1": "pass",
+    "2": "pass"
+  },
+  "highest_contiguous": 2,
+  "started_at": "2026-10-03T20:45:38.153028+00:00",
+  "finished_at": "2026-10-03T20:45:45.878120+00:00",
+  "schema_version": 2,
+  "run_id": "ba36c02382be4e9d9348e270c3e1bf16",
+  "mode": "isolated",
+  "provenance": "working-tree",
+  "state": "completed",
+  "pytest_args": [],
+  "suite_digest": "7ddd72ff8bb61146ccce164c748dbd8154d67267c2f669c7144caed017dd9015",
+  "checks": {
+    "1": {
+      "collected": 8,
+      "passed": 8,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "deselected": 0,
+      "xfailed": 0,
+      "files": {
+        "stage_1/test_counter.py": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    },
+    "2": {
+      "collected": 4,
+      "passed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "deselected": 0,
+      "xfailed": 0,
+      "files": {
+        "stage_2/test_ui.py": {
+          "passed": 4,
+          "total": 4
+        }
+      }
+    }
+  },
+  "overshoot": null,
+  "claimed_stage": "2",
+  "share": 1.0,
+  "upgrade_sources": {}
+}
