@@ -1,0 +1,133 @@
+{
+  "users": [
+    {
+      "id": "alice",
+      "email": "alice@example.test",
+      "password": "synthetic-password",
+      "display_name": "alice"
+    },
+    {
+      "id": "bob",
+      "email": "bob@example.test",
+      "password": "synthetic-password",
+      "display_name": "bob"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "r",
+      "name": "r",
+      "timezone": "UTC",
+      "slot_minutes": 30,
+      "reservation_duration_minutes": 90,
+      "cancellation_cutoff_minutes": 120,
+      "opening_hours": [
+        {
+          "weekday": "mon",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "tue",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "wed",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "thu",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "fri",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "sat",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "sun",
+          "opens": "18:00",
+          "closes": "23:00"
+        }
+      ],
+      "tables": [
+        {
+          "id": "r-a",
+          "label": "Window",
+          "capacity": 2
+        },
+        {
+          "id": "r-b",
+          "label": "Garden",
+          "capacity": 4
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "other",
+      "timezone": "UTC",
+      "slot_minutes": 30,
+      "reservation_duration_minutes": 90,
+      "cancellation_cutoff_minutes": 120,
+      "opening_hours": [
+        {
+          "weekday": "mon",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "tue",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "wed",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "thu",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "fri",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "sat",
+          "opens": "18:00",
+          "closes": "23:00"
+        },
+        {
+          "weekday": "sun",
+          "opens": "18:00",
+          "closes": "23:00"
+        }
+      ],
+      "tables": [
+        {
+          "id": "other-a",
+          "label": "Window",
+          "capacity": 2
+        },
+        {
+          "id": "other-b",
+          "label": "Garden",
+          "capacity": 4
+        }
+      ]
+    }
+  ],
+  "reservations": []
+}

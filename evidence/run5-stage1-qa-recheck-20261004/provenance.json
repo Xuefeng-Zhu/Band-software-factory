@@ -1,0 +1,50 @@
+{
+  "work_item": "QA-S1-RECHECK",
+  "owner": "@frankzhu94/factory-qa",
+  "candidate": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "review_clone": "/private/tmp/qa-s1-recheck-20261004T2244Z",
+  "shared_checkout": "/Users/frank/mygit/Tablekeeper/result-run-5",
+  "clean_before_and_after": true,
+  "stage1_tree": "6000d94a5acbcab53438120b6d7f2624b4eceba4",
+  "changed_files": [
+    "stage-1/tablekeeper/core.py",
+    "stage-1/tablekeeper/service.py",
+    "stage-1/tests/test_availability_boundaries.py"
+  ],
+  "unchanged_files": [
+    {
+      "path": "stage-1/tablekeeper/store.py",
+      "old_blob": "38b996214f742c73b1fa8fb4d3b76b8229442998",
+      "new_blob": "38b996214f742c73b1fa8fb4d3b76b8229442998"
+    },
+    {
+      "path": "stage-1/tablekeeper/state_io.py",
+      "old_blob": "905edc771ac150a728b74793a966548caec5c0a0",
+      "new_blob": "905edc771ac150a728b74793a966548caec5c0a0"
+    },
+    {
+      "path": "stage-1/tablekeeper/server.py",
+      "old_blob": "d3696e47ed21376c4f845d09cab7c544904a0ab2",
+      "new_blob": "d3696e47ed21376c4f845d09cab7c544904a0ab2"
+    },
+    {
+      "path": "tests/qa_stage1_boundaries.py",
+      "old_blob": "2549ab4f85f0733b03dc3b74e424b67c5af0d1c3",
+      "new_blob": "2549ab4f85f0733b03dc3b74e424b67c5af0d1c3"
+    },
+    {
+      "path": "stage-1/Dockerfile",
+      "old_blob": "7ac9fea5bb16afd16e6e034ddd717667fe4fb5af",
+      "new_blob": "7ac9fea5bb16afd16e6e034ddd717667fe4fb5af"
+    },
+    {
+      "path": "stage-1/RUN.md",
+      "old_blob": "08cf6bd7bc16694b464e2e1a98ad08eb3c51347d",
+      "new_blob": "08cf6bd7bc16694b464e2e1a98ad08eb3c51347d"
+    }
+  ],
+  "at_utc": "2026-10-04T22:46:57.206486+00:00",
+  "incoming_digest": "75e9f9871813d4ec7a3022b3c9c38beb3519fdbba830c3026d686ab3a7c531a0",
+  "ack_event": "f2e71cdf-b6da-4987-8148-12d0f054a0d9",
+  "in_progress_event": "ca9c3d31-c56b-41b7-8f2d-b83c5d2cf333"
+}

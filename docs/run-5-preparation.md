@@ -75,3 +75,9 @@ The [expanded FACTORY draft](../evidence/run5-portable-setup-draft-20261004/FACT
 The participant requested a 2 GiB cap. At 22:49 UTC the operator set OrbStack to 2048 MiB, performed one required restart after scoped workload checks, and restored the same two owner containers. Docker reports 2,073,866,240 bytes; the earlier 4 GiB setting is historical. [Exact cap and verification evidence](../evidence/run5-user-2g-cap-20261004/README.md) discloses this second operator intervention and the resource-verification limits.
 
 The future [Docker resource-preflight PR](https://github.com/Xuefeng-Zhu/Tablekeeper-factory/pull/1) passed 253 utility tests. It checks configured capacity before doctor/start/dispatch readiness and detected the expected capacity shortfall in one read-only live query. It remains unmerged while Run 5 is frozen. It does not raise the user's cap or authorize another run.
+
+## Independent closure of the two behavioral defects
+
+QA closed both findings against fixed candidate `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d`: five focused, eleven baseline and seven additional host HTTP groups passed. These overlap and are not a count of distinct requirements. PM acknowledged the complete return at 22:50:04 UTC and assigned the independent Reviewer gate. [The preserved QA recheck](../evidence/run5-stage1-qa-recheck-20261004/README.md) includes original reports, command/source provenance and the actual receipt. Container/isolation/resource gates and Stage 1 acceptance remain unverified in this snapshot.
+
+The participant deferred video capture while the Mac is locked. Video remains an incomplete final deliverable; no replacement slideshow or fabricated recording is claimed.
