@@ -1,0 +1,8 @@
+{
+  "candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "tested": "513db15d7b3a1b9a86d4e0fa15366c587c6c4e67",
+  "stage_1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "clean": true,
+  "push_exit_status": 0,
+  "recorded_at": "2026-10-04T23:14:11.723173+00:00"
+}

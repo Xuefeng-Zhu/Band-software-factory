@@ -1,0 +1,116 @@
+test_ascii_counts_preserve_unbounded_value_and_leading_zeros (test_availability_boundaries.AvailabilityBoundaries.test_ascii_counts_preserve_unbounded_value_and_leading_zeros) ... ok
+test_closing_comparison_uses_elapsed_time_across_dst (test_availability_boundaries.AvailabilityBoundaries.test_closing_comparison_uses_elapsed_time_across_dst) ... ok
+test_duration_larger_than_timedelta_range_is_outside_hours (test_availability_boundaries.AvailabilityBoundaries.test_duration_larger_than_timedelta_range_is_outside_hours) ... ok
+test_last_calendar_day_retains_all_fitting_slots (test_availability_boundaries.AvailabilityBoundaries.test_last_calendar_day_retains_all_fitting_slots) ... ok
+test_cutoff (test_core.Rules.test_cutoff) ... ok
+test_dst (test_core.Rules.test_dst) ... ok
+test_historical (test_core.Rules.test_historical) ... ok
+test_json (test_core.Rules.test_json) ... ok
+test_password (test_core.Rules.test_password) ... ok
+test_transaction_rollback (test_core.Rules.test_transaction_rollback) ... ok
+test_exact_roundtrip_without_int_text_guard (test_numeric_codec.NumericCodec.test_exact_roundtrip_without_int_text_guard) ... ok
+test_numeric_types_and_party_override (test_numeric_codec.NumericCodec.test_numeric_types_and_party_override) ... ok
+test_historical_changed_cancelled_responses_accepted (test_receipt_import.ReceiptImport.test_historical_changed_cancelled_responses_accepted) ... ok
+test_invalid_create_and_batch_receipts_rejected (test_receipt_import.ReceiptImport.test_invalid_create_and_batch_receipts_rejected) ... ok
+test_failed_batch_and_receipt_insert_roll_back (test_storage.Storage.test_failed_batch_and_receipt_insert_roll_back) ... ok
+test_legacy_logical_snapshot_and_atomic_replace (test_storage.Storage.test_legacy_logical_snapshot_and_atomic_replace) ... ok
+test_noop_and_repeated_cancel_have_no_writes (test_storage.Storage.test_noop_and_repeated_cancel_have_no_writes) ... ok
+test_replay_and_reads_ignore_receipts_and_histories (test_storage.Storage.test_replay_and_reads_ignore_receipts_and_histories) ... /Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10358d300>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10358d3f0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10358e3e0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10358e4d0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10373f5b0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10358eb60>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10358ee30>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x10373f6a0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e8b80>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e8d60>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e93f0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e94e0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9030>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9120>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9300>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9210>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e95d0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e96c0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e97b0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e98a0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9990>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9a80>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9b70>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9c60>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9d50>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9e40>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037e9f30>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037ea020>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037ea2f0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037ea3e0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/Users/frank/mygit/Tablekeeper/result-run-5/stage-1/tablekeeper/codec.py:12: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x1037ea4d0>
+  def dumps(value, **options):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.507s
+
+OK

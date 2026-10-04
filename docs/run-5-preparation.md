@@ -91,3 +91,7 @@ PM assigned repair 3 of 3; Backend acknowledged the complete handoff and was obs
 ## Reviewable presentation draft
 
 A [six-slide editable presentation and PDF](../evidence/run5-presentation-draft-20261004/README.md) preserve the 23:03 UTC snapshot: factory design, actual room handoff, evidence chronology, Reviewer rejection, both infrastructure interventions and remaining verification. All 23 selected file hashes match the authoring package. Artifact Tool and bundled LibreOffice/PDF rendering passed visual inspection; native PowerPoint execution was not tested. This AI-assisted draft needs participant review and a final-outcome update. It is not a substitute for the deferred room video, Stage 1 acceptance or completion of Stages 2–4.
+
+## Third repair owner checkpoint
+
+Backend delivered `3329a8238ece53e06812cce4b5c6222476dd33ab`, with the same Stage 1 tree as tested implementation `513db15d7b3a1b9a86d4e0fa15366c587c6c4e67`. The [preserved owner return](../evidence/run5-stage1-repair3-20261004/README.md) records 18 unit tests, 58 adapted Reviewer assertions, three expanded HTTP groups and eleven unchanged QA groups passing on the host. These counts overlap and do not establish independent acceptance or container/resource conformance. PM froze the candidate at 23:16:06 UTC; Reviewer acknowledged the complete independent recheck handoff at 23:19:01 UTC. The PM delivery flag resolved through that acknowledgment; its turn had completed normally. This checkpoint does not include the subsequent Reviewer outcome.

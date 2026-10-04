@@ -1,0 +1,48 @@
+{
+  "work_item": "BUILD-S1-REPAIR3",
+  "revision": "513db15d7b3a1b9a86d4e0fa15366c587c6c4e67",
+  "owner": "@frankzhu94/factory-backend",
+  "start": "2026-10-04T23:11:33.332912+00:00",
+  "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+  "commands": [
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "port": 49788,
+      "pid": 30740,
+      "start": "2026-10-04T23:11:33.386029+00:00"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "port": 49792,
+      "pid": 30741,
+      "start": "2026-10-04T23:11:33.485225+00:00"
+    }
+  ],
+  "clean_before": true,
+  "cleanup": [
+    {
+      "pid": 30740,
+      "returncode": -15,
+      "end": "2026-10-04T23:11:34.437149+00:00"
+    },
+    {
+      "pid": 30741,
+      "returncode": -15,
+      "end": "2026-10-04T23:11:34.438752+00:00"
+    }
+  ],
+  "end": "2026-10-04T23:11:34.438758+00:00",
+  "clean_after": true,
+  "pass": 58,
+  "fail": 0
+}

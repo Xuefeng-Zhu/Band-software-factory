@@ -1,0 +1,8 @@
+{
+  "observed_at_utc": "2026-10-04T23:26:28.766378+00:00",
+  "scanner": "pinned challenge harness.check._credentials only; no product harness run",
+  "challenge_commit": "803560d2a678ace1414465c098eb0ab5380ffade",
+  "findings": [],
+  "scope": "Recognized text types per official scanner; selected scripts, structured results and logs inspected for private values. Reports retain only synthetic fixture values and outcome labels.",
+  "not_full_submission_check": true
+}

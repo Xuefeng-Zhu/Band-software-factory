@@ -1,0 +1,63 @@
+{
+  "observed_at_utc": "2026-10-04T23:26:28.625641+00:00",
+  "workflow_source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/workflow-12cde259-0fcd-4551-84c7-52c443cb5600.json",
+  "turn_id": "pm:391:a048f56e-12a4-4f2e-91d7-42ae622f1803",
+  "turn": {
+    "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+    "deadline_at": 1791156339.676447,
+    "ended_at": 1791155836.869331,
+    "incident_ids": [
+      "turn:pm:391:a048f56e-12a4-4f2e-91d7-42ae622f1803"
+    ],
+    "reason_code": "",
+    "started_at": 1791155739.676519,
+    "status": "completed",
+    "trigger_event_id": "a048f56e-12a4-4f2e-91d7-42ae622f1803"
+  },
+  "incident_id": "turn:pm:391:a048f56e-12a4-4f2e-91d7-42ae622f1803",
+  "incident": {
+    "attempts": 0,
+    "blocked": null,
+    "closed": false,
+    "created_at": 1791155832.9955359,
+    "deliveries": [
+      "GATE-S1-RECHECK-D1"
+    ],
+    "failed": false,
+    "next_at": 1791155952.9955359,
+    "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+  },
+  "delivery": {
+    "acknowledged": true,
+    "acks": {
+      "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb": "d4d5f680-9d1e-44e1-be01-6d9382d44be8"
+    },
+    "complete": true,
+    "digest": "2921f6177c9c6a1fb8b181e993fc83608067a1baff84c8bd7e43d872ef824aa0",
+    "first_at": 1791155832.9955359,
+    "incident_id": "turn:pm:391:a048f56e-12a4-4f2e-91d7-42ae622f1803",
+    "parts": {
+      "1": {
+        "event_id": "66ec28e6-3e90-40b2-bb45-fd5d674b3fb2",
+        "sha256": "4ca79ed6e8dbe3684df0c95865487ffacce1c025ca2feb4f7b067a93dd24f4c6"
+      },
+      "2": {
+        "event_id": "d16f96e4-5d65-4f99-81cd-07b69c795a03",
+        "sha256": "1f92909a94d9cbc90156dae413d62fee89af0ef222be8fe9a246d40a02615987"
+      },
+      "3": {
+        "event_id": "c957f867-b771-435e-9dc4-88ce6f952511",
+        "sha256": "a114503648e0eabc3dcaf5e3e9bfe7f09fff3ce77691f5fe626c1a4558ba7e29"
+      }
+    },
+    "recipient_ids": [
+      "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+    ],
+    "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+    "total": 3
+  },
+  "resolved_by_current_predicate": true,
+  "predicate_source": "factorykit/workflow.py:344-345",
+  "predicate_sha256": "b845ce8b5a96b256f6057a713379677485b82298b0213065ff05748c5a74206f",
+  "interpretation": "Completed PM turn; retained handoff bookkeeping resolved by canonical recipient acknowledgement, not a PM crash. The closed field alone is not the resolution test."
+}
