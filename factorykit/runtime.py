@@ -1011,6 +1011,8 @@ def cmd_status(args) -> int:
         return 0
     live = is_owned(record.get("parent", {}), record.get("token"))
     result = {"status": record.get("status", "starting") if live else "stopped", "owned_parent_alive": live, "pid": record.get("parent", {}).get("pid"), "mode": record.get("mode"), "seats": record.get("seats", []), "owned_children_alive": sum(is_owned(p) for p in record.get("children", [])), "updated_at": record.get("updated_at"), "last_error": record.get("last_error"), "recovery": record.get("recovery")}
+    result["process_status"] = result["status"]
+    result["workflow"] = record.get("workflow", {"state": "unobserved", "detail": "This supervisor did not record workflow health."})
     ledger = state_dir(config) / ("budget-subscription.json" if subscription_only(config["budgets"]) else f"budget-{record.get('mode')}.json")
     if ledger.exists():
         data = json.loads(ledger.read_text())
@@ -1066,6 +1068,8 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
     from band.adapters import CodexAdapter
     from band.core.types import Emit, Capability
     from band.runtime.types import SessionConfig
+    from .workflow import WorkflowWatchdog
+    from .workflow_runtime import WorkflowTools, observed_turn, send_due_notice
     require_ready(config, mode)
     room = config["band"][f"{mode}_room_id"]
     recovery = load_recovery(config, recovery_id, token) if recovery_id else None
@@ -1076,6 +1080,12 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
     configs = await recovery_configs(config, recovery) if recovery else {}
     creds = credentials(config)
     agents = []
+    available_tools = {}
+    pm = next(s for s in seats if s["id"] == "pm")
+    watchdog = None if recovery else WorkflowWatchdog(
+        state_dir(config) / f"workflow-{room}.json", room, pm["agent_id"],
+        [s["agent_id"] for s in seats], config["budgets"]["ack_timeout_seconds"],
+        max_notices=min(2, config["budgets"]["max_repairs"]))
     loop = asyncio.get_running_loop()
     for sig in (signal.SIGTERM, signal.SIGINT):
         loop.add_signal_handler(sig, ledger.stop.set)
@@ -1096,16 +1106,31 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
             async with ledger.semaphore:
                 if recovery and not recovery_message_allowed(recovery, inp.msg):
                     return
-                if not ledger.reserve_event(self.seat["id"], inp.msg):
+                if ledger.stop.is_set() or not ledger.reserve_event(self.seat["id"], inp.msg):
                     return
-                wrapper = RecoveryTools if recovery else AuditedTools
-                wrapped = wrapper(inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
+                if ledger.stop.is_set():
+                    return
+                base_args = (inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
+                if recovery:
+                    wrapped = RecoveryTools(*base_args)
+                else:
+                    # This conservative deadline begins at admission, before SDK
+                    # initialization, so it can never promise an extra 600s later.
+                    deadline_at = time.time() + config["budgets"]["turn_timeout_seconds"]
+                    turn_id = self.seat["id"] + ":" + str(ledger.data["turns"][self.seat["id"]]) + ":" + inp.msg.id
+                    available_tools[self.seat["agent_id"]] = inp.tools
+                    wrapped = WorkflowTools(*base_args, watchdog=watchdog,
+                        actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
                 try:
                     timeout = config["budgets"]["turn_timeout_seconds"] + 15
                     if recovery:
                         timeout = min(timeout, max(0, recovery["expires_epoch"] - time.time()))
                     async with asyncio.timeout(timeout):
-                        await super().on_event(replace(inp, tools=wrapped))
+                        if recovery:
+                            await super().on_event(replace(inp, tools=wrapped))
+                        else:
+                            await observed_turn(super().on_event, inp, wrapped, watchdog,
+                                actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
                 except TimeoutError:
                     ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
 
@@ -1120,6 +1145,21 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
             except psutil.Error:
                 pass
             record.update(status="running", updated_at=timestamp(), seats=[s["id"] for s in seats])
+            if watchdog:
+                watchdog.queue_timeout_notices()
+                record["workflow"] = watchdog.health()
+                if record["workflow"]["state"] != "blocked":
+                    try:
+                        notification = await send_due_notice(watchdog, ledger, available_tools, config["seats"])
+                    except Exception:
+                        notification = "blocked_notice_delivery_unknown"
+                    record["workflow"] = watchdog.health()
+                    if notification.startswith("blocked_"):
+                        record["workflow"].update(state="blocked", recovery_blocker=notification)
+                if record["workflow"]["state"] == "blocked":
+                    # Operational failures are local to this run. Do not reset or
+                    # poison the shared consumption ledger for a later fresh run.
+                    ledger.stop.set()
             save_json(registry_path(config), record)
             reason = ledger.reason()
             if all(ledger.reason(s["id"]) for s in seats):
@@ -1167,6 +1207,8 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
         record = read_registry(config)
         if record.get("token") == token:
             record.update(status="stopped", updated_at=timestamp())
+            if watchdog and not record.get("workflow", {}).get("recovery_blocker"):
+                record["workflow"] = watchdog.health()
             save_json(registry_path(config), record)
 
 
