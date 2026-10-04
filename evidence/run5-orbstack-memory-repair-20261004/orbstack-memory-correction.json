@@ -1,0 +1,49 @@
+{
+  "started_at": "2026-10-04T22:29:59.432333+00:00",
+  "scope": "operator infrastructure memory ceiling only; no BAND message, product change, test rerun, seat restart, container control, or budget change",
+  "rationale": "Global 1024 MiB ceiling is below the specified 2 GiB single-service limit; host has 8 GiB. Use 4096 MiB ceiling with no assumption of concurrent full-capacity service sufficiency.",
+  "observations": [
+    {
+      "name": "before_config",
+      "at": "2026-10-04T22:29:59.848863+00:00",
+      "returncode": 0,
+      "stdout": "1024",
+      "stderr": ""
+    },
+    {
+      "name": "before_vm",
+      "at": "2026-10-04T22:30:00.201966+00:00",
+      "returncode": 0,
+      "stdout": "1020571648",
+      "stderr": ""
+    },
+    {
+      "name": "set_ceiling",
+      "at": "2026-10-04T22:30:00.227865+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Restart OrbStack with \"orb stop\" to apply changes."
+    },
+    {
+      "name": "after_config",
+      "at": "2026-10-04T22:30:00.534241+00:00",
+      "returncode": 0,
+      "stdout": "4096",
+      "stderr": ""
+    },
+    {
+      "name": "after_vm",
+      "at": "2026-10-04T22:30:00.593478+00:00",
+      "returncode": 0,
+      "stdout": "1020571648",
+      "stderr": ""
+    },
+    {
+      "name": "running_containers",
+      "at": "2026-10-04T22:30:00.618809+00:00",
+      "returncode": 0,
+      "stdout": "3ebf63358e0c tk-s1-owner-b Up 44 minutes\n5af1a2eb159d tk-s1-owner-a Up 44 minutes",
+      "stderr": ""
+    }
+  ]
+}

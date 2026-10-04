@@ -1,0 +1,38 @@
+{
+  "observed_at": "2026-10-04T22:34:26.368981+00:00",
+  "frozen_input_count": 34,
+  "frozen_inputs_all_match": true,
+  "mismatches": [],
+  "config_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "configuration_matches_freeze": true,
+  "source_lock_matches": true,
+  "human_text_events_on_returned_page": [],
+  "public_text_page_has_more": true,
+  "limitations": [
+    "Public text query only, not the official full-session export; human count is global only if all pages returned.",
+    "Operator action provenance does not independently establish application state continuity or organizer compliance."
+  ],
+  "operator_action_argv": [
+    [
+      "orb",
+      "config",
+      "set",
+      "memory_mib",
+      "4096"
+    ],
+    [
+      "orb",
+      "stop"
+    ],
+    [
+      "orb",
+      "start"
+    ],
+    [
+      "docker",
+      "start",
+      "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9",
+      "5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd"
+    ]
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "captured_at": "2026-10-04T22:33:19.097500+00:00",
+  "scope": "Post-dispatch operator environment intervention only; no product or gate acceptance",
+  "files": [
+    {
+      "path": "docker-health-recheck-20261004T2220Z.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/docker-health-recheck-20261004T2220Z.json",
+      "sha256": "d2f823f3ed4e819ce1ee0552b6ab179d46120aafceb3d5f4daa49ae3b2987c1c"
+    },
+    {
+      "path": "docker-recovery-observation.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/docker-recovery-observation.json",
+      "sha256": "9142645e473d1f9fa5a7735ec4f15cb4359d884f8ad65c9d472d0c936acba8b7"
+    },
+    {
+      "path": "docker-running-workload-ownership.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/docker-running-workload-ownership.json",
+      "sha256": "e23d90757cb231bd815965b6d0cf730bddb4183ff5dc1a22141b1621aa96912d"
+    },
+    {
+      "path": "orbstack-memory-correction.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/orbstack-memory-correction.json",
+      "sha256": "aa2accb28d3b1c12d08627288a8a7bb03694738ad2affe0712a9f026791c1cb2"
+    },
+    {
+      "path": "orbstack-memory-activation.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/orbstack-memory-activation.json",
+      "sha256": "f3432f962b4682851027829a5a758182904129a4937e80940f6b083702f2ada7"
+    },
+    {
+      "path": "README.md",
+      "sha256": "aa3e921f2904ccff5667c69a0023fa744856bfae194db6e1d9641f472a0ff8f6",
+      "source": "operator-authored factual disclosure"
+    },
+    {
+      "path": "post-repair-input-and-room-audit.json",
+      "source": "read-only post-repair input and public-room audit",
+      "sha256": "b7992254c47952469b6f793d56029af2302bf11cb8a9d5059e47ec0410aeed51"
+    }
+  ]
+}

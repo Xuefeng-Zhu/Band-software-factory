@@ -16,7 +16,7 @@ The participant approved one initial all-four-stage dispatch at `2026-10-04T20:5
 
 The launch retains one active model seat, `gpt-6-astra`, Codex CLI 0.160.0, BAND SDK 4.0.0, 600-second turn limit, 120-second acknowledgment timeout, three repairs per work item, and 1,000 cumulative turns per seat. Existing ChatGPT subscription only; no API billing or paid provisioning. All historical room stops remain closed. Authorization changed only `budgets.approved` in the scoped configuration and cleared the shared global stop for this one new Run 5 dispatch; all prior counters and room history were retained.
 
-No public release, final submission, or deployment is part of this launch. After dispatch, the operator only observes until the final report.
+No public release, final submission, or deployment is part of this launch. After dispatch, product decisions remain with the agents. A post-dispatch operator infrastructure repair is disclosed below; the run must not be described as having had no operator intervention.
 
 ## Verification status
 
@@ -53,3 +53,9 @@ Architect rejected the first candidate's storage design at `12e43a92dd6e037ac27d
 ## First repair candidate and independent QA assignment
 
 The repaired implementation `249e5712624d20ca02c9680eb6ec60ff3865bcb8` and record commit `68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1` are preserved on `run-5`. Ten owner unit tests, eleven HTTP groups and original-export compatibility passed on host Python 3.13. Two optional host harness attempts failed before tests; repaired-candidate Docker/resource/isolated verification remains blocked. Original-candidate green tests are not inherited acceptance. PM assigned independent QA to the fixed repaired candidate without advancing later stages. See [repair evidence and limits](../evidence/run5-stage1-repair1-20261004/README.md).
+
+## Post-dispatch Docker memory repair
+
+At 22:22 UTC, inspection confirmed an OOM-killed review container and a 1 GiB global OrbStack ceiling below the 2 GiB service allowance. The operator raised that ceiling to 4 GiB, performed one required OrbStack restart at 22:31 UTC after inventorying affected workloads, and restored the two exact existing factory-owned containers. No Linux machines were running. Docker then reported 4,180,443,136 bytes. This is disclosed operator infrastructure intervention, not application verification or proof that the organizers accept the intervention. No product edit, new BAND instruction, test rerun, model change, or budget reset occurred. See [the complete repair record](../evidence/run5-orbstack-memory-repair-20261004/README.md).
+
+QA independently rejected the first repaired candidate for valid maximum-year availability and a 5,000-digit decimal query count. PM acknowledged the complete return at 22:31:47 UTC and accepted both findings for repair 2 of 3; Stage 1 remains unaccepted and later stages have not advanced.

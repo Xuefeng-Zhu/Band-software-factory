@@ -1,0 +1,70 @@
+{
+  "observed_at": "2026-10-04T22:22:11.868500+00:00",
+  "scope": "Read-only exact review-container state and documented OrbStack config query; no mutation.",
+  "container": {
+    "exit_code": 0,
+    "data": {
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 137,
+        "FinishedAt": "2026-10-04T22:07:51.903833782Z",
+        "OOMKilled": true,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-04T21:55:47.164285926Z",
+        "Status": "exited"
+      },
+      "memory": 2147483648,
+      "nano_cpus": 2000000000,
+      "image": "sha256:584265ccec0f3551cafa07a899356d8b160b4c9320654632a1c9010bf0ca820c"
+    }
+  },
+  "orb_cli_available": true,
+  "orb_config": {
+    "exit_code": 0,
+    "resource_fields": {
+      "cpu": 8,
+      "machine.docker.cpu": 0,
+      "machine.docker.memory_mib": 0,
+      "memory_mib": 1024
+    },
+    "field_names": [
+      "app.start_at_login",
+      "app.wait_for_container_stop",
+      "cpu",
+      "data_allow_backup",
+      "docker.expose_ports_to_lan",
+      "docker.node_name",
+      "docker.set_context",
+      "k8s.enable",
+      "k8s.expose_services",
+      "k8s.kubeconfig_use_domain",
+      "k8s.tls_san",
+      "machine.docker.cpu",
+      "machine.docker.disk_bytes",
+      "machine.docker.http_port",
+      "machine.docker.https_port",
+      "machine.docker.isolated",
+      "machine.docker.memory_mib",
+      "machine.docker.mounts",
+      "machine.docker.username",
+      "machines.expose_ports_to_lan",
+      "machines.forward_ports",
+      "memory_mib",
+      "mount_hide_shared",
+      "network.https",
+      "network.proxy.exclude",
+      "network.subnet4",
+      "network_bridge",
+      "network_proxy",
+      "power.pause_in_sleep",
+      "rosetta",
+      "setup.use_admin",
+      "ssh.expose_port"
+    ]
+  },
+  "finished_at": "2026-10-04T22:22:13.003262+00:00"
+}

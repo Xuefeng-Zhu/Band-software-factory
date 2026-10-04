@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-10-04T22:20:57.841971+00:00",
+  "scope": "One bounded read-only Docker info recheck; no settings, container or process actions.",
+  "exit_code": 0,
+  "status": "RESPONDED",
+  "fields": {
+    "ServerVersion": "29.4.0",
+    "MemTotal": 1020571648,
+    "NCPU": 8,
+    "OperatingSystem": "OrbStack",
+    "ContainersRunning": 2
+  },
+  "finished_at": "2026-10-04T22:20:58.352846+00:00"
+}

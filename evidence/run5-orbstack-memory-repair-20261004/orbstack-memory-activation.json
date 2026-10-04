@@ -1,0 +1,70 @@
+{
+  "started_at": "2026-10-04T22:31:17.427479+00:00",
+  "reason": "Activate approved 4096 MiB global ceiling; current 1024 MiB ceiling cannot supply a 2 GiB service.",
+  "scope": "One OrbStack stop/start; restore only the two already-running Run5 owner containers. No BAND communication, test dispatch, image rebuild, product edit, or budget change.",
+  "observations": [
+    {
+      "name": "fresh_running_machines",
+      "at": "2026-10-04T22:31:17.585600+00:00",
+      "returncode": 0,
+      "stdout": "[]",
+      "stderr": ""
+    },
+    {
+      "name": "fresh_running_containers",
+      "at": "2026-10-04T22:31:18.027612+00:00",
+      "returncode": 0,
+      "stdout": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9\n5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd",
+      "stderr": ""
+    },
+    {
+      "name": "stop",
+      "at": "2026-10-04T22:31:21.466924+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "start",
+      "at": "2026-10-04T22:31:24.838930+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "restore_exact_prior_services",
+      "at": "2026-10-04T22:31:26.558959+00:00",
+      "returncode": 0,
+      "stdout": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9\n5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd",
+      "stderr": ""
+    },
+    {
+      "name": "active_memory",
+      "at": "2026-10-04T22:31:26.791194+00:00",
+      "returncode": 0,
+      "stdout": "4180443136",
+      "stderr": ""
+    },
+    {
+      "name": "configured_memory",
+      "at": "2026-10-04T22:31:27.642019+00:00",
+      "returncode": 0,
+      "stdout": "4096",
+      "stderr": ""
+    },
+    {
+      "name": "post_running_containers",
+      "at": "2026-10-04T22:31:27.743400+00:00",
+      "returncode": 0,
+      "stdout": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9 tk-s1-owner-b Up 1 second\n5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd tk-s1-owner-a Up 1 second",
+      "stderr": ""
+    },
+    {
+      "name": "post_running_machines",
+      "at": "2026-10-04T22:31:27.757465+00:00",
+      "returncode": 0,
+      "stdout": "[]",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "observed_at": "2026-10-04T22:23:43.797205+00:00",
+  "scope": "Read-only running-container names, IDs and images to assess affected workload ownership; no environment/secrets or container actions.",
+  "exit_code": 0,
+  "running": [
+    {
+      "ID": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9",
+      "Names": "tk-s1-owner-b",
+      "Image": "tablekeeper-s1:owner",
+      "Status": "Up 38 minutes",
+      "CreatedAt": "2026-10-04 14:45:26 -0700 PDT"
+    },
+    {
+      "ID": "5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd",
+      "Names": "tk-s1-owner-a",
+      "Image": "tablekeeper-s1:owner",
+      "Status": "Up 38 minutes",
+      "CreatedAt": "2026-10-04 14:45:26 -0700 PDT"
+    }
+  ],
+  "ownership_evidence": {
+    "tk-s1-owner-a": "result-run-5/records/backend-stage-1.md: named Backend Stage1 owner service",
+    "tk-s1-owner-b": "result-run-5/records/backend-stage-1.md: named Backend Stage1 owner service"
+  },
+  "all_running_names_match_known_run5_owner_services": true
+}

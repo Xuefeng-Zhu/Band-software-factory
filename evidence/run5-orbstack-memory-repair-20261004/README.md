@@ -1,0 +1,15 @@
+# Run 5 operator infrastructure repair — not product acceptance
+
+Docker recovered responsiveness before any operator restart, at 22:20:58 UTC on October 4. Read-only inspection then established a global OrbStack ceiling of 1,024 MiB. The architecture review container had a 2 GiB per-container limit but was OOM-killed at 22:07:51.903833782Z. A per-container limit cannot supply memory beyond the global VM ceiling, so that failure is not a demonstrated product failure in a full 2 GiB environment.
+
+The operator changed the global ceiling to 4,096 MiB at 22:30:00 UTC. OrbStack explicitly required a restart; the setting alone left Docker at 1,020,571,648 bytes. Immediately before restart, the only running containers were the two exact Run 5 Backend owner services, and no Linux machines were running. Their ownership is traced to `result-run-5/records/backend-stage-1.md`. The host has 8 GiB of physical memory; 4 GiB is an engineering ceiling for a single 2 GiB service plus other workload/headroom, not measured sufficiency for two simultaneous full-capacity services or later stages.
+
+One `orb stop` / `orb start` occurred between 22:31:18 and 22:31:24 UTC, interrupting both existing owner containers. The operator restored precisely their original container IDs with `docker start`; no container was recreated. These are the earlier owner-image services, not a rebuilt repaired candidate. Application/session-state continuity was not tested. At 22:31:26 Docker reported 4,180,443,136 bytes of VM memory, both original services were running, and the Linux-machine inventory remained empty.
+
+**This is a post-dispatch operator infrastructure intervention and must be disclosed in any final run narrative.** It was performed while QA had reported its checks complete and PM was handling the return. It is not evidence of uninterrupted execution, an additional judged dispatch, a repaired application, a passing gate, or organizer acceptance of the intervention. No BAND instruction, product edit, test rerun, seat restart, model change, or budget reset was made by the operator. Candidate `68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1` remains independently rejected for two behavioral defects. New candidate verification belongs to the autonomous team.
+
+The retained receipts record the original OOM, exact affected services, configuration-only attempt, one activation, and resource readback. They contain no container environment variables, credentials, or private model reasoning. [Manifest](manifest.json).
+
+OrbStack documents `memory_mib` as the total memory available to containers and machines: [official settings](https://docs.orbstack.dev/settings#memory-limit). Installed CLI output is retained for the explicit restart requirement.
+
+The separate post-repair audit matched all 34 frozen input files, the canonical configuration and source lock. It records the human text events returned by a read-only room query and its pagination limit. It is not a substitute for the final official full-session export.
