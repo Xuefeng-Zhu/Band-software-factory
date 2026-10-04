@@ -1,0 +1,55 @@
+{
+  "work_item": "GATE-S1-RECHECK",
+  "revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "utc": "2026-10-04T23:23:16.835056+00:00",
+  "source_clean": true,
+  "clone_clean": true,
+  "source_revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "clone_revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "stage_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "owner_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "record_only_diff": "records/backend-stage-1-repair3.md",
+  "files": {
+    "stage-1/tablekeeper/store.py": {
+      "sha256": "341cfcf0dc00a8385a272a6c31f8c38ef37e24ebf9b1b466b99eda5f0ac93edf",
+      "blob": "bba515847917bde7087390f52bc634442216ca19"
+    },
+    "stage-1/tablekeeper/service.py": {
+      "sha256": "700961f21f23faabc281c08b542276b46255093230c72ccbbb6ebb276509181d",
+      "blob": "378dff9e9923daed24678db37e8038e8e1e985ef"
+    },
+    "stage-1/tablekeeper/server.py": {
+      "sha256": "f1ca9daea6bf18122ceebd5565178583fa14551e547fc6587273174f26ce92d9",
+      "blob": "e39bc57cc63a6e141164cf26cdec78301c0bf604"
+    },
+    "stage-1/tablekeeper/receipt_validation.py": {
+      "sha256": "52f3ce5bc38e5da7ad3cba86210839d1dbea89fda0ea4a9632504145eafd3809",
+      "blob": "f67d52e02f44900c7b7d735c08182745c7c94ed0"
+    },
+    "stage-1/tablekeeper/state_io.py": {
+      "sha256": "839fa1b3b2b8b08834bfa7785cc9ff3a7575190d6f2ddd9c18b3900a06a0fef9",
+      "blob": "e80135b259d907c836e703f559b5eba0935a099c"
+    },
+    "stage-1/tablekeeper/core.py": {
+      "sha256": "99b2e01d402ab1e8476920bcfc43dc3c43d350376309082a160f6027beb39fd1",
+      "blob": "9937129e135863acff0c6534df6f289e4deaeee2"
+    },
+    "stage-1/tablekeeper/codec.py": {
+      "sha256": "aaaf13e535906510e94ac0e23d3db73f09f7f6b3b7608a9145304ecb12a8c610",
+      "blob": "6ecbf94fba3426bfe423442a531684351778e731"
+    },
+    "stage-1/Dockerfile": {
+      "sha256": "50392c6906af36b39d808b0a47d786b81c242c72a03171796a05caa123630ec2",
+      "blob": "7ac9fea5bb16afd16e6e034ddd717667fe4fb5af"
+    },
+    "stage-1/RUN.md": {
+      "sha256": "b510a998260316299c40ffd03c688c24222e5117db889bfa1da05e548c59881d",
+      "blob": "ab8b6b9da811deff0d7bb32dec2b7e8e0d3dfb08"
+    },
+    "tests/qa_stage1_boundaries.py": {
+      "sha256": "e4d196a216075fd1c92a540ed91c0de81b3e1743fe1e1ba90dffe78e25633841",
+      "blob": "2549ab4f85f0733b03dc3b74e424b67c5af0d1c3"
+    }
+  },
+  "symlinks_submodules": []
+}

@@ -1,0 +1,33 @@
+{
+  "observed_at_utc": "2026-10-04T23:30:06.076807+00:00",
+  "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/return-handoff.json",
+  "source_file_sha256": "9ba8bff1b07227928be95c5b65df7d0ffef2386e82011dc5e7394c4407b11728",
+  "declared_digest": "96910e83e1de3b295d0356dcad9c240dc0c3a863801af033a25b55b6336f4129",
+  "verified_concat_parts_sha256": "96910e83e1de3b295d0356dcad9c240dc0c3a863801af033a25b55b6336f4129",
+  "parts": [
+    {
+      "part": 1,
+      "characters": 14500,
+      "sha256": "a39091d7d0496d949ee6bfa816f22dfbf32289dd634ff283a70746ffcfc4df3e"
+    },
+    {
+      "part": 2,
+      "characters": 14500,
+      "sha256": "1187141c8533b2c0cdbcb8f830b72b83e736abb0b391f92ac1ea71399ef30064"
+    },
+    {
+      "part": 3,
+      "characters": 6688,
+      "sha256": "c3f44fb646e4dc185784ddcf7aed71366f4423d0938a60f54882401974834258"
+    }
+  ],
+  "decision_exact_prefix": true,
+  "complete_packet_archived": false,
+  "omission": "Full duplicate Stage1 specification excluded. Complete decision copied byte for byte; public multipart headers and hashes retained.",
+  "pm_receipt_observation": {
+    "status": "NOT_YET_OBSERVED",
+    "observed_at_utc": "2026-10-04T23:28:09.314841+00:00",
+    "evidence": "public-events.json",
+    "limitation": "No actual PM acknowledgement was present in the selected fresh public page. Original return-events.json retains its historical PENDING status. Absence at this observation is not a later-delivery failure claim."
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "observed_at_utc": "2026-10-04T23:30:06.290200+00:00",
+  "candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "candidate_source_paths_hash_verified": [
+    "stage-1/tablekeeper/store.py",
+    "stage-1/tablekeeper/service.py",
+    "stage-1/tablekeeper/server.py",
+    "stage-1/tablekeeper/receipt_validation.py",
+    "stage-1/tablekeeper/state_io.py",
+    "stage-1/tablekeeper/core.py",
+    "stage-1/tablekeeper/codec.py",
+    "stage-1/Dockerfile",
+    "stage-1/RUN.md",
+    "tests/qa_stage1_boundaries.py"
+  ],
+  "selected_unchanged_copies": [
+    {
+      "archive": "decision.md",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/decision.md",
+      "bytes": 16283,
+      "sha256": "4f1d9b29cf0e07d5870e8fb67c7e757ce3eebb5fca7b26422ab4a73231f1b76e",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "execution.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/execution.json",
+      "bytes": 1231,
+      "sha256": "a4e78a329e798a7b7d23626c3d2271fcca794778ce94710e24f8a3662bfa3cd5",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/results.json",
+      "bytes": 19942,
+      "sha256": "2b7eb044faa4b58d4d54ad8122857c990ed6573bf8edd7d1f0a461ffade0f6a8",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "extended-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/extended-results.json",
+      "bytes": 30224,
+      "sha256": "a778f5c304fea1cbc81df036d51f1bb9e438af1f7080d98159230d790955f15d",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "extended.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/extended.py",
+      "bytes": 11387,
+      "sha256": "4d16d7863891fbad5f309b9c5da0c3bd43aa733632b11d5f891b26126000443d",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "receipt-pairs-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/receipt-pairs-results.json",
+      "bytes": 2374,
+      "sha256": "38c7de9a7c72b61a43c2b94d16a29efc6225f8074ba82023062bfb400611c14f",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "receipt-pairs.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/receipt-pairs.py",
+      "bytes": 4578,
+      "sha256": "7fc4084136ebbe6c66b16f987932a81cad3cf57ed5c862856c299dd5feaa3a7c",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "receipt-pairs-confirmation/receipt-pairs-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/receipt-pairs-confirmation/receipt-pairs-results.json",
+      "bytes": 2374,
+      "sha256": "502c2fa085647dd2c5ca671b815fb353e1dfa589b6673b4e5db27a1c40d85a85",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "receipt-pairs-confirmation/receipt-pairs.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/receipt-pairs-confirmation/receipt-pairs.py",
+      "bytes": 4578,
+      "sha256": "7fc4084136ebbe6c66b16f987932a81cad3cf57ed5c862856c299dd5feaa3a7c",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "mechanisms-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/mechanisms-results.json",
+      "bytes": 513,
+      "sha256": "84705ee3e0ec2c545958fd4c8c32e3472b6033d1a53b3432aa86d5eccddd4f47",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "mechanisms.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/mechanisms.py",
+      "bytes": 3922,
+      "sha256": "430548eb17e32a4839e56ad0d7cd4e9f85ba2842bc3c1bd8e3b6ddfa365f6e20",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "provenance.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/provenance.json",
+      "bytes": 2396,
+      "sha256": "304326c6ac9a1cbabba76e323cd11cc6be43ec8abd5942ed4ac57e0afc99048a",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "repro-provenance.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/repro-provenance.json",
+      "bytes": 618,
+      "sha256": "0f41310705c4cb268c7674823151a3c252db5f445cbbcf41b3b0fe9781eedaf8",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "check.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/check.py",
+      "bytes": 7564,
+      "sha256": "11faa18733a2ed7c01d82e3e2df74f8aaa311a83a7591e188c1043aaaccb506b",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "incoming-integrity.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/incoming-integrity.json",
+      "bytes": 254,
+      "sha256": "5e150655891571e99b67f25d143bb5e280392d527daa86539711e782ae19e29b",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "return-events.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/return-events.json",
+      "bytes": 900,
+      "sha256": "d4eea6c00d44d48a61a21d6b9b3852e5f18e3850031b50730a4f34f9632344db",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "baseline.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/baseline.json",
+      "bytes": 1448,
+      "sha256": "ddd86a07e551c25e2e8de0b6c3c0531bcae0708b70c092cbd56b912cfd8fa5d7",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "baseline.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/baseline.log",
+      "bytes": 184,
+      "sha256": "f24c4175d9298bea2114ed0f8a03f0a6871a71fdfdaf89dee43680a17a4fc50d",
+      "unchanged_copy": true
+    }
+  ],
+  "counts": [
+    {
+      "file": "results.json",
+      "counts": {
+        "PASS": 58
+      },
+      "start": null,
+      "end": null
+    },
+    {
+      "file": "extended-results.json",
+      "counts": {
+        "PASS": 125,
+        "FAIL": 6
+      },
+      "start": "2026-10-04T23:21:39.444306+00:00",
+      "end": "2026-10-04T23:21:44.626920+00:00"
+    },
+    {
+      "file": "receipt-pairs-results.json",
+      "counts": {
+        "FAIL": 4,
+        "PASS": 2
+      },
+      "start": "2026-10-04T23:22:32.336351+00:00",
+      "end": "2026-10-04T23:22:32.763972+00:00"
+    },
+    {
+      "file": "receipt-pairs-confirmation/receipt-pairs-results.json",
+      "counts": {
+        "FAIL": 4,
+        "PASS": 2
+      },
+      "start": "2026-10-04T23:23:16.188174+00:00",
+      "end": "2026-10-04T23:23:16.610330+00:00"
+    },
+    {
+      "file": "baseline.json",
+      "counts": {
+        "PASS": 11
+      },
+      "start": null,
+      "end": null
+    },
+    {
+      "file": "mechanisms-results.json",
+      "counts": {
+        "PASS": 2
+      },
+      "start": "2026-10-04T23:19:37.596656+00:00",
+      "end": "2026-10-04T23:19:37.792254+00:00"
+    }
+  ],
+  "archivist_product_tests_run": false,
+  "archivist_docker_actions": false,
+  "archivist_band_messages_sent": false,
+  "scope": "Read-only evidence and existing git-object verification; this archive records Reviewer proof without rerunning or broadening it."
+}

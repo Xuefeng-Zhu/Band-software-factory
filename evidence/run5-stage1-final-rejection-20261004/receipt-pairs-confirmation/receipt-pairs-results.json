@@ -1,0 +1,100 @@
+{
+  "work_item": "GATE-S1-RECHECK",
+  "revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "start": "2026-10-04T23:23:16.188174+00:00",
+  "end": "2026-10-04T23:23:16.610330+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/private/tmp/gate-s1-recheck-20261004T2318Z",
+      "revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+      "pid": 32709,
+      "port": 51864,
+      "start": "2026-10-04T23:23:16.237607+00:00"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/private/tmp/gate-s1-recheck-20261004T2318Z",
+      "revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+      "pid": 32712,
+      "port": 51869,
+      "start": "2026-10-04T23:23:16.378308+00:00"
+    }
+  ],
+  "cleanup": [
+    {
+      "pid": 32709,
+      "exit": -15,
+      "utc": "2026-10-04T23:23:16.608776+00:00"
+    },
+    {
+      "pid": 32712,
+      "exit": -15,
+      "utc": "2026-10-04T23:23:16.610307+00:00"
+    }
+  ],
+  "results": [
+    {
+      "name": "party-pair-import",
+      "status": "FAIL",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        204,
+        null
+      ],
+      "utc": "2026-10-04T23:23:16.602148+00:00"
+    },
+    {
+      "name": "party-pair-replay-original-value",
+      "status": "FAIL",
+      "expected": 2,
+      "actual": 3,
+      "utc": "2026-10-04T23:23:16.602153+00:00"
+    },
+    {
+      "name": "party-pair-replay-status",
+      "status": "PASS",
+      "expected": 200,
+      "actual": 200,
+      "utc": "2026-10-04T23:23:16.602155+00:00"
+    },
+    {
+      "name": "batch-table-pair-import",
+      "status": "FAIL",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        204,
+        null
+      ],
+      "utc": "2026-10-04T23:23:16.604326+00:00"
+    },
+    {
+      "name": "batch-table-pair-replay-original-value",
+      "status": "FAIL",
+      "expected": "z",
+      "actual": "t",
+      "utc": "2026-10-04T23:23:16.604330+00:00"
+    },
+    {
+      "name": "batch-table-pair-replay-status",
+      "status": "PASS",
+      "expected": 200,
+      "actual": 200,
+      "utc": "2026-10-04T23:23:16.604332+00:00"
+    }
+  ]
+}

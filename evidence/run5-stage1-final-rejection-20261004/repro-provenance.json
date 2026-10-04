@@ -1,0 +1,12 @@
+{
+  "check.py": {
+    "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-20261004T2254Z/check.py",
+    "original_sha256": "1709dd63edc5fa1a0adf15ff91d6d3360863ea5c15c818852759ec60c5e62ee0",
+    "changes": "Only clone path, work item and revision literals; assertions unchanged"
+  },
+  "mechanisms.py": {
+    "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-20261004T2254Z/mechanisms.py",
+    "original_sha256": "c16a90abf3c323409c5d8b003b1227b7512287894a2e7bd4fde4f7bc6945de9a",
+    "changes": "Only clone path, work item and revision literals; assertions unchanged"
+  }
+}
