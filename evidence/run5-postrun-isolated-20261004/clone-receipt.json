@@ -1,0 +1,42 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "clone",
+        "--single-branch",
+        "--branch",
+        "run-5",
+        "https://github.com/Xuefeng-Zhu/Tablekeeper.git",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result"
+      ],
+      "start": "2026-10-04T23:37:32.788242+00:00",
+      "end": "2026-10-04T23:37:34.174784+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Cloning into '/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result'...\n"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result",
+        "checkout",
+        "--detach",
+        "350e3d95855a7b10eacafd59fca67ffaf48a348e"
+      ],
+      "start": "2026-10-04T23:37:34.174840+00:00",
+      "end": "2026-10-04T23:37:34.198869+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 350e3d9 Record final Stage 1 rejection and exhausted repair limit\n"
+    }
+  ],
+  "head": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+  "stage1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "clean": true,
+  "stage_folders": [
+    "stage-1"
+  ],
+  "scope": "Post-run verification only; rejected product unchanged; metadata packaging pending"
+}

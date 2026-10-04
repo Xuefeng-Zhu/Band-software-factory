@@ -1,0 +1,34 @@
+{
+  "started_at": "2026-10-04T23:38:15.483787+00:00",
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+    "-m",
+    "harness",
+    "run",
+    "--track",
+    "tablekeeper",
+    "--repo",
+    "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result",
+    "--all",
+    "--mode",
+    "isolated",
+    "--out",
+    "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all"
+  ],
+  "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+  "candidate": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+  "stage1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "present_stages": [
+    1
+  ],
+  "missing_stages": [
+    2,
+    3,
+    4
+  ],
+  "user_orbstack_memory_mib": 2048,
+  "scope": "Post-run official isolated check of existing folders only; not full behavior or independent acceptance",
+  "ended_at": "2026-10-04T23:38:56.297110+00:00",
+  "exit_code": 0,
+  "checkout_still_clean": true
+}
