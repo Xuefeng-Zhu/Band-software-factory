@@ -104,6 +104,8 @@ class BudgetReadinessFixture(unittest.TestCase):
         permissions = [{"id": name} for name in ("permissions_agent_write_git", "permissions_docker_build",
                                                  "permissions_browser", "permissions_development_network")]
         with ExitStack() as stack:
+            stack.enter_context(patch("factorykit.validation.run_command", return_value={
+                "exit_code": 0, "stdout": json.dumps({"ServerVersion": "test", "NCPU": 4, "MemTotal": 4 * 1024 ** 3}), "stderr": ""}))
             stack.enter_context(patch("factorykit.runtime.subscription_auth_errors", return_value=[]))
             stack.enter_context(patch("factorykit.runtime.credentials", return_value={}))
             stack.enter_context(patch("factorykit.validation.observations", return_value=(permissions, [])))
@@ -261,6 +263,49 @@ class BudgetReadinessIntegrationTests(BudgetReadinessFixture):
         super().setUp()
         self.ready_files()
         self.before = self.save_ledger()
+
+    def test_preflight_rechecks_capacity_without_reusing_prior_success(self):
+        with self.unrelated_checks_pass(), patch("time.time", return_value=ORIGIN + 2000), patch(
+                "factorykit.validation.run_command", side_effect=[
+                    {"exit_code": 0, "stdout": json.dumps({"ServerVersion": "test", "NCPU": 4, "MemTotal": memory}), "stderr": ""}
+                    for memory in (4 * 1024 ** 3, 1024 ** 3)]) as probe:
+            self.assertEqual(preflight_runtime(self.config, "judged"), [])
+            errors = preflight_runtime(self.config, "judged")
+            self.assertTrue(any("Docker daemon memory" in error for error in errors), errors)
+            self.assertEqual(probe.call_count, 2)
+        self.assertEqual(self.path.read_bytes(), self.before)
+
+    def test_ready_freeze_cannot_prepare_dispatch_after_daemon_capacity_shrinks(self):
+        with self.unrelated_checks_pass(), patch("time.time", return_value=ORIGIN + 2000):
+            frozen = freeze(self.config)
+            self.assertEqual(frozen["status"], "READY_TO_LAUNCH", frozen["blockers"])
+            with patch("factorykit.validation.run_command", return_value={
+                    "exit_code": 0, "stdout": json.dumps({"ServerVersion": "test", "NCPU": 4, "MemTotal": 1024 ** 3}), "stderr": ""}):
+                result = launch_prepare(self.config, "all", None)
+        self.assertEqual(result["status"], "BLOCKED_WITH_ACTIONS")
+        self.assertEqual(result["docker_resources"]["status"], "FAIL")
+        self.assertFalse((self.root / "runs/launch/ledger.json").exists())
+        self.assertEqual(self.path.read_bytes(), self.before)
+
+    def test_capacity_query_cannot_admit_launch_after_cumulative_deadline(self):
+        deadline = ORIGIN + 28800
+        with self.unrelated_checks_pass(), patch("time.time", return_value=deadline - 1) as clock:
+            frozen = freeze(self.config)
+            self.assertEqual(frozen["status"], "READY_TO_LAUNCH", frozen["blockers"])
+            def slow_query(*args, **kwargs):
+                clock.return_value = deadline
+                return {"exit_code": 0, "stdout": json.dumps({"ServerVersion": "test", "NCPU": 4, "MemTotal": 4 * 1024 ** 3}), "stderr": ""}
+            with patch("factorykit.validation.run_command", side_effect=slow_query):
+                result = launch_prepare(self.config, "all", None)
+        self.assertEqual(result["status"], "BLOCKED_WITH_ACTIONS")
+        self.assert_overall_blocked(result["blockers"])
+        self.assertFalse((self.root / "runs/launch/ledger.json").exists())
+        self.assertEqual(self.path.read_bytes(), self.before)
+
+    def test_expired_runtime_preflight_does_not_probe_docker(self):
+        with self.unrelated_checks_pass(), patch("time.time", return_value=ORIGIN + 28800), patch("factorykit.validation.run_command") as probe:
+            self.assert_overall_blocked(preflight_runtime(self.config, "judged"))
+            probe.assert_not_called()
 
     def test_real_preflight_checks_elapsed_aggregate_and_does_not_apply_toy_halt_to_judged(self):
         with self.unrelated_checks_pass(), patch("time.time", return_value=ORIGIN + 2000):

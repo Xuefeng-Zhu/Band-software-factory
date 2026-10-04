@@ -17,6 +17,11 @@ runtime:
   version: 0.160.0
   sdk_version: 4.0.0
   allow_network: false
+  # Example: one 2 GiB service plus 1 GiB daemon/harness headroom.
+  # Set these for the complete intended workload before refreshing readiness.
+  docker_resources:
+    min_cpus: 2
+    min_memory_mib: 3072
 band:
   rest_url: https://app.band.ai
   ws_url: wss://app.band.ai/api/v1/socket/websocket

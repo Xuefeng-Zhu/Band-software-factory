@@ -171,6 +171,8 @@ class ScopedArtifactTests(Fixture):
         for name, result in (("validate", {"errors": [], "launch_blockers": []}), ("observations", ([], [])), ("pristine_result", []), ("verify_sources", []), ("persisted_budget_blockers", [])):
             stack.enter_context(patch(f"factorykit.operations.{name}", return_value=result))
         stack.enter_context(patch("factorykit.runtime.preflight_runtime", return_value=[]))
+        stack.enter_context(patch("factorykit.validation.run_command", return_value={
+            "exit_code": 0, "stdout": json.dumps({"ServerVersion": "test", "NCPU": 4, "MemTotal": 4 * 1024 ** 3}), "stderr": ""}))
 
     def test_freeze_and_launch_bind_scoped_lock_and_task(self):
         self.scoped()
