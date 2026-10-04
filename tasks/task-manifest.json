@@ -1,10 +1,10 @@
 {
-  "configuration_sha256": "89589f825e63653b5b048b389fe4ccabc77522913a686d647396d5067f215df9",
+  "configuration_sha256": "f1509e2834ce572f8467a4119021d869b597f36ec7b700aac2942f7181a7630d",
   "schema_version": 1,
   "tasks": {
     "judged-all-stages.md": {
       "mode": "all",
-      "sha256": "df668c1c9a2b5202d05ce6fd35f11a4253b5e3b1c404f9fa08d68213a058f77d",
+      "sha256": "d86bba941a6165b6d66271e564e1cd70d4d80a227c3a647678878a7f8ed70acb",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -41,7 +41,7 @@
     },
     "judged-stage-1.md": {
       "mode": "separate",
-      "sha256": "c41d48ad1bf58d0a4ea256be2597863a71d8c7a3b01dce50d667797f35f3d484",
+      "sha256": "1406d96814b57541702e68957264c15d13047f83570897db0a38c22911f65dff",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -57,7 +57,7 @@
     },
     "judged-stage-2.md": {
       "mode": "separate",
-      "sha256": "67bf683254332ff22e2f6cb57ea7ff11de297e6f5568d1bc0f697b11ed77fcc7",
+      "sha256": "8ab2b0b3d03a3ae588dfbd57c09dccbf42af75a001fe8a7108ef46a87263cc0e",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -79,7 +79,7 @@
     },
     "judged-stage-3.md": {
       "mode": "separate",
-      "sha256": "b01242a0fbcaa39537ca1fd4cac65ca5631b94370456f059792fbed12894ebfd",
+      "sha256": "2246b1bb7cd0f9880d0dbe6ffb3f558006608d6e50a7a90b8b2f6bef7772a58c",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -107,7 +107,7 @@
     },
     "judged-stage-4.md": {
       "mode": "separate",
-      "sha256": "d2b55fe2828b43d341d5b997116e1be4d83798a4b58d24942a30b4fac00a2b8d",
+      "sha256": "9c5c43384b2b4d8e1b276b370fa9c00593c2e424ce21941e65427b23888f97af",
       "spec_payloads": [
         {
           "bytes": 19419,
@@ -141,7 +141,7 @@
     },
     "rehearsal-toy.md": {
       "mode": "practice-all",
-      "sha256": "967e6201df77f69144b6d28e07428b956fe788c4b110864fde888ee5f8c51e63",
+      "sha256": "3923c9338398adb2ba74ad2223dc7c1b1f825068ee820137442f8553afeaaae4",
       "spec_payloads": [
         {
           "bytes": 1895,

@@ -5,7 +5,7 @@ Dispatch mode: separate; stages: 4.
 Execute only stage 4. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch.
 This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH.
 Pinned challenge commit: 803560d2a678ace1414465c098eb0ab5380ffade
-Configuration SHA-256: 89589f825e63653b5b048b389fe4ccabc77522913a686d647396d5067f215df9
+Configuration SHA-256: f1509e2834ce572f8467a4119021d869b597f36ec7b700aac2942f7181a7630d
 
 ## Absolute workspace paths
 - challenge: `/Users/frank/mygit/Tablekeeper/challenge`

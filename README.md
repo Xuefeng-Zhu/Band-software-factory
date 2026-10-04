@@ -1,6 +1,6 @@
 # Seven-seat BAND factory preparation
 
-**Status: first judged attempt ended before implementation on a sandbox GitHub-fetch blocker; workers are stopped.** The failed room, full original export, empty-history result repository and all usage are preserved. Private GitHub fetch now passes through the actual seat adapter after adding only `github.com` to the development allowlist. The reviewed accounting update preserves prior rooms without activating them. A fresh complete attempt needs a new room and a fresh result repository under the guide; automatic approval review requires specific human authorization for the new room and participant membership. No new room has been created and no stage is accepted. See [current evidence](docs/BUILD-START.md). Seven actual BAND identities remain configured with Codex CLI 0.160.0, SDK 4.0.0 and gpt-6-astra. The approved deadline remains October 4 at 6:30 AM Pacific, with all previous usage counted.
+**Status: approved Run 2 is prepared with fourteen verified readiness observations; final freeze and dispatch are next.** The new BAND room is `7ceee003-80f3-4dbc-abc1-d3a8a13d1800`, containing the same seven real seats and Frank Zhu. The first attempt's failed Git fetch, complete export and original repository are retained; private Git fetch now passes inside the seat sandbox. Original clocks and 17,365,225 consumed tokens remain counted. Codex CLI 0.160.0, SDK 4.0.0 and gpt-6-astra remain pinned. See [current evidence](docs/BUILD-START.md).
 
 Workspace: `/Users/frank/mygit/Tablekeeper`
 
