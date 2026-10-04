@@ -1,0 +1,184 @@
+{
+  "configuration_sha256": "36e2a562334894adf82f97f30f638f364c93f448276b2e649e18c28ad0328f06",
+  "finished_at": "2026-10-04T21:12:51.953224+00:00",
+  "limitations": [
+    "Complete and acknowledged means transport receipt only, never stage acceptance.",
+    "Pending ACK while a serialized receiver turn/SDK ingress is busy is in progress, not by itself a failure.",
+    "Public text only; hidden reasoning excluded.",
+    "ACK text matches are accepted only when the event ID equals the watchdog recorded recipient ACK; earlier text merely mentioning the ACK grammar is excluded."
+  ],
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "scope": "Read-only bounded first QA handoff observation; no room messages, model calls, process actions, or source/product/controlfile changes",
+  "snapshots": [
+    {
+      "excluded_unbound_text_mentions_of_ack_grammar": 1,
+      "global_halt": null,
+      "health": {
+        "active_turn_ids": [
+          "qa:26:ce2600f1-3e0f-4106-9f7d-d4abef21edd9"
+        ],
+        "notice_attempts": 0,
+        "sdk_execution_busy": true,
+        "sdk_execution_contexts": [
+          {
+            "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+            "processing": true,
+            "queued_events": 1,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "processing"
+          },
+          {
+            "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          },
+          {
+            "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+            "processing": true,
+            "queued_events": 6,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "processing"
+          },
+          {
+            "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+            "processing": false,
+            "queued_events": 0,
+            "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+            "running": true,
+            "state": "idle"
+          }
+        ],
+        "seconds_to_next_deadline": 514.162358045578,
+        "state": "busy",
+        "unknown_notices": [],
+        "unresolved_incident_ids": []
+      },
+      "observed_at": "2026-10-04T21:12:51.508305+00:00",
+      "owned_parent_alive": true,
+      "owner_status": "running",
+      "public_qa_ack_events": [
+        {
+          "at": "2026-10-04T21:12:04.845964Z",
+          "content_sha256": "9cfdd6f097cded9916f0cbe99167ca2d1a1cf81b8397ec82e5e476629c6acca0",
+          "id": "d5487e32-ac2a-47a7-96f6-b8c12f8c1236",
+          "public_ack_text": "HANDOFF-ACK delivery QA-BOUNDARIES-D1; SHA-256 b6e88965de698faf9cc4e74bd1816b7a3d5cef2ab4fbe5095265b2315a677d70; sender @[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]",
+          "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3"
+        }
+      ],
+      "public_text_survey": {
+        "event_count": 19,
+        "has_more": false,
+        "page": 1,
+        "response_sha256": "6f780a39b0f859419aaf6791c8c0d40fe3e6adf076de0fddbdf9028c3a52bc03"
+      },
+      "read_completed_at": "2026-10-04T21:12:51.951871+00:00",
+      "room_halt": null,
+      "room_turns": {
+        "pm": 2,
+        "qa": 7
+      },
+      "source_sha256": {
+        "budget": "0ec6c58a9b225cccb990b7a1793c7993d348146386d6a5e9d3f095dab6819ff5",
+        "owner": "2edf6108537cbfd09945ebc860442576697b9f6ba84c14407f0c8e426ac67067",
+        "workflow": "40e7e66e5d4d482b70e75b4f384f6e2a8f7aa5aed8f6cb732ebdd88232dfc213"
+      },
+      "supervisor_pid": 710,
+      "target_delivery": [
+        {
+          "acknowledged": true,
+          "acks": {
+            "8e450576-69cd-416c-bc2a-a3a771f020d3": "d5487e32-ac2a-47a7-96f6-b8c12f8c1236"
+          },
+          "complete": true,
+          "digest": "b6e88965de698faf9cc4e74bd1816b7a3d5cef2ab4fbe5095265b2315a677d70",
+          "first_at": 1791148185.140618,
+          "incident_id": "turn:pm:282:d5861cdd-0b57-4393-a97f-0dfb9201cec2",
+          "key": "QA-BOUNDARIES-D1",
+          "parts": {
+            "1": {
+              "event_id": "b0ae6343-8537-4754-b62d-f71a87bff68a",
+              "sha256": "569da1367a4f20cfe77d340fdfc73464cdedcd1a6eb89b2fcbdd9df8cd40a8c5"
+            },
+            "2": {
+              "event_id": "5ae6dfb6-f340-4c35-af98-bcd51deef84e",
+              "sha256": "65ccebcf5011318d357868964e43da1dc23797bf03818a503594895eb45bd065"
+            },
+            "3": {
+              "event_id": "51e2284c-56c6-40ea-856a-c4376f1adadf",
+              "sha256": "a11256d1aac09f24a262ec3b926700f90a1662b220abaf6a7234c24b667e3439"
+            },
+            "4": {
+              "event_id": "5b6a3a36-bbe8-46d8-837e-b58401b7da87",
+              "sha256": "99f03cccb0e40df693ec55745f77cb1b855c032186cc68eabd4ce48e443981d5"
+            },
+            "5": {
+              "event_id": "34b36a5a-6828-4e01-b309-255164970b33",
+              "sha256": "5c0ea5b40f203e25ed196615350f6f99a7500b4da2c166a1d8f87e7962d008f5"
+            },
+            "6": {
+              "event_id": "5e662bff-707e-4b77-a579-ccdcd1ab3534",
+              "sha256": "9f9fa424ee6f8a0e0c9746b6bced93d511ec55f8ee0a2baeba89c6829c52b8b8"
+            },
+            "7": {
+              "event_id": "ce2600f1-3e0f-4106-9f7d-d4abef21edd9",
+              "sha256": "4667e3e92a4e43f977cdd6d832dde65a9f4e6b1215dd35ae4159386edc253ee2"
+            }
+          },
+          "recipient_ids": [
+            "8e450576-69cd-416c-bc2a-a3a771f020d3"
+          ],
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+          "total": 7
+        }
+      ],
+      "target_incidents": [
+        {
+          "attempts": 0,
+          "blocked": null,
+          "closed": false,
+          "created_at": 1791148185.140618,
+          "deliveries": [
+            "QA-BOUNDARIES-D1"
+          ],
+          "failed": false,
+          "key": "turn:pm:282:d5861cdd-0b57-4393-a97f-0dfb9201cec2",
+          "next_at": 1791148305.140618,
+          "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+        }
+      ],
+      "tokens_cumulative": 147251516,
+      "tokens_current_room": 1568417
+    }
+  ],
+  "status": "HANDOFF_COMPLETE_AND_QA_ACK_CONFIRMED",
+  "target_delivery_id": "QA-BOUNDARIES-D1"
+}

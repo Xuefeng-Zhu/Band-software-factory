@@ -115,11 +115,18 @@
       "path": "launch/postlaunch-audit.json",
       "sha256": "7f76ecc0f64cf109a92cec7d1ee16ad8a1813689abc25e783048a12cf0702d9a",
       "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/postlaunch-audit.json"
+    },
+    {
+      "bytes": 7187,
+      "path": "launch/first-handoff-observation.json",
+      "sha256": "f76c9962c19c32ec4193d5f818e344fa06fcb6d3d7ce6daf844d633696472d5d",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/launch/first-handoff-observation.json"
     }
   ],
+  "first_peer_handoff": "QA-BOUNDARIES-D1 complete7/7 with actual QA acknowledgment eventd5487e32-ac2a-47a7-96f6-b8c12f8c1236 at21:12:04.845964Z; transport receipt only, no stage acceptance.",
   "postlaunch_runtime_audit": "PASS: one dispatch, preserved frozen inputs, all seven contexts healthy with one active PM turn; PM public reply observed. No stage acceptance claimed.",
   "purpose": "Approved Run5 one-time dispatch and immutable launch evidence; live progress is separate",
   "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
   "runtime_observation_at": "2026-10-04T21:09:12.739180+00:00",
-  "updated_at": "2026-10-04T21:10:12.349509+00:00"
+  "updated_at": "2026-10-04T21:14:01.903528+00:00"
 }
