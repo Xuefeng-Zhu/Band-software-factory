@@ -1,6 +1,13 @@
 # Build progress — current status and retained history
 
-**Current status: Run 3 is running after the scoped live communication-repair rehearsal and official toy package check passed.** All fourteen readiness observations are hash-valid. Fresh doctor and validation passed; the current freeze is READY_TO_LAUNCH. No stage acceptance is claimed yet.
+**Current status: Run 3 stopped at 2026-10-04 08:47:13 UTC after independent Stage 1 acceptance.** The exact accepted application candidate is `52a179d778b3052acf68c8aafeec62aac8ae6ecd`. Official isolated Stage 1 checks passed 120/120; fresh private remote clone verification of evidence commit `27f677a9ca93ba1f4e80aa6fdb87392e7f89ec84` independently reproduced 120/120. Stage 2 is planning only. Genuine full-room export and all eleven BAND-authored progress commits are pushed, followed by the operator's room-export-only commit. See [the current outcome](run3-outcome.md).
+
+Runtime repair and submission preparation are offline. The retained cumulative consumption is 84,080,166 reported tokens and all prior turns. The overall deadline of October 4 at 06:29:59.700437 PDT has expired. Historical READY status below describes the original launch only and cannot authorize the changed factory or a new run.
+
+## Run 3 launch checkpoint — historical
+
+
+**Launch-time status: Run 3 is running after the scoped live communication-repair rehearsal and official toy package check passed.** All fourteen readiness observations are hash-valid. Fresh doctor and validation passed; the current freeze is READY_TO_LAUNCH. No stage acceptance is claimed yet.
 
 The user-approved limits remain **300 cumulative turns per seat**, 100,000,000 reported tokens, one active seat, four hours per room and 600 seconds per turn. Existing counters and all other limits are preserved. The overall cutoff remains **October 4, 2026 at 06:29:59.700437 PDT** (13:29:59.700437 UTC), measured from the original clock origin; API billing and paid provisioning remain disallowed. This practice used **17 turns** (PM 9, Backend 3, each other seat 1) and **1,805,495 reported tokens**, increasing the retained total from 24,009,633 to **25,815,128**. Monetary cost is unavailable.
 

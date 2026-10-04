@@ -84,7 +84,52 @@ def send_window(ledger, deadline_at=None):
     return min([10.0, *(deadline - now for deadline in deadlines)])
 
 
-async def post_once(tools, room_id, content, mentions, ledger, *, deadline_at=None, attachment_ids=None, budget_seat=None):
+def sdk_execution_activity(agents, room_id, participant_ids):
+    """Read BAND 4.0's public local ingress before adapter callbacks start.
+
+    Agent.runtime -> PlatformRuntime.runtime -> AgentRuntime.active_sessions
+    exposes the default ExecutionContext's public queue/state properties. This
+    covers queued WS callbacks and processing through durable mark_processed;
+    it does not assert that a remote /next backlog is empty during an idle poll.
+    Missing/custom/dead contexts fail closed rather than guessing an empty queue.
+    No queue item is removed and no receipt or deadline is changed.
+    """
+    from band.runtime.execution import ExecutionContext, ExecutionState
+    expected=list(participant_ids)
+    if len(set(expected))!=len(expected):
+        raise GateError("SDK execution roster contains duplicate identities.")
+    contexts=[];seen=set()
+    try:
+        for agent in agents:
+            platform=agent.runtime
+            identity=platform.agent_id
+            ctx=platform.runtime.active_sessions.get(room_id)
+            if (identity not in expected or identity in seen or not isinstance(ctx,ExecutionContext)
+                    or ctx.room_id!=room_id or ctx.agent_id!=identity
+                    or not isinstance(ctx.queue,asyncio.Queue) or not ctx.is_running
+                    or ctx.state not in (ExecutionState.STARTING,ExecutionState.IDLE,ExecutionState.PROCESSING)):
+                raise GateError("Supported current-room SDK execution state is unavailable.")
+            seen.add(identity)
+            contexts.append(dict(agent_id=identity,room_id=room_id,queued_events=ctx.queue.qsize(),
+                processing=ctx.is_processing,state=str(ctx.state),running=ctx.is_running))
+    except (AttributeError,RuntimeError,TypeError):
+        raise GateError("Supported current-room SDK execution state is unavailable.") from None
+    if seen!=set(expected):
+        raise GateError("Current-room SDK execution roster is incomplete.")
+    return dict(busy=any(row['queued_events'] or row['processing'] or row['state']=='starting' for row in contexts),
+                contexts=contexts)
+
+
+def _execution_busy(snapshot):
+    if snapshot is None:
+        return False
+    value=snapshot()
+    if not isinstance(value,dict) or type(value.get('busy')) is not bool:
+        raise GateError("SDK execution activity is unknown.")
+    return value['busy']
+
+
+async def post_once(tools, room_id, content, mentions, ledger, *, deadline_at=None, attachment_ids=None, budget_seat=None, budget_seats=()):
     """Use the maintained SDK's generated endpoint with retries explicitly off."""
     from band.client.rest import ChatMessageRequest, ChatMessageRequestMentionsItem
     kwargs = {"content": content, "mentions": [ChatMessageRequestMentionsItem(**m) for m in mentions]}
@@ -92,7 +137,7 @@ async def post_once(tools, room_id, content, mentions, ledger, *, deadline_at=No
         kwargs["attachment_ids"] = attachment_ids
     request = ChatMessageRequest(**kwargs)
     window = send_window(ledger, deadline_at)
-    if tools.room_id != room_id or ledger.stop.is_set() or ledger.reason(budget_seat) or window <= 0:
+    if tools.room_id != room_id or ledger.stop.is_set() or ledger.reason(budget_seat) or any(ledger.reason(seat) for seat in budget_seats) or window <= 0:
         raise GateError("Room binding or remaining budget prevents this send.")
     async with asyncio.timeout(window):
         response = await tools.rest.agent_api_messages.create_agent_chat_message(
@@ -193,45 +238,53 @@ async def observed_turn(callback, inp, wrapped, watchdog, *, actor_id, turn_id, 
         raise
     finally:
         watchdog.end_turn(turn_id, status, reason)
-        if status == "completed" and actor_id == watchdog.scope["pm_id"]:
+        if status == "completed":
             watchdog.observe_notice_handled(inp.msg.id, actor_id)
 
 
-async def send_due_notice(watchdog, ledger, available_tools, roster):
-    """At most one write-ahead claimed notice, with the shared writer lock held.
+async def send_due_notice(watchdog, ledger, available_tools, roster, *, execution_activity=None):
+    """Bounded original-sender notice after local SDK ingress and writer gates.
 
-    No retries follow uncertain sends. Only the original agent's SDK tools and
-    the frozen coordinator identity are used. The triggered PM inference still
-    goes through the ordinary per-seat and cumulative budget reservation.
+    PM-owned delivery incidents go to the original unacknowledged recipients for
+    receipt/reassembly only. A recipient's real response can wake PM naturally;
+    no self-message bypass, identity substitution or new inference loop is used.
     """
-    if ledger.stop.is_set() or ledger.reason("pm") or ledger.semaphore.locked():
+    if ledger.stop.is_set() or ledger.reason() or ledger.semaphore.locked():
         return "deferred"
     async with ledger.semaphore:
-        if ledger.stop.is_set() or ledger.reason("pm"):
+        if ledger.stop.is_set() or ledger.reason() or _execution_busy(execution_activity):
             return "deferred"
         notice = watchdog.due_notice(can_notify=True)
         if not notice:
             return "none"
-        if notice["sender_id"] == watchdog.scope["pm_id"]:
-            # The maintained SDK deliberately drops an agent's own messages.
-            # A self-notice cannot wake PM; do not post one or impersonate a peer.
+        if notice["sender_id"] in notice["recipient_ids"]:
+            # A failed PM without any original delivery recipient is still
+            # unrouteable. Never post an ineffective self-notice or impersonate.
             return "blocked_coordinator_self_notice"
         original_tools = available_tools.get(notice["sender_id"])
         if original_tools is None:
             return "blocked_missing_sender_context"
-        pm = next(seat for seat in roster if seat["id"] == "pm")
-        if notice["recipient_ids"] != [pm["agent_id"]]:
-            raise GateError("Workflow notice recipient does not match the frozen coordinator.")
-        claim = watchdog.claim_notice(notice["notice_id"], can_notify=not ledger.stop.is_set() and not ledger.reason("pm"))
+        seats={seat['agent_id']:seat for seat in roster}
+        required={notice['sender_id'],*notice['recipient_ids']}
+        if not required<=seats.keys() or not notice['recipient_ids']:
+            raise GateError("Workflow notice identities are outside the frozen roster.")
+        budget_seats=sorted(seats[identity]['id'] for identity in required)
+        if any(ledger.reason(seat) for seat in budget_seats):
+            return "deferred"
+        claim = watchdog.claim_notice(notice["notice_id"], can_notify=not ledger.stop.is_set()
+            and not any(ledger.reason(seat) for seat in budget_seats))
         if not claim:
             return "deferred"
         try:
-            # post_once checks the budget again AFTER the durable claim and
-            # bounds the request by remaining time. SDK POST retries are off.
+            if claim['sender_id']!=notice['sender_id'] or claim['recipient_ids']!=notice['recipient_ids']:
+                raise GateError("Workflow notice recipient binding changed during its claim.")
+            # Recheck every required seat after durable claim. No await occurs
+            # between this check and post_once's final global/time/budget check.
             response = await post_once(original_tools, watchdog.scope["room_id"], claim["content"],
-                [{"id": pm["agent_id"], "handle": pm["handle"].lstrip("@")}], ledger, budget_seat="pm")
+                [{'id':identity,'handle':seats[identity]['handle'].lstrip('@')} for identity in claim['recipient_ids']],
+                ledger, budget_seats=budget_seats)
             event_id, recipients = confirmed_message(response)
-            if recipients != [pm["agent_id"]]:
+            if sorted(recipients) != claim["recipient_ids"]:
                 raise GateError("Workflow notice confirmation has unexpected recipients.")
             watchdog.complete_notice(claim["notice_id"], event_id)
         except BaseException:

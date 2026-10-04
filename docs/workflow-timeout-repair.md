@@ -1,5 +1,7 @@
 # Workflow timeout repair
 
+This page preserves the Run 2 repair and its original verification. The later [Run 3 queued-receipt repair](run3-queue-repair.md) supersedes the self-notice limitation only for coordinator deliveries with a bound original recipient; Run 2 and Run 3 evidence remain unchanged.
+
 Run 2 stopped after Backend's 600-second Codex turn expired while sending a five-part implementation handoff. BAND accepted parts 1–4, but not part 5 or `END OF HANDOFF`. PM correctly waited for the missing part. The supervisor stayed alive because it tracked process health and budgets, without an executable acknowledgment timer or a notification path for the SDK's reported-turn-failure exception.
 
 The timeout event is `5c4a4579-9088-4abb-a051-ab0400574fb8` at `2026-10-04T04:56:02.933600Z` in room `7ceee003-80f3-4dbc-abc1-d3a8a13d1800`. The retained diagnosis and pre-repair snapshots live in `../runs/judged-stall/20261004T0517Z/`. The owned supervisor and children were stopped at `2026-10-04T05:22:17.198454Z` before editing the factory.

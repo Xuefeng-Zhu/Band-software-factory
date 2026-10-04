@@ -287,4 +287,99 @@ class WorkflowTests(unittest.TestCase):
         with self.assertRaises(WorkflowError):self.w.complete_notice(p['notice_id'],eid(701))
 
 
+    def pm_delivery(self, recipients=(BACKEND,), total=12):
+        self.w.end_turn('backend-turn','completed')
+        self.w.begin_turn(PM,'pm-original',1600)
+        target=', '.join('@[['+a+']]' for a in recipients)
+        for n in range(1,total+1):
+            text=(f'WORK delivery PM-ORIGINAL part {n}/{total}; SHA-256 {DIGEST}; recipient {target}\nOriginal {n}.'
+                  + ('\nEND OF HANDOFF' if n==total else ''))
+            self.w.observe_outbound(eid(1000+n),PM,list(recipients),text,'pm-original')
+        self.w.end_turn('pm-original','completed')
+        self.now+=120
+
+    def test_pm_origin_receipt_notice_targets_original_peer_and_keeps_shared_retry_cap(self):
+        self.pm_delivery()
+        first=self.claim()
+        self.assertEqual(first['sender_id'],PM)
+        self.assertEqual(first['recipient_ids'],[BACKEND])
+        self.assertIn('bounded receipt/reassembly only',first['content'])
+        self.assertIn('exact original payload, digest and part identities',first['content'])
+        self.assertIn('Do not start, repeat or reassign implementation',first['content'])
+        self.assertIn(DIGEST,first['content'])
+        self.w.complete_notice(first['notice_id'],eid(1100))
+        self.w.begin_turn(BACKEND,'peer-notice',self.now+600,trigger_event_id=eid(1100))
+        self.w.end_turn('peer-notice','failed','timeout')
+        second=self.claim()
+        self.assertEqual(second['incident_id'],first['incident_id'])
+        self.assertEqual(second['attempt'],2)
+        self.assertEqual(second['sender_id'],PM)
+        self.w.complete_notice(second['notice_id'],eid(1101))
+        self.now+=120
+        self.w=WorkflowWatchdog(**self.kwargs)
+        self.assertIsNone(self.w.due_notice(can_notify=True))
+        state=json.loads(self.path.read_text())
+        self.assertEqual(len(state['incidents']),1)
+        self.assertEqual(state['turns']['pm-original']['deadline_at'],1600)
+        self.assertEqual(self.w.health()['state'],'blocked')
+
+    def test_pm_notice_targets_only_unacknowledged_original_recipients(self):
+        self.pm_delivery((BACKEND,QA))
+        self.w.observe_outbound(eid(1110),QA,[PM],ack('PM-ORIGINAL',sender=PM))
+        self.assertEqual(self.claim()['recipient_ids'],[BACKEND])
+
+    def test_multirecipient_notice_handling_requires_every_exact_recipient_and_is_not_ack(self):
+        self.pm_delivery((BACKEND,QA))
+        notice=self.claim();self.w.complete_notice(notice['notice_id'],eid(1120))
+        with self.assertRaises(WorkflowError):self.w.observe_notice_handled(eid(1120),PM)
+        self.assertTrue(self.w.observe_notice_handled(eid(1120),BACKEND))
+        state=json.loads(self.path.read_text());stored=state['notices'][notice['notice_id']]
+        self.assertEqual(stored['handled_by'],[BACKEND]);self.assertNotIn('handled_at',stored)
+        self.assertFalse(state['deliveries']['PM-ORIGINAL']['acknowledged'])
+        self.assertTrue(self.w.observe_notice_handled(eid(1120),QA))
+        before=self.path.read_bytes();self.w.observe_notice_handled(eid(1120),QA)
+        self.assertEqual(self.path.read_bytes(),before)
+        state=json.loads(self.path.read_text());stored=state['notices'][notice['notice_id']]
+        self.assertEqual(stored['handled_by'],[BACKEND,QA]);self.assertIn('handled_at',stored)
+        self.assertFalse(state['deliveries']['PM-ORIGINAL']['acknowledged'])
+        self.now+=120;self.assertEqual(self.w.due_notice(can_notify=True)['attempt'],2)
+
+    def test_early_peer_callbacks_bind_to_original_notice_after_post_confirmation(self):
+        self.pm_delivery((BACKEND,QA));notice=self.claim()
+        self.w.begin_turn(BACKEND,'early-backend',self.now+600,trigger_event_id=eid(1130))
+        self.w.end_turn('early-backend','completed')
+        self.w.begin_turn(QA,'early-qa',self.now+600,trigger_event_id=eid(1130))
+        self.w.complete_notice(notice['notice_id'],eid(1130))
+        state=json.loads(self.path.read_text());stored=state['notices'][notice['notice_id']]
+        self.assertEqual(stored['handled_by'],[BACKEND]);self.assertNotIn('handled_at',stored)
+        self.assertEqual(state['turns']['early-backend']['incident_ids'],[notice['incident_id']])
+        self.assertEqual(state['turns']['early-qa']['incident_ids'],[notice['incident_id']])
+        self.w.end_turn('early-qa','failed','timeout')
+        retry=self.claim();self.assertEqual(retry['incident_id'],notice['incident_id'])
+        self.assertEqual(retry['attempt'],2)
+        self.assertEqual(len(json.loads(self.path.read_text())['incidents']),1)
+
+    def test_tampered_pm_notice_target_cannot_gain_authority_on_restart(self):
+        self.pm_delivery();notice=self.claim();self.w.complete_notice(notice['notice_id'],eid(1140))
+        data=json.loads(self.path.read_text());data['notices'][notice['notice_id']]['recipient_ids']=[QA]
+        self.path.write_text(json.dumps(data));before=self.path.read_bytes()
+        with self.assertRaises(WorkflowError):WorkflowWatchdog(**self.kwargs)
+        self.assertEqual(self.path.read_bytes(),before)
+
+    def test_sdk_queue_defers_exhaustion_only_without_renewing_incident_or_turn(self):
+        self.pm_delivery()
+        for n in range(2):
+            notice=self.claim();self.w.complete_notice(notice['notice_id'],eid(1150+n));self.now+=120
+        before=self.path.read_bytes()
+        self.assertEqual(self.w.queue_timeout_notices(execution_busy=True)['state'],'busy')
+        self.assertEqual(self.path.read_bytes(),before)
+        self.assertEqual(self.w.health(execution_busy=False)['state'],'blocked')
+        self.assertEqual(self.path.read_bytes(),before)
+
+    def test_sdk_queue_never_defers_conflicting_or_unknown_delivery(self):
+        self.pm_delivery();notice=self.claim();self.w.unknown_notice(notice['notice_id'])
+        self.assertEqual(self.w.health(execution_busy=True)['state'],'blocked')
+        self.assertIsNone(self.w.due_notice(can_notify=True))
+
+
 if __name__=='__main__':unittest.main()

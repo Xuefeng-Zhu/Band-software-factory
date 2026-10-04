@@ -256,3 +256,65 @@ class WorkflowIntegrationTests(unittest.IsolatedAsyncioTestCase):
         for raw in ({'id':eid(10),'success':False,'recipients':[]},None,{'sent':True}):
             with self.subTest(raw=raw),self.assertRaises(GateError):
                 confirmed_message(raw)
+
+
+    async def pm_delivery(self):
+        async def adapter(inp):
+            for n in range(1,6):
+                self.post.return_value=response(1200+n,BACKEND)
+                outcome=await inp.tools.execute_tool_call_structured('band_send_message',{
+                    'content':part(n).replace('@owner/pm','@owner/backend'),'mentions':[BACKEND]})
+                self.assertTrue(outcome.ok)
+        await self.run_callback(adapter,self.wrapper(PM,'pm-original'))
+        self.post.reset_mock();self.now+=120
+
+    async def test_pm_notice_uses_original_sender_transport_and_peer_callback_ack_resolves_receipt(self):
+        await self.pm_delivery();before=self.ledger.path.read_bytes()
+        self.post.return_value=response(1210,BACKEND)
+        self.assertEqual(await send_due_notice(self.watchdog,self.ledger,{PM:self.base},ROSTER),'sent')
+        request=self.post.await_args.kwargs
+        self.assertEqual([m.id for m in request['message'].mentions],[BACKEND])
+        self.assertEqual(request['request_options']['max_retries'],0)
+        self.assertIn('bounded receipt/reassembly only',request['message'].content)
+        self.post.return_value=response(1211,PM)
+        async def acknowledge(inp):
+            result=await inp.tools.execute_tool_call_structured('band_send_message',{
+                'content':f'HANDOFF-ACK delivery RESULT-1; SHA-256 {DIGEST}; sender @owner/pm',
+                'mentions':[PM]})
+            self.assertTrue(result.ok)
+        await self.run_callback(acknowledge,self.wrapper(BACKEND,'backend-notice'),
+            replace(self.inp,msg=SimpleNamespace(id=eid(1210))))
+        state=json.loads(self.watchdog.path.read_text())
+        self.assertTrue(state['deliveries']['RESULT-1']['acknowledged'])
+        self.assertEqual(next(iter(state['notices'].values()))['handled_by'],[BACKEND])
+        self.assertEqual(self.watchdog.health()['state'],'idle')
+        self.assertEqual(self.ledger.path.read_bytes(),before)
+
+    async def test_pm_origin_notice_checks_both_sender_and_recipient_cap_before_claim(self):
+        await self.pm_delivery()
+        for seat in ('pm','backend'):
+            saved=self.ledger.data['turns'][seat];self.ledger.data['turns'][seat]=100
+            self.assertEqual(await send_due_notice(self.watchdog,self.ledger,{PM:self.base},ROSTER),'deferred')
+            self.ledger.data['turns'][seat]=saved
+        self.post.assert_not_awaited()
+        self.assertEqual(self.watchdog.health()['notice_attempts'],0)
+
+    async def test_pm_origin_recipient_budget_expiring_after_claim_never_reaches_transport(self):
+        await self.pm_delivery();original=self.watchdog.claim_notice
+        def expires(*args,**kwargs):
+            claim=original(*args,**kwargs);self.ledger.data['turns']['backend']=100;return claim
+        with patch.object(self.watchdog,'claim_notice',side_effect=expires),self.assertRaises(GateError):
+            await send_due_notice(self.watchdog,self.ledger,{PM:self.base},ROSTER)
+        self.post.assert_not_awaited()
+        self.assertEqual(self.watchdog.health()['state'],'blocked')
+        self.assertEqual(self.watchdog.health()['notice_attempts'],1)
+
+    async def test_pm_origin_ambiguous_post_is_not_retried_after_restart(self):
+        await self.pm_delivery();self.post.side_effect=RuntimeError('Response lost')
+        with self.assertRaises(RuntimeError):
+            await send_due_notice(self.watchdog,self.ledger,{PM:self.base},ROSTER)
+        self.watchdog=WorkflowWatchdog(self.watchdog.path,ROOM,PM,[PM,BACKEND],120,clock=lambda:self.now)
+        self.assertEqual(await send_due_notice(self.watchdog,self.ledger,{PM:self.base},ROSTER),'none')
+        self.assertEqual(self.post.await_count,1)
+        self.assertEqual(self.watchdog.health()['state'],'blocked')
+        self.assertEqual(self.watchdog.health()['notice_attempts'],1)

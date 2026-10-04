@@ -182,7 +182,12 @@ class WorkflowWatchdog:
             seen=set()
             for key,n in d['notices'].items():
                 need(isinstance(key,str) and re.fullmatch(r'[0-9a-f]{32}',key) and n['incident_id'] in d['incidents'] and integer(n['attempt'],1,cap) and moment(n['claimed_at']))
-                need(n['status'] in ('claimed','sent','unknown') and n['sender_id']==d['incidents'][n['incident_id']]['sender_id'] and n['recipient_ids']==[self.scope['pm_id']] and sha(n['content_sha256']))
+                need(n['status'] in ('claimed','sent','unknown') and n['sender_id']==d['incidents'][n['incident_id']]['sender_id'] and sha(n['content_sha256']))
+                targets=self._notice_recipients(d,d['incidents'][n['incident_id']],pending_only=False)
+                need(unique(n['recipient_ids']) and n['recipient_ids'] and n['recipient_ids']==sorted(n['recipient_ids']) and set(n['recipient_ids'])<=set(targets))
+                if 'handled_by' in n:
+                    need(unique(n['handled_by']) and set(n['handled_by'])<=set(n['recipient_ids']))
+                    if 'handled_at' in n:need(set(n['handled_by'])==set(n['recipient_ids']))
                 if n['status']=='sent':
                     need(_uuid(n['event_id']) and n['event_id'] not in seen and moment(n['sent_at']) and n['sent_at']>=n['claimed_at']);seen.add(n['event_id'])
                     if 'handled_at' in n:need(moment(n['handled_at']) and n['handled_at']>=n['sent_at'])
@@ -217,8 +222,8 @@ class WorkflowWatchdog:
                     raise WorkflowError('Turn trigger must be an exact event UUID.')
                 matches=[n for n in d['notices'].values() if n.get('event_id')==trigger_event_id and n['status']=='sent']
                 if matches:
-                    if len(matches)!=1 or agent_id!=self.scope['pm_id']:
-                        raise WorkflowError('Operational notice trigger is bound to the coordinator only.')
+                    if len(matches)!=1 or agent_id not in matches[0]['recipient_ids']:
+                        raise WorkflowError('Operational notice trigger is bound to its exact recipients only.')
                     linked=[matches[0]['incident_id']]
             d['turns'][turn_id] = dict(agent_id=agent_id, started_at=now, deadline_at=deadline_at,
                 status='running', reason_code='', incident_ids=linked, trigger_event_id=trigger_event_id)
@@ -331,13 +336,36 @@ class WorkflowWatchdog:
                     value=d['incidents'].get(incident) or self._incident(d, incident, turn['agent_id'], now)
                     value.update(failed=True, next_at=now)
 
-    def queue_timeout_notices(self):
+    def queue_timeout_notices(self, *, execution_busy=False):
         with self._transaction() as d:
             self._refresh(d, self._now())
-        return self.health()
+        return self.health(execution_busy=execution_busy)
 
     def _resolved(self, d, inc):
         return inc['closed'] or (bool(inc['deliveries']) and all(d['deliveries'][x]['acknowledged'] for x in inc['deliveries']))
+
+    def _notice_recipients(self, d, inc, *, pending_only=True):
+        if inc['sender_id'] != self.scope['pm_id']:
+            return [self.scope['pm_id']]
+        # PM speaks as itself to its original recipients. Never synthesize a
+        # different sender to evade the SDK's self-message filter.
+        targets=set()
+        for key in inc['deliveries']:
+            delivery=d['deliveries'][key]
+            if delivery['sender_id'] != inc['sender_id']:
+                continue
+            targets.update(agent for agent in delivery['recipient_ids']
+                if agent != inc['sender_id'] and (not pending_only or agent not in delivery['acks']))
+        # An unbound coordinator failure still has no valid automatic route.
+        # The runtime rejects this self-target before claiming or posting.
+        return sorted(targets) or [self.scope['pm_id']]
+
+    def _mark_notice_handled(self, notice, agent_id, now):
+        handled=notice.setdefault('handled_by',list(notice['recipient_ids']) if 'handled_at' in notice else [])
+        if agent_id not in handled:
+            handled.append(agent_id);handled.sort()
+        if set(handled)==set(notice['recipient_ids']):
+            notice.setdefault('handled_at',now)
 
     def _proposal(self, d, incident_id, inc, now):
         if (inc['blocked'] or self._resolved(d, inc) or now < inc['next_at']
@@ -358,10 +386,19 @@ class WorkflowWatchdog:
                 facts.append(f"Delivery {name}: all {delivery['total']} numbered parts observed; canonical recipient acknowledgment is still missing; declared SHA-256 {delivery['digest']}.")
         if inc['failed']:
             facts.append('The original turn failed, was interrupted, or has no confirmed outcome by its recorded deadline.')
-        text = (f"@[[{self.scope['pm_id']}]] WORKFLOW NOTICE {identity}; incident {incident_id}; attempt {number}/{self.scope['max_notices']}.\n"
-                + '\n'.join(facts) + '\nRequest bounded operational recovery of the existing task and delivery within remaining approved limits. Preserve original requirements, candidate and failure evidence. This notice is not a complete handoff or acceptance; do not execute from partial requirements.')
+        recipients=self._notice_recipients(d,inc)
+        request=('Request bounded receipt/reassembly only for the original delivery. Preserve its exact original payload, digest and part identities. '
+                 'If every original part is available, verify the complete payload and send its standalone canonical HANDOFF-ACK to the original sender; '
+                 'otherwise request only the missing original parts from that sender. Do not start, repeat or reassign implementation, accept work, or renew any deadline. '
+                 'This notice is not a complete handoff or acceptance; do not execute from partial requirements.'
+                 if inc['sender_id']==self.scope['pm_id'] else
+                 'Request bounded operational recovery of the existing task and delivery within remaining approved limits. Preserve original requirements, candidate and failure evidence. '
+                 'This notice is not a complete handoff or acceptance; do not execute from partial requirements.')
+        mentions=' '.join('@[['+agent+']]' for agent in recipients)
+        text = (f"{mentions} WORKFLOW NOTICE {identity}; incident {incident_id}; attempt {number}/{self.scope['max_notices']}.\n"
+                + '\n'.join(facts) + '\n' + request)
         return dict(notice_id=identity, incident_id=incident_id, sender_id=inc['sender_id'],
-                    recipient_ids=[self.scope['pm_id']], content=text, attempt=number)
+                    recipient_ids=recipients, content=text, attempt=number)
 
     def due_notice(self, can_notify=False):
         with self._transaction() as d:
@@ -405,7 +442,7 @@ class WorkflowWatchdog:
             for turn_id,turn in d['turns'].items():
                 if turn.get('trigger_event_id')!=event_id:continue
                 own='turn:'+turn_id
-                if (turn['agent_id']!=self.scope['pm_id']
+                if (turn['agent_id'] not in notice['recipient_ids']
                         or any(key!=origin for key in turn['incident_ids'])
                         or (own in d['incidents'] and own!=origin)):
                     inc['blocked']='notice_trigger_binding_conflict'
@@ -415,8 +452,8 @@ class WorkflowWatchdog:
                 if turn['status'] in ('failed','interrupted','unknown'):
                     inc.update(failed=True,closed=False,next_at=self._now())
                 elif turn['status']=='completed':
-                    notice.setdefault('handled_at',self._now())
-                    if not inc['deliveries']:inc.update(closed=True,failed=False)
+                    self._mark_notice_handled(notice,turn['agent_id'],self._now())
+                    if not inc['deliveries'] and 'handled_at' in notice:inc.update(closed=True,failed=False)
 
 
     def unknown_notice(self, notice_id):
@@ -428,19 +465,19 @@ class WorkflowWatchdog:
             d['incidents'][notice['incident_id']]['blocked']='notice_delivery_unknown'
 
     def observe_notice_handled(self, event_id, agent_id):
-        """Record a successful coordinator callback, never task acceptance."""
+        """Record a successful exact-recipient callback, never task acceptance."""
         if not _uuid(event_id):
-            raise WorkflowError('Only the exact coordinator notice callback can be handled.')
+            raise WorkflowError('Only an exact notice event callback can be handled.')
         with self._transaction() as d:
             matches=[n for n in d['notices'].values() if n.get('event_id')==event_id and n['status']=='sent']
             if not matches:
                 return False
-            if len(matches)!=1 or agent_id != self.scope['pm_id']:
-                raise WorkflowError('Ambiguous notice delivery or incorrect coordinator identity.')
+            if len(matches)!=1 or agent_id not in matches[0]['recipient_ids']:
+                raise WorkflowError('Ambiguous notice delivery or incorrect recipient identity.')
             notice=matches[0]
-            notice.setdefault('handled_at',self._now())
+            self._mark_notice_handled(notice,agent_id,self._now())
             incident=d['incidents'][notice['incident_id']]
-            if not incident['deliveries']:
+            if not incident['deliveries'] and 'handled_at' in notice:
                 incident.update(closed=True,failed=False)
             return True
 
@@ -456,7 +493,9 @@ class WorkflowWatchdog:
                 incident=d['incidents'].get(key) or self._incident(d,key,turn['agent_id'],self._now())
                 incident['blocked']=reason_code
 
-    def health(self):
+    def health(self, *, execution_busy=False):
+        if type(execution_busy) is not bool:
+            raise WorkflowError('SDK execution activity must be an explicit boolean.')
         with self._transaction() as d:
             now=self._now();self._refresh(d,now)
             unresolved=[(key,i) for key,i in d['incidents'].items() if i['blocked'] or not self._resolved(d,i)]
@@ -464,10 +503,10 @@ class WorkflowWatchdog:
             # Receipt wait expiry cannot shorten an admitted turn's deadline.
             # Conflicts/unknown delivery still block immediately; exhausted
             # recovery is assessed after serialized active work has settled.
-            blocked=any(i['blocked'] or (not running and i['attempts']>=self.scope['max_notices'] and now>=i['next_at']) for _,i in unresolved)
+            blocked=any(i['blocked'] or (not running and not execution_busy and i['attempts']>=self.scope['max_notices'] and now>=i['next_at']) for _,i in unresolved)
             stalled=any(self._proposal(d,key,i,now) for key,i in unresolved)
-            state='blocked' if blocked else 'busy' if running else 'stalled' if stalled else 'waiting' if unresolved else 'idle'
-            return dict(state=state,active_turn_ids=running,unresolved_incident_ids=[k for k,_ in unresolved],
+            state='blocked' if blocked else 'busy' if running or execution_busy else 'stalled' if stalled else 'waiting' if unresolved else 'idle'
+            return dict(state=state,active_turn_ids=running,sdk_execution_busy=execution_busy,unresolved_incident_ids=[k for k,_ in unresolved],
                 seconds_to_next_deadline=min((d['turns'][k]['deadline_at']-now for k in running),default=None),
                 notice_attempts=sum(i['attempts'] for i in d['incidents'].values()),
                 unknown_notices=[k for k,n in d['notices'].items() if n['status']=='unknown'])

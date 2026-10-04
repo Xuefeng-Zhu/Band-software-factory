@@ -1069,7 +1069,7 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
     from band.core.types import Emit, Capability
     from band.runtime.types import SessionConfig
     from .workflow import WorkflowWatchdog
-    from .workflow_runtime import WorkflowTools, observed_turn, send_due_notice
+    from .workflow_runtime import WorkflowTools, observed_turn, send_due_notice, sdk_execution_activity
     require_ready(config, mode)
     room = config["band"][f"{mode}_room_id"]
     recovery = load_recovery(config, recovery_id, token) if recovery_id else None
@@ -1146,14 +1146,18 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
                 pass
             record.update(status="running", updated_at=timestamp(), seats=[s["id"] for s in seats])
             if watchdog:
-                watchdog.queue_timeout_notices()
-                record["workflow"] = watchdog.health()
+                activity = sdk_execution_activity(agents, room, [s['agent_id'] for s in seats])
+                record["workflow"] = watchdog.queue_timeout_notices(execution_busy=activity['busy'])
+                record["workflow"]["sdk_execution_contexts"] = activity['contexts']
                 if record["workflow"]["state"] != "blocked":
                     try:
-                        notification = await send_due_notice(watchdog, ledger, available_tools, config["seats"])
+                        notification = await send_due_notice(watchdog, ledger, available_tools, config["seats"],
+                            execution_activity=lambda: sdk_execution_activity(agents, room, [s['agent_id'] for s in seats]))
                     except Exception:
                         notification = "blocked_notice_delivery_unknown"
-                    record["workflow"] = watchdog.health()
+                    activity = sdk_execution_activity(agents, room, [s['agent_id'] for s in seats])
+                    record["workflow"] = watchdog.health(execution_busy=activity['busy'])
+                    record["workflow"]["sdk_execution_contexts"] = activity['contexts']
                     if notification.startswith("blocked_"):
                         record["workflow"].update(state="blocked", recovery_blocker=notification)
                 if record["workflow"]["state"] == "blocked":
