@@ -1,0 +1,23 @@
+{
+  "status": "ARCHIVED_ATTEMPTS_VERIFIED_RUN4_UNBORN",
+  "at": "2026-10-04T18:02:33.844140+00:00",
+  "canonical_repository": "https://github.com/Xuefeng-Zhu/Tablekeeper",
+  "remote_branches": {
+    "run-2": "86ad17c600fd994bcb55c222049b7d0546f2e472",
+    "run-3": "dc4cf0c4dcf8b96e155f156694960df7fc1f4745"
+  },
+  "run4": {
+    "local_path": "/Users/frank/mygit/Tablekeeper/result-run-4",
+    "branch": "run-4",
+    "head": "UNBORN",
+    "working_tree_entries": [
+      ".git"
+    ],
+    "remote_branch_created": false,
+    "first_push_after_band_commit": "git push -u origin HEAD:refs/heads/run-4"
+  },
+  "factory_repository_unchanged": "https://github.com/Xuefeng-Zhu/Tablekeeper-factory",
+  "old_repositories_deleted": false,
+  "model_turns_started": 0,
+  "band_messages_sent": 0
+}

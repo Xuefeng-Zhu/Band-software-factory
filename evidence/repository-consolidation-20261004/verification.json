@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-04T18:04:40.987508+00:00",
+  "status": "PASS_REPOSITORY_ORGANIZATION",
+  "run4_pristine_gate_errors": [],
+  "model_work_authorized": false,
+  "factory_origin": "https://github.com/Xuefeng-Zhu/Tablekeeper-factory.git",
+  "run3_head": "dc4cf0c4dcf8b96e155f156694960df7fc1f4745",
+  "run3_stage1_tree": "4917af2a996c6e3327933deb84281ad29a30c1f1",
+  "run3_room_sha256": "2008460d0d1cff521027f03d974ff24c718aed8708584223638f6b754aa7ccae",
+  "run3_worktree_clean": true,
+  "factory.yaml_unchanged": true,
+  "source-lock.json_unchanged": true
+}

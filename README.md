@@ -2,7 +2,7 @@
 
 **Status: Run 3 stopped after independent Stage 1 acceptance.** The accepted BAND-authored candidate is `52a179d778b3052acf68c8aafeec62aac8ae6ecd`: 120/120 official isolated checks passed. A fresh clone of the pushed evidence commit `27f677a9ca93ba1f4e80aa6fdb87392e7f89ec84` passed the same 120 checks through `--all --mode isolated`; Stage 1 source is unchanged. Stage 2 reached architecture/design planning only; stages 2–4 have no implementation folders.
 
-The full BAND session is committed unchanged as `room.json` in the private [Tablekeeper-run-3](https://github.com/Xuefeng-Zhu/Tablekeeper-run-3) repository: 4,088 messages and one human task dispatch. Complete `README.md` and `FACTORY.md` drafts were added at the participant's request with explicit AI-assistance disclosure. The official offline packaging check passes, including a fresh remote clone. Participant authorship review, a real-room video, public-release approval and final submission remain separate requirements. See [Run 3 outcome and evidence](docs/run3-outcome.md).
+The full BAND session is committed unchanged as `room.json` on the private [Tablekeeper `run-3` branch](https://github.com/Xuefeng-Zhu/Tablekeeper/tree/run-3): 4,088 messages and one human task dispatch. Complete `README.md` and `FACTORY.md` drafts were added at the participant's request with explicit AI-assistance disclosure. The official offline packaging check passes, including a fresh remote clone. Participant authorship review, a real-room video, public-release approval and final submission remain separate requirements. See [Run 3 outcome and evidence](docs/run3-outcome.md).
 
 Run 3 stopped at `2026-10-04T08:47:13Z` with `blocked_coordinator_self_notice` while Backend was still processing a twelve-part handoff. The repaired runtime passes **224 offline factory tests** and now also passes a separately authorized **live communication rehearsal**: overdue local SDK processing deferred a false notice, and one genuine PM→Backend notice recovered a deliberately missing original part. The rehearsal used **1,931,411 additional reported tokens**, stopped all owned workers within ten minutes, and preserved Run 3. See the [live result and evidence](docs/queue-repair-live-result.md).
 
@@ -10,7 +10,7 @@ Cumulative reported usage is now **86,011,577 tokens**, including cached input. 
 
 Workspace: `/Users/frank/mygit/Tablekeeper`
 
-The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools; `runs/` holds evidence and environments. The completed queue rehearsal used the empty `rehearsal/queue-repair-result/`; the earlier repair practice remains in `rehearsal/repair-result/`. `rehearsal/toy-result/` retains the original toy application and history. The initially empty `result-run-3/` is independent of prior `result/`. That untouched Run 2 checkout preserves four BAND-authored progress commits ending at `86ad17c600fd994bcb55c222049b7d0546f2e472`, with 120/120 owner-run isolated Stage 1 checks but no independent stage acceptance. Its stages 2–4 remain unimplemented. No prior application source was seeded into the fresh Run 3 repository.
+The `challenge/` sibling is pinned read-only to commit `803560d2a678ace1414465c098eb0ab5380ffade`. `factory/` holds the reusable tools; `runs/` holds evidence and environments. The completed queue rehearsal used the empty `rehearsal/queue-repair-result/`; the earlier repair practice remains in `rehearsal/repair-result/`. `rehearsal/toy-result/` retains the original toy application and history. The initially empty `result-run-3/` is independent of prior `result/`. The canonical `run-2` branch preserves four BAND-authored progress commits ending at `86ad17c600fd994bcb55c222049b7d0546f2e472`, with 120/120 owner-run isolated Stage 1 checks but no independent stage acceptance. Its stages 2–4 remain unimplemented. No prior application source was seeded into the fresh Run 3 repository. The `result/` checkout now holds the navigation `main` branch; `result-run-4/` is prepared as a fresh empty local repository publishing to the same application remote.
 
 All commands below run from the absolute factory directory:
 
@@ -20,10 +20,14 @@ cd '/Users/frank/mygit/Tablekeeper/factory'
 
 ## Repositories and progress
 
-- Run 3 application: https://github.com/Xuefeng-Zhu/Tablekeeper-run-3 — independent private `../result-run-3`, stopped after independently accepted Stage 1; complete room export pushed.
-- Prior Run 2 application: https://github.com/Xuefeng-Zhu/Tablekeeper — `../result`, retained without further build activity.
-- Factory tools: https://github.com/Xuefeng-Zhu/Tablekeeper-factory — this repository, committed and pushed at verified milestones.
+Application attempts now share **[Xuefeng-Zhu/Tablekeeper](https://github.com/Xuefeng-Zhu/Tablekeeper)**, with one branch per try. Factory tools remain separate. See [the branch workflow](docs/attempt-branches.md) and `config/attempts.json`.
+
+- `run-3`: exact preserved application history and full room export; independently accepted Stage 1.
+- `run-2`: exact preserved prior application history.
+- `run-4`: empty local branch prepared at `../result-run-4`; its remote branch will be created by the first BAND-authored commit. No build is dispatched.
+- Factory tools: https://github.com/Xuefeng-Zhu/Tablekeeper-factory — this separate repository, committed and pushed at verified milestones.
 - Challenge: the pinned official upstream checkout; never refreshed during the frozen build.
+- Earlier standalone repositories remain historical copies. Future attempts use the shared application repository.
 
 The workspace was moved to `/Users/frank/mygit/Tablekeeper`. Historical logs retain their original paths and are not current permission attestations. Credentials remain outside this workspace. The previous judged allowance had a ceiling of 100,000,000 reported tokens including cached input and a cumulative elapsed-time deadline of October 4, 2026 at 06:29:59.700437 America/Los_Angeles, one active seat, with no API billing or paid provisioning. The clock began at 17:49:25 UTC on October 3; the later approved extension preserved existing consumption and the clock origin. The retained cap is **300 cumulative turns per seat**, preserving every existing counter. The four-hour room limit, 600-second turn limit and all other budget limits remain unchanged. The checked-in example stays unapproved by default.
 
