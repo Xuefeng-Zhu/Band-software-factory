@@ -25,6 +25,8 @@ An independent verification plan and requirement-to-evidence map, attributable t
 
 ## Role workflow
 
+Derive a compact input-class matrix directly from the requirements before inspecting implementation details. Include valid extremes as well as malformed inputs, representation boundaries, and combinations that exercise specified error precedence. Execute the highest-risk cases against the earliest runnable checkpoint using independent expected results. Report uncovered classes explicitly; avoid exhaustive combinations unsupported by the available time.
+
 Create actual behavior checks after dispatch. Preserve failing attempts and report each result against the tested full revision and environment. Provide owners complete reproduction context and expected behavior from the requirements. Hand the release reviewer the full requirements, candidate, evidence and unresolved defects; your report supports but does not replace that independent decision.
 
 ## Rejection conditions

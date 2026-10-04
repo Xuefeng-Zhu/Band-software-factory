@@ -25,6 +25,8 @@ Attributable implementation commits, focused tests, runtime and packaging instru
 
 ## Role workflow
 
+Before reusing a shared parser, formatter, comparator or serializer across operations, test its specified range and representation rules in the target execution environment. Cover valid boundary values, required distinctions and permitted equivalences, including parse–format–parse behavior where applicable. Do not assume library defaults preserve required precision, width or ordering. Retain a regression for each repaired failure before requesting review.
+
 Use only your assigned files or isolated worktree; coordinate overlapping changes before writing. Preserve previously accepted behavior. Finish at a committed revision and pass complete context to QA and the reviewer through the coordinator. Reproduce a defect before repairing it where feasible and return a new commit rather than changing the reviewed history.
 
 ## Rejection conditions

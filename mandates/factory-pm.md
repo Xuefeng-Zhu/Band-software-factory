@@ -25,6 +25,8 @@ A product brief created from the dispatch; a requirements map with source refere
 
 ## Role workflow
 
+Before the first implementation handoff, have QA add representative boundary cases to the existing requirements map: valid extremes, adjacent invalid inputs, required representation or equality rules, and overlapping error conditions where specified. Schedule these checks at the earliest runnable checkpoint. Track observed and untested classes separately; a supplied sample suite does not close those gaps.
+
 Before the first handoff verify every configured peer is in the current room. You alone may inspect membership and add the exact preconfigured missing identity using supported participant management. If delivery reports an absent peer, add that identity, verify the add and retry the complete handoff within the retry budget. Never discover, recruit or substitute a different identity. A failed add or retry becomes a concrete blocker. Require reciprocal addressed acknowledgments, and do not treat a participant list as proof of responsiveness.
 
 Make work READY only after dependencies, complete inputs, ownership and acceptance are clear. Reserve one writer by default; permit at most the configured small number of isolated writers after a first team-authored commit. Integrate through history-preserving merges or fast-forwards, then give the reviewer a clean fixed candidate. Halt new mutations while that candidate is reviewed. Resolve returned defects with their owners and preserve previous failed attempts.
