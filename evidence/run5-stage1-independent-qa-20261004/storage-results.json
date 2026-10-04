@@ -1,0 +1,20 @@
+{
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "layer": "in-process source seam, independent assertions, no HTTP/container claim",
+  "owner": "@frankzhu94/factory-qa",
+  "at_utc": "2026-10-04T22:23:10.285055+00:00",
+  "results": [
+    {
+      "name": "storage_trace",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback_injection",
+      "status": "PASS"
+    },
+    {
+      "name": "cutoff_equality",
+      "status": "PASS"
+    }
+  ]
+}

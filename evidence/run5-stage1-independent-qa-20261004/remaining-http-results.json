@@ -1,0 +1,48 @@
+{
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "at_utc": "2026-10-04T22:24:10.493756+00:00",
+  "results": [
+    {
+      "case": "create 2000-02-29",
+      "actual": 201,
+      "expected": 201,
+      "status": "PASS"
+    },
+    {
+      "case": "create 2400-02-29",
+      "actual": 201,
+      "expected": 201,
+      "status": "PASS"
+    },
+    {
+      "case": "create 0001-01-01",
+      "actual": 201,
+      "expected": 201,
+      "status": "PASS"
+    },
+    {
+      "case": "create 9999-12-31",
+      "actual": 201,
+      "expected": 201,
+      "status": "PASS"
+    },
+    {
+      "case": "fully occupied slots retained",
+      "actual": [
+        8,
+        []
+      ],
+      "expected": [
+        8,
+        []
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "unknown query ignored",
+      "actual": true,
+      "expected": true,
+      "status": "PASS"
+    }
+  ]
+}

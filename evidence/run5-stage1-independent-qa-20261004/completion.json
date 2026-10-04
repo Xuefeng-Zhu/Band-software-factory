@@ -1,0 +1,21 @@
+{
+  "work_item": "QA-S1",
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "at_utc": "2026-10-04T22:27:09.275223+00:00",
+  "state": "REVIEW",
+  "defects": [
+    "QA-S1-DATE-MAX",
+    "QA-S1-QUERY-DIGITS"
+  ],
+  "baseline_groups": "11 PASS",
+  "extra_groups": "6 PASS / 1 FAIL",
+  "storage_groups": "3 PASS",
+  "legacy_import": "PASS",
+  "remaining_http": "6 PASS",
+  "isolated_resource_gate": "BLOCKED",
+  "all_own_processes_stopped": true,
+  "shared_and_review_checkout": "clean exact revision",
+  "handoff_digest": "48747f6ab778bc531738b1c3ef3607e5d2c8f6e78ec965bd9fc56ca48e2b5621",
+  "receipt": "PENDING",
+  "cost": "UNAVAILABLE"
+}

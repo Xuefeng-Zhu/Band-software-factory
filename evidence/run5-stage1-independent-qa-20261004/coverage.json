@@ -1,0 +1,351 @@
+{
+  "work_item": "QA-S1",
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "owner": "@frankzhu94/factory-qa",
+  "at_utc": "2026-10-04T22:26:29.123367+00:00",
+  "stage1_classes": [
+    {
+      "id": "QA-S1-runtime",
+      "source_clause": "3.1\u20133.4; 2",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "NOT_TESTED",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/processes.json"
+      ],
+      "remaining": "Host startup and health observed; Docker/resource/no-outbound gate BLOCKED."
+    },
+    {
+      "id": "QA-S1-reset",
+      "source_clause": "3.3; 4",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations. See named extra groups and report for exact covered neighbors."
+    },
+    {
+      "id": "QA-S1-wire_types",
+      "source_clause": "3.4; 5",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-party_size",
+      "source_clause": "5; 8 POST /reservations",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-query_digits",
+      "source_clause": "5; 8 GET /availability",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "FAIL",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/calendar-diagnosis.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/remaining-http-results.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Reproduced valid input rejection; other representative grid/query cases passed."
+    },
+    {
+      "id": "QA-S1-auth",
+      "source_clause": "6",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations. See named extra groups and report for exact covered neighbors."
+    },
+    {
+      "id": "QA-S1-public_privacy",
+      "source_clause": "8 GET /restaurants; 6",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-key_length",
+      "source_clause": "7; 5",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-json_equality",
+      "source_clause": "7",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations. See named extra groups and report for exact covered neighbors."
+    },
+    {
+      "id": "QA-S1-key_scope",
+      "source_clause": "7",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-replay_precedence",
+      "source_clause": "7",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-concurrent_identical",
+      "source_clause": "7; 1",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-concurrent_contenders",
+      "source_clause": "1; 7",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-grid_occupancy",
+      "source_clause": "8 GET /availability; 1",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "FAIL",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/calendar-diagnosis.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/remaining-http-results.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Reproduced valid input rejection; other representative grid/query cases passed."
+    },
+    {
+      "id": "QA-S1-identity",
+      "source_clause": "8 POST /reservations; 3.4",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-past_dates",
+      "source_clause": "4; 8",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/remaining-http-results.json"
+      ],
+      "remaining": "Create on0001/2000/2400/9999 and past cutoff observed; availability9999 separately FAIL."
+    },
+    {
+      "id": "QA-S1-cutoff",
+      "source_clause": "8 PATCH and cancel",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/storage-results.json"
+      ],
+      "remaining": "HTTP safe margins plus exact equality at in-process clock seam; not exact-boundary HTTP timing."
+    },
+    {
+      "id": "QA-S1-atomic_patch",
+      "source_clause": "8 PATCH",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations. See named extra groups and report for exact covered neighbors."
+    },
+    {
+      "id": "QA-S1-berlin_spring",
+      "source_clause": "9",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-berlin_fall",
+      "source_clause": "9",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-ny_spring",
+      "source_clause": "9",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-ny_fall",
+      "source_clause": "9",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations."
+    },
+    {
+      "id": "QA-S1-batch_shape",
+      "source_clause": "11",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations. See named extra groups and report for exact covered neighbors."
+    },
+    {
+      "id": "QA-S1-batch_atomicity",
+      "source_clause": "11",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations. See named extra groups and report for exact covered neighbors."
+    },
+    {
+      "id": "QA-S1-batch_precedence",
+      "source_clause": "11",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json"
+      ],
+      "remaining": "Representative original suite assertions only; not exhaustive input combinations. See named extra groups and report for exact covered neighbors."
+    },
+    {
+      "id": "QA-S1-portable_snapshot",
+      "source_clause": "10",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/legacy-results.json"
+      ],
+      "remaining": "Two/three process host observations only; arbitrary corrupt opaque states and heavy resource limits NOT_TESTED."
+    },
+    {
+      "id": "QA-S1-snapshot_isolation",
+      "source_clause": "10; 7",
+      "source_path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "source_sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f",
+      "status": "PASS",
+      "scope": "named observed cases only, not stage acceptance",
+      "evidence_absolute_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/legacy-results.json"
+      ],
+      "remaining": "Two/three process host observations only; arbitrary corrupt opaque states and heavy resource limits NOT_TESTED."
+    }
+  ],
+  "all_future_stages": "NOT_TESTED",
+  "isolated_resource_gate": "BLOCKED"
+}

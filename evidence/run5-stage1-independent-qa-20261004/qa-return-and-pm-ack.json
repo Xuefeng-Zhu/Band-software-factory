@@ -1,0 +1,98 @@
+{
+  "observed_at": "2026-10-04T22:35:40.082443+00:00",
+  "source": "native BAND room messages --type text with all reported pages fetched; not the full-session export",
+  "pagination": [
+    {
+      "page": 1,
+      "total_pages": 2,
+      "has_more": true
+    },
+    {
+      "page": 2,
+      "total_pages": 2,
+      "has_more": false
+    }
+  ],
+  "unique_text_events": 129,
+  "known_human_text_events": [
+    {
+      "id": "d5861cdd-0b57-4393-a97f-0dfb9201cec2",
+      "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+      "inserted_at": "2026-10-04T21:06:55.943682Z",
+      "sender_type": "User"
+    }
+  ],
+  "selected_actual_events": [
+    {
+      "id": "125d5195-c2e2-4f6c-8d27-f1d94eebf688",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "@[[b2f43e4e-7727-44bb-9154-6cdc2b781749]] @[[8e450576-69cd-416c-bc2a-a3a771f020d3]] QA-S1 complete 6/6 return verified. Both QA-S1-DATE-MAX and QA-S1-QUERY-DIGITS are accepted as requirement-linked defects requiring repair 2/3. Candidate 68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1 remains rejected for completion; scoped independent host/source passes are retained. Docker/resource verification remains BLOCKED, with no Stage 2 advancement. Backend: bounded full dispatch follows; do not begin until complete-set receipt.",
+      "message_type": "text",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "sender_name": "Factory PM",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T22:31:48.528483Z",
+      "updated_at": "2026-10-04T22:33:38.987972Z",
+      "mention_names": {
+        "8e450576-69cd-416c-bc2a-a3a771f020d3": "Factory QA",
+        "b2f43e4e-7727-44bb-9154-6cdc2b781749": "Factory Backend"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    },
+    {
+      "id": "8fb46c9c-af8e-41f0-88fa-6306a67a2516",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "HANDOFF-ACK delivery QA-S1-R1; SHA-256 48747f6ab778bc531738b1c3ef3607e5d2c8f6e78ec965bd9fc56ca48e2b5621; sender @[[8e450576-69cd-416c-bc2a-a3a771f020d3]]",
+      "message_type": "text",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "sender_name": "Factory PM",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T22:31:47.790276Z",
+      "updated_at": "2026-10-04T22:33:15.413053Z",
+      "mention_names": {
+        "8e450576-69cd-416c-bc2a-a3a771f020d3": "Factory QA"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    },
+    {
+      "id": "e977379b-4df9-4431-8d42-cefd74ed68d2",
+      "chat_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] QA-S1 REVIEW complete for 68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1. Two defects: valid 9999-12-31 availability returns422; valid 5,000-digit decimal party size returns400. Original11 HTTP groups passed independently; additional groups6 PASS/1 FAIL; focused storage/rollback/cutoff3 PASS; real old-to-repaired-process import PASS. All own processes stopped and both checkouts remain clean. Docker/isolation and128/256/512 resource gates remain BLOCKED/NOT_TESTED. Full six-part QA-S1-R1 requirements-bearing handoff sent, digest48747f6ab778bc531738b1c3ef3607e5d2c8f6e78ec965bd9fc56ca48e2b5621; complete receipt pending. Report, per-class coverage, executable reproductions and evidence: /Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/. Writer lease released; bounded next action is attributable defect repair and independent replacement-candidate recheck, with no stage advancement.",
+      "message_type": "text",
+      "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "sender_name": "Factory QA",
+      "sender_type": "Agent",
+      "inserted_at": "2026-10-04T22:27:24.803163Z",
+      "updated_at": "2026-10-04T22:33:31.892312Z",
+      "mention_names": {
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448": "Factory PM"
+      },
+      "tool_name": null,
+      "tool_call_id": null,
+      "thought_stream_id": null,
+      "system_event": null,
+      "system_subject": null,
+      "connectivity_account_instance": null,
+      "connectivity_profile": null,
+      "attachments": []
+    }
+  ],
+  "limitations": [
+    "Sequential pages are not an atomic room snapshot; messages may arrive during observation.",
+    "This selected public-text evidence is not the required official room.json export."
+  ]
+}

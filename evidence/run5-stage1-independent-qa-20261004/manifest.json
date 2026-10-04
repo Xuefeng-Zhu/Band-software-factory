@@ -1,0 +1,125 @@
+{
+  "captured_at": "2026-10-04T22:35:40.083828+00:00",
+  "files": [
+    {
+      "path": "report.md",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/report.md",
+      "sha256": "52f5b5575bb5ea4ed202225611915e21b8d694fa57b1ab2586a0b5a5a0eb9e5c"
+    },
+    {
+      "path": "coverage.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/coverage.json",
+      "sha256": "d1eb9096daa67b6b9618811d9f3eef51debc99fda7b6f01535889e1cd4e4fe7e"
+    },
+    {
+      "path": "completion.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/completion.json",
+      "sha256": "63af0ebd660403cf6af62f5533d1027504a16c31929bd39352d65cc78afa3dc0"
+    },
+    {
+      "path": "processes.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/processes.json",
+      "sha256": "5bd3564df9d4dc23d1b63bd304f1ee4c393890a77f23529c162aa90cbf09d7d4"
+    },
+    {
+      "path": "return-events.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/return-events.json",
+      "sha256": "2ae054246e84fb04e3818e669a326dbab64ad646d87ece003f33adc07cffbb61"
+    },
+    {
+      "path": "baseline.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json",
+      "sha256": "7f1629c5d526344720401b18a2aabb449df62053f3e5a8586a246b616cf400a6"
+    },
+    {
+      "path": "extra-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra-results.json",
+      "sha256": "30dd4904d8a77312e75f3828fc12979412977841692bb989240b65f2a2de2f92"
+    },
+    {
+      "path": "calendar-diagnosis.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/calendar-diagnosis.json",
+      "sha256": "e8932706df9977c8b2ecca4753f51582e58e1ce5a39903b3d70073c9d2a2cdf7"
+    },
+    {
+      "path": "remaining-http-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/remaining-http-results.json",
+      "sha256": "136b38051f7b5ad69ee6813c99f59248dc7133430b0a5cc6246a02fcd67bf838"
+    },
+    {
+      "path": "storage-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/storage-results.json",
+      "sha256": "4cf6791af0a7f6ce895880ed4eb5c62083b50765622c0a2ef957cdf64d60c127"
+    },
+    {
+      "path": "legacy-results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/legacy-results.json",
+      "sha256": "89e9dd738bc3ea9cc8584ab8c72801afd64c87ca4947e31cddece41dd71fa288"
+    },
+    {
+      "path": "calendar_diagnosis.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/calendar_diagnosis.py",
+      "sha256": "79a83308787c7ecf90b9932d4f0b6fa1e861d77d8573e2564f00c8c5865f80fe"
+    },
+    {
+      "path": "repro-fixture.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/repro-fixture.json",
+      "sha256": "22259161e801c8a580f152654ca63e1e53f655f74a070a2f90b6826939d74e8e"
+    },
+    {
+      "path": "manage.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/manage.py",
+      "sha256": "aefb38405729fa9f6f08f50a848548c9c7a4940e78359464ec1c47b2c8c9d6ae"
+    },
+    {
+      "path": "endpoints.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/endpoints.json",
+      "sha256": "6a2b83af8b180fc0885905b6c43a2de9e91925d5c74d6ed73ed4848083e04b00"
+    },
+    {
+      "path": "extra.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra.py",
+      "sha256": "c09ff9454530df3c842824dcf3ff1ce350831eb9d73940f98cd93d944ef67d9f"
+    },
+    {
+      "path": "remaining_http.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/remaining_http.py",
+      "sha256": "ba452c4eb57e752de4dd460aae46eb048e63d044a5e0ba719b33496c8a0391cb"
+    },
+    {
+      "path": "storage.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/storage.py",
+      "sha256": "a554a727d0e054bc06e3d1bb03c5db3cfbfed4dbd9f2f5a0f5b78a8ee5754027"
+    },
+    {
+      "path": "legacy.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/legacy.py",
+      "sha256": "389de222f208ae581bcebb1706cac700945f63dd24988793881266e9ce35b61c"
+    },
+    {
+      "path": "baseline.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.log",
+      "sha256": "f24c4175d9298bea2114ed0f8a03f0a6871a71fdfdaf89dee43680a17a4fc50d"
+    },
+    {
+      "path": "extra.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra.log",
+      "sha256": "ea2c006ace65a27bba3a98e69eb4483b1f91d404e6fd628eae5d4277902f7aea"
+    },
+    {
+      "path": "storage.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/storage.log",
+      "sha256": "21f089114165445ade19dd57104c6bc3d5b5f36fb3f6ff33b1b543d34170f54f"
+    },
+    {
+      "path": "qa-return-and-pm-ack.json",
+      "source": "read-only native public room query",
+      "sha256": "5a0aaf5d005f4c4a58b814917060f69f6f1a7ccb0983d7a195ffa34482619f8e"
+    },
+    {
+      "path": "README.md",
+      "source": "operator preservation summary",
+      "sha256": "9316515ba5c40c4481d33c43b3c7c80b95e2cb4de3d5c37fa8c85555479e0de1"
+    }
+  ]
+}

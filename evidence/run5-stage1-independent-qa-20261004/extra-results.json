@@ -1,0 +1,45 @@
+{
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "layer": "two host HTTP services",
+  "owner": "@frankzhu94/factory-qa",
+  "at_utc": "2026-10-04T22:21:33.592063+00:00",
+  "results": [
+    {
+      "name": "ids_reset",
+      "status": "PASS",
+      "elapsed_seconds": 0.6808
+    },
+    {
+      "name": "auth_boundaries",
+      "status": "PASS",
+      "elapsed_seconds": 0.1579
+    },
+    {
+      "name": "dates_slots",
+      "status": "FAIL",
+      "error": "AssertionError: expected HTTP 200; got 422",
+      "trace": "Traceback (most recent call last):\n  File \"/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra.py\", line 9, in check\n    try:fn();r={'name':name,'status':'PASS'}\n        ~~^^\n  File \"/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/extra.py\", line 42, in dates_slots\n    slots=s.availability(day)['slots'];assert len(slots)==8\n          ~~~~~~~~~~~~~~^^^^^\n  File \"/private/tmp/qa-s1-20261004T2218Z/tests/qa_stage1_boundaries.py\", line 110, in availability\n    return self.expect(http(self.base, 'GET', '/availability?'+q), 200)\n           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/tmp/qa-s1-20261004T2218Z/tests/qa_stage1_boundaries.py\", line 81, in expect\n    assert actual == status, f'expected HTTP {status}; got {actual}'\n           ^^^^^^^^^^^^^^^^\nAssertionError: expected HTTP 200; got 422\n",
+      "elapsed_seconds": 0.138
+    },
+    {
+      "name": "move_keys_equality",
+      "status": "PASS",
+      "elapsed_seconds": 0.1296
+    },
+    {
+      "name": "patch_batch_atomicity",
+      "status": "PASS",
+      "elapsed_seconds": 0.1433
+    },
+    {
+      "name": "import_invalid",
+      "status": "PASS",
+      "elapsed_seconds": 0.1368
+    },
+    {
+      "name": "concurrent_snapshots",
+      "status": "PASS",
+      "elapsed_seconds": 0.1365
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "start": "2026-10-04T22:19:37.633731+00:00",
+  "layer": "host Python, no isolation/resource gate",
+  "services": [
+    {
+      "pid": 17266,
+      "port": 60210,
+      "command": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "PYTHONPATH": "/private/tmp/qa-s1-20261004T2218Z/stage-1"
+    },
+    {
+      "pid": 17267,
+      "port": 60213,
+      "command": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "PYTHONPATH": "/private/tmp/qa-s1-20261004T2218Z/stage-1"
+    }
+  ],
+  "baseline": {
+    "command": [
+      "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+      "/private/tmp/qa-s1-20261004T2218Z/tests/qa_stage1_boundaries.py",
+      "--base-url",
+      "http://127.0.0.1:60210",
+      "--destination-url",
+      "http://127.0.0.1:60213",
+      "--revision",
+      "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+      "--out",
+      "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/baseline.json"
+    ],
+    "exit_status": 0
+  },
+  "end": "2026-10-04T22:24:42.604224+00:00",
+  "own_processes_stopped": [
+    true,
+    true
+  ]
+}

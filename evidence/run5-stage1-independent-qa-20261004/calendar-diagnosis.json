@@ -1,0 +1,59 @@
+{
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "at_utc": "2026-10-04T22:21:55.819940+00:00",
+  "results": [
+    {
+      "date": "2000-02-29",
+      "status": 200,
+      "code": null,
+      "slots": 8
+    },
+    {
+      "date": "2400-02-29",
+      "status": 200,
+      "code": null,
+      "slots": 8
+    },
+    {
+      "date": "0001-01-01",
+      "status": 200,
+      "code": null,
+      "slots": 8
+    },
+    {
+      "date": "9999-12-31",
+      "status": 422,
+      "code": "validation_failed",
+      "slots": 0
+    },
+    {
+      "date": "1900-02-29",
+      "status": 422,
+      "code": "validation_failed",
+      "slots": 0
+    },
+    {
+      "date": "2100-02-29",
+      "status": 422,
+      "code": "validation_failed",
+      "slots": 0
+    },
+    {
+      "date": "0000-01-01",
+      "status": 422,
+      "code": "validation_failed",
+      "slots": 0
+    },
+    {
+      "date": "2026-04-31",
+      "status": 422,
+      "code": "validation_failed",
+      "slots": 0
+    },
+    {
+      "case": "5000 decimal digits",
+      "status": 400,
+      "code": "malformed_request"
+    }
+  ]
+}

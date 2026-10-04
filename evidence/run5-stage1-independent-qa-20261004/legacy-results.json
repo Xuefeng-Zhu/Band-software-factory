@@ -1,0 +1,17 @@
+{
+  "candidate": "68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1",
+  "legacy_revision": "12e43a92dd6e037ac27dfb2189f18eed35a32fbc",
+  "legacy_source": "/private/tmp/qa-s1-legacy-20261004T2218Z",
+  "command": [
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+    "-m",
+    "tablekeeper.server"
+  ],
+  "port": 61024,
+  "pid": 17485,
+  "started_at_utc": "2026-10-04T22:24:09.766837+00:00",
+  "layer": "three separate real host processes; no Docker",
+  "status": "PASS",
+  "ended_at_utc": "2026-10-04T22:24:10.045987+00:00",
+  "own_process_stopped": true
+}

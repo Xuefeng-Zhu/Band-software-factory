@@ -1,0 +1,3 @@
+storage_trace PASS
+rollback_injection PASS
+cutoff_equality PASS
