@@ -261,6 +261,71 @@ class RuntimeTests(unittest.TestCase):
                 BudgetLedger(limits, path, "wrong-room")
         asyncio.run(scenario())
 
+    def test_token_halt_survives_cleanup_reload_and_later_usage(self):
+        async def scenario():
+            limits = dict(self.config["budgets"], max_total_tokens=100)
+            path = self.root / "first-halt.json"
+            ledger = BudgetLedger(limits, path, "room")
+            ledger.reserve("backend")
+            ledger.record("backend", {"codex_thread_id": "t", "codex_total_tokens": 95})
+            self.assertIsNone(ledger.reason())
+            ledger.record("backend", {"codex_thread_id": "t", "codex_total_tokens": 120})
+            self.assertEqual(ledger.data["stopped_reason"], "observed token budget exhausted")
+            ledger.halt("continuation turn did not complete; preserve before retry")
+            ledger.halt("continuation completion record failed")
+            restored = BudgetLedger(limits, path, "room")
+            self.assertEqual(restored.data["tokens"], 120)
+            self.assertEqual(restored.reason(), "observed token budget exhausted")
+            restored.record("backend", {"codex_thread_id": "t", "codex_total_tokens": 120})
+            self.assertEqual(restored.data["tokens"], 120)
+            restored.record("backend", {"codex_thread_id": "t", "codex_total_tokens": 130})
+            persisted = json.loads(path.read_text())
+            self.assertEqual(persisted["tokens"], 130)
+            self.assertEqual(persisted["token_threads"]["backend:t"], 130)
+            self.assertEqual(persisted["stopped_reason"], "observed token budget exhausted")
+            self.assertTrue(restored.stop.is_set())
+            self.assertFalse(restored.reserve("backend"))
+            self.assertEqual(restored.data["turns"], {"backend": 1})
+        asyncio.run(scenario())
+
+    def test_first_deadline_or_ownership_halt_survives_cleanup(self):
+        async def scenario():
+            for cause in ("overall time budget exhausted", "ownership registry mismatch"):
+                with self.subTest(cause=cause), patch("factorykit.runtime.time.time", return_value=1000):
+                    limits = dict(self.config["budgets"], overall_timeout_seconds=10)
+                    path = self.root / (cause.replace(" ", "-") + ".json")
+                    ledger = BudgetLedger(limits, path, "room")
+                    if cause == "overall time budget exhausted":
+                        with patch("factorykit.runtime.time.time", return_value=1010):
+                            ledger.halt(ledger.reason())
+                    else:
+                        ledger.halt(cause)
+                    ledger.halt("continuation turn did not complete; preserve before retry")
+                    restored = BudgetLedger(limits, path, "room")
+                    self.assertEqual(restored.reason(), cause)
+                    self.assertEqual(restored.data["stopped_reason"], cause)
+                    self.assertFalse(restored.reserve("pm"))
+        asyncio.run(scenario())
+
+    def test_room_scoped_stage_halt_stays_separate_from_global_cause(self):
+        async def scenario():
+            path = self.root / "room-halt.json"
+            ledger = BudgetLedger(self.config["budgets"], path, "judged",
+                                  allowed_rooms=["toy", "judged", "archived"],
+                                  active_rooms=["toy", "judged"])
+            ledger.reserve("pm")
+            stage = "conservative whole-session stage time budget exhausted"
+            ledger.halt(stage)
+            self.assertIsNone(ledger.data["stopped_reason"])
+            self.assertEqual(ledger.data["room_stopped_reasons"], {"judged": stage})
+            ledger.halt("ownership registry mismatch")
+            ledger.halt("continuation completion record failed")
+            persisted = json.loads(path.read_text())
+            self.assertEqual(persisted["stopped_reason"], "ownership registry mismatch")
+            self.assertEqual(persisted["room_stopped_reasons"], {"judged": stage})
+            self.assertEqual(persisted["room_turns"], {"judged": {"pm": 1}})
+        asyncio.run(scenario())
+
     def test_thoughts_suppressed_and_audit_does_not_copy_tool_secrets(self):
         async def scenario():
             ledger = BudgetLedger(self.config["budgets"], self.root / "b.json", "r")

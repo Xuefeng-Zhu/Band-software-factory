@@ -186,7 +186,8 @@ class RecoveryTests(unittest.TestCase):
         ledger.data["stopped_reason"] = "some other failure"
         self.assertEqual(ledger.reason(), "some other failure")
         ledger.halt("observed token budget exhausted")
-        self.assertEqual(ledger.data["stopped_reason"], "observed token budget exhausted")
+        # A later global halt must retain the first shutdown cause.
+        self.assertEqual(ledger.data["stopped_reason"], "some other failure")
         self.assertEqual(ledger.data["room_stopped_reasons"]["rehearsal"], STAGE_STOP)
 
     def test_authorize_requires_explicit_switch_and_stopped_owner(self):

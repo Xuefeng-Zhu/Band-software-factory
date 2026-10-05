@@ -671,6 +671,11 @@ class BudgetLedger:
                 self.halt(self.reason())
 
     def halt(self, reason: str):
+        # Turn cleanup must not replace the global cause that initiated shutdown.
+        # record() still persists later usage before calling halt again.
+        if self.data.get("stopped_reason"):
+            self.stop.set()
+            return
         if self.recovery and reason in {"recovery allowance expired", "recovery accounting scope changed"}:
             self.recovery_stop_reason = reason
             self.stop.set()
