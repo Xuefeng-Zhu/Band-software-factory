@@ -1,0 +1,740 @@
+{
+  "observed_at": "2026-10-05T08:07:49.494845+00:00",
+  "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+  "scope": "One current text-only page, compared with existing local outbound parts. No messages sent; no transcript retained.",
+  "page": 1,
+  "has_more": true,
+  "compared_parts": 56,
+  "all_bodies_byte_identical": true,
+  "all_recipient_metadata_matches_headers": false,
+  "comparisons": [
+    {
+      "event_id": "76647c10-53c9-4ca9-9e87-8fff55fd10ff",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 12,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "5f4c5ca83bf325377d251ddf10debd2c6c825e4d796ebbd686f44bfcc48e60fb",
+      "local_body_sha256": "5f4c5ca83bf325377d251ddf10debd2c6c825e4d796ebbd686f44bfcc48e60fb"
+    },
+    {
+      "event_id": "d60563be-4d2e-4026-9ec7-d356decd8f3b",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 11,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "4238161c69ace2a803ea025c63d13f7536434ec2b7e986b77ac195fe10bf05e7",
+      "local_body_sha256": "4238161c69ace2a803ea025c63d13f7536434ec2b7e986b77ac195fe10bf05e7"
+    },
+    {
+      "event_id": "c10562c3-d186-42d0-9fbe-2ec75d28eda0",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 10,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "7cb423d125554e1bbb2ff4670225528e7cf3f851ba079cd20f57817cce2c4416",
+      "local_body_sha256": "7cb423d125554e1bbb2ff4670225528e7cf3f851ba079cd20f57817cce2c4416"
+    },
+    {
+      "event_id": "97558c21-958a-4339-b97c-c5bb553e9b41",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 9,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "54dd5d4cfa28c2d6f65310a6e73aa12719bd41c04903ab397ec87054828cb638",
+      "local_body_sha256": "54dd5d4cfa28c2d6f65310a6e73aa12719bd41c04903ab397ec87054828cb638"
+    },
+    {
+      "event_id": "9429fc6d-c6e6-4d40-b2b4-0a8f6fc3f6bb",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 8,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "33e0d447fd8884d7699df5c49cf297de4fb4f6c3767a5d7ee062a018932e5f62",
+      "local_body_sha256": "33e0d447fd8884d7699df5c49cf297de4fb4f6c3767a5d7ee062a018932e5f62"
+    },
+    {
+      "event_id": "702dcb59-bd3d-43e6-a3db-22eebf1f7c57",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 7,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "55ea0802b6ae3c0af652e08d36da499eef656709bd5410a1299db04761f61055",
+      "local_body_sha256": "55ea0802b6ae3c0af652e08d36da499eef656709bd5410a1299db04761f61055"
+    },
+    {
+      "event_id": "d47a65eb-4612-4543-8ef9-88731e21b62c",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 6,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "084a88cafb5e7293698631c4365aede4700f0786e51abd44e171f5410f64e778",
+      "local_body_sha256": "084a88cafb5e7293698631c4365aede4700f0786e51abd44e171f5410f64e778"
+    },
+    {
+      "event_id": "1c8791ff-ae6e-44df-ac68-b11cb0d17286",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 5,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "69cefd23cfd454a38edf86c7f874f9381c82b6b06eec29529dfe34b66431d074",
+      "local_body_sha256": "69cefd23cfd454a38edf86c7f874f9381c82b6b06eec29529dfe34b66431d074"
+    },
+    {
+      "event_id": "b01fcb62-7c27-4487-b776-0507d63cc641",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 4,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "cec2f9b442f22da2be23f1eb8ff7eaa28a4ec7c4d9b5c892a43334e77d4cb362",
+      "local_body_sha256": "cec2f9b442f22da2be23f1eb8ff7eaa28a4ec7c4d9b5c892a43334e77d4cb362"
+    },
+    {
+      "event_id": "78b5dab7-32ec-4c3d-a80d-3d94904e26be",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 3,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "8fd5919a5c2c57f9336cffc15192f00a63bddf2d0f70d4a0b24f001d8865d81e",
+      "local_body_sha256": "8fd5919a5c2c57f9336cffc15192f00a63bddf2d0f70d4a0b24f001d8865d81e"
+    },
+    {
+      "event_id": "b2072f50-a116-4144-a1c9-f032afc537c0",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 2,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "f1bbbffcf90bd5617379392ea2929ab80a6a8637e5a1404b41d1352640ab2e8c",
+      "local_body_sha256": "f1bbbffcf90bd5617379392ea2929ab80a6a8637e5a1404b41d1352640ab2e8c"
+    },
+    {
+      "event_id": "f096087a-880d-4b97-bac8-d69547f5b49f",
+      "delivery_id": "ARCH-REPAIR-A1-RESULT-001",
+      "part": 1,
+      "total": 12,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "e104c6f19392898422e0163270625d36aa8f8aebcce8a953e40b08f6f440ae80",
+      "local_body_sha256": "e104c6f19392898422e0163270625d36aa8f8aebcce8a953e40b08f6f440ae80"
+    },
+    {
+      "event_id": "cb02ab35-9bbf-4ea1-bcb3-77c41c194a3d",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 11,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "da4ce644f0c28005825119d3a3afd1739d02408d5a0b666c3c7738568ad86c10",
+      "local_body_sha256": "da4ce644f0c28005825119d3a3afd1739d02408d5a0b666c3c7738568ad86c10"
+    },
+    {
+      "event_id": "4f041f89-c695-4c09-9f32-1d701d8b6a97",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 10,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "b83746ca07300b070039a532502977c09d2dc627eb53148ab38aeb1206650b9c",
+      "local_body_sha256": "b83746ca07300b070039a532502977c09d2dc627eb53148ab38aeb1206650b9c"
+    },
+    {
+      "event_id": "4238d033-1f69-44cd-900c-1d8f1cdaca62",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 9,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "5dd15d65cd272663c99dec9d7848994bdbacb58c118357ae133f49a67fa5fab7",
+      "local_body_sha256": "5dd15d65cd272663c99dec9d7848994bdbacb58c118357ae133f49a67fa5fab7"
+    },
+    {
+      "event_id": "3be00852-c48a-470f-9a63-331e6e5bc8fb",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 8,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "3cdc5f0f52cc9ac3c71186a8d68ce524a37b1a9654ec3ed88164c4a3fbce23a3",
+      "local_body_sha256": "3cdc5f0f52cc9ac3c71186a8d68ce524a37b1a9654ec3ed88164c4a3fbce23a3"
+    },
+    {
+      "event_id": "fd1e0c09-66a1-4b19-838d-285c935a3d77",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 7,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "9d986a7bfdaa1d5642103c150f9aca50db6e14c18900c6093d9ae38d57d6bfa7",
+      "local_body_sha256": "9d986a7bfdaa1d5642103c150f9aca50db6e14c18900c6093d9ae38d57d6bfa7"
+    },
+    {
+      "event_id": "c22a4fe9-c721-4a17-8558-5fa67436d53d",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 6,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "ffdaaa308ace9cde8221880bf57f2bbdc81ee1aebfcb7c6cbfca59fa9d5d3f83",
+      "local_body_sha256": "ffdaaa308ace9cde8221880bf57f2bbdc81ee1aebfcb7c6cbfca59fa9d5d3f83"
+    },
+    {
+      "event_id": "0d8a77f7-6f84-49d5-bc8e-c8292d7c2021",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 5,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "0680026ef5e6ae617a022349556903546f676567ab34833e7835690783dc939b",
+      "local_body_sha256": "0680026ef5e6ae617a022349556903546f676567ab34833e7835690783dc939b"
+    },
+    {
+      "event_id": "449a0a96-a0b2-49c2-9a9e-b89aba6ece0a",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 4,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "6d5fdc509387f43ebb086f83ae42c3e82c10c02e4843a0805c40e5a42c6852df",
+      "local_body_sha256": "6d5fdc509387f43ebb086f83ae42c3e82c10c02e4843a0805c40e5a42c6852df"
+    },
+    {
+      "event_id": "6dc39589-22ad-4d0d-8247-3e38fc2a4331",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 3,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "4ad7993811c3d12c0888b933809bcc4a07ae3728cc9be0961329a41a65a11c3d",
+      "local_body_sha256": "4ad7993811c3d12c0888b933809bcc4a07ae3728cc9be0961329a41a65a11c3d"
+    },
+    {
+      "event_id": "e93bce7d-4dd9-4654-b88f-d7e4bc713228",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 2,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "7ce62bdd84f47ff897ce792f54a32313b6529e2f2a852a89a6328e27889806ff",
+      "local_body_sha256": "7ce62bdd84f47ff897ce792f54a32313b6529e2f2a852a89a6328e27889806ff"
+    },
+    {
+      "event_id": "99c1a8f8-1c71-471c-820f-e46e8b5627de",
+      "delivery_id": "ARCH-REPAIR-A1-001",
+      "part": 1,
+      "total": 11,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "7c0617c928b9619d6768ec1585cf10d89ec5f0f825b225aa7646e56a643ad383",
+      "local_body_sha256": "7c0617c928b9619d6768ec1585cf10d89ec5f0f825b225aa7646e56a643ad383"
+    },
+    {
+      "event_id": "71d72b07-debe-4090-ae0a-34f6885b872d",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 8,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "9bc4cb1186acd15a35bf841c8ac5887706b70aad5c18cec017f7641e33cf69ad",
+      "local_body_sha256": "9bc4cb1186acd15a35bf841c8ac5887706b70aad5c18cec017f7641e33cf69ad"
+    },
+    {
+      "event_id": "17675359-3612-424f-bd9f-8fad9627f349",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 7,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "7ece732eb5d3eaa82f735b6b701aa55c9a1cc21af3a6ea82d42cc7da5f39863f",
+      "local_body_sha256": "7ece732eb5d3eaa82f735b6b701aa55c9a1cc21af3a6ea82d42cc7da5f39863f"
+    },
+    {
+      "event_id": "c7b66f0f-b7c3-49c9-b0da-aa98ff1d74ef",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 6,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "3e042481136840971fe3a9feb6d2d81764f8246522ba098f272fe12f53d3eb1b",
+      "local_body_sha256": "3e042481136840971fe3a9feb6d2d81764f8246522ba098f272fe12f53d3eb1b"
+    },
+    {
+      "event_id": "68ed223d-bc32-4588-8e26-01c42018c696",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 5,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "9d1c7fee16d4f6e298c51c7f772268516dd8b7220530c1c4b6083bade5e25051",
+      "local_body_sha256": "9d1c7fee16d4f6e298c51c7f772268516dd8b7220530c1c4b6083bade5e25051"
+    },
+    {
+      "event_id": "70f13739-81b7-4d70-b635-a7a8fd7aa2ed",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 4,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "41ad857d9b13c6284336bac7e3e0a7a1e3ed4429b1d2d66638290ae4c6efeaf1",
+      "local_body_sha256": "41ad857d9b13c6284336bac7e3e0a7a1e3ed4429b1d2d66638290ae4c6efeaf1"
+    },
+    {
+      "event_id": "3fb7f005-8258-455a-a4e5-9e624afed0e0",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 3,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "b6e0716e56644d0973a63a35cb81cdd098999bc5ca609bcf2e14059812e4ae3e",
+      "local_body_sha256": "b6e0716e56644d0973a63a35cb81cdd098999bc5ca609bcf2e14059812e4ae3e"
+    },
+    {
+      "event_id": "93687c69-9c5e-4dc6-bd1d-3fb00e3ee6ee",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 2,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "59b7a296b18d0f43d9e83ea4aeb9b25aa7d481a1fec266dd01e6b5a67c8dac49",
+      "local_body_sha256": "59b7a296b18d0f43d9e83ea4aeb9b25aa7d481a1fec266dd01e6b5a67c8dac49"
+    },
+    {
+      "event_id": "6ebb5d50-eee5-4714-9d25-4039719ae0b3",
+      "delivery_id": "ARCH-REVIEW-DECISION-001",
+      "part": 1,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "ed1f78938a8787a103143d3dadcbf73fa451e92f58e9bc2a45c075b46a70d542",
+      "local_body_sha256": "ed1f78938a8787a103143d3dadcbf73fa451e92f58e9bc2a45c075b46a70d542"
+    },
+    {
+      "event_id": "265e09ef-5e12-4d25-b900-1c539579a437",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 10,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "7c396714815b3a63bf00e82fbfa6c5c8ec69586aa4d300e2a0ee877e3bf1ec59",
+      "local_body_sha256": "7c396714815b3a63bf00e82fbfa6c5c8ec69586aa4d300e2a0ee877e3bf1ec59"
+    },
+    {
+      "event_id": "6a7192e4-eabb-45a8-a435-06fd5279b9a9",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 9,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "befc6981527492161fca65048a0bdebce4b86db5d522a1b2fc9dee9e11b1b0b1",
+      "local_body_sha256": "befc6981527492161fca65048a0bdebce4b86db5d522a1b2fc9dee9e11b1b0b1"
+    },
+    {
+      "event_id": "a1cb1e06-0fc8-4846-a33a-ea5ecae89359",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 8,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "0a4137790871f416170719fb8a1858d0c2050a53d5e68b688562c29e5b05fa6a",
+      "local_body_sha256": "0a4137790871f416170719fb8a1858d0c2050a53d5e68b688562c29e5b05fa6a"
+    },
+    {
+      "event_id": "e5072a69-33bb-4d23-80a7-f1fadeddbcae",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 7,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "66d2d2bcc1292d686d66785f180479610f9e2d69d7229457ef6adaf149da7563",
+      "local_body_sha256": "66d2d2bcc1292d686d66785f180479610f9e2d69d7229457ef6adaf149da7563"
+    },
+    {
+      "event_id": "6da7dfd6-823e-418b-9b6e-8d628dc01115",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 6,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "a594fd60dd40fa24ad6ab4529e40196409309bf599896e26a151f43033f841d8",
+      "local_body_sha256": "a594fd60dd40fa24ad6ab4529e40196409309bf599896e26a151f43033f841d8"
+    },
+    {
+      "event_id": "b6ac1efe-46d8-42fb-b2b7-5fa0c45754e8",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 5,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "275f3597dd8b4fb6258dc7bfa6071089d33f6ea9b68cfada671b1872d2f3b001",
+      "local_body_sha256": "275f3597dd8b4fb6258dc7bfa6071089d33f6ea9b68cfada671b1872d2f3b001"
+    },
+    {
+      "event_id": "b8c1979b-aa42-49e8-9ca0-3067ab6e48d4",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 4,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "e9f8a95bdc51bfdd77f6d8c3df7fb320efd06d43d99b92806dd2d3e357eafb0b",
+      "local_body_sha256": "e9f8a95bdc51bfdd77f6d8c3df7fb320efd06d43d99b92806dd2d3e357eafb0b"
+    },
+    {
+      "event_id": "fa1b3a9b-9408-4e34-9284-447fb906cf41",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 3,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "4a377f0b05b10dc213000a464d1c7f567706649e4ea7e05c439484ddda725e47",
+      "local_body_sha256": "4a377f0b05b10dc213000a464d1c7f567706649e4ea7e05c439484ddda725e47"
+    },
+    {
+      "event_id": "18036a4f-b0e8-4bcc-891f-ed2191d4a408",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 2,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "70c263984aff721893926c618eef98cf7be158159b3ca1294b69b85afbea1840",
+      "local_body_sha256": "70c263984aff721893926c618eef98cf7be158159b3ca1294b69b85afbea1840"
+    },
+    {
+      "event_id": "0fca496f-4b4c-497a-b8f5-4b6c3e6c0b75",
+      "delivery_id": "ARCH-REVIEW-001",
+      "part": 1,
+      "total": 10,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "3e67a077bd8f6931560c340847eba8e566c38e069773221c9400808bb3c42248",
+      "local_body_sha256": "3e67a077bd8f6931560c340847eba8e566c38e069773221c9400808bb3c42248"
+    },
+    {
+      "event_id": "a4093943-b04d-4f9a-a0c2-535a911e9853",
+      "delivery_id": "ARCH-DECISION-001",
+      "part": 7,
+      "total": 7,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "34dd22081d9785d92fdd43e8c895c3c63b7acd0f6c4757fd0815bf2865368834",
+      "local_body_sha256": "34dd22081d9785d92fdd43e8c895c3c63b7acd0f6c4757fd0815bf2865368834"
+    },
+    {
+      "event_id": "ce9d0176-4720-44b4-93c0-c7631e0ee235",
+      "delivery_id": "ARCH-DECISION-001",
+      "part": 6,
+      "total": 7,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "12a6c10710deff024171f13e815d7a649f181b7fed5e11933d4734ae773a38ef",
+      "local_body_sha256": "12a6c10710deff024171f13e815d7a649f181b7fed5e11933d4734ae773a38ef"
+    },
+    {
+      "event_id": "1a318ac1-92cf-4ad0-b792-d18235084e6f",
+      "delivery_id": "ARCH-DECISION-001",
+      "part": 5,
+      "total": 7,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "dfb59e59c4ac25d900871b86caaeb7a17c2a3344f82233aa9d629b58dd7ce47a",
+      "local_body_sha256": "dfb59e59c4ac25d900871b86caaeb7a17c2a3344f82233aa9d629b58dd7ce47a"
+    },
+    {
+      "event_id": "f633e856-37b9-4cb5-9c40-07e73cfb867e",
+      "delivery_id": "ARCH-DECISION-001",
+      "part": 4,
+      "total": 7,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "a35e9b25c4014c1743a5384a3a301c2447b62cc039eaf441115cefb140c625c3",
+      "local_body_sha256": "a35e9b25c4014c1743a5384a3a301c2447b62cc039eaf441115cefb140c625c3"
+    },
+    {
+      "event_id": "3526473f-b388-42a1-9c8c-84b887da83b0",
+      "delivery_id": "ARCH-DECISION-001",
+      "part": 3,
+      "total": 7,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "80dec883a805999ff9e4b75578ade2ff9fd859c55b769e97dba781a4035a5d83",
+      "local_body_sha256": "80dec883a805999ff9e4b75578ade2ff9fd859c55b769e97dba781a4035a5d83"
+    },
+    {
+      "event_id": "70aabbaf-221e-42bd-b66f-55229f4df70f",
+      "delivery_id": "ARCH-DECISION-001",
+      "part": 2,
+      "total": 7,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "b16425a2b86175f030ea25dae312af18d4d5cb794dc32243ab95bf9a30ce0516",
+      "local_body_sha256": "b16425a2b86175f030ea25dae312af18d4d5cb794dc32243ab95bf9a30ce0516"
+    },
+    {
+      "event_id": "b2bf55f8-4eb4-4fe5-a4a5-f6518062d965",
+      "delivery_id": "ARCH-DECISION-001",
+      "part": 1,
+      "total": 7,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "974df2f1-b5e8-4873-a1ce-93658e0404a4"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "24cea23f5c35db2aefa7387821ac710de3f794be601e49c7e4326d02801e273f",
+      "local_body_sha256": "24cea23f5c35db2aefa7387821ac710de3f794be601e49c7e4326d02801e273f"
+    },
+    {
+      "event_id": "6a6b363e-2953-40cc-bb31-c9d8f43e535d",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 8,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "4cd30a60d2eb77bfd59d4b1d42643bc53f94d70ef8709e3171a3bfb265fcd73a",
+      "local_body_sha256": "4cd30a60d2eb77bfd59d4b1d42643bc53f94d70ef8709e3171a3bfb265fcd73a"
+    },
+    {
+      "event_id": "cad6761d-d80a-4243-aa5b-29b0adf16c25",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 7,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "23b1914132cf1f250bec90a622b9284509f85d1f8de5bbf4d995ced7db40e09e",
+      "local_body_sha256": "23b1914132cf1f250bec90a622b9284509f85d1f8de5bbf4d995ced7db40e09e"
+    },
+    {
+      "event_id": "56163d1b-c200-4bc0-a45a-e798f67d1867",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 6,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "01b507973e86edcbd441bc89ca577bfc8f3aabbf4eb07ea8c631676cd4a113d4",
+      "local_body_sha256": "01b507973e86edcbd441bc89ca577bfc8f3aabbf4eb07ea8c631676cd4a113d4"
+    },
+    {
+      "event_id": "e43685c0-4ea3-4f81-90a1-967154afff54",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 5,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "f42814549025923e49fd3f85751eac18116ddb0d2603e1e8634cb711784663b6",
+      "local_body_sha256": "f42814549025923e49fd3f85751eac18116ddb0d2603e1e8634cb711784663b6"
+    },
+    {
+      "event_id": "95bcbfa4-b847-4711-aa0a-d7beff4ba355",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 4,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "d593d24571db74819a1e3c21e839bc977d9d9b53a7fb2eb80cc8b22fb3bd0c84",
+      "local_body_sha256": "d593d24571db74819a1e3c21e839bc977d9d9b53a7fb2eb80cc8b22fb3bd0c84"
+    },
+    {
+      "event_id": "677af3ec-5b30-4f95-a89e-5496b1836c9d",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 3,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "8fde19457d02d03e06ed290b0e277e41a19e4c68439f189d9df4f069445bb17b",
+      "local_body_sha256": "8fde19457d02d03e06ed290b0e277e41a19e4c68439f189d9df4f069445bb17b"
+    },
+    {
+      "event_id": "dfb9027d-ec8e-4ff4-bad2-d3d9c9a21681",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 2,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "91f331311467ada0dfb307cdf0845f70458d5a3f2a4e6f354d0566806324049c",
+      "local_body_sha256": "91f331311467ada0dfb307cdf0845f70458d5a3f2a4e6f354d0566806324049c"
+    },
+    {
+      "event_id": "dcdd140c-5b62-4cd7-b8b6-b9d7888e860c",
+      "delivery_id": "REV-ORACLES-F1-ACCEPT-001",
+      "part": 1,
+      "total": 8,
+      "body_matches_outbound_bytes": true,
+      "header_recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "metadata_recipient_ids": [],
+      "public_body_sha256": "9827074da213f59c49231755971c36401790a5d1f1bfe0e19d4062787d6925b5",
+      "local_body_sha256": "9827074da213f59c49231755971c36401790a5d1f1bfe0e19d4062787d6925b5"
+    }
+  ]
+}

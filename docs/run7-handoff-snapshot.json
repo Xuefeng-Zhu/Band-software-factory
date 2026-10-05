@@ -1,0 +1,85 @@
+{
+  "admissions": 169,
+  "admissions_by_seat": {
+    "architect": 21,
+    "pm": 94,
+    "qa": 25,
+    "reviewer": 29
+  },
+  "delivery_count": 13,
+  "frozen_source_reconstruction": [
+    {
+      "git_revision": "22eb40f",
+      "path": "factorykit/runtime.py",
+      "sha256": "50b18980d61058b8cb6bd4ae85cc8f86ab135aa5c27445e1683343d6e3a00ec6"
+    },
+    {
+      "git_revision": "22eb40f",
+      "path": "factorykit/workflow_runtime.py",
+      "sha256": "5e3504b37283ab26345ecf7bdb36afa41f5ce22827906d0d878898f28ad56add"
+    },
+    {
+      "git_revision": "22eb40f",
+      "path": "protocols/collaboration.md",
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b"
+    }
+  ],
+  "nonfinal_by_seat": {
+    "architect": 16,
+    "pm": 47,
+    "qa": 13,
+    "reviewer": 21
+  },
+  "nonfinal_fragment_admissions": 97,
+  "numbered_parts_observed": 110,
+  "observed_end": "2026-10-05T07:59:27.783131+00:00",
+  "observed_start": "2026-10-05T07:59:27.782192+00:00",
+  "product_head": "73211923b9f940385036cebcf9d0bb4454d28314",
+  "repair": {
+    "acknowledged": false,
+    "complete": true,
+    "delivery_id": "ARCH-REPAIR-A1-001",
+    "expected_parts": 11,
+    "first_part_observed_at": "2026-10-05T07:56:16.297428+00:00",
+    "latest_architect_turn": [
+      {
+        "started_at": "2026-10-05T07:59:21.016699+00:00",
+        "status": "running",
+        "trigger_delivery": [
+          "ARCH-REPAIR-A1-001",
+          11,
+          11
+        ],
+        "turn_id": "architect:89:cb02ab35-9bbf-4ea1-bcb3-77c41c194a3d"
+      }
+    ],
+    "numbered_parts": 11,
+    "part_event_ids": [
+      "99c1a8f8-1c71-471c-820f-e46e8b5627de",
+      "e93bce7d-4dd9-4654-b88f-d7e4bc713228",
+      "6dc39589-22ad-4d0d-8247-3e38fc2a4331",
+      "449a0a96-a0b2-49c2-9a9e-b89aba6ece0a",
+      "0d8a77f7-6f84-49d5-bc8e-c8292d7c2021",
+      "c22a4fe9-c721-4a17-8558-5fa67436d53d",
+      "fd1e0c09-66a1-4b19-838d-285c935a3d77",
+      "3be00852-c48a-470f-9a63-331e6e5bc8fb",
+      "4238d033-1f69-44cd-900c-1d8f1cdaca62",
+      "4f041f89-c695-4c09-9f32-1d701d8b6a97",
+      "cb02ab35-9bbf-4ea1-bcb3-77c41c194a3d"
+    ]
+  },
+  "stage_directories": {
+    "stage-1": false,
+    "stage-2": false,
+    "stage-3": false,
+    "stage-4": false
+  },
+  "trigger_classification": {
+    "canonical_ack": 12,
+    "multipart_fragment": 110,
+    "other_public_event": 47
+  },
+  "workflow_notice_count": 1,
+  "workflow_path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/runtime/workflow-7f255b86-3e14-44ab-a9cb-7cacdacf4515.json",
+  "workflow_sha256": "cbe76a8c7f0abd8f70a2ff7d32beff542f04a4df392254c8d7b8ba025621831a"
+}
