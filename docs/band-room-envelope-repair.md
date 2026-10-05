@@ -1,0 +1,15 @@
+# BAND room-envelope compatibility repair
+
+The first Run 8 communication rehearsal stopped without a Backend model admission. PM's part-1 event `3966b36c-fa69-44ab-a176-4c9a4b8c168b` was confirmed at `2026-10-05T16:35:10.575306Z`. Backend published generic error event `7a6189d5-1381-46db-b5a9-8341d754f1ba` at `16:35:11.863175Z`; the supervisor stopped around `16:35:16Z`. The targeted delivery receipt retained the exact static error: `Inbound handoff room, sender, or recipient is outside its exact roster scope.` All seven fragment journals were empty. The confirmed part-1 content hash matched the fixture. This establishes a preprocessing scope-check failure, not a five-second confirmation-wait timeout.
+
+Pinned BAND SDK 4.0 exposes the routed room as `MessageEvent.room_id`. Its WebSocket `MessageCreatedPayload.chat_room_id` is optional, and `BandLink._on_message_created` preserves that optional value. The original raw WebSocket payload was not retained, so an absent nested room remains an SDK-backed compatibility diagnosis rather than a directly observed field value from the failed callback.
+
+The journal now requires the verified event-envelope room. It accepts an absent nested room only when that envelope exactly matches the journal; an explicit conflicting nested room still fails. The preprocessor also checks the exposed execution-context room and receiving agent identity. Retained events use the verified envelope room without changing payload objects or fabricating BAND event IDs. Sender, recipient, confirmed-send, content-hash and complete-payload checks remain enforced.
+
+A fixed-seat `preprocessor` diagnostic callback now records private exception types and code locations. It does not serialize message text, exception messages, arguments, locals, credentials or model reasoning. Diagnostic failure cannot suppress the existing halt or original exception.
+
+Six new offline regressions cover actual SDK `model_validate` and `model_construct` payloads without nested room IDs, routed through `BandLink`, plus explicit conflicts, context/recipient mismatches and diagnostic privacy/failure. The focused 29 tests and full 422 utility tests pass. Root confirmed a hash-matching independent review with no remaining finding; exact source/log hashes are in [the validation receipt](band-room-envelope-validation.json).
+
+This is offline repair evidence only. No SDK package, historical rehearsal record, ledger or product checkout was changed. Preserved failed-run source snapshots remain unchanged; the current isolated factory source is deliberately repaired and requires new readiness evidence. No new live validation, restart or Run 8 dispatch is established by this patch. A fresh bounded rehearsal remains necessary.
+
+Local preserved incident evidence: `runs/handoff-regression-20261005/failed-delivery-diagnosis.json`, `error-readback.json`, and `stopped-source-and-process-evidence.json`. These references point to operator records outside this repository; they are not substituted or reconstructed transcripts.

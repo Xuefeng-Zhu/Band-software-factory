@@ -60,7 +60,7 @@ class JournalTests(unittest.TestCase):
         return HandoffJournal(self.path, ROOM, WORKER, ROSTER)
 
     def observe(self, p, **kwargs):
-        return self.j.observe(p, confirmed=kwargs.pop('confirmed', authority(p)), **kwargs)
+        return self.j.observe(p, event_room_id=kwargs.pop('event_room_id', ROOM), confirmed=kwargs.pop('confirmed', authority(p)), **kwargs)
 
     def complete(self):
         parts = fragments([' alpha\n', 'β🙂  \n\n'])
@@ -148,6 +148,15 @@ class JournalTests(unittest.TestCase):
         p=payload(text,101)  # SDK metadata absent is supported via confirmed REST binding.
         self.assertEqual(self.observe(p).kind,'complete')
 
+    def test_optional_payload_room_uses_explicit_verified_envelope_only(self):
+        text=fragments(['one'])[0]
+        p=payload(text,100,chat_room_id=None)
+        for room in (None,OTHER,''):
+            with self.assertRaises(BatchingError):self.observe(p,event_room_id=room)
+        self.assertEqual(self.observe(p,event_room_id=ROOM).kind,'complete')
+        self.assertIsNone(p.chat_room_id)  # Do not rewrite or fabricate wire fields.
+        self.assertEqual(json.loads(self.path.read_text())['events'][p.id]['room_id'],ROOM)
+
     def test_different_authenticated_senders_cannot_mix_parts(self):
         parts=fragments(['one','two'])
         self.observe(payload(parts[0],100))
@@ -165,7 +174,7 @@ class JournalTests(unittest.TestCase):
 
     def test_ordinary_human_or_ack_text_is_not_batched(self):
         for text in ('Please begin the task.', 'HANDOFF-ACK delivery RESULT-1; SHA-256 '+'a'*64+'; sender @[['+PM+']]'):
-            self.assertEqual(self.j.observe(payload(text,100,sender_type='User')).kind,'ordinary')
+            self.assertEqual(self.j.observe(payload(text,100,sender_type='User'),event_room_id=ROOM).kind,'ordinary')
 
 
 class PreprocessorTests(unittest.IsolatedAsyncioTestCase):
@@ -175,7 +184,7 @@ class PreprocessorTests(unittest.IsolatedAsyncioTestCase):
         self.workflow=self.root/'workflow.json';self.workflow.write_text(json.dumps({'events':{}}))
         self.halt=Mock();self.allowed=True
         self.guard=RoomPreprocessor(ROOM,batching=self.j,halt=self.halt,workflow_path=self.workflow,can_process=lambda:self.allowed)
-        self.ctx=SimpleNamespace(participants=[{'id':PM,'handle':'owner/pm'},{'id':WORKER,'handle':'owner/worker'}])
+        self.ctx=SimpleNamespace(room_id=ROOM,participants=[{'id':PM,'handle':'owner/pm'},{'id':WORKER,'handle':'owner/worker'}])
         self.adapter=AsyncMock()
         self.agent=Agent.__new__(Agent)
         self.agent._preprocessor=self.guard;self.agent._runtime=SimpleNamespace(agent_id=WORKER);self.agent._adapter=self.adapter
@@ -210,6 +219,64 @@ class PreprocessorTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(inp.msg.content.endswith(''.join(f'fragment-{i}\n' for i in range(12))))
         self.assertEqual(inp.msg.id,uid(111));self.assertTrue(inp.is_session_bootstrap)
         self.assertEqual(inp.contacts_msg,'contacts')
+
+    async def test_actual_sdk_minimal_websocket_payload_without_nested_room(self):
+        from band.platform.link import BandLink
+        parts=fragments(['one','two'])
+        for i,constructor in enumerate((MessageCreatedPayload.model_validate,MessageCreatedPayload.model_construct)):
+            raw=payload(parts[i],120+i).model_dump(exclude={'chat_room_id'})
+            p=constructor(raw) if i==0 else constructor(**raw)
+            self.assertNotIn('chat_room_id',p.model_fields_set)
+            self.assertIsNone(p.chat_room_id)
+            captured=[]
+            link=BandLink.__new__(BandLink);link._queue_event=captured.append
+            await link._on_message_created(ROOM,p)
+            self.confirm(p)
+            await self.agent._on_execute(self.ctx,captured[0])
+            self.assertIs(captured[0].payload,p)
+        self.adapter.on_event.assert_awaited_once()
+        self.assertEqual(self.adapter.on_event.await_args.args[0].msg.id,uid(121))
+        retained=json.loads(self.path.read_text())
+        self.assertEqual({e['room_id'] for e in retained['events'].values()},{ROOM})
+        self.halt.assert_not_called()
+
+    async def test_explicit_payload_room_conflict_halts_without_hydration(self):
+        p=payload(fragments(['a'])[0],100,chat_room_id=OTHER)
+        with self.assertRaises(BatchingError):await self.send(p)
+        self.halt.assert_called_once();self.guard.default.process.assert_not_called()
+        self.assertFalse(json.loads(self.path.read_text())['events'])
+
+    async def test_outer_room_filter_and_context_recipient_crosschecks(self):
+        p=payload(fragments(['a'])[0],100,chat_room_id=None);self.confirm(p)
+        await self.agent._on_execute(self.ctx,MessageEvent(room_id=OTHER,payload=p))
+        self.halt.assert_not_called();self.guard.default.process.assert_not_called()
+        self.ctx.room_id=OTHER
+        with self.assertRaises(GateError):await self.agent._on_execute(self.ctx,MessageEvent(room_id=ROOM,payload=p))
+        self.ctx.room_id=ROOM
+        with self.assertRaises(GateError):await self.guard.process(self.ctx,MessageEvent(room_id=ROOM,payload=p),OTHER)
+        self.assertEqual(self.halt.call_count,2)
+        self.assertFalse(json.loads(self.path.read_text())['events'])
+
+    async def test_preprocessor_diagnostic_is_private_and_contains_no_payload_or_error_text(self):
+        from factorykit.exception_diagnostics import record_exception
+        directory=self.root.resolve()/'diagnostics'
+        self.guard.on_exception=lambda error:record_exception(directory,error,seat='backend',phase='preprocessor')
+        p=payload(fragments(['synthetic-private-body'])[0],100,chat_room_id=OTHER)
+        with self.assertRaises(BatchingError):await self.send(p)
+        self.halt.assert_called_once()
+        record=json.loads((directory/'exceptions.jsonl').read_text())
+        self.assertEqual((record['seat'],record['phase']),('backend','preprocessor'))
+        self.assertEqual(record['exceptions'][0]['type']['name'],'BatchingError')
+        self.assertNotIn(p.content,(directory/'exceptions.jsonl').read_text())
+        self.assertNotIn('synthetic-private-body',(directory/'exceptions.jsonl').read_text())
+        self.assertEqual((directory/'exceptions.jsonl').stat().st_mode & 0o777,0o600)
+
+    async def test_preprocessor_diagnostic_failure_cannot_replace_error_or_halt(self):
+        self.guard.on_exception=Mock(side_effect=RuntimeError('diagnostic failure'))
+        p=payload(fragments(['a'])[0],100,chat_room_id=OTHER)
+        with self.assertRaises(BatchingError):await self.send(p)
+        self.halt.assert_called_once();self.guard.on_exception.assert_called_once()
+        self.adapter.on_event.assert_not_called()
 
     async def test_partial_persist_failure_halts_before_successful_callback(self):
         p=payload(fragments(['a','b'])[0],100)

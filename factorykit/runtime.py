@@ -556,11 +556,11 @@ def slash_command(content: str) -> bool:
 
 class RoomPreprocessor:
     """Supported Agent.create(preprocessor=) seam; filters before hydration/tools."""
-    def __init__(self, room: str | None, recovery=None, *, batching=None, halt=None, workflow_path=None, can_process=None):
+    def __init__(self, room: str | None, recovery=None, *, batching=None, halt=None, workflow_path=None, can_process=None, on_exception=None):
         from band.preprocessing.default import DefaultPreprocessor
         self.room, self.recovery = room, recovery
         self.batching, self.halt, self.workflow_path = batching, halt, workflow_path
-        self.can_process = can_process
+        self.can_process, self.on_exception = can_process, on_exception
         if batching is not None and (recovery is not None or halt is None or workflow_path is None or can_process is None):
             raise GateError("Batching requires its visible halt callback and normal fresh-run mode.")
         self.default = DefaultPreprocessor()
@@ -578,6 +578,9 @@ class RoomPreprocessor:
         try:
             decision = None
             if self.batching:
+                if (agent_id != self.batching.scope['recipient_id']
+                        or (hasattr(ctx, 'room_id') and ctx.room_id != event.room_id)):
+                    raise GateError("Handoff execution context does not match its routed room and recipient.")
                 if not self.can_process():
                     raise GateError("Stopped or expired run cannot process handoff input.")
                 from .handoff_batching import split_fragment
@@ -594,7 +597,7 @@ class RoomPreprocessor:
                         if confirmed is not None or attempt == 50:
                             break
                         await asyncio.sleep(0.1)
-                decision = self.batching.observe(event.payload, confirmed=confirmed)
+                decision = self.batching.observe(event.payload, event_room_id=event.room_id, confirmed=confirmed)
             if decision and decision.kind == 'skip':
                 return None  # The journal is durable before SDK mark_processed.
             inp = await self.default.process(ctx=ctx, event=event, agent_id=agent_id)
@@ -607,9 +610,14 @@ class RoomPreprocessor:
             if inp and slash_command(inp.msg.content):
                 return None
             return inp
-        except Exception:
+        except Exception as error:
             if self.batching:
                 self.halt("inbound handoff preprocessing failed; preserve journal")
+            if self.on_exception is not None:
+                try:
+                    self.on_exception(error)
+                except Exception:
+                    pass  # Diagnostic failure cannot suppress the original halt.
             raise
 
 
@@ -1443,15 +1451,18 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
             value = creds[seat["id"]]
             adapter = GuardedCodexAdapter(seat)
             session_config = SessionConfig(max_message_retries=1, max_cycle_seconds=config["budgets"]["turn_timeout_seconds"] + 20)
+            from .exception_diagnostics import record_exception
+            def preprocessing_error(error, seat_id=seat['id']):
+                record_exception(state_dir(config) / "diagnostics", error, seat=seat_id, phase="preprocessor")
             if continuation is not None:
                 from .continuation_platform import ReceiptPreservingPlatformRuntime
                 platform = ReceiptPreservingPlatformRuntime(agent_id=value["agent_id"], api_key=value["api_key"],
                     rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config,
                     continuation_room_id=room, excluded_event_ids=continuation.excluded_event_ids(seat["id"]),
                     on_filter_failure=ledger.halt)
-                agent = Agent(runtime=platform, adapter=adapter, preprocessor=RoomPreprocessor(room))
+                agent = Agent(runtime=platform, adapter=adapter, preprocessor=RoomPreprocessor(room, on_exception=preprocessing_error))
             else:
-                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery, batching=journals.get(seat["id"]), halt=ledger.halt, workflow_path=watchdog.path if watchdog else None, can_process=lambda: not ledger.stop.is_set() and not ledger.reason()))
+                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery, batching=journals.get(seat["id"]), halt=ledger.halt, workflow_path=watchdog.path if watchdog else None, can_process=lambda: not ledger.stop.is_set() and not ledger.reason(), on_exception=preprocessing_error))
             agents.append(agent)
             await asyncio.wait_for(agent.start(), timeout=min(45, max(0, recovery["expires_epoch"] - time.time())) if recovery else 45)
             record = read_registry(config)
