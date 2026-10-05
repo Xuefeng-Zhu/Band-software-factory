@@ -1,0 +1,15 @@
+{
+  "additional_tokens": 500000000,
+  "authorization_source": "Direct user answer in current Codex chat",
+  "base_configuration_sha256": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199",
+  "current_budget_sha256": "a84ef176a4450fec0a680268df5660900b59e96d1d14d9c37699e01f81ceba7f",
+  "deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+  "new_max_total_tokens": 786011577,
+  "old_max_total_tokens": 286011577,
+  "parent_amendment_sha256": "ca12bdaa1a676aceebc7df4c71ba068aeb04c154ac66ffdaf388366c4a9cd352",
+  "recorded_at_utc": "2026-10-05T04:48:06.186793+00:00",
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "schema_version": 1,
+  "status": "APPROVED_NOT_APPLIED",
+  "user_answer": "approve"
+}

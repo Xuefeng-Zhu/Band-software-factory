@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "content_sha256": "5d3972da1a6a72b62a27c50a5ec92d50366e7c93f3af08396c7f0cccad0791a5",
+      "event_id": "e8195df8-9322-41f7-b791-2822c6d4e9fd",
+      "inserted_at": "2026-10-05T05:18:40.293840Z",
+      "message_type": "error",
+      "metadata": {},
+      "public_failure_text": "Internal error while processing message; see agent logs.",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+    }
+  ],
+  "messages_sent": 0,
+  "model_calls": 0,
+  "observed_at": "2026-10-05T05:23:26.057455+00:00",
+  "queries": [
+    {
+      "has_more": false,
+      "page": 1,
+      "returned": 2,
+      "type": "error"
+    },
+    {
+      "has_more": true,
+      "page": 1,
+      "returned": 100,
+      "type": "task"
+    }
+  ],
+  "read_only": true,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "schema_version": 1,
+  "scope": "Only exact new PM496 public error/task metadata in activation time window; no complete session or message bodies from other events retained."
+}

@@ -1,0 +1,115 @@
+{
+  "authorization": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/token-authorization.json",
+    "sha256": "8e97a9e24275a0297b471bbf71a19b2e38426325bb408426023b44053ff538cb"
+  },
+  "base_configuration_sha256": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199",
+  "bindings": {
+    "budget": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/baseline/budget.json",
+      "sha256": "a84ef176a4450fec0a680268df5660900b59e96d1d14d9c37699e01f81ceba7f"
+    },
+    "configuration": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-factory.yaml",
+      "sha256": "d734f2ccf122daa430b64c8036f1cea742a132dfa9a371b416be300d20143d74"
+    },
+    "execution": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/execution-events.jsonl",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/baseline/execution_events.jsonl",
+      "sha256": "0d6992a2fcf1b423387e9ae844f6fa4587e1062159b6e35e0cd0eeddb83f6849"
+    },
+    "freeze": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-freeze--latest.json",
+      "sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367"
+    },
+    "launch_ledger": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/ledger.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-launch--ledger.json",
+      "sha256": "b7f52adde07e1423eac1400f50b48cdab8431d8327072672a3a57b3844790811"
+    },
+    "owner": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/owner.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/baseline/owner_registry.json",
+      "sha256": "799004015355c8011d3e582823e38a7b20294c81e2b4202aec97779e76426de4"
+    },
+    "source_lock": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-source-lock.json",
+      "sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac"
+    },
+    "workflow": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/workflow-d98df99d-77ad-441d-875c-6e38cdbef39d.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/baseline/workflow.json",
+      "sha256": "cf7a08ca1abcb644b89fd1bed99b91d61ce614a652db9c95cfd56d894c2c6a88"
+    }
+  },
+  "changes": {
+    "additional_tokens": 500000000,
+    "new_deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+    "new_max_total_tokens": 786011577,
+    "old_deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+    "old_max_total_tokens": 286011577
+  },
+  "continuity": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/continuity-approved.json",
+    "sha256": "2538d5dbf3550068f8384cbe392003bcdce6c4cf15c05f4a47d562927b069363"
+  },
+  "created_at_utc": "2026-10-05T05:15:14.464935+00:00",
+  "deadline_validator_sha256": "28b3e9f9a1f93526b241cbfa2dc5509361b8eba82c85fd0e3ec5b6900f7a61f4",
+  "effective_configuration_sha256": "1aa3f0fb530a0b309d13e570edab7f8c41ef7ca50f1e73faf3d9351057444395",
+  "inherited_defaults_reconciliation": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/inherited-defaults-reconciliation.json",
+    "sha256": "9e8bc7c567d878f71e03a565dfab05997106d0f7e9153dacbf33fedf946e7aff"
+  },
+  "kind": "token_amendment",
+  "model_authorization": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/model-authorization.json",
+    "sha256": "c0de97597a4817b08cbe6cbed6a023f08bef685d7d3f8142f35241566874b642"
+  },
+  "model_catalog": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/model-catalog.json",
+    "sha256": "f3377dbb36207ff0141005f512724169bbe19600518da4c2fd70b3827b5e6f9c"
+  },
+  "owner_registry": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/owner.json",
+    "sha256": "799004015355c8011d3e582823e38a7b20294c81e2b4202aec97779e76426de4"
+  },
+  "parent_amendment": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/approved-amendment-v3.json",
+    "sha256": "ca12bdaa1a676aceebc7df4c71ba068aeb04c154ac66ffdaf388366c4a9cd352"
+  },
+  "parent_claim": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/continuation/ca12bdaa1a676aceebc7df4c71ba068aeb04c154ac66ffdaf388366c4a9cd352.claim.json",
+    "sha256": "654e9fee0e73934318ebf539eb52d322afb7412d15559ba9ae0510c8713adbac"
+  },
+  "review": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/independent-token-review-v3.json",
+    "sha256": "4529ab2fe8f71707450b3b19b65c51d077ff3db03d3e9ed6da126679d84d1614"
+  },
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "schema_version": 1,
+  "source_deltas": [
+    {
+      "after_sha256": "e6bd16a876c9ba9331996b46d678761095041f4808168a0ae431ba15bd75efa7",
+      "before_sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c",
+      "path": "factorykit/runtime.py"
+    }
+  ],
+  "status": "APPROVED_NOT_APPLIED",
+  "stop_summary": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/sol-budget-stop-20261005/stop-summary.json",
+    "sha256": "63b80fdb95c606addcd1709421adb37a1db8e91998f8f499e75d72956d89afb0"
+  },
+  "stopped_status": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/stopped-status-approved.json",
+    "sha256": "80756ae17b6d1345cce7553120c696fe37a168e237f7ff387bfdeac3e7f45c71"
+  },
+  "trust_audit": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/postlaunch-integrity.json",
+    "sha256": "b5e3c5c58abc7d8fe436f43891fc542ecb353cfca744462dd4cb5a198b59b786"
+  },
+  "validator_sha256": "29821be630d9509cf31ea61c0726ba3dd81379d902a1bf36889be18e004cbb64"
+}

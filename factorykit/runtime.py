@@ -1167,6 +1167,15 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
     creds = credentials(config)
     agents = []
     available_tools = {}
+
+    def diagnose_continuation(error, seat, phase):
+        if continuation is not None:
+            try:
+                from .exception_diagnostics import record_exception
+                record_exception(state_dir(config) / "diagnostics", error, seat=seat, phase=phase)
+            except Exception:
+                pass  # Diagnostics must never replace the original failure.
+
     pm = next(s for s in seats if s["id"] == "pm")
     watchdog = None if recovery else WorkflowWatchdog(
         state_dir(config) / f"workflow-{room}.json", room, pm["agent_id"],
@@ -1194,12 +1203,17 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
             super().__init__(config=configs[seat["id"]] if recovery else adapter_config(config, seat, mode), emit=[Emit.TOOL_CALLS, Emit.TASK_EVENTS, Emit.USAGE], capabilities=[Capability.TASKS], exclude_tools=excluded, history_converter=RecoveryHistoryConverter() if recovery else None)
 
         def _build_client(self, adapter_configuration):
-            client = super()._build_client(adapter_configuration)
-            if continuation is None:
-                return client
-            from .continuation_guard import BoundCodexClient
-            return BoundCodexClient(client, continuation.expected_thread(self.seat["id"]),
-                lambda thread: continuation.record_thread(self.seat["id"], thread))
+            try:
+                client = super()._build_client(adapter_configuration)
+                if continuation is None:
+                    return client
+                from .continuation_guard import BoundCodexClient
+                return BoundCodexClient(client, continuation.expected_thread(self.seat["id"]),
+                    lambda thread: continuation.record_thread(self.seat["id"], thread),
+                    on_exception=lambda phase, error: diagnose_continuation(error, self.seat["id"], phase))
+            except Exception as error:
+                diagnose_continuation(error, self.seat["id"], "client_build")
+                raise
 
         async def on_event(self, inp):
             if inp.room_id != room or slash_command(inp.msg.content):
@@ -1215,7 +1229,8 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                     try:
                         if not continuation.claim_event(self.seat["id"], inp.msg):
                             return
-                    except Exception:
+                    except Exception as error:
+                        diagnose_continuation(error, self.seat["id"], "event_admission")
                         ledger.halt("continuation event admission failed")
                         raise
                 if ledger.stop.is_set() or not ledger.reserve_event(self.seat["id"], inp.msg):
@@ -1244,8 +1259,12 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                         else:
                             await observed_turn(super().on_event, inp, wrapped, watchdog,
                                 actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
-                except TimeoutError:
+                except TimeoutError as error:
+                    diagnose_continuation(error, self.seat["id"], "adapter_event")
                     ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
+                except Exception as error:
+                    diagnose_continuation(error, self.seat["id"], "adapter_event")
+                    raise
                 finally:
                     if continuation is not None:
                         try:
@@ -1254,7 +1273,8 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                             continuation.finish_event(self.seat["id"], inp.msg.id, completed=completed)
                             if not completed:
                                 ledger.halt("continuation turn did not complete; preserve before retry")
-                        except Exception:
+                        except Exception as error:
+                            diagnose_continuation(error, self.seat["id"], "event_completion")
                             ledger.halt("continuation completion record failed")
                             raise
 

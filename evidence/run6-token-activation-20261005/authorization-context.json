@@ -1,0 +1,8 @@
+{
+  "approval_question": "Approve 500 million additional reported tokens for Run 6, raising the total cap to 786,011,577, and resume it now? GPT-6.1 Sol, the October 5 deadline at 3:35 AM Pacific, 2 GiB memory cap, one active seat and subscription-only use remain unchanged; no API billing or paid provisioning.",
+  "authorization_sha256": "8e97a9e24275a0297b471bbf71a19b2e38426325bb408426023b44053ff538cb",
+  "no_new_room_or_original_dispatch": true,
+  "prior_ambiguous_answer_not_used": "start the work",
+  "schema_version": 1,
+  "user_answer": "approve"
+}

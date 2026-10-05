@@ -1,0 +1,146 @@
+{
+  "accounting": {
+    "original_epochs_room_halts_and_token_thread_counters_preserved": true,
+    "persisted_stop_reason": "continuation turn did not complete; preserve before retry",
+    "pm_turns_after": 496,
+    "pm_turns_before": 495,
+    "reported_token_delta": 0,
+    "reported_tokens_after": 286079113,
+    "reported_tokens_before": 286079113
+  },
+  "amendment": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/approved-token-amendment-v3.json",
+    "sha256": "0e411144c3a620f1e8e2b06f679df05cb4e04c98a54f7755cf223f051751a4cd"
+  },
+  "claim": {
+    "binding_verified": true,
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/continuation/0e411144c3a620f1e8e2b06f679df05cb4e04c98a54f7755cf223f051751a4cd.claim.json",
+    "sha256": "a26afc4470225a29befdf8556b2a65b7cb5a54e5e4dfc704d2fb6821c1b2ccbd",
+    "status": "CLAIMED"
+  },
+  "deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+  "effective_max_total_tokens": 786011577,
+  "effective_models": {
+    "architect": "gpt-6.1-sol",
+    "backend": "gpt-6.1-sol",
+    "designer": "gpt-6.1-sol",
+    "frontend": "gpt-6.1-sol",
+    "pm": "gpt-6.1-sol",
+    "qa": "gpt-6.1-sol",
+    "reviewer": "gpt-6.1-sol"
+  },
+  "evidence": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/owner.json",
+      "sha256": "3c6e64197c4d35fdc06b3a3f8e066e49fc320c03ed391dfea9069b098c5cc397"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+      "sha256": "4a40de77c936ae3d7e2da32c1135b5449aef64c57476bfac19e93e51222fd1eb"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/workflow-d98df99d-77ad-441d-875c-6e38cdbef39d.json",
+      "sha256": "407c3ba17a38ab11bf6844f27fc288943c5324cd7dc053cfc2c17cfd5916bee1"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/execution-events.jsonl",
+      "sha256": "0d6992a2fcf1b423387e9ae844f6fa4587e1062159b6e35e0cd0eeddb83f6849"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/continuation/0e411144c3a620f1e8e2b06f679df05cb4e04c98a54f7755cf223f051751a4cd/events.json",
+      "sha256": "0f62a94039f05236f6c63f080881682683b233fdc56b24daef00f139fd4e692a"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/continuation/0e411144c3a620f1e8e2b06f679df05cb4e04c98a54f7755cf223f051751a4cd/threads.json",
+      "sha256": "9acf7abbe220225797817bde8a5cc13c14dd882e805b5120e7ed05212afa7c95"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/launch-v3.json",
+      "sha256": "dabe75e2344b5531d1f7c9577835830c1587113ee381338de61f0a38d0fbd109"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/prelaunch-check-v3.json",
+      "sha256": "b5789f93668909ac30f4ec8f410fbaa2c9b42c290e21ebb8ef2f4858a6f08219"
+    }
+  ],
+  "limits": [
+    "The only public error is generic and does not identify the underlying provider/bootstrap cause.",
+    "No new local SDK task/model/usage event was recorded; unchanged reported tokens alone do not establish zero inference.",
+    "A seven-seat live connection or successful Sol turn was not verified.",
+    "Current claim remains consumed; this audit did not retry, reconcile accounting, alter receipts/incidents, or start/stop workers."
+  ],
+  "live_sol_model_turn_verified": false,
+  "manual_messages_sent": 0,
+  "model_calls_by_auditor": 0,
+  "new_admissions": {
+    "pm:496:945b21cc-885b-4105-a541-efc2e1d21924": {
+      "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "deadline_at": 1791178119.99755,
+      "ended_at": 1791177520.289238,
+      "reason_code": "provider_failure",
+      "started_at": 1791177519.9975839,
+      "status": "failed",
+      "trigger_event_id": "945b21cc-885b-4105-a541-efc2e1d21924"
+    }
+  },
+  "new_local_sdk_turn_metadata_count": 0,
+  "observed_at_utc": "2026-10-05T05:26:16.867415+00:00",
+  "old_admissions_unchanged": true,
+  "old_excluded_events": {
+    "backend:3a00a651-2733-414d-9f74-4240f91e079b": "blocked",
+    "backend:ac957a3e-09ab-4ab3-abaf-111e73384a40": "blocked"
+  },
+  "original_dispatch": {
+    "event_id": "2657292f-0e48-4396-b7a5-e5294bd311f7",
+    "ledger_sha256": "b7f52adde07e1423eac1400f50b48cdab8431d8327072672a3a57b3844790811",
+    "recorded_dispatch_count": 1,
+    "unchanged": true
+  },
+  "owner": {
+    "alive": false,
+    "pid": 86834,
+    "recorded_children": [
+      {
+        "alive": false,
+        "pid": 86859
+      },
+      {
+        "alive": false,
+        "pid": 86863
+      }
+    ],
+    "started_at": "2026-10-05T05:18:37.013884+00:00",
+    "status": "stopped",
+    "updated_at": "2026-10-05T05:18:41.428072+00:00"
+  },
+  "pending_seed_states": {
+    "pm:945b21cc-885b-4105-a541-efc2e1d21924": "blocked",
+    "pm:a20595a0-c179-4dc5-9bb1-91090e335d9a": "pending"
+  },
+  "product": {
+    "head": "fea243fb5bd9e38a246c086a81dad337866f1b64",
+    "tree": "48c0106058b5894ae9a6d9b681718fbff7b9959e",
+    "worktree_clean": true
+  },
+  "public_failure": {
+    "events": [
+      {
+        "content_sha256": "5d3972da1a6a72b62a27c50a5ec92d50366e7c93f3af08396c7f0cccad0791a5",
+        "event_id": "e8195df8-9322-41f7-b791-2822c6d4e9fd",
+        "inserted_at": "2026-10-05T05:18:40.293840Z",
+        "message_type": "error",
+        "metadata": {},
+        "public_failure_text": "Internal error while processing message; see agent logs.",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      }
+    ],
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/token-extension-proposal-20261005/activation-public-failure.json",
+    "sha256": "54a18f0f2baf1fd901ec7dccd9ca882ce05cad0dd4dcee56f420aaf098b46f60"
+  },
+  "read_only_runtime_and_platform": true,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "schema_version": 1,
+  "seven_sdk_context_handshake_verified": false,
+  "status": "FAILED_STARTUP_STOPPED_CLAIM_CONSUMED",
+  "threads_unchanged": true
+}

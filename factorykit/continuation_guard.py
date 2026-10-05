@@ -27,16 +27,31 @@ class BoundCodexClient:
     resume-error fallback from silently creating another thread.
     """
 
-    def __init__(self, client, expected_thread: str | None, record_thread: Callable[[str], None]):
+    def __init__(self, client, expected_thread: str | None, record_thread: Callable[[str], None], *, on_exception=None):
         self.client = client
         self.expected_thread = _uuid(expected_thread) if expected_thread else None
         self.record_thread = record_thread
         self.ready_thread = None
+        self.on_exception = on_exception
 
     def __getattr__(self, name):
         return getattr(self.client, name)
 
     async def request(self, method, params, *args, **kwargs):
+        try:
+            return await self._request(method, params, *args, **kwargs)
+        except Exception as error:
+            if self.on_exception is not None:
+                try:
+                    phase = {"thread/start": "request_thread_start", "thread/resume": "request_thread_resume",
+                             "turn/start": "request_turn_start", "turn/steer": "request_turn_steer"}.get(
+                                 getattr(method, "value", method), "request_other")
+                    self.on_exception(phase, error)
+                except Exception:
+                    pass
+            raise
+
+    async def _request(self, method, params, *args, **kwargs):
         name = getattr(method, "value", method)
         if name == "thread/start":
             if self.expected_thread:

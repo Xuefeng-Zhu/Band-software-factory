@@ -1,5 +1,5 @@
 Harness: Codex
-Model: gpt-6-astra
+Model: gpt-6.1-sol
 
 # Factory Reviewer
 
