@@ -13,6 +13,11 @@ from factorykit.common import FactoryError, canonical, digest
 class TokenExtensionTests(unittest.TestCase):
     def setUp(self):
         f=self.f=fixtures.DeadlineExtensionTests();f.setUp();self.addCleanup(f.doCleanups)
+        self.locked_defaults = b'model = "gpt-6.1-sol"\nmodel_reasoning_effort = "high"\n'
+        f.write(f.global_config,self.locked_defaults)
+        f.lock['instruction_inputs'][0]['sha256']=digest(self.locked_defaults)
+        f.write_json(f.runs/'source-lock.json',f.lock)
+        f.freeze['source_lock_sha256']=digest(f.runs/'source-lock.json')
         f.base['budgets']['max_total_tokens']=te.OLD_LIMIT
         f.write(f.runs/'factory.yaml',yaml.safe_dump(f.base).encode())
         f.freeze['configuration_sha256']=digest(canonical(f.base));f.write_json(f.runs/'freeze/latest.json',f.freeze)
@@ -24,8 +29,15 @@ class TokenExtensionTests(unittest.TestCase):
         for row in manifest['files']:
             source=Path(row['source']);f.write(Path(row['preserved']),source.read_bytes());row['sha256']=digest(source)
         f.write_json(f.saved/'before-manifest.json',manifest)
+        self.audited_defaults = self.locked_defaults + ('\n[projects."'+f.base['paths']['result']+'"]\ntrust_level = "trusted"\n').encode()
+        f.write(f.global_config,self.audited_defaults)
+        self.trust_audit=f.saved/'trust-audit.json'
+        f.write_json(self.trust_audit,{'global_configuration':{'classification':'EXACT_NEW_RESULT_TRUST_STANZA_ONLY',
+            'path':str(f.global_config),'locked_sha256':digest(self.locked_defaults),'observed_sha256':digest(self.audited_defaults),
+            'reconstruction':{'matches_locked_sha256':True,'reconstructed_sha256':digest(self.locked_defaults),
+            'removed_section_key':'projects.'+f.base['paths']['result'],'section_keys':['trust_level'],'sections_removed':1}}})
         model_auth,model_catalog=f.model_evidence()
-        self.parent=f.approved(f.proposal(model_authorization_path=model_auth,model_catalog_path=model_catalog))
+        self.parent=f.approved(f.proposal(model_authorization_path=model_auth,model_catalog_path=model_catalog,trust_audit_path=self.trust_audit))
         self.old_token='a'*48
         claim=de.prepare_claim(f.base,self.parent,owner_token=self.old_token,now=f.now)['claim']
         self.parent_claim=f.saved/'consumed-parent-claim.json';f.write_json(self.parent_claim,claim)
@@ -58,6 +70,77 @@ class TokenExtensionTests(unittest.TestCase):
         self.continuity_path=self.fresh/'continuity.json';f.write_json(self.continuity_path,self.continuity)
         self.kwargs=dict(parent_amendment_path=self.parent,preservation_manifest_path=self.manifest,
                          stopped_status_path=f.status_path,stop_summary_path=self.summary_path,continuity_path=self.continuity_path,now=self.now)
+
+    def defaults_proof(self, raw=None):
+        f=self.f
+        if raw is None:
+            raw=self.audited_defaults.replace(b'model = "gpt-6.1-sol"',b'model = "gpt-6-astra"').replace(b'model_reasoning_effort = "high"',b'model_reasoning_effort = "xhigh"')
+        f.write(f.global_config,raw)
+        proof={'schema_version':1,'status':'PASS_EXACT_INHERITED_DEFAULTS_RECONSTRUCTION','path':str(f.global_config),
+            'observed_sha256':digest(raw),'prior_audited_sha256':digest(self.audited_defaults),'locked_sha256':digest(self.locked_defaults),
+            'trust_audit':de._reference(self.trust_audit),'observed_defaults':{'model':'gpt-6-astra','model_reasoning_effort':'xhigh'},
+            'prior_audited_defaults':{'model':'gpt-6.1-sol','model_reasoning_effort':'high'},
+            'seat_overrides':[{'seat_id':s['id'],'model':'gpt-6.1-sol','reasoning_effort':s['reasoning_effort']} for s in f.base['seats']]}
+        path=self.fresh/'defaults-proof.json';f.write_json(path,proof)
+        self.kwargs['inherited_defaults_reconciliation_path']=path
+        return path
+
+    def test_exact_defaults_reconstruction_is_pure_and_retains_all_other_source_checks(self):
+        self.defaults_proof()
+        before={str(p):p.read_bytes() for p in self.f.root.rglob('*') if p.is_file()}
+        proposal=self.proposal()
+        self.assertEqual(before,{str(p):p.read_bytes() for p in self.f.root.rglob('*') if p.is_file()})
+        path=self.approve(self.proposal(True))
+        effective=te.validate_amendment(self.f.base,path,now=self.now)
+        self.assertEqual(effective['runtime']['model'],'gpt-6.1-sol')
+        for seat,original in zip(effective['seats'],self.f.base['seats']):
+            self.assertEqual(seat['reasoning_effort'],original['reasoning_effort'])
+        self.assertEqual(te.prepare_claim(self.f.base,path,owner_token='b'*48,now=self.now)['cleared_budget']['tokens'],self.current['tokens'])
+        self.assertEqual(self.f.lock['instruction_inputs'][0]['sha256'],digest(self.locked_defaults))
+        for target in (self.f.root/'guide.md',self.f.factory/'mandates/pm.md',self.f.root/'challenge/spec.md'):
+            original=target.read_bytes();target.write_bytes(original+b'changed')
+            with self.assertRaises(FactoryError):te.validate_amendment(self.f.base,path,now=self.now)
+            target.write_bytes(original)
+
+    def test_missing_or_unbound_defaults_proof_is_rejected(self):
+        proof=self.defaults_proof();self.kwargs.pop('inherited_defaults_reconciliation_path')
+        with self.assertRaises(FactoryError):self.proposal()
+        self.kwargs['inherited_defaults_reconciliation_path']=proof
+        path=self.approve(self.proposal(True));proof.write_bytes(proof.read_bytes()+b'\n')
+        with self.assertRaises(FactoryError):te.validate_amendment(self.f.base,path,now=self.now)
+
+    def test_other_ambient_permission_or_instruction_drift_cannot_be_reconciled(self):
+        self.defaults_proof();raw=self.f.global_config.read_bytes()
+        for changed in (b'network_access = true\n'+raw,raw.replace(b'trust_level = "trusted"',b'trust_level = "untrusted"'),
+                        raw+b'\n[permissions.extra]\nnetwork_access = true\n',raw+b'# new instruction\n'):
+            with self.subTest(changed_digest=digest(changed)):
+                self.defaults_proof(changed)
+                with self.assertRaisesRegex(FactoryError,'prior audited input'):self.proposal()
+
+    def test_duplicate_non_top_level_or_non_exact_default_lines_are_rejected(self):
+        self.defaults_proof();raw=self.f.global_config.read_bytes()
+        for changed in (b'model = "gpt-6-astra"\n'+raw,b'[nested]\n'+raw,
+                        raw.replace(b'model = "gpt-6-astra"',b'"model" = "gpt-6-astra"'),
+                        raw+b'\n[nested]\nmodel = "gpt-6-astra"\n'):
+            with self.subTest(changed_digest=digest(changed)):
+                self.defaults_proof(changed)
+                with self.assertRaises(FactoryError):self.proposal()
+
+    def test_defaults_proof_requires_exact_trust_chain_and_explicit_seat_overrides(self):
+        proof_path=self.defaults_proof();proof=de._read(proof_path)
+        for field,value in (('prior_audited_sha256','0'*64),('locked_sha256','0'*64),
+                            ('seat_overrides',list(reversed(proof['seat_overrides'])))):
+            changed=copy.deepcopy(proof);changed[field]=value;self.f.write_json(proof_path,changed)
+            with self.assertRaises(FactoryError):self.proposal()
+        self.f.write_json(proof_path,proof)
+        proposal=self.proposal();effective=copy.deepcopy(self.f.base);effective['runtime']['model']='gpt-6.1-sol'
+        for seat in effective['seats']:seat['model']='gpt-6.1-sol'
+        for changed in ({'model':'gpt-6-astra'},{'reasoning_effort':'xhigh'},{'reasoning_effort':None}):
+            invalid=copy.deepcopy(effective);invalid['seats'][0].update(changed)
+            with self.assertRaises(FactoryError):te._reconciled_sources(self.f.base,invalid,self.f.lock,proposal)
+        other=copy.deepcopy(proof);other['trust_audit']={'path':str(proof_path),'sha256':'0'*64};self.f.write_json(proof_path,other)
+        with self.assertRaises(FactoryError):self.proposal()
+
 
     def proposal(self,approved=False):
         kwargs=dict(self.kwargs)

@@ -8,6 +8,7 @@ import copy
 import os
 from pathlib import Path
 import re
+import tomllib
 import yaml
 from . import deadline_extension as de
 from .common import FactoryError, canonical, digest
@@ -21,7 +22,7 @@ _KEYS = {"schema_version", "kind", "status", "created_at_utc", "room_id", "base_
          "effective_configuration_sha256", "validator_sha256", "deadline_validator_sha256", "bindings",
          "parent_amendment", "parent_claim", "stop_summary", "authorization", "stopped_status",
          "owner_registry", "trust_audit", "source_deltas", "continuity", "model_authorization", "model_catalog",
-         "changes", "review"}
+         "changes", "review", "inherited_defaults_reconciliation"}
 _AUTH_KEYS = {"schema_version", "status", "authorization_source", "user_answer", "room_id", "additional_tokens",
               "old_max_total_tokens", "new_max_total_tokens", "deadline_utc", "current_budget_sha256",
               "parent_amendment_sha256", "base_configuration_sha256", "recorded_at_utc"}
@@ -45,6 +46,81 @@ def _review(amendment, proposed):
              and bool(review["reviewer"].strip()) and review["proposal_sha256"] == digest(canonical(proposal))
              and review["source_deltas"] == amendment["source_deltas"], "Independent review does not bind this token proposal")
     de._instant(review["reviewed_at_utc"])
+
+
+def _reconciled_sources(base, effective, lock, amendment):
+    """Prove the exact ambient-default delta without changing any locked bytes."""
+    reference = amendment["inherited_defaults_reconciliation"]
+    if reference is None:
+        return lock
+    proof = de._referenced(reference)
+    de._shape(proof, {"schema_version", "status", "path", "observed_sha256", "prior_audited_sha256",
+                     "locked_sha256", "trust_audit", "observed_defaults", "prior_audited_defaults",
+                     "seat_overrides"}, "inherited defaults reconciliation")
+    observed_defaults = {"model": "gpt-6-astra", "model_reasoning_effort": "xhigh"}
+    prior_defaults = {"model": "gpt-6.1-sol", "model_reasoning_effort": "high"}
+    _require(proof["schema_version"] == 1 and proof["status"] == "PASS_EXACT_INHERITED_DEFAULTS_RECONSTRUCTION"
+             and proof["observed_defaults"] == observed_defaults and proof["prior_audited_defaults"] == prior_defaults
+             and proof["trust_audit"] == amendment["trust_audit"]
+             and all(de._sha(proof[k]) for k in ("observed_sha256", "prior_audited_sha256", "locked_sha256")),
+             "Inherited defaults proof does not describe the exact reviewed transition")
+    records = [r for r in lock.get("instruction_inputs", []) if r.get("path") == proof["path"]]
+    _require(len(records) == 1 and records[0]["sha256"] == proof["locked_sha256"],
+             "Inherited defaults proof is not bound to one original instruction input")
+    seats = effective["seats"]
+    _require(effective["runtime"].get("model") == "gpt-6.1-sol" and seats
+             and all(s.get("model") == "gpt-6.1-sol" and s.get("reasoning_effort") in {"medium", "high"} for s in seats),
+             "Every seat must explicitly override the inherited model and reasoning effort")
+    expected_seats = [{"seat_id": s["id"], "model": s["model"], "reasoning_effort": s["reasoning_effort"]} for s in seats]
+    _require(proof["seat_overrides"] == expected_seats, "Inherited defaults proof seat overrides changed")
+    raw = de._bytes(proof["path"])
+    _require(digest(raw) == proof["observed_sha256"], "Inherited defaults observed bytes changed")
+    try:
+        parsed = tomllib.loads(raw.decode())
+    except (ValueError, UnicodeError):
+        raise FactoryError("Inherited defaults TOML is malformed or has duplicate keys") from None
+    _require(all(parsed.get(k) == v for k, v in observed_defaults.items()), "Inherited defaults must be top-level values")
+    # Preserve every unrelated byte. Conservative bare, unique top-level lines only;
+    # TOML serialization would hide unrelated formatting or instruction changes.
+    reconstructed = raw
+    for key, value in observed_defaults.items():
+        pattern = rb"(?m)^[ \t]*" + key.encode() + rb"[ \t]*=[^\n]*(?:\n|$)"
+        matches = list(re.finditer(pattern, raw))
+        expected_line = (key + ' = "' + value + '"\n').encode()
+        _require(len(matches) == 1 and matches[0].group() == expected_line
+                 and not re.search(rb"(?m)^[ \t]*\[", raw[:matches[0].start()]),
+                 "Inherited defaults require exact unique top-level assignment lines")
+        reconstructed = reconstructed.replace(expected_line, (key + ' = "' + prior_defaults[key] + '"\n').encode(), 1)
+    _require(digest(reconstructed) == proof["prior_audited_sha256"],
+             "Replacing only the inherited defaults does not recover the prior audited input")
+    audit = de._referenced(proof["trust_audit"])
+    observed = audit.get("global_configuration", {}); reconstruction = observed.get("reconstruction", {})
+    _require(observed.get("classification") == "EXACT_NEW_RESULT_TRUST_STANZA_ONLY"
+             and observed.get("path") == proof["path"] and observed.get("locked_sha256") == proof["locked_sha256"]
+             and observed.get("observed_sha256") == proof["prior_audited_sha256"]
+             and reconstruction.get("matches_locked_sha256") is True
+             and reconstruction.get("reconstructed_sha256") == proof["locked_sha256"]
+             and reconstruction.get("removed_section_key") == "projects." + base["paths"]["result"]
+             and reconstruction.get("section_keys") == ["trust_level"] and reconstruction.get("sections_removed") == 1,
+             "Inherited defaults proof differs from the immutable prior trust audit")
+    try:
+        prior = tomllib.loads(reconstructed.decode())
+        _require(prior["projects"][base["paths"]["result"]] == {"trust_level": "trusted"},
+                 "Prior trusted-project stanza contains additional settings")
+    except (KeyError, ValueError, UnicodeError):
+        raise FactoryError("Cannot verify prior trusted-project stanza") from None
+    block = ('[projects."' + base["paths"]["result"] + '"]\ntrust_level = "trusted"\n').encode()
+    _require(reconstructed.count(block) == 1, "Exact prior trusted-project stanza is missing or duplicated")
+    index = reconstructed.index(block)
+    candidates = [reconstructed[:index] + reconstructed[index + len(block):]]
+    if index and reconstructed[index - 1:index] == b"\n":
+        candidates.append(reconstructed[:index - 1] + reconstructed[index + len(block):])
+    _require(any(digest(value) == proof["locked_sha256"] for value in candidates),
+             "Removing only the prior trust stanza does not recover the original locked input")
+    _require(de._bytes(proof["path"]) == raw, "Inherited defaults changed during reconciliation")
+    checked = copy.deepcopy(lock)
+    next(r for r in checked["instruction_inputs"] if r["path"] == proof["path"])["sha256"] = proof["observed_sha256"]
+    return checked
 
 
 def _parent(base, amendment, now):
@@ -111,7 +187,7 @@ def _parent(base, amendment, now):
     _require(effective["budgets"]["max_total_tokens"] == OLD_LIMIT and effective["runtime"]["model"] == "gpt-6.1-sol"
              and all(s["model"] == "gpt-6.1-sol" for s in effective["seats"])
              and digest(canonical(effective)) == parent["effective_configuration_sha256"], "Prior effective Sol configuration changed")
-    de._sources(base, frozen, lock, amendment)
+    de._sources(base, frozen, _reconciled_sources(base, effective, lock, amendment), amendment)
     return parent, original_budget, effective
 
 
@@ -210,7 +286,7 @@ def _static(base, amendment, *, now=None, proposed=False):
 
 def prepare_amendment(base_config, *, parent_amendment_path, preservation_manifest_path,
                       stopped_status_path, stop_summary_path, continuity_path,
-                      authorization_path=None, source_deltas=None, now=None):
+                      authorization_path=None, source_deltas=None, inherited_defaults_reconciliation_path=None, now=None):
     """Return PROPOSED data, even without user approval. Never write or launch."""
     parent=de._read(parent_amendment_path); runs=Path(base_config["paths"]["runs"]);room=base_config["band"]["judged_room_id"]
     entries=de._read(preservation_manifest_path)["files"]
@@ -229,6 +305,7 @@ def prepare_amendment(base_config, *, parent_amendment_path, preservation_manife
               "authorization":de._reference(authorization_path) if authorization_path else None,
               "stopped_status":de._reference(stopped_status_path),"owner_registry":de._reference(runs/'runtime/owner.json'),
               "trust_audit":copy.deepcopy(parent['trust_audit']),"source_deltas":copy.deepcopy(source_deltas or []),
+              "inherited_defaults_reconciliation":de._reference(inherited_defaults_reconciliation_path) if inherited_defaults_reconciliation_path else None,
               "continuity":de._reference(continuity_path),"model_authorization":copy.deepcopy(parent['model_authorization']),
               "model_catalog":copy.deepcopy(parent['model_catalog']),"changes":{"old_max_total_tokens":OLD_LIMIT,"new_max_total_tokens":NEW_LIMIT,
               "additional_tokens":ADDITIONAL_TOKENS,"old_deadline_utc":parent['changes']['new_deadline_utc'],"new_deadline_utc":parent['changes']['new_deadline_utc']},"review":None}
