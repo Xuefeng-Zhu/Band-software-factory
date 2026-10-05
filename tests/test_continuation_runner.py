@@ -126,15 +126,16 @@ class ContinuationFixture(unittest.TestCase):
         self.amendment['continuity'] = self.ref(self.manifest_path)
         self.write(self.amendment_path, self.amendment)
 
-    def context(self):
+    def context(self, policy="deadline"):
         root, claim, _ = cr.continuation_paths(self.base, self.amendment_path)
         cr._private_directory(root)
         if not claim.exists():
             cr.durable_json(claim, {'claim': 'offline'}, exclusive=True)
         self.write(self.runs / 'runtime/owner.json', {'token': 'offline', 'parent': {'pid': os.getpid()},
                                                     'mode': 'judged', 'status': 'starting'})
-        with patch.object(cr.de, 'validate_claimed_amendment', return_value=self.effective):
-            return cr.ContinuityContext(self.base, self.amendment_path, claim, 'offline')
+        context_type = cr.TokenContinuityContext if policy == 'token' else cr.ContinuityContext
+        with patch.object(cr._policy_module(policy), 'validate_claimed_amendment', return_value=self.effective):
+            return context_type(self.base, self.amendment_path, claim, 'offline')
 
     def test_exact_derivation_preserves_suppression_category(self):
         actual = cr.validate_continuity(self.base, self.amendment)
@@ -281,7 +282,7 @@ class ContinuationFixture(unittest.TestCase):
             cr.check_resume(self.base, self.amendment_path)
         self.assertEqual(preflight.call_args.kwargs['model_catalog'], {'models': [{'model': 'gpt-6.1-sol'}]})
 
-    def test_spawn_failure_consumes_claim_after_exact_ledger_write_and_cannot_retry(self):
+    def _assert_spawn_failure_consumes_claim(self, policy):
         budget = self.runs / 'runtime/budget.json'
         original = {'stopped_reason': 'overall time budget exhausted', 'reported_tokens': 123}
         cleared = dict(original, stopped_reason=None)
@@ -295,22 +296,31 @@ class ContinuationFixture(unittest.TestCase):
             writes.append(Path(path))
             return durable(path, value, **kwargs)
         def failed_spawn(*args, **kwargs):
+            command = args[0]
+            self.assertEqual('--policy' in command, policy == 'token')
+            if policy == 'token': self.assertEqual(command[command.index('--policy') + 1], 'token')
             self.assertEqual(writes, [claim_path, budget])
             self.assertEqual(json.loads(budget.read_text()), cleared)
             self.assertEqual(json.loads(claim_path.read_text()), claim)
             raise OSError('synthetic spawn failure')
         with patch('factorykit.runtime.launch_lock', return_value=nullcontext()), \
-             patch.object(cr.de, 'validate_amendment', return_value=self.effective), \
+             patch.object(cr._policy_module(policy), 'validate_amendment', return_value=self.effective), \
              patch('factorykit.runtime.preflight_runtime', return_value=[cr.GLOBAL_HALT_ERROR]), \
              patch('factorykit.validation.docker_resource_check', return_value={'errors': []}), \
-             patch.object(cr.de, 'prepare_claim', return_value={'claim': claim, 'cleared_budget': cleared}), \
+             patch.object(cr._policy_module(policy), 'prepare_claim', return_value={'claim': claim, 'cleared_budget': cleared}), \
              patch.object(cr, 'durable_json', side_effect=save), \
              patch.object(cr.subprocess, 'Popen', side_effect=failed_spawn) as spawn:
-            with self.assertRaises(OSError): cr.resume(self.base, self.root / 'config.yaml', self.amendment_path)
+            with self.assertRaises(OSError): cr.resume(self.base, self.root / 'config.yaml', self.amendment_path, policy=policy)
             with self.assertRaisesRegex(FactoryError, 'already claimed'):
-                cr.resume(self.base, self.root / 'config.yaml', self.amendment_path)
+                cr.resume(self.base, self.root / 'config.yaml', self.amendment_path, policy=policy)
         spawn.assert_called_once()
         self.assertEqual(writes, [claim_path, budget])
+
+    def test_spawn_failure_consumes_claim_after_exact_ledger_write_and_cannot_retry(self):
+        self._assert_spawn_failure_consumes_claim('deadline')
+
+    def test_token_spawn_failure_consumes_claim_and_child_policy_is_explicit(self):
+        self._assert_spawn_failure_consumes_claim('token')
 
     def test_failed_ledger_write_consumes_claim_without_spawning(self):
         budget = self.runs / 'runtime/budget.json'
@@ -334,11 +344,11 @@ class ContinuationFixture(unittest.TestCase):
         self.assertEqual(json.loads(budget.read_text()), original)
         spawn.assert_not_called()
 
-    def test_real_module_entrypoint_uses_canonical_context_and_exposes_safe_gate(self):
+    def _assert_real_module_entrypoint(self, policy):
         # Exercise the actual python -m entrypoint and runtime isinstance guard.
         # Only temp-fixture validation/preflight are stubbed; no SDK is connected.
         self.amendment['model_catalog'] = None; self.rebind()
-        ctx = self.context()
+        ctx = self.context(policy)
         fixture_config = self.root / 'base.json'
         self.write(fixture_config, self.base)
         hook = self.root / 'sitecustomize.py'
@@ -352,7 +362,14 @@ class ContinuationFixture(unittest.TestCase):
             socket.socket.connect = no_network
             socket.create_connection = no_network
             common.load_config = lambda path: base
-            de.validate_claimed_amendment = lambda *args, **kwargs: base
+            if os.environ['CONTINUATION_OFFLINE_POLICY'] == 'token':
+                from factorykit import token_extension
+                token_extension.validate_claimed_amendment = lambda *args, **kwargs: base
+                def wrong_policy(*args, **kwargs):
+                    raise common.FactoryError('Token entrypoint incorrectly used deadline validation')
+                de.validate_claimed_amendment = wrong_policy
+            else:
+                de.validate_claimed_amendment = lambda *args, **kwargs: base
             owner = {'token': 'offline', 'parent': {'pid': os.getpid()},
                      'mode': 'judged', 'status': 'starting'}
             Path(base['paths']['runs'], 'runtime/owner.json').write_bytes(common.canonical(owner))
@@ -362,16 +379,73 @@ class ContinuationFixture(unittest.TestCase):
         """))
         env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1',
                    PYTHONPATH=os.pathsep.join([str(self.root), str(Path(cr.__file__).parents[1])]),
-                   CONTINUATION_OFFLINE_BASE=str(fixture_config))
+                   CONTINUATION_OFFLINE_BASE=str(fixture_config), CONTINUATION_OFFLINE_POLICY=policy)
         result = subprocess.run(
             [sys.executable, '-B', '-m', 'factorykit.continuation_runner',
              '--config', str(fixture_config), '--amendment', str(self.amendment_path),
+             *(['--policy', 'token'] if policy == 'token' else []),
              '_serve', '--claim', str(ctx.claim_path), '--owner-token', 'offline'],
             cwd=self.root, env=env, capture_output=True, text=True, timeout=20)
         self.assertEqual(result.returncode, 2, result.stderr)
         report = json.loads(result.stdout)
         self.assertEqual(report['error_type'], 'GateError')
         self.assertEqual(report['detail'], 'Offline sentinel: canonical context verified before SDK startup')
+
+    def test_real_module_entrypoint_uses_canonical_context_and_exposes_safe_gate(self):
+        self._assert_real_module_entrypoint('deadline')
+
+    def test_token_real_module_entrypoint_uses_canonical_subclass_and_strict_policy(self):
+        self._assert_real_module_entrypoint('token')
+
+    def test_unknown_policy_is_rejected_without_fallback(self):
+        with patch.object(cr.de, 'validate_amendment') as deadline:
+            with self.assertRaisesRegex(FactoryError, 'Unknown continuation policy'):
+                cr.check_resume(self.base, self.amendment_path, policy='anything-else')
+        deadline.assert_not_called()
+        self.assertFalse((self.runs / 'runtime/continuation').exists())
+
+    def test_token_missing_approval_blocks_before_preflight_or_state_write(self):
+        with patch.object(cr._policy_module('token'), 'validate_amendment',
+                          side_effect=FactoryError('Explicit token approval is missing')), \
+             patch.object(cr.de, 'validate_amendment') as deadline, \
+             patch('factorykit.runtime.preflight_runtime') as preflight:
+            with self.assertRaisesRegex(FactoryError, 'Explicit token approval'):
+                cr.check_resume(self.base, self.amendment_path, policy='token')
+        deadline.assert_not_called(); preflight.assert_not_called()
+        self.assertFalse((self.runs / 'runtime/continuation').exists())
+
+    def test_token_preflight_validates_effective_ceiling_model_and_catalog(self):
+        self.effective['budgets']['max_total_tokens'] = 786011577
+        with patch.object(cr._policy_module('token'), 'validate_amendment', return_value=self.effective) as token, \
+             patch.object(cr.de, 'validate_amendment') as deadline, \
+             patch('factorykit.runtime.preflight_runtime', return_value=[cr.GLOBAL_HALT_ERROR]) as preflight, \
+             patch('factorykit.validation.docker_resource_check', return_value={'errors': []}):
+            self.assertEqual(cr.check_resume(self.base, self.amendment_path, policy='token'), self.effective)
+        self.assertEqual(token.call_count, 2); deadline.assert_not_called()
+        preflight.assert_called_once_with(self.base, 'judged', effective_budgets=self.effective['budgets'],
+                                         effective_models={'pm': 'gpt-6.1-sol', 'frontend': 'gpt-6.1-sol'},
+                                         model_catalog=None)
+
+    def test_token_context_keeps_original_runtime_type_and_failed_event_exclusion(self):
+        self.amendment['kind'] = 'token_amendment'
+        self.amendment['changes'] = {'old_max_total_tokens': 286011577, 'new_max_total_tokens': 786011577,
+                                    'additional_tokens': 500000000,
+                                    'old_deadline_utc': '2026-10-05T10:35:03.700437+00:00',
+                                    'new_deadline_utc': '2026-10-05T10:35:03.700437+00:00'}
+        self.rebind()
+        with patch.object(cr.de, 'validate_claimed_amendment') as deadline:
+            ctx = self.context('token')
+        deadline.assert_not_called()
+        self.assertIsInstance(ctx, cr.ContinuityContext)
+        self.assertEqual(ctx.expected_thread('pm'), THREAD)
+        self.assertIn(EVENTS[1], ctx.excluded_event_ids('pm'))
+        with self.assertRaises(FactoryError):
+            ctx.claim_event('pm', SimpleNamespace(id=EVENTS[1], room_id=ROOM, created_at=CUTOFF))
+        metadata = ctx.metadata()
+        self.assertEqual(metadata['new_max_total_tokens'], 786011577)
+        self.assertEqual(metadata['kind'], 'token_amendment')
+        self.assertTrue(metadata['deadline_preserved'])
+        self.assertFalse(metadata['tokens_and_turns_reset'])
 
     def test_pid_or_partial_handshake_is_not_ready(self):
         record = {'token': 't', 'status': 'running', 'seats': ['pm', 'frontend'],

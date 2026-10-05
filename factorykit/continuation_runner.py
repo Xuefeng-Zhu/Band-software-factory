@@ -225,11 +225,22 @@ def continuation_paths(base, amendment_path):
     return root, root / (identity + ".claim.json"), root / identity
 
 
+def _policy_module(policy):
+    if policy == "deadline":
+        return de
+    if policy == "token":
+        from . import token_extension
+        return token_extension
+    raise FactoryError("Unknown continuation policy; no fallback is allowed")
+
+
 class ContinuityContext:
+    _policy_name = "deadline"
+
     def __init__(self, base_config, amendment_path, claim_path, owner_token):
         self.base_config = copy.deepcopy(base_config)
         self.amendment_path, self.claim_path = Path(amendment_path), Path(claim_path)
-        self.effective_config = de.validate_claimed_amendment(
+        self.effective_config = _policy_module(self._policy_name).validate_claimed_amendment(
             base_config, amendment_path, claim_path, owner_token=owner_token)
         self.amendment = de._read(amendment_path)
         self.manifest = validate_continuity(base_config, self.amendment)
@@ -332,25 +343,44 @@ class ContinuityContext:
                 "processed_without_model_admission_suppressed": len(self.manifest["processed_without_admission"])}
 
 
-def check_resume(base, amendment_path):
+class TokenContinuityContext(ContinuityContext):
+    """Canonical runtime-compatible context validated only by token policy."""
+    _policy_name = "token"
+
+    def metadata(self):
+        changes = self.amendment["changes"]
+        return {"kind": "token_amendment", "amendment_sha256": self.binding["amendment_sha256"],
+                "room_id": self.room_id, "new_deadline_utc": changes["new_deadline_utc"],
+                "deadline_preserved": True, "original_dispatch_preserved": True,
+                "tokens_and_turns_reset": False,
+                "old_max_total_tokens": changes["old_max_total_tokens"],
+                "new_max_total_tokens": changes["new_max_total_tokens"],
+                "additional_tokens": changes["additional_tokens"],
+                "effective_models": {s["id"]: s.get("model") for s in self.effective_config["seats"]},
+                "model_catalog": self.amendment.get("model_catalog"),
+                "processed_without_model_admission_suppressed": len(self.manifest["processed_without_admission"])}
+
+
+def check_resume(base, amendment_path, *, policy="deadline"):
     """Read-only admission, including live preflight; never claims or starts."""
     from . import runtime
     from .validation import docker_resource_check
-    effective = de.validate_amendment(base, amendment_path)
+    validator = _policy_module(policy)
+    effective = validator.validate_amendment(base, amendment_path)
     amendment = de._read(amendment_path)
     validate_continuity(base, amendment)
     errors = runtime.preflight_runtime(
         base, "judged", effective_budgets=effective["budgets"],
         effective_models={s["id"]: s["model"] for s in effective["seats"]},
         model_catalog=de._referenced(amendment["model_catalog"]) if amendment.get("model_catalog") else None)
-    # The validator has proved exactly the persisted overall-time halt. Nothing
-    # else, including auth/model/permissions/token exhaustion, may be suppressed.
+    # The selected validator proves the exact authorized halt reconciliation.
+    # Every other gate must pass under its strictly bounded effective budgets.
     _require(errors == [GLOBAL_HALT_ERROR], "Continuation preflight blockers: " + "; ".join(errors))
     resource_errors = docker_resource_check(effective)["errors"]
     _require(not resource_errors, "Continuation resource blockers: " + "; ".join(resource_errors))
     # External preflight may take time. Revalidate immutable sources, owner and
     # clocks immediately before returning to the under-lock claiming caller.
-    effective = de.validate_amendment(base, amendment_path)
+    effective = validator.validate_amendment(base, amendment_path)
     validate_continuity(base, de._read(amendment_path))
     _, claim_path, _ = continuation_paths(base, amendment_path)
     _require(not claim_path.exists() and not claim_path.is_symlink(),
@@ -368,13 +398,14 @@ def _running_handshake(record, base, token):
             and all(c.get("running") is True for c in contexts))
 
 
-def resume(base, config_path, amendment_path):
+def resume(base, config_path, amendment_path, *, policy="deadline"):
     """One exclusive claim and one spawn. Any uncertainty consumes the claim."""
     from . import runtime
+    validator = _policy_module(policy)
     with runtime.launch_lock(base):
-        effective = check_resume(base, amendment_path)
+        effective = check_resume(base, amendment_path, policy=policy)
         token = secrets.token_hex(24)
-        prepared = de.prepare_claim(base, amendment_path, owner_token=token)
+        prepared = validator.prepare_claim(base, amendment_path, owner_token=token)
         amendment = de._read(amendment_path)
         validate_continuity(base, amendment)
         root, claim_path, _ = continuation_paths(base, amendment_path)
@@ -385,6 +416,7 @@ def resume(base, config_path, amendment_path):
         durable_json(Path(amendment["bindings"]["budget"]["path"]), prepared["cleared_budget"])
         command = [base["runtime"]["python"], "-m", "factorykit.continuation_runner",
                    "--config", str(Path(config_path).absolute()), "--amendment", str(Path(amendment_path).absolute()),
+                   *(["--policy", "token"] if policy == "token" else []),
                    "_serve", "--claim", str(claim_path), "--owner-token", token]
         logfile = root / (digest(de._bytes(amendment_path)) + ".supervisor.log")
         fd = os.open(logfile, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
@@ -415,6 +447,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", required=True)
     parser.add_argument("--amendment", required=True)
+    parser.add_argument("--policy", choices=("deadline", "token"), default="deadline")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("check")
     sub.add_parser("resume")
@@ -427,11 +460,11 @@ def main(argv=None):
         if args.command == "check":
             from .runtime import launch_lock
             with launch_lock(base):
-                effective = check_resume(base, args.amendment)
+                effective = check_resume(base, args.amendment, policy=args.policy)
             print(json.dumps({"status": "READY_TO_RESUME", "room_id": base["band"]["judged_room_id"],
                               "effective_budgets": effective["budgets"], "dispatch_performed": False}))
         elif args.command == "resume":
-            print(json.dumps(resume(base, args.config, args.amendment)))
+            print(json.dumps(resume(base, args.config, args.amendment, policy=args.policy)))
         else:
             from . import runtime
             logging.disable(logging.CRITICAL)
@@ -445,8 +478,9 @@ def main(argv=None):
                 raise FactoryError("Continuation parent never registered ownership")
             # python -m executes this file as __main__; use the canonical class
             # identity also checked by runtime.serve, without weakening its gate.
-            from .continuation_runner import ContinuityContext as VerifiedContinuityContext
-            context = VerifiedContinuityContext(base, args.amendment, args.claim, args.owner_token)
+            from .continuation_runner import ContinuityContext as VerifiedContinuityContext, TokenContinuityContext
+            context_type = TokenContinuityContext if args.policy == "token" else VerifiedContinuityContext
+            context = context_type(base, args.amendment, args.claim, args.owner_token)
             asyncio.run(runtime.serve(base, "judged", args.owner_token, continuation=context))
         return 0
     except Exception as error:
