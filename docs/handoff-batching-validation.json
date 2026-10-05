@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-10-05T08:20:23.844773+00:00",
+  "status": "PASS_OFFLINE_ONLY",
+  "command": "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python -m unittest discover -s tests -v",
+  "exit_code": 0,
+  "tests": 412,
+  "new_focused_tests": 23,
+  "elapsed_seconds": 4.489,
+  "log_sha256": "d8106be47646023c502bbad720f9cabb26d57d3ee2ac0aa56ca215ead979dc35",
+  "files": {
+    "factorykit/handoff_batching.py": "3d5f3c873d6c4ad6cc236bb8ebe8ea8383c1cb81950ee9244cf85bfa2ec36e9a",
+    "factorykit/runtime.py": "d14403c38f42285bba209cabca0aa1c277166623a97fb690a4de46c187a42f72",
+    "tests/test_handoff_batching.py": "aabdf79fe773045b48a14f176405c9b50ab21dac4230cbae59a823b1a6a97bed",
+    "protocols/collaboration.md": "6911c88312b6258420a5d173bd36fddecf5ce11cf493833600120883d0787268"
+  },
+  "limitations": [
+    "No live SDK rehearsal or model inference performed by these tests.",
+    "The new batcher was not applied to Run 7.",
+    "No product implementation or stage acceptance is established."
+  ]
+}

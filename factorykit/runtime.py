@@ -21,6 +21,7 @@ import secrets
 import signal
 import stat
 import subprocess
+import sys
 import tempfile
 import time
 from typing import Any
@@ -555,9 +556,13 @@ def slash_command(content: str) -> bool:
 
 class RoomPreprocessor:
     """Supported Agent.create(preprocessor=) seam; filters before hydration/tools."""
-    def __init__(self, room: str | None, recovery=None):
+    def __init__(self, room: str | None, recovery=None, *, batching=None, halt=None, workflow_path=None, can_process=None):
         from band.preprocessing.default import DefaultPreprocessor
         self.room, self.recovery = room, recovery
+        self.batching, self.halt, self.workflow_path = batching, halt, workflow_path
+        self.can_process = can_process
+        if batching is not None and (recovery is not None or halt is None or workflow_path is None or can_process is None):
+            raise GateError("Batching requires its visible halt callback and normal fresh-run mode.")
         self.default = DefaultPreprocessor()
 
     async def process(self, ctx, event, agent_id):
@@ -568,10 +573,44 @@ class RoomPreprocessor:
             return None
         if self.recovery and not recovery_message_allowed(self.recovery, event.payload):
             return None
-        inp = await self.default.process(ctx=ctx, event=event, agent_id=agent_id)
-        if inp and slash_command(inp.msg.content):
+        if event.payload.sender_type == "Agent" and event.payload.sender_id == agent_id:
             return None
-        return inp
+        try:
+            decision = None
+            if self.batching:
+                if not self.can_process():
+                    raise GateError("Stopped or expired run cannot process handoff input.")
+                from .handoff_batching import split_fragment
+                confirmed = None
+                if split_fragment(event.payload.content) is not None:
+                    # WS delivery can race the sender's REST response. Wait only
+                    # for the already-owned watchdog to confirm that same send;
+                    # never infer recipient authority from untrusted header text.
+                    for attempt in range(51):
+                        if not self.can_process():
+                            raise GateError("Stopped or expired run cannot await handoff authority.")
+                        state = json.loads(Path(self.workflow_path).read_text())
+                        confirmed = state['events'].get(event.payload.id)
+                        if confirmed is not None or attempt == 50:
+                            break
+                        await asyncio.sleep(0.1)
+                decision = self.batching.observe(event.payload, confirmed=confirmed)
+            if decision and decision.kind == 'skip':
+                return None  # The journal is durable before SDK mark_processed.
+            inp = await self.default.process(ctx=ctx, event=event, agent_id=agent_id)
+            if decision and decision.kind == 'complete':
+                if inp is None:
+                    raise GateError("Complete handoff was not hydrated; execution remains unclaimed.")
+                # Preserve actual ID/sender/time/tools/session metadata. Never
+                # normalize, strip, or re-split the verified raw payload.
+                inp = replace(inp, msg=replace(inp.msg, content=decision.content))
+            if inp and slash_command(inp.msg.content):
+                return None
+            return inp
+        except Exception:
+            if self.batching:
+                self.halt("inbound handoff preprocessing failed; preserve journal")
+            raise
 
 
 class BudgetLedger:
@@ -1132,6 +1171,32 @@ def continuation_notice_tools(agents, room_id, participant_ids, available_tools)
     return additions
 
 
+def create_handoff_journals(config, room, seats, ledger, watchdog, *, recovery=None, continuation=None):
+    """Fresh-run boundary; old continuations cannot bypass retained claims."""
+    from .handoff_batching import HandoffJournal
+    journals = {}
+    try:
+        retained = list(state_dir(config).glob(f"handoffs-{room}-*.json*"))
+        if recovery is not None or continuation is not None:
+            if retained:
+                raise GateError("Batched room continuation/recovery requires journal-aware reconciliation; unsupported.")
+            return journals
+        previous_turns = json.loads(watchdog.path.read_text())["turns"]
+        expected = {state_dir(config) / f"handoffs-{room}-{seat['id']}.json" for seat in seats}
+        expected |= {p.with_suffix(p.suffix + ".lock") for p in expected}
+        if set(retained) - expected:
+            raise GateError("Unknown retained handoff journal prevents startup.")
+        for seat in seats:
+            path = state_dir(config) / f"handoffs-{room}-{seat['id']}.json"
+            if previous_turns and not path.exists():
+                raise GateError("Existing run has no batching journal; automatic migration is blocked.")
+            journals[seat['id']] = HandoffJournal(path, room, seat['agent_id'], [s['agent_id'] for s in seats])
+        return journals
+    except Exception:
+        ledger.halt("handoff journal startup failed; preserve existing runtime state")
+        raise
+
+
 async def serve(config: dict, mode: str, token: str, recovery_id=None, continuation=None):
     from band import Agent
     from band.adapters import CodexAdapter
@@ -1181,6 +1246,8 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
         state_dir(config) / f"workflow-{room}.json", room, pm["agent_id"],
         [s["agent_id"] for s in seats], config["budgets"]["ack_timeout_seconds"],
         max_notices=min(2, config["budgets"]["max_repairs"]))
+    journals = create_handoff_journals(config, room, seats, ledger, watchdog,
+                                       recovery=recovery, continuation=continuation)
     loop = asyncio.get_running_loop()
     for sig in (signal.SIGTERM, signal.SIGINT):
         loop.add_signal_handler(sig, ledger.stop.set)
@@ -1233,50 +1300,78 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                         diagnose_continuation(error, self.seat["id"], "event_admission")
                         ledger.halt("continuation event admission failed")
                         raise
-                if ledger.stop.is_set() or not ledger.reserve_event(self.seat["id"], inp.msg):
-                    return
-                if ledger.stop.is_set():
-                    return
-                base_args = (inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
-                if recovery:
-                    wrapped = RecoveryTools(*base_args)
-                else:
-                    # This conservative deadline begins at admission, before SDK
-                    # initialization, so it can never promise an extra 600s later.
-                    deadline_at = time.time() + config["budgets"]["turn_timeout_seconds"]
-                    turn_id = self.seat["id"] + ":" + str(ledger.data["turns"][self.seat["id"]]) + ":" + inp.msg.id
-                    available_tools[self.seat["agent_id"]] = inp.tools
-                    tools_type = ContinuationWorkflowTools if continuation is not None else WorkflowTools
-                    wrapped = tools_type(*base_args, watchdog=watchdog,
-                        actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
+                journal = journals.get(self.seat['id'])
+                batch_claim = None
+                turn_id = None
                 try:
-                    timeout = config["budgets"]["turn_timeout_seconds"] + 15
+                    if journal is not None:
+                        try:
+                            batch_claim = journal.claim(inp.msg.id)
+                        except Exception:
+                            ledger.halt("handoff admission failed; preserve journal")
+                            raise
+                        if batch_claim is False:
+                            return
+                    if ledger.stop.is_set() or not ledger.reserve_event(self.seat["id"], inp.msg):
+                        return
+                    if ledger.stop.is_set():
+                        return
+                    base_args = (inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
                     if recovery:
-                        timeout = min(timeout, max(0, recovery["expires_epoch"] - time.time()))
-                    async with asyncio.timeout(timeout):
+                        wrapped = RecoveryTools(*base_args)
+                    else:
+                        # This conservative deadline begins at admission, before SDK
+                        # initialization, so it can never promise an extra 600s later.
+                        deadline_at = time.time() + config["budgets"]["turn_timeout_seconds"]
+                        turn_id = self.seat["id"] + ":" + str(ledger.data["turns"][self.seat["id"]]) + ":" + inp.msg.id
+                        available_tools[self.seat["agent_id"]] = inp.tools
+                        tools_type = ContinuationWorkflowTools if continuation is not None else WorkflowTools
+                        wrapped = tools_type(*base_args, watchdog=watchdog,
+                            actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
+                    try:
+                        timeout = config["budgets"]["turn_timeout_seconds"] + 15
                         if recovery:
-                            await super().on_event(replace(inp, tools=wrapped))
-                        else:
-                            await observed_turn(super().on_event, inp, wrapped, watchdog,
-                                actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
-                except TimeoutError as error:
-                    diagnose_continuation(error, self.seat["id"], "adapter_event")
-                    ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
-                except Exception as error:
-                    diagnose_continuation(error, self.seat["id"], "adapter_event")
-                    raise
+                            timeout = min(timeout, max(0, recovery["expires_epoch"] - time.time()))
+                        async with asyncio.timeout(timeout):
+                            if recovery:
+                                await super().on_event(replace(inp, tools=wrapped))
+                            else:
+                                await observed_turn(super().on_event, inp, wrapped, watchdog,
+                                    actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
+                    except TimeoutError as error:
+                        diagnose_continuation(error, self.seat["id"], "adapter_event")
+                        ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
+                    except Exception as error:
+                        diagnose_continuation(error, self.seat["id"], "adapter_event")
+                        raise
+                    finally:
+                        if continuation is not None:
+                            try:
+                                state = json.loads(watchdog.path.read_text())
+                                completed = state["turns"].get(turn_id, {}).get("status") == "completed"
+                                continuation.finish_event(self.seat["id"], inp.msg.id, completed=completed)
+                                if not completed:
+                                    ledger.halt("continuation turn did not complete; preserve before retry")
+                            except Exception as error:
+                                diagnose_continuation(error, self.seat["id"], "event_completion")
+                                ledger.halt("continuation completion record failed")
+                                raise
                 finally:
-                    if continuation is not None:
+                    if batch_claim is True:
                         try:
                             state = json.loads(watchdog.path.read_text())
-                            completed = state["turns"].get(turn_id, {}).get("status") == "completed"
-                            continuation.finish_event(self.seat["id"], inp.msg.id, completed=completed)
-                            if not completed:
-                                ledger.halt("continuation turn did not complete; preserve before retry")
-                        except Exception as error:
-                            diagnose_continuation(error, self.seat["id"], "event_completion")
-                            ledger.halt("continuation completion record failed")
+                            completed = turn_id is not None and state['turns'].get(turn_id, {}).get('status') == 'completed'
+                            journal.finish(inp.msg.id, completed=completed)
+                            journal.reconcile_acknowledgements(state)
+                        except Exception:
+                            ledger.halt("handoff completion recording failed; preserve journal")
                             raise
+                        if not completed:
+                            ledger.halt("handoff model claim did not complete; preserve before retry")
+                            if sys.exc_info()[0] is None:
+                                # A caught timeout/SDK failed lifecycle must not
+                                # turn into mark_processed at the callback seam.
+                                raise GateError("Batched handoff did not complete; retained claim blocks replay.")
 
     async def heartbeat():
         while not ledger.stop.is_set():
@@ -1293,6 +1388,14 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                 activity = sdk_execution_activity(agents, room, [s['agent_id'] for s in seats])
                 record["workflow"] = watchdog.queue_timeout_notices(execution_busy=activity['busy'])
                 record["workflow"]["sdk_execution_contexts"] = activity['contexts']
+                try:
+                    workflow_state = json.loads(watchdog.path.read_text())
+                    for journal in journals.values():
+                        journal.reconcile_acknowledgements(workflow_state)
+                    record['handoff_batching'] = {seat: journal.summary() for seat, journal in journals.items()}
+                except Exception:
+                    ledger.halt("handoff journal reconciliation failed; preserve state")
+                    raise
                 # Reconcile the audited pending callbacks before sending old
                 # timeout notices. No receipt or incident is resolved by this gate.
                 pending_continuation = continuation is not None and continuation.pending_events_unsettled()
@@ -1348,7 +1451,7 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                     on_filter_failure=ledger.halt)
                 agent = Agent(runtime=platform, adapter=adapter, preprocessor=RoomPreprocessor(room))
             else:
-                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery))
+                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery, batching=journals.get(seat["id"]), halt=ledger.halt, workflow_path=watchdog.path if watchdog else None, can_process=lambda: not ledger.stop.is_set() and not ledger.reason()))
             agents.append(agent)
             await asyncio.wait_for(agent.start(), timeout=min(45, max(0, recovery["expires_epoch"] - time.time())) if recovery else 45)
             record = read_registry(config)

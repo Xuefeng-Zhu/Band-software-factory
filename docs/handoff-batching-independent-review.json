@@ -1,0 +1,58 @@
+{
+  "diagnosis": {
+    "nonfinal_fragment_admissions": 97,
+    "sha256": "8090a77eeedfb8d2eaf38fd5fbb2a092f1d056c6e50d6ef94101643c50f7a5fb",
+    "snapshot_at_utc": "2026-10-05T07:59:27.782192+00:00",
+    "source": "docs/run7-handoff-snapshot.json",
+    "total_admissions": 169
+  },
+  "files": {
+    "factorykit/handoff_batching.py": "3d5f3c873d6c4ad6cc236bb8ebe8ea8383c1cb81950ee9244cf85bfa2ec36e9a",
+    "factorykit/runtime.py": "d14403c38f42285bba209cabca0aa1c277166623a97fb690a4de46c187a42f72",
+    "tests/test_handoff_batching.py": "aabdf79fe773045b48a14f176405c9b50ab21dac4230cbae59a823b1a6a97bed"
+  },
+  "findings": [],
+  "independent_validation": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /Users/frank/mygit/Tablekeeper/factory/.venv/bin/python -m unittest discover -s tests -p test_handoff_batching.py -v",
+    "cwd": "/Users/frank/mygit/Tablekeeper/runs/factory-handoff-fix-20261005",
+    "exit_code": 0,
+    "network": "Mocked and prohibited in integration fixtures; no live provider or BAND operations.",
+    "reported_duration_seconds": 0.242,
+    "tests_passed": 23
+  },
+  "limitations": [
+    "Local utility checks do not establish a fresh live SDK rehearsal or product acceptance.",
+    "SDK bootstrap/history remains unchanged, so historical fragments may appear there; this patch reduces fragment-triggered model admissions, not all context tokens or ACK turns.",
+    "A missing confirmed outbound binding after the bounded five-second race wait fails closed.",
+    "No live Run7 activation, source-lock refresh, runtime restart or product repair was performed by this review."
+  ],
+  "observed_at_utc": "2026-10-05T08:19:34.941772+00:00",
+  "other_reported_validation": {
+    "full_suite_tests_passed": 412,
+    "independently_rerun_by_this_review": false,
+    "owner": "toolkit"
+  },
+  "resolved_findings": [
+    {
+      "issue": "Transport stripping omitted header work identity and part count from the local complete view.",
+      "resolution": "Envelope now retains exact original header prefix and complete N/N count; UTF-8/out-of-order regression asserts both."
+    },
+    {
+      "issue": "Noncompleted batch outcomes could return normally to the SDK after a suppressed timeout or terminal failed/interrupted lifecycle.",
+      "resolution": "Durably block and halt, then raise a safe error if no prior exception propagates; focused tests assert failure instead of successful callback return."
+    }
+  ],
+  "reviewer": "run4_readiness_audit",
+  "schema_version": 1,
+  "scope": "Independent static review and focused offline utility execution of isolated future-factory multipart batching; no live Run7 changes, BAND messages, model calls or product tests.",
+  "status": "PASS",
+  "verified_invariants": [
+    "Raw original fragment bytes persist atomically with file and parent-directory fsync before an incomplete callback returns None.",
+    "Raw digest, numbering, exact terminal delimiter, authenticated outbound sender/recipient/content binding and room scope checked before full model admission.",
+    "Incoming event that actually completes the set remains the admission ID; original source UUIDs and complete payload retained.",
+    "Durable execution claim precedes budget reserve; denial, failure, cancellation and ambiguous retained claims cannot automatically replay.",
+    "Original self/wrong-room/slash filters and ordinary human kickoff path retained; canonical ACK still comes from the real recipient and does not imply work acceptance.",
+    "Existing frozen continuation/recovery does not silently enable batching; retained batching journals cannot be bypassed through legacy continuation.",
+    "Stop/deadline enforced during bounded confirmation wait; source payload never used as authority to create a message."
+  ]
+}
