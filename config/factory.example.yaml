@@ -13,7 +13,7 @@ runtime:
   sandbox: workspace-write
   approval_policy: never
   approval_mode: auto_decline
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   version: 0.160.0
   sdk_version: 4.0.0
   allow_network: false
@@ -51,7 +51,7 @@ seats:
   agent_id: null
   mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory PM
   git_email: pm@factory.invalid
@@ -64,7 +64,7 @@ seats:
   agent_id: null
   mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: high
   git_name: Factory Architect
   git_email: architect@factory.invalid
@@ -77,7 +77,7 @@ seats:
   agent_id: null
   mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory Designer
   git_email: designer@factory.invalid
@@ -90,7 +90,7 @@ seats:
   agent_id: null
   mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory Backend
   git_email: backend@factory.invalid
@@ -103,7 +103,7 @@ seats:
   agent_id: null
   mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory Frontend
   git_email: frontend@factory.invalid
@@ -116,7 +116,7 @@ seats:
   agent_id: null
   mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: high
   git_name: Factory QA
   git_email: qa@factory.invalid
@@ -129,7 +129,7 @@ seats:
   agent_id: null
   mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: high
   git_name: Factory Reviewer
   git_email: reviewer@factory.invalid

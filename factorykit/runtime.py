@@ -367,11 +367,14 @@ def credentials(config: dict) -> dict:
     return data
 
 
-def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
+def preflight_runtime(config: dict, mode: str = "rehearsal", *, effective_budgets: dict | None = None,
+                      effective_models: dict | None = None, model_catalog: dict | None = None) -> list[str]:
     from .common import FactoryError
     from .validation import observations, runtime_permission_arguments, docker_resource_requirements, docker_resource_check
     errors = []
-    rt, bd, limits = config["runtime"], config["band"], config["budgets"]
+    rt, bd = config["runtime"], config["band"]
+    limits = config["budgets"] if effective_budgets is None else effective_budgets
+    budget_config = dict(config, budgets=limits)
     if importlib.metadata.version("band-sdk") != SDK_VERSION:
         errors.append(f"Install pinned band-sdk=={SDK_VERSION}.")
     if not bd.get(f"{mode}_room_id"):
@@ -433,9 +436,14 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
         errors.append(str(error))
     models_path = state_dir(config) / "models.json"
     models = json.loads(models_path.read_text()).get("models", []) if models_path.is_file() else []
+    if model_catalog is not None:
+        models = model_catalog.get("models", [])
+    if effective_models is not None and set(effective_models) != {s["id"] for s in config["seats"]}:
+        errors.append("Effective model mapping must include exactly the original seat roster.")
     known = {m.get("model", m.get("id")): m for m in models}
     for seat in config["seats"]:
-        model = seat.get("model") or rt.get("model")
+        model = (effective_models.get(seat["id"]) if effective_models is not None
+                 else seat.get("model") or rt.get("model"))
         if not model or model not in known:
             errors.append(f"Seat {seat['id']} needs an explicit model verified by discover-models.")
         elif seat.get("reasoning_effort") not in {e.get("reasoningEffort") for e in known[model].get("supportedReasoningEfforts", [])}:
@@ -450,12 +458,12 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
         errors.append(f"Run probe-registration --mode {mode} after finalizing configuration; matching proof is missing.")
     if mode == "judged" and not config.get("launch", {}).get("practice_mode") and not config.get("launch", {}).get("submission_open_verified"):
         errors.append("Judged launch is blocked until the event submission window is verified open.")
-    errors.extend(persisted_budget_blockers(config, require_existing=mode == "judged"))
+    errors.extend(persisted_budget_blockers(budget_config, require_existing=mode == "judged"))
     # Capacity can change after doctor/freeze. Recheck before an otherwise-ready
     # launcher admits workers, without probing Docker for already-blocked runs.
     if not errors:
         errors.extend(docker_resource_check(config)["errors"])
-        errors.extend(persisted_budget_blockers(config, require_existing=mode == "judged"))
+        errors.extend(persisted_budget_blockers(budget_config, require_existing=mode == "judged"))
     return errors
 
 
@@ -891,8 +899,15 @@ def is_owned(identity: dict, token: str | None = None) -> bool:
         command = process.cmdline()
         if command != identity["cmdline"]:
             return False
-        if token is not None and ("factorykit.runtime" not in command or "_serve" not in command or "--owner-token" not in command or token not in command):
-            return False
+        if token is not None:
+            try:
+                module = command[command.index("-m") + 1]
+                supplied = command[command.index("--owner-token") + 1]
+            except (ValueError, IndexError):
+                return False
+            if (module not in {"factorykit.runtime", "factorykit.continuation_runner"}
+                    or "_serve" not in command or supplied != token):
+                return False
         return process.is_running() and process.status() != psutil.STATUS_ZOMBIE
     except (psutil.Error, KeyError, TypeError):
         return False
@@ -1075,14 +1090,31 @@ def cmd_stop(args) -> int:
         return 0
 
 
-async def serve(config: dict, mode: str, token: str, recovery_id=None):
+async def serve(config: dict, mode: str, token: str, recovery_id=None, continuation=None):
     from band import Agent
     from band.adapters import CodexAdapter
     from band.core.types import Emit, Capability
     from band.runtime.types import SessionConfig
     from .workflow import WorkflowWatchdog
     from .workflow_runtime import WorkflowTools, observed_turn, send_due_notice, sdk_execution_activity
-    require_ready(config, mode)
+    if continuation is not None:
+        from .continuation_runner import ContinuityContext
+        if not isinstance(continuation, ContinuityContext) or mode != "judged" or recovery_id:
+            raise GateError("Deadline continuation requires its verified judged-only context")
+        from .deadline_extension import _referenced
+        catalog_ref = continuation.amendment["model_catalog"]
+        errors = preflight_runtime(
+            config, mode, effective_budgets=continuation.effective_config["budgets"],
+            effective_models={s["id"]: s["model"] for s in continuation.effective_config["seats"]},
+            model_catalog=_referenced(catalog_ref) if catalog_ref else None)
+        for seat in config["seats"]:
+            if not room_workspace(config, seat, mode).is_dir():
+                errors.append("A continuation workspace is missing")
+        if errors:
+            raise GateError("; ".join(errors))
+        config = continuation.effective_config
+    else:
+        require_ready(config, mode)
     room = config["band"][f"{mode}_room_id"]
     recovery = load_recovery(config, recovery_id, token) if recovery_id else None
     ledger = session_ledger(config, mode, recovery)
@@ -1102,6 +1134,15 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
     for sig in (signal.SIGTERM, signal.SIGINT):
         loop.add_signal_handler(sig, ledger.stop.set)
 
+    class ContinuationWorkflowTools(WorkflowTools):
+        async def execute_tool_call_structured(self, tool_name, arguments):
+            result = await super().execute_tool_call_structured(tool_name, arguments)
+            if continuation is not None and tool_name == "factory_turn_budget" and result.ok:
+                from band.runtime.tools.schema import ToolCallOutcome
+                return ToolCallOutcome(value={**result.value,
+                    "approved_clock_amendment": continuation.metadata()}, ok=True)
+            return result
+
     class GuardedCodexAdapter(CodexAdapter):
         def __init__(self, seat):
             self.seat = seat
@@ -1109,6 +1150,14 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
             if seat["id"] != "pm":
                 excluded.append("band_add_participant")
             super().__init__(config=configs[seat["id"]] if recovery else adapter_config(config, seat, mode), emit=[Emit.TOOL_CALLS, Emit.TASK_EVENTS, Emit.USAGE], capabilities=[Capability.TASKS], exclude_tools=excluded, history_converter=RecoveryHistoryConverter() if recovery else None)
+
+        def _build_client(self, adapter_configuration):
+            client = super()._build_client(adapter_configuration)
+            if continuation is None:
+                return client
+            from .continuation_guard import BoundCodexClient
+            return BoundCodexClient(client, continuation.expected_thread(self.seat["id"]),
+                lambda thread: continuation.record_thread(self.seat["id"], thread))
 
         async def on_event(self, inp):
             if inp.room_id != room or slash_command(inp.msg.content):
@@ -1118,6 +1167,15 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
             async with ledger.semaphore:
                 if recovery and not recovery_message_allowed(recovery, inp.msg):
                     return
+                if continuation is not None:
+                    if ledger.stop.is_set() or ledger.reason(self.seat["id"]):
+                        raise GateError("Stopped continuation cannot admit an event")
+                    try:
+                        if not continuation.claim_event(self.seat["id"], inp.msg):
+                            return
+                    except Exception:
+                        ledger.halt("continuation event admission failed")
+                        raise
                 if ledger.stop.is_set() or not ledger.reserve_event(self.seat["id"], inp.msg):
                     return
                 if ledger.stop.is_set():
@@ -1131,7 +1189,8 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
                     deadline_at = time.time() + config["budgets"]["turn_timeout_seconds"]
                     turn_id = self.seat["id"] + ":" + str(ledger.data["turns"][self.seat["id"]]) + ":" + inp.msg.id
                     available_tools[self.seat["agent_id"]] = inp.tools
-                    wrapped = WorkflowTools(*base_args, watchdog=watchdog,
+                    tools_type = ContinuationWorkflowTools if continuation is not None else WorkflowTools
+                    wrapped = tools_type(*base_args, watchdog=watchdog,
                         actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
                 try:
                     timeout = config["budgets"]["turn_timeout_seconds"] + 15
@@ -1145,6 +1204,17 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
                                 actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
                 except TimeoutError:
                     ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
+                finally:
+                    if continuation is not None:
+                        try:
+                            state = json.loads(watchdog.path.read_text())
+                            completed = state["turns"].get(turn_id, {}).get("status") == "completed"
+                            continuation.finish_event(self.seat["id"], inp.msg.id, completed=completed)
+                            if not completed:
+                                ledger.halt("continuation turn did not complete; preserve before retry")
+                        except Exception:
+                            ledger.halt("continuation completion record failed")
+                            raise
 
     async def heartbeat():
         while not ledger.stop.is_set():
@@ -1161,7 +1231,11 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
                 activity = sdk_execution_activity(agents, room, [s['agent_id'] for s in seats])
                 record["workflow"] = watchdog.queue_timeout_notices(execution_busy=activity['busy'])
                 record["workflow"]["sdk_execution_contexts"] = activity['contexts']
-                if record["workflow"]["state"] != "blocked":
+                # Reconcile the audited pending callbacks before sending old
+                # timeout notices: sender tools do not exist until its genuine
+                # callback runs. No receipt or incident is resolved by this gate.
+                pending_continuation = continuation is not None and continuation.pending_events_unsettled()
+                if record["workflow"]["state"] != "blocked" and not pending_continuation:
                     try:
                         notification = await send_due_notice(watchdog, ledger, available_tools, config["seats"],
                             execution_activity=lambda: sdk_execution_activity(agents, room, [s['agent_id'] for s in seats]))
@@ -1201,7 +1275,16 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None):
                 raise GateError(ledger.reason())
             value = creds[seat["id"]]
             adapter = GuardedCodexAdapter(seat)
-            agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=SessionConfig(max_message_retries=1, max_cycle_seconds=config["budgets"]["turn_timeout_seconds"] + 20), preprocessor=RoomPreprocessor(room, recovery))
+            session_config = SessionConfig(max_message_retries=1, max_cycle_seconds=config["budgets"]["turn_timeout_seconds"] + 20)
+            if continuation is not None:
+                from .continuation_platform import ReceiptPreservingPlatformRuntime
+                platform = ReceiptPreservingPlatformRuntime(agent_id=value["agent_id"], api_key=value["api_key"],
+                    rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config,
+                    continuation_room_id=room, excluded_event_ids=continuation.excluded_event_ids(seat["id"]),
+                    on_filter_failure=ledger.halt)
+                agent = Agent(runtime=platform, adapter=adapter, preprocessor=RoomPreprocessor(room))
+            else:
+                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery))
             agents.append(agent)
             await asyncio.wait_for(agent.start(), timeout=min(45, max(0, recovery["expires_epoch"] - time.time())) if recovery else 45)
             record = read_registry(config)

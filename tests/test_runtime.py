@@ -65,6 +65,31 @@ class RuntimeTests(unittest.TestCase):
         self.assertTrue(any("permissions_agent_write_git" in text for text in blockers))
         self.assertTrue(any("registration" in text for text in blockers))
 
+    def test_effective_model_catalog_validates_requested_model_without_rebinding_registration(self):
+        from factorykit.runtime import fingerprint
+        runtime_dir = Path(self.config['paths']['runs']) / 'runtime'
+        runtime_dir.mkdir(parents=True)
+        (runtime_dir / 'registration-rehearsal.json').write_text(json.dumps({
+            'config_sha256': fingerprint(self.config), 'verified': True}))
+        models = {seat['id']: 'gpt-6.1-sol' for seat in self.config['seats']}
+        catalog = {'models': [{'model': 'gpt-6.1-sol', 'supportedReasoningEfforts': [
+            {'reasoningEffort': level} for level in ('medium', 'high')]}]}
+        for seat in self.config['seats']:
+            seat['reasoning_effort'] = 'medium'
+        # Rebind after fixture-only reasoning setup; model amendment must not
+        # require replacing the original proof at runtime.
+        (runtime_dir / 'registration-rehearsal.json').write_text(json.dumps({
+            'config_sha256': fingerprint(self.config), 'verified': True}))
+        original = copy.deepcopy(self.config)
+        errors = preflight_runtime(self.config, effective_models=models, model_catalog=catalog)
+        self.assertFalse(any('explicit model' in e or 'reasoning_effort' in e or 'matching proof' in e for e in errors))
+        self.assertEqual(self.config, original)
+        errors = preflight_runtime(self.config, effective_models=models, model_catalog={'models': []})
+        self.assertEqual(sum('explicit model' in e for e in errors), len(models))
+        missing = dict(models); missing.pop(next(iter(missing)))
+        errors = preflight_runtime(self.config, effective_models=missing, model_catalog=catalog)
+        self.assertTrue(any('exactly the original seat roster' in e for e in errors))
+
     def test_cannot_enable_concurrency_in_shared_checkout(self):
         self.config["budgets"]["max_active_seats"] = 2
         self.assertIn("Shared checkouts require max_active_seats=1; use the real single-writer fallback.", preflight_runtime(self.config))
