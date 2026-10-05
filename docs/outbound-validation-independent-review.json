@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "reviewer": "run4_readiness_audit",
+  "observed_at_utc": "2026-10-05T08:30:40Z",
+  "status": "PASS",
+  "findings": [],
+  "scope": "Independent read-only review and offline workflow tests; no live Run 7 mutation.",
+  "files": {
+    "factorykit/workflow.py": "e46a26c103cc1b75852f1546c030bf63ffc05ecdf6b747aa3fcc5e434f117851",
+    "factorykit/workflow_runtime.py": "686c06ebb67d8be2be70c3d4ba850a10ad0ef952f91062b2ad7620364c02760c",
+    "tests/test_workflow.py": "4b2b82cae8fd797cd507ac6119e65961f3c38c83bff4ca59635c431691a6fa9b",
+    "tests/test_workflow_runtime.py": "e7f27e6448be13727c561f898661ad43310b2aaf5dd5579f1958016a6b5ecc09"
+  },
+  "stop_event_artifact_sha256": "0250be664aab8a836a8810d6d3429a8ed4910071bed5720fae8a5ce0a433b00b",
+  "independent_validation": {
+    "tests_passed": 62,
+    "reported_duration_seconds": 0.392,
+    "exit_code": 0,
+    "network": "Mocked transport; no BAND sends or provider calls."
+  },
+  "verified_invariants": [
+    "Malformed same-line ACK returns a structured tool error before posting or changing watchdog, ledger, delivery-blocked or stop state.",
+    "Corrected canonical ACK succeeds within the same admitted callback.",
+    "Invalid multipart syntax and conflicting existing binding are checked by the same pure validator used after a confirmed send.",
+    "Unknown send response and already-posted conflict still stop safely, retain evidence and prohibit automatic retry."
+  ],
+  "limitations": [
+    "Stopped Run 7 remains unchanged.",
+    "No fresh live rehearsal or new freeze is established."
+  ]
+}

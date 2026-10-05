@@ -260,6 +260,54 @@ class WorkflowWatchdog:
                     inc['failed']=False
                     inc['closed']=not inc['deliveries']
 
+    @staticmethod
+    def _protocol_input(d, content):
+        first = content.splitlines()[0] if content.splitlines() else ''
+        if first.startswith('HANDOFF-ACK'):
+            ack = _ACK.fullmatch(content.strip())
+            return 'ack', ack, d['deliveries'].get(ack['delivery']) if ack else None
+        header = parse_header(content)
+        return 'part', header, d['deliveries'].get(header['delivery']) if header else None
+
+    @staticmethod
+    def _validate_protocol(parsed, sender_id, recipients, content):
+        """Pure shared validation before send and again against confirmed output."""
+        kind, header, value = parsed
+        if kind == 'ack':
+            if (not header or not value or not value['complete']
+                    or header['digest'].lower() != value['digest'] or header['sender'] != value['sender_id']
+                    or sender_id not in value['recipient_ids'] or value['sender_id'] not in recipients):
+                raise WorkflowError('Receipt is incomplete or has a conflicting identity binding. Use a standalone canonical HANDOFF-ACK line with no extra prose.')
+            return
+        if header is None:
+            return
+        if header['recipients'] != recipients:
+            raise WorkflowError('Header recipients differ from send recipients.')
+        if value:
+            expected = dict(sender_id=sender_id, recipient_ids=recipients, digest=header['digest'], total=header['total'])
+            if any(value[k] != v for k, v in expected.items()):
+                raise WorkflowError('Conflicting multipart identity, digest or recipient binding.')
+            part = value['parts'].get(str(header['index']))
+            if part and part['sha256'] != hashlib.sha256(content.encode()).hexdigest():
+                raise WorkflowError('Conflicting multipart payload under an existing part identity.')
+
+    def preview_outbound(self, sender_id, recipient_ids, content, turn_id=None):
+        """Read-only protocol preview: no event ID, receipt, incident or send claim.
+
+        A subsequent real send is revalidated against its actual returned identity
+        and recipients. This preview cannot turn an uncertain post into a retry.
+        """
+        self._agent(sender_id)
+        recipients = list(recipient_ids)
+        if (not recipients or any(x not in self.scope['participant_ids'] for x in recipients)
+                or len(set(recipients)) != len(recipients) or not isinstance(content, str)):
+            raise WorkflowError('Outbound text requires exact distinct roster recipients.')
+        recipients.sort()
+        with self._transaction() as d:
+            if turn_id is not None and (turn_id not in d['turns'] or d['turns'][turn_id]['agent_id'] != sender_id):
+                raise WorkflowError('Outbound message does not match its observed sending turn.')
+            self._validate_protocol(self._protocol_input(d, content), sender_id, recipients, content)
+
     def observe_outbound(self, event_id, sender_id, recipient_ids, content, turn_id=None):
         self._agent(sender_id)
         recipients = list(recipient_ids)
@@ -284,32 +332,21 @@ class WorkflowWatchdog:
             linked=d['turns'][turn_id]['incident_ids'] if turn_id else []
             incident_id=linked[0] if linked else 'turn:'+turn_id if turn_id else 'event:'+event_id
             try:
-                first=content.splitlines()[0] if content.splitlines() else ''
-                if first.startswith('HANDOFF-ACK'):
-                    ack=_ACK.fullmatch(content.strip())
-                    value=d['deliveries'].get(ack['delivery']) if ack else None
-                    if value:
-                        incident_id=value['incident_id']
-                    if (not ack or not value or not value['complete']
-                            or ack['digest'].lower()!=value['digest'] or ack['sender']!=value['sender_id']
-                            or sender_id not in value['recipient_ids'] or value['sender_id'] not in recipients):
-                        raise WorkflowError('Receipt is incomplete or has a conflicting identity binding.')
+                parsed = self._protocol_input(d, content)
+                kind, header, value = parsed
+                if value:
+                    incident_id = value['incident_id']
+                self._validate_protocol(parsed, sender_id, recipients, content)
+                if kind == 'ack':
+                    ack = header
                     value['acks'].setdefault(sender_id,event_id)
                     value['acknowledged']=set(value['acks'])==set(value['recipient_ids'])
                     return {'receipt':True,'delivery_id':ack['delivery'],'acknowledged':value['acknowledged']}
-                header = parse_header(content)
                 if header is None:
                     return {'multipart': False}
-                if header['recipients'] != recipients:
-                    raise WorkflowError("Header recipients differ from confirmed send recipients.")
                 key = header['delivery']
-                value = d['deliveries'].get(key)
                 expected = dict(sender_id=sender_id, recipient_ids=recipients, digest=header['digest'], total=header['total'])
-                if value:
-                    incident_id = value['incident_id']
-                    if any(value[k] != v for k,v in expected.items()):
-                        raise WorkflowError("Conflicting multipart identity, digest or recipient binding.")
-                else:
+                if not value:
                     value = d['deliveries'][key] = dict(**expected, incident_id=incident_id, parts={}, acks={}, first_at=now, complete=False, acknowledged=False)
                     inc = d['incidents'].get(incident_id) or self._incident(d, incident_id, sender_id, now)
                     inc['deliveries'].append(key)
@@ -317,8 +354,6 @@ class WorkflowWatchdog:
                 if turn_id and incident_id not in d['turns'][turn_id]['incident_ids']:
                     d['turns'][turn_id]['incident_ids'].append(incident_id)
                 part = str(header['index'])
-                if part in value['parts'] and value['parts'][part]['sha256'] != message_hash:
-                    raise WorkflowError("Conflicting multipart payload under an existing part identity.")
                 value['parts'].setdefault(part, dict(sha256=message_hash, event_id=event_id))
                 value['complete'] = len(value['parts']) == value['total']
                 return {'multipart': True, 'delivery_id':key, 'complete':value['complete']}

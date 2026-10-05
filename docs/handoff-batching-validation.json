@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-10-05T08:33:20.569203+00:00",
+  "status": "PASS_OFFLINE_ONLY",
+  "command": "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python -m unittest discover -s tests -v",
+  "exit_code": 0,
+  "tests": 416,
+  "new_focused_tests": 27,
+  "elapsed_seconds": 5.041,
+  "log_sha256": "7048b9dc6e81532ec0eb40d7003be6e8808eb33bbebfabb06cf51188ad0123bf",
+  "files": {
+    "factorykit/handoff_batching.py": "3d5f3c873d6c4ad6cc236bb8ebe8ea8383c1cb81950ee9244cf85bfa2ec36e9a",
+    "factorykit/runtime.py": "d14403c38f42285bba209cabca0aa1c277166623a97fb690a4de46c187a42f72",
+    "tests/test_handoff_batching.py": "aabdf79fe773045b48a14f176405c9b50ab21dac4230cbae59a823b1a6a97bed",
+    "protocols/collaboration.md": "6911c88312b6258420a5d173bd36fddecf5ce11cf493833600120883d0787268",
+    "factorykit/workflow.py": "e46a26c103cc1b75852f1546c030bf63ffc05ecdf6b747aa3fcc5e434f117851",
+    "factorykit/workflow_runtime.py": "686c06ebb67d8be2be70c3d4ba850a10ad0ef952f91062b2ad7620364c02760c",
+    "tests/test_workflow.py": "4b2b82cae8fd797cd507ac6119e65961f3c38c83bff4ca59635c431691a6fa9b",
+    "tests/test_workflow_runtime.py": "e7f27e6448be13727c561f898661ad43310b2aaf5dd5579f1958016a6b5ecc09"
+  },
+  "limitations": [
+    "No live SDK rehearsal or model inference performed by these tests.",
+    "Neither fix was applied to stopped Run 7.",
+    "No product implementation or stage acceptance is established.",
+    "Original task packets verify; one locked config.toml reference has drifted and must be reconciled before a new launch."
+  ]
+}
