@@ -199,13 +199,21 @@ class ContinuationFixture(unittest.TestCase):
                 ctx.finish_event('pm', msg.id, completed=True)
         self.assertFalse(self.context().pending_events_unsettled())
 
-    def test_blocked_original_pending_event_is_settled_without_relabel(self):
+    def test_blocked_original_pending_event_keeps_notice_gate_without_relabel(self):
         ctx = self.context()
         msg = SimpleNamespace(id=EVENTS[2], room_id=ROOM, created_at=CUTOFF)
         ctx.claim_event('pm', msg); ctx.finish_event('pm', msg.id, completed=False)
         before = ctx.journal.path.read_bytes()
-        self.assertFalse(ctx.pending_events_unsettled())
+        self.assertTrue(ctx.pending_events_unsettled())
         self.assertEqual(ctx.journal.data['events']['pm:' + msg.id], 'blocked')
+        self.assertEqual(ctx.journal.path.read_bytes(), before)
+
+    def test_missing_original_pending_state_fails_closed_without_rewrite(self):
+        ctx = self.context()
+        ctx.journal.data['events'].pop('pm:' + EVENTS[2])
+        before = ctx.journal.path.read_bytes()
+        self.assertTrue(ctx.pending_events_unsettled())
+        self.assertNotIn('pm:' + EVENTS[2], ctx.journal.data['events'])
         self.assertEqual(ctx.journal.path.read_bytes(), before)
 
     def test_new_claim_does_not_prolong_original_pending_notice_gate(self):

@@ -315,9 +315,9 @@ class ContinuityContext:
                 for owner, event in self.manifest[category] if owner == seat}
 
     def pending_events_unsettled(self):
-        """Read only the reviewed pending seeds; later events do not defer notices."""
+        """Defer notices until every reviewed pending seed has completed successfully."""
         with self.lock:
-            return any(self.journal.data["events"][seat + ":" + event] in {"pending", "claimed"}
+            return any(self.journal.data["events"].get(seat + ":" + event) != "completed"
                        for seat, event in self.manifest["pending"])
 
     def metadata(self):
