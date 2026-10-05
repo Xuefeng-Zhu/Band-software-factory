@@ -1,0 +1,23 @@
+{
+  "all_consumption_counters_unchanged": true,
+  "authorization": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/preparation-authorization.json",
+    "sha256": "305063d6fcf7882fafa0d9395e70d9853aa051b7af7ef61989e0b85b22d01a26"
+  },
+  "budget_blockers": [],
+  "copied_global_stop_cleared_under_new_run_authorization": true,
+  "created_at": "2026-10-05T05:53:53.576668+00:00",
+  "cumulative_reported_tokens": 286079113,
+  "deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+  "new_ledger_sha256": "c66b7abbcf3ed9cf578367518303de8e370037ee82aef2f52968cf981caa4a8b",
+  "new_room_added_to_accounting_only": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+  "old_ledger": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+    "sha256": "4a40de77c936ae3d7e2da32c1135b5449aef64c57476bfac19e93e51222fd1eb"
+  },
+  "old_ledger_modified": false,
+  "original_epoch_unchanged": true,
+  "remaining_reported_tokens": 499932464,
+  "run6_stop_added_only_to_new_ledger": true,
+  "schema_version": 1
+}

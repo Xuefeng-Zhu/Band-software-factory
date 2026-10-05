@@ -1,0 +1,61 @@
+{
+  "additional_evidence": {
+    "configuration-revalidation.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/configuration-revalidation.json",
+      "sha256": "835d2833fdb6efc6d40b1678e71f22013abed4dbe7ab127b4eb783b123399cab"
+    },
+    "model-discovery.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/model-discovery.json",
+      "sha256": "1becc98014cec0d6785c6072c0bcd439ef87a7d3d1899b1ed6f1346bd1c11a13"
+    },
+    "probe-input-audit.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/probe-input-audit.json",
+      "sha256": "8ae102be1c0600f3a7da2619cde90e2e6ac3a5d06d4e3f296670545b17647607"
+    },
+    "subscription-auth.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/subscription-auth.json",
+      "sha256": "146c11f031f3abce981a3884460ba3c2b0325e9a2b5dc215d7704ad628f73ae7"
+    }
+  },
+  "budget_approved": true,
+  "configuration_sha256": "069c2dc16c23e3fd1ce5604a165dea14a297ebc9aa45f80404396327552e84ab",
+  "configured_model": "gpt-6.1-sol",
+  "evidence": {
+    "assigned": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/assigned-2026-10-05T055424.502581+0000.json",
+      "sha256": "7950603d360e37a200e862c974822f5ded34e562f5d90e8a45143377fe9bc0fc"
+    },
+    "browser": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/browser-adapter-20261005T055430Z.json",
+      "sha256": "d20d191c4712d56ef5d28fbba4ff953bfefb2a4cd0e76445351c425195230716"
+    },
+    "build": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/build-adapter-20261005T055427Z.json",
+      "sha256": "a396888999339698926a7192321a2d7b3e8220d9f154b40f2a824fc5d10c9834"
+    },
+    "cleanup": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/cleanup-adapter-20261005T055443Z.json",
+      "sha256": "9304e8e52f03eeebb3d0535ede39736cf0c1bb4d1531aa777e2c7bbb5c65b5f1"
+    },
+    "quick": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/quick-adapter-20261005T055425Z.json",
+      "sha256": "683bcb309571d036f0ba3e00509c6141ed86130b9624d1fa16b0e3919b6c8284"
+    }
+  },
+  "limitations": [
+    "No model inference turns, room messages, application implementation or product acceptance. The quick profile probe creates one ephemeral thread with zero turns.",
+    "Actual PM adapter command/exec tested at exact empty assigned checkout and separate neutral scratch. Permissions shared by seven seats; this is not seven model-turn proof.",
+    "Git ls-remote checks only the configured branch; no product commits or fetched objects were created in the assigned checkout.",
+    "Docker access uses the exact approved socket. The diagnostic browser container uses network none, dropped capabilities, no host mounts, and no-new-privileges; only its unique image tag is removed.",
+    "Raw proof timestamps and bytes remain unchanged. No old Run6/default ledger, source lock, configuration, freeze or task was rewritten. Historical rehearsal observations require separate scoped carry-forward review."
+  ],
+  "model_turns": 0,
+  "observed_at": "2026-10-05T05:54:43.413655+00:00",
+  "original_probe_source_lock_sha256": "12227b5b72949df4e536172244a9c7c6aee28864f48ab54a7ecdb9ef40c806c4",
+  "revalidated_at": "2026-10-05T05:56:25.204751+00:00",
+  "room_messages": 0,
+  "scope": "Actual PM judged Codex adapter command/exec, empty assigned checkout and canonical-origin ls-remote, neutral scratch Git/network/socket, official harness-image build and constrained Chromium",
+  "source_lock_sha256": "8cfb3e1db7bb3c886f09342e0837b0fe0a173f3032381b6c76c646361a617fdd",
+  "source_verification": [],
+  "status": "PASS_PERMISSION_PREPARATION_ONLY"
+}

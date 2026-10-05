@@ -1,0 +1,46 @@
+{
+  "accounting": {
+    "all_counter_epoch_fields_preserved": true,
+    "ceiling": 786011577,
+    "changed_top_fields": [
+      "room_ids",
+      "room_stopped_reasons",
+      "stopped_reason",
+      "updated_at"
+    ],
+    "current": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/runtime/budget-subscription.json",
+      "sha256": "c66b7abbcf3ed9cf578367518303de8e370037ee82aef2f52968cf981caa4a8b"
+    },
+    "deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+    "no_old_workflow_owner_or_continuation_imported": true,
+    "old_room_halts_preserved": true,
+    "prior": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+      "sha256": "4a40de77c936ae3d7e2da32c1135b5449aef64c57476bfac19e93e51222fd1eb"
+    },
+    "remaining": 499932464,
+    "run6_stopped": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/run6-stopped.json",
+      "sha256": "8568ac92a597c179fa00202ee1cd086f07bd992bd12f26be905931bd2a6c8100"
+    },
+    "tokens": 286079113
+  },
+  "blockers": [],
+  "configuration_sha256": "069c2dc16c23e3fd1ce5604a165dea14a297ebc9aa45f80404396327552e84ab",
+  "created_at": "2026-10-05T05:57:56.686992+00:00",
+  "dispatch_performed": false,
+  "historical_observations": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/historical-observations.json",
+    "sha256": "10cab4f35d8a2c721fae2ad35c7cfd264062e870f0ff1a9247906e153bd07c7d"
+  },
+  "models_started": false,
+  "observations": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/observations.json",
+    "sha256": "baa6969a342635a99e4af621145aca29c781dcd6c96f539a592149df1c9c698e"
+  },
+  "scope": "Observation validation only; doctor/freeze/launch and independent final input admission are separate.",
+  "source_lock_sha256": "8cfb3e1db7bb3c886f09342e0837b0fe0a173f3032381b6c76c646361a617fdd",
+  "status": "PASS_14_OBSERVATIONS",
+  "validated_count": 14
+}

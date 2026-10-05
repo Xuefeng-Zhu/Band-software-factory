@@ -1,0 +1,59 @@
+{
+  "actions": {
+    "model_calls": 0,
+    "signals": 0,
+    "source_or_runtime_writes": 0
+  },
+  "all_recorded_owned_processes_absent": true,
+  "claim_consumed": true,
+  "limits": [
+    "Recorded owned PID/creation identities only; no assertion that unrelated processes are idle.",
+    "No inference, receipt mutation, counter reset, trigger replay, restart, or new room message."
+  ],
+  "observed_at": "2026-10-05T05:54:49.467861+00:00",
+  "owner_status": "stopped",
+  "preserved_admission_count": 178,
+  "preserved_reported_tokens": 286079113,
+  "preserved_started_epoch": 1791049765.700437,
+  "prior_claim": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/continuation/0e411144c3a620f1e8e2b06f679df05cb4e04c98a54f7755cf223f051751a4cd.claim.json",
+    "sha256": "a26afc4470225a29befdf8556b2a65b7cb5a54e5e4dfc704d2fb6821c1b2ccbd"
+  },
+  "processes": [
+    {
+      "original_process_absent": true,
+      "pid": 86834,
+      "pid_present": false,
+      "role": "parent"
+    },
+    {
+      "original_process_absent": true,
+      "pid": 86859,
+      "pid_present": false,
+      "role": "child-0"
+    },
+    {
+      "original_process_absent": true,
+      "pid": 86863,
+      "pid_present": false,
+      "role": "child-1"
+    }
+  ],
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "schema_version": 1,
+  "scope": "Bounded inspection of exact Run6 recorded supervisor and children; no process signals or global process cleanup.",
+  "source_budget": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+    "sha256": "4a40de77c936ae3d7e2da32c1135b5449aef64c57476bfac19e93e51222fd1eb"
+  },
+  "source_files_unchanged": true,
+  "source_owner": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/owner.json",
+    "sha256": "3c6e64197c4d35fdc06b3a3f8e066e49fc320c03ed391dfea9069b098c5cc397"
+  },
+  "source_workflow": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/workflow-d98df99d-77ad-441d-875c-6e38cdbef39d.json",
+    "sha256": "407c3ba17a38ab11bf6844f27fc288943c5324cd7dc053cfc2c17cfd5916bee1"
+  },
+  "status": "PASS_RUN6_RECORDED_OWNED_PROCESSES_ABSENT"
+}

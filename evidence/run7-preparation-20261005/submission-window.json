@@ -1,0 +1,18 @@
+{
+  "observed_at": "2026-10-05T05:43:29.597735+00:00",
+  "observer": "Codex operator via Chrome accessibility UI",
+  "event_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
+  "event_banner": "Submission deadline Oct 4, 11:59 PM PDT",
+  "event_schedule": "Oct 5 11:59 PM Pacific Daylight Time End of Submissions!",
+  "submission_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon/submission",
+  "fresh_authenticated_form_accessible": true,
+  "fresh_form_stage": "Basic Information, Step 1 of 3, 61 percent",
+  "project_title": "MillieMoon: Tablekeeper Factory",
+  "submission_fields_changed": false,
+  "submitted": false,
+  "limitations": [
+    "Event banner and schedule disagree.",
+    "Form access does not establish final submission acceptance.",
+    "Run7 model-work and dispatch approval remains pending automatic-review-required confirmation."
+  ]
+}

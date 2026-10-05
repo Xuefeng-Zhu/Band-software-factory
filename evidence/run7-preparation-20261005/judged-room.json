@@ -1,0 +1,78 @@
+{
+  "added": [
+    "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+    "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+    "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+    "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+    "8e450576-69cd-416c-bc2a-a3a771f020d3",
+    "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+    "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60"
+  ],
+  "created_at": "2026-10-05T05:52:38.843021+00:00",
+  "human_approval": "approve — explicit Run7 room and one initial dispatch under existing limits",
+  "messages_sent": 0,
+  "model_turns": 0,
+  "model_work_approved": true,
+  "participants": [
+    {
+      "handle": "frankzhu94/factory-reviewer",
+      "id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "name": "Factory Reviewer",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-frontend",
+      "id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+      "name": "Factory Frontend",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-pm",
+      "id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "name": "Factory PM",
+      "role": "owner",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94",
+      "id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+      "name": "Frank Zhu",
+      "role": "member",
+      "type": "User"
+    },
+    {
+      "handle": "frankzhu94/factory-qa",
+      "id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "name": "Factory QA",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-architect",
+      "id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+      "name": "Factory Architect",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-designer",
+      "id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+      "name": "Factory Designer",
+      "role": "member",
+      "type": "Agent"
+    },
+    {
+      "handle": "frankzhu94/factory-backend",
+      "id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "name": "Factory Backend",
+      "role": "member",
+      "type": "Agent"
+    }
+  ],
+  "preparation_authorized": true,
+  "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+  "status": "CREATED_AND_VERIFIED",
+  "title": "MillieMoon · Tablekeeper · Run 7"
+}

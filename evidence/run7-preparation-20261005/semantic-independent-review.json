@@ -1,0 +1,108 @@
+{
+  "author_independent_for_run7_header_changes": true,
+  "author_render_report": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/semantic-review-final.json",
+    "sha256": "e5ee33377d52f41df45b1a1a1e63648b4b785a9b510b092d02026447863fb7ab"
+  },
+  "baseline_freeze": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+    "sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367"
+  },
+  "configuration_sha256": "069c2dc16c23e3fd1ce5604a165dea14a297ebc9aa45f80404396327552e84ab",
+  "created_at": "2026-10-05T05:57:56.686992+00:00",
+  "findings": [],
+  "header_before_manifest": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/mandates-before/manifest.json",
+    "sha256": "dde98039104e571a6c1866318ebc0a65130ee761400ce3aaa1df6a2623488d3c"
+  },
+  "limitations": [
+    "Current seven model header replacements only; substantive generic mandates and shared protocols match the previously reviewed baseline.",
+    "Runtime continuation and diagnostics source changes are separate from standing instructions; no fresh Sol rehearsal is proved.",
+    "Same-seat original author rendering report is corroborated here by independent exact byte/AST/render checks."
+  ],
+  "schema_version": 1,
+  "scope": "Independent exact delta and actual seven-seat rendered instruction review against previously reviewed Run6 generic baseline; no new live workflow or product acceptance.",
+  "seats": [
+    {
+      "before_sha256": "f692a4a9186877590f1942cc828a039790f2d1ea5283fdd38fe6b919dd3dcf6e",
+      "exact_line2_model_header_only": true,
+      "mandate_sha256": "9a46e932b1def377f41ac2004bf3fa00ac87260b2c532b532dfe4f548da88dc8",
+      "model": "gpt-6.1-sol",
+      "rendered_bytes": 25287,
+      "rendered_sha256": "ab10c76ea27c0d59a340f058d6bab5a60220f576e90c4f724b1e1d182fa2e022",
+      "seat": "pm"
+    },
+    {
+      "before_sha256": "c613e55d3d2af4c20814d305270290c93979df12d367532db022141a42bab1e5",
+      "exact_line2_model_header_only": true,
+      "mandate_sha256": "aae68484caab50eff9248a665f0ff2fd7e75c3e4b32efa9e81e7e5241ba81582",
+      "model": "gpt-6.1-sol",
+      "rendered_bytes": 23572,
+      "rendered_sha256": "10865b559427323d5d4e1245240e54a1e13751490a47788304ef003d00014c38",
+      "seat": "architect"
+    },
+    {
+      "before_sha256": "f01611180f98a11e8711ba7c85f7e30f79d338063cd3243de02652ccf2c5ea65",
+      "exact_line2_model_header_only": true,
+      "mandate_sha256": "469a4332230b1c673afa74376af69d6b0908f2f1ed05d52b9e3d31b479b59ac8",
+      "model": "gpt-6.1-sol",
+      "rendered_bytes": 23610,
+      "rendered_sha256": "f7d821c308cedd0f3f30f0a4a8ab86c73976503f1ebb112fb4caf61633da2f28",
+      "seat": "designer"
+    },
+    {
+      "before_sha256": "c31fbb19f863ae3c33ddbec54fa7c4c6b5bc03be91718b931203c0c8a5e85aa1",
+      "exact_line2_model_header_only": true,
+      "mandate_sha256": "8f6f57e974cb38d4cf69bfcce07a47cd8544aab38e278520eb523e4a39aa85bf",
+      "model": "gpt-6.1-sol",
+      "rendered_bytes": 24299,
+      "rendered_sha256": "b996fea9733c4a265841fba1845c34e7aae3e9caa3f580dd4b1b540d8d8b0608",
+      "seat": "backend"
+    },
+    {
+      "before_sha256": "2faf05aaba37d42ed37bc4eb8f976b4f2d627eac90cdcf8820f839aa671b51ae",
+      "exact_line2_model_header_only": true,
+      "mandate_sha256": "86979e5724516651950808b77c0211940beeb8ae4182c85b39c179b16a682b25",
+      "model": "gpt-6.1-sol",
+      "rendered_bytes": 23513,
+      "rendered_sha256": "f0d02e20ad43ac322b67c78c67a8a145a0f8aa880cd27867843cb3b744a4a628",
+      "seat": "frontend"
+    },
+    {
+      "before_sha256": "65ab42251a370c9cc897769659fb43c911556ac75132371114c58898811332fe",
+      "exact_line2_model_header_only": true,
+      "mandate_sha256": "325e29df364a2e50697fb1771fc64fba3812deef2dcdbcaad26e54df450e332b",
+      "model": "gpt-6.1-sol",
+      "rendered_bytes": 24302,
+      "rendered_sha256": "1a5d23d2133f548c8566e106cedb8d9cf1d83f470cbcd9cb762d28ec113636aa",
+      "seat": "qa"
+    },
+    {
+      "before_sha256": "51d92f5e42b3d0825081f59e0212b5c3c6e5e3093bbb141c790f1a1dc8284cc9",
+      "exact_line2_model_header_only": true,
+      "mandate_sha256": "ea6b85614fae6b71d4fa0edf3ec8dc85dad9d525d71bf8e6b51700b705fd4ca1",
+      "model": "gpt-6.1-sol",
+      "rendered_bytes": 24413,
+      "rendered_sha256": "962ece40b5ae37709a6bf360f9f0d806bf073dec16b492cca1289d41a3ec8000",
+      "seat": "reviewer"
+    }
+  ],
+  "source_lock_sha256": "8cfb3e1db7bb3c886f09342e0837b0fe0a173f3032381b6c76c646361a617fdd",
+  "standing_instructions_ast_unchanged": true,
+  "status": "PASS_STATIC_RENDERED_REVIEW",
+  "task_generation_and_launcher_boundary_bytes_unchanged": true,
+  "unchanged_protocols": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/collaboration.md",
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/evidence-and-limits.md",
+      "sha256": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/git-and-review.md",
+      "sha256": "09e212f1ff2c4f8c31383e721e4fb9e3ce4d1b5098cfe4596bd3a1e0ef8b31f7"
+    }
+  ]
+}

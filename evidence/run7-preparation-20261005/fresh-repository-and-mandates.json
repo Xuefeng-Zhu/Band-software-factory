@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-05T05:42:27.529271+00:00",
+  "scope": "Fresh Run7 repository and mandate metadata preparation only; no dispatch, commits, product files or inherited Git objects",
+  "remote_precheck": {
+    "checkout": "/Users/frank/mygit/Tablekeeper/result-run-6",
+    "commands": [
+      "git fetch origin",
+      "git ls-remote --exit-code --heads origin refs/heads/run-7"
+    ],
+    "fetch_exit_code": 0,
+    "ls_remote_exit_code": 2,
+    "output": "",
+    "interpretation": "Remote run-7 absent at pre-creation query; no checkout/working-tree changes requested"
+  },
+  "repository": {
+    "path": "/Users/frank/mygit/Tablekeeper/result-run-7",
+    "branch": "refs/heads/run-7",
+    "origin_fetch": "https://github.com/Xuefeng-Zhu/Tablekeeper.git",
+    "origin_push": "https://github.com/Xuefeng-Zhu/Tablekeeper.git",
+    "unborn": true,
+    "index_empty": true,
+    "object_file_count": 0,
+    "root_entries": [
+      ".git"
+    ],
+    "count_objects": "count: 0\nsize: 0\nin-pack: 0\npacks: 0\nsize-pack: 0\nprune-packable: 0\ngarbage: 0\nsize-garbage: 0"
+  },
+  "prior_mandates_manifest": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/mandates-before/manifest.json",
+    "sha256": "dde98039104e571a6c1866318ebc0a65130ee761400ce3aaa1df6a2623488d3c"
+  },
+  "changes": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "before_sha256": "f692a4a9186877590f1942cc828a039790f2d1ea5283fdd38fe6b919dd3dcf6e",
+      "after_sha256": "9a46e932b1def377f41ac2004bf3fa00ac87260b2c532b532dfe4f548da88dc8",
+      "only_change": "line 2 model metadata gpt-6-astra to gpt-6.1-sol"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md",
+      "before_sha256": "c613e55d3d2af4c20814d305270290c93979df12d367532db022141a42bab1e5",
+      "after_sha256": "aae68484caab50eff9248a665f0ff2fd7e75c3e4b32efa9e81e7e5241ba81582",
+      "only_change": "line 2 model metadata gpt-6-astra to gpt-6.1-sol"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md",
+      "before_sha256": "f01611180f98a11e8711ba7c85f7e30f79d338063cd3243de02652ccf2c5ea65",
+      "after_sha256": "469a4332230b1c673afa74376af69d6b0908f2f1ed05d52b9e3d31b479b59ac8",
+      "only_change": "line 2 model metadata gpt-6-astra to gpt-6.1-sol"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "before_sha256": "c31fbb19f863ae3c33ddbec54fa7c4c6b5bc03be91718b931203c0c8a5e85aa1",
+      "after_sha256": "8f6f57e974cb38d4cf69bfcce07a47cd8544aab38e278520eb523e4a39aa85bf",
+      "only_change": "line 2 model metadata gpt-6-astra to gpt-6.1-sol"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md",
+      "before_sha256": "2faf05aaba37d42ed37bc4eb8f976b4f2d627eac90cdcf8820f839aa671b51ae",
+      "after_sha256": "86979e5724516651950808b77c0211940beeb8ae4182c85b39c179b16a682b25",
+      "only_change": "line 2 model metadata gpt-6-astra to gpt-6.1-sol"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md",
+      "before_sha256": "65ab42251a370c9cc897769659fb43c911556ac75132371114c58898811332fe",
+      "after_sha256": "325e29df364a2e50697fb1771fc64fba3812deef2dcdbcaad26e54df450e332b",
+      "only_change": "line 2 model metadata gpt-6-astra to gpt-6.1-sol"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+      "before_sha256": "51d92f5e42b3d0825081f59e0212b5c3c6e5e3093bbb141c790f1a1dc8284cc9",
+      "after_sha256": "ea6b85614fae6b71d4fa0edf3ec8dc85dad9d525d71bf8e6b51700b705fd4ca1",
+      "only_change": "line 2 model metadata gpt-6-astra to gpt-6.1-sol"
+    }
+  ],
+  "limitations": [
+    "New remote branch does not exist until a real agent commit is pushed.",
+    "No readiness, model-turn, application implementation or stage acceptance claim.",
+    "Original Run6 configuration and frozen source receipts are preserved; their archived mandate bytes are not rewritten."
+  ]
+}

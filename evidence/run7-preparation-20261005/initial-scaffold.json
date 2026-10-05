@@ -1,0 +1,15 @@
+{
+  "budget_ledger_written": false,
+  "config_file_sha256": "8b00df8ddb9cb50a4a3c07dd70835f234163325a66c943b255e6cb07c7a7cf4e",
+  "configuration_sha256": "19ec03a98c1dcfc901f2f4f564e2587128a43722f42a8b71aaf1a7bad4908015",
+  "created_at": "2026-10-05T05:40:24.015310+00:00",
+  "dispatch_performed": false,
+  "old_inputs_modified": false,
+  "prior_effective_configuration_sha256": "1aa3f0fb530a0b309d13e570edab7f8c41ef7ca50f1e73faf3d9351057444395",
+  "product_files_copied": 0,
+  "room_created": false,
+  "source_lock_written": false,
+  "status": "PREPARATION_ONLY_EXPLICIT_RUN7_APPROVAL_PENDING",
+  "superseded_draft_manifest": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/superseded-initial-draft/STATUS.json",
+  "updated_at": "2026-10-05T05:46:05.235095+00:00"
+}

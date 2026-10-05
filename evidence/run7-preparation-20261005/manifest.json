@@ -1,0 +1,99 @@
+{
+  "created_at": "2026-10-05T06:00:04.755871+00:00",
+  "dispatch_performed": false,
+  "factory_commit": "c7d6325",
+  "files": [
+    {
+      "archive": "factory.yaml",
+      "sha256": "dde637a343e1ce5996a1e37daf84dc95186189ce4a7a453874e23b0a242a6832",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/factory.yaml"
+    },
+    {
+      "archive": "source-lock.json",
+      "sha256": "8cfb3e1db7bb3c886f09342e0837b0fe0a173f3032381b6c76c646361a617fdd",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/source-lock.json"
+    },
+    {
+      "archive": "budget-carry-forward.json",
+      "sha256": "00b224123ae4e610f4d6d692d707b220066b6af533f13c7ccf36f508ab8fbab3",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/budget-carry-forward.json"
+    },
+    {
+      "archive": "initial-scaffold.json",
+      "sha256": "ae8a9f2f4bb5b7b6a209a38064c3f59d051358720fd10a7364abe69a522aafdf",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/initial-scaffold.json"
+    },
+    {
+      "archive": "fresh-repository-and-mandates.json",
+      "sha256": "f9923799d20a915b1fc10643c22ef5f9e48056d24ab0fb1d580e1d73d0f47559",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/fresh-repository-and-mandates.json"
+    },
+    {
+      "archive": "judged-room.json",
+      "sha256": "e1b6fbb3858de3d112374526f785a6403d9dcc0c503e576b7c0f4bda2658ce0f",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/judged-room.json"
+    },
+    {
+      "archive": "submission-window.json",
+      "sha256": "01c596acdc688b1dd4df0da9a8c979c3fe5c6ff8d999186a85adc940ce1f8ed0",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/submission-window.json"
+    },
+    {
+      "archive": "authorization/approval.json",
+      "sha256": "305063d6fcf7882fafa0d9395e70d9853aa051b7af7ef61989e0b85b22d01a26",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/authorization/approval.json"
+    },
+    {
+      "archive": "permissions/summary.json",
+      "sha256": "0866e784abcc5e7dfd221dce373e71e860d5f30566a5bd188d45f4635b530275",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/permissions/summary.json"
+    },
+    {
+      "archive": "semantic-review-final.json",
+      "sha256": "e5ee33377d52f41df45b1a1a1e63648b4b785a9b510b092d02026447863fb7ab",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/semantic-review-final.json"
+    },
+    {
+      "archive": "semantic-independent-review.json",
+      "sha256": "2a47fc5693b50d988c0acdeccabe967eedc52f999217b67b0e23554f76f87ef7",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/semantic-independent-review.json"
+    },
+    {
+      "archive": "readiness/observations.json",
+      "sha256": "baa6969a342635a99e4af621145aca29c781dcd6c96f539a592149df1c9c698e",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/observations.json"
+    },
+    {
+      "archive": "readiness/independent-observation-audit.json",
+      "sha256": "08c17de31b68af16eef162d267c9774d4b1dc493cc69b7aa493e9e4f8cf6af69",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/independent-observation-audit.json"
+    },
+    {
+      "archive": "readiness/run6-stopped.json",
+      "sha256": "8568ac92a597c179fa00202ee1cd086f07bd992bd12f26be905931bd2a6c8100",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/run6-stopped.json"
+    },
+    {
+      "archive": "freeze/latest.json",
+      "sha256": "b662ba30c27e4ecb292ad0fb6d3a1a063ca31fd6b3adcca92d2c592cd896489d",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/freeze/latest.json"
+    },
+    {
+      "archive": "tasks/task-manifest.json",
+      "sha256": "06263ef48f86bb4836504e0fa54754769e7a3371975751cffc319770bb314766",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/tasks/task-manifest.json"
+    },
+    {
+      "archive": "tasks/judged-all-stages.md",
+      "sha256": "63e741f55d8bcf08b1f5646ec763c4778d065722d67c921806a7026715b32dc3",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/tasks/judged-all-stages.md"
+    },
+    {
+      "archive": "launch/dispatch-script-bindings.json",
+      "sha256": "4e8fea61e72d0450449d2f9a9da2fdbbc22f2a92792f09ef4d9ad7f209e8dbcf",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/dispatch-script-bindings.json"
+    }
+  ],
+  "scope": "Selected preparation evidence, no full room export, credentials or raw owner registry.",
+  "status": "READY_TO_LAUNCH"
+}

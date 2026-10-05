@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-05T05:55:44.944641+00:00",
+  "status": "PASS_SEMANTIC_REVALIDATION",
+  "scope": "Pure seven-seat final-config semantic revalidation of actual runtime standing_instructions output. No room/API/model/test-product/launch action. This record supports readiness review; it is not launch authorization or proof of live seat execution.",
+  "configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/factory.yaml",
+    "file_sha256": "dde637a343e1ce5996a1e37daf84dc95186189ce4a7a453874e23b0a242a6832",
+    "canonical_sha256": "069c2dc16c23e3fd1ce5604a165dea14a297ebc9aa45f80404396327552e84ab",
+    "judged_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+    "loader_validation": "PASS"
+  },
+  "prior_semantic_review": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/semantic-review.json",
+    "sha256": "09f95415b26ae301011f23a37601363a37fa2e84dd5dce26f4e744df0195f870",
+    "status": "PASS_PREPARATION_ONLY"
+  },
+  "seats": [
+    {
+      "seat": "pm",
+      "mandate_sha256": "9a46e932b1def377f41ac2004bf3fa00ac87260b2c532b532dfe4f548da88dc8",
+      "rendered_sha256": "ab10c76ea27c0d59a340f058d6bab5a60220f576e90c4f724b1e1d182fa2e022",
+      "rendered_utf8_bytes": 25287,
+      "same_render_as_prior_semantic_review": true,
+      "model": "gpt-6.1-sol",
+      "status": "PASS"
+    },
+    {
+      "seat": "architect",
+      "mandate_sha256": "aae68484caab50eff9248a665f0ff2fd7e75c3e4b32efa9e81e7e5241ba81582",
+      "rendered_sha256": "10865b559427323d5d4e1245240e54a1e13751490a47788304ef003d00014c38",
+      "rendered_utf8_bytes": 23572,
+      "same_render_as_prior_semantic_review": true,
+      "model": "gpt-6.1-sol",
+      "status": "PASS"
+    },
+    {
+      "seat": "designer",
+      "mandate_sha256": "469a4332230b1c673afa74376af69d6b0908f2f1ed05d52b9e3d31b479b59ac8",
+      "rendered_sha256": "f7d821c308cedd0f3f30f0a4a8ab86c73976503f1ebb112fb4caf61633da2f28",
+      "rendered_utf8_bytes": 23610,
+      "same_render_as_prior_semantic_review": true,
+      "model": "gpt-6.1-sol",
+      "status": "PASS"
+    },
+    {
+      "seat": "backend",
+      "mandate_sha256": "8f6f57e974cb38d4cf69bfcce07a47cd8544aab38e278520eb523e4a39aa85bf",
+      "rendered_sha256": "b996fea9733c4a265841fba1845c34e7aae3e9caa3f580dd4b1b540d8d8b0608",
+      "rendered_utf8_bytes": 24299,
+      "same_render_as_prior_semantic_review": true,
+      "model": "gpt-6.1-sol",
+      "status": "PASS"
+    },
+    {
+      "seat": "frontend",
+      "mandate_sha256": "86979e5724516651950808b77c0211940beeb8ae4182c85b39c179b16a682b25",
+      "rendered_sha256": "f0d02e20ad43ac322b67c78c67a8a145a0f8aa880cd27867843cb3b744a4a628",
+      "rendered_utf8_bytes": 23513,
+      "same_render_as_prior_semantic_review": true,
+      "model": "gpt-6.1-sol",
+      "status": "PASS"
+    },
+    {
+      "seat": "qa",
+      "mandate_sha256": "325e29df364a2e50697fb1771fc64fba3812deef2dcdbcaad26e54df450e332b",
+      "rendered_sha256": "1a5d23d2133f548c8566e106cedb8d9cf1d83f470cbcd9cb762d28ec113636aa",
+      "rendered_utf8_bytes": 24302,
+      "same_render_as_prior_semantic_review": true,
+      "model": "gpt-6.1-sol",
+      "status": "PASS"
+    },
+    {
+      "seat": "reviewer",
+      "mandate_sha256": "ea6b85614fae6b71d4fa0edf3ec8dc85dad9d525d71bf8e6b51700b705fd4ca1",
+      "rendered_sha256": "962ece40b5ae37709a6bf360f9f0d806bf073dec16b492cca1289d41a3ec8000",
+      "rendered_utf8_bytes": 24413,
+      "same_render_as_prior_semantic_review": true,
+      "model": "gpt-6.1-sol",
+      "status": "PASS"
+    }
+  ],
+  "input_files": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+      "sha256": "50b18980d61058b8cb6bd4ae85cc8f86ab135aa5c27445e1683343d6e3a00ec6",
+      "bytes": 80764
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/tasks.py",
+      "sha256": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3",
+      "bytes": 16525
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md",
+      "sha256": "aae68484caab50eff9248a665f0ff2fd7e75c3e4b32efa9e81e7e5241ba81582",
+      "bytes": 5722
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "sha256": "8f6f57e974cb38d4cf69bfcce07a47cd8544aab38e278520eb523e4a39aa85bf",
+      "bytes": 6451
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md",
+      "sha256": "469a4332230b1c673afa74376af69d6b0908f2f1ed05d52b9e3d31b479b59ac8",
+      "bytes": 5761
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md",
+      "sha256": "86979e5724516651950808b77c0211940beeb8ae4182c85b39c179b16a682b25",
+      "bytes": 5664
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "sha256": "9a46e932b1def377f41ac2004bf3fa00ac87260b2c532b532dfe4f548da88dc8",
+      "bytes": 7444
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md",
+      "sha256": "325e29df364a2e50697fb1771fc64fba3812deef2dcdbcaad26e54df450e332b",
+      "bytes": 6459
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+      "sha256": "ea6b85614fae6b71d4fa0edf3ec8dc85dad9d525d71bf8e6b51700b705fd4ca1",
+      "bytes": 6564
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/collaboration.md",
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b",
+      "bytes": 8027
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/evidence-and-limits.md",
+      "sha256": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6",
+      "bytes": 3542
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/git-and-review.md",
+      "sha256": "09e212f1ff2c4f8c31383e721e4fb9e3ce4d1b5098cfe4596bd3a1e0ef8b31f7",
+      "bytes": 2708
+    }
+  ],
+  "renderer_function_sha256": "c83f4f8b6a76ff53b94376ee2e79b0b89edd8e22e0490be15ef15d0767f85a34",
+  "launcher_boundary_sha256": "6a90cda43946aa7a0a0eed6425e71bc1c68ed1e616fbab76eb64ee3c2eb469ae",
+  "semantic_findings": {
+    "domain_neutral": true,
+    "role_workflows": "PM requires QA boundary planning and Reviewer oracle challenge before dependent implementation; Architect owns contracts; Designer and Frontend require actual rendered/browser evidence where required; Backend repairs include reproduction, distinct counterexample and valid control; QA derives independent expected results; Reviewer accepts only a fixed clean candidate and cannot approve own repairs.",
+    "independence_preserved": true,
+    "planning_review_is_not_product_acceptance": true,
+    "max_repairs": 3,
+    "max_active_seats": 1,
+    "finite_limits_preserved": true,
+    "complete_addressed_handoffs_and_receipts_required": true,
+    "no_model_execution_or_seven_material_contributions_claimed": true,
+    "substantive_mandate_bytes_unchanged": true,
+    "shared_operating_suffix_identical_across_seats": true,
+    "track_specific_dispatch_preferences_not_rendered": true,
+    "keyword_and_secret_scan": "No matches; a supporting check only, not a substitute for semantic inspection.",
+    "material_findings": []
+  },
+  "mandate_change_scope": "Exactly seven first-metadata model-line changes from saved Astra originals; all substantive text unchanged. Same reviewing subagent authored those metadata changes; independent final readiness audit is separate.",
+  "pristine_result_errors": [],
+  "source_lock_binding": "Pending final trust reconciliation by owner; source-lock/task/freeze audit is a separate later record.",
+  "limitations": [
+    "Room identity here is final config metadata, not an independent room membership query.",
+    "No new live Sol rehearsal, seven-seat material participation, product result, stage acceptance or final submission claim.",
+    "Recheck if configuration, rendered standing content, or source files change.",
+    "This record does not run or substitute for doctor, live permission/auth/resource proof, source/task integrity or READY freeze."
+  ]
+}
