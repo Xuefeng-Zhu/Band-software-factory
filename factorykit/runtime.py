@@ -1095,6 +1095,43 @@ def cmd_stop(args) -> int:
         return 0
 
 
+def continuation_notice_tools(agents, room_id, participant_ids, available_tools):
+    """Derive missing sender tools from existing SDK contexts without executing work.
+
+    Return additions only after the complete roster passes identity checks. The
+    SDK's public constructor only binds local context fields; it sends nothing.
+    """
+    from band.runtime.execution import ExecutionContext
+    from band.runtime.tools.agent import AgentTools
+    expected = set(participant_ids)
+    if not expected or len(expected) != len(participant_ids) or not set(available_tools) <= expected:
+        raise GateError("Continuation notice roster is ambiguous")
+    additions, seen = {}, set()
+    try:
+        for agent in agents:
+            platform = agent.runtime
+            identity, link = platform.agent_id, platform.link
+            sdk_runtime = platform.runtime
+            ctx = sdk_runtime.active_sessions.get(room_id)
+            if (identity not in expected or identity in seen or sdk_runtime.agent_id != identity
+                    or sdk_runtime.link is not link or type(ctx) is not ExecutionContext
+                    or not ctx.is_running or ctx.room_id != room_id or ctx.agent_id != identity
+                    or ctx.link is not link or link.agent_id != identity):
+                raise GateError("Continuation notice requires its original live SDK room context")
+            seen.add(identity)
+            tools = available_tools[identity] if identity in available_tools else AgentTools.from_context(ctx)
+            if (type(tools) is not AgentTools or tools.agent_id != identity
+                    or tools.room_id != room_id or tools.rest is not link.rest):
+                raise GateError("Continuation sender tools differ from their SDK context")
+            if identity not in available_tools:
+                additions[identity] = tools
+    except (AttributeError, RuntimeError, TypeError):
+        raise GateError("Continuation sender context is unavailable") from None
+    if seen != expected:
+        raise GateError("Continuation sender context roster is incomplete")
+    return additions
+
+
 async def serve(config: dict, mode: str, token: str, recovery_id=None, continuation=None):
     from band import Agent
     from band.adapters import CodexAdapter
@@ -1237,11 +1274,13 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                 record["workflow"] = watchdog.queue_timeout_notices(execution_busy=activity['busy'])
                 record["workflow"]["sdk_execution_contexts"] = activity['contexts']
                 # Reconcile the audited pending callbacks before sending old
-                # timeout notices: sender tools do not exist until its genuine
-                # callback runs. No receipt or incident is resolved by this gate.
+                # timeout notices. No receipt or incident is resolved by this gate.
                 pending_continuation = continuation is not None and continuation.pending_events_unsettled()
                 if record["workflow"]["state"] != "blocked" and not pending_continuation:
                     try:
+                        if continuation is not None and not activity['busy']:
+                            available_tools.update(continuation_notice_tools(
+                                agents, room, [s['agent_id'] for s in seats], available_tools))
                         notification = await send_due_notice(watchdog, ledger, available_tools, config["seats"],
                             execution_activity=lambda: sdk_execution_activity(agents, room, [s['agent_id'] for s in seats]))
                     except Exception:
