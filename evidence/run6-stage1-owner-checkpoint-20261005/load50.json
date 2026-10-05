@@ -1,0 +1,8 @@
+{
+  "clients": 50,
+  "created": 1,
+  "replayed": 49,
+  "max_seconds": 0.016078750006272458,
+  "layer": "host HTTP",
+  "candidate": "7960081554f92cbe1a61d377b8dfd651ae90487b"
+}

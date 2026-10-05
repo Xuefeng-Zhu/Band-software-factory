@@ -1,0 +1,63 @@
+{
+  "at": "2026-10-05T02:12:24.858455+00:00",
+  "scope": "Passive runtime snapshot; provider_failure recorded near600seconddeadline after allfour outboundparts. Actual complete recipientACK and recovery outcome must be observed separately. No operator restart/resend.",
+  "turn": {
+    "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+    "deadline_at": 1791166213.7171788,
+    "ended_at": 1791166214.430273,
+    "incident_ids": [
+      "turn:backend:117:3a00a651-2733-414d-9f74-4240f91e079b"
+    ],
+    "reason_code": "provider_failure",
+    "started_at": 1791165613.717301,
+    "status": "failed",
+    "trigger_event_id": "3a00a651-2733-414d-9f74-4240f91e079b"
+  },
+  "incident": {
+    "attempts": 0,
+    "blocked": null,
+    "closed": false,
+    "created_at": 1791166200.8525891,
+    "deliveries": [
+      "S1-IMPLEMENT-RESULT-001"
+    ],
+    "failed": true,
+    "next_at": 1791166214.4302819,
+    "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749"
+  },
+  "deliveries": {
+    "S1-IMPLEMENT-RESULT-001": {
+      "acknowledged": true,
+      "acks": {
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448": "459a8e99-81fc-46ea-a1e3-6d630d9cba11"
+      },
+      "complete": true,
+      "digest": "8e8f8659be11d6ad823d026f108cb30f2e65522d7b3b71da8a3ed6dc80e28a3e",
+      "first_at": 1791166200.8525891,
+      "incident_id": "turn:backend:117:3a00a651-2733-414d-9f74-4240f91e079b",
+      "parts": {
+        "1": {
+          "event_id": "712bb04d-bde3-4454-801f-b5850095fed1",
+          "sha256": "491740858f8082ec7a7e471f8e4a0708a9749b914f7dd18623660669db195276"
+        },
+        "2": {
+          "event_id": "5f502d76-4e47-48eb-abf0-7fedc3b5b0e9",
+          "sha256": "274156f8a40112dba5c13b612f4c7ff2f082d97e11d0d66ea8655604e6b6c1f2"
+        },
+        "3": {
+          "event_id": "1a2eefae-d135-4560-bf14-3f89710aaa89",
+          "sha256": "cef37545b8d2af4805a1d3468a7864c53cc78ee364ce4f533e816b4d91517661"
+        },
+        "4": {
+          "event_id": "4ca4b80f-aa3a-411f-bc00-95513bd0df86",
+          "sha256": "381ed5ec8b5c7d647ef30407c92510c2453cc868e9a503bac761358385a0489f"
+        }
+      },
+      "recipient_ids": [
+        "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448"
+      ],
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "total": 4
+    }
+  }
+}

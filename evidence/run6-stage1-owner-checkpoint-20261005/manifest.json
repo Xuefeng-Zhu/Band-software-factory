@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-05T02:13:51.754329+00:00",
+  "scope": "Completed Backend owner checkpoint and later receipt resolution through 02:12 UTC; independent QA results and stage acceptance are not established.",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "record_only_commit": "9d02432fcbd94a2f4558a355394ecb2a482a26a2",
+  "stage_1_tree_at_both_commits": "817f7b66f6f7b0b9f2a84bb2bf23048a433154a8",
+  "record_commit_changed_paths": [
+    "planning/work-queue.json"
+  ],
+  "owner_record_excerpt": {
+    "source_commit": "9d02432fcbd94a2f4558a355394ecb2a482a26a2",
+    "source_path": "planning/work-queue.json",
+    "source_git_blob": "59e276dd21ddd83b178635972bb97161de27f1e7",
+    "source_blob_sha256": "c39ccb878da51be0f0121c22edd851ce2d71f420b08752a933a312e44f9b84c4",
+    "source_blob_bytes": 186069,
+    "transformation": "Select item whose id is S1-IMPLEMENT; omit requirements field only; preserve every remaining field value. This extraction is not a byte-exact full blob copy.",
+    "omitted_fields": [
+      "requirements"
+    ],
+    "record": {
+      "id": "S1-IMPLEMENT",
+      "owner": "@frankzhu94/factory-backend",
+      "dependencies": [
+        "REVIEW-PLAN"
+      ],
+      "state": "REVIEW",
+      "goal": "Implement stage 1 required behavior; stage 2 requires Designer and Frontend before UI",
+      "starting_revision": "68f78428f3381c1e67d82b35872a0447babd6c4a",
+      "workspace_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-6"
+      ],
+      "ownership_boundaries": [
+        "stage-1/ and S1-IMPLEMENT queue fields"
+      ],
+      "acceptance_conditions": [
+        "Complete stage 1 eleven-section specification; owner verification followed by independent QA and fixed-candidate isolated review."
+      ],
+      "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+      "commands": [
+        "git fetch origin && git merge --ff-only origin/run-6",
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python -m unittest discover -s stage-1/tests -v",
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python qa/stage1_http.py --base-url http://127.0.0.1:18087 --candidate 7960081554f92cbe1a61d377b8dfd651ae90487b --out .evidence/backend-s1-20261005/attempt-02/http.json",
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python -m harness run --track tablekeeper --build /Users/frank/mygit/Tablekeeper/result-run-6/stage-1 --stages 1 --out /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/isolated --mode isolated",
+        "git diff --check"
+      ],
+      "results": [
+        "All final listed commands exit 0; six unit tests PASS; seven QA HTTP classes PASS; isolated stage1 120/120 PASS, no skips.",
+        "Initial isolated attempt FAIL exit1:114/120 stage1;6 failures from global table-ID uniqueness, repaired to restaurant-scoped uniqueness with regression. Initial invocation also probed unimplemented stage2; those failures are outside assigned stage1.",
+        "Intermediate --repo combined with --stages rejected exit2; corrected to --build stage-1 --stages 1.",
+        "50 simultaneous host retry requests:one201,49replays,max0.0161seconds.",
+        "Receipt multipart digest independently recomputed matches ae87345540c45d5727f54742131a0447046dd33e4e54200760ff33ae0b204f47."
+      ],
+      "evidence_paths": [
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/http-initial.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/unit.txt",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/unit-final.txt",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/isolated/report.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/isolated/stage-1.log",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/unit.txt",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/http.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/load50.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/isolated/report.json",
+        "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/isolated/stage-1.log"
+      ],
+      "limitations": [
+        "Owner checks do not establish independent acceptance or full hidden-suite coverage.",
+        "All later stages, cross-stage upgrades and browser behavior NOT_TESTED/not implemented.",
+        "Isolated harness reports working-tree provenance at clean committed candidate; reviewer must rerun exact candidate independently.",
+        "50-client load was measured on host; dedicated container50-client resource/auth stress remains for QA.",
+        "Import validates explicit schema/links/record intervals/ledger sequence; adversarial correlated ledger/receipt tampering beyond owner unit controls not comprehensively exercised.",
+        "One product repair used for table identity scope; max3 assigned, two remaining. Measured monetary/token usage UNAVAILABLE."
+      ],
+      "next_recipient": "@frankzhu94/factory-pm"
+    }
+  },
+  "provenance_limits": [
+    "Both isolated reports use working-tree provenance; the first report revision is its base, not an exact source snapshot of uncommitted implementation.",
+    "The final owner report names the committed candidate; no independent exact-candidate product rerun occurred during archiving.",
+    "The QA responsible_handle in the HTTP driver is metadata; the execution owner was Backend.",
+    "No stage acceptance or later-stage/UI/upgrade completion is established.",
+    "Earlier owner public event states handoff preparation; a separate later public event proves complete PM acknowledgment. The failed Backend turn is retained, not rewritten as successful completion."
+  ],
+  "privacy_review": {
+    "method": "Pinned organizer SECRETS patterns; supplemental BAND/JWT/private-key patterns; bounded manual inspection of selected completed records. No raw state, credentials, multipart requirement payloads or hidden reasoning retained.",
+    "official_pattern_source": "/Users/frank/mygit/Tablekeeper/challenge/harness/check.py",
+    "official_pattern_source_sha256": "42a269afdb2d181b70ff0f140a17f7c93a16ca05ce881b91c78806182881b6a1",
+    "raw_pattern_matches": 0,
+    "actionable_credential_findings": 0,
+    "limitation": "Private preservation only; not exhaustive privacy assurance or public-release approval."
+  },
+  "frozen_inputs": {
+    "manifest": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+    "manifest_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+    "verified_unchanged_count": 34
+  },
+  "archiver_executed_product_tests": false,
+  "files": [
+    {
+      "path": "execution.json",
+      "sha256": "7f0b019821cfbca6ed4501b8117904fe5da398cf54a842690b594e19ec129c6b",
+      "bytes": 3744,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/execution.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "attempt-01-isolated-report.json",
+      "sha256": "28262862e70d46756d47307feecf5a455b87e8c37e29639cbce629bc7756daec",
+      "bytes": 1580,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/isolated/report.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "attempt-02-isolated-report.json",
+      "sha256": "467db1e5fad421a4eebb4ad67aaf92de1e7ae36aff718aaef374eabd085cdf35",
+      "bytes": 1415,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/isolated/report.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "unit.txt",
+      "sha256": "bd7ab4e69de1a883a44cb2ea86fd3b934ccc61efba6996063b24b21f4e02ca9c",
+      "bytes": 650,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/unit.txt",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "http.json",
+      "sha256": "35b799a14e347a2f98ff927285818952124c93245424426b4cb0b6ec4c5435a0",
+      "bytes": 2021,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/http.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "load50.json",
+      "sha256": "1f15f5d85474324943aa0541335a23d201397c4f2a684194db75c4c499e01580",
+      "bytes": 175,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/load50.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "public-events.json",
+      "sha256": "67d02b8821848c1bf63df4b2a9c256c732a9a624c9331e79cc664eac839c7274",
+      "bytes": 951,
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/stage1-owner-20261005/public-events.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "git.json",
+      "sha256": "1135b6c7fbb5a6f85ee65551a0ca007a9c4e09fe25bc223a7cdabed078739732",
+      "bytes": 759,
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/stage1-owner-20261005/git.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "README.md",
+      "sha256": "147d9abef0e31bfb9c46cd44f01b401496d9fbc9a2e2aa80671317d4fd3e80f5",
+      "bytes": 4270,
+      "source": "Generated factual archive index",
+      "preservation": "new index"
+    },
+    {
+      "path": "turn-completion-observation.json",
+      "sha256": "99b9d1b62f3ef1041f2ebde046090c8efff3bc3412e311a0878edaaf1a9ab537",
+      "bytes": 2270,
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/stage1-owner-20261005/turn-completion-observation.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "receipt-and-recovery.json",
+      "sha256": "faf5c5f32435016f739d570a596dd56e657ff51f4f3e96e050b1036b1b631af3",
+      "bytes": 7477,
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/stage1-owner-20261005/receipt-and-recovery.json",
+      "preservation": "byte-exact source copy"
+    }
+  ],
+  "operational_disclosure": {
+    "backend_turn": "117",
+    "status": "failed",
+    "reason_code": "provider_failure",
+    "boundary": "near 600-second deadline after four outbound handoff parts",
+    "complete_pm_ack_event_id": "459a8e99-81fc-46ea-a1e3-6d630d9cba11",
+    "complete_pm_ack_at_utc": "2026-10-05T02:12:18.315297Z",
+    "runtime_snapshot_at_utc": "2026-10-05T02:12:55.063748+00:00",
+    "backend_incident_no_longer_unresolved": true,
+    "notice_attempts": 0,
+    "operator_restart_or_resend": false,
+    "independent_qa_results_available_in_archive": false
+  }
+}

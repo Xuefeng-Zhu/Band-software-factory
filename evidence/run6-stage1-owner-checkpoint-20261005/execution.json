@@ -1,0 +1,46 @@
+{
+  "work_item": "S1-IMPLEMENT",
+  "owner": "@frankzhu94/factory-backend",
+  "starting_revision": "68f78428f3381c1e67d82b35872a0447babd6c4a",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "recorded_at": "2026-10-05T02:09:06.348835+00:00",
+  "commands": [
+    "git fetch origin && git merge --ff-only origin/run-6",
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python -m unittest discover -s stage-1/tests -v",
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python qa/stage1_http.py --base-url http://127.0.0.1:18087 --candidate 7960081554f92cbe1a61d377b8dfd651ae90487b --out .evidence/backend-s1-20261005/attempt-02/http.json",
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python -m harness run --track tablekeeper --build /Users/frank/mygit/Tablekeeper/result-run-6/stage-1 --stages 1 --out /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/isolated --mode isolated",
+    "git diff --check"
+  ],
+  "results": [
+    "All final listed commands exit 0; six unit tests PASS; seven QA HTTP classes PASS; isolated stage1 120/120 PASS, no skips.",
+    "Initial isolated attempt FAIL exit1:114/120 stage1;6 failures from global table-ID uniqueness, repaired to restaurant-scoped uniqueness with regression. Initial invocation also probed unimplemented stage2; those failures are outside assigned stage1.",
+    "Intermediate --repo combined with --stages rejected exit2; corrected to --build stage-1 --stages 1.",
+    "50 simultaneous host retry requests:one201,49replays,max0.0161seconds.",
+    "Receipt multipart digest independently recomputed matches ae87345540c45d5727f54742131a0447046dd33e4e54200760ff33ae0b204f47."
+  ],
+  "evidence_paths": [
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/http-initial.json",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/unit.txt",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/unit-final.txt",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/isolated/report.json",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-01/isolated/stage-1.log",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/unit.txt",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/http.json",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/load50.json",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/isolated/report.json",
+    "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/backend-s1-20261005/attempt-02/isolated/stage-1.log"
+  ],
+  "limitations": [
+    "Owner checks do not establish independent acceptance or full hidden-suite coverage.",
+    "All later stages, cross-stage upgrades and browser behavior NOT_TESTED/not implemented.",
+    "Isolated harness reports working-tree provenance at clean committed candidate; reviewer must rerun exact candidate independently.",
+    "50-client load was measured on host; dedicated container50-client resource/auth stress remains for QA.",
+    "Import validates explicit schema/links/record intervals/ledger sequence; adversarial correlated ledger/receipt tampering beyond owner unit controls not comprehensively exercised.",
+    "One product repair used for table identity scope; max3 assigned, two remaining. Measured monetary/token usage UNAVAILABLE."
+  ],
+  "room_events": [
+    "e0e5406e-fa1c-4c7e-b342-27e0a1ccd34c",
+    "b7c0883c-87f5-44e1-b7a9-53971eabfdeb",
+    "e91c96fd-429b-42be-bd5d-8efd9462a624"
+  ]
+}

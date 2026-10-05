@@ -1,0 +1,11 @@
+test_cutoff_exact_and_atomic (test_service.Tests.test_cutoff_exact_and_atomic) ... ok
+test_import_invalid_relationship_atomic (test_service.Tests.test_import_invalid_relationship_atomic) ... ok
+test_import_then_real_amend (test_service.Tests.test_import_then_real_amend) ... ok
+test_ledger_receipt_and_import (test_service.Tests.test_ledger_receipt_and_import) ... ok
+test_lossless_number_range (test_service.Tests.test_lossless_number_range) ... ok
+test_table_ids_are_restaurant_scoped (test_service.Tests.test_table_ids_are_restaurant_scoped) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.408s
+
+OK
