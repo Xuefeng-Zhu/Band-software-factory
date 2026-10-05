@@ -1,0 +1,118 @@
+{
+  "id": "REVIEW-PLAN",
+  "candidate_commit": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238",
+  "reviewer": "@frankzhu94/factory-reviewer",
+  "started_at_utc": "2026-10-05T01:54:42.463122+00:00",
+  "finished_at_utc": "2026-10-05T01:54:42.592460+00:00",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.3",
+    "layer": "host planning/oracle review only"
+  },
+  "results": [
+    {
+      "name": "exact_clean_clone",
+      "status": "PASS",
+      "detail": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238"
+    },
+    {
+      "name": "repair_ancestry",
+      "status": "PASS",
+      "detail": "96e2fa1b0a61ee9f917f5ce76b94726ba8e7cd10"
+    },
+    {
+      "name": "repair_ancestry",
+      "status": "PASS",
+      "detail": "5e12fe7413e3521870aa2ad34f335798d7e910d7"
+    },
+    {
+      "name": "S1_requirements_unchanged",
+      "status": "PASS",
+      "detail": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f"
+    },
+    {
+      "name": "S2_requirements_unchanged",
+      "status": "PASS",
+      "detail": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc"
+    },
+    {
+      "name": "S3_requirements_unchanged",
+      "status": "PASS",
+      "detail": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe"
+    },
+    {
+      "name": "S4_requirements_unchanged",
+      "status": "PASS",
+      "detail": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4"
+    },
+    {
+      "name": "product_not_tested_status",
+      "status": "PASS",
+      "detail": "37 source rows,42 classes,all product NOT_TESTED"
+    },
+    {
+      "name": "original_R2_witness_fixed",
+      "status": "PASS",
+      "detail": "Prior failed case now distinguishes exact numeric values."
+    },
+    {
+      "name": "new_nested_exact_controls",
+      "status": "PASS",
+      "detail": "Object order and signed zero/equivalent exponent pass; nested bool and adjacent precise decimals fail under precision1."
+    },
+    {
+      "name": "new_raw_token_preserved",
+      "status": "PASS",
+      "detail": "Wire bytes never pass through float."
+    },
+    {
+      "name": "R1_exact_witness",
+      "status": "PASS",
+      "detail": "Owner mechanism tested independently; no service exists."
+    },
+    {
+      "name": "R1_new_grid_duration_witness",
+      "status": "PASS",
+      "detail": "New input:20-minute wall grid from02:10,40-minute duration; must not shift to03:00."
+    },
+    {
+      "name": "R2_new_outer_transport_witness",
+      "status": "PASS",
+      "detail": "Ordinary outer JSON parser preserves escaped receipt document,including precise exponents/unicode/bool."
+    },
+    {
+      "name": "R3_new_wrong_before_value_rejected",
+      "status": "PASS",
+      "detail": "Corrupt amendment origin t2 instead of observed t1."
+    },
+    {
+      "name": "R3_new_changed_terms_rejected",
+      "status": "PASS",
+      "detail": "Corrupt policy0 snapshot; should fail even with correct current table."
+    },
+    {
+      "name": "clone_still_clean",
+      "status": "PASS",
+      "detail": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238"
+    }
+  ],
+  "owner_suite_independently_run": {
+    "command": "python3 -B qa/test_oracles.py",
+    "exit": 0,
+    "passed": 14
+  },
+  "help_checks": {
+    "commands": [
+      "python3 -B qa/legacy_upgrade.py --help",
+      "python3 -B qa/stage1_http.py --help"
+    ],
+    "exit": 0
+  },
+  "limitations": [
+    "No product HTTP/container/browser/upgrade/performance execution.",
+    "Probe helpers come from supplied owner evidence, not committed product; tests use new independently specified inputs.",
+    "Private ledger timestamp adapter remains a first-runnable obligation."
+  ],
+  "room_event": "08141cfb-0413-4ff7-a168-b4a484d00d01",
+  "measured_consumption": "UNAVAILABLE"
+}

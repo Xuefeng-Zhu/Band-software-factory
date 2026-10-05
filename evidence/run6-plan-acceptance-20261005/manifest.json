@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-05T02:04:22.944781+00:00",
+  "scope": "Completed Run 6 planning/implementation-readiness acceptance and later PM public receipt only; no application-stage acceptance.",
+  "candidate_commit": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238",
+  "acceptance_event_id": "4fb52a6c-92ce-4024-b1d9-7feb5db49440",
+  "acceptance_at_utc": "2026-10-05T01:55:48.083950Z",
+  "pm_complete_ack_event_id": "c32dfff6-02dc-4dac-98f6-7d3fc19dfb4e",
+  "pm_complete_ack_at_utc": "2026-10-05T01:58:29.288208Z",
+  "public_evidence_observed_at_utc": "2026-10-05T01:58:48.050981+00:00",
+  "public_evidence_scope": {
+    "selected_events": 4,
+    "source_page_has_more": true,
+    "full_session_export": false,
+    "pm_queue_update_verified": false
+  },
+  "recorded_checks": {
+    "qa_authored_oracle_controls_independently_run": 14,
+    "independent_checks": 17,
+    "all_reported_pass": true,
+    "driver_help_commands": 2,
+    "product_stage_acceptance": false,
+    "archiver_reran_tests": false
+  },
+  "original_storage": "Ignored/untracked .evidence files; recorded candidate binding does not imply these evidence files were committed in that candidate.",
+  "privacy_review": {
+    "method": "Pinned organizer harness SECRETS patterns, supplemental BAND/JWT/private-key patterns, and bounded manual source/public-text inspection. No hidden reasoning or raw global configuration copied.",
+    "official_pattern_source": "/Users/frank/mygit/Tablekeeper/challenge/harness/check.py",
+    "official_pattern_source_sha256": "42a269afdb2d181b70ff0f140a17f7c93a16ca05ce881b91c78806182881b6a1",
+    "raw_pattern_matches": [
+      {
+        "path": "recheck.py",
+        "pattern": "env-assignment",
+        "line": 45,
+        "classification": "Synthetic exact numeric JSON lexeme used by the raw-number oracle; not a credential."
+      }
+    ],
+    "actionable_credential_findings": 0,
+    "limitation": "Private preservation only; not exhaustive privacy assurance or public-release approval."
+  },
+  "frozen_inputs": {
+    "manifest": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+    "manifest_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+    "verified_unchanged_count": 34
+  },
+  "files": [
+    {
+      "path": "review.md",
+      "sha256": "42b13445d20835b2429f7d133bcd00d728813a2adfab01cf3e05d3317567e21b",
+      "bytes": 7466,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-repair1-20261005/attempt-01/review.md",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "results.json",
+      "sha256": "d6fd4cf0110485d0195ba8e4e593e4a97b96fe3061b4a30a52fee7f5af80c922",
+      "bytes": 3787,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-repair1-20261005/attempt-01/results.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "recheck.py",
+      "sha256": "b2cfc8a99f1be47039550e78fdc357be86619ab645947678ea2ab3311a960f71",
+      "bytes": 6304,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-repair1-20261005/attempt-01/recheck.py",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "setup.json",
+      "sha256": "40dd1558f770e6ae829c23f0f71ee950c1db42ab83b7eac4d5d33515f8d10f03",
+      "bytes": 2398,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-repair1-20261005/attempt-01/setup.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "final-verification.json",
+      "sha256": "480f300cccc9a5fc5b39da151d3149584ce1365751f445372f18b693fda1d930",
+      "bytes": 1677,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-repair1-20261005/attempt-01/final-verification.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "public-events.json",
+      "sha256": "feb062b9b2020239d8dcca0b19b36902cfb2ec54194d2848fdc9728d9a12cf36",
+      "bytes": 3118,
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/plan-acceptance-20261005/public-events.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ce718f04d37e02f8000290be508b9121c1ddd42d706c6ed0c20fb5fc322caead",
+      "bytes": 3069,
+      "source": "Generated factual archive index",
+      "preservation": "new index; original source files unchanged"
+    }
+  ]
+}

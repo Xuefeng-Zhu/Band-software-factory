@@ -1,0 +1,92 @@
+{
+  "clone": "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-repair1-oi136n3g/candidate",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238\n",
+      "stderr": "",
+      "at": "2026-10-05T01:53:35.542713+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T01:53:35.554308+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "fetch",
+        "origin"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T01:53:36.844800+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-hardlinks",
+        "--no-checkout",
+        "/Users/frank/mygit/Tablekeeper/result-run-6",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-repair1-oi136n3g/candidate"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "Cloning into '/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-repair1-oi136n3g/candidate'...\ndone.\n",
+      "at": "2026-10-05T01:53:36.916528+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-repair1-oi136n3g/candidate",
+        "checkout",
+        "--detach",
+        "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at c4dcae6 Record QA repair candidate and local oracle evidence\n",
+      "at": "2026-10-05T01:53:36.930754+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-repair1-oi136n3g/candidate",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238\n",
+      "stderr": "",
+      "at": "2026-10-05T01:53:36.938229+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-repair1-oi136n3g/candidate",
+        "status",
+        "--porcelain"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T01:53:36.948704+00:00"
+    }
+  ]
+}
