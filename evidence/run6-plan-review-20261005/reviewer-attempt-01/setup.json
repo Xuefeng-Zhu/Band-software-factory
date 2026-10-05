@@ -1,0 +1,70 @@
+{
+  "clone": "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "fetch",
+        "origin"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T01:19:28.702210+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-hardlinks",
+        "--no-checkout",
+        "/Users/frank/mygit/Tablekeeper/result-run-6",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "Cloning into '/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate'...\ndone.\n",
+      "at": "2026-10-05T01:19:28.758773+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+        "checkout",
+        "--detach",
+        "0456233212ba4a101243c03684706e4fbbbb32e9"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 0456233 Record QA plan review candidate and evidence\n",
+      "at": "2026-10-05T01:19:28.772560+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "0456233212ba4a101243c03684706e4fbbbb32e9\n",
+      "stderr": "",
+      "at": "2026-10-05T01:19:28.780036+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T01:19:28.789969+00:00"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "actions": {
+    "band_commands": 0,
+    "configuration_changes": 0,
+    "frozen_input_changes": 0,
+    "model_turns": 0,
+    "product_edits": 0,
+    "product_tests": 0,
+    "room_messages": 0,
+    "runtime_process_actions": 0,
+    "written_files": [
+      "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/20261005T014706Z/goal-completion-audit.json"
+    ]
+  },
+  "authorities": {
+    "current_launch_approval": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/approval.json",
+      "sha256": "8f4ee2c5a6118e19e51fa9cf9c5936c37080e87774c6e8dd003f1ad058d33b04"
+    },
+    "original_request": {
+      "path": "/Users/frank/.codex/attachments/b207a4dc-3590-4171-ad63-ef076fa541b4/Pasted text.txt",
+      "sha256": "4e8cae3211bd01d5e579a07c6ec44cb2fa25900ac5407b8eb5707d6e45a1d233"
+    },
+    "pinned_challenge_commit": "803560d2a678ace1414465c098eb0ab5380ffade",
+    "pinned_sources": {
+      "docs/participant-guide.md": {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/docs/participant-guide.md",
+        "sha256": "1533d255c833d7a0aa67f2ef06cde0a5e84d94c7d1c97f73d1818f04cfb685e4"
+      },
+      "tablekeeper/spec/stage-1.md": {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+        "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f"
+      },
+      "tablekeeper/spec/stage-2.md": {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-2.md",
+        "sha256": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc"
+      },
+      "tablekeeper/spec/stage-3.md": {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-3.md",
+        "sha256": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe"
+      },
+      "tablekeeper/spec/stage-4.md": {
+        "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-4.md",
+        "sha256": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4"
+      }
+    },
+    "source_lock": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock.json",
+      "sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac"
+    }
+  },
+  "continuation_classification": {
+    "basis": "Root reports current owned process rechecked during this continuation turn; this auditor did not independently inspect processes.",
+    "goal_marked_blocked": false,
+    "goal_marked_complete": false,
+    "prior_turn": "VERIFIED_WAIT",
+    "this_turn": "READ_ONLY_REQUIREMENT_AUDIT_AND_PRESERVED_EVIDENCE"
+  },
+  "goal_scope": {
+    "event_minimum_one_complete_stage1": "Does not reduce the user all-four-stage goal.",
+    "factory_preparation": "Delivered at its stated evidence layers; cannot substitute for product completion.",
+    "full_four_stage_working_product": "PRESERVED_AND_INCOMPLETE",
+    "no_stage_acceptance_in_snapshot": true
+  },
+  "postterminal_verification_sequence": [
+    {
+      "action": "After PM terminal outcome, preserve exact accepted/rejected candidate revisions, complete handoffs, failures and final supported accounting; verify only owned workers are stopped.",
+      "boundary": "No automatic additional attempt or consumption reset.",
+      "step": 1
+    },
+    {
+      "action": "Download genuine Band console full session after work is finished, record hash/provenance, inspect private values and preserve substantive evidence. Package actual completed folders and mandates.",
+      "boundary": "No synthetic/filtered export or silent removal of failure history; use documented credential incident procedure if needed.",
+      "step": 2
+    },
+    {
+      "action": "Fresh-clone the selected canonical run-6 branch and detach at the exact final commit; verify clean state, committed stage files and history.",
+      "boundary": "If stage1 is absent, report no runnable submission instead of claiming application checks or copying prior attempt code.",
+      "step": 3
+    },
+    {
+      "action": "For actual completed stage outputs, run pinned official offline check then one official isolated --all invocation with a new output directory; retain full argv, UTC times, exact candidate, counts, logs and exit status.",
+      "boundary": "Templates only, not executed evidence. No empty/skipped suite promoted to pass; shipped thresholds do not replace complete-spec acceptance.",
+      "commands": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python -m harness check <fresh-clone> --track tablekeeper",
+        "DOCKER_HOST=unix:///Users/frank/.orbstack/run/docker.sock DOCKER_CONTEXT= /Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python -m harness run --track tablekeeper --repo <fresh-clone> --all --mode isolated --out <new-evidence-directory>"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+      "step": 4
+    },
+    {
+      "action": "Follow each actual RUN.md in a clean environment; exercise integrated UI at desktop and 375 CSS pixels, keyboard/focus/refusal/uncertainty, late/lost/conflicting requests and populated earlier-stage imports. Compare all remaining obligations with independent Reviewer acceptance.",
+      "boundary": "No operator product repair or retroactive claim of an autonomous BAND gate.",
+      "step": 5
+    },
+    {
+      "action": "Finalize private run-specific documentation, presentation and full-goal matrix with verified, failed and untested layers; keep video deferred.",
+      "boundary": "Public release and submission require their separate authority and current deadline/access verification.",
+      "step": 6
+    }
+  ],
+  "purpose": "Read-only full-scope completion audit and postterminal verification preparation; this is not goal completion or a blocked-goal declaration.",
+  "requirement_groups": [
+    {
+      "id": "factory",
+      "remaining": [
+        "New generic workflow was not freshly live-rehearsed before launch.",
+        "Independent clean-machine factory reproduction remains unproven; local setup and locked dependencies do not establish it."
+      ],
+      "requirement": "Reproducible seven-seat preparation, pinned inputs, supported integration, generic mandates, finite limits, rehearsed communication, exact task packets and guarded launch.",
+      "status": "VERIFIED_WITH_LIMITATIONS",
+      "verified_scope": "Run6 launch evidence records seven identities, 254 utility tests, current permission/registration/static instruction proofs, historical rehearsal observations and one approved dispatch."
+    },
+    {
+      "id": "planning_and_ownership",
+      "remaining": [
+        "Seven material product contributions unproven.",
+        "S1 implementation/gate and all later stage work remained PROPOSED.",
+        "Planning review does not establish product acceptance."
+      ],
+      "requirement": "Actual PM, Architect, Designer, Backend, Frontend, QA and Reviewer make meaningful attributable contributions appropriate to their work.",
+      "status": "INCOMPLETE",
+      "verified_scope": "Snapshot contains planning, architecture, QA scripts and seven mandates; ARCH and QA-PLAN in REVIEW."
+    },
+    {
+      "id": "stage1",
+      "remaining": [
+        "No stage-1 directory or runnable service at snapshot.",
+        "Need independent source-derived tests, exact-candidate Reviewer acceptance, Dockerfile, RUN.md, clean isolated runtime proof."
+      ],
+      "requirement": "Complete reservation API, auth/ownership, errors/fixtures, exact numeric/time handling, concurrency/atomic moves, idempotency and portable atomic import/export.",
+      "status": "INCOMPLETE"
+    },
+    {
+      "id": "stage2",
+      "remaining": [
+        "No stage-2 implementation, browser screenshots, integrated UI evidence or candidate acceptance at snapshot."
+      ],
+      "requirement": "All inherited behavior plus integrated booking/search/lookup UI, combined tables, uncertain/lost/out-of-order response recovery, upgrade continuity and usable desktop/375px accessible states.",
+      "status": "INCOMPLETE"
+    },
+    {
+      "id": "stage3_and_4",
+      "remaining": [
+        "No stage-3 or stage-4 directories, acceptance or upgrade proof at snapshot.",
+        "Genuine incremental independent stage outputs required; do not copy a later solution backward."
+      ],
+      "requirement": "Stage3 policy selection, accepted-term history, revisions/recurrence; Stage4 deterministic closure replanning and atomic series amendments; every stage preserves inherited behavior and supports actual earlier-stage imports.",
+      "status": "INCOMPLETE"
+    },
+    {
+      "id": "application_gates",
+      "remaining": [
+        "No accepted product stage at snapshot.",
+        "Supplied suite success would prove only that suite; unresolved independent defects cannot be waived.",
+        "Clean clone, manual RUN.md, browser and populated upgrade checks remain outstanding."
+      ],
+      "requirement": "Each completed stage independently builds/starts, serves on 0.0.0.0 with PORT/default8080, bundles runtime dependencies, satisfies official resource/no-outbound contract, full specification and independent release gate.",
+      "status": "INCOMPLETE"
+    },
+    {
+      "id": "package_and_accounting",
+      "remaining": [
+        "README.md, FACTORY.md and room.json absent at snapshot.",
+        "Await terminal outcome and unchanged full-session download; preserve failed evidence and privacy review.",
+        "Run-specific final costs/time and owned-runtime closure not yet terminal facts.",
+        "Another team must be able to understand/reproduce setup from FACTORY.md and mandates."
+      ],
+      "requirement": "Selected attempt root README.md, FACTORY.md, exact mandates, genuine full room.json, completed stage folders, attributable history, final decisions/evidence, measured timing and supported usage.",
+      "status": "INCOMPLETE",
+      "verified_scope": "Seven mandate files exist."
+    },
+    {
+      "id": "narratives_presentation_video",
+      "remaining": [
+        "Prior-attempt documents/decks do not establish current Run6 outcome.",
+        "Participant authorship/review must remain explicit for AI-assisted narratives.",
+        "Video explicitly deferred by user: do not record automatically; it remains an eventual event submission requirement."
+      ],
+      "requirement": "Truthful run-specific README/FACTORY, presentation and actual factory-room video.",
+      "status": "INCOMPLETE_WITH_VIDEO_DEFERRED"
+    },
+    {
+      "id": "public_release_and_submission",
+      "remaining": [
+        "Prepare a concrete private package and review first.",
+        "Public visibility and final submission are not authorized by the one Run6 launch.",
+        "No automatic additional attempt, model rehearsal, redispatch or cap/deadline reset."
+      ],
+      "requirement": "Public judge-cloneable repository, submitted presentation/video/URL and actual receipt if the user later authorizes submission.",
+      "status": "OUTSIDE_CURRENT_AUTHORIZATION"
+    }
+  ],
+  "resource_boundary": {
+    "ceiling_change_authorized": false,
+    "limitation": "Official upgrade/browser checks may require service, prior-stage source and harness containers simultaneously. A 2048 MiB VM cap does not guarantee enough aggregate headroom. Preserve OOM/resource failures; do not raise cap, weaken tests or alter official internal-network isolation to obtain green results.",
+    "official_service_limits": {
+      "healthy_seconds": 60,
+      "max_concurrent_requests": 50,
+      "memory_gib": 2,
+      "request_timeout_seconds": 5,
+      "reset_timeout_seconds": 10,
+      "runtime_outbound_network": false,
+      "vcpus": 2
+    },
+    "prior_run_evidence_not_run6_acceptance": true,
+    "user_orbstack_global_ceiling_mib": 2048,
+    "verification_concurrency": "One official invocation at a time; clean up only verified owned runtime/test resources."
+  },
+  "run_boundaries": {
+    "authorized_dispatches": 1,
+    "automatic_retry_or_new_run": false,
+    "deadline_utc": "2026-10-05T02:35:03.700437Z",
+    "final_publication_and_submission": "NOT_AUTHORIZED",
+    "human_steering_during_active_run": false,
+    "video": "EXPLICITLY_DEFERRED_BY_USER"
+  },
+  "saved_at": "2026-10-05T01:50:42.201408+00:00",
+  "schema_version": 1,
+  "snapshot": {
+    "existing_file_groups": [
+      "planning",
+      "qa",
+      "mandates"
+    ],
+    "head": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238",
+    "observed_at": "2026-10-05T01:47:33.897615+00:00",
+    "repository": "/Users/frank/mygit/Tablekeeper/result-run-6",
+    "root_files_present": {
+      "FACTORY.md": false,
+      "README.md": false,
+      "mandates": true,
+      "room.json": false
+    },
+    "scope": "Exact prior read-only snapshot, not a claim that later live commits have not occurred.",
+    "stage_directories_present": {
+      "stage-1": false,
+      "stage-2": false,
+      "stage-3": false,
+      "stage-4": false
+    },
+    "work_queue_states": {
+      "ARCH": "REVIEW",
+      "QA-PLAN": "REVIEW",
+      "S1-GATE": "PROPOSED",
+      "S1-IMPLEMENT": "PROPOSED",
+      "later_stage_implementation_and_gates": "PROPOSED"
+    },
+    "working_tree_clean": true
+  },
+  "status": "INCOMPLETE"
+}

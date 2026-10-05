@@ -1,0 +1,193 @@
+{
+  "status": "running",
+  "owned_parent_alive": true,
+  "pid": 43824,
+  "mode": "judged",
+  "seats": [
+    "pm",
+    "architect",
+    "designer",
+    "backend",
+    "frontend",
+    "qa",
+    "reviewer"
+  ],
+  "owned_children_alive": 32,
+  "updated_at": "2026-10-05T01:47:06.389122+00:00",
+  "last_error": null,
+  "recovery": null,
+  "process_status": "running",
+  "workflow": {
+    "state": "busy",
+    "active_turn_ids": [
+      "qa:64:5224ee09-cb00-495f-b879-05e4663c965d"
+    ],
+    "sdk_execution_busy": true,
+    "unresolved_incident_ids": [],
+    "seconds_to_next_deadline": 165.7436969280243,
+    "notice_attempts": 0,
+    "unknown_notices": [],
+    "sdk_execution_contexts": [
+      {
+        "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+        "queued_events": 1,
+        "processing": true,
+        "state": "processing",
+        "running": true
+      },
+      {
+        "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+        "queued_events": 0,
+        "processing": false,
+        "state": "idle",
+        "running": true
+      },
+      {
+        "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+        "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+        "queued_events": 0,
+        "processing": false,
+        "state": "idle",
+        "running": true
+      },
+      {
+        "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+        "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+        "queued_events": 0,
+        "processing": false,
+        "state": "idle",
+        "running": true
+      },
+      {
+        "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+        "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+        "queued_events": 0,
+        "processing": false,
+        "state": "idle",
+        "running": true
+      },
+      {
+        "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+        "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+        "queued_events": 0,
+        "processing": true,
+        "state": "processing",
+        "running": true
+      },
+      {
+        "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+        "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+        "queued_events": 0,
+        "processing": false,
+        "state": "idle",
+        "running": true
+      }
+    ]
+  },
+  "budget": {
+    "tokens": 245837000,
+    "turns": {
+      "architect": 67,
+      "backend": 114,
+      "designer": 16,
+      "frontend": 6,
+      "pm": 450,
+      "qa": 64,
+      "reviewer": 68
+    },
+    "stopped_reason": null,
+    "started_epoch": 1791049765.700437,
+    "room_ids": [
+      "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+      "12cde259-0fcd-4551-84c7-52c443cb5600",
+      "3a604b75-7691-4b8f-9d86-e7b2fdf66846",
+      "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+      "64e39921-47b1-4f55-8180-54edf5946c34",
+      "7ceee003-80f3-4dbc-abc1-d3a8a13d1800",
+      "9b059f6b-ee17-44bd-99cd-0277cf602a81",
+      "cc7450cf-e003-4b3d-9baf-2d3ceb97d378",
+      "d98df99d-77ad-441d-875c-6e38cdbef39d"
+    ],
+    "room_started_epochs": {
+      "0b882870-2e49-4d39-bc40-2bf47cc46f08": 1791139367.698096,
+      "12cde259-0fcd-4551-84c7-52c443cb5600": 1791148046.201921,
+      "3a604b75-7691-4b8f-9d86-e7b2fdf66846": 1791085729.563489,
+      "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac": 1791134533.644233,
+      "64e39921-47b1-4f55-8180-54edf5946c34": 1791094616.6771672,
+      "7ceee003-80f3-4dbc-abc1-d3a8a13d1800": 1791088215.4345238,
+      "9b059f6b-ee17-44bd-99cd-0277cf602a81": 1791095927.783212,
+      "cc7450cf-e003-4b3d-9baf-2d3ceb97d378": 1791049765.700445,
+      "d98df99d-77ad-441d-875c-6e38cdbef39d": 1791161387.738563
+    },
+    "room_turns": {
+      "0b882870-2e49-4d39-bc40-2bf47cc46f08": {
+        "architect": 8,
+        "backend": 33,
+        "pm": 98,
+        "qa": 8,
+        "reviewer": 21
+      },
+      "12cde259-0fcd-4551-84c7-52c443cb5600": {
+        "architect": 12,
+        "backend": 27,
+        "designer": 1,
+        "frontend": 1,
+        "pm": 119,
+        "qa": 29,
+        "reviewer": 14
+      },
+      "3a604b75-7691-4b8f-9d86-e7b2fdf66846": {
+        "pm": 1
+      },
+      "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac": {
+        "backend": 17,
+        "pm": 5
+      },
+      "64e39921-47b1-4f55-8180-54edf5946c34": {
+        "architect": 1,
+        "backend": 3,
+        "designer": 1,
+        "frontend": 1,
+        "pm": 9,
+        "qa": 1,
+        "reviewer": 1
+      },
+      "7ceee003-80f3-4dbc-abc1-d3a8a13d1800": {
+        "architect": 7,
+        "backend": 5,
+        "pm": 22
+      },
+      "9b059f6b-ee17-44bd-99cd-0277cf602a81": {
+        "architect": 18,
+        "backend": 27,
+        "designer": 10,
+        "pm": 99,
+        "qa": 6,
+        "reviewer": 14
+      },
+      "cc7450cf-e003-4b3d-9baf-2d3ceb97d378": {
+        "architect": 7,
+        "backend": 2,
+        "designer": 4,
+        "frontend": 4,
+        "pm": 47,
+        "qa": 4,
+        "reviewer": 7
+      },
+      "d98df99d-77ad-441d-875c-6e38cdbef39d": {
+        "pm": 50,
+        "architect": 14,
+        "qa": 16,
+        "reviewer": 11
+      }
+    },
+    "room_stopped_reasons": {
+      "0b882870-2e49-4d39-bc40-2bf47cc46f08": "Final Stage1 rejected; repair ceiling exhausted; closed after complete acknowledged handoffs.",
+      "12cde259-0fcd-4551-84c7-52c443cb5600": "Run5 final Stage1 rejected; three repairs exhausted; workers stopped with terminal evidence preserved.",
+      "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac": "completed communication-only rehearsal; no further work authorized",
+      "cc7450cf-e003-4b3d-9baf-2d3ceb97d378": "conservative whole-session stage time budget exhausted"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-05T01:47:06.481901+00:00",
+  "scope": "Passive live-run snapshot; no tests, app execution, room writes or runtime changes",
+  "files": [
+    {
+      "path": "public-events.json",
+      "sha256": "3a3a7fba80de0bf052fa60a575ab04a9b7697e7d7ec6e372932ccd2dc5dcdb6d",
+      "bytes": 18256
+    },
+    {
+      "path": "runtime.json",
+      "sha256": "6eb5d55db4151497af6429c682fbb75ac698cef23493298d97fa2776bfc5b1d1",
+      "bytes": 5714
+    },
+    {
+      "path": "git.json",
+      "sha256": "412d1bb92af8d3fbbca8e6e3e0926e8ae0ac6508e2a5cf5954475e430f4cbbd0",
+      "bytes": 352
+    }
+  ]
+}

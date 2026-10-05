@@ -1,0 +1,153 @@
+{
+  "work_item": "REVIEW-PLAN",
+  "responsible_handle": "@frankzhu94/factory-reviewer",
+  "candidate_commit": "0456233212ba4a101243c03684706e4fbbbb32e9",
+  "starting_revision": "0456233212ba4a101243c03684706e4fbbbb32e9",
+  "clone": "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+  "started_at_utc": "2026-10-05T01:21:10.129523+00:00",
+  "finished_at_utc": "2026-10-05T01:21:10.320117+00:00",
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.14.3",
+    "layer": "host planning/oracle checks; not isolated product checks"
+  },
+  "room_references": [
+    "f72d9e6d-8ecf-41d7-b28f-01fd1dac8810",
+    "ddaec528-b2ea-44c4-bb59-bc1760208514"
+  ],
+  "results": [
+    {
+      "check": "exact_clean_candidate_before",
+      "status": "PASS",
+      "detail": "0456233212ba4a101243c03684706e4fbbbb32e9"
+    },
+    {
+      "check": "map_cardinality",
+      "status": "PASS",
+      "detail": {
+        "requirements": 37,
+        "classes": 42
+      }
+    },
+    {
+      "check": "S1_source_fidelity",
+      "status": "PASS",
+      "detail": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f"
+    },
+    {
+      "check": "S2_source_fidelity",
+      "status": "PASS",
+      "detail": "b1aa1b4affad456ff26f208a378eb2f6884153fc6ef667ab37b888fcda96c5dc"
+    },
+    {
+      "check": "S3_source_fidelity",
+      "status": "PASS",
+      "detail": "36b7ff5294b3992a6fa2894e9b4f2350072912fe10ed212c1f9a8828be1f9abe"
+    },
+    {
+      "check": "S4_source_fidelity",
+      "status": "PASS",
+      "detail": "08d02b5a432d41d71f989ccb30585b3cad0977c9c1dd11145c97fb7ddd4946c4"
+    },
+    {
+      "check": "all_product_statuses_truthful",
+      "status": "PASS",
+      "detail": "No product behavior executed or accepted."
+    },
+    {
+      "check": "case_requirement_links",
+      "status": "PASS",
+      "detail": "All 42 classes link to existing source rows."
+    },
+    {
+      "check": "driver_syntax",
+      "status": "PASS",
+      "detail": "ast.parse; no service execution"
+    },
+    {
+      "check": "driver_help",
+      "status": "PASS",
+      "detail": {
+        "exit": 0
+      }
+    },
+    {
+      "check": "typed_numeric_controls",
+      "status": "PASS",
+      "detail": "Existing QA comparator distinguishes bool and array ordering."
+    },
+    {
+      "check": "fractional_identity_oracle_challenge",
+      "status": "FAIL",
+      "detail": {
+        "qa_default_parse_reports_equal": true,
+        "exact_decimal_reports_equal": false,
+        "left": "{\"n\":1.0000000000000001}",
+        "right": "{\"n\":1.0}",
+        "scope": "oracle limitation, not product result"
+      }
+    },
+    {
+      "check": "gap_opening_counterexample",
+      "status": "PASS",
+      "detail": {
+        "zone": "Europe/Berlin",
+        "date": "2026-03-29",
+        "opening": "02:15",
+        "closing": "04:45",
+        "grid_minutes": 30,
+        "duration_minutes": 30,
+        "required_valid_starts": [
+          "03:15",
+          "03:45",
+          "04:15"
+        ],
+        "architecture_line_52_predicts": [],
+        "scope": "contradiction in proposed rule; no product exists"
+      }
+    },
+    {
+      "check": "global_planner_independent_witness",
+      "status": "PASS",
+      "detail": {
+        "all_feasible_objectives": [
+          [
+            2,
+            2,
+            [
+              1,
+              2
+            ]
+          ],
+          [
+            1,
+            2,
+            [
+              2,
+              1
+            ]
+          ]
+        ],
+        "expected": [
+          1,
+          2,
+          [
+            2,
+            1
+          ]
+        ],
+        "references_in_order": [
+          "AAA001",
+          "BBB001"
+        ],
+        "scope": "independent future product oracle only"
+      }
+    },
+    {
+      "check": "exact_clean_candidate_after",
+      "status": "PASS",
+      "detail": "0456233212ba4a101243c03684706e4fbbbb32e9"
+    }
+  ],
+  "measured_consumption": "UNAVAILABLE"
+}

@@ -1,0 +1,88 @@
+{
+  "work_item": "ARCH",
+  "attempt": 1,
+  "state": "REVIEW",
+  "starting_revision": "0456233212ba4a101243c03684706e4fbbbb32e9",
+  "owner": "@frankzhu94/factory-architect",
+  "recorded_at_utc": "2026-10-05T01:33:45.442813+00:00",
+  "commands": [
+    {
+      "command": "git status --short --branch",
+      "exit_status": 0
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_status": 0
+    },
+    {
+      "command": "git fetch origin",
+      "exit_status": 0
+    },
+    {
+      "command": "git merge --ff-only origin/run-6",
+      "exit_status": 0
+    },
+    {
+      "command": "git config user.name 'Factory Architect'",
+      "exit_status": 0
+    },
+    {
+      "command": "git config user.email 'architect@factory.invalid'",
+      "exit_status": 0
+    },
+    {
+      "command": "python3 .evidence/architect-ARCH-repair1-20261005/probe.py",
+      "exit_status": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_status": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_status": 0
+    },
+    {
+      "command": "git commit -m 'Correct DST grids, exact numeric receipts and legacy provenance'",
+      "exit_status": 0
+    },
+    {
+      "command": "git commit -m 'Bind ARCH repair review to immutable candidate'",
+      "exit_status": 0
+    },
+    {
+      "command": "git push origin HEAD:refs/heads/run-6",
+      "exit_status": 0
+    },
+    {
+      "command": "git status --short --branch",
+      "exit_status": 0
+    },
+    {
+      "command": "git diff 96e2fa1b0a61ee9f917f5ce76b94726ba8e7cd10 HEAD -- planning/architecture.md",
+      "exit_status": 0
+    }
+  ],
+  "results": [
+    "Initial checkout clean at starting revision; fetch/fast-forward already up to date; all commands exit 0.",
+    "ARCH-REPAIR-001 4/4 payload verified SHA-256 8a4d08f042456d5802190fd2f553ec62270eabdff957d99f843928293eb8bbb1; ACK event a21b8bba-8907-431d-b5b7-6ac24a9cb5e7.",
+    "27 synthetic host checks PASS. Product/HTTP/container/browser/actual upgrade/performance and independent acceptance NOT_TESTED."
+  ],
+  "receipt_event": "a21b8bba-8907-431d-b5b7-6ac24a9cb5e7",
+  "progress_event": "1df64125-a94e-4bf8-82cd-0584bba625cc",
+  "probe_progress_event": "503675e8-cd0a-4ca0-8e47-d9a2a54c62eb",
+  "limits": {
+    "repair_attempt": 1,
+    "max_repairs": 3,
+    "delivery_retries_used": 0,
+    "max_delivery_retries": 2,
+    "ack_seconds": 120,
+    "finish_work_by_utc": "2026-10-05T01:37:41.259065+00:00",
+    "deadline_utc": "2026-10-05T01:38:41.259065+00:00",
+    "cumulative_deadline_utc": "2026-10-05T02:35:03.700437+00:00"
+  },
+  "measured_consumption": "UNAVAILABLE",
+  "candidate_commit": "96e2fa1b0a61ee9f917f5ce76b94726ba8e7cd10",
+  "queue_record_commit": "f453ad8c6563a6970eb636fdb74a1b3bcef9be9f",
+  "completed_at_utc": "2026-10-05T01:35:03.470348+00:00"
+}

@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-05T01:47:06.481901+00:00",
+  "head": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238",
+  "remote_run6": "c4dcae6f1dc8eb31e2634b6593c05fdcaaa91238\trefs/heads/run-6",
+  "status": "## run-6\n",
+  "stage_directories": [],
+  "scope": "Read-only live checkout; uncommitted QA work belongs to active seat and is not a fixed product candidate"
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "command": [
+      "git",
+      "-C",
+      "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit": 0,
+    "stdout": "0456233212ba4a101243c03684706e4fbbbb32e9\n",
+    "stderr": "",
+    "at": "2026-10-05T01:22:56.129921+00:00"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "status",
+      "--porcelain=v1"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "at": "2026-10-05T01:22:56.144759+00:00"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "at": "2026-10-05T01:22:56.152738+00:00"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit": 0,
+    "stdout": "0456233212ba4a101243c03684706e4fbbbb32e9\n",
+    "stderr": "",
+    "at": "2026-10-05T01:22:56.160856+00:00"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+      "status",
+      "--porcelain=v1"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "at": "2026-10-05T01:22:56.171602+00:00"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-plan-zxhphbt5/candidate",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "at": "2026-10-05T01:22:56.179369+00:00"
+  }
+]

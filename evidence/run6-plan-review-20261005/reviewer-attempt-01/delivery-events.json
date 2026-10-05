@@ -1,0 +1,27 @@
+{
+  "delivery": "REVIEW-PLAN-DECISION-001",
+  "sha256": "85a7c420a33b6220f25d50ccff5874b715724749df41cc93999e3721e2f05d10",
+  "events": [
+    {
+      "part": 1,
+      "result": "{\"id\": \"23cd9369-137c-4474-8ebc-39388b39749b\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}"
+    },
+    {
+      "part": 2,
+      "result": "{\"id\": \"610e1638-4056-4a4a-a204-b3e1171d5abc\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}"
+    },
+    {
+      "part": 3,
+      "result": "{\"id\": \"e7da5aca-fb7e-4c88-bd84-9374bb985024\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}"
+    },
+    {
+      "part": 4,
+      "result": "{\"id\": \"182765d2-bef8-49d7-97d0-5188396eace0\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}"
+    },
+    {
+      "part": 5,
+      "result": "{\"id\": \"0858fb30-7443-408c-b953-fabcedad7d41\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}"
+    }
+  ],
+  "receipt_status": "PENDING"
+}

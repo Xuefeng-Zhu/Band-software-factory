@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-05T01:52:38.654092+00:00",
+  "scope": "Completed first planning review and Architect owner repair; bounded snapshot begins 2026-10-05T01:47:06.481901Z; no application stage acceptance",
+  "files": [
+    {
+      "path": "reviewer-attempt-01/review.md",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/review.md",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 11176,
+      "sha256": "661c3816a41fa74ec392ab9bc5388a77324f16356ad46d68d3e63d90d279680f"
+    },
+    {
+      "path": "reviewer-attempt-01/decision.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/decision.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 54112,
+      "sha256": "72739fc864ad66b1d1e18e06be4a645f9c0826e5c3250af0de24b6b4b9060db9"
+    },
+    {
+      "path": "reviewer-attempt-01/setup.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/setup.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 1937,
+      "sha256": "f299f958b9123252125690456179fe2222910610221db4a38251dead5648f9eb"
+    },
+    {
+      "path": "reviewer-attempt-01/independent_checks.py",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/independent_checks.py",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 5503,
+      "sha256": "6bd4a9a23013d617ab2cd9cf6028e4c9ffcf19c6fdba44da1c5a8c9ac027a4b6"
+    },
+    {
+      "path": "reviewer-attempt-01/independent-results.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/independent-results.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 4022,
+      "sha256": "874493e03c7b6878385425000850c75864c26710a7de89d5f10a45732f761289"
+    },
+    {
+      "path": "reviewer-attempt-01/final-verification.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/final-verification.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 1674,
+      "sha256": "08e06acc522c1265df64929d7c8fea20bab0fe43a633f164adff3bfd77053fc9"
+    },
+    {
+      "path": "reviewer-attempt-01/receipt.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/receipt.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 567,
+      "sha256": "cbc163e76c2ade2c9ff20fac9a93fc3447f14a5a10cd66fbcfd9cf3dbc4fdc34"
+    },
+    {
+      "path": "reviewer-attempt-01/delivery-events.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-plan-20261005/attempt-01/delivery-events.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 1439,
+      "sha256": "fc0ee2d7728e97a12d0a0fa3752ba7342b94c73a54c9fbf7886ced842632beab"
+    },
+    {
+      "path": "architect-repair-01/probe.py",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/architect-ARCH-repair1-20261005/probe.py",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 8564,
+      "sha256": "574ed16f0551f200a6885fd210107715b539cb1761880f23acc729659dcabf9a"
+    },
+    {
+      "path": "architect-repair-01/probe-results.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/architect-ARCH-repair1-20261005/probe-results.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 4029,
+      "sha256": "8118dfa95665fb81e616bec66a5dda5d66d0b4ea4e4841d18a9bbb0ea3482fa0"
+    },
+    {
+      "path": "architect-repair-01/execution.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/architect-ARCH-repair1-20261005/execution.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 2796,
+      "sha256": "ae55f8100cb41f29764ce18e685d7318641788c0d4f75997582f791b0a60b0d3"
+    },
+    {
+      "path": "architect-repair-01/delivery-events.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/architect-ARCH-repair1-20261005/delivery-events.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 2062,
+      "sha256": "805d1945520900f141ea55935a9cbc67fccdf2404796713cc3634c61ad30ca00"
+    },
+    {
+      "path": "snapshot-20261005T014706Z/manifest.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/20261005T014706Z/manifest.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 604,
+      "sha256": "a326143e48c3fc617d636f86cec93e6ae276a4147070e2c8d37e0bec89ed254c"
+    },
+    {
+      "path": "snapshot-20261005T014706Z/public-events.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/20261005T014706Z/public-events.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 18256,
+      "sha256": "3a3a7fba80de0bf052fa60a575ab04a9b7697e7d7ec6e372932ccd2dc5dcdb6d"
+    },
+    {
+      "path": "snapshot-20261005T014706Z/runtime.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/20261005T014706Z/runtime.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 5714,
+      "sha256": "6eb5d55db4151497af6429c682fbb75ac698cef23493298d97fa2776bfc5b1d1"
+    },
+    {
+      "path": "snapshot-20261005T014706Z/git.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/20261005T014706Z/git.json",
+      "source_kind": "unchanged evidence file; not claimed Git-tracked",
+      "bytes": 352,
+      "sha256": "412d1bb92af8d3fbbca8e6e3e0926e8ae0ac6508e2a5cf5954475e430f4cbbd0"
+    },
+    {
+      "path": "goal-completion-audit.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/20261005T014706Z/goal-completion-audit.json",
+      "source_kind": "separate later audit; not part of original snapshot manifest",
+      "bytes": 13240,
+      "sha256": "1fecb3ed3e94fcbad64624d85cc2dac227e90309bd69457667b980463c720958"
+    },
+    {
+      "path": "fixed-sources/architecture-before.md",
+      "source_repository": "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "source_commit": "0456233212ba4a101243c03684706e4fbbbb32e9",
+      "source_git_path": "planning/architecture.md",
+      "source_git_blob": "17e3e19f9aba4659a65bc7857f89df2fa29b5968",
+      "source_kind": "exact committed Git blob; working tree not read",
+      "bytes": 29046,
+      "sha256": "2b76f7477bd5f0d8c64c1150a2f7feae1993fe6b3bdf87dc7cdd6a29f9fe93f3"
+    },
+    {
+      "path": "fixed-sources/architecture-repair-01.md",
+      "source_repository": "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "source_commit": "96e2fa1b0a61ee9f917f5ce76b94726ba8e7cd10",
+      "source_git_path": "planning/architecture.md",
+      "source_git_blob": "94af67d8e37aefa3df22c033250ff4ae6d759a3f",
+      "source_kind": "exact committed Git blob; working tree not read",
+      "bytes": 35339,
+      "sha256": "5ba0d3cc1419132c223ba8d1e469c2bb4abb93c88cb99da45a7594502da06005"
+    },
+    {
+      "path": "README.md",
+      "source_kind": "generated factual guide",
+      "bytes": 5603,
+      "sha256": "40b3f90b02cdcb255a8641b195f1961c85009656ae7a6c1f2478427851784f24"
+    }
+  ],
+  "copied_evidence_files": 17,
+  "fixed_git_blobs": 2,
+  "review_counts": {
+    "total": 15,
+    "pass": 14,
+    "fail": 1,
+    "layer": "independent host planning/oracle checks"
+  },
+  "architect_repair_counts": {
+    "attempt": 1,
+    "maximum_per_work_item": 3,
+    "pass": 27,
+    "layer": "owner synthetic host mechanism checks",
+    "independent_acceptance": "NOT_TESTED"
+  },
+  "privacy_inspection": {
+    "official_patterns_source_sha256": "42a269afdb2d181b70ff0f140a17f7c93a16ca05ce881b91c78806182881b6a1",
+    "credential_pattern_hits": 0,
+    "nonempty_thought_content_fields": 0,
+    "scope": "Official patterns plus BAND/JWT/private-key shapes and selected source inspection; no exhaustive or public-release claim"
+  },
+  "frozen_factory_inputs_unchanged": 34,
+  "original_snapshot_manifest_preserved": true
+}

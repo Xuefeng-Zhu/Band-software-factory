@@ -1,0 +1,10 @@
+{
+  "delivery": "REVIEW-PLAN-DECISION-001",
+  "sha256": "85a7c420a33b6220f25d50ccff5874b715724749df41cc93999e3721e2f05d10",
+  "receipt_from": "@frankzhu94/factory-pm",
+  "original_sender": "@frankzhu94/factory-reviewer",
+  "observed_at_utc": "2026-10-05T01:27:44.801748+00:00",
+  "canonical_receipt": "HANDOFF-ACK delivery REVIEW-PLAN-DECISION-001; SHA-256 85a7c420a33b6220f25d50ccff5874b715724749df41cc93999e3721e2f05d10; sender @frankzhu94/factory-reviewer",
+  "status": "ACKNOWLEDGED",
+  "scope": "Communication receipt only; planning decision remains REJECTED."
+}

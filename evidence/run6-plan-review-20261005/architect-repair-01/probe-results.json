@@ -1,0 +1,149 @@
+{
+  "work_item": "ARCH",
+  "repair_attempt": 1,
+  "owner": "@frankzhu94/factory-architect",
+  "starting_revision": "0456233212ba4a101243c03684706e4fbbbb32e9",
+  "started_at_utc": "2026-10-05T01:32:39.170501+00:00",
+  "ended_at_utc": "2026-10-05T01:32:39.172869+00:00",
+  "checks": [
+    {
+      "name": "R1 mandatory gap-opening witness",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R1 grid not shifted to gap end",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R1 separate gap-closing convention",
+      "status": "PASS",
+      "layer": "implementation convention only"
+    },
+    {
+      "name": "R1 separate first-fold closing convention",
+      "status": "PASS",
+      "layer": "implementation convention"
+    },
+    {
+      "name": "R2 request preserved across ordinary envelope decoder",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 distinct unknown decimal remains conflict",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 equivalent spelling remains replay",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 response decimal remains exact",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 integer and decimal equal",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 bool differs from number",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 object key ordering ignored",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 array ordering retained",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 no decimal context rounding 123456789012345678901234567890123456789",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 no decimal context rounding 1e-1000",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 no decimal context rounding 1.0000000000000001000000000000000000000001",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 float coercion prohibited",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R2 non-JSON constants rejected",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 original creation table retained",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 real amendment before/after retained",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 actual cancellation time retained",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 current table/status independently retained",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 original receipt unchanged",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 fact revisions carried forward",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 identities and created_at preserved",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 captured terms unchanged",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 cancelled seed does not invent cancellation fact",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    },
+    {
+      "name": "R3 seed initialization explicitly distinguished",
+      "status": "PASS",
+      "layer": "synthetic mechanism"
+    }
+  ],
+  "limitations": [
+    "Synthetic host only; no product HTTP, container, browser, upgrade or independent acceptance.",
+    "Gap-closing witness tests a documented convention, not a normative oracle."
+  ]
+}
