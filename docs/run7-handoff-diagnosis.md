@@ -17,11 +17,13 @@ Reviewed frozen sources were reconstructed read-only from factory Git revision `
 
 These facts establish a transport/admission overhead. They do not prove all elapsed time or reported tokens were caused by fragmentation, nor that a batching fix would make the application correct.
 
-## Current agent-owned repair
+## Agent-owned repair at the snapshot time
 
 `ARCH-REPAIR-A1-001` has **11/11 parts**, complete=true, acknowledged=false; its first part was observed at **2026-10-05T07:56:16.297428+00:00**. This is a real PM-issued architecture repair handoff, not an operator instruction. The snapshot records the latest Architect admission and original part UUIDs. Receipt/work completion must not be inferred from send completeness alone.
 
 Product HEAD is `73211923b9f940385036cebcf9d0bb4454d28314`. Stage-directory presence is `{"stage-1": false, "stage-2": false, "stage-3": false, "stage-4": false}`. Architecture/planning progress is not a product stage gate.
+
+A later observation found the team had pushed architecture correction `c1da398ef05700ae6e3846a9249d2ff2032648b7`. Run 7 subsequently stopped during its re-review because an invalid receipt had been posted before validation. The separate [stop diagnosis and outbound fix](outbound-protocol-validation.md) supersede the live status above, while this earlier snapshot remains the evidence for fragment admission overhead.
 
 ## Smallest factory-only correction to review offline
 

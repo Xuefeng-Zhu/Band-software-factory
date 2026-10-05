@@ -183,6 +183,12 @@ class WorkflowTools(AuditedTools):
             raise GateError("An uncertain delivery or stopped run blocks further sends.")
         tracked = protocol_header(content)
         canonical = canonical_mentions(mentions, self.roster) if tracked else None
+        normalized = normalize_header(content, self.roster) if tracked else content
+        if tracked:
+            # Correctable local input errors precede the uncertain-send boundary.
+            # The SDK dispatcher returns them as structured tool errors, allowing
+            # the same admitted turn to correct syntax without posting bad text.
+            self.watchdog.preview_outbound(self.actor_id, [m['id'] for m in canonical], normalized, self.turn_id)
         try:
             response = (await post_once(self.tools, self.watchdog.scope["room_id"], content, canonical,
                 self.ledger, deadline_at=self.deadline_at, attachment_ids=attachment_ids)) if tracked else (
@@ -190,7 +196,7 @@ class WorkflowTools(AuditedTools):
             if tracked:
                 event_id, recipients = confirmed_message(response)
                 observed = self.watchdog.observe_outbound(event_id, self.actor_id, recipients,
-                                               normalize_header(content, self.roster), self.turn_id)
+                                               normalized, self.turn_id)
                 if observed.get("blocked"):
                     self.delivery_blocked = True
                     self.ledger.stop.set()

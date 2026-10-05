@@ -1,0 +1,11 @@
+{
+  "scope": "Read-only original Run 7 source and task verification; no new freeze or runtime changes.",
+  "source_errors": [
+    "Locked reference document changed or missing: config.toml"
+  ],
+  "task_packet_count": 6,
+  "task_status": "PASS",
+  "recorded_at": "2026-10-05T08:33:20.572888+00:00",
+  "configuration_sha256": "dde637a343e1ce5996a1e37daf84dc95186189ce4a7a453874e23b0a242a6832",
+  "source_lock_sha256": "8cfb3e1db7bb3c886f09342e0837b0fe0a173f3032381b6c76c646361a617fdd"
+}

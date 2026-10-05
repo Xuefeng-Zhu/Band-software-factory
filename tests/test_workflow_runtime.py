@@ -121,6 +121,66 @@ class WorkflowIntegrationTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(state['deliveries']['RESULT-1']['acknowledged'])
         self.assertNotIn('accepted',self.watchdog.path.read_text())
 
+    async def test_ack_prose_is_correctable_before_post_without_poisoning_receipt(self):
+        for i in range(1,6):
+            self.watchdog.observe_outbound(eid(500+i),BACKEND,[PM],part(i).replace('@owner/pm','@[['+PM+']]'))
+        guard=self.wrapper(PM,'ack-correction')
+        self.post.return_value=response(600,BACKEND)
+        ack=f'HANDOFF-ACK delivery RESULT-1; SHA-256 {DIGEST}; sender @owner/backend'
+        async def adapter(inp):
+            before=self.watchdog.path.read_bytes();budget=self.ledger.path.read_bytes()
+            failed=await inp.tools.execute_tool_call_structured('band_send_message',{
+                'content':ack+'. Verified 5/5 parts; receipt is not acceptance.','mentions':[BACKEND]})
+            self.assertFalse(failed.ok)
+            self.assertIn('standalone canonical HANDOFF-ACK',failed.error_message)
+            self.post.assert_not_awaited()
+            self.assertEqual(self.watchdog.path.read_bytes(),before)
+            self.assertEqual(self.ledger.path.read_bytes(),budget)
+            self.assertFalse(self.ledger.stop.is_set());self.assertFalse(inp.tools.delivery_blocked)
+            corrected=await inp.tools.execute_tool_call_structured('band_send_message',{'content':ack,'mentions':[BACKEND]})
+            self.assertTrue(corrected.ok)
+        await self.run_callback(adapter,guard)
+        self.assertEqual(self.post.await_count,1)
+        self.assertTrue(json.loads(self.watchdog.path.read_text())['deliveries']['RESULT-1']['acknowledged'])
+        self.assertEqual(self.watchdog.health()['state'],'idle')
+
+    async def test_malformed_part_and_recipient_mismatch_do_not_post_or_mutate(self):
+        async def adapter(inp):
+            before=self.watchdog.path.read_bytes()
+            invalid=[(part(1).replace('part 1/5','part 0/5'),[PM]),
+                     (part(5).replace('END OF HANDOFF','still incomplete'),[PM]),
+                     (part(1),[BACKEND])]
+            for text,mentions in invalid:
+                outcome=await inp.tools.execute_tool_call_structured('band_send_message',{'content':text,'mentions':mentions})
+                self.assertFalse(outcome.ok)
+                self.assertEqual(self.watchdog.path.read_bytes(),before)
+                self.assertFalse(self.ledger.stop.is_set());self.assertFalse(inp.tools.delivery_blocked)
+            self.post.assert_not_awaited()
+            corrected=await inp.tools.execute_tool_call_structured('band_send_message',{'content':part(1),'mentions':[PM]})
+            self.assertTrue(corrected.ok)
+        await self.run_callback(adapter)
+        self.assertEqual(self.post.await_count,1)
+        self.assertNotEqual(self.watchdog.health()['state'],'blocked')
+
+    async def test_existing_part_binding_conflicts_are_correctable_without_post(self):
+        async def adapter(inp):
+            self.post.return_value=response(610)
+            first=await inp.tools.execute_tool_call_structured('band_send_message',{'content':part(1),'mentions':[PM]})
+            self.assertTrue(first.ok)
+            before=self.watchdog.path.read_bytes();self.post.reset_mock()
+            for text in (part(1).replace('Original','Altered').replace('Existing','Altered'),part(2).replace(DIGEST,'b'*64),part(2).replace('2/5','2/6')):
+                outcome=await inp.tools.execute_tool_call_structured('band_send_message',{'content':text,'mentions':[PM]})
+                self.assertFalse(outcome.ok)
+                self.assertEqual(self.watchdog.path.read_bytes(),before)
+                self.assertFalse(self.ledger.stop.is_set());self.assertFalse(inp.tools.delivery_blocked)
+            self.post.assert_not_awaited()
+            self.post.return_value=response(611)
+            corrected=await inp.tools.execute_tool_call_structured('band_send_message',{'content':part(2),'mentions':[PM]})
+            self.assertTrue(corrected.ok)
+        await self.run_callback(adapter)
+        self.assertEqual(self.post.await_count,1)
+        self.assertNotEqual(self.watchdog.health()['state'],'blocked')
+
     async def test_normal_non_pm_completion_does_not_require_notice_authority(self):
         await self.run_callback(AsyncMock())
         self.assertEqual(self.watchdog.health()['state'],'idle')

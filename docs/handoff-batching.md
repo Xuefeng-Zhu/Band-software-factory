@@ -6,7 +6,7 @@ The factory now collects authenticated fragments through BAND's supported prepro
 
 The wire format is exact: one header line, one newline, then the original payload slice. The final fragment adds one newline followed by `END OF HANDOFF`. Concatenate the slices without inserting or stripping whitespace. The SHA-256 describes those concatenated UTF-8 payload bytes. Transport headers and the final marker are excluded. Ordinary room messages and explicit human kickoff tasks retain their existing path.
 
-The recipient must still send the canonical `HANDOFF-ACK` through BAND. A complete delivery or a receipt is not work acceptance. Existing budgets, ownership, deadlines, repair limits and independent review requirements still apply.
+The recipient must still send the canonical `HANDOFF-ACK` through BAND. Outbound protocol text is now checked before posting so an agent can correct malformed syntax within its admitted turn. A complete delivery or a receipt is not work acceptance. Existing budgets, ownership, deadlines, repair limits and independent review requirements still apply. See [outbound protocol validation](outbound-protocol-validation.md) for the separate Run 7 stop defect.
 
 ## Activation and evidence
 
@@ -14,7 +14,7 @@ This change belongs to a new factory freeze and a fresh rehearsal. It is not a h
 
 Local utility tests exercise transport and admission behavior without sending BAND messages or invoking a model. A passing local suite does not establish live SDK delivery, a successful rehearsal or product correctness. Keep private fragment journals outside committed evidence: they contain the complete handoff payloads.
 
-Validation: **412 utility tests pass**, including 23 focused batching cases. A 12-part synthetic handoff reaches the adapter once; partial and duplicate fragments consume no model reservations. Restart, conflicting identities, routing authority, budget refusal, timeout and cancellation cases are covered. See the [test receipt](handoff-batching-validation.json) and [independent review](handoff-batching-independent-review.json).
+Validation: **416 utility tests pass**, including 23 focused batching cases and four new outbound-validation regressions. A 12-part synthetic handoff reaches the adapter once; partial and duplicate fragments consume no model reservations. Restart, conflicting identities, routing authority, budget refusal, timeout and cancellation cases are covered. See the [test receipt](handoff-batching-validation.json) and [batching independent review](handoff-batching-independent-review.json).
 
 A read-only comparison of 56 existing public handoff fragments found their bodies byte-identical to the existing outbound slices. The message-list response did not provide recipient IDs in `metadata.mentions`, so routing authority comes from the factory's confirmed send records. This comparison is transport compatibility evidence, not a live test of the new batcher. The maintained SDK's ordinary history hydration remains unchanged; a bootstrap may still contain prior fragments. Canonical ACK messages also retain their existing processing path.
 
