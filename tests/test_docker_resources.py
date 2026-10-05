@@ -48,6 +48,22 @@ class DockerResourceTests(unittest.TestCase):
             with self.subTest(cpus=cpus, memory=memory), patch("factorykit.validation.run_command", return_value=self.response(NCPU=cpus, MemTotal=memory)):
                 self.assertEqual(docker_resource_check(self.config)["status"], status)
 
+    def test_user_capped_vm_requires_an_explicit_effective_memory_floor(self):
+        # A nominal 2048 MiB ceiling reports less effective daemon memory. This
+        # checks configured total capacity only, not free RAM or workload fit.
+        observed = 2073866240
+        cases = [(1977, observed, "PASS"), (2048, observed, "FAIL"),
+                 (3072, observed, "FAIL"), (1977, 1024 ** 3, "FAIL")]
+        for minimum, memory, expected in cases:
+            with self.subTest(minimum_mib=minimum, observed_bytes=memory), patch(
+                    "factorykit.validation.run_command", return_value=self.response(MemTotal=memory)):
+                self.config["runtime"]["docker_resources"]["min_memory_mib"] = minimum
+                report = docker_resource_check(self.config)
+                self.assertEqual(report["status"], expected)
+                self.assertEqual(report["requirements"]["min_memory_mib"], minimum)
+                self.assertEqual(report["observed"]["MemTotal"], memory)
+                self.assertIn("not free memory", report["scope"])
+
     def test_explicit_endpoint_wins_over_environment_and_does_not_mutate_it(self):
         before = copy.deepcopy(self.config)
         with patch.dict(os.environ, {"DOCKER_HOST": "unix:///tmp/other.sock", "DOCKER_CONTEXT": "other"}), patch(
