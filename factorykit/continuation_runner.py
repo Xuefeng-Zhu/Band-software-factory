@@ -443,13 +443,17 @@ def main(argv=None):
                 time.sleep(0.1)
             else:
                 raise FactoryError("Continuation parent never registered ownership")
-            context = ContinuityContext(base, args.amendment, args.claim, args.owner_token)
+            # python -m executes this file as __main__; use the canonical class
+            # identity also checked by runtime.serve, without weakening its gate.
+            from .continuation_runner import ContinuityContext as VerifiedContinuityContext
+            context = VerifiedContinuityContext(base, args.amendment, args.claim, args.owner_token)
             asyncio.run(runtime.serve(base, "judged", args.owner_token, continuation=context))
         return 0
     except Exception as error:
+        from .runtime import GateError
         # Provider exceptions must not expose credentials or response bodies.
         print(json.dumps({"status": "blocked", "error_type": type(error).__name__,
-                          "detail": str(error) if isinstance(error, FactoryError) else "Continuation failed; inspect owned status without retrying."}))
+                          "detail": str(error) if isinstance(error, (FactoryError, GateError)) else "Continuation failed; inspect owned status without retrying."}))
         return 2
 
 

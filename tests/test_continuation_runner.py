@@ -5,6 +5,9 @@ import json
 import os
 from pathlib import Path
 import stat
+import subprocess
+import sys
+import textwrap
 import tempfile
 from types import SimpleNamespace
 import unittest
@@ -330,6 +333,45 @@ class ContinuationFixture(unittest.TestCase):
         self.assertTrue(claim_path.exists())
         self.assertEqual(json.loads(budget.read_text()), original)
         spawn.assert_not_called()
+
+    def test_real_module_entrypoint_uses_canonical_context_and_exposes_safe_gate(self):
+        # Exercise the actual python -m entrypoint and runtime isinstance guard.
+        # Only temp-fixture validation/preflight are stubbed; no SDK is connected.
+        self.amendment['model_catalog'] = None; self.rebind()
+        ctx = self.context()
+        fixture_config = self.root / 'base.json'
+        self.write(fixture_config, self.base)
+        hook = self.root / 'sitecustomize.py'
+        hook.write_text(textwrap.dedent("""
+            import json, os, socket
+            from pathlib import Path
+            from factorykit import common, deadline_extension as de, runtime
+            base = json.loads(Path(os.environ['CONTINUATION_OFFLINE_BASE']).read_text())
+            def no_network(*args, **kwargs):
+                raise AssertionError('offline entrypoint test forbids network')
+            socket.socket.connect = no_network
+            socket.create_connection = no_network
+            common.load_config = lambda path: base
+            de.validate_claimed_amendment = lambda *args, **kwargs: base
+            owner = {'token': 'offline', 'parent': {'pid': os.getpid()},
+                     'mode': 'judged', 'status': 'starting'}
+            Path(base['paths']['runs'], 'runtime/owner.json').write_bytes(common.canonical(owner))
+            def stopped_before_sdk(*args, **kwargs):
+                raise runtime.GateError('Offline sentinel: canonical context verified before SDK startup')
+            runtime.preflight_runtime = stopped_before_sdk
+        """))
+        env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1',
+                   PYTHONPATH=os.pathsep.join([str(self.root), str(Path(cr.__file__).parents[1])]),
+                   CONTINUATION_OFFLINE_BASE=str(fixture_config))
+        result = subprocess.run(
+            [sys.executable, '-B', '-m', 'factorykit.continuation_runner',
+             '--config', str(fixture_config), '--amendment', str(self.amendment_path),
+             '_serve', '--claim', str(ctx.claim_path), '--owner-token', 'offline'],
+            cwd=self.root, env=env, capture_output=True, text=True, timeout=20)
+        self.assertEqual(result.returncode, 2, result.stderr)
+        report = json.loads(result.stdout)
+        self.assertEqual(report['error_type'], 'GateError')
+        self.assertEqual(report['detail'], 'Offline sentinel: canonical context verified before SDK startup')
 
     def test_pid_or_partial_handshake_is_not_ready(self):
         record = {'token': 't', 'status': 'running', 'seats': ['pm', 'frontend'],
