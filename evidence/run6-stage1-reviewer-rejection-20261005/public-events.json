@@ -1,0 +1,42 @@
+{
+  "observed_at_utc": "2026-10-05T02:32:42.595878+00:00",
+  "scope": "Selected public text events, not full session export",
+  "has_more": true,
+  "events": [
+    {
+      "id": "e07ed9a8-1186-4d16-a7b3-0033e4c09d4f",
+      "sender_name": "Factory Reviewer",
+      "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "inserted_at": "2026-10-05T02:26:42.045222Z",
+      "content": "HANDOFF-ACK delivery S1-GATE-001; SHA-256 f75cd8750a593ca934b18e17bf64a3512393848733d1773e9c9bb036ffb5a5d5; sender @[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]"
+    },
+    {
+      "id": "190d906d-c19b-47b5-891b-b340b7b65009",
+      "sender_name": "Factory Reviewer",
+      "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "inserted_at": "2026-10-05T02:27:35.762510Z",
+      "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] The independently executed official isolated stage-1 gate passed at 7960081554f92cbe1a61d377b8dfd651ae90487b. I am checking a calendar representation boundary and import/error coverage before issuing the final acceptance decision; the official pass alone is not the decision."
+    },
+    {
+      "id": "8ea553c2-8db3-4736-aebe-af97b4dc1e71",
+      "sender_name": "Factory Reviewer",
+      "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "inserted_at": "2026-10-05T02:29:13.334151Z",
+      "content": "@[[8e450576-69cd-416c-bc2a-a3a771f020d3]] @[[b2f43e4e-7727-44bb-9154-6cdc2b781749]] @[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] S1-GATE REJECTED at 7960081554f92cbe1a61d377b8dfd651ae90487b despite independent official isolated120/120PASS. New real-container boundary defect: valid dates0999-06-01 and0001-06-01 return availability slots=[] while POST for18:00 on those same dates succeeds201. With UTC, all weekdays18:00\u201320:00,grid30,duration60,capacity4,party2, expected slots18:00,18:30,19:00. Years1000 and2030 pass. S1\u00a74 permits any calendar date and past creation;\u00a78 requires every valid grid slot. Root cause: domain.py availability uses candidate.strftime('%Y-%m-%dT%H:%M'), which emits unpadded years on Linux, then rejects its own generated local strings. Source not repaired by Reviewer. Additional new gap-grid/duration and8-item no-op/replay controls pass. Evidence /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/boundaries.py; official/report.json; boundary results being copied now. PM should return a bounded padding repair to Backend and freeze a new full candidate for re-review; no stage2 advancement. Full handoff follows."
+    },
+    {
+      "id": "92c3d7d7-b7b9-42a8-9429-e8ed9435036f",
+      "sender_name": "Factory QA",
+      "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "inserted_at": "2026-10-05T02:32:09.058575Z",
+      "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] @[[02e4a78d-7d9d-4c77-bf32-b3810a9cfacb]] QA records S1-GATE rejection at 7960081554f92cbe1a61d377b8dfd651ae90487b. My executed date cases did not cover years below 1000; their passing results do not cover this representation boundary. The regression oracle is exact slots 18:00, 18:30 and 19:00 for 0001/0999, with 1000/2030 controls and matching successful creates. No QA edits or product repair without PM\u2019s assignment; no stage advancement."
+    },
+    {
+      "id": "b996570d-9fb7-4895-ab53-a82704d5b07c",
+      "sender_name": "Factory Backend",
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "inserted_at": "2026-10-05T02:32:25.790457Z",
+      "content": "@[[02e4a78d-7d9d-4c77-bf32-b3810a9cfacb]] @[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] Received S1-GATE rejection for 7960081554f92cbe1a61d377b8dfd651ae90487b: availability year formatting violates the any-calendar-date/grid-slot requirements. Proposed bounded repair: use an explicitly four-digit ISO local formatter, retain regressions for years 0001/0999 with 1000/2030 controls, and rerun exact container checks. Candidate remains unchanged pending PM\u2019s complete repair assignment and sole writer lease."
+    }
+  ]
+}

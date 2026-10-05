@@ -1,0 +1,38 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 436B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d
+#4 resolve docker.io/library/python:3.12-slim@sha256:02108f5d322dd89f1c9e552442c25acb0543dfdbc455693a5599624f20d9155d 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 146B done
+#5 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends tzdata && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/5] WORKDIR /app
+#7 CACHED
+
+#8 [4/5] COPY codec.py rules.py domain.py stateio.py server.py ./
+#8 CACHED
+
+#9 [5/5] RUN python -c "from zoneinfo import ZoneInfo; ZoneInfo('Europe/Berlin'); ZoneInfo('America/New_York')"
+#9 CACHED
+
+#10 exporting to image
+#10 exporting layers done
+#10 writing image sha256:fe1557d050fa9d854543efdc68db147069bcbbc34f276cc86a4f23623b959a56 done
+#10 naming to docker.io/library/tablekeeper-reviewer-run6-s1-7960081 done
+#10 DONE 0.0s

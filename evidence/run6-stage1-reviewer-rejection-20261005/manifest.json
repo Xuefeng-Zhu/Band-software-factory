@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-05T02:35:38.676111+00:00",
+  "scope": "Completed independent exact-candidate Stage 1 rejection; not a terminal Run 6 outcome.",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "disclosed_queue_only_revision": "9d02432fcbd94a2f4558a355394ecb2a482a26a2",
+  "decision": "REJECTED",
+  "official_suite": {
+    "passed": 120,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "mode": "isolated",
+    "report_provenance": "working-tree",
+    "run_id": "7356f13f44844ea8835fab02838eb346",
+    "started_at_utc": "2026-10-05T02:26:52.189387+00:00",
+    "finished_at_utc": "2026-10-05T02:27:17.935093+00:00",
+    "suite_digest": "8d7e7d9bb94893b67dff0a19ee8ecb8d6888db7208ed269f64b29c0a661a17a7",
+    "exact_clean_clone_provenance": "setup.json and final-verification.json",
+    "release_acceptance": false
+  },
+  "independent_boundaries": {
+    "passed": 4,
+    "failed": 2,
+    "failed_cases": [
+      "calendar_year_0999",
+      "calendar_year_0001"
+    ],
+    "started_at_utc": "2026-10-05T02:28:47.883832+00:00",
+    "finished_at_utc": "2026-10-05T02:28:48.301662+00:00",
+    "layer": "actual HTTP inside network-none2CPU2GiB container",
+    "reproduction_script": "boundaries.py"
+  },
+  "public_evidence": {
+    "observed_at_utc": "2026-10-05T02:32:42.595878+00:00",
+    "selected_events": 5,
+    "has_more": true,
+    "full_session_export": false,
+    "rejection_event_id": "8ea553c2-8db3-4736-aebe-af97b4dc1e71",
+    "rejection_at_utc": "2026-10-05T02:29:13.334151Z",
+    "outgoing_complete_pm_ack_proven": false
+  },
+  "unchanged_limits": {
+    "max_repairs_per_work_item": 3,
+    "cumulative_deadline_utc": "2026-10-05T02:35:03.700437Z"
+  },
+  "original_storage": "Ignored/untracked .evidence files; not claimed as Git-tracked evidence blobs at the application candidate.",
+  "privacy_review": {
+    "method": "Pinned organizer SECRETS patterns; supplemental BAND/JWT/private-key patterns; bounded manual inspection of retained source, including the complete reproduction script and synthetic fixture.",
+    "official_pattern_source": "/Users/frank/mygit/Tablekeeper/challenge/harness/check.py",
+    "official_pattern_source_sha256": "42a269afdb2d181b70ff0f140a17f7c93a16ca05ce881b91c78806182881b6a1",
+    "raw_pattern_matches": [
+      {
+        "path": "boundaries.py",
+        "pattern": "env-assignment",
+        "line": 9,
+        "match_sha256": "586607af4b851e4ec78aac877255fa71f3fe59bf08aa43ebd926100b2cbfe73c",
+        "classification": "Empty in-memory token initialized to None; no credential literal."
+      },
+      {
+        "path": "boundaries.py",
+        "pattern": "env-assignment",
+        "line": 10,
+        "match_sha256": "eb569c764b279fcb055993acfdf730d3bb3943507b5cb5b52969bff390aa59ea",
+        "classification": "Optional idempotency-key function parameter defaults to None; not a credential."
+      },
+      {
+        "path": "boundaries.py",
+        "pattern": "env-assignment",
+        "line": 26,
+        "match_sha256": "722a58431c1b3580d7901e7943ad77f1e88086728df8bab5359e49d3cf67506c",
+        "classification": "In-memory token reset to None before resetting a synthetic fixture."
+      },
+      {
+        "path": "boundaries.py",
+        "pattern": "env-assignment",
+        "line": 27,
+        "match_sha256": "6eb59e30a8a31cf6c798e28780dbb6428e1aab4e3e9ee9a1dd5193de802fdf44",
+        "classification": "Token read dynamically from synthetic-fixture login response; no token value retained or printed."
+      }
+    ],
+    "actionable_credential_findings": 0,
+    "limitation": "Private preservation only; not exhaustive privacy assurance or public-release approval."
+  },
+  "frozen_inputs": {
+    "manifest": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+    "manifest_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+    "verified_unchanged_count": 34
+  },
+  "archiver_executed_product_tests": false,
+  "files": [
+    {
+      "path": "review.md",
+      "sha256": "e44842fe5bf0ccb0e6fa399ed6920fd6bb93848c0be50484dea617a15396fd20",
+      "bytes": 7238,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/review.md",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "setup.json",
+      "sha256": "acf154fd116763286c3b50c2d18b142ff64d8c03865776374ce2da50f6ba6608",
+      "bytes": 2285,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/setup.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "final-verification.json",
+      "sha256": "0ac7eb0770ba04f45d1e759a395d31ae5271247954b74fd1c3a7a24de3e09add",
+      "bytes": 1662,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/final-verification.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "official-report.json",
+      "sha256": "fe5db3069cb24dafdce4bb38fd9865323abd8036c61dcb6cf6ddce62388cfb10",
+      "bytes": 1415,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/official/report.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "official-stage-1.log",
+      "sha256": "6e2c59ea128abb5b09b4a4e5ac0cf06a6013e2d7b3d8a17eccc8c559d5ae2783",
+      "bytes": 1414,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/official/stage-1.log",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "boundaries.py",
+      "sha256": "be24cf2d664559cba0a12f6a79bcc466accb70613b6a70982706b30808575a19",
+      "bytes": 4018,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/boundaries.py",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "boundary-results.json",
+      "sha256": "532d898db201b4b6c4c4d5ab6af669c3f6af794b4d5b52240d44e69193a3d000",
+      "bytes": 2789,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/boundary-results.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "docker-build.log",
+      "sha256": "321763d86d6d982a65c63e819364e30c26ae799a224435bcb3af8bfb33424e6d",
+      "bytes": 1255,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/docker-build.log",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "public-events.json",
+      "sha256": "e0c84acffdbae8e1134b2afef0c985644c2d5289082677e669a4928b9def6bb3",
+      "bytes": 4009,
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/stage1-reviewer-20261005/public-events.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "README.md",
+      "sha256": "aa042552c24eb68a6e83cb691c3b72b4699b26bf82678aaad65800d2a51a90a5",
+      "bytes": 4026,
+      "source": "Generated factual archive index",
+      "preservation": "new index"
+    }
+  ],
+  "archive_validation": {
+    "source_copies": "All nine byte-exact originals verified against their recorded source paths.",
+    "whitespace": "Generated README, manifest and documentation pass; other copied files pass except original official-stage-1.log blank line at EOF.",
+    "immutable_whitespace_exception": {
+      "path": "official-stage-1.log",
+      "line": 11,
+      "diagnostic": "new blank line at EOF",
+      "reason": "Preserve original execution log bytes; no trimming or evidence rewrite."
+    },
+    "tests_rerun": false
+  }
+}

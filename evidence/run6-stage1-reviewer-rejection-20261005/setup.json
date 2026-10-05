@@ -1,0 +1,85 @@
+{
+  "clone": "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-s1-ift6za71/candidate",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "fetch",
+        "origin"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T02:26:43.058805+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-hardlinks",
+        "--no-checkout",
+        "/Users/frank/mygit/Tablekeeper/result-run-6",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-s1-ift6za71/candidate"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "Cloning into '/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-s1-ift6za71/candidate'...\ndone.\n",
+      "at": "2026-10-05T02:26:43.136073+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-s1-ift6za71/candidate",
+        "checkout",
+        "--detach",
+        "7960081554f92cbe1a61d377b8dfd651ae90487b"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at 7960081 Implement standalone stage 1 reservation service and focused regressions\n",
+      "at": "2026-10-05T02:26:43.152114+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-s1-ift6za71/candidate",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit": 0,
+      "stdout": "7960081554f92cbe1a61d377b8dfd651ae90487b\n",
+      "stderr": "",
+      "at": "2026-10-05T02:26:43.159598+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-review-s1-ift6za71/candidate",
+        "status",
+        "--porcelain"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T02:26:43.169977+00:00"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "7960081554f92cbe1a61d377b8dfd651ae90487b",
+        "9d02432fcbd94a2f4558a355394ecb2a482a26a2",
+        "--",
+        "stage-1"
+      ],
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "at": "2026-10-05T02:26:43.178121+00:00"
+    }
+  ]
+}
