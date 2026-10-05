@@ -74,16 +74,20 @@ def _reconciled_sources(base, effective, lock, amendment):
     expected_seats = [{"seat_id": s["id"], "model": s["model"], "reasoning_effort": s["reasoning_effort"]} for s in seats]
     _require(proof["seat_overrides"] == expected_seats, "Inherited defaults proof seat overrides changed")
     raw = de._bytes(proof["path"])
-    _require(digest(raw) == proof["observed_sha256"], "Inherited defaults observed bytes changed")
     try:
         parsed = tomllib.loads(raw.decode())
     except (ValueError, UnicodeError):
         raise FactoryError("Inherited defaults TOML is malformed or has duplicate keys") from None
-    _require(all(parsed.get(k) == v for k, v in observed_defaults.items()), "Inherited defaults must be top-level values")
+    current_defaults = {key: parsed.get(key) for key in prior_defaults}
+    _require(isinstance(current_defaults["model"], str)
+             and re.fullmatch(r"[A-Za-z0-9_.:-]{1,128}", current_defaults["model"])
+             and isinstance(current_defaults["model_reasoning_effort"], str)
+             and current_defaults["model_reasoning_effort"] in {"none", "minimal", "low", "medium", "high", "xhigh", "max", "ultra"},
+             "Inherited defaults must be simple top-level model and reasoning values")
     # Preserve every unrelated byte. Conservative bare, unique top-level lines only;
     # TOML serialization would hide unrelated formatting or instruction changes.
     reconstructed = raw
-    for key, value in observed_defaults.items():
+    for key, value in current_defaults.items():
         pattern = rb"(?m)^[ \t]*" + key.encode() + rb"[ \t]*=[^\n]*(?:\n|$)"
         matches = list(re.finditer(pattern, raw))
         expected_line = (key + ' = "' + value + '"\n').encode()
@@ -93,6 +97,14 @@ def _reconciled_sources(base, effective, lock, amendment):
         reconstructed = reconstructed.replace(expected_line, (key + ' = "' + prior_defaults[key] + '"\n').encode(), 1)
     _require(digest(reconstructed) == proof["prior_audited_sha256"],
              "Replacing only the inherited defaults does not recover the prior audited input")
+    # App defaults may change while the independently configured factory waits.
+    # Re-prove the recorded snapshot from the same immutable prior bytes as well
+    # as the current projection; no other byte or field is ignored.
+    recorded = reconstructed
+    for key, value in observed_defaults.items():
+        recorded = recorded.replace((key + ' = "' + prior_defaults[key] + '"\n').encode(),
+                                    (key + ' = "' + value + '"\n').encode(), 1)
+    _require(digest(recorded) == proof["observed_sha256"], "Recorded inherited defaults snapshot is not reconstructible")
     audit = de._referenced(proof["trust_audit"])
     observed = audit.get("global_configuration", {}); reconstruction = observed.get("reconstruction", {})
     _require(observed.get("classification") == "EXACT_NEW_RESULT_TRUST_STANZA_ONLY"
@@ -119,7 +131,7 @@ def _reconciled_sources(base, effective, lock, amendment):
              "Removing only the prior trust stanza does not recover the original locked input")
     _require(de._bytes(proof["path"]) == raw, "Inherited defaults changed during reconciliation")
     checked = copy.deepcopy(lock)
-    next(r for r in checked["instruction_inputs"] if r["path"] == proof["path"])["sha256"] = proof["observed_sha256"]
+    next(r for r in checked["instruction_inputs"] if r["path"] == proof["path"])["sha256"] = digest(raw)
     return checked
 
 

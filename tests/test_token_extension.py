@@ -102,6 +102,29 @@ class TokenExtensionTests(unittest.TestCase):
             with self.assertRaises(FactoryError):te.validate_amendment(self.f.base,path,now=self.now)
             target.write_bytes(original)
 
+    def test_later_overridden_defaults_do_not_change_effective_factory(self):
+        proof_path=self.defaults_proof();proof_before=proof_path.read_bytes()
+        path=self.approve(self.proposal(True));expected=te.validate_amendment(self.f.base,path,now=self.now)
+        raw=self.f.global_config.read_bytes()
+        for model,effort in [('gpt-6-astra','ultra'),('gpt-6.1-sol','medium')]:
+            current=raw.replace(b'model = "gpt-6-astra"',f'model = "{model}"'.encode()).replace(b'model_reasoning_effort = "xhigh"',f'model_reasoning_effort = "{effort}"'.encode())
+            self.f.global_config.write_bytes(current)
+            self.assertEqual(te.validate_amendment(self.f.base,path,now=self.now),expected)
+            self.assertEqual(self.f.global_config.read_bytes(),current)
+            self.assertEqual(proof_path.read_bytes(),proof_before)
+        self.f.global_config.write_bytes(current+b'\nmodel_provider = "other"\n')
+        with self.assertRaises(FactoryError):te.validate_amendment(self.f.base,path,now=self.now)
+
+    def test_recorded_projection_snapshot_and_current_value_shapes_remain_bound(self):
+        proof_path=self.defaults_proof();proof=de._read(proof_path)
+        proof['observed_sha256']='0'*64;self.f.write_json(proof_path,proof)
+        with self.assertRaisesRegex(FactoryError,'snapshot'):self.proposal()
+        self.defaults_proof();raw=self.f.global_config.read_bytes()
+        for current in (raw.replace(b'model_reasoning_effort = "xhigh"',b'model_reasoning_effort = "unexpected"'),
+                        raw.replace(b'model = "gpt-6-astra"',b'model = "invalid model"')):
+            self.f.global_config.write_bytes(current)
+            with self.assertRaises(FactoryError):self.proposal()
+
     def test_missing_or_unbound_defaults_proof_is_rejected(self):
         proof=self.defaults_proof();self.kwargs.pop('inherited_defaults_reconciliation_path')
         with self.assertRaises(FactoryError):self.proposal()
