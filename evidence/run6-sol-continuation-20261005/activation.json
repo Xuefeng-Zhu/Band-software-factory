@@ -1,0 +1,49 @@
+{
+  "active_turn_limit": 1,
+  "amendment_sha256": "ca12bdaa1a676aceebc7df4c71ba068aeb04c154ac66ffdaf388366c4a9cd352",
+  "billing_mode": "subscription_only",
+  "configured_models": {
+    "architect": "gpt-6.1-sol",
+    "backend": "gpt-6.1-sol",
+    "designer": "gpt-6.1-sol",
+    "frontend": "gpt-6.1-sol",
+    "pm": "gpt-6.1-sol",
+    "qa": "gpt-6.1-sol",
+    "reviewer": "gpt-6.1-sol"
+  },
+  "deadline_utc": "2026-10-05T10:35:03.700437Z",
+  "limits": "Seven configured and connected seats; live model execution verified only for PM and Reviewer at this snapshot. No new product acceptance or full-room export claim.",
+  "live_model_observations": [
+    {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "seat": "pm",
+      "source": "/Users/frank/.codex/sessions/2026/10/04/rollout-2026-10-04T17-49-48-01a10989-cd8a-7740-8747-09a1211f33e0.jsonl",
+      "timestamp": "2026-10-05T03:44:34.639Z",
+      "turn_id": "01a10a29-cf13-7681-a25d-1109cb9414bf"
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "seat": "reviewer",
+      "source": "/Users/frank/.codex/sessions/2026/10/04/rollout-2026-10-04T18-17-55-01a109a3-8ccf-7451-b741-f44d01118a4d.jsonl",
+      "timestamp": "2026-10-05T03:44:43.305Z",
+      "turn_id": "01a10a29-f0f1-7820-a894-41b38d524072"
+    }
+  ],
+  "max_total_tokens": 286011577,
+  "observed_at": "2026-10-05T03:44:53.220111+00:00",
+  "offline_tests_passed": 337,
+  "orbstack_cap_mib": 2048,
+  "original_dispatch_count": 1,
+  "original_dispatch_event": "2657292f-0e48-4396-b7a5-e5294bd311f7",
+  "owned_parent_alive": true,
+  "pid": 69551,
+  "remaining_reported_tokens": 6856657,
+  "reported_tokens": 279154920,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "running_sdk_contexts": 7,
+  "schema_version": 1,
+  "status": "RUNNING",
+  "stopped_reason": null
+}

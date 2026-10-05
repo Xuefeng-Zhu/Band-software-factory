@@ -1,0 +1,51 @@
+{
+  "files": [
+    {
+      "file": "activation.json",
+      "sha256": "07e05fa3c077876f3020f491e1c901f6940ae28f9131563e0745ced9320c88d5",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/activation-v3.json"
+    },
+    {
+      "file": "effective-factory.yaml",
+      "sha256": "b047bacf1c6659ceb3806adba086abdb74075582823bdd893553efd741d5c683",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/effective-factory-v3.yaml"
+    },
+    {
+      "file": "model-authorization.json",
+      "sha256": "c0de97597a4817b08cbe6cbed6a023f08bef685d7d3f8142f35241566874b642",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/model-authorization.json"
+    },
+    {
+      "file": "deadline-authorization.json",
+      "sha256": "4e72b9985f79a67291d4f5ce6d54812bb64bb46e40f5602a8727146e25377039",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/authorization.json"
+    },
+    {
+      "file": "model-catalog.json",
+      "sha256": "f3377dbb36207ff0141005f512724169bbe19600518da4c2fd70b3827b5e6f9c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/model-catalog.json"
+    },
+    {
+      "file": "approved-amendment.json",
+      "sha256": "ca12bdaa1a676aceebc7df4c71ba068aeb04c154ac66ffdaf388366c4a9cd352",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/approved-amendment-v3.json"
+    },
+    {
+      "file": "review.json",
+      "sha256": "16157a637c9ad5d6be3e1b09d0bb807528aeeea6286ef146358c3b4e5876c74b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/review-v3.json"
+    },
+    {
+      "file": "ready-to-resume.json",
+      "sha256": "9ad5677ab36bf0e689db1522b34dbd59ad427e8391aecaeec9a3f3ac29d0682e",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/ready-to-resume-v3.json"
+    },
+    {
+      "file": "failed-bootstrap-reconciliation.json",
+      "sha256": "5a69fd1c138637baf77230aa3f537c519603fcdeacdbd8ca89f63edc4a74dabf",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/failed-bootstrap-v2/reconciliation.json"
+    }
+  ],
+  "observed_at": "2026-10-05T03:44:53.220111+00:00",
+  "private_session_download_included": false
+}

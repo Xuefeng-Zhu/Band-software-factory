@@ -1,0 +1,89 @@
+{
+  "authorization": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/authorization.json",
+    "sha256": "4e72b9985f79a67291d4f5ce6d54812bb64bb46e40f5602a8727146e25377039"
+  },
+  "base_configuration_sha256": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199",
+  "bindings": {
+    "budget": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-runtime--budget-subscription.json",
+      "sha256": "008ced14e4c366cf7b53a84fd632a476f3a0239d803ed914da095d33237e78f5"
+    },
+    "configuration": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-factory.yaml",
+      "sha256": "d734f2ccf122daa430b64c8036f1cea742a132dfa9a371b416be300d20143d74"
+    },
+    "freeze": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-freeze--latest.json",
+      "sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367"
+    },
+    "launch_ledger": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/ledger.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-launch--ledger.json",
+      "sha256": "b7f52adde07e1423eac1400f50b48cdab8431d8327072672a3a57b3844790811"
+    },
+    "source_lock": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-source-lock.json",
+      "sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac"
+    },
+    "workflow": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/workflow-d98df99d-77ad-441d-875c-6e38cdbef39d.json",
+      "preserved_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/before-runtime--workflow-d98df99d-77ad-441d-875c-6e38cdbef39d.json",
+      "sha256": "2448d1383876ebae01c1452c2ca3218591576f4edfdbb15d690a81b79640d6bb"
+    }
+  },
+  "changes": {
+    "additional_seconds": 28800,
+    "new_deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+    "new_overall_timeout_seconds": 146738,
+    "new_stage_timeout_seconds": 35116,
+    "old_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+    "old_overall_timeout_seconds": 117938,
+    "old_stage_timeout_seconds": 28800
+  },
+  "continuity": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/continuity-v3.json",
+    "sha256": "9cf59d764a0d80de6d237a4e5d2fb469d911b44d32df5f6f15f55bfe3f0ddec5"
+  },
+  "created_at_utc": "2026-10-05T03:35:52.742387+00:00",
+  "effective_configuration_sha256": "17164a3f0ad290c29531a2076828bbe5ac1acd41665ea1bed912f8726da47679",
+  "model_authorization": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/model-authorization.json",
+    "sha256": "c0de97597a4817b08cbe6cbed6a023f08bef685d7d3f8142f35241566874b642"
+  },
+  "model_catalog": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/model-catalog.json",
+    "sha256": "f3377dbb36207ff0141005f512724169bbe19600518da4c2fd70b3827b5e6f9c"
+  },
+  "owner_registry": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/owner.json",
+    "sha256": "ca5b78a37f99a2641e017e21ea12cb26e8e74d7e88196086e34f986383799921"
+  },
+  "review": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/review-v3.json",
+    "sha256": "16157a637c9ad5d6be3e1b09d0bb807528aeeea6286ef146358c3b4e5876c74b"
+  },
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "schema_version": 1,
+  "source_deltas": [
+    {
+      "after_sha256": "c62bb95e211015ed55ab5c5a083491c9cf84642a95cc9bb0b9ff60df9d60d7d9",
+      "before_sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c",
+      "path": "factorykit/runtime.py"
+    }
+  ],
+  "status": "APPROVED_NOT_APPLIED",
+  "stopped_status": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/reconciled-stop-status-v3.json",
+    "sha256": "4d21635570c147e7ca22ecfc60b7702ac403c2f0b07afa5d289fd3ec127b22d6"
+  },
+  "trust_audit": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/postlaunch-integrity.json",
+    "sha256": "b5e3c5c58abc7d8fe436f43891fc542ecb353cfca744462dd4cb5a198b59b786"
+  },
+  "validator_sha256": "28b3e9f9a1f93526b241cbfa2dc5509361b8eba82c85fd0e3ec5b6900f7a61f4"
+}

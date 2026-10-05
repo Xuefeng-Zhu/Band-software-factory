@@ -1,0 +1,18 @@
+{
+  "amendment_sha256": "ca12bdaa1a676aceebc7df4c71ba068aeb04c154ac66ffdaf388366c4a9cd352",
+  "checked_at": "2026-10-05T03:42:00.320687+00:00",
+  "claim_created": false,
+  "dispatch_performed": false,
+  "effective_models": {
+    "architect": "gpt-6.1-sol",
+    "backend": "gpt-6.1-sol",
+    "designer": "gpt-6.1-sol",
+    "frontend": "gpt-6.1-sol",
+    "pm": "gpt-6.1-sol",
+    "qa": "gpt-6.1-sol",
+    "reviewer": "gpt-6.1-sol"
+  },
+  "max_total_tokens": 286011577,
+  "new_deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+  "status": "READY_TO_RESUME"
+}

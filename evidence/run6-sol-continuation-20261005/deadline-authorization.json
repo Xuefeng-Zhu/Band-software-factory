@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-05T02:38:48.288673+00:00",
+  "status": "APPROVED_NOT_APPLIED",
+  "authorization_source": "Direct user answer in current Codex chat",
+  "user_answer": "Add 8 hours",
+  "scope": "Extend the effective Run 6 deadline; keep token ceiling, memory cap, subscription-only setup and existing usage unchanged",
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "additional_seconds": 28800,
+  "old_deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+  "new_deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+  "old_overall_timeout_seconds": 117938,
+  "new_overall_timeout_seconds": 146738,
+  "old_stage_timeout_seconds": 28800,
+  "minimum_run6_stage_timeout_seconds": 35116,
+  "max_total_tokens": 286011577,
+  "tokens_preserved": 276403301,
+  "remaining_reported_tokens": 9608276,
+  "original_started_epoch": 1791049765.700437,
+  "run6_started_epoch": 1791161387.738563,
+  "orbstack_cap_mib": 2048,
+  "initial_dispatch_event": "2657292f-0e48-4396-b7a5-e5294bd311f7",
+  "original_configuration_sha256": "d734f2ccf122daa430b64c8036f1cea742a132dfa9a371b416be300d20143d74",
+  "original_freeze_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+  "budget_sha256_at_halt": "008ced14e4c366cf7b53a84fd632a476f3a0239d803ed914da095d33237e78f5",
+  "limitations": [
+    "No hot reload in existing supervisor",
+    "Original deadline halt occurred before runtime amendment",
+    "Same-room restart requires verified message and Codex thread continuity",
+    "Approval changes time only; no token reset, new run or second task dispatch authorized"
+  ]
+}

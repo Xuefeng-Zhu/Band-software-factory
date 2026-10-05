@@ -1,0 +1,16 @@
+{
+  "independent": true,
+  "proposal_sha256": "5624f7094919f15f50e498281f56c937d0edfcb66b81275975863ca961491001",
+  "reviewed_at_utc": "2026-10-05T03:39:48.216971+00:00",
+  "reviewer": "run4_readiness_audit: independent canonical-entrypoint fix, failure reconciliation, deadline validator, runner and runtime integration review; continuation_platform.py authored by reviewer and separately reviewed by root",
+  "schema_version": 1,
+  "scope": "same-room deadline extension",
+  "source_deltas": [
+    {
+      "after_sha256": "c62bb95e211015ed55ab5c5a083491c9cf84642a95cc9bb0b9ff60df9d60d7d9",
+      "before_sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c",
+      "path": "factorykit/runtime.py"
+    }
+  ],
+  "status": "PASS"
+}

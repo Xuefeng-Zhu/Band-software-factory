@@ -1,0 +1,37 @@
+{
+  "after": {
+    "budget": "008ced14e4c366cf7b53a84fd632a476f3a0239d803ed914da095d33237e78f5",
+    "execution": "8ce17d2f984b25bd9f414a0dc251481c5eb73084caf45160c9470455e3fe899d",
+    "owner": "ca5b78a37f99a2641e017e21ea12cb26e8e74d7e88196086e34f986383799921",
+    "workflow": "2448d1383876ebae01c1452c2ca3218591576f4edfdbb15d690a81b79640d6bb"
+  },
+  "before": {
+    "budget": "bbf1484de91ea8b8c5471f459ebfa35dde1d856b5a53282c898de68404da1fc1",
+    "execution": "8ce17d2f984b25bd9f414a0dc251481c5eb73084caf45160c9470455e3fe899d",
+    "owner": "e51c24c3a2fadb9712b8abd56308d686b1ca21fce3e8711d7889c9ac6b5087d3",
+    "workflow": "2448d1383876ebae01c1452c2ca3218591576f4edfdbb15d690a81b79640d6bb"
+  },
+  "budget_semantic_delta": {
+    "stopped_reason": {
+      "after": "overall time budget exhausted",
+      "before": null
+    }
+  },
+  "counts_epochs_workflow_execution_preserved": true,
+  "existing_authorization": "Same-room eight-hour extension and all-seat gpt-6.1-sol; no new dispatch or allowance",
+  "failed_claim": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/continuation/5cac11f43e905ebce85ca5dc65d804dae054be6e5255f22aae97bc1b1bb02e85.claim.json",
+    "sha256": "1898c133bfa9d1ac84d133a9300fc4c312b340518dc831c85bf37eddf64149cd"
+  },
+  "failed_claim_unchanged": true,
+  "new_model_turns": 0,
+  "parent_process_absent": true,
+  "preservation": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/deadline-extension-20261005/failed-bootstrap-v2/preservation.json",
+    "sha256": "5094bfa9f116df2f88a12069eae7caf425957d72fd240ae1e119284586b133ff"
+  },
+  "recorded_at": "2026-10-05T03:35:25.404431+00:00",
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "schema_version": 1,
+  "status": "RECONCILED_PRECONNECTION_FAILURE"
+}
