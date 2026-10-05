@@ -1,0 +1,57 @@
+{
+  "recorded_at": "2026-10-05T16:53:07.575299+00:00",
+  "status": "PASS_OFFLINE_ONLY",
+  "base_commit": "41901342bf10c098432805545bfa4a7de0122c1f",
+  "files": {
+    "factorykit/runtime.py": "010a660184e53a3030948fb986ae5872ffc3053f35eb4b33a1ca6ee9ee67f96e",
+    "factorykit/handoff_batching.py": "20f4b462890441633fb8485045ba2390804e99a61b319081da51383b94064e89",
+    "factorykit/exception_diagnostics.py": "240832665213df7ec9053df4175a51d491a009f91fdd3a3a6e7f5b6ea4ee1db6",
+    "tests/test_handoff_batching.py": "8bcfe048ff34e937e8d9d9fb50802a050cc52c0986aec5e1dbef66d0457f276c"
+  },
+  "new_regressions": 6,
+  "focused": {
+    "command": "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python -m unittest discover -s tests -p test_handoff_batching.py -v",
+    "exit_code": 0,
+    "tests": 29,
+    "elapsed_seconds": 0.148,
+    "log_path": "/private/tmp/tablekeeper-room-envelope-focused.log",
+    "log_sha256": "86507ea8dc6ee01d6d49ae3a603dbc28fe5df6ee21773500e6408541dca8dbac"
+  },
+  "full_suite": {
+    "command": "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "tests": 422,
+    "elapsed_seconds": 4.554,
+    "log_path": "/private/tmp/tablekeeper-room-envelope-full.log",
+    "log_sha256": "1f8cca5325e46ace060a510264a5cd3b6b43cc05e4ecc94c33222c32d686e9f8"
+  },
+  "independent_review": {
+    "status": "PASS",
+    "basis": "Root confirmed an independent review matching these exact four source/test hashes; no remaining actionable finding.",
+    "scope": "Offline code and regression review; no live success claimed."
+  },
+  "failed_rehearsal": {
+    "room_id": "1d029d57-a8fb-4b52-9d50-2c7493d09f5f",
+    "part1_event_id": "3966b36c-fa69-44ab-a176-4c9a4b8c168b",
+    "part1_confirmed_at": "2026-10-05T16:35:10.575306Z",
+    "backend_error_event_id": "7a6189d5-1381-46db-b5a9-8341d754f1ba",
+    "backend_error_at": "2026-10-05T16:35:11.863175Z",
+    "confirmed_static_error": "Inbound handoff room, sender, or recipient is outside its exact roster scope.",
+    "diagnosis_receipt": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/handoff-regression-20261005/failed-delivery-diagnosis.json",
+      "sha256": "78d1020ab5f0191b6d9d2c1d97048be5e7035075136c292d5bea609d7a66c415"
+    },
+    "owned_process_absence_and_source_preservation": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/handoff-regression-20261005/stopped-source-and-process-evidence.json",
+      "sha256": "b6735b8b4ac10f7b2dab4839eb2589627ab6da43daa948f166c2e9d7f7570595"
+    },
+    "reported_token_delta": 28640,
+    "cumulative_reported_tokens": 352518676
+  },
+  "limitations": [
+    "The original raw WebSocket callback payload was not retained; missing nested room is an SDK-backed compatibility diagnosis, not a recorded live field value.",
+    "No live BAND/model call, worker restart, SDK modification, historical ledger mutation or product test occurred in this repair.",
+    "Fresh bounded live rehearsal remains pending; Run 8 has not been dispatched.",
+    "Offline tests and independent review do not establish live model behavior or product acceptance."
+  ]
+}

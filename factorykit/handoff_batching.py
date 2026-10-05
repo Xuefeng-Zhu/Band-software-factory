@@ -186,7 +186,12 @@ class HandoffJournal:
             raise BatchingError('Complete handoff payload digest or size is invalid.')
         return body
 
-    def observe(self, payload, *, confirmed=None):
+    def observe(self, payload, *, event_room_id, confirmed=None):
+        # The SDK routes WebSocket messages by MessageEvent.room_id. Its nested
+        # payload room is optional; never invent or overwrite a payload field.
+        payload_room = getattr(payload, 'chat_room_id', None)
+        if event_room_id != self.scope['room_id'] or (payload_room is not None and payload_room != event_room_id):
+            raise BatchingError('Inbound handoff envelope or explicit payload room conflicts with its journal scope.')
         parsed = split_fragment(payload.content)
         if parsed is None:
             return BatchDecision('ordinary')
@@ -194,7 +199,7 @@ class HandoffJournal:
         metadata = getattr(payload, 'metadata', None)
         mentions = getattr(metadata, 'mentions', None)
         recipients = sorted(getattr(m, 'id', None) for m in mentions) if mentions and all(isinstance(getattr(m, 'id', None), str) for m in mentions) else []
-        if ((recipients and recipients != h['recipients']) or payload.chat_room_id != self.scope['room_id'] or not _uuid(payload.id)
+        if ((recipients and recipients != h['recipients']) or not _uuid(payload.id)
                 or payload.sender_type != 'Agent' or payload.sender_id not in self.scope['participant_ids']
                 or self.scope['recipient_id'] not in h['recipients']
                 or not set(h['recipients']) <= set(self.scope['participant_ids'])
@@ -207,7 +212,7 @@ class HandoffJournal:
         recipients = h['recipients']
         key = self._key(payload.sender_id, h['delivery'])
         binding = self._binding(h, prefix, payload.sender_id)
-        event = dict(id=payload.id, room_id=payload.chat_room_id, sender_id=payload.sender_id,
+        event = dict(id=payload.id, room_id=event_room_id, sender_id=payload.sender_id,
                      sender_type=payload.sender_type, content=payload.content, batch=key, index=h['index'], recipients=recipients)
         with self._transaction() as d:
             if any(b['status'] in ('claimed','blocked') for b in d['batches'].values()):
