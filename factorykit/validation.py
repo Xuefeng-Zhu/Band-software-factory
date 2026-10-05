@@ -59,6 +59,65 @@ def runtime_permission_arguments(runtime: dict) -> list[str]:
     return arguments
 
 
+def docker_resource_requirements(runtime: dict) -> dict:
+    """Require explicit capacity assumptions; do not infer a workload's needs."""
+    limits = runtime.get("docker_resources")
+    keys = {"min_cpus", "min_memory_mib"}
+    if not isinstance(limits, dict) or set(limits) != keys:
+        raise FactoryError("runtime.docker_resources requires exactly min_cpus and min_memory_mib")
+    if any(type(limits[key]) is not int or limits[key] <= 0 for key in keys):
+        raise FactoryError("runtime.docker_resources values must be positive integers")
+    return dict(limits)
+
+
+def docker_resource_check(config: dict) -> dict:
+    """Inspect the selected daemon's capacity without changing Docker state."""
+    runtime = config["runtime"]
+    report = {"status": "FAIL", "errors": [], "endpoint": "Docker CLI context/environment (no configured docker_host)",
+              "scope": "Daemon total capacity only; not free memory, workload acceptance or concurrent-service proof"}
+    try:
+        limits = docker_resource_requirements(runtime)
+        report["requirements"] = limits
+        if "docker_host" in runtime:
+            # Reject a bad explicit endpoint rather than silently inspecting a
+            # different daemon. Do not invoke docker_environment: it writes.
+            runtime_permission_arguments(runtime)
+            report["endpoint"] = runtime["docker_host"]
+    except FactoryError as error:
+        report["errors"].append(str(error))
+        return report
+    env = os.environ.copy()
+    argv = ["docker"]
+    if "docker_host" in runtime:
+        argv += ["--host", runtime["docker_host"]]
+        env["DOCKER_HOST"] = runtime["docker_host"]
+        env["DOCKER_CONTEXT"] = ""  # A context otherwise overrides DOCKER_HOST.
+    # Emit only necessary fields: full docker info can include proxy settings.
+    template = '{"ServerVersion":{{json .ServerVersion}},"NCPU":{{json .NCPU}},"MemTotal":{{json .MemTotal}}}'
+    result = run_command(argv + ["info", "--format", template], config["paths"]["challenge"], timeout=15, env=env)
+    report["command"] = result
+    if result["exit_code"] != 0:
+        report["errors"].append("Docker daemon resource query failed; inspect retained command evidence")
+        return report
+    try:
+        observed = json.loads(result["stdout"])
+        if (not isinstance(observed, dict) or not isinstance(observed.get("ServerVersion"), str)
+                or not observed["ServerVersion"].strip()
+                or any(type(observed.get(key)) is not int or observed[key] <= 0 for key in ("NCPU", "MemTotal"))):
+            raise ValueError
+    except (ValueError, TypeError):
+        report["errors"].append("Docker daemon returned missing or malformed ServerVersion/NCPU/MemTotal")
+        return report
+    report["observed"] = {key: observed[key] for key in ("ServerVersion", "NCPU", "MemTotal")}
+    if observed["NCPU"] < limits["min_cpus"]:
+        report["errors"].append(f"Docker daemon CPUs {observed['NCPU']} are below configured minimum {limits['min_cpus']}")
+    required_bytes = limits["min_memory_mib"] * 1024 ** 2
+    if observed["MemTotal"] < required_bytes:
+        report["errors"].append(f"Docker daemon memory {observed['MemTotal']} bytes is below configured minimum {required_bytes} bytes ({limits['min_memory_mib']} MiB)")
+    report["status"] = "FAIL" if report["errors"] else "PASS"
+    return report
+
+
 def validate(config: dict, check_sources: bool = True) -> dict:
     errors, blockers = [], []
     if check_sources:
@@ -71,6 +130,10 @@ def validate(config: dict, check_sources: bool = True) -> dict:
         blockers.append("Resolve and pin a model from the authenticated runtime")
     try:
         runtime_permission_arguments(config["runtime"])
+    except FactoryError as error:
+        errors.append(str(error))
+    try:
+        docker_resource_requirements(config["runtime"])
     except FactoryError as error:
         errors.append(str(error))
     paths = config["paths"]
@@ -150,7 +213,6 @@ def doctor(config: dict) -> dict:
     commands = {
         "git": ["git", "--version"], "node": ["node", "--version"],
         "npm": ["npm", "--version"], "docker_cli": ["docker", "--version"],
-        "docker_daemon": ["docker", "info", "--format", "{{.ServerVersion}}"],
         "codex_version": [config["runtime"]["codex_command"], "--version"],
         "codex_auth": [config["runtime"]["codex_command"], "login", "status"],
         "harness_help": [config["runtime"]["harness_python"], "-m", "harness", "--help"],
@@ -158,6 +220,8 @@ def doctor(config: dict) -> dict:
     for name, argv in commands.items():
         result = run_command(argv, config["paths"]["challenge"], timeout=15)
         add(name, "PASS" if result["exit_code"] == 0 else "FAIL", result)
+    docker = docker_resource_check(config)
+    add("docker_daemon", docker["status"], docker)
     if subscription_only(config["budgets"]):
         auth_errors = subscription_auth_errors(config)
         add("subscription_auth", "FAIL" if auth_errors else "PASS", auth_errors or "ChatGPT authentication verified without inference; provider costs unmeasured")

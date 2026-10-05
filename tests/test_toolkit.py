@@ -36,7 +36,8 @@ class Fixture(unittest.TestCase):
         self.config = {
             "schema_version": 1, "paths": paths,
             "runtime": {"python": sys.executable, "harness_python": sys.executable, "codex_command": str(self.root / "codex tool"), "browser_path": str(self.root / "browsers"),
-                        "sandbox": "workspace-write", "approval_policy": "never", "model": "discovered-model"},
+                        "sandbox": "workspace-write", "approval_policy": "never", "model": "discovered-model",
+                        "docker_resources": {"min_cpus": 2, "min_memory_mib": 3072}},
             "band": {"credentials_file": str(self.root / "private/config.yaml"), "rehearsal_room_id": None, "judged_room_id": None},
             "budgets": {"max_active_seats": 2, "max_repairs": 2, "turn_timeout_seconds": 30, "stage_timeout_seconds": 90,
                         "overall_timeout_seconds": 180, "max_turns_per_seat": 2, "max_total_tokens": 1000, "approved": False, "spend_cap_usd": None},

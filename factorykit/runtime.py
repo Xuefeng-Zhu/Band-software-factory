@@ -369,7 +369,7 @@ def credentials(config: dict) -> dict:
 
 def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
     from .common import FactoryError
-    from .validation import observations, runtime_permission_arguments
+    from .validation import observations, runtime_permission_arguments, docker_resource_requirements, docker_resource_check
     errors = []
     rt, bd, limits = config["runtime"], config["band"], config["budgets"]
     if importlib.metadata.version("band-sdk") != SDK_VERSION:
@@ -384,6 +384,10 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
         errors.append(str(error))
     try:
         runtime_permission_arguments(rt)
+    except FactoryError as error:
+        errors.append(str(error))
+    try:
+        docker_resource_requirements(rt)
     except FactoryError as error:
         errors.append(str(error))
     if rt.get("approval_mode") != "auto_decline":
@@ -447,6 +451,11 @@ def preflight_runtime(config: dict, mode: str = "rehearsal") -> list[str]:
     if mode == "judged" and not config.get("launch", {}).get("practice_mode") and not config.get("launch", {}).get("submission_open_verified"):
         errors.append("Judged launch is blocked until the event submission window is verified open.")
     errors.extend(persisted_budget_blockers(config, require_existing=mode == "judged"))
+    # Capacity can change after doctor/freeze. Recheck before an otherwise-ready
+    # launcher admits workers, without probing Docker for already-blocked runs.
+    if not errors:
+        errors.extend(docker_resource_check(config)["errors"])
+        errors.extend(persisted_budget_blockers(config, require_existing=mode == "judged"))
     return errors
 
 

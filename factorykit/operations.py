@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from .common import FactoryError, artifact_path, canonical, digest, product_repository, run_command, source_lock, utc_now, verify_sources, write_json
 from .budgets import persisted_budget_blockers
 from .tasks import verify_tasks
-from .validation import observations, validate
+from .validation import docker_resource_check, observations, validate
 
 
 def evidence_directory(config: dict, prefix: str) -> Path:
@@ -209,6 +209,13 @@ def launch_prepare(config: dict, mode: str, stage: int | None) -> dict:
         if frozen_task != digest(task):
             blockers.append("Dispatch task differs from frozen packet")
         blockers.extend(persisted_budget_blockers(config, require_existing=True))
+        # Do not prepare an exact-once dispatch using stale daemon capacity.
+        # Recheck elapsed budgets after the bounded query as well.
+        docker = None
+        if not blockers:
+            docker = docker_resource_check(config)
+            blockers.extend(docker["errors"])
+            blockers.extend(persisted_budget_blockers(config, require_existing=True))
         pm = next(seat for seat in config["seats"] if seat["id"] == "pm")
         instructions = ["# Launch preparation — no message has been sent", "",
                         f"Status: {'BLOCKED_WITH_ACTIONS' if blockers else 'PREPARED_NOT_DISPATCHED'}",
@@ -225,6 +232,8 @@ def launch_prepare(config: dict, mode: str, stage: int | None) -> dict:
         (directory / "launch-instructions.md").write_text("\n".join(instructions) + "\n")
         result = {"status": "BLOCKED_WITH_ACTIONS" if blockers else "PREPARED_NOT_DISPATCHED", "task": str(task),
                   "instructions": str(directory / "launch-instructions.md"), "blockers": sorted(set(blockers)), "dispatch_performed": False}
+        if docker is not None:
+            result["docker_resources"] = docker
         if not blockers:
             entry = {"id": uuid.uuid4().hex, "prepared_at": utc_now(), "state": "PREPARED", "stages": stages,
                      "task": str(task), "task_sha256": digest(task), "freeze_sha256": digest(freeze_path)}
