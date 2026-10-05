@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-05T00:49:46.304622+00:00",
+  "body_bytes": 60953,
+  "completed_at": "2026-10-05T00:49:46.908191+00:00",
+  "freeze_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+  "internal_transport_retry_policy": "Not verified; one CLI invocation only. Read actual room before any conclusion.",
+  "operator_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+  "pm_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+  "preparation_id": "d9a817e2682e4beeb12578d843523ebe",
+  "retries_by_operator": 0,
+  "returncode": 0,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "status": "CLI_RETURNED_INSPECT_ROOM",
+  "task_sha256": "c0799fc072bcf6979c4992632e93ada4a20618529acf0dcfff86d20819bcf75b",
+  "transport": "Installed BAND native human CLI; body passed directly as one argv, no shell interpolation"
+}

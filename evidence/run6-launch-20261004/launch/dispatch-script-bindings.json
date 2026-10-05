@@ -1,0 +1,12 @@
+{
+  "configuration_sha256": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199",
+  "created_at": "2026-10-05T00:44:53.919088+00:00",
+  "freeze_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "scope": "Prepared one-shot wrapper; not yet executed; native internal retry behavior remains unverified",
+  "script_hashes": {
+    "send-once.py": "73cd08bda47c8fdc2539d3a5b13892df588e78071069eb4d4adab33cab6e7bc7",
+    "verify-dispatch.py": "dde969f127ddc2618929706c4bb2a9f8f8ca57ee118eaad36257523abb535548"
+  },
+  "task_sha256": "c0799fc072bcf6979c4992632e93ada4a20618529acf0dcfff86d20819bcf75b"
+}

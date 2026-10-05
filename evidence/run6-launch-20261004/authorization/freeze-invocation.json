@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "freeze"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:43:54.216679+00:00",
+  "model_turns": 0,
+  "room_messages": 0,
+  "started_at": "2026-10-05T00:43:52.354298+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"READY_TO_LAUNCH\",\n  \"blockers\": [],\n  \"dispatch_performed\": false,\n  \"usage\": {\n    \"measured_preparation_cost_usd\": null,\n    \"measured_rehearsal_cost_usd\": null,\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+}

@@ -1,6 +1,8 @@
 # Seven-seat BAND factory preparation
 
-**Status: Run 5 is stopped and closed with a BLOCKED outcome and no accepted stage.** Independent review rejected candidate `3329a8238ece53e06812cce4b5c6222476dd33ab`; all three repairs were exhausted and stages 2–4 remain unimplemented. The seven owned workers stopped on October 4, 2026 at 4:33:07 PM PDT (`23:33:07Z`). The later 120/120 supplied isolated Stage 1 checks did not waive the rejection. See [the terminal outcome, closure and private package](docs/run-5-preparation.md).
+**Status at `2026-10-05T00:53Z`: Run 6 was dispatched once and is in progress; no accepted stage is claimed.** The verified human task event `2657292f-0e48-4396-b7a5-e5294bd311f7` was sent at `2026-10-05T00:49:46.849584Z` (October 4 at 5:49 PM PDT). All seven seats connected under the one-active-turn limit. The approved launch preserves the original cumulative budget and deadline, the user-selected 2,048 MiB global VM cap, and the deferred video. See [Run 6 preparation and launch](docs/run-6-preparation.md) and [its launch evidence](evidence/run6-launch-20261004/README.md).
+
+Run 5 is stopped and closed with a BLOCKED outcome and no accepted stage. Independent review rejected candidate `3329a8238ece53e06812cce4b5c6222476dd33ab`; all three repairs were exhausted and stages 2–4 remain unimplemented. The seven owned workers stopped on October 4, 2026 at 4:33:07 PM PDT (`23:33:07Z`). The later 120/120 supplied isolated Stage 1 checks did not waive the rejection. See [the terminal outcome, closure and private package](docs/run-5-preparation.md).
 
 Run 4 is stopped and closed with a BLOCKED outcome and no accepted stage. Independent review rejected candidate `7edd47cccf839e8ec175c1e7e7252f40d80cf191` after valid dates below year 1000 failed required behavior. The official isolated suite passed 120/120, but that result did not waive the independently reproduced defect. All three repair cycles were exhausted; stages 2–4 were not started. See [Run 4 outcome and evidence](docs/run4-outcome.md).
 
@@ -18,7 +20,7 @@ Run 5 consumed its one approved dispatch and used **75,831,611 reported tokens**
 
 The [Docker capacity preflight](docs/docker-resources.md) was merged after Run 5 closed at factory commit `91baa13`, with **254 utility tests passing**. It is for future preparation only, preserves the user’s 2,048 MiB global VM cap, and does not establish fresh readiness or authorize another dispatch. Additional global Codex configuration drift recorded at closure still needs reconciliation for any future scope.
 
-[Run 6 is prepared for review](docs/run-6-preparation.md) with a fresh empty checkout and room, the user’s 2 GB cap, 254 passing factory utility tests and fresh no-model permission checks. It remains blocked pending a new exact-once dispatch approval; no new build task has been sent.
+[Run 6](docs/run-6-preparation.md) received its one approved dispatch after fresh readiness checks. The initial checkout and room were empty of product work; preparation passed 254 factory utility tests and fresh no-model permission checks. The changed workflow has not had a new live rehearsal, and admission does not establish product acceptance or prove the 2 GB environment will fit every workload.
 
 Workspace: `/Users/frank/mygit/Tablekeeper`
 
@@ -38,6 +40,7 @@ Application attempts now share **[Xuefeng-Zhu/Tablekeeper](https://github.com/Xu
 - `run-2`: exact preserved prior application history.
 - `run-4`: closed rejected Stage 1 checkpoint at `13bc38fc1d4396c70c42b529eab369d6f84a0186`, with the full room export; no accepted stage.
 - `run-5`: stopped and closed BLOCKED; final private metadata head `268a0bb327ac6ec596f1c7bd4f2847e93f288d35`, unchanged rejected Stage 1 tree and full-room export; no accepted stage.
+- [`run-6`](https://github.com/Xuefeng-Zhu/Tablekeeper/tree/run-6): one verified dispatch; runtime in progress, with no accepted stage claimed. The first planning commit `f12268f32915298d42a8b1b4076cec651621cef7` matched local and remote heads at `2026-10-05T00:53:35Z`. Launch receipts are preserved separately from the original preparation proposal.
 - Factory tools: https://github.com/Xuefeng-Zhu/Tablekeeper-factory — this separate repository, committed and pushed at verified milestones.
 - Challenge: the pinned official upstream checkout; never refreshed during the frozen build.
 - Earlier standalone repositories remain historical copies. Future attempts use the shared application repository.

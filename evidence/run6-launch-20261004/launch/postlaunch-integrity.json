@@ -1,0 +1,175 @@
+{
+  "actions": {
+    "model_calls": 0,
+    "product_source_config_runtime_global_edits": 0,
+    "ready_refreshes": 0,
+    "room_messages": 0,
+    "source_lock_refreshes": 0,
+    "tests": 0,
+    "written_files": [
+      "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/postlaunch-integrity.json"
+    ]
+  },
+  "checks": [
+    {
+      "actual_sha256": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199",
+      "name": "canonical_configuration",
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "d734f2ccf122daa430b64c8036f1cea742a132dfa9a371b416be300d20143d74",
+      "name": "configuration_file_bytes",
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+      "name": "scoped_source_lock_bytes",
+      "status": "PASS"
+    },
+    {
+      "actual_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+      "name": "historical_ready_freeze_bytes",
+      "status": "PASS"
+    },
+    {
+      "count": 34,
+      "mismatches": [],
+      "name": "frozen_factory_inputs",
+      "status": "PASS"
+    },
+    {
+      "changed_paths": [],
+      "checkout_clean": true,
+      "commit": "803560d2a678ace1414465c098eb0ab5380ffade",
+      "locked_files": 65,
+      "name": "pinned_challenge",
+      "status": "PASS"
+    },
+    {
+      "changed_paths": [],
+      "count": 11,
+      "name": "locked_reference_documents",
+      "status": "PASS"
+    },
+    {
+      "count": 1,
+      "mismatches": [],
+      "name": "other_inherited_instruction_inputs",
+      "status": "PASS"
+    },
+    {
+      "classification": "EXACT_NEW_RESULT_TRUST_STANZA_ONLY",
+      "expected_drift_possible": true,
+      "name": "global_configuration_current_matches_lock",
+      "status": "FAIL"
+    },
+    {
+      "name": "all_task_packet_bytes_and_embedded_specs",
+      "packets": [
+        {
+          "matches_freeze": true,
+          "name": "judged-all-stages.md",
+          "payloads_checked": 4,
+          "sha256": "c0799fc072bcf6979c4992632e93ada4a20618529acf0dcfff86d20819bcf75b"
+        },
+        {
+          "matches_freeze": true,
+          "name": "judged-stage-1.md",
+          "payloads_checked": 1,
+          "sha256": "97006d540c1d9e860cce26c48eab73a1e850400affab9d739cc688d33449d040"
+        },
+        {
+          "matches_freeze": true,
+          "name": "judged-stage-2.md",
+          "payloads_checked": 2,
+          "sha256": "5d6f4e5a7ed11054c3e5a6743c31a984373a302b8406e8a96b0ba3d8f1cbcdd1"
+        },
+        {
+          "matches_freeze": true,
+          "name": "judged-stage-3.md",
+          "payloads_checked": 3,
+          "sha256": "9e1770d7bb5a9c7c67abdda2722fd2f2ed6dbc0ac7c8fa5716d89c6f87e212f8"
+        },
+        {
+          "matches_freeze": true,
+          "name": "judged-stage-4.md",
+          "payloads_checked": 4,
+          "sha256": "97bc305237d92ce6267926911889cf74e99a7412fd3cfd848b3297202c5935ba"
+        },
+        {
+          "matches_freeze": true,
+          "name": "rehearsal-toy.md",
+          "payloads_checked": 4,
+          "sha256": "6df5a7d79e1a31abb763a6e311ebed6555557b70c2ab5b0bbf84be08b7ac5a24"
+        }
+      ],
+      "payload_mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "event_id": "2657292f-0e48-4396-b7a5-e5294bd311f7",
+      "human_text_count": 1,
+      "inserted_at": "2026-10-05T00:49:46.849584Z",
+      "ledger_entries": 1,
+      "ledger_state": "DISPATCHED",
+      "name": "one_dispatch_in_retained_complete_text_readback",
+      "only_body_change": "One PM mention normalized from literal handle to BAND identity markup",
+      "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+      "scope": "Independent comparison of retained complete text-filtered readback and exact launch ledger; no new room read or full-session export.",
+      "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+      "status": "PASS"
+    },
+    {
+      "name": "global_hash_stable_during_audit",
+      "status": "PASS"
+    }
+  ],
+  "exact_dispatch_verified": true,
+  "finished_at": "2026-10-05T00:53:16.617138+00:00",
+  "global_configuration": {
+    "classification": "EXACT_NEW_RESULT_TRUST_STANZA_ONLY",
+    "limitation": "Classification compares only the postapproval Run6 baseline. Earlier Run5-to-Run6 drift remains unclassified. Frozen lock and READY provenance were not modified.",
+    "locked_sha256": "5bdeef0292b6d0dc9529e1d390da4cb6f2bd6f5a259b35339c07577ee865d91a",
+    "observed_sha256": "bb747c142b90b6fcbc56b3a220bff4a0bd8403ef786fc4be1ea12d341e5011d4",
+    "path": "/Users/frank/.codex/config.toml",
+    "raw_values_printed_or_copied": false,
+    "reconstruction": {
+      "matches_locked_sha256": true,
+      "method": "Removed only one exact trusted-project stanza, including its appended separator newline, in memory; compared complete reconstructed bytes to previously locked SHA256.",
+      "reconstructed_sha256": "5bdeef0292b6d0dc9529e1d390da4cb6f2bd6f5a259b35339c07577ee865d91a",
+      "removed_section_key": "projects./Users/frank/mygit/Tablekeeper/result-run-6",
+      "section_keys": [
+        "trust_level"
+      ],
+      "sections_removed": 1
+    },
+    "structural_project_entry_present": true
+  },
+  "material_integrity_failures": [],
+  "proofs": {
+    "approved_ready_summary": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/ready-summary.json",
+      "sha256": "7869850dee3cef2a5fd12d21b0b0f96b4d42a6121e0ddbad64a9a6a850c6d8ea"
+    },
+    "dispatch_verification": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/dispatch-verification.json",
+      "sha256": "2147cbf275d7a823c38f2d0263bd5a2157aec3b145e33af4c841e82a56c1d871"
+    },
+    "frozen_manifest": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+      "sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367"
+    },
+    "launch_ledger": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/ledger.json",
+      "sha256": "b7f52adde07e1423eac1400f50b48cdab8431d8327072672a3a57b3844790811"
+    },
+    "text_readback": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/room-text-after-dispatch.json",
+      "sha256": "cd16fe58f424bc4b266af41963ddd830fba1e957a0a0650919432b03f2eb750e"
+    }
+  },
+  "restart_readiness": "Current global hash differs from frozen lock. Do not infer a fresh restart READY; any future restart requires separately authorized reconciliation and fresh gate checks. Historical READY inputs and launch provenance remain unchanged.",
+  "runtime_budget_handling": "Live budget ledger intentionally excluded from immutable-input comparison; normal runtime accounting changes are expected.",
+  "started_at": "2026-10-05T00:53:16.542269+00:00",
+  "status": "PASS_FROZEN_INPUTS_WITH_CLASSIFIED_GLOBAL_TRUST_DRIFT"
+}

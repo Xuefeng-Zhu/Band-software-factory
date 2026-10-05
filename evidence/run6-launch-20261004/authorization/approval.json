@@ -1,0 +1,57 @@
+{
+  "api_billing_allowed": false,
+  "authorization_source": "Direct user reply to parent one-Run6 launch proposal, relayed by root for this scoped action.",
+  "authorized_attempt": "Run6",
+  "authorized_dispatches": 1,
+  "before_snapshot_manifest": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/before-approval-manifest.json",
+    "sha256": "35b735076f158766f5db66e24e8454ba2dbe217bc2bbb4d968aa4543f8a15d1c"
+  },
+  "billing_mode": "subscription_only",
+  "configured_resource_floor_mib": 1977,
+  "cumulative_tokens_at_approval": 221514710,
+  "deadline_utc": "2026-10-05T02:35:03.700437Z",
+  "exact_config_change": "budgets.approved: false -> true",
+  "exact_ledger_change": {
+    "stopped_reason": {
+      "after": null,
+      "before": "Run6 preparation only; fresh model-work and exact-once dispatch authorization required."
+    }
+  },
+  "global_vm_cap_mib": 2048,
+  "limitations": [
+    "Changed generic workflow is not live rehearsed.",
+    "Total daemon capacity floor does not establish workload fit.",
+    "Earlier global configuration drift remains unclassified.",
+    "Approval does not replace READY checks or exact-once dispatch bookkeeping."
+  ],
+  "max_active_seats": 1,
+  "max_total_reported_tokens": 286011577,
+  "mode": "all",
+  "observed_at": "2026-10-05T00:42:03.858594+00:00",
+  "original_started_epoch": 1791049765.700437,
+  "overall_timeout_seconds": 117938,
+  "paid_provisioning_allowed": false,
+  "prior_room_halts_preserved": true,
+  "product": {
+    "branch": "run-6",
+    "repository_url": "https://github.com/Xuefeng-Zhu/Tablekeeper.git"
+  },
+  "proposal": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/before-approval/launch-proposal.json",
+    "sha256": "9868fb12087d2162dda26728223f7ff4510063fe9a88f5fc441f88d8a0ddfb5c"
+  },
+  "public_release_or_submission_authorized": false,
+  "remaining_reported_tokens": 64496867,
+  "result": "/Users/frank/mygit/Tablekeeper/result-run-6",
+  "retry_or_additional_attempt_authorized": false,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "stages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "timestamp_scope": "Time this agent recorded the actual current user reply; no earlier message timestamp inferred.",
+  "user_reply": "approve"
+}

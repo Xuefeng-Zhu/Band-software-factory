@@ -1,0 +1,110 @@
+{
+  "actions": {
+    "dispatches": 0,
+    "launch_preparations": 0,
+    "model_turns": 0,
+    "room_text_messages": 0,
+    "workers_started": 0
+  },
+  "all_32_preapproval_snapshot_files_unchanged": true,
+  "all_stage_packet": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-all-stages.md",
+    "sha256": "c0799fc072bcf6979c4992632e93ada4a20618529acf0dcfff86d20819bcf75b"
+  },
+  "approval": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/approval.json",
+    "sha256": "8f4ee2c5a6118e19e51fa9cf9c5936c37080e87774c6e8dd003f1ad058d33b04"
+  },
+  "authorization_revalidation": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/launch-authorization-revalidation.json",
+    "sha256": "4cef3ac31b01ed801cc1b0e058e485a2b306bdfdcc660b72d36143b5520da62f"
+  },
+  "blockers": [],
+  "budget_ledger": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+    "sha256": "4f748406ece0ea9e9dedd31aaf42c1fe06759810ac065569f07f39cc82f37d60"
+  },
+  "configuration_canonical_sha256": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199",
+  "configuration_file": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "sha256": "d734f2ccf122daa430b64c8036f1cea742a132dfa9a371b416be300d20143d74"
+  },
+  "configured_resource_floor_mib": 1977,
+  "created_at": "2026-10-05T00:44:46.835108+00:00",
+  "cumulative_tokens": 221514710,
+  "current_observations_validated": 14,
+  "deadline_utc": "2026-10-05T02:35:03.700437+00:00",
+  "doctor": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/doctor-latest.json",
+    "sha256": "fdd592888beff7d325d27a713319f95964f9263a0ed7be4a06a82df10f1f74c1"
+  },
+  "freeze": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+    "sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367"
+  },
+  "fresh_registration_rooms": 2,
+  "frozen_factory_files_unchanged": 34,
+  "global_config_source_lock_and_default_inputs_unchanged": true,
+  "global_vm_cap_mib_unchanged": 2048,
+  "limitations": [
+    "Readiness authorizes only the proposed one Run6 launch within cumulative limits; no dispatch has been prepared or sent by this agent.",
+    "Changed workflow remains not live rehearsed; historical evidence and author-review disclosure retained.",
+    "Total daemon capacity does not prove workload fit; earlier global drift remains unclassified."
+  ],
+  "max_active_seats": 1,
+  "packet_exact_deltas": [
+    {
+      "after_sha256": "c0799fc072bcf6979c4992632e93ada4a20618529acf0dcfff86d20819bcf75b",
+      "before_sha256": "5d65c6cf441e7e402f354a42b8d9ce1f987d8cf421d19c640f879b71b9fefddf",
+      "name": "judged-all-stages.md",
+      "only_configuration_hash_and_approval_boolean_changed": true
+    },
+    {
+      "after_sha256": "97006d540c1d9e860cce26c48eab73a1e850400affab9d739cc688d33449d040",
+      "before_sha256": "a4656ad81ef6d9279c5d52c1a09b962f1f464fc4fd939388d753a26846759cf2",
+      "name": "judged-stage-1.md",
+      "only_configuration_hash_and_approval_boolean_changed": true
+    },
+    {
+      "after_sha256": "5d6f4e5a7ed11054c3e5a6743c31a984373a302b8406e8a96b0ba3d8f1cbcdd1",
+      "before_sha256": "6b52a91fc7d4bdcd1a4989a91df898082fbb603756790adaec7b73820ea3dba6",
+      "name": "judged-stage-2.md",
+      "only_configuration_hash_and_approval_boolean_changed": true
+    },
+    {
+      "after_sha256": "9e1770d7bb5a9c7c67abdda2722fd2f2ed6dbc0ac7c8fa5716d89c6f87e212f8",
+      "before_sha256": "250e1ecb7cc3e02efe4057465b09808de6d62c86ab03b529b2391e2e7d9480b1",
+      "name": "judged-stage-3.md",
+      "only_configuration_hash_and_approval_boolean_changed": true
+    },
+    {
+      "after_sha256": "97bc305237d92ce6267926911889cf74e99a7412fd3cfd848b3297202c5935ba",
+      "before_sha256": "a82023caae6ec5acb89f3884987c6eca6dacd7e24223e8a24c380aac8db83211",
+      "name": "judged-stage-4.md",
+      "only_configuration_hash_and_approval_boolean_changed": true
+    },
+    {
+      "after_sha256": "6df5a7d79e1a31abb763a6e311ebed6555557b70c2ab5b0bbf84be08b7ac5a24",
+      "before_sha256": "dab6229e3f044802ec251233dea99f87293a9029224351593587eff297c016ff",
+      "name": "rehearsal-toy.md",
+      "only_configuration_hash_and_approval_boolean_changed": true
+    }
+  ],
+  "prior_room_halts_preserved": true,
+  "pristine_result_errors": [],
+  "readiness": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/observations.json",
+    "sha256": "2d986fabb032b457e2152ad8fe8cdb952a386c055a9f0cfa38480af3fcff34ad"
+  },
+  "remaining_tokens": 64496867,
+  "run5_ledger_unchanged": true,
+  "source_errors": [],
+  "source_lock": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock.json",
+    "sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac"
+  },
+  "started_epoch": 1791049765.700437,
+  "status": "READY_TO_LAUNCH",
+  "token_ceiling": 286011577,
+  "verified_seats_each_room": 7
+}

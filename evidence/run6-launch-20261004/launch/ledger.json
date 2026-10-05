@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "dispatched_at": "2026-10-05T00:50:11.070956+00:00",
+      "freeze_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+      "id": "d9a817e2682e4beeb12578d843523ebe",
+      "prepared_at": "2026-10-05T00:45:22.284231+00:00",
+      "room_event": "2657292f-0e48-4396-b7a5-e5294bd311f7",
+      "stages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "state": "DISPATCHED",
+      "task": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-all-stages.md",
+      "task_sha256": "c0799fc072bcf6979c4992632e93ada4a20618529acf0dcfff86d20819bcf75b"
+    }
+  ],
+  "mode": "all",
+  "schema_version": 1
+}

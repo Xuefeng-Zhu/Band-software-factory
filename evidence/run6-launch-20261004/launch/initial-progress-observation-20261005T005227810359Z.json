@@ -1,0 +1,232 @@
+{
+  "observed_at": "2026-10-05T00:52:27.809917+00:00",
+  "room_read": {
+    "argv": [
+      "/Applications/Band.app/Contents/MacOS/band",
+      "room",
+      "messages",
+      "d98df99d-77ad-441d-875c-6e38cdbef39d",
+      "--type",
+      "text",
+      "--json",
+      "--profile",
+      "default"
+    ],
+    "started_at": "2026-10-05T00:52:27.455931+00:00",
+    "exit_code": 0,
+    "has_more": false,
+    "text_events": [
+      {
+        "id": "1e5910d3-0be4-4ca9-9006-fe1b709e94a9",
+        "inserted_at": "2026-10-05T00:52:24.822253Z",
+        "sender_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] ARCH-001 part 1/5 received. I will wait for all five parts and verify the complete payload before acknowledging or starting architecture work.",
+        "content_characters": 184
+      },
+      {
+        "id": "c04251f8-487f-4512-a840-66e2faf9d3ce",
+        "inserted_at": "2026-10-05T00:52:13.199630Z",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "@[[7f9319c7-ef4f-4c9b-88aa-97e1edb15c60]] Planning baseline is committed and pushed as f12268f32915298d42a8b1b4076cec651621cef7: all seven mandates, product brief, complete-section requirements map and dependency queue. ARCH is now handed to the Architect with the full five-part dispatch and exclusive write lease; receipt and architecture decisions are pending. Product checks remain NOT_TESTED. Next gates are QA boundary planning and Reviewer oracle challenge before implementation.",
+        "content_characters": 486
+      },
+      {
+        "id": "241cde3b-770d-40d5-a86b-973f30a8b506",
+        "inserted_at": "2026-10-05T00:52:12.366794Z",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "ARCH delivery ARCH-001 part 5/5; SHA-256 36fef245beefc5aeafab6aed45038c1e758e5adf492541c4ff4a6306d177bb66; recipient @[[974df2f1-b5e8-4873-a1ce-93658e0404a4]]\nvalidates **all** resulting fields against the policy applicable to the resulting start\n  date. It atomically replaces accepted terms and end time and increments revision once.\n- A no-op amendment retains terms, end time and revision and records no history. It still\n  requires a confirmed, editable booking.\n- Failed amendments change nothing. Cancel increments revision once; repeated cancel does not.\n- `PATCH` optionally accepts `expecte",
+        "content_characters": 12409
+      },
+      {
+        "id": "eb7932f0-b7d1-4b96-a0cd-1c11e4984d25",
+        "inserted_at": "2026-10-05T00:52:11.571561Z",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "ARCH delivery ARCH-001 part 4/5; SHA-256 36fef245beefc5aeafab6aed45038c1e758e5adf492541c4ff4a6306d177bb66; recipient @[[974df2f1-b5e8-4873-a1ce-93658e0404a4]]\npre-filled from the search |\n| `booking-submit` | Button |\n| `booking-error` | Error message, when the booking fails |\n\nKeep the booking form on screen after success. Submitting it again without changing a\nfield must return the same `confirmation-reference`, without `booking-error` or another\nbooking. Changing a field makes the next submission a new booking request. Retries follow \u00a77.\n\n## Confirmation\n\nShown after a successful booking.\n\n",
+        "content_characters": 13159
+      },
+      {
+        "id": "0cc45787-bf0e-46f3-ab0b-999d607aa9f0",
+        "inserted_at": "2026-10-05T00:52:10.723628Z",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "ARCH delivery ARCH-001 part 3/5; SHA-256 36fef245beefc5aeafab6aed45038c1e758e5adf492541c4ff4a6306d177bb66; recipient @[[974df2f1-b5e8-4873-a1ce-93658e0404a4]]\nlapping confirmed reservation, in fixture\norder. A slot with no available table still appears, with an empty list.\n\nA closed day returns `\"slots\": []`.\n\n### `POST /reservations`\n\n`Idempotency-Key` is required; see \u00a77.\n\n```http\nPOST /reservations\nAuthorization: Bearer <token>\nIdempotency-Key: 2f9c1a...\n\n{ \"restaurant_id\": \"r_anker\", \"table_id\": \"t_2\",\n  \"starts_at_local\": \"2026-09-24T19:00\", \"party_size\": 4 }\n```\n\n`starts_at_local` is wal",
+        "content_characters": 13159
+      },
+      {
+        "id": "5f18b913-b203-404c-bd53-c91eb0b831bb",
+        "inserted_at": "2026-10-05T00:52:09.846166Z",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "ARCH delivery ARCH-001 part 2/5; SHA-256 36fef245beefc5aeafab6aed45038c1e758e5adf492541c4ff4a6306d177bb66; recipient @[[974df2f1-b5e8-4873-a1ce-93658e0404a4]]\n actual product brief and requirement map from the exact specs.\nThe Architect records implementable architecture decisions before corresponding\nimplementation. The Designer creates journeys, screen hierarchy, interaction states,\nresponsive specifications and design reviews before corresponding UI implementation.\nUse the empty templates as record formats; they contain no preselected decisions.\nDesigner direction: warm hospitality, clear h",
+        "content_characters": 13159
+      },
+      {
+        "id": "a438b015-d28e-4cb1-9670-2ab6724521f9",
+        "inserted_at": "2026-10-05T00:52:08.964218Z",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "ARCH delivery ARCH-001 part 1/5; SHA-256 36fef245beefc5aeafab6aed45038c1e758e5adf492541c4ff4a6306d177bb66; recipient @[[974df2f1-b5e8-4873-a1ce-93658e0404a4]]\nWork item ARCH READY. Owner and recipient @frankzhu94/factory-architect; next recipient @frankzhu94/factory-pm. You have the sole checkout write lease after this handoff, ending when you return your committed delivery or at your tool-reported finish-work deadline. No other writer is authorized. PM releases its lease now.\nGoal: choose an implementable architecture for the complete four-stage Tablekeeper dispatch below, beginning with stag",
+        "content_characters": 13159
+      },
+      {
+        "id": "f3d1c2a8-f9a0-463e-85aa-0727bcf9fa81",
+        "inserted_at": "2026-10-05T00:50:26.885361Z",
+        "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "sender_type": "Agent",
+        "message_type": "text",
+        "public_text_preview": "@[[7f9319c7-ef4f-4c9b-88aa-97e1edb15c60]] Readiness is READY_TO_LAUNCH in the frozen authorization record, matching configuration 2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199. All seven configured identities are present. The assigned run-6 checkout is clean and unborn; origin matches, and fetch succeeded without importing another attempt. I\u2019m creating the product/coverage records, then sequencing architecture, QA boundary planning and reviewer challenge before implementation. The recorded cumulative deadline is 2026-10-05 02:35:03 UTC.",
+        "content_characters": 561
+      },
+      {
+        "id": "2657292f-0e48-4396-b7a5-e5294bd311f7",
+        "inserted_at": "2026-10-05T00:49:46.849584Z",
+        "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+        "sender_type": "User",
+        "message_type": "text"
+      }
+    ],
+    "raw_response_sha256": "1b417a3d929a79b07949ea8d9d42e734ec8db9f46e0f1106b75b8a95fac691c9",
+    "raw_response_retained": false
+  },
+  "runtime": {
+    "pid": 43824,
+    "process_read_exit_code": 0,
+    "process_status": "43824 Ss   03:14",
+    "record_status": "running",
+    "record_updated_at": "2026-10-05T00:52:27.410264+00:00",
+    "seats": [
+      "pm",
+      "architect",
+      "designer",
+      "backend",
+      "frontend",
+      "qa",
+      "reviewer"
+    ],
+    "workflow": {
+      "state": "busy",
+      "active_turn_ids": [
+        "architect:54:a438b015-d28e-4cb1-9670-2ab6724521f9"
+      ],
+      "sdk_execution_busy": true,
+      "unresolved_incident_ids": [
+        "turn:pm:401:2657292f-0e48-4396-b7a5-e5294bd311f7"
+      ],
+      "seconds_to_next_deadline": 589.4725060462952,
+      "notice_attempts": 0,
+      "unknown_notices": [],
+      "sdk_execution_contexts": [
+        {
+          "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+          "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+          "queued_events": 0,
+          "processing": true,
+          "state": "processing",
+          "running": true
+        },
+        {
+          "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+          "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+          "queued_events": 4,
+          "processing": true,
+          "state": "processing",
+          "running": true
+        },
+        {
+          "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+          "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+          "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+          "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+          "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        },
+        {
+          "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+          "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+          "queued_events": 0,
+          "processing": false,
+          "state": "idle",
+          "running": true
+        }
+      ]
+    }
+  },
+  "workflow": {
+    "turns": {
+      "architect:54:a438b015-d28e-4cb1-9670-2ab6724521f9": {
+        "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "deadline_at": 1791162136.8835042,
+        "incident_ids": [],
+        "reason_code": "",
+        "started_at": 1791161536.8835452,
+        "status": "running",
+        "trigger_event_id": "a438b015-d28e-4cb1-9670-2ab6724521f9"
+      },
+      "pm:401:2657292f-0e48-4396-b7a5-e5294bd311f7": {
+        "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "deadline_at": 1791161987.740298,
+        "ended_at": 1791161536.880961,
+        "incident_ids": [
+          "turn:pm:401:2657292f-0e48-4396-b7a5-e5294bd311f7"
+        ],
+        "reason_code": "",
+        "started_at": 1791161387.740445,
+        "status": "completed",
+        "trigger_event_id": "2657292f-0e48-4396-b7a5-e5294bd311f7"
+      }
+    },
+    "delivery_count": 1,
+    "incident_count": 1,
+    "notice_count": 0
+  },
+  "accounting": {
+    "cumulative_reported_tokens": 221983719,
+    "run6_reported_tokens": 469009,
+    "original_started_epoch": 1791049765.700437,
+    "global_stopped_reason": null,
+    "current_room_stopped_reason": null,
+    "deadline_utc": "2026-10-05T02:35:03.700437Z"
+  },
+  "fault_event_metadata": [],
+  "actions": {
+    "room_messages_sent": 0,
+    "model_turns_requested": 0,
+    "runtime_or_product_changes": 0
+  },
+  "scope": "Single bounded passive snapshot. Agent public-text previews only; original task and hidden reasoning omitted. Recorded workflow/process status is not independent product acceptance or a full-session export."
+}

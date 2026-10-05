@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-05T00:53:35.791975+00:00",
+  "scope": "Read-only local and remote branch observation, not product acceptance",
+  "result": "/Users/frank/mygit/Tablekeeper/result-run-6",
+  "head": "f12268f32915298d42a8b1b4076cec651621cef7",
+  "remote_run6_head": "f12268f32915298d42a8b1b4076cec651621cef7",
+  "match": true,
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H%n%s%n%ci"
+      ],
+      "stdout": "f12268f32915298d42a8b1b4076cec651621cef7\nRecord dispatched scope, coverage map and delivery queue\n2026-10-04 17:51:26 -0700\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "git",
+        "ls-remote",
+        "origin",
+        "refs/heads/run-6"
+      ],
+      "stdout": "f12268f32915298d42a8b1b4076cec651621cef7\trefs/heads/run-6\n",
+      "stderr": "",
+      "returncode": 0
+    }
+  ]
+}

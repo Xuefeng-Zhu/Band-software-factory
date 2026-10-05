@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "start-seats",
+    "--mode",
+    "judged"
+  ],
+  "started_at": "2026-10-05T00:49:11.042984+00:00",
+  "status": "RETURNED",
+  "returncode": 0,
+  "stdout": "{\n  \"status\": \"running\",\n  \"pid\": 43824,\n  \"mode\": \"judged\",\n  \"seats\": [\n    \"pm\",\n    \"architect\",\n    \"designer\",\n    \"backend\",\n    \"frontend\",\n    \"qa\",\n    \"reviewer\"\n  ],\n  \"active_turn_limit\": 1\n}\n",
+  "stderr": "",
+  "completed_at": "2026-10-05T00:49:24.078015+00:00"
+}

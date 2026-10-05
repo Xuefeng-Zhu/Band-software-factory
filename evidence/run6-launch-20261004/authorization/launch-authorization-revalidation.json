@@ -1,0 +1,104 @@
+{
+  "actions": {
+    "dispatches": 0,
+    "model_turns": 0,
+    "room_text_messages": 0,
+    "workers_started": 0
+  },
+  "all_counters_epoch_prior_halts_unchanged": true,
+  "approval": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/approval.json",
+    "sha256": "8f4ee2c5a6118e19e51fa9cf9c5936c37080e87774c6e8dd003f1ad058d33b04"
+  },
+  "author_rendering_review_basis": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/semantic-review.json",
+    "sha256": "762a6e26205078f907d5da5803d07c9f3e329bb6e9fbe80c23c85881051b28ac"
+  },
+  "before_budget_ledger": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/before-approval/runtime/budget-subscription.json",
+    "sha256": "efe71024ea10d68daec17f64c43d5bbc9d4dc86234aca7a70d24746970fe2af2"
+  },
+  "before_configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/before-approval/factory.yaml",
+    "sha256": "59e7add7b303d070e9d02f6cf8c76c7b30540e4f97201cc1da9da6de71b557da"
+  },
+  "budget_ledger_after": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+    "sha256": "4f748406ece0ea9e9dedd31aaf42c1fe06759810ac065569f07f39cc82f37d60"
+  },
+  "configuration_exact_delta": {
+    "budgets.approved": {
+      "after": true,
+      "before": false
+    }
+  },
+  "configuration_sha256": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199",
+  "configuration_sha256_before": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "created_at": "2026-10-05T00:42:03.871129+00:00",
+  "historical_permissions_and_rehearsal_revalidation": "Configuration delta changes authorization metadata only, with unchanged identities, models, paths, adapter command/exec settings, effective permissions, endpoints and task semantics. All raw original timestamps/hashes remain evidence for their original scope. This amendment does not create fresh behavioral or workflow proof.",
+  "ledger_exact_delta": {
+    "stopped_reason": {
+      "after": null,
+      "before": "Run6 preparation only; fresh model-work and exact-once dispatch authorization required."
+    }
+  },
+  "limitations": [
+    "Original preparation statements of approved=false describe the preserved earlier snapshot. Only this actual current approval authorizes Run6.",
+    "No new model rehearsal, room response, product acceptance or past-drift classification is inferred."
+  ],
+  "preserved_original_snapshot": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/authorization/before-approval-manifest.json",
+    "sha256": "35b735076f158766f5db66e24e8454ba2dbe217bc2bbb4d968aa4543f8a15d1c"
+  },
+  "root_review_basis": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/semantic-root-review.json",
+    "sha256": "4df67b0039b4a8b6ed290ff6ffa73f62b8ab174418566c105f41539ca92fc31e"
+  },
+  "seven_rendered_sections": [
+    {
+      "after_sha256": "657fe9808d62584a24e7131a546f7e041fc662a41f2b72d29d0ebf73b96a9425",
+      "before_sha256": "bc34d309ce81bb842ebdc4ca9cba578269f8e2ae60a52ad632c5b37292a23efc",
+      "exact_only_approval_boolean_changed": true,
+      "seat": "pm"
+    },
+    {
+      "after_sha256": "c7144ef24dbd5026d30038cb6a847b6973ded68a0b05aaae3afdad2fdc1fcb24",
+      "before_sha256": "84ca242e90d54afbd0611e388df8d2194576929cd5c439a7eb0768c14006797b",
+      "exact_only_approval_boolean_changed": true,
+      "seat": "architect"
+    },
+    {
+      "after_sha256": "77bc11b5eec4eab4b6e3f0b6be902f95a185df14cd7dcfcd02271fa04a315bbf",
+      "before_sha256": "5dae9dbde9929b999cc241932940a06e0989da95023c05c9894a5f2aa7aa91e2",
+      "exact_only_approval_boolean_changed": true,
+      "seat": "designer"
+    },
+    {
+      "after_sha256": "6d9829568f9884008fef932f708566199f5f51074aceaec4d3a3b86a59f9f5b4",
+      "before_sha256": "65988156c8f61acb1c492b4aea0f7d18ffcdfb0182d47fc2b815546ec0b23d5d",
+      "exact_only_approval_boolean_changed": true,
+      "seat": "backend"
+    },
+    {
+      "after_sha256": "24ccaba2bb9b98dc079845ca5ec189627e3d78cfe4c74f864b760379aff94c57",
+      "before_sha256": "2c2eb063b87d50abef694de66654ca97fbc112537991be43896b398d8b938a20",
+      "exact_only_approval_boolean_changed": true,
+      "seat": "frontend"
+    },
+    {
+      "after_sha256": "0b5ddd6ac1ba8bc98878d85784e7e222dedec258e182a3e4c4d1e105d8fbdceb",
+      "before_sha256": "28ff8cb35573c89767a7f489c4d487ab1145f4c4600a31f7be23433f7bb0c659",
+      "exact_only_approval_boolean_changed": true,
+      "seat": "qa"
+    },
+    {
+      "after_sha256": "e8f8fbc7a4ad853e490f159c46749ddefb7b9e358a58b83e1c3265edbdd22da4",
+      "before_sha256": "df30fec9d72c2d7bc7229f60bf44932b5021525475cd1039e0d4f8f753c6c05f",
+      "exact_only_approval_boolean_changed": true,
+      "seat": "reviewer"
+    }
+  ],
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "source_lock_unchanged": true,
+  "status": "PASS_EXACT_AUTHORIZATION_METADATA_DELTA"
+}

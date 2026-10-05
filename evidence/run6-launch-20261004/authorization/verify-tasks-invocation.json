@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "verify-tasks"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:43:48.399166+00:00",
+  "model_turns": 0,
+  "room_messages": 0,
+  "started_at": "2026-10-05T00:43:48.319871+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"PASS\",\n  \"packet_count\": 6\n}\n"
+}

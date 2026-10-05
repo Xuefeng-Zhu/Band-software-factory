@@ -1,0 +1,22 @@
+{
+  "actual_sha256": "aabdfabd30f73654c057db64696f1a7a3566709e2a468bde49b7c388c471d5ad",
+  "at": "2026-10-05T00:50:00.875660+00:00",
+  "event_id": "2657292f-0e48-4396-b7a5-e5294bd311f7",
+  "exact_after_only_pm_mention_normalization": true,
+  "human_text_count": 1,
+  "inserted_at": "2026-10-05T00:49:46.849584Z",
+  "normalization": {
+    "count": 1,
+    "from": "@frankzhu94/factory-pm",
+    "to": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]"
+  },
+  "raw_exact_match": false,
+  "readback_scope": "Complete text-filtered page, has_more=false; not a full-session export",
+  "recipient_pm_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+  "retries_by_operator": 0,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+  "status": "PASS_WITH_BAND_MENTION_NORMALIZATION",
+  "submitted_sha256": "c0799fc072bcf6979c4992632e93ada4a20618529acf0dcfff86d20819bcf75b",
+  "text_readback_sha256": "cd16fe58f424bc4b266af41963ddd830fba1e957a0a0650919432b03f2eb750e"
+}

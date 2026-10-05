@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "launch-prepare",
+    "--mode",
+    "all"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:45:22.296038+00:00",
+  "started_at": "2026-10-05T00:45:21.634639+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"PREPARED_NOT_DISPATCHED\",\n  \"task\": \"/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-all-stages.md\",\n  \"instructions\": \"/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/launch-instructions.md\",\n  \"blockers\": [],\n  \"dispatch_performed\": false,\n  \"docker_resources\": {\n    \"status\": \"PASS\",\n    \"errors\": [],\n    \"endpoint\": \"unix:///Users/frank/.orbstack/run/docker.sock\",\n    \"scope\": \"Daemon total capacity only; not free memory, workload acceptance or concurrent-service proof\",\n    \"requirements\": {\n      \"min_cpus\": 2,\n      \"min_memory_mib\": 1977\n    },\n    \"command\": {\n      \"argv\": [\n        \"docker\",\n        \"--host\",\n        \"unix:///Users/frank/.orbstack/run/docker.sock\",\n        \"info\",\n        \"--format\",\n        \"{\\\"ServerVersion\\\":{{json .ServerVersion}},\\\"NCPU\\\":{{json .NCPU}},\\\"MemTotal\\\":{{json .MemTotal}}}\"\n      ],\n      \"cwd\": \"/Users/frank/mygit/Tablekeeper/challenge\",\n      \"started_at\": \"2026-10-05T00:45:21.842539+00:00\",\n      \"finished_at\": \"2026-10-05T00:45:22.283468+00:00\",\n      \"exit_code\": 0,\n      \"stdout\": \"{\\\"ServerVersion\\\":\\\"29.4.0\\\",\\\"NCPU\\\":8,\\\"MemTotal\\\":2073866240}\\n\",\n      \"stderr\": \"\"\n    },\n    \"observed\": {\n      \"ServerVersion\": \"29.4.0\",\n      \"NCPU\": 8,\n      \"MemTotal\": 2073866240\n    }\n  },\n  \"preparation_id\": \"d9a817e2682e4beeb12578d843523ebe\"\n}\n"
+}

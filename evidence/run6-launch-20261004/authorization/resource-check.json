@@ -1,0 +1,96 @@
+{
+  "status": "PASS_SCOPED_RESOURCE_OBSERVATION",
+  "started_at": "2026-10-05T00:42:06.226542+00:00",
+  "finished_at": "2026-10-05T00:42:07.345368+00:00",
+  "purpose": "Read-only resource verification for the approved single Run 6 launch; this receipt does not dispatch or establish complete readiness",
+  "factory_head": "31561da8201cf3ca5225822c1f8fc40ee367cb47",
+  "validator_sha256": "33f8b79ed4b94da0b9894c52ed4f5e3fa01d335d30bb8f501a4f03d3442ac889",
+  "configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "file_sha256_before": "d734f2ccf122daa430b64c8036f1cea742a132dfa9a371b416be300d20143d74",
+    "file_sha256_after": "d734f2ccf122daa430b64c8036f1cea742a132dfa9a371b416be300d20143d74",
+    "unchanged_during_observation": true,
+    "canonical_sha256_at_load": "2931f5accf608a321afc4c483879ac5e875a86775539e5aa8009a2eecdbd1199"
+  },
+  "docker_resource_check": {
+    "status": "PASS",
+    "errors": [],
+    "endpoint": "unix:///Users/frank/.orbstack/run/docker.sock",
+    "scope": "Daemon total capacity only; not free memory, workload acceptance or concurrent-service proof",
+    "requirements": {
+      "min_cpus": 2,
+      "min_memory_mib": 1977
+    },
+    "command": {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/frank/.orbstack/run/docker.sock",
+        "info",
+        "--format",
+        "{\"ServerVersion\":{{json .ServerVersion}},\"NCPU\":{{json .NCPU}},\"MemTotal\":{{json .MemTotal}}}"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+      "started_at": "2026-10-05T00:42:06.232856+00:00",
+      "finished_at": "2026-10-05T00:42:06.749524+00:00",
+      "exit_code": 0,
+      "stdout": "{\"ServerVersion\":\"29.4.0\",\"NCPU\":8,\"MemTotal\":2073866240}\n",
+      "stderr": ""
+    },
+    "observed": {
+      "ServerVersion": "29.4.0",
+      "NCPU": 8,
+      "MemTotal": 2073866240
+    }
+  },
+  "separate_configured_vm_cap": {
+    "expected_mib": 2048,
+    "observed_mib": 2048,
+    "matches_expected": true,
+    "command": {
+      "argv": [
+        "orb",
+        "config",
+        "get",
+        "memory_mib"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/factory",
+      "started_at": "2026-10-05T00:42:06.749628+00:00",
+      "finished_at": "2026-10-05T00:42:07.304913+00:00",
+      "exit_code": 0,
+      "stdout": "2048\n",
+      "stderr": ""
+    }
+  },
+  "running_containers": {
+    "endpoint": "unix:///Users/frank/.orbstack/run/docker.sock",
+    "none_observed": true,
+    "inventory": [],
+    "command": {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/frank/.orbstack/run/docker.sock",
+        "ps",
+        "--no-trunc",
+        "--format",
+        "{{.ID}} {{.Names}} {{.Status}}"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/factory",
+      "started_at": "2026-10-05T00:42:07.305020+00:00",
+      "finished_at": "2026-10-05T00:42:07.331413+00:00",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  },
+  "actions": {
+    "configuration_writes": 0,
+    "docker_settings_changes": 0,
+    "container_changes": 0,
+    "model_turns": 0,
+    "band_calls": 0,
+    "runtime_changes": 0
+  },
+  "scope": "Total daemon capacity and a separate configured ceiling only; not free memory, reserved capacity, workload fit, application acceptance, a full readiness review or dispatch. Existing containers were observed and left untouched."
+}

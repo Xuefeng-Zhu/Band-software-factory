@@ -1,0 +1,39 @@
+{
+  "blockers": [],
+  "dispatch_performed": false,
+  "docker_resources": {
+    "command": {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/frank/.orbstack/run/docker.sock",
+        "info",
+        "--format",
+        "{\"ServerVersion\":{{json .ServerVersion}},\"NCPU\":{{json .NCPU}},\"MemTotal\":{{json .MemTotal}}}"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+      "exit_code": 0,
+      "finished_at": "2026-10-05T00:45:22.283468+00:00",
+      "started_at": "2026-10-05T00:45:21.842539+00:00",
+      "stderr": "",
+      "stdout": "{\"ServerVersion\":\"29.4.0\",\"NCPU\":8,\"MemTotal\":2073866240}\n"
+    },
+    "endpoint": "unix:///Users/frank/.orbstack/run/docker.sock",
+    "errors": [],
+    "observed": {
+      "MemTotal": 2073866240,
+      "NCPU": 8,
+      "ServerVersion": "29.4.0"
+    },
+    "requirements": {
+      "min_cpus": 2,
+      "min_memory_mib": 1977
+    },
+    "scope": "Daemon total capacity only; not free memory, workload acceptance or concurrent-service proof",
+    "status": "PASS"
+  },
+  "instructions": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch/launch-instructions.md",
+  "preparation_id": "d9a817e2682e4beeb12578d843523ebe",
+  "status": "PREPARED_NOT_DISPATCHED",
+  "task": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-all-stages.md"
+}
