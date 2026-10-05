@@ -1,0 +1,78 @@
+{
+  "work_item": "S1-QA",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "responsible_handle": "@frankzhu94/factory-qa",
+  "started_at_utc": "2026-10-05T02:15:12.142784+00:00",
+  "layer": "HTTP only; container limits not established by driver",
+  "results": [
+    {
+      "check": "query_boundaries",
+      "case_ids": [
+        "Q03"
+      ],
+      "status": "PASS",
+      "detail": "Observed selected cases; full matrix remains broader.",
+      "elapsed_seconds": 0.10200543599967204
+    },
+    {
+      "check": "receipt_boundaries",
+      "case_ids": [
+        "Q04",
+        "Q06",
+        "Q08"
+      ],
+      "status": "PASS",
+      "detail": "Observed selected cases; full matrix remains broader.",
+      "elapsed_seconds": 0.07024321600147232
+    },
+    {
+      "check": "dst",
+      "case_ids": [
+        "Q12",
+        "Q13"
+      ],
+      "status": "PASS",
+      "detail": "Observed selected cases; full matrix remains broader.",
+      "elapsed_seconds": 0.25671797200084256
+    },
+    {
+      "check": "gap_opening",
+      "case_ids": [
+        "Q14"
+      ],
+      "status": "PASS",
+      "detail": "Observed selected cases; full matrix remains broader.",
+      "elapsed_seconds": 0.06680911900002684
+    },
+    {
+      "check": "numeric_receipt",
+      "case_ids": [
+        "Q06",
+        "Q19"
+      ],
+      "status": "PASS",
+      "detail": "Observed selected cases; full matrix remains broader.",
+      "elapsed_seconds": 0.16008222600066802
+    },
+    {
+      "check": "concurrent",
+      "case_ids": [
+        "Q09"
+      ],
+      "status": "PASS",
+      "detail": "Observed selected cases; full matrix remains broader.",
+      "elapsed_seconds": 0.17750896600045962
+    },
+    {
+      "check": "atomic_moves",
+      "case_ids": [
+        "Q17",
+        "Q18"
+      ],
+      "status": "PASS",
+      "detail": "Observed selected cases; full matrix remains broader.",
+      "elapsed_seconds": 0.07101680399864563
+    }
+  ],
+  "finished_at_utc": "2026-10-05T02:15:13.047702+00:00"
+}

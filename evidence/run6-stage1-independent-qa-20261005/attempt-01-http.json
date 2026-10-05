@@ -1,0 +1,78 @@
+{
+  "work_item": "S1-QA",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "responsible_handle": "@frankzhu94/factory-qa",
+  "started_at_utc": "2026-10-05T02:14:31.428673+00:00",
+  "layer": "HTTP only; container limits not established by driver",
+  "results": [
+    {
+      "check": "query_boundaries",
+      "case_ids": [
+        "Q03"
+      ],
+      "status": "FAIL",
+      "detail": "URLError; transport/parsing failure, details withheld",
+      "elapsed_seconds": 0.017813375001423992
+    },
+    {
+      "check": "receipt_boundaries",
+      "case_ids": [
+        "Q04",
+        "Q06",
+        "Q08"
+      ],
+      "status": "FAIL",
+      "detail": "URLError; transport/parsing failure, details withheld",
+      "elapsed_seconds": 0.0002421669923933223
+    },
+    {
+      "check": "dst",
+      "case_ids": [
+        "Q12",
+        "Q13"
+      ],
+      "status": "FAIL",
+      "detail": "URLError; transport/parsing failure, details withheld",
+      "elapsed_seconds": 0.00021116599964443594
+    },
+    {
+      "check": "gap_opening",
+      "case_ids": [
+        "Q14"
+      ],
+      "status": "FAIL",
+      "detail": "URLError; transport/parsing failure, details withheld",
+      "elapsed_seconds": 0.0001700830034678802
+    },
+    {
+      "check": "numeric_receipt",
+      "case_ids": [
+        "Q06",
+        "Q19"
+      ],
+      "status": "FAIL",
+      "detail": "URLError; transport/parsing failure, details withheld",
+      "elapsed_seconds": 0.00014787499094381928
+    },
+    {
+      "check": "concurrent",
+      "case_ids": [
+        "Q09"
+      ],
+      "status": "FAIL",
+      "detail": "URLError; transport/parsing failure, details withheld",
+      "elapsed_seconds": 0.00016766700719017535
+    },
+    {
+      "check": "atomic_moves",
+      "case_ids": [
+        "Q17",
+        "Q18"
+      ],
+      "status": "FAIL",
+      "detail": "URLError; transport/parsing failure, details withheld",
+      "elapsed_seconds": 0.00014070799807086587
+    }
+  ],
+  "finished_at_utc": "2026-10-05T02:14:31.448085+00:00"
+}

@@ -1,0 +1,67 @@
+{
+  "work_item": "S1-QA",
+  "responsible_handle": "@frankzhu94/factory-qa",
+  "candidate": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "clone": "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate",
+  "evidence": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-01",
+  "started_at_utc": "2026-10-05T02:14:17.543197+00:00",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "--no-hardlinks",
+        "/Users/frank/mygit/Tablekeeper/result-run-6",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate"
+      ],
+      "exit_status": 0,
+      "output": "Cloning into '/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate'...\ndone.\n"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate",
+        "checkout",
+        "--detach",
+        "7960081554f92cbe1a61d377b8dfd651ae90487b"
+      ],
+      "exit_status": 0,
+      "output": "HEAD is now at 7960081 Implement standalone stage 1 reservation service and focused regressions\n"
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate",
+        "status",
+        "--short"
+      ],
+      "exit_status": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_status": 0,
+      "output": "7960081554f92cbe1a61d377b8dfd651ae90487b\n"
+    }
+  ],
+  "processes": [
+    {
+      "pid": 60327,
+      "port": 19091
+    },
+    {
+      "pid": 60328,
+      "port": 19092
+    }
+  ],
+  "receipt_event": "4ec185f9-6b60-4603-8d72-5659a18dbd02",
+  "state_event": "e71e9e91-421c-435f-b60e-9203b2e408d6"
+}

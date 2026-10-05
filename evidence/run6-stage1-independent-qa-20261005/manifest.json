@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-05T02:25:57.588060+00:00",
+  "scope": "Completed independent Stage 1 QA and later public PM receipt; not final Reviewer isolated acceptance.",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "shared_record_commit": "9d02432fcbd94a2f4558a355394ecb2a482a26a2",
+  "qa_execution_started_at_utc": "2026-10-05T02:14:17.543197+00:00",
+  "qa_execution_finished_at_utc": "2026-10-05T02:20:40.406403+00:00",
+  "state": "REVIEW",
+  "recorded_results": {
+    "initial_host_transport_failures": 7,
+    "host_http_groups_passed": 7,
+    "container_http_groups_passed": 7,
+    "extra_groups_passed": 5,
+    "extra_host_http_groups": 4,
+    "extra_in_process_fixed_clock_groups": 1,
+    "container_login_requests": 50,
+    "container_login_http_200": 50,
+    "container_login_max_seconds": 1.8580738050004584,
+    "definite_product_defects_found_in_executed_cases": 0,
+    "independent_reviewer_official_gate": "PENDING at this snapshot",
+    "product_stage_accepted": false
+  },
+  "public_receipt": {
+    "observed_at_utc": "2026-10-05T02:23:11.894686+00:00",
+    "selected_texts": 3,
+    "source_page_has_more": true,
+    "full_session_export": false,
+    "qa_final_event_id": "21fbaff6-7a01-4807-86cd-1870aba6815c",
+    "qa_final_at_utc": "2026-10-05T02:21:03.966755Z",
+    "pm_ack_event_id": "a0c4e3b2-6c2b-46ed-a5dc-721cfc6cbc8b",
+    "pm_ack_at_utc": "2026-10-05T02:23:05.478637Z",
+    "delivery": "S1-QA-RESULT-001",
+    "digest": "aaec1f1509775c4c71189a2a4263ee24b6b0508b6914a31b71941335315ed487"
+  },
+  "original_storage": "Ignored/untracked .evidence files; these copies are not Git-tracked blobs from the application candidate.",
+  "omitted_reproduction_dependencies": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/extra.py",
+      "sha256": "94985ac69f34b4d205962facdd8661ecdc354ee4f7b8f4e506fa72dbbdf82b8e",
+      "bytes": 9783,
+      "included": false,
+      "reason": "Keep compact record archive within file cap; required for standalone reproduction of added probes."
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/container-load.py",
+      "sha256": "4c1c80d1d625c4037db8398fe9da9b00d1a1dd355231323c6104c223ca621c6a",
+      "bytes": 1248,
+      "included": false,
+      "reason": "Keep compact record archive within file cap; required for standalone reproduction of added probes."
+    }
+  ],
+  "standalone_replay_package": false,
+  "privacy_review": {
+    "method": "Pinned organizer SECRETS patterns; supplemental BAND/JWT/private-key patterns; bounded manual inspection of all retained source evidence. No test state exports, credentials, multipart requirement payloads or hidden reasoning retained.",
+    "official_pattern_source": "/Users/frank/mygit/Tablekeeper/challenge/harness/check.py",
+    "official_pattern_source_sha256": "42a269afdb2d181b70ff0f140a17f7c93a16ca05ce881b91c78806182881b6a1",
+    "raw_pattern_matches": 0,
+    "actionable_credential_findings": 0,
+    "limitation": "Private preservation only; not exhaustive privacy assurance or public-release approval."
+  },
+  "frozen_inputs": {
+    "manifest": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json",
+    "manifest_sha256": "5e8832e8790b098bd70812754e8a2fbe6c0a0375857c6814a5057cd733ada367",
+    "verified_unchanged_count": 34
+  },
+  "archiver_executed_product_tests": false,
+  "files": [
+    {
+      "path": "setup.json",
+      "sha256": "a8dc07eccd1f61122655ec692d8f52150dd2a49f40e26c162ad97f244714c721",
+      "bytes": 1989,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-01/setup.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "attempt-01-http.json",
+      "sha256": "27f5b38dad7a0f3eb4cbf499e33438facc8605723bcfb996220bf1727a5f3aef",
+      "bytes": 2038,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-01/http.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "review.md",
+      "sha256": "9e813d9b8c849745cffd66b0c8899aa9aee39b890bd6b3960dffaf0bff7a7f17",
+      "bytes": 11993,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/review.md",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "execution.json",
+      "sha256": "03f27a927294d8773a22c409f049015631338caffce8f00eb38a9acaf05b1b96",
+      "bytes": 5975,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/execution.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "host-http.json",
+      "sha256": "1ca9c59a23de95d13f111778fdafa6c9236d35cab7e14c5b71a6f173008f2524",
+      "bytes": 2021,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/http.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "container-http.json",
+      "sha256": "160a112a603c478fded7ec5545bfdf1c172828514cf68c34c97622e79a4e816a",
+      "bytes": 2021,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/container-http.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "extra-results.json",
+      "sha256": "100c5b00584a8bed96cca29e63eedbf89aef3d3542e29c31d112cd74e5af18d6",
+      "bytes": 1659,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/extra-results.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "container-auth50.json",
+      "sha256": "7b6af9cf7b2f94550ce2e23db2030e43df77e26bd15d0a412b4d0e9f966ea450",
+      "bytes": 3876,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/container-auth50.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "container-limits.txt",
+      "sha256": "4d6410d128e7973b7cfd10181df52acfc145d5367aa3affa5eb3f8bf6817a419",
+      "bytes": 103,
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/container-limits.txt",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "public-events.json",
+      "sha256": "26631fbf8453485304b03b717ece9a3e17edf1dc23acd0e420940a540c833e11",
+      "bytes": 2269,
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/progress/stage1-independent-qa-20261005/public-events.json",
+      "preservation": "byte-exact source copy"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f8fc8b37953ad03b1e1aef016b88521d5f21b5a7a62bf6c150e22186bf6d9eb4",
+      "bytes": 3908,
+      "source": "Generated factual archive index",
+      "preservation": "new index"
+    }
+  ]
+}

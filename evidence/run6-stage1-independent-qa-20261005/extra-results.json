@@ -1,0 +1,67 @@
+{
+  "work_item": "S1-QA",
+  "candidate": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "responsible_handle": "@frankzhu94/factory-qa",
+  "observed_at_utc": "2026-10-05T02:16:59.320011+00:00",
+  "results": [
+    {
+      "name": "auth_privacy_sessions_user_path_scope",
+      "case_ids": [
+        "Q05",
+        "Q07"
+      ],
+      "status": "PASS",
+      "detail": "observed assigned examples",
+      "layer": "host HTTP",
+      "seconds": 0.2713050409947755
+    },
+    {
+      "name": "id64_65_and_malformed_missing_inputs",
+      "case_ids": [
+        "Q02",
+        "Q03"
+      ],
+      "status": "PASS",
+      "detail": "observed assigned examples",
+      "layer": "host HTTP",
+      "seconds": 0.09047233300225344
+    },
+    {
+      "name": "half_open_noop_move_shape_error_precedence",
+      "case_ids": [
+        "Q10",
+        "Q11",
+        "Q16",
+        "Q17",
+        "Q18"
+      ],
+      "status": "PASS",
+      "detail": "observed assigned examples",
+      "layer": "host HTTP",
+      "seconds": 0.06294579200039152
+    },
+    {
+      "name": "offline_source_import_replacement_invalid_atomicity",
+      "case_ids": [
+        "Q19",
+        "Q20",
+        "Q06"
+      ],
+      "status": "PASS",
+      "detail": "observed assigned examples",
+      "layer": "host HTTP",
+      "seconds": 0.30185425000672694
+    },
+    {
+      "name": "detached_actual_ledger_exact_times_and_cutoff_equality",
+      "case_ids": [
+        "Q16",
+        "Q32"
+      ],
+      "status": "PASS",
+      "detail": "observed assigned examples",
+      "layer": "in-process Service with independent fixed clock; not HTTP",
+      "seconds": 0.07467295799870044
+    }
+  ]
+}

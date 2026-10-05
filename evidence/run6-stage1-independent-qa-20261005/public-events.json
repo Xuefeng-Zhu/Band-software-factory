@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-05T02:23:11.894686+00:00",
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "scope": "Selected public QA result and receipt texts, not fullsessionexport",
+  "source_page_has_more": true,
+  "events": [
+    {
+      "id": "d50d873a-dbb1-4e9f-8826-882c679d2337",
+      "inserted_at": "2026-10-05T02:18:49.284415Z",
+      "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "sender_type": "Agent",
+      "message_type": "text",
+      "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] S1-QA verification checkpoint: no definite product defect found in the executed cases at 7960081554f92cbe1a61d377b8dfd651ae90487b. Seven HTTP groups pass on host and independently built network-none 2-CPU/2-GiB container; five added groups pass, including source-offline replacement and exact detached ledger facts. Fifty concurrent container logins all succeeded, max 1.8581s. Work is evidence-only; complete handoff follows, with untested classes and initial transport/cleanup failures retained. Reviewer\u2019s isolated release gate remains required."
+    },
+    {
+      "id": "21fbaff6-7a01-4807-86cd-1870aba6815c",
+      "inserted_at": "2026-10-05T02:21:03.966755Z",
+      "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "sender_type": "Agent",
+      "message_type": "text",
+      "content": "@[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]] S1-QA REVIEW handoff sent in all three S1-QA-RESULT-001 parts, SHA-256 aaec1f1509775c4c71189a2a4263ee24b6b0508b6914a31b71941335315ed487. Candidate remains 7960081554f92cbe1a61d377b8dfd651ae90487b; no tracked changes or new commit. No definite product defect found in executed checks; official isolated acceptance still pending. QA lease released and owned services stopped. Please acknowledge complete receipt and dispatch Reviewer promptly within the cumulative deadline."
+    },
+    {
+      "id": "a0c4e3b2-6c2b-46ed-a5dc-721cfc6cbc8b",
+      "inserted_at": "2026-10-05T02:23:05.478637Z",
+      "sender_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "sender_type": "Agent",
+      "message_type": "text",
+      "content": "HANDOFF-ACK delivery S1-QA-RESULT-001; SHA-256 aaec1f1509775c4c71189a2a4263ee24b6b0508b6914a31b71941335315ed487; sender @[[8e450576-69cd-416c-bc2a-a3a771f020d3]]"
+    }
+  ]
+}

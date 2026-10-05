@@ -1,0 +1,105 @@
+{
+  "work_item": "S1-QA",
+  "state": "REVIEW",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "shared_head": "9d02432fcbd94a2f4558a355394ecb2a482a26a2",
+  "responsible_handle": "@frankzhu94/factory-qa",
+  "started_at_utc": "2026-10-05T02:14:17.543197+00:00",
+  "finished_at_utc": "2026-10-05T02:20:40.406403+00:00",
+  "clone": "/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate",
+  "commands": [
+    {
+      "command": "git fetch origin",
+      "exit_status": 0
+    },
+    {
+      "command": "git clone --no-hardlinks /Users/frank/mygit/Tablekeeper/result-run-6 /var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate; git -C /var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate checkout --detach 7960081554f92cbe1a61d377b8dfd651ae90487b; git status/rev-parse",
+      "exit_status": 0,
+      "observed": "clean exact candidate; clone outside submission"
+    },
+    {
+      "command": "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python /var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate/qa/stage1_http.py --base-url http://127.0.0.1:19091 --candidate 7960081554f92cbe1a61d377b8dfd651ae90487b --out /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-01/http.json",
+      "exit_status": 1,
+      "observed": "all7 transport failures; initial Popen child services did not remain connected; output preserved; not product defect"
+    },
+    {
+      "command": "PORT=19091/19092 PYTHONDONTWRITEBYTECODE=1 /Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python server.py (two separate persistent exec sessions; cwd /var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate/stage-1)",
+      "exit_status": null,
+      "observed": "sessions1774/68678 active during tests; intentionally ended130 afterward"
+    },
+    {
+      "command": "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python /var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate/qa/stage1_http.py --base-url http://127.0.0.1:19091 --candidate 7960081554f92cbe1a61d377b8dfd651ae90487b --out /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/http.json",
+      "exit_status": 0,
+      "observed": "7/7 selected HTTP groups PASS"
+    },
+    {
+      "command": "docker build -t tablekeeper-qa-s1-7960081 /var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate/stage-1",
+      "exit_status": 0
+    },
+    {
+      "command": "docker run -d --name tablekeeper-qa-s1-7960081 --cpus=2 --memory=2g --network none tablekeeper-qa-s1-7960081",
+      "exit_status": 0,
+      "observed": "container0c04bc56ed81d2ee78ab207dc7ab58b61852f773c6a20214a7ff57456ef31c5b; image sha256:fe1557d050fa9d854543efdc68db147069bcbbc34f276cc86a4f23623b959a56"
+    },
+    {
+      "command": "docker cp /var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/tablekeeper-qa-s1-tqlr4ju1/candidate/qa/stage1_http.py tablekeeper-qa-s1-7960081:/tmp/stage1_http.py; docker exec tablekeeper-qa-s1-7960081 python /tmp/stage1_http.py --base-url http://127.0.0.1:8080 --candidate 7960081554f92cbe1a61d377b8dfd651ae90487b --out /tmp/qa-http.json; docker cp result to /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/container-http.json",
+      "exit_status": 0,
+      "observed": "7/7 groups PASS, includes two50-client booking races"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 /Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/extra.py",
+      "exit_status": 0,
+      "observed": "5/5 groups PASS;4 host HTTP groups,1 fixed-clock in-process group"
+    },
+    {
+      "command": "docker cp /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/container-load.py tablekeeper-qa-s1-7960081:/tmp/container-load.py; docker exec tablekeeper-qa-s1-7960081 python /tmp/container-load.py; docker cp /tmp/qa-auth50.json to /Users/frank/mygit/Tablekeeper/result-run-6/.evidence/qa-s1-20261005/attempt-02/container-auth50.json",
+      "exit_status": 0,
+      "observed": "50/50 logins200;max1.858073805s; each<=5s"
+    },
+    {
+      "command": "docker inspect --format NanoCpus,Memory,NetworkMode,Image tablekeeper-qa-s1-7960081",
+      "exit_status": 0,
+      "observed": "2000000000,2147483648,none,expected image"
+    },
+    {
+      "command": "git status --short in shared checkout and exact clone; clone git rev-parse HEAD",
+      "exit_status": 0,
+      "observed": "both clean; clone fixed at7960081554f92cbe1a61d377b8dfd651ae90487b"
+    }
+  ],
+  "cleanup": {
+    "observed_at_utc": "2026-10-05T02:20:40.406403+00:00",
+    "attempts": [
+      {
+        "command": "verify literal lsof cwd then signal owned host service",
+        "exit_status": 1,
+        "observed": "guard rejected /private/var vs /var alias; no process signalled"
+      },
+      {
+        "command": "canonical realpath cwd guard then os.kill assigned PID SIGTERM",
+        "exit_status": 1,
+        "observed": "PermissionError EPERM; no escalation attempted"
+      },
+      {
+        "command": "write_stdin Ctrl-C on owned exec sessions1774 and68678",
+        "exit_status": 130,
+        "observed": "both owned server sessions ended via KeyboardInterrupt"
+      },
+      {
+        "command": "docker stop tablekeeper-qa-s1-7960081",
+        "exit_status": 0,
+        "observed": "owned container stopped; not removed"
+      }
+    ]
+  },
+  "definite_product_defects": [],
+  "product_acceptance": "PENDING independent Reviewer isolated gate",
+  "consumption": "UNAVAILABLE",
+  "room_events": [
+    "4ec185f9-6b60-4603-8d72-5659a18dbd02",
+    "e71e9e91-421c-435f-b60e-9203b2e408d6",
+    "0061aeb3-4204-4e5c-b530-27d892c31d46",
+    "ad2bcbd4-adcc-4674-ba27-591d816a5640",
+    "d50d873a-dbb1-4e9f-8826-882c679d2337"
+  ]
+}
