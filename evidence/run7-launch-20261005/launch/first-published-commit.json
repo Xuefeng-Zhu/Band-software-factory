@@ -1,0 +1,12 @@
+{
+  "branch": "run-7",
+  "head": "758093050e2484a6435395409f501994b9e215b8",
+  "local_head_at_recording": "758093050e2484a6435395409f501994b9e215b8",
+  "recorded_at": "2026-10-05T06:11:05.510745+00:00",
+  "remote_head_previously_observed": "758093050e2484a6435395409f501994b9e215b8",
+  "remote_verification_source": "Immediately preceding successful git ls-remote origin refs/heads/run-7 tool output, exit 0. Subsequent network lookup inside sandboxed Python failed DNS; no new remote observation is claimed.",
+  "repository": "https://github.com/Xuefeng-Zhu/Tablekeeper",
+  "scope": "First published agent-authored planning commit; no product stage acceptance claimed.",
+  "subject": "Record Tablekeeper scope, pinned requirements and delivery queue",
+  "working_tree_status_at_recording": ""
+}

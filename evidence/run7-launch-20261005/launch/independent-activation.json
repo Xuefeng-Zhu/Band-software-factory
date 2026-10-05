@@ -1,0 +1,423 @@
+{
+  "actions": {
+    "messages_sent": 0,
+    "model_requests": 0,
+    "process_actions": 0,
+    "receipt_mutations": 0,
+    "runtime_mutations": 0
+  },
+  "budget": {
+    "cumulative_ceiling": 786011577,
+    "deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+    "global_stop": null,
+    "new_run7_tokens": 862533,
+    "remaining_reported_tokens": 499069931,
+    "reported_tokens": 286941646,
+    "room_stop": null,
+    "snapshot_sha256": "04c2eeb62079bb808550e424064797ae5ccbc0b2f31bf1d80e4b4c8d1a2b9b62",
+    "started_epoch": 1791049765.700437
+  },
+  "concurrency": {
+    "configured_max_active_seats": 1,
+    "observed_active_turn_ids": [
+      "qa:75:b7a5d2c4-827e-47eb-90fe-5a49338c68f1"
+    ],
+    "scope": "Point-in-time admission snapshot plus configured one-seat semaphore; not a claim every seat inferred.",
+    "single_active_snapshot": true,
+    "workflow_snapshot_sha256": "6d3fa65024fe0857680a83687d886d3f77e703294af712e4661ddf86c892c996"
+  },
+  "first_pm_turn": {
+    "actual_model": "gpt-6.1-sol",
+    "context_metadata": [
+      {
+        "approval_policy": "never",
+        "cwd": "/Users/frank/mygit/Tablekeeper/result-run-7",
+        "effort": "medium",
+        "model": "gpt-6.1-sol",
+        "turn_id": "01a10aa8-50c8-7931-8d43-ac352c55606b"
+      }
+    ],
+    "local_started_at": "2026-10-05T06:02:45.373426+00:00",
+    "local_task_metadata": [
+      {
+        "at": "2026-10-05T06:02:45.066491+00:00",
+        "metadata": {
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:02:45.373426+00:00",
+        "metadata": {
+          "codex_event_type": "turn_lifecycle",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b",
+          "codex_turn_id": "01a10aa8-50c8-7931-8d43-ac352c55606b",
+          "codex_turn_status": "started"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:02:58.846629+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:03:12.709231+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:03:20.182219+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:03:36.855538+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:03:46.858885+00:00",
+        "metadata": {},
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:03:47.508062+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:04:00.806578+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:05:15.394483+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:06:19.547229+00:00",
+        "metadata": {},
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:06:25.884037+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:06:52.313105+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:06:54.024378+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:06:54.158058+00:00",
+        "metadata": {},
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:06:54.294247+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b",
+          "codex_turn_id": "01a10aa8-50c8-7931-8d43-ac352c55606b",
+          "codex_turn_status": "completed"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:07:17.574753+00:00",
+        "metadata": {
+          "codex_event_type": "turn_lifecycle",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b",
+          "codex_turn_id": "01a10aac-781a-7311-85c7-6657490e435b",
+          "codex_turn_status": "started"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:07:33.725636+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:07:52.955833+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:07:55.705874+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b"
+        },
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:07:55.839090+00:00",
+        "metadata": {},
+        "seat": "pm",
+        "type": "task"
+      },
+      {
+        "at": "2026-10-05T06:07:56.004107+00:00",
+        "metadata": {
+          "codex_event_type": "token_usage",
+          "codex_room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+          "codex_thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b",
+          "codex_turn_id": "01a10aac-781a-7311-85c7-6657490e435b",
+          "codex_turn_status": "completed"
+        },
+        "seat": "pm",
+        "type": "task"
+      }
+    ],
+    "metadata_source": "/Users/frank/.codex/sessions/2026/10/04/rollout-2026-10-04T23-02-44-01a10aa8-4d05-72f1-a650-aa362a74e81b.jsonl",
+    "public_task_metadata": [],
+    "public_task_page_has_more": false,
+    "thread_id": "01a10aa8-4d05-72f1-a650-aa362a74e81b",
+    "turn_id": "01a10aa8-50c8-7931-8d43-ac352c55606b"
+  },
+  "frozen_inputs": {
+    "configuration_sha256": "069c2dc16c23e3fd1ce5604a165dea14a297ebc9aa45f80404396327552e84ab",
+    "errors": [
+      {
+        "current_sha256": "6988426f0cd60348801aa1e1d7c2df83cca34420260c169f4c1a9850d66ff8ad",
+        "frozen_sha256": "b7b754b774c51325a4be6db051bd5146ad9ecb90b0b8f4f193217dbe4c45a96f",
+        "path": "factorykit/common.py"
+      },
+      {
+        "current_sha256": "a9bc3fe01024934d5a56ac9155fd36d8e1530f8aae0274743616d29f88c3452d",
+        "frozen_sha256": "28b3e9f9a1f93526b241cbfa2dc5509361b8eba82c85fd0e3ec5b6900f7a61f4",
+        "path": "factorykit/deadline_extension.py"
+      },
+      {
+        "current_sha256": "58520dab7e2229f6069a559a0a909e6aa671d2322fce8839339e36717a06f2d9",
+        "frozen_sha256": "9a7b9d8c0ad6a70b57dc34229f073fb45cb42db6d3ff5076983c09f3c710b129",
+        "path": "factorykit/operations.py"
+      },
+      {
+        "current_sha256": "634270be51dc79a801ddd3a9308a7e9e5701997399fe095a24ccabdc5c8acdd7",
+        "frozen_sha256": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3",
+        "path": "factorykit/tasks.py"
+      },
+      {
+        "current_sha256": "405a4b7481682ca8e96bd56eb8cf187b290160f8a1ffb586820217c8c3dd9cac",
+        "frozen_sha256": "33f8b79ed4b94da0b9894c52ed4f5e3fa01d335d30bb8f501a4f03d3442ac889",
+        "path": "factorykit/validation.py"
+      },
+      {
+        "current_sha256": "64691b63da6ba11722e132011cdd2bcbb40bba1294f95f275570352b50d2be26",
+        "frozen_sha256": "d08ea4e5213b1c9e51c4f6a4fec730afed4528e221777269c4679160096447c1",
+        "path": "pyproject.toml"
+      },
+      {
+        "current_sha256": "f51ba4abcbb51f8b3435f89c8dd7a040b2e13444b97c5f5888f207ae00260bce",
+        "frozen_sha256": "46ca153100ee9189c5e6d110757fddaaa913344a89c6f1e73b78da631643746e",
+        "path": "uv.lock"
+      }
+    ],
+    "files_checked": 40,
+    "files_matching": 33,
+    "freeze": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/freeze/latest.json",
+      "sha256": "b662ba30c27e4ecb292ad0fb6d3a1a063ca31fd6b3adcca92d2c592cd896489d"
+    },
+    "task_packets_verified": 6
+  },
+  "limitations": [
+    "Exactly one human text is verified against a complete current text-filtered page; no messages were sent by this audit.",
+    "Actual model evidence is only selected turn_context metadata for the exact new PM thread/turn; no reasoning, prompt or tool content was retained.",
+    "Only PM model execution is established here; seven connected contexts are not seven material contributions.",
+    "Mutable budget/owner/workflow snapshots were read sequentially; counts can increase after observation.",
+    "Post-freeze disk changes are separately retained as integrity findings; this audit does not refresh the freeze or authorize a restart. It cannot prove currently running loaded code changed.",
+    "No product test, independent stage acceptance, submission, or final-goal completion is claimed."
+  ],
+  "observed_end": "2026-10-05T06:08:01.873263+00:00",
+  "observed_start": "2026-10-05T06:08:01.151844+00:00",
+  "original_dispatch": {
+    "actual_body_sha256": "382672366f5109409d538d938f1504d15ba390cf651e09c0aac0c7ca928cf5a1",
+    "complete_text_filtered_page": true,
+    "event_id": "0a32f0fe-6fbf-48f1-887f-b0123cc81564",
+    "human_text_count": 1,
+    "inserted_at": "2026-10-05T06:02:42.479983Z",
+    "launch_ledger": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/ledger.json",
+      "sha256": "5fb61ab009bef542a1e9dd5f60a237166d46ac73ba6f4d140689aaca9fefabc1"
+    },
+    "only_one_pm_mention_normalized": true,
+    "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+    "task_sha256": "63e741f55d8bcf08b1f5646ec763c4778d065722d67c921806a7026715b32dc3",
+    "verification": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/dispatch-verification.json",
+      "sha256": "b75070e11b050986df924f1004fba2673eb2694cc1d4545756505dc3ffc2f0f8"
+    }
+  },
+  "owner": {
+    "contexts": [
+      {
+        "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+        "running": true,
+        "state": "idle"
+      },
+      {
+        "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+        "processing": true,
+        "queued_events": 12,
+        "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+        "running": true,
+        "state": "processing"
+      },
+      {
+        "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+        "processing": false,
+        "queued_events": 0,
+        "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+        "running": true,
+        "state": "idle"
+      }
+    ],
+    "identity_matches_recorded_creation_command_and_owner": true,
+    "owner_snapshot_sha256": "a6331ff0f4eff30379aa851503948d47880752a830b42041c8d62bf378697556",
+    "pid": 94639,
+    "recorded_children_count": 16,
+    "seats": [
+      "pm",
+      "architect",
+      "designer",
+      "backend",
+      "frontend",
+      "qa",
+      "reviewer"
+    ],
+    "status": "running"
+  },
+  "repository": {
+    "branch": {
+      "exit_code": 0,
+      "stdout": "run-7"
+    },
+    "head": "758093050e2484a6435395409f501994b9e215b8",
+    "path": "/Users/frank/mygit/Tablekeeper/result-run-7",
+    "status_porcelain": "",
+    "tree": "37b22b849b05d0755057a152ff17f7717c3badb4"
+  },
+  "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+  "schema_version": 1,
+  "scope": "Independent startup/dispatch/accounting metadata only; not product acceptance or final completion.",
+  "status": "LIVE_ACTIVATION_VERIFIED_WITH_POST_FREEZE_DISK_DRIFT"
+}

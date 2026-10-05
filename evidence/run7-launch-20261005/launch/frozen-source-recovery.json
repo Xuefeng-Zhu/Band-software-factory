@@ -1,0 +1,169 @@
+{
+  "commit": "4f46c230a8a6fc62c2e0aa66e4f216cac7e3ad9c",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "784139e91e5ec30229961a0e8a74d23ec0f20702f3c147e252b08ebe42fc9529"
+    },
+    {
+      "path": "agents/README.md",
+      "sha256": "610307306b55430ff45e873604432d16276e09e3037d981fe929910b39b8d4b8"
+    },
+    {
+      "path": "config/harness-requirements.lock",
+      "sha256": "98af911b8df3e8506a8764f35527441e91e5fc2382eb31fb6f2bf4d76988afbb"
+    },
+    {
+      "path": "factorykit/__init__.py",
+      "sha256": "a95e2e69ac0ab73b74eeb20cd45f509baa9bae9b671673aba14a75b010951bfc"
+    },
+    {
+      "path": "factorykit/budgets.py",
+      "sha256": "b5552bec8f4af652c235f723c861220a325337bd1c5c7b7f8ab64e7425fbf47f"
+    },
+    {
+      "path": "factorykit/cli.py",
+      "sha256": "b4432170a0b7e3cb167a3f0f9ad6adb1918e5aedadcda55d55645d4caf8783b1"
+    },
+    {
+      "path": "factorykit/common.py",
+      "sha256": "b7b754b774c51325a4be6db051bd5146ad9ecb90b0b8f4f193217dbe4c45a96f"
+    },
+    {
+      "path": "factorykit/continuation_guard.py",
+      "sha256": "0e300032324124280df8b50f5c109cbf6a6b83553d7c4a40d8f1f544e43db0ab"
+    },
+    {
+      "path": "factorykit/continuation_platform.py",
+      "sha256": "638626f687f9fa9e7b5af27bcae97121b06284d316f54110785a602ed843e331"
+    },
+    {
+      "path": "factorykit/continuation_runner.py",
+      "sha256": "e4d651ee347a26f0ca7bb28de3f08c91fbe100822abdfdbf6976d0b113328063"
+    },
+    {
+      "path": "factorykit/deadline_extension.py",
+      "sha256": "28b3e9f9a1f93526b241cbfa2dc5509361b8eba82c85fd0e3ec5b6900f7a61f4"
+    },
+    {
+      "path": "factorykit/exception_diagnostics.py",
+      "sha256": "a72d80c2423d28a91e2c515a941160e5acefd09509df606320736f9dca08a311"
+    },
+    {
+      "path": "factorykit/operations.py",
+      "sha256": "9a7b9d8c0ad6a70b57dc34229f073fb45cb42db6d3ff5076983c09f3c710b129"
+    },
+    {
+      "path": "factorykit/permissions.py",
+      "sha256": "fa28cec5cd524b4674ed686bdf27c6b0dafb589112d003c7ae0b35f83c67f02c"
+    },
+    {
+      "path": "factorykit/runtime.py",
+      "sha256": "50b18980d61058b8cb6bd4ae85cc8f86ab135aa5c27445e1683343d6e3a00ec6"
+    },
+    {
+      "path": "factorykit/tasks.py",
+      "sha256": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3"
+    },
+    {
+      "path": "factorykit/token_extension.py",
+      "sha256": "29821be630d9509cf31ea61c0726ba3dd81379d902a1bf36889be18e004cbb64"
+    },
+    {
+      "path": "factorykit/validation.py",
+      "sha256": "33f8b79ed4b94da0b9894c52ed4f5e3fa01d335d30bb8f501a4f03d3442ac889"
+    },
+    {
+      "path": "factorykit/workflow.py",
+      "sha256": "b845ce8b5a96b256f6057a713379677485b82298b0213065ff05748c5a74206f"
+    },
+    {
+      "path": "factorykit/workflow_runtime.py",
+      "sha256": "5e3504b37283ab26345ecf7bdb36afa41f5ce22827906d0d878898f28ad56add"
+    },
+    {
+      "path": "factorykit/workitems.py",
+      "sha256": "5821c39d03639130639eb9dfe79352abde830dcdf3cb6551f7952c51ee8370e8"
+    },
+    {
+      "path": "mandates/factory-architect.md",
+      "sha256": "aae68484caab50eff9248a665f0ff2fd7e75c3e4b32efa9e81e7e5241ba81582"
+    },
+    {
+      "path": "mandates/factory-backend.md",
+      "sha256": "8f6f57e974cb38d4cf69bfcce07a47cd8544aab38e278520eb523e4a39aa85bf"
+    },
+    {
+      "path": "mandates/factory-designer.md",
+      "sha256": "469a4332230b1c673afa74376af69d6b0908f2f1ed05d52b9e3d31b479b59ac8"
+    },
+    {
+      "path": "mandates/factory-frontend.md",
+      "sha256": "86979e5724516651950808b77c0211940beeb8ae4182c85b39c179b16a682b25"
+    },
+    {
+      "path": "mandates/factory-pm.md",
+      "sha256": "9a46e932b1def377f41ac2004bf3fa00ac87260b2c532b532dfe4f548da88dc8"
+    },
+    {
+      "path": "mandates/factory-qa.md",
+      "sha256": "325e29df364a2e50697fb1771fc64fba3812deef2dcdbcaad26e54df450e332b"
+    },
+    {
+      "path": "mandates/factory-reviewer.md",
+      "sha256": "ea6b85614fae6b71d4fa0edf3ec8dc85dad9d525d71bf8e6b51700b705fd4ca1"
+    },
+    {
+      "path": "protocols/collaboration.md",
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b"
+    },
+    {
+      "path": "protocols/evidence-and-limits.md",
+      "sha256": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6"
+    },
+    {
+      "path": "protocols/git-and-review.md",
+      "sha256": "09e212f1ff2c4f8c31383e721e4fb9e3ce4d1b5098cfe4596bd3a1e0ef8b31f7"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "d08ea4e5213b1c9e51c4f6a4fec730afed4528e221777269c4679160096447c1"
+    },
+    {
+      "path": "scripts/bootstrap.py",
+      "sha256": "3331c8a1c4d23f866b6ba3d0ab54d7d2759375969a7a3e5cc00763fccbbc19ce"
+    },
+    {
+      "path": "scripts/codex-local",
+      "sha256": "db57b3ce018bc3d8d5dce62cb71d809956bb8e00e488e27b521ed22e82a36e9a"
+    },
+    {
+      "path": "scripts/factory",
+      "sha256": "0664b25367880eae8633ed409950ffe228d60631cd6977e8a5d8877cc39454f7"
+    },
+    {
+      "path": "scripts/permission_probe.py",
+      "sha256": "346daf4c11ca900bb62a69bbbfd01dd0559dd068d4823a41a5db3c28ad5a04ce"
+    },
+    {
+      "path": "scripts/runtime",
+      "sha256": "60ad0961932854a10659bdaed9cac1a9c7edaeb130cbc072f56ad294889b15c1"
+    },
+    {
+      "path": "tooling/codex/package-lock.json",
+      "sha256": "96d56cc75319eb74a91f78308b624a57b76cc9c24f5010002407b20e544c20f4"
+    },
+    {
+      "path": "tooling/codex/package.json",
+      "sha256": "ba8407352770dc5809eab3a9e93d6db2ac4426827af2c50b23d770cce5340e5d"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "46ca153100ee9189c5e6d110757fddaaa913344a89c6f1e73b78da631643746e"
+    }
+  ],
+  "observed_at": "2026-10-05T06:10:15.594265+00:00",
+  "repository": "https://github.com/Xuefeng-Zhu/Tablekeeper-factory",
+  "scope": "All 40 frozen source files match retained Git objects. This does not alter the working tree, certify loaded process bytes, or authorize a restart.",
+  "status": "ALL_FROZEN_FILES_RECOVERABLE_FROM_COMMIT"
+}

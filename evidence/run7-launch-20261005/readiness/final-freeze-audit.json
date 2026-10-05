@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-10-05T06:01:01.038580+00:00",
+  "finished_at": "2026-10-05T06:01:01.431828+00:00",
+  "status": "PASS_FINAL_FREEZE_AUDIT",
+  "scope": "Independent local final admission-evidence audit only. No room calls, model requests, product tests, launch, ledger mutations, process signals or dispatch.",
+  "configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/factory.yaml",
+    "sha256": "dde637a343e1ce5996a1e37daf84dc95186189ce4a7a453874e23b0a242a6832",
+    "canonical_sha256": "069c2dc16c23e3fd1ce5604a165dea14a297ebc9aa45f80404396327552e84ab"
+  },
+  "freeze": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/freeze/latest.json",
+    "sha256": "b662ba30c27e4ecb292ad0fb6d3a1a063ca31fd6b3adcca92d2c592cd896489d",
+    "status": "READY_TO_LAUNCH",
+    "frozen_file_count": 40,
+    "exact_source_inventory_and_bytes_match": true
+  },
+  "source_lock": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/source-lock.json",
+    "sha256": "8cfb3e1db7bb3c886f09342e0837b0fe0a173f3032381b6c76c646361a617fdd"
+  },
+  "source_errors": [],
+  "tasks": {
+    "manifest": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/tasks/task-manifest.json",
+      "sha256": "06263ef48f86bb4836504e0fa54754769e7a3371975751cffc319770bb314766"
+    },
+    "packets_verified": 6,
+    "all_stage_packet": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/tasks/judged-all-stages.md",
+      "sha256": "63e741f55d8bcf08b1f5646ec763c4778d065722d67c921806a7026715b32dc3"
+    },
+    "all_deterministic_packet_and_embedded_spec_bytes_match": true
+  },
+  "checklists": {
+    "observations": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/observations.json",
+      "sha256": "baa6969a342635a99e4af621145aca29c781dcd6c96f539a592149df1c9c698e"
+    },
+    "validated_count": 14,
+    "errors": [],
+    "matches_frozen_observations": true,
+    "doctor": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/doctor-latest.json",
+      "sha256": "cd18f50f21aa237e3266c7914618b9c33ae68f86e091cbaa72a4bf5dadbc24b9"
+    },
+    "doctor_status": "PASS",
+    "semantic": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/semantic-review-final.json",
+      "sha256": "e5ee33377d52f41df45b1a1a1e63648b4b785a9b510b092d02026447863fb7ab"
+    },
+    "independent_semantic": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/semantic-independent-review.json",
+      "sha256": "2a47fc5693b50d988c0acdeccabe967eedc52f999217b67b0e23554f76f87ef7"
+    }
+  },
+  "approval": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/authorization/approval.json",
+    "sha256": "305063d6fcf7882fafa0d9395e70d9853aa051b7af7ef61989e0b85b22d01a26",
+    "one_fresh_run7_dispatch": true,
+    "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+    "model": "gpt-6.1-sol",
+    "memory_cap_mib": 2048,
+    "subscription_only": true,
+    "video": "DEFERRED_BY_USER"
+  },
+  "repository": {
+    "path": "/Users/frank/mygit/Tablekeeper/result-run-7",
+    "branch": "run-7",
+    "origin": "https://github.com/Xuefeng-Zhu/Tablekeeper.git",
+    "pristine_errors": [],
+    "unborn": true,
+    "root_entries": [
+      ".git"
+    ],
+    "object_file_count": 0
+  },
+  "accounting": {
+    "prior": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+      "sha256": "4a40de77c936ae3d7e2da32c1135b5449aef64c57476bfac19e93e51222fd1eb"
+    },
+    "current": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/runtime/budget-subscription.json",
+      "sha256": "c66b7abbcf3ed9cf578367518303de8e370037ee82aef2f52968cf981caa4a8b"
+    },
+    "carry_forward": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/budget-carry-forward.json",
+      "sha256": "00b224123ae4e610f4d6d692d707b220066b6af533f13c7ccf36f508ab8fbab3"
+    },
+    "changed_top_fields": [
+      "room_ids",
+      "room_stopped_reasons",
+      "stopped_reason",
+      "updated_at"
+    ],
+    "all_prior_counters_and_epochs_preserved": true,
+    "tokens": 286079113,
+    "ceiling": 786011577,
+    "remaining": 499932464,
+    "deadline_utc": "2026-10-05T10:35:03.700437+00:00",
+    "blockers": []
+  },
+  "old_run": {
+    "owner": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/owner.json",
+      "sha256": "3c6e64197c4d35fdc06b3a3f8e066e49fc320c03ed391dfea9069b098c5cc397"
+    },
+    "recorded_process_checks": [
+      {
+        "role": "parent",
+        "pid": 86834,
+        "pid_present": false,
+        "original_process_absent": true
+      },
+      {
+        "role": "child-0",
+        "pid": 86859,
+        "pid_present": false,
+        "original_process_absent": true
+      },
+      {
+        "role": "child-1",
+        "pid": 86863,
+        "pid_present": false,
+        "original_process_absent": true
+      }
+    ],
+    "stopped_receipt": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/run6-stopped.json",
+      "sha256": "8568ac92a597c179fa00202ee1cd086f07bd992bd12f26be905931bd2a6c8100"
+    },
+    "old_claim_workflow_owner_and_budget_hashes_unchanged": true,
+    "no_old_workflow_owner_or_continuation_imported": true
+  },
+  "findings": [],
+  "limitations": [
+    "Eight rehearsal observations retain their historical timestamps and proof; no new Sol model rehearsal is inferred.",
+    "Approval is the preserved direct-user-answer record; the parent owns the one-shot start and send.",
+    "Point-in-time source, process and accounting proof must be rechecked by normal launch admission if anything changes.",
+    "No product implementation, stage acceptance, seven-seat material contribution or final submission is established."
+  ]
+}

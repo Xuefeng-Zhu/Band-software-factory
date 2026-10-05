@@ -1,0 +1,74 @@
+{
+  "created_at": "2026-10-05T06:04:56.005335+00:00",
+  "event_at": "2026-10-05T06:02:42.479983Z",
+  "event_id": "0a32f0fe-6fbf-48f1-887f-b0123cc81564",
+  "files": [
+    {
+      "archive": "authorization/approval.json",
+      "sha256": "305063d6fcf7882fafa0d9395e70d9853aa051b7af7ef61989e0b85b22d01a26",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/authorization/approval.json"
+    },
+    {
+      "archive": "launch/startup.json",
+      "sha256": "e9b10a16fa14f82ec6885dbd8523549fde52e2e0dc55b5077028bc2613ef67f0",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/startup.json"
+    },
+    {
+      "archive": "launch/send-attempt.json",
+      "sha256": "7ad63da7e2ba4dc4e45cf7c32d3c090bbae5177c27bbfea3e23279282dcea79c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/send-attempt.json"
+    },
+    {
+      "archive": "launch/dispatch-verification.json",
+      "sha256": "b75070e11b050986df924f1004fba2673eb2694cc1d4545756505dc3ffc2f0f8",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/dispatch-verification.json"
+    },
+    {
+      "archive": "launch/dispatch-script-bindings.json",
+      "sha256": "4e8fea61e72d0450449d2f9a9da2fdbbc22f2a92792f09ef4d9ad7f209e8dbcf",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/dispatch-script-bindings.json"
+    },
+    {
+      "archive": "launch/ledger.json",
+      "sha256": "5fb61ab009bef542a1e9dd5f60a237166d46ac73ba6f4d140689aaca9fefabc1",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/ledger.json"
+    },
+    {
+      "archive": "launch/initial-status.json",
+      "sha256": "65f74359f8ee837a648b8880f485c399061c77fbfb41f180ee016dab2c2f3c34",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/initial-status.json"
+    },
+    {
+      "archive": "readiness/final-freeze-audit.json",
+      "sha256": "263786de652f35a81a4111766b933e0ba288ecec413785e8428e283f58ce1010",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/final-freeze-audit.json"
+    },
+    {
+      "archive": "readiness/dispatch-script-review.json",
+      "sha256": "79b54b174e19b43fd4342b1793bfdb9da5c69ca1e92a64597678ef585f74073c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/readiness/dispatch-script-review.json"
+    },
+    {
+      "archive": "launch/independent-activation.json",
+      "sha256": "88285dda1c04e9e4bc93e0b72e0f79d77deb6edaf2889c4696c3c3e22334a1fa",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/independent-activation.json"
+    },
+    {
+      "archive": "launch/frozen-source-recovery.json",
+      "sha256": "82eab4d8209cf6c85bc4a3d556c7807f90b2d281cfbf338ad4525e9949e768be",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/frozen-source-recovery.json"
+    },
+    {
+      "archive": "launch/first-published-commit.json",
+      "sha256": "9138d8dcd36308bb11c707e0482be7f533e03d661d1aa28cd9252dd60d6453ed",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/first-published-commit.json"
+    }
+  ],
+  "first_published_head": "758093050e2484a6435395409f501994b9e215b8",
+  "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+  "scope": "Selected operational launch evidence, not full-session export or product acceptance.",
+  "source_factory_commit": "4f46c23",
+  "source_recoverable_at": "4f46c230a8a6fc62c2e0aa66e4f216cac7e3ad9c",
+  "status": "RUNNING_ONE_DISPATCH_VERIFIED_WITH_POST_FREEZE_DISK_DRIFT",
+  "updated_at": "2026-10-05T06:11:05.510745+00:00"
+}

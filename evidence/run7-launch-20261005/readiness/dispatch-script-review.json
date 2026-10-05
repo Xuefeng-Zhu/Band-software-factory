@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-05T06:02:08.796051+00:00",
+  "status": "PASS_STATIC_ONE_SHOT_REVIEW",
+  "scope": "Static review and hash/AST parsing only; neither script was executed.",
+  "bindings": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/launch/dispatch-script-bindings.json",
+    "sha256": "4e8fea61e72d0450449d2f9a9da2fdbbc22f2a92792f09ef4d9ad7f209e8dbcf"
+  },
+  "script_hashes": {
+    "send-once.py": "e107351973bd473774b93abf1f15152758b0767019f28384fb63999d4346c028",
+    "verify-dispatch.py": "fbdd3705390a77cc23ce2f7718a3aef2e8e05635dd9f7ac8e204253f41fabdcc"
+  },
+  "preparation_id": "d963102890d24945bfd39819565d4d23",
+  "findings": [],
+  "checks": [
+    "Exact Run7 room, PM and operator identities are checked before send.",
+    "Approved Run7 one-dispatch record, PREPARED ledger, frozen config, exact task/freeze hashes and run-7 push target are checked.",
+    "Room initially contains only seven participant events and no pagination; judged launch admission is rechecked before marker creation.",
+    "Owner-only O_EXCL marker is written and file-fsynced before a single native CLI send invocation; existing marker prevents another invocation.",
+    "Timeout or exception records unknown outcome and does not retry; actual room readback is required.",
+    "Readback requires one human text from the exact operator in exact room, complete text-filtered page, and full original task equality after exactly one PM mention normalization."
+  ],
+  "limitations": [
+    "Native CLI internal transport retry policy is unverified; this proves one wrapper invocation, not transport exactly-once semantics.",
+    "Readback verification is still required after the authorized send; this review is not evidence that any message was sent.",
+    "Marker file is fsynced; parent directory is not explicitly fsynced by this existing wrapper. No destructive crash or power-loss durability test was performed.",
+    "No permission to resend on unknown outcome; operator must preserve the marker and inspect actual room state."
+  ]
+}

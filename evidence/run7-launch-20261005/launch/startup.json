@@ -1,0 +1,15 @@
+{
+  "status": "running",
+  "pid": 94639,
+  "mode": "judged",
+  "seats": [
+    "pm",
+    "architect",
+    "designer",
+    "backend",
+    "frontend",
+    "qa",
+    "reviewer"
+  ],
+  "active_turn_limit": 1
+}
