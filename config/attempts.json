@@ -121,6 +121,26 @@
       "review_document": "docs/run-6-preparation.md",
       "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
       "status": "PREPARED_PENDING_FRESH_APPROVAL"
+    },
+    {
+      "accepted_stages": [],
+      "authorization": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/authorization/approval.json",
+      "authorization_sha256": "305063d6fcf7882fafa0d9395e70d9853aa051b7af7ef61989e0b85b22d01a26",
+      "baseline_cumulative_reported_tokens": 286079113,
+      "branch": "run-7",
+      "checkout": "/Users/frank/mygit/Tablekeeper/result-run-7",
+      "configuration": "/Users/frank/mygit/Tablekeeper/runs/run7-preparation-20261005/factory.yaml",
+      "cumulative_token_ceiling": 786011577,
+      "deadline_utc": "2026-10-05T10:35:03.700437Z",
+      "id": "run-7",
+      "launch_approved": true,
+      "launch_authorization_consumed": false,
+      "model": "gpt-6.1-sol",
+      "observed_at": "2026-10-05T05:55:07.576906+00:00",
+      "remaining_reported_tokens": 499932464,
+      "remote_branch_created": false,
+      "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+      "status": "PREPARING_APPROVED"
     }
   ],
   "branch_pattern": "run-N",
