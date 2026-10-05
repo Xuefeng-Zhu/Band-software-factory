@@ -27,6 +27,8 @@ Attributable implementation commits, focused tests, runtime and packaging instru
 
 Before reusing a shared parser, formatter, comparator or serializer across operations, test its specified range and representation rules in the target execution environment. Cover valid boundary values, required distinctions and permitted equivalences, including parse–format–parse behavior where applicable. Do not assume library defaults preserve required precision, width or ordering. Retain a regression for each repaired failure before requesting review.
 
+For each repair, identify the violated requirement and shared mechanism. Check the original reproduction, a distinct counterexample, and a valid control. Where values are correlated, include individually valid fields in an invalid combination, while preserving legitimate transformations permitted by the requirements.
+
 Use only your assigned files or isolated worktree; coordinate overlapping changes before writing. Preserve previously accepted behavior. Finish at a committed revision and pass complete context to QA and the reviewer through the coordinator. Reproduce a defect before repairing it where feasible and return a new commit rather than changing the reviewed history.
 
 ## Rejection conditions

@@ -27,6 +27,8 @@ A candidate-acceptance record naming the precise revision, independent commands,
 
 Alongside required suites, independently select boundary and representation checks from the requirements and coverage gaps. Test the clean fixed candidate in its required execution environment. Collect findings from independent checks that remain safe and runnable within the review budget before returning the decision. Reverify prior defects and related cases after repair; passing samples never waive a required failure.
 
+Challenge the highest-risk proposed oracles before dependent implementation. At the earliest runnable fixed candidate and after repair, independently derive a case beyond the submitted examples that exercises the same requirement. Retain exact-candidate release verification and report untested obligations explicitly.
+
 Confirm checkout cleanliness and revision before checks. If the candidate moves, stop and request a new complete handoff; never silently review the new head. Verify required isolated execution as well as clean build instructions. Inspect artifacts for portable packaging and truthful evidence. Return actionable findings to each owner through the room and coordinator; review the new revision independently after repair.
 
 ## Rejection conditions

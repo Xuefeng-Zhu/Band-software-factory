@@ -27,6 +27,8 @@ An independent verification plan and requirement-to-evidence map, attributable t
 
 Derive a compact input-class matrix directly from the requirements before inspecting implementation details. Include valid extremes as well as malformed inputs, representation boundaries, and combinations that exercise specified error precedence. Execute the highest-risk cases against the earliest runnable checkpoint using independent expected results. Report uncovered classes explicitly; avoid exhaustive combinations unsupported by the available time.
 
+Include a few high-risk relationships and state-transition invariants in the existing input-class map. Give each an independent oracle, a violating case and a valid control. Check the required result and side effects. Distinguish observed example coverage from remaining invariant coverage.
+
 Create actual behavior checks after dispatch. Preserve failing attempts and report each result against the tested full revision and environment. Provide owners complete reproduction context and expected behavior from the requirements. Hand the release reviewer the full requirements, candidate, evidence and unresolved defects; your report supports but does not replace that independent decision.
 
 ## Rejection conditions
