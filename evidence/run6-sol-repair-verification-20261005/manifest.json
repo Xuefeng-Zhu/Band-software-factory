@@ -1,0 +1,82 @@
+{
+  "created_at": "2026-10-05T04:01:22.000391+00:00",
+  "files": [
+    {
+      "file": "verification.json",
+      "sha256": "4eec69e153b2dfe0b2599fd52fd53c29be97d418328c3797b2fbef764fa9e8db",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/verification.json"
+    },
+    {
+      "file": "scope.json",
+      "sha256": "66721234d5b01d30221b2e4fe134e05ebf322d5c8ab25c106143a2842361b687",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/scope.json"
+    },
+    {
+      "file": "clone-receipt.json",
+      "sha256": "25ad3f24b07cbe22f172c2de809690db6bf3fda02aba2e38109ca585aed6f4df",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/clone-receipt.json"
+    },
+    {
+      "file": "commands.json",
+      "sha256": "ee66792f9ebe2e4d0c8342ca3ad85ebfa98fe98c584b0db5d00c8da17dd4ab3b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/commands.json"
+    },
+    {
+      "file": "boundary-provenance.json",
+      "sha256": "78a7a0891b824134720a0657d8fcd7ffbb903587d0abadf1a3abe64ecf9110c6",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-provenance.json"
+    },
+    {
+      "file": "boundary-results.raw.json",
+      "sha256": "2e2096ef9497d992b3023f48a1c14cc20c50b9e30028ab3fc4b8895bdfdcfcab",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-results.raw.json"
+    },
+    {
+      "file": "official-report.json",
+      "sha256": "3d8b6a89726d4208d3d0eea7dd02c29cb11beef1ed3ca11a85630c39cf40508d",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/official/report.json"
+    },
+    {
+      "file": "official-counts.json",
+      "sha256": "b18fabdbadab8f1094c6b47d09dd89a3e3215cb6c471340343c5f8787e30b77b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/official/stage-1.counts.json"
+    },
+    {
+      "file": "stop-summary.json",
+      "sha256": "63b80fdb95c606addcd1709421adb37a1db8e91998f8f499e75d72956d89afb0",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/sol-budget-stop-20261005/stop-summary.json"
+    },
+    {
+      "file": "resource-observation.txt",
+      "sha256": "eaeda143263b2bafe9383030587675a9d2486cbcb36f1364bfc692e738c520ee",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/resource-observation.log"
+    },
+    {
+      "file": "boundary-inspect.txt",
+      "sha256": "2d625f57086ea53ba981173a205f281329456619f21ea99725ab51a640b53430",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-inspect.log"
+    },
+    {
+      "file": "official-command.txt",
+      "sha256": "6d7b34fc39b1a0a86d66f3b77a14287e1ef351a7c67ccc18fc97069e65971da5",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/official-command.log"
+    },
+    {
+      "file": "boundary-cleanup.txt",
+      "sha256": "9f5094e53508bc8985f1c3512ab47382dcbea7c158feff47371d3a611225f68f",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-cleanup.log"
+    },
+    {
+      "file": "boundary-image-cleanup.txt",
+      "sha256": "c9696aa7ed368a0c8b41903e622079b4857f1957a8b91733db0cf9ac8b685657",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-image-cleanup.log"
+    },
+    {
+      "file": "factory-tests.txt",
+      "sha256": "34de0a7a383c9071352d4db96182be9c128cedf684bd8592dc3beb3be6b7994e",
+      "source": "/private/tmp/tablekeeper-first-halt-full-suite.log"
+    }
+  ],
+  "full_session_export_included": false,
+  "operator_verification_only": true
+}

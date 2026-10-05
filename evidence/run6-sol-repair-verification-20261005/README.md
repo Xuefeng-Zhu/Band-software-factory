@@ -1,0 +1,11 @@
+# Run 6 repaired calendar candidate: operator verification
+
+BAND Backend committed `fea243fb5bd9e38a246c086a81dad337866f1b64` before its turn was interrupted. The operator pushed that unchanged commit to the private `run-6` branch after confirming clean state and Backend authorship. It replaces platform-dependent year formatting with explicit four-digit formatting and adds calendar regressions. No operator product edit was made.
+
+A fresh detached clone passed **120/120 official isolated Stage 1 tests** and **6/6 existing Reviewer boundary probes** at 2026-10-05T03:59:45Z. The actual candidate and source trees are bound by `verification.json` and `clone-receipt.json`; the clone stayed clean. The boundary container used 2 CPUs, 2 GiB and no outbound network; its container and unique image tag were removed afterward. The unchanged boundary script retains literal old candidate/Reviewer labels: `boundary-provenance.json` records their historical meaning and the actual operator execution. Raw evidence was not relabeled.
+
+This is operator verification, **not BAND independent Reviewer acceptance**. The prior rejection remains in history, and stages 2–4 are unimplemented/unverified. No final release or submission is claimed.
+
+The Sol continuation stopped at 03:51:52Z with 286,079,113 cumulative reported tokens against its 286,011,577 ceiling. A final reported chunk crossed the cap by 67,536; all 39 recorded owned processes (supervisor plus 38 children) were verified absent. The continuation used 9,675,812 reported tokens. No counts, epochs or failed-event claims were reset. Backend's final turn is interrupted, despite the completed Git commit.
+
+Cleanup overwrote the original token-stop reason with an incomplete-turn message. Usage and code establish this causal path; no intermediate halt log was recorded. A separate future-runtime fix preserves the first global cause without losing late usage or changing room-scoped limits; 340 utility tests pass. It has not been applied to the historical ledger or used to restart the run. An additional 500 million reported-token allowance has been requested and remains unapproved at this snapshot. The eight-hour time extension did not add tokens.

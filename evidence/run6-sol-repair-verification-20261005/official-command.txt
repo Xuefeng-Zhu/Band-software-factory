@@ -1,0 +1,4 @@
+building /private/tmp/tablekeeper-run6-sol-operator-y18h_qhs/candidate/stage-1 ...
+  stage 1: pass  (log: /Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/official/stage-1.log)
+highest contiguous stage: 1
+report: /Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/official/report.json

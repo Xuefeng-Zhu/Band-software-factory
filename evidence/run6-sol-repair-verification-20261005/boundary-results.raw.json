@@ -1,0 +1,113 @@
+{
+  "work_item": "S1-GATE",
+  "candidate_commit": "7960081554f92cbe1a61d377b8dfd651ae90487b",
+  "reviewer": "@frankzhu94/factory-reviewer",
+  "started_at_utc": "2026-10-05T03:59:20.381616+00:00",
+  "finished_at_utc": "2026-10-05T03:59:20.799469+00:00",
+  "layer": "actual HTTP inside network-none2CPU2GiB container",
+  "results": [
+    {
+      "name": "calendar_year_2030",
+      "status": "PASS",
+      "detail": {
+        "expected_starts": [
+          "2030-06-01T18:00",
+          "2030-06-01T18:30",
+          "2030-06-01T19:00"
+        ],
+        "observed_starts": [
+          "2030-06-01T18:00",
+          "2030-06-01T18:30",
+          "2030-06-01T19:00"
+        ],
+        "availability_status": 200,
+        "create_status": 201,
+        "created_local": "2030-06-01T18:00",
+        "scope": "real HTTP in constrained network-none Python3.12 container"
+      }
+    },
+    {
+      "name": "calendar_year_1000",
+      "status": "PASS",
+      "detail": {
+        "expected_starts": [
+          "1000-06-01T18:00",
+          "1000-06-01T18:30",
+          "1000-06-01T19:00"
+        ],
+        "observed_starts": [
+          "1000-06-01T18:00",
+          "1000-06-01T18:30",
+          "1000-06-01T19:00"
+        ],
+        "availability_status": 200,
+        "create_status": 201,
+        "created_local": "1000-06-01T18:00",
+        "scope": "real HTTP in constrained network-none Python3.12 container"
+      }
+    },
+    {
+      "name": "calendar_year_0999",
+      "status": "PASS",
+      "detail": {
+        "expected_starts": [
+          "0999-06-01T18:00",
+          "0999-06-01T18:30",
+          "0999-06-01T19:00"
+        ],
+        "observed_starts": [
+          "0999-06-01T18:00",
+          "0999-06-01T18:30",
+          "0999-06-01T19:00"
+        ],
+        "availability_status": 200,
+        "create_status": 201,
+        "created_local": "0999-06-01T18:00",
+        "scope": "real HTTP in constrained network-none Python3.12 container"
+      }
+    },
+    {
+      "name": "calendar_year_0001",
+      "status": "PASS",
+      "detail": {
+        "expected_starts": [
+          "0001-06-01T18:00",
+          "0001-06-01T18:30",
+          "0001-06-01T19:00"
+        ],
+        "observed_starts": [
+          "0001-06-01T18:00",
+          "0001-06-01T18:30",
+          "0001-06-01T19:00"
+        ],
+        "availability_status": 200,
+        "create_status": 201,
+        "created_local": "0001-06-01T18:00",
+        "scope": "real HTTP in constrained network-none Python3.12 container"
+      }
+    },
+    {
+      "name": "new_gap_grid_duration",
+      "status": "PASS",
+      "detail": {
+        "expected": [
+          "2026-03-29T03:10",
+          "2026-03-29T03:30"
+        ],
+        "observed": [
+          "2026-03-29T03:10",
+          "2026-03-29T03:30"
+        ]
+      }
+    },
+    {
+      "name": "eight_item_noop_batch",
+      "status": "PASS",
+      "detail": {
+        "count": 8,
+        "first_status": 201,
+        "replay_status": 200
+      }
+    }
+  ]
+}

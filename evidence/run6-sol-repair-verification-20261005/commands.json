@@ -1,0 +1,211 @@
+[
+  {
+    "argv": [
+      "git",
+      "clone",
+      "--no-hardlinks",
+      "--no-checkout",
+      "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "/private/tmp/tablekeeper-run6-sol-operator-y18h_qhs/candidate"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:17.744616+00:00",
+    "label": "clone",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/clone.log",
+    "started_at": "2026-10-05T03:59:17.597660+00:00"
+  },
+  {
+    "argv": [
+      "git",
+      "-C",
+      "/private/tmp/tablekeeper-run6-sol-operator-y18h_qhs/candidate",
+      "checkout",
+      "--detach",
+      "fea243fb5bd9e38a246c086a81dad337866f1b64"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:17.793486+00:00",
+    "label": "checkout",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/checkout.log",
+    "started_at": "2026-10-05T03:59:17.745035+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "info",
+      "--format",
+      "{\"MemTotal\":{{.MemTotal}},\"NCPU\":{{.NCPU}},\"ServerVersion\":\"{{.ServerVersion}}\"}"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:18.293048+00:00",
+    "label": "resource-observation",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/resource-observation.log",
+    "started_at": "2026-10-05T03:59:17.874512+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "build",
+      "-t",
+      "tablekeeper-operator-sol6-1ac9053f59cf:verification",
+      "/private/tmp/tablekeeper-run6-sol-operator-y18h_qhs/candidate/stage-1"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:19.715098+00:00",
+    "label": "boundary-build",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-build.log",
+    "started_at": "2026-10-05T03:59:18.293540+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "run",
+      "-d",
+      "--name",
+      "tablekeeper-operator-sol6-1ac9053f59cf",
+      "--network",
+      "none",
+      "--cpus=2",
+      "--memory=2g",
+      "-e",
+      "PORT=8080",
+      "tablekeeper-operator-sol6-1ac9053f59cf:verification"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:19.963320+00:00",
+    "label": "boundary-start",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-start.log",
+    "started_at": "2026-10-05T03:59:19.715613+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "inspect",
+      "--format",
+      "{\"id\":\"{{.Id}}\",\"image\":\"{{.Image}}\",\"memory\":{{.HostConfig.Memory}},\"nano_cpus\":{{.HostConfig.NanoCpus}},\"network\":\"{{.HostConfig.NetworkMode}}\"}",
+      "tablekeeper-operator-sol6-1ac9053f59cf"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:20.008558+00:00",
+    "label": "boundary-inspect",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-inspect.log",
+    "started_at": "2026-10-05T03:59:19.963725+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "exec",
+      "tablekeeper-operator-sol6-1ac9053f59cf",
+      "python",
+      "-c",
+      "import time,urllib.request\nend=time.monotonic()+60\nwhile time.monotonic()<end:\n try:\n  r=urllib.request.urlopen('http://127.0.0.1:8080/health',timeout=2)\n  if r.status==200: print('healthy');break\n except Exception:time.sleep(.2)\nelse:raise SystemExit(1)"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:20.203513+00:00",
+    "label": "boundary-health",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-health.log",
+    "started_at": "2026-10-05T03:59:20.008972+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "cp",
+      "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundaries.py",
+      "tablekeeper-operator-sol6-1ac9053f59cf:/tmp/boundaries.py"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:20.241922+00:00",
+    "label": "boundary-copy-probe",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-copy-probe.log",
+    "started_at": "2026-10-05T03:59:20.203987+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "exec",
+      "tablekeeper-operator-sol6-1ac9053f59cf",
+      "python",
+      "/tmp/boundaries.py"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:20.840902+00:00",
+    "label": "boundary-execution",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-execution.log",
+    "started_at": "2026-10-05T03:59:20.242337+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "cp",
+      "tablekeeper-operator-sol6-1ac9053f59cf:/tmp/reviewer-boundaries.json",
+      "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-results.raw.json"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:20.887094+00:00",
+    "label": "boundary-copy-results",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-copy-results.log",
+    "started_at": "2026-10-05T03:59:20.841465+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "rm",
+      "-f",
+      "tablekeeper-operator-sol6-1ac9053f59cf"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:20.960203+00:00",
+    "label": "boundary-cleanup",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-cleanup.log",
+    "started_at": "2026-10-05T03:59:20.887472+00:00"
+  },
+  {
+    "argv": [
+      "docker",
+      "image",
+      "rm",
+      "tablekeeper-operator-sol6-1ac9053f59cf:verification"
+    ],
+    "cwd": null,
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:21.003877+00:00",
+    "label": "boundary-image-cleanup",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/boundary-image-cleanup.log",
+    "started_at": "2026-10-05T03:59:20.960765+00:00"
+  },
+  {
+    "argv": [
+      "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+      "-m",
+      "harness",
+      "run",
+      "--track",
+      "tablekeeper",
+      "--build",
+      "/private/tmp/tablekeeper-run6-sol-operator-y18h_qhs/candidate/stage-1",
+      "--stages",
+      "1",
+      "--out",
+      "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/official",
+      "--mode",
+      "isolated"
+    ],
+    "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+    "exit_code": 0,
+    "finished_at": "2026-10-05T03:59:45.746940+00:00",
+    "label": "official-command",
+    "log": "/Users/frank/mygit/Tablekeeper/runs/run6-sol-operator-verification-20261005/official-command.log",
+    "started_at": "2026-10-05T03:59:21.025954+00:00"
+  }
+]

@@ -1,0 +1,240 @@
+{
+  "additional_token_approval_pending": 500000000,
+  "all_recorded_owned_processes_absent": true,
+  "cause_note": "Usage crossed the token ceiling; cleanup subsequently overwrote the first halt reason with the interrupted-turn message. Causation inferred from the recorded usage delta and exact runtime code, not an intermediate halt log.",
+  "continuation_reported_tokens": 9675812,
+  "independent_stage_acceptance": false,
+  "last_turn": {
+    "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+    "deadline_at": 1791172800.436401,
+    "ended_at": 1791172312.0510662,
+    "incident_ids": [],
+    "reason_code": "interrupted",
+    "started_at": 1791172200.4364312,
+    "status": "interrupted",
+    "trigger_event_id": "ac957a3e-09ab-4ab3-abaf-111e73384a40"
+  },
+  "last_turn_id": "backend:126:ac957a3e-09ab-4ab3-abaf-111e73384a40",
+  "max_total_tokens": 286011577,
+  "new_allowance_approved": false,
+  "observed_at": "2026-10-05T03:58:01.283151+00:00",
+  "owner_stop_time": "2026-10-05T03:51:52.878254+00:00",
+  "persisted_stop_reason": "continuation turn did not complete; preserve before retry",
+  "processes": [
+    {
+      "pid": 69551,
+      "same_process_exists": false
+    },
+    {
+      "pid": 69567,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70029,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70469,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72016,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72020,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72028,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72029,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72031,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72334,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72418,
+      "same_process_exists": false
+    },
+    {
+      "pid": 72171,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70475,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70483,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70484,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70486,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70734,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70887,
+      "same_process_exists": false
+    },
+    {
+      "pid": 73339,
+      "same_process_exists": false
+    },
+    {
+      "pid": 73350,
+      "same_process_exists": false
+    },
+    {
+      "pid": 73359,
+      "same_process_exists": false
+    },
+    {
+      "pid": 73362,
+      "same_process_exists": false
+    },
+    {
+      "pid": 73340,
+      "same_process_exists": false
+    },
+    {
+      "pid": 73343,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70553,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70033,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70042,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70043,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70044,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70380,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70443,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70083,
+      "same_process_exists": false
+    },
+    {
+      "pid": 69571,
+      "same_process_exists": false
+    },
+    {
+      "pid": 69592,
+      "same_process_exists": false
+    },
+    {
+      "pid": 69594,
+      "same_process_exists": false
+    },
+    {
+      "pid": 69595,
+      "same_process_exists": false
+    },
+    {
+      "pid": 69922,
+      "same_process_exists": false
+    },
+    {
+      "pid": 70000,
+      "same_process_exists": false
+    },
+    {
+      "pid": 69714,
+      "same_process_exists": false
+    }
+  ],
+  "product_commit": "fea243fb5bd9e38a246c086a81dad337866f1b64",
+  "product_commit_pushed_by_operator": true,
+  "recorded_process_count": 39,
+  "reported_overage": 67536,
+  "reported_tokens": 286079113,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "runtime_evidence": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json",
+      "sha256": "a84ef176a4450fec0a680268df5660900b59e96d1d14d9c37699e01f81ceba7f"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/workflow-d98df99d-77ad-441d-875c-6e38cdbef39d.json",
+      "sha256": "cf7a08ca1abcb644b89fd1bed99b91d61ce614a652db9c95cfd56d894c2c6a88"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/execution-events.jsonl",
+      "sha256": "0d6992a2fcf1b423387e9ae844f6fa4587e1062159b6e35e0cd0eeddb83f6849"
+    }
+  ],
+  "schema_version": 1,
+  "status": "STOPPED_AT_TOKEN_CEILING",
+  "usage_by_seat": [
+    {
+      "admitted_turn_delta": 0,
+      "reported_token_delta": 0,
+      "seat": "architect"
+    },
+    {
+      "admitted_turn_delta": 6,
+      "reported_token_delta": 1857431,
+      "seat": "backend"
+    },
+    {
+      "admitted_turn_delta": 0,
+      "reported_token_delta": 0,
+      "seat": "designer"
+    },
+    {
+      "admitted_turn_delta": 0,
+      "reported_token_delta": 0,
+      "seat": "frontend"
+    },
+    {
+      "admitted_turn_delta": 10,
+      "reported_token_delta": 3685301,
+      "seat": "pm"
+    },
+    {
+      "admitted_turn_delta": 1,
+      "reported_token_delta": 395212,
+      "seat": "qa"
+    },
+    {
+      "admitted_turn_delta": 8,
+      "reported_token_delta": 3737868,
+      "seat": "reviewer"
+    }
+  ]
+}

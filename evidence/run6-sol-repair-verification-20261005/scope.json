@@ -1,0 +1,20 @@
+{
+  "band_messages": false,
+  "boundaries_unchanged": true,
+  "clone": "/private/tmp/tablekeeper-run6-sol-operator-y18h_qhs/candidate",
+  "limits": {
+    "boundary_network": "none",
+    "cpus": 2,
+    "memory_bytes": 2147483648,
+    "official_network": "internal bridge"
+  },
+  "model_calls": false,
+  "original_candidate": "fea243fb5bd9e38a246c086a81dad337866f1b64",
+  "original_reviewer_decision_unchanged": true,
+  "product_mutations": false,
+  "scope": "Post-stop operator verification; not BAND Reviewer acceptance",
+  "source_repo": "/Users/frank/mygit/Tablekeeper/result-run-6",
+  "started_at": "2026-10-05T03:59:17.596951+00:00",
+  "synthetic_test_credentials_only": true,
+  "test_source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/boundaries.py"
+}

@@ -1,0 +1,9 @@
+{
+  "actual_candidate": "fea243fb5bd9e38a246c086a81dad337866f1b64",
+  "actual_tree": "48c0106058b5894ae9a6d9b681718fbff7b9959e",
+  "limitation": "Unchanged probe embeds original candidate 7960081 and Reviewer name. Those literal fields are historical script metadata, not attribution of this operator run. This receipt binds actual candidate and operator execution.",
+  "operator_execution": true,
+  "script_unchanged": true,
+  "source": "/Users/frank/mygit/Tablekeeper/result-run-6/.evidence/reviewer-s1-20261005/attempt-01/boundaries.py",
+  "source_sha256": "be24cf2d664559cba0a12f6a79bcc466accb70613b6a70982706b30808575a19"
+}

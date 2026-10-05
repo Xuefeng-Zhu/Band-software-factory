@@ -1,0 +1,10 @@
+{
+  "candidate": "fea243fb5bd9e38a246c086a81dad337866f1b64",
+  "clean": true,
+  "detached": true,
+  "no_hardlinks": true,
+  "path": "/private/tmp/tablekeeper-run6-sol-operator-y18h_qhs/candidate",
+  "recorded_at": "2026-10-05T03:59:17.860924+00:00",
+  "stage1_tree": "09b920bb7993a9a375faad73a56afdfd9ac8e444",
+  "tree": "48c0106058b5894ae9a6d9b681718fbff7b9959e"
+}

@@ -1,0 +1,82 @@
+{
+  "band_independent_acceptance": false,
+  "boundaries": [
+    {
+      "name": "calendar_year_2030",
+      "status": "PASS"
+    },
+    {
+      "name": "calendar_year_1000",
+      "status": "PASS"
+    },
+    {
+      "name": "calendar_year_0999",
+      "status": "PASS"
+    },
+    {
+      "name": "calendar_year_0001",
+      "status": "PASS"
+    },
+    {
+      "name": "new_gap_grid_duration",
+      "status": "PASS"
+    },
+    {
+      "name": "eight_item_noop_batch",
+      "status": "PASS"
+    }
+  ],
+  "boundary_exit_code": 0,
+  "candidate": "fea243fb5bd9e38a246c086a81dad337866f1b64",
+  "checkout_still_clean": true,
+  "finished_at": "2026-10-05T03:59:45.785003+00:00",
+  "limitations": [
+    "Original Reviewer decision is unchanged.",
+    "Unchanged boundary script has historical candidate/reviewer literals; actual provenance is bound separately.",
+    "Only Stage 1 and six existing boundaries tested; stages 2\u20134 remain unimplemented/unverified.",
+    "No new domain probes or product changes; official sample tests do not prove exhaustive specification compliance."
+  ],
+  "official_counts": {
+    "collected": 120,
+    "deselected": 0,
+    "errors": 0,
+    "failed": 0,
+    "files": {
+      "stage_1/test_health_reset_auth.py": {
+        "passed": 12,
+        "total": 12
+      },
+      "stage_1/test_reservations.py": {
+        "passed": 37,
+        "total": 37
+      },
+      "stage_1/test_restaurants_availability.py": {
+        "passed": 18,
+        "total": 18
+      },
+      "stage_1/test_retries_time_input.py": {
+        "passed": 20,
+        "total": 20
+      },
+      "stage_1/test_sample.py": {
+        "passed": 20,
+        "total": 20
+      },
+      "stage_1/test_seeded_state.py": {
+        "passed": 13,
+        "total": 13
+      }
+    },
+    "passed": 120,
+    "skipped": 0,
+    "xfailed": 0
+  },
+  "official_exit_code": 0,
+  "official_stages": {
+    "1": "pass"
+  },
+  "official_state": "completed",
+  "operator_verification_only": true,
+  "stage1_tree": "09b920bb7993a9a375faad73a56afdfd9ac8e444",
+  "tree": "48c0106058b5894ae9a6d9b681718fbff7b9959e"
+}
