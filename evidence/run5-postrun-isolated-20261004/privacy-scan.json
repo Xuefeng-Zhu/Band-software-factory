@@ -1,0 +1,9 @@
+{
+  "created_at_utc": "2026-10-04T23:43:20.165876+00:00",
+  "scanner": "Pinned harness.check._credentials only, no product tests",
+  "challenge_commit": "803560d2a678ace1414465c098eb0ab5380ffade",
+  "findings": [],
+  "inspection": "Selected logs inspected; Stage2 failure includes the public synthetic seeded-fixture password from official tests, not an account credential. No raw room/session export, generated authentication token or private snapshot included.",
+  "not_full_submission_check": true,
+  "rechecked_after_resource_addendum_at": "2026-10-04T23:43:44.525355+00:00"
+}

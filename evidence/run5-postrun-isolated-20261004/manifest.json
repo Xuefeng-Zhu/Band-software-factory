@@ -1,0 +1,74 @@
+{
+  "created_at_utc": "2026-10-04T23:43:20.166488+00:00",
+  "scope": "Post-run operator official isolated published suite, no retroactive BAND acceptance",
+  "candidate": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+  "stage_1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4198,
+      "sha256": "19c3b9c2f539d0cfa00868f8df4b7300b269710a1ae5256c34e76186ff1cddc0"
+    },
+    {
+      "path": "archive-provenance.json",
+      "bytes": 8811,
+      "sha256": "75b1dc6c7474755928397c591c79a4afb51d2700450c2dcdb70239797d89cbcf"
+    },
+    {
+      "path": "clone-receipt.json",
+      "bytes": 1314,
+      "sha256": "2a6a866ac368365023b5acd190577d162604bcd85f7134e0bc01fa60692a15eb"
+    },
+    {
+      "path": "isolated-all/stage-1/report.json",
+      "bytes": 1597,
+      "sha256": "3a937675ec346f65df860da95997ee2cb3b56421ab667261f4b441828f1cd424"
+    },
+    {
+      "path": "isolated-all/stage-1/stage-1.counts.json",
+      "bytes": 499,
+      "sha256": "b18fabdbadab8f1094c6b47d09dd89a3e3215cb6c471340343c5f8787e30b77b"
+    },
+    {
+      "path": "isolated-all/stage-1/stage-1.log",
+      "bytes": 1409,
+      "sha256": "fb36dfaad1d2cdbe7090096247161af7beb6ed16607254c6a52e83550b78abb4"
+    },
+    {
+      "path": "isolated-all/stage-1/stage-2.counts.json",
+      "bytes": 216,
+      "sha256": "eda65c567c034428ce279c5889411791eb2abcdb677b963767db110ae8095fbd"
+    },
+    {
+      "path": "isolated-all/stage-1/stage-2.log",
+      "bytes": 5493,
+      "sha256": "deb23931a0f9204d142c63fe04e2b86b72eec79ff03c5ddc1c046dc40be95475"
+    },
+    {
+      "path": "isolated-all/summary.json",
+      "bytes": 272,
+      "sha256": "742bfcd719188d08f0473487466aa705b489c06a46fbcfdb77a212ef7230484c"
+    },
+    {
+      "path": "isolated-command.json",
+      "bytes": 956,
+      "sha256": "1226ff72efe56d18296718757d76edf3d470ee13424add2ef50a7b459a2949a2"
+    },
+    {
+      "path": "isolated-command.log",
+      "bytes": 899,
+      "sha256": "991597dd76796ed68f9dd50c35374500e32be8dee2dc761e831207393aca966d"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 581,
+      "sha256": "9a98ab981af3469454d0d99775dea23edfb60993ac4756cf1c5d079994b1fe3b"
+    },
+    {
+      "path": "resource-observation.json",
+      "bytes": 539,
+      "sha256": "f75c5605e2c0398ad2f40c582f3f821e7426eaba52677b9afcc1227b6f821252"
+    }
+  ],
+  "updated_at_utc": "2026-10-04T23:43:44.525598+00:00"
+}

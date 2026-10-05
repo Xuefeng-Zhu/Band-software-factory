@@ -1,0 +1,29 @@
+{
+  "observed_at": "2026-10-04T23:58:09.244453+00:00",
+  "app_repo": "https://github.com/Xuefeng-Zhu/Tablekeeper",
+  "branch": "run-5",
+  "final_package_commit": "268a0bb327ac6ec596f1c7bd4f2847e93f288d35",
+  "root_tree": "f27ee27944dd89e36fc63c4a554e142142692d95",
+  "unchanged_stage1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "judged_checkout_synced_and_clean": true,
+  "private": true,
+  "final_offline_package_check_exit_code": 0,
+  "room_sha256": "c934ff785a565d1198a12c9a806217897217046f317dc9ef961730a647ef3e3e",
+  "presentation": {
+    "factory_commit": "b386bcc",
+    "manifest_sha256": "dd460f15abe23330b403a4b6221638d4b352adf0f8e58fd7bc689d54863eae73",
+    "selected_files": 30,
+    "status": "AI-assisted terminal-outcome draft, render QA passed; video deferred"
+  },
+  "goal": "INCOMPLETE",
+  "remaining_product": "Stage 1 receipt-consistency defects unresolved; stages 2-4 unimplemented; no independently accepted stage",
+  "other_remaining": [
+    "participant narrative review/authorship resolution",
+    "deferred actual-room video",
+    "clean-machine factory reproduction",
+    "broader resource/performance and full product verification",
+    "explicit public-release and final-submission authorization"
+  ],
+  "new_dispatch_authorized": false,
+  "prior_goal_audit": "Preserved as earlier snapshot; its pending final package check and presentation are superseded only by the facts in this addendum."
+}

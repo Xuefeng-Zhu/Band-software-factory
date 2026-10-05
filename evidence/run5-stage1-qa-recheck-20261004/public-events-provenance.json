@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "/Users/frank/.local/bin/band",
+    "room",
+    "messages",
+    "12cde259-0fcd-4551-84c7-52c443cb5600",
+    "--type",
+    "text",
+    "--page",
+    "1",
+    "--json"
+  ],
+  "started_at": "2026-10-04T22:54:36.507646+00:00",
+  "finished_at": "2026-10-04T22:54:37.302748+00:00",
+  "exit_code": 0,
+  "response_sha256": "df164a4507948dc9ee1dd046a812cccd275271b9a1984402bbef61addb812332",
+  "selected_ids": [
+    "da610b06-becf-4e27-b68e-48fbd0853caf",
+    "eb1a0344-5318-49df-b642-dd4367139c9b"
+  ],
+  "scope": "Read-only native public text page; selected original event objects; not full-session export",
+  "pagination": {
+    "page": 1,
+    "total_pages": 2,
+    "next_cursor": "eyJpIjoiNDFmMTNmODgtNzFiNy00Y2JkLWEwM2MtNGNlNjEzODJkYWRhIiwidCI6IjIwMjYtMTAtMDRUMjE6Mzg6MzUuNzQwNzA3WiJ9",
+    "has_more": true,
+    "limit": 100
+  },
+  "original_response_retained_in_archive": false,
+  "original_response_exclusion_reason": "Unrelated room events excluded; selected event values retained without modification."
+}

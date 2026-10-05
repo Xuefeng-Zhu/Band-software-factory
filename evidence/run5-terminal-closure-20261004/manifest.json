@@ -1,0 +1,46 @@
+{
+  "created_at_utc": "2026-10-04T23:41:49.503067+00:00",
+  "scope": "Terminal process closure, final accounting and export/media provenance; no acceptance or new launch authority",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2947,
+      "sha256": "8a7d91eba06d9b60b82599d5c9c732de953cbafef565281f805c27be9dd4a0f2"
+    },
+    {
+      "path": "closure-receipt.json",
+      "bytes": 1136,
+      "sha256": "a2aecb2aa6973c5718c05fd274ac82c09c3a2cf0414319de0f74b21d95ca0238"
+    },
+    {
+      "path": "final-accounting.json",
+      "bytes": 18593,
+      "sha256": "7ec9ca717668391c8efe62e70c38bba1d6572b6ad0242be9e39e54ab222f2028"
+    },
+    {
+      "path": "media/terminal-outcome.jpg",
+      "bytes": 157457,
+      "sha256": "787944ce9efe0e6a9baad772decc2a38a4850c3e8295d6ad2e0a924eb7e93832"
+    },
+    {
+      "path": "media/terminal-outcome.provenance.json",
+      "bytes": 681,
+      "sha256": "0890e1e853a6bae652f5a60c5cc7c9ead81d5be5b53138fd99fd150e0f880dbe"
+    },
+    {
+      "path": "owned-test-containers-stopped.json",
+      "bytes": 1040,
+      "sha256": "6a7408c2784d43020c3b39f6742799f7c1e8f90bd7e33d0dac3343dc7120c716"
+    },
+    {
+      "path": "room-download-receipt.json",
+      "bytes": 1431,
+      "sha256": "3e7c969398d5de1c7e1f7a61b8f7dad4c174551b1c03b7e71dc10ed3a00647d7"
+    },
+    {
+      "path": "room-privacy-review.json",
+      "bytes": 4838,
+      "sha256": "52cd4025e92dd324cceb6ed88edde6767cbaca669fa14b8fc035d7f5e548a94b"
+    }
+  ]
+}

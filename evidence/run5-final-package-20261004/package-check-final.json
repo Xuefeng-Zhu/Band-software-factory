@@ -1,0 +1,18 @@
+{
+  "started_at": "2026-10-04T23:56:27.912873+00:00",
+  "ended_at": "2026-10-04T23:56:28.400665+00:00",
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+    "-m",
+    "harness",
+    "check",
+    "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result",
+    "--track",
+    "tablekeeper"
+  ],
+  "exit_code": 0,
+  "staged_root_tree": "f27ee27944dd89e36fc63c4a554e142142692d95",
+  "stage1_tree_unchanged": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "room_sha256": "c934ff785a565d1198a12c9a806217897217046f317dc9ef961730a647ef3e3e",
+  "scope": "Final metadata-only package offline validation; independent product rejection unchanged"
+}

@@ -1,0 +1,43 @@
+{
+  "candidate": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "layer": "two host HTTP services",
+  "owner": "@frankzhu94/factory-qa",
+  "at_utc": "2026-10-04T22:45:55.432523+00:00",
+  "results": [
+    {
+      "name": "ids_reset",
+      "status": "PASS",
+      "elapsed_seconds": 0.6518
+    },
+    {
+      "name": "auth_boundaries",
+      "status": "PASS",
+      "elapsed_seconds": 0.1551
+    },
+    {
+      "name": "dates_slots",
+      "status": "PASS",
+      "elapsed_seconds": 0.2466
+    },
+    {
+      "name": "move_keys_equality",
+      "status": "PASS",
+      "elapsed_seconds": 0.1222
+    },
+    {
+      "name": "patch_batch_atomicity",
+      "status": "PASS",
+      "elapsed_seconds": 0.137
+    },
+    {
+      "name": "import_invalid",
+      "status": "PASS",
+      "elapsed_seconds": 0.1325
+    },
+    {
+      "name": "concurrent_snapshots",
+      "status": "PASS",
+      "elapsed_seconds": 0.1465
+    }
+  ]
+}

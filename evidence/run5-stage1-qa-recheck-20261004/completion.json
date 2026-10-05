@@ -1,0 +1,18 @@
+{
+  "work_item": "QA-S1-RECHECK",
+  "candidate": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "at_utc": "2026-10-04T22:48:29.093656+00:00",
+  "state": "REVIEW",
+  "defects": {
+    "QA-S1-DATE-MAX": "CLOSED",
+    "QA-S1-QUERY-DIGITS": "CLOSED"
+  },
+  "focused_groups": "5 PASS",
+  "baseline_groups": "11 PASS",
+  "prior_extra_groups": "7 PASS",
+  "isolated_resource_gate": "BLOCKED",
+  "own_processes_stopped": true,
+  "delivery_digest": "55b42848be78b9a165d280f08247e69af53a1c8ef2175f47b6089b59aa306b9e",
+  "receipt": "PENDING",
+  "cost": "UNAVAILABLE"
+}

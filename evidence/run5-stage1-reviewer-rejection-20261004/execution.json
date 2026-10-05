@@ -1,0 +1,48 @@
+{
+  "work_item": "GATE-S1",
+  "revision": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "reviewer": "@frankzhu94/factory-reviewer",
+  "start": "2026-10-04T22:56:50.326925+00:00",
+  "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+  "commands": [
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/private/tmp/gate-s1-20261004T2254Z",
+      "port": 64964,
+      "pid": 27663,
+      "start": "2026-10-04T22:56:50.426228+00:00"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/private/tmp/gate-s1-20261004T2254Z",
+      "port": 64970,
+      "pid": 27664,
+      "start": "2026-10-04T22:56:50.563286+00:00"
+    }
+  ],
+  "clean_before": true,
+  "cleanup": [
+    {
+      "pid": 27663,
+      "returncode": -15,
+      "end": "2026-10-04T22:56:51.490929+00:00"
+    },
+    {
+      "pid": 27664,
+      "returncode": -15,
+      "end": "2026-10-04T22:56:51.492474+00:00"
+    }
+  ],
+  "end": "2026-10-04T22:56:51.492479+00:00",
+  "clean_after": true,
+  "pass": 31,
+  "fail": 30
+}

@@ -1,0 +1,11 @@
+{
+  "work_item": "GATE-S1-RECHECK",
+  "delivery": "GATE-S1-RECHECK-R1",
+  "digest": "96910e83e1de3b295d0356dcad9c240dc0c3a863801af033a25b55b6336f4129",
+  "events": [
+    "{\"id\": \"de5476f3-ffa0-42ad-927a-9772db3ab417\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}",
+    "{\"id\": \"71381365-5136-48ba-9da8-25bdebce5ee5\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}",
+    "{\"id\": \"b5cceb22-e00b-4aa4-b316-38bb28ace1f1\", \"recipients\": [{\"handle\": \"frankzhu94/factory-pm\", \"id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\", \"name\": \"Factory PM\"}], \"success\": true}"
+  ],
+  "receipt": "PENDING; complete receipt required before successful delivery is established"
+}

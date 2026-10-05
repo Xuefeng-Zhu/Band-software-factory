@@ -1,0 +1,185 @@
+{
+  "created_at": "2026-10-04T22:56:20.001386+00:00",
+  "status": "PRESERVED_QA_HOST_RECHECK_NOT_STAGE_ACCEPTANCE",
+  "candidate": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "stage1_tree": "6000d94a5acbcab53438120b6d7f2624b4eceba4",
+  "source_directory": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z",
+  "destination_directory": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004",
+  "original_recheck_files": 16,
+  "unchanged_dependency_files": 2,
+  "excluded": [
+    {
+      "path": "handoff.json",
+      "reason": "Duplicate full requirements/assignment; report and delivery digest retained"
+    },
+    {
+      "path": "server-0.log",
+      "reason": "Empty"
+    },
+    {
+      "path": "server-1.log",
+      "reason": "Empty"
+    }
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "preservation": "operator-created preservation metadata or selected read-only native event objects",
+      "sha256": "bb083f14045ac1da7400ac786219b9df8988bd99151bab0e66367fb5bfbbb1ee",
+      "bytes": 5531
+    },
+    {
+      "path": "baseline.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/baseline.json",
+      "sha256": "08d9c5350d8e265dfd718fb67d38ca46325cd0425e8f66c0701d14a479251239",
+      "bytes": 1448,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "baseline.log",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/baseline.log",
+      "sha256": "f24c4175d9298bea2114ed0f8a03f0a6871a71fdfdaf89dee43680a17a4fc50d",
+      "bytes": 184,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "completion.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/completion.json",
+      "sha256": "3633b86b019d96430961f554b0eaa1467e6dc47bd7c5972d5dab7779a10b409a",
+      "bytes": 556,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "coverage.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/coverage.json",
+      "sha256": "30cb8960d35957c7d815594afae6475782c2e5e1cb286a1ab71522c55a211b29",
+      "bytes": 19340,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "credential-scan.json",
+      "preservation": "operator-created preservation metadata or selected read-only native event objects",
+      "sha256": "e4d5f0b72b7266bcf853aed242b695f86519d9e0e72795d4a0f697a491b5e652",
+      "bytes": 1968
+    },
+    {
+      "path": "dependencies/qa_stage1_boundaries.py",
+      "source_git_repository": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "source_commit": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+      "source_git_path": "tests/qa_stage1_boundaries.py",
+      "git_blob": "2549ab4f85f0733b03dc3b74e424b67c5af0d1c3",
+      "sha256": "e4d196a216075fd1c92a540ed91c0de81b3e1743fe1e1ba90dffe78e25633841",
+      "bytes": 22812,
+      "preservation": "byte-identical Git blob, no tests run"
+    },
+    {
+      "path": "dependencies/repro-fixture.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-20261004T2218Z/repro-fixture.json",
+      "sha256": "22259161e801c8a580f152654ca63e1e53f655f74a070a2f90b6826939d74e8e",
+      "bytes": 2699,
+      "preservation": "byte-identical original synthetic fixture"
+    },
+    {
+      "path": "endpoints.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/endpoints.json",
+      "sha256": "aa0edd171b44fef8d7273cfedbba7a5a61a514e76ce7f26b6fa95b6623030d8b",
+      "bytes": 52,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "execution.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/execution.json",
+      "sha256": "313e5e52138a06e3a7163cdaf35e46b075dcda0d95bba5833aa6a4255409c2d4",
+      "bytes": 2556,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "extra-results.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/extra-results.json",
+      "sha256": "48433eb595558da6595ce7041c655016d07ea8bf57ccc037d4aea4c2976d4011",
+      "bytes": 918,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "focused-results.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/focused-results.json",
+      "sha256": "cd2c38a1e60d70c3fe4a97477a3da3dc84a4fec0a27940b2a8a2a973aca10947",
+      "bytes": 3623,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "focused.log",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/focused.log",
+      "sha256": "b528f5cccb060fe31464ebc40c540cfb54130a28accca61e9e3448c0a66774f9",
+      "bytes": 99,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "focused.py",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/focused.py",
+      "sha256": "fae797504db0def496e7d73fd42feda589499793a7ddc7f8e418ee4afac310c2",
+      "bytes": 5741,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "prior-extra.log",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/prior-extra.log",
+      "sha256": "ceb346d2a2e6ffe23cf9c5e87350d780dd9998634455a13bbee1630001ae041f",
+      "bytes": 157,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "prior-extra.py",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/prior-extra.py",
+      "sha256": "4274fe66c409b6e74a546ff6dc27fe7c807165e46049d40c9dbb34717dea0665",
+      "bytes": 9710,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "provenance.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/provenance.json",
+      "sha256": "9b6fd9dff75d4cdea5b9e0950dd2975a7f5522bff906d5b468ade15c36e2093d",
+      "bytes": 1863,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "public-events-provenance.json",
+      "preservation": "operator-created preservation metadata or selected read-only native event objects",
+      "sha256": "8756fc8f93ee60dc5f3ec4dcd533edc6284f2a67e3073493c2534f2a0c8dfbd3",
+      "bytes": 1024
+    },
+    {
+      "path": "public-events.json",
+      "preservation": "operator-created preservation metadata or selected read-only native event objects",
+      "sha256": "a772cd1b527adf58e1eeee662225c53f8804894488798e08ebe6301ae2f74e09",
+      "bytes": 2269
+    },
+    {
+      "path": "report.md",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/report.md",
+      "sha256": "7ef400c65667fa96e4a48e75681f695b89ecb013ea98226f5fb1285740e676c5",
+      "bytes": 8837,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "return-events.json",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/return-events.json",
+      "sha256": "a30e946d846e81d6534c4f7e2614ccc08ced63dbda0b920d7d39ed98abce49da",
+      "bytes": 1053,
+      "preservation": "byte-identical original"
+    },
+    {
+      "path": "verify.py",
+      "source_path": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/qa-s1-recheck-20261004T2244Z/verify.py",
+      "sha256": "a91c23450cf2cf9a59d9a75b30e27ea8c915e3e5e23648ee36f65eb287c026fc",
+      "bytes": 2884,
+      "preservation": "byte-identical original"
+    }
+  ],
+  "manifest_covers": "Every archive file except manifest.json itself",
+  "limits": [
+    "Historical host-layer evidence only; 5/11/7 groups are overlapping behavior checks, not distinct requirement totals.",
+    "Original completion receipt remains PENDING; separate native PM ACK is retained.",
+    "No product tests, model work, room messages, application edits, commit or push performed during preservation."
+  ]
+}

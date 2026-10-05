@@ -1,0 +1,521 @@
+{
+  "created_at_utc": "2026-10-04T23:53:07.343568+00:00",
+  "status": "GOAL_INCOMPLETE",
+  "purpose": "Final Run5 requirement audit against the original 30-group baseline, not a replacement goal or a completed/blocked goal-tool transition.",
+  "baseline_preserved": true,
+  "authority": "Original request and exact source clauses/evidence references remain in goal-completion-baseline.json; subsequent explicit scope includes deferred video and private post-run packaging.",
+  "full_user_goal": "All four stages working with independent acceptance and truthful reproducible factory/submission evidence.",
+  "terminal_attempt": {
+    "run": 5,
+    "band_product_state": "STOP/REPLAN after independent Stage1 rejection, repair3/3 exhausted",
+    "accepted_stages": [],
+    "rejected_candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+    "record_only_closeout": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+    "unchanged_product_stage1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+    "known_defect": "Invalid imported historical create/batch request-response contradictions accepted and replayed; positive samples do not eliminate this failure.",
+    "stages_2_to_4": "Unimplemented",
+    "runtime": "Owned workers stopped, all seven contexts drained; no new work authorized by token headroom",
+    "run5_reported_tokens": 75831611,
+    "cumulative_reported_tokens": 221514710,
+    "dispatch_to_pm_final_seconds": 8548.682944,
+    "dispatch_to_stop_seconds": 8771.655147,
+    "usd_cost": null,
+    "chatgpt_quota_consumption": null
+  },
+  "verified_postrun_layers": {
+    "full_room_export": {
+      "scope": "full",
+      "exportedAt": "2026-10-04T23:33:31.490Z",
+      "messages": 4602,
+      "exact_private_root_bytes_match": true,
+      "bounded_privacy_review": "NO_ACTIONABLE_FINDINGS_IN_BOUNDED_REVIEW"
+    },
+    "offline_package_check": {
+      "exit_code": 0,
+      "staged_root_tree": "3853266bd4829ab423a534ff942151a1ff871be8",
+      "at": "2026-10-04T23:46:12.484363+00:00",
+      "scope": "Offline layout/room/mandate/credential-pattern checks, not product acceptance",
+      "current_metadata_head_rechecked": false
+    },
+    "official_isolated": {
+      "candidate": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+      "stage1_collected": 120,
+      "stage1_passed": 120,
+      "stage1_errors": 0,
+      "stage1_skipped": 0,
+      "present_stage_folders": [
+        1
+      ],
+      "stage2_overshoot": {
+        "collected": 25,
+        "passed": 0,
+        "failed": 1,
+        "remaining_not_executed": 24,
+        "credit": false
+      },
+      "scope": "Published partial suite only, post-run operator check under user 2048MiB shared VM ceiling; cannot retroactively grant BAND gate acceptance.",
+      "missing_stages": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "requirement_groups": [
+    {
+      "id": "F01",
+      "title": "Pinned authoritative inputs",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Pinned challenge/specs and frozen inputs retained. Current global Codex configuration drift is separate; future restart readiness is unverified.",
+      "evidence_keys": [
+        "accounting"
+      ]
+    },
+    {
+      "id": "F02",
+      "title": "Isolated workspaces and unseeded product provenance",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Original empty independent attempt, separated workspaces and product provenance retained; later metadata packaging did not authorize product mutation.",
+      "evidence_keys": [
+        "baseline",
+        "private_package"
+      ]
+    },
+    {
+      "id": "F03",
+      "title": "Seven real identities and supported runtime",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Seven real registered identities executed the bounded attempt and all seven contexts drained before owned shutdown. This does not establish seven material product contributions.",
+      "evidence_keys": [
+        "closure",
+        "accounting"
+      ]
+    },
+    {
+      "id": "F04",
+      "title": "Generic standing instructions and exact task separation",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Generic standing instructions and exact task separation retained; all 34 frozen files and six task hashes matched at terminal accounting audit.",
+      "evidence_keys": [
+        "accounting"
+      ]
+    },
+    {
+      "id": "F05",
+      "title": "Factory utilities and local reproducibility inputs",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Frozen local factory utilities/pinned dependencies retain prior tests and observed closure. Future Docker capacity guard is separately prepared, not merged into this frozen run.",
+      "evidence_keys": [
+        "baseline",
+        "closure",
+        "future_preflight"
+      ]
+    },
+    {
+      "id": "F06",
+      "title": "Authentication and unattended permissions",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Historical launch authentication/permissions and live execution evidence retained. Infrastructure interventions disclosed separately; no fresh auth or restart-readiness proof is claimed.",
+      "evidence_keys": [
+        "baseline",
+        "memory_interventions"
+      ]
+    },
+    {
+      "id": "F07",
+      "title": "Toy and communication rehearsal facts",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Historical toy/communication proofs retain original dates and limitations; no new rehearsal is claimed.",
+      "evidence_keys": [
+        "baseline"
+      ]
+    },
+    {
+      "id": "F08",
+      "title": "Finite approved exact-once launch",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "One authorized dispatch completed with preserved baseline/cap/epoch; run closed below limits. Unused headroom does not authorize another attempt.",
+      "evidence_keys": [
+        "accounting",
+        "closure"
+      ]
+    },
+    {
+      "id": "F09",
+      "title": "Live first self-contained QA handoff",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Initial QA multipart handoff and later owner/reviewer returns received actual acknowledgements, including final PM receipt.",
+      "evidence_keys": [
+        "baseline",
+        "final_rejection"
+      ]
+    },
+    {
+      "id": "F10",
+      "title": "Revised early-QA workflow effectiveness",
+      "baseline_status": "UNVERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Revised QA planning produced attributable checks and distinct Reviewer rejection of defects beyond passing samples. Verified defect-detection workflow only; successful full-stage delivery not achieved.",
+      "evidence_keys": [
+        "qa_archive",
+        "final_rejection"
+      ]
+    },
+    {
+      "id": "P01",
+      "title": "Product planning and meaningful seven-seat ownership",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "PM/Architect/Backend/QA/Reviewer have attributable Stage1 outputs. Designer/Frontend did not implement later-stage UI; all-seven meaningful product ownership remains incomplete.",
+      "evidence_keys": [
+        "private_package",
+        "final_rejection"
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "Stage1 API and transactional behavior",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Stage1 implementation exists and later official published isolated suite passed 120/120; invalid historical receipt request/response import consistency remains independently rejected.",
+      "evidence_keys": [
+        "final_rejection",
+        "isolated"
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "Stage2 browser and combined tables",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Stage2 browser/combined-table implementation absent. The overshoot probe against Stage1 is not a Stage2 implementation or acceptance.",
+      "evidence_keys": [
+        "isolated",
+        "private_package"
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "Stage2 product quality and accessibility",
+      "baseline_status": "UNVERIFIED",
+      "status": "UNVERIFIED",
+      "verified_scope_and_remaining_gap": "No Stage2 UI, responsive 375px/desktop inspection, keyboard/accessibility proof or rendered product design exists.",
+      "evidence_keys": [
+        "private_package"
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "Stage3 policies/history/recurring agreements",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Stage3 policy/history/recurring-agreement implementation and inherited upgrade tests absent.",
+      "evidence_keys": [
+        "private_package"
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "Stage4 deterministic replanning and amendments",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Stage4 deterministic replanning/amendment implementation and inherited upgrade tests absent.",
+      "evidence_keys": [
+        "private_package"
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "Final application container/resource/network contract",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Post-run exact Stage1 source built and passed shipped tests in official isolated mode; harness sets 2 CPU/2g and internal network. User VM ceiling 2048MiB/observed guest memory lower; heavy distributions and all later-stage containers unverified.",
+      "evidence_keys": [
+        "isolated"
+      ]
+    },
+    {
+      "id": "P08",
+      "title": "Independent exact-candidate stage release gates",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Zero stages accepted. Independent Stage1 final rejection persists after repair3/3; post-run operator sample-suite success is not retroactive BAND gate acceptance.",
+      "evidence_keys": [
+        "final_rejection",
+        "isolated"
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "Incremental independent stage history",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Only Stage1 exists; no accepted-stage forward copies or independent Stage2\u20134 histories/upgrades were produced.",
+      "evidence_keys": [
+        "private_package",
+        "isolated"
+      ]
+    },
+    {
+      "id": "S01",
+      "title": "Required repository package",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Private root package contains README, FACTORY, seven mandates, genuine room export and Stage1 source/build/run files; Stage2\u20134 folders remain absent and metadata is still receiving final updates.",
+      "evidence_keys": [
+        "private_package",
+        "offline_check"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "Final genuine whole-room export and provenance",
+      "baseline_status": "INCOMPLETE",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Genuine unmodified full-session export after runtime closure is byte-identical to private root room.json. Download provenance and bounded privacy review retained; public disclosure not authorized.",
+      "evidence_keys": [
+        "room_download",
+        "room_privacy",
+        "private_package"
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "Run-specific README and FACTORY narrative",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Evidence-backed README/FACTORY drafts are packaged privately with explicit AI assistance. Participant authorship/review requirement is unresolved; final metadata wording/deck links remain in progress.",
+      "evidence_keys": [
+        "private_package"
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "Presentation, actual-room video and submission description",
+      "baseline_status": "INCOMPLETE",
+      "status": "INCOMPLETE",
+      "verified_scope_and_remaining_gap": "Earlier presentation drafts exist; requested 2346 update is still agent work at this audit boundary and is not claimed complete. Actual video explicitly deferred by user; no fabricated video or success demo claimed.",
+      "evidence_keys": [
+        "presentation_draft",
+        "closure"
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "Fresh-clone final checks and manual use",
+      "baseline_status": "UNVERIFIED",
+      "status": "UNVERIFIED",
+      "verified_scope_and_remaining_gap": "Fresh clean exact350e3d9 product check passed 120 shipped Stage1 cases; earlier offline package tree3853266 passed. Current metadata-only package updates await final recheck; all-stage UI/manual/upgrade completion absent.",
+      "evidence_keys": [
+        "isolated",
+        "offline_check",
+        "private_package"
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Final time/usage/failure reconciliation",
+      "baseline_status": "INCOMPLETE",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Final accounting, failed gate/PM disposition, genuine export and owned runtime/container closure are preserved. Reported tokens and elapsed times reconciled; USD/quota unavailable.",
+      "evidence_keys": [
+        "accounting",
+        "closure",
+        "owned_container_closure",
+        "room_download"
+      ]
+    },
+    {
+      "id": "R01",
+      "title": "Independent clean-machine factory reproduction",
+      "baseline_status": "UNVERIFIED",
+      "status": "UNVERIFIED",
+      "verified_scope_and_remaining_gap": "Portable setup documentation exists but no independent clean-machine factory bootstrap succeeds as proof. Future capacity guard has separate tests/review, remains unmerged and does not fix the rejected product.",
+      "evidence_keys": [
+        "portable_setup",
+        "future_preflight"
+      ]
+    },
+    {
+      "id": "A01",
+      "title": "Private repository progress commits",
+      "baseline_status": "VERIFIED",
+      "status": "VERIFIED",
+      "verified_scope_and_remaining_gap": "Private canonical application repo uses run-5 with preserved history; factory stays separate. Current package ref is recorded below, with active documentation updates acknowledged.",
+      "evidence_keys": [
+        "private_package"
+      ]
+    },
+    {
+      "id": "A02",
+      "title": "Public release/judge access",
+      "baseline_status": "OUTSIDE_APPROVED_SCOPE",
+      "status": "OUTSIDE_APPROVED_SCOPE",
+      "verified_scope_and_remaining_gap": "Public visibility/judge access remains unauthorized; bounded private export review is not publication approval.",
+      "evidence_keys": [
+        "room_privacy",
+        "approval"
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "Final submission/upload and receipt",
+      "baseline_status": "OUTSIDE_APPROVED_SCOPE",
+      "status": "OUTSIDE_APPROVED_SCOPE",
+      "verified_scope_and_remaining_gap": "Final submission/upload has no authorization or receipt; product incomplete, narratives unresolved and video deferred.",
+      "evidence_keys": [
+        "approval"
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "Extra attempts,paid services or broader live rehearsal",
+      "baseline_status": "OUTSIDE_APPROVED_SCOPE",
+      "status": "OUTSIDE_APPROVED_SCOPE",
+      "verified_scope_and_remaining_gap": "Consumed Run5 dispatch does not authorize another room/attempt, fourth repair, new model rehearsal, API billing or paid provisioning.",
+      "evidence_keys": [
+        "approval",
+        "accounting"
+      ]
+    }
+  ],
+  "status_counts": {
+    "VERIFIED": 13,
+    "INCOMPLETE": 11,
+    "UNVERIFIED": 3,
+    "OUTSIDE_APPROVED_SCOPE": 3
+  },
+  "evidence": {
+    "baseline": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/goal-completion-baseline.json",
+      "sha256": "e0f0dec3c539ffa1a6dd538dad075e5bcc0ad3b9c4af806856a782cef70e505d"
+    },
+    "accounting": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/final-accounting.json",
+      "sha256": "7ec9ca717668391c8efe62e70c38bba1d6572b6ad0242be9e39e54ab222f2028"
+    },
+    "closure": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/closure-receipt.json",
+      "sha256": "a2aecb2aa6973c5718c05fd274ac82c09c3a2cf0414319de0f74b21d95ca0238"
+    },
+    "owned_container_closure": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/owned-test-containers-stopped.json",
+      "sha256": "6a7408c2784d43020c3b39f6742799f7c1e8f90bd7e33d0dac3343dc7120c716"
+    },
+    "final_rejection": {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-final-rejection-20261004/manifest.json",
+      "sha256": "a552ca3c58540cdb5d99df745e353ec9ce1cc8d851c9052639a0a10e42690041"
+    },
+    "qa_archive": {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-independent-qa-20261004/manifest.json",
+      "sha256": "1d573d8137ccc22441f31229378963009a6f71ff577c27048b055fd4b3c1c0ae"
+    },
+    "isolated": {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-postrun-isolated-20261004/manifest.json",
+      "sha256": "396cbafb0588c6c2acb1a4c03bc9a3920e42618df041d991c10d2a3d212b3d9c"
+    },
+    "room_download": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/room-download-receipt.json",
+      "sha256": "3e7c969398d5de1c7e1f7a61b8f7dad4c174551b1c03b7e71dc10ed3a00647d7"
+    },
+    "room_privacy": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/room-privacy-review.json",
+      "sha256": "52cd4025e92dd324cceb6ed88edde6767cbaca669fa14b8fc035d7f5e548a94b"
+    },
+    "offline_check": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/package-check.json",
+      "sha256": "eb5ff1ed54f7dc1d8fa5046f3becb0e36c97c09b207c959a2254456b6bdad366"
+    },
+    "approval": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/authorization/approval.json",
+      "sha256": "55487de788bd7c43416d2c28bda61a5eaf3dbb7e1d09fe04510c57babc43b68e"
+    },
+    "future_preflight": {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/docs/run-5-preparation.md",
+      "sha256": "7af6b7e72175e268a84a369eff98e23a7780f80155e2e4c4376a144b742befb9"
+    },
+    "portable_setup": {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-portable-setup-draft-20261004/manifest.json",
+      "sha256": "860b813d8cd45ae09e103ac215921918f4bb8a05a93648edd4bc53239d6c5543"
+    },
+    "presentation_draft": {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-presentation-draft-20261004/manifest.json",
+      "sha256": "eaa09b92283ff95aa08dbca9544a880c26f25d9478cf916a2e22293af928734c"
+    },
+    "memory_interventions": {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-user-2g-cap-20261004/manifest.json",
+      "sha256": "13e84ec5ddd1c989518fed3365f9af205b64d97b3b2c675103ef92caa3ee4030"
+    },
+    "private_package": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result",
+      "local_head": "fe843c4ba870d37d86b98275d121e4f0df7fa1cb",
+      "saved_origin_run5_ref": "fe843c4ba870d37d86b98275d121e4f0df7fa1cb",
+      "head_ref": "refs/heads/run-5",
+      "remote_state_last_reported_by_parent": "fe843c4",
+      "working_metadata_updates": "Parent reports README/FACTORY normalization and final deck-link updates in progress; this audit does not claim the working tree clean or final metadata check passed.",
+      "room_json_sha256": "c934ff785a565d1198a12c9a806217897217046f317dc9ef961730a647ef3e3e",
+      "root_files_present": {
+        "README.md": true,
+        "FACTORY.md": true,
+        "room.json": true
+      },
+      "mandate_count": 7,
+      "stage_directories": [
+        "stage-1"
+      ]
+    }
+  },
+  "future_factory_change": {
+    "pull_request": "https://github.com/Xuefeng-Zhu/Tablekeeper-factory/pull/1",
+    "state": "Prepared ready-for-review and unmerged per retained review/parent status",
+    "commit": "af329946b1f8282ecddbdebdbdb397849ef80a06",
+    "utility_tests_recorded": 253,
+    "scope": "Generic Docker resource preflight; future factory preparedness only. Separate from the 34 frozen Run5 source inputs and no retroactive repair/acceptance.",
+    "not_done_by_this_audit": "No merge, source-lock update, config change, new freeze or live start."
+  },
+  "concrete_remaining_work": [
+    {
+      "work": "Finish and verify current presentation2346 and final private-package documentation/deck links; run one final offline check after metadata settles, preserving its exact commit/tree provenance.",
+      "boundary": "Ongoing authorized documentary work handled by parent/presentation agent; this audit runs no checks and does not claim completion."
+    },
+    {
+      "work": "Resolve participant authorship/review of AI-assisted README/FACTORY and retain truthful assistance disclosure.",
+      "boundary": "Existing user authorization to draft does not establish participant-authored narratives."
+    },
+    {
+      "work": "Prepare a concrete future product plan that addresses receipt consistency and completes Stages2\u20134, with independent requirement gates, UI/upgrade/manual/resource evidence.",
+      "boundary": "No fourth Run5 repair, redispatch or new model work under the consumed launch. A separately bounded approved launch/replan is required before execution."
+    },
+    {
+      "work": "Evaluate separately prepared generic resource-preflight change and global-config source drift before any future launch; retain the original failed run evidence.",
+      "boundary": "PR remains unmerged; future source/readiness changes need a fresh isolated preparation cycle. No reinterpretation of present unused budget as authorization."
+    },
+    {
+      "work": "Choose final public judge-facing package only after product and participant requirements are resolved; retain a real submission receipt if authorized.",
+      "boundary": "Public release and final submission remain unauthorized. Video is explicitly deferred, not silently completed or demanded now."
+    }
+  ],
+  "limitations": [
+    "Goal remains INCOMPLETE even though worker shutdown, room preservation, offline package checks and published Stage1 samples succeeded.",
+    "Current package/deck metadata is actively being updated by other agents; this snapshot records evidence boundaries rather than asserting final artifact completion.",
+    "Source/config and process actions, tests, model calls, BAND sends, Git writes/commits and publication were not performed by this audit."
+  ],
+  "actions": {
+    "only_written_file": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/goal-completion-final-run5.json",
+    "baseline_overwritten": false,
+    "tests_run": 0,
+    "model_calls": 0,
+    "band_messages": 0,
+    "source_config_process_changes": 0,
+    "commits": 0
+  }
+}

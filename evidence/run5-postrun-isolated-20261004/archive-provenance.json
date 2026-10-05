@@ -1,0 +1,204 @@
+{
+  "created_at_utc": "2026-10-04T23:43:20.159786+00:00",
+  "candidate": "350e3d95855a7b10eacafd59fca67ffaf48a348e",
+  "stage_1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "fresh_clone_still_clean": true,
+  "present_folders": [
+    "stage-1"
+  ],
+  "missing_folders": [
+    "stage-2",
+    "stage-3",
+    "stage-4"
+  ],
+  "selected_unchanged_copies": [
+    {
+      "archive": "clone-receipt.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/clone-receipt.json",
+      "bytes": 1314,
+      "sha256": "2a6a866ac368365023b5acd190577d162604bcd85f7134e0bc01fa60692a15eb",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-command.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-command.json",
+      "bytes": 956,
+      "sha256": "1226ff72efe56d18296718757d76edf3d470ee13424add2ef50a7b459a2949a2",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-command.log",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-command.log",
+      "bytes": 899,
+      "sha256": "991597dd76796ed68f9dd50c35374500e32be8dee2dc761e831207393aca966d",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-all/summary.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/summary.json",
+      "bytes": 272,
+      "sha256": "742bfcd719188d08f0473487466aa705b489c06a46fbcfdb77a212ef7230484c",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-all/stage-1/report.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/report.json",
+      "bytes": 1597,
+      "sha256": "3a937675ec346f65df860da95997ee2cb3b56421ab667261f4b441828f1cd424",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-all/stage-1/stage-1.counts.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-1.counts.json",
+      "bytes": 499,
+      "sha256": "b18fabdbadab8f1094c6b47d09dd89a3e3215cb6c471340343c5f8787e30b77b",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-all/stage-1/stage-1.log",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-1.log",
+      "bytes": 1409,
+      "sha256": "fb36dfaad1d2cdbe7090096247161af7beb6ed16607254c6a52e83550b78abb4",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-all/stage-1/stage-2.counts.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-2.counts.json",
+      "bytes": 216,
+      "sha256": "eda65c567c034428ce279c5889411791eb2abcdb677b963767db110ae8095fbd",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "isolated-all/stage-1/stage-2.log",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-2.log",
+      "bytes": 5493,
+      "sha256": "deb23931a0f9204d142c63fe04e2b86b72eec79ff03c5ddc1c046dc40be95475",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "resource-observation.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/resource-observation.json",
+      "bytes": 539,
+      "sha256": "f75c5605e2c0398ad2f40c582f3f821e7426eaba52677b9afcc1227b6f821252",
+      "unchanged_copy": true
+    }
+  ],
+  "challenge_commit": "803560d2a678ace1414465c098eb0ab5380ffade",
+  "pinned_sources_verified": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/challenge/harness/docker_driver.py",
+      "sha256": "5abfddc77a679fd791297a04f6ce96d59ecfe7fdf626e72e20d04b8472229fe7"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/challenge/harness/cli.py",
+      "sha256": "02027f20196ceb8eeb0e1aaf90a4abe22a6012a95800b949173272959a1513a3"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/challenge/harness/report.py",
+      "sha256": "1f12dd8ef016e057b4d8c20177880380003fdc00a72293929fc6d8cabba9c1cc"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/challenge/tablekeeper/spec/stage-1.md",
+      "sha256": "9460189eac83802ce158f16ee90989af728a489b32a6147e2dc8e320f383055f"
+    }
+  ],
+  "harness_behavior": {
+    "service_flags": {
+      "cpus": "2",
+      "memory": "2g"
+    },
+    "service_flag_source": "harness/docker_driver.py:29-30,140-146",
+    "health_deadline_seconds": 60,
+    "isolated_network": "df-run-5e749e9167c0452a93504126797f5afa",
+    "internal_network_creation": "harness/cli.py:405 invokes docker_driver.ensure_internal_network; docker_driver.py creates docker network --internal when the unique network is absent.",
+    "service_and_runner_network": "Service attaches to the returned network (docker_driver.py:147-151); runner uses the same --network (cli.py:97-102 and archived log argv).",
+    "build_network": "Image building permits outbound by design; runtime isolated network is distinct.",
+    "inspection_limit": "Pinned code and retained actual runner command/logs verified. Archivist performed no live container/network/egress inspection or new probe; no sustained full-budget resource benchmark claimed.",
+    "all_mode": "harness/cli.py:229-245 enumerates only existing published stage directories. Missing stage folders are not executed or credited.",
+    "overshoot": "harness/cli.py:459-466 checks next-stage suite against the same stage-1 service with -x; failure is expected for a correctly scoped stage-1 folder and does not change Stage1 exit success."
+  },
+  "environment": {
+    "configured_orbstack_memory_mib": 2048,
+    "command_receipt_records_setting": true,
+    "docker_memtotal_bytes": 2073866240,
+    "docker_memtotal_mib": 1977.79296875,
+    "existing_memory_source": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/orbstack-user-2g-cap.json",
+      "sha256": "4bf8e7c7998743d97f83dae325c783a208b780aecfab353cdcfcc83ee221c343"
+    },
+    "memory_observations": [
+      {
+        "name": "configured_memory_after",
+        "argv": [
+          "orb",
+          "config",
+          "get",
+          "memory_mib"
+        ],
+        "started_at": "2026-10-04T22:49:13.353867+00:00",
+        "finished_at": "2026-10-04T22:49:14.041995+00:00",
+        "returncode": 0,
+        "stdout": "2048",
+        "stderr": ""
+      },
+      {
+        "name": "effective_memory_after",
+        "argv": [
+          "docker",
+          "info",
+          "--format",
+          "{{.MemTotal}}"
+        ],
+        "started_at": "2026-10-04T22:49:14.042423+00:00",
+        "finished_at": "2026-10-04T22:49:14.336875+00:00",
+        "returncode": 0,
+        "stdout": "2073866240",
+        "stderr": ""
+      }
+    ],
+    "limitation": "2048 MiB is the shared VM ceiling. Observed guest memory is below a full 2 GiB, with OS/daemon/runner overhead; service --memory 2g is a configured limit, not a guarantee of 2 GiB exclusively available.",
+    "postrun_resource_observation": {
+      "path": "resource-observation.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/resource-observation.json",
+      "sha256": "f75c5605e2c0398ad2f40c582f3f821e7426eaba52677b9afcc1227b6f821252",
+      "observed_at_utc": "2026-10-04T23:42:13.822255+00:00",
+      "MemTotal": 2073866240,
+      "probe_by": "parent operator",
+      "timing_limit": "Measured after official suite, not peak memory or continuous resource availability during tests."
+    }
+  },
+  "postrun_boundary": {
+    "pm_final_at": "2026-10-04T23:29:24.626626Z",
+    "runtime_stopped_at": "2026-10-04T23:33:07.598829+00:00",
+    "closure_receipt": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/terminal-closure/closure-receipt.json",
+      "sha256": "a2aecb2aa6973c5718c05fd274ac82c09c3a2cf0414319de0f74b21d95ca0238"
+    },
+    "verification_started_at": "2026-10-04T23:38:15.483787+00:00",
+    "verification_ended_at": "2026-10-04T23:38:56.297110+00:00",
+    "post_run_operator_verification": true,
+    "band_gate_retroactively_changed": false
+  },
+  "acceptance": {
+    "official_published_stage1_checks": "120 PASS",
+    "public_suite_is_partial": true,
+    "known_receipt_consistency_failure_still_rejected": true,
+    "independent_gate_accepted": false,
+    "stage2_probe": {
+      "collected": 25,
+      "passed": 0,
+      "failed": 1,
+      "stopped_after_first_failure": true,
+      "remaining_cases_not_executed": 24,
+      "stage2_credit": false
+    },
+    "stages_2_to_4_implemented": false
+  },
+  "actions": {
+    "product_tests_run_by_archivist": 0,
+    "band_messages_sent": 0,
+    "model_calls": 0,
+    "configuration_changes": 0,
+    "process_or_docker_actions": 0
+  }
+}

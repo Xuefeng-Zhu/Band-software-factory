@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-10-04T23:58:09.245432+00:00",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1500,
+      "sha256": "40f739f6614201f3f75e214fb7ab2310faaabc6faf4098e27c056509943067e8"
+    },
+    {
+      "path": "goal-audit-before-final-metadata.json",
+      "bytes": 23737,
+      "sha256": "d6b6c97906007f47f948969a53b20e904f75ce7082e0e52037052dc21ab98bef"
+    },
+    {
+      "path": "package-check-final.json",
+      "bytes": 685,
+      "sha256": "bad1e9eaac38d2d02fc4855057727d5d67e0d78e818e79c4c5149a4623b3d46c"
+    },
+    {
+      "path": "package-check-final.log",
+      "bytes": 274,
+      "sha256": "a4352e6697ebe6fa4b53b3e9949247b4497feebb3f6105d18e2d97f9c0289faf"
+    },
+    {
+      "path": "package-check.json",
+      "bytes": 580,
+      "sha256": "eb5ff1ed54f7dc1d8fa5046f3becb0e36c97c09b207c959a2254456b6bdad366"
+    },
+    {
+      "path": "package-check.log",
+      "bytes": 274,
+      "sha256": "a4352e6697ebe6fa4b53b3e9949247b4497feebb3f6105d18e2d97f9c0289faf"
+    },
+    {
+      "path": "package-completion-addendum.json",
+      "bytes": 1432,
+      "sha256": "3180a005ba7cd33a6534d93e78fdbd8043f343ca8a0b44759d7a2a71c83781aa"
+    }
+  ]
+}

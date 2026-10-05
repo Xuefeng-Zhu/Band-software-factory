@@ -1,0 +1,25 @@
+{
+  "work_item": "BUILD-S1-REPAIR3",
+  "owner": "@frankzhu94/factory-backend",
+  "revision": "513db15d7b3a1b9a86d4e0fa15366c587c6c4e67",
+  "start": "2026-10-04T23:11:34.747483+00:00",
+  "end": "2026-10-04T23:11:36.533645+00:00",
+  "layer": "host HTTP",
+  "results": [
+    {
+      "group": "reset-types-values-and-atomicity",
+      "status": "PASS",
+      "cases": 32
+    },
+    {
+      "group": "5000-digit-four-fields-integral-decimals-browse-import-booking-receipts",
+      "status": "PASS",
+      "field_forms": 8
+    },
+    {
+      "group": "historical-create-batch-receipt-integrity-atomicity-positive-replay",
+      "status": "PASS",
+      "corruptions": 15
+    }
+  ]
+}

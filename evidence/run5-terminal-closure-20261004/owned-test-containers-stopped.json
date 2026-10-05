@@ -1,0 +1,29 @@
+{
+  "started_at": "2026-10-04T23:37:07.666913+00:00",
+  "completed_at": "2026-10-04T23:37:18.646353+00:00",
+  "reason": "Post-run cleanup of exact original Backend-owned verification containers after all BAND workers stopped",
+  "ownership_source": "result-run-5/records/backend-stage-1.md and prior container ownership receipts",
+  "containers": [
+    {
+      "id": "5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd",
+      "name": "/tk-s1-owner-a",
+      "image": "tablekeeper-s1:owner",
+      "created": "2026-10-04T21:45:26.083049131Z",
+      "running_before": true,
+      "mount_count": 0
+    },
+    {
+      "id": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9",
+      "name": "/tk-s1-owner-b",
+      "image": "tablekeeper-s1:owner",
+      "created": "2026-10-04T21:45:26.232392621Z",
+      "running_before": true,
+      "mount_count": 0
+    }
+  ],
+  "all_stopped": true,
+  "containers_deleted": false,
+  "volumes_deleted": false,
+  "vm_settings_changed": false,
+  "other_workloads_touched": false
+}

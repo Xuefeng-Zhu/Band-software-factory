@@ -1,0 +1,66 @@
+{
+  "observed_at_utc": "2026-10-04T23:26:28.624085+00:00",
+  "packets": [
+    {
+      "role": "backend-return",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/return-handoff.json",
+      "source_file_sha256": "763244d9365771f8cbf3afc70f8eddddf6a27a57e819056e7d80db62cd438f74",
+      "declared_digest": "f4bbd99c0d9885133daadad7e8539b4fe3a223da47fe60ba33e1f3e5a5497e8a",
+      "verified_concat_parts_sha256": "f4bbd99c0d9885133daadad7e8539b4fe3a223da47fe60ba33e1f3e5a5497e8a",
+      "parts": [
+        {
+          "part": 1,
+          "characters": 14000,
+          "sha256": "c239e49934afdc952e1b107c5e2a99ad8ebfa3241044117f398271aa4ab5744a"
+        },
+        {
+          "part": 2,
+          "characters": 14000,
+          "sha256": "0dc306897762b7157e14309fdc1446588b4e734f9f2f22b6310ff9f15bc7daf7"
+        },
+        {
+          "part": 3,
+          "characters": 14000,
+          "sha256": "5490945ed3140a443401338f3a30a3effee56e425d6b480c050c0bdfc2988a57"
+        },
+        {
+          "part": 4,
+          "characters": 9619,
+          "sha256": "61a65f0bfd424edd7378fcf87c54d1a51b240a92eb4c9b2474fad13a08de82a1"
+        }
+      ],
+      "excerpt_file": "backend-return-excerpt.txt",
+      "excerpt_rule": "Exact first-part prefix before '\\n\\nCOMPLETE DELIVERY RECORD:'",
+      "complete_packet_archived": false,
+      "reason": "Avoid duplicate full specs and previously archived records; source-file and reconstructed payload hashes retained."
+    },
+    {
+      "role": "pm-review-assignment",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/pm-gate-recheck-20261004T2317Z/handoff.json",
+      "source_file_sha256": "e5bd8337db63248144f68a7d217841bfd78319f83bf0c5bfe2322e30c185f0e1",
+      "declared_digest": "2921f6177c9c6a1fb8b181e993fc83608067a1baff84c8bd7e43d872ef824aa0",
+      "verified_concat_parts_sha256": "2921f6177c9c6a1fb8b181e993fc83608067a1baff84c8bd7e43d872ef824aa0",
+      "parts": [
+        {
+          "part": 1,
+          "characters": 18000,
+          "sha256": "976fc468dff126ab5947d32729c11a456ea81f9bcda298babdbb4088a73b6cf1"
+        },
+        {
+          "part": 2,
+          "characters": 18000,
+          "sha256": "c6002fc4b21bbb760bb02630f83298be7ee886b85bdf7db7e4a8d8bb840605b9"
+        },
+        {
+          "part": 3,
+          "characters": 12153,
+          "sha256": "e1922e172569e07e53cec3742de2a64a7ee0a63d12eeecb6a7c5051fd9602b29"
+        }
+      ],
+      "excerpt_file": "pm-review-assignment-excerpt.txt",
+      "excerpt_rule": "Exact first-part prefix before '\\n\\nCURRENT OWNER REPAIR RECORD:'",
+      "complete_packet_archived": false,
+      "reason": "Avoid duplicate full specs and previously archived records; source-file and reconstructed payload hashes retained."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "captured_at": "2026-10-04T22:51:18.604820+00:00",
+  "files": [
+    {
+      "path": "orbstack-user-2g-cap.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/orbstack-user-2g-cap.json",
+      "sha256": "4bf8e7c7998743d97f83dae325c783a208b780aecfab353cdcfcc83ee221c343"
+    },
+    {
+      "path": "live-readonly-check.json",
+      "source": "/private/tmp/Tablekeeper-factory-preflight-doejonfc/live-readonly-check.json",
+      "sha256": "53608f6a1585ec79a63e0f108b3f163372882e7d24a645bf65c05bfee85474e5"
+    },
+    {
+      "path": "verification.json",
+      "source": "/private/tmp/Tablekeeper-factory-preflight-doejonfc/verification.json",
+      "sha256": "d9a7aef498236f1a0b70cd9512d9fe0f8bbffe543f56f86f29fc934560a1a97b"
+    },
+    {
+      "path": "utility-tests.log",
+      "source": "/private/tmp/Tablekeeper-factory-preflight-doejonfc/utility-tests.log",
+      "sha256": "fb9b301aaff596a4bd25b0f5161c12b6b1b74d81c3b4437cbd96ad88102cf2aa"
+    },
+    {
+      "path": "README.md",
+      "source": "operator factual summary",
+      "sha256": "cbd0d39dc99ed80b5c1063173e7ee5ff7e0db2c4b008551cd2c6a3c4fbc6d950"
+    },
+    {
+      "path": "FACTORY.draft.md",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/FACTORY.draft.md",
+      "sha256": "2d1c4eebf789e915d5d09eadd6ecff7dbb078505ea543c98d2928189e332d933"
+    },
+    {
+      "path": "draft-source-manifest.json",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/draft-source-manifest.json",
+      "sha256": "1ef8376c9fdbaacb76535c12651c3edfa370b976092cc9e03cb0418a2b981195"
+    }
+  ]
+}

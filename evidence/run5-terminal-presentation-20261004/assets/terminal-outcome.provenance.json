@@ -1,0 +1,16 @@
+{
+  "saved_at": "2026-10-04T23:36:19.173495+00:00",
+  "capture_tool": "cua_repl selected Chrome tab screenshot",
+  "room_id": "12cde259-0fcd-4551-84c7-52c443cb5600",
+  "url": "https://app.band.ai/sessions/12cde259-0fcd-4551-84c7-52c443cb5600",
+  "visible_events": [
+    "f735f446-38ec-4b2d-9659-ed0bff32497c",
+    "493ace48-7d8b-469d-ad82-6fb063e05a0f",
+    "fe9e5ec6-69c5-4871-868f-284fdf84cceb"
+  ],
+  "bytes": 157457,
+  "sha256": "787944ce9efe0e6a9baad772decc2a38a4850c3e8295d6ad2e0a924eb7e93832",
+  "visually_checked": "Real PM rejection/STOP/closeout visible; no credentials or unrelated desktop content observed",
+  "kind": "still screenshot, not video",
+  "edited": false
+}

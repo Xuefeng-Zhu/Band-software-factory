@@ -1,0 +1,35 @@
+{
+  "status": "PASS_UTILITY_TESTS_ONLY",
+  "created_at": "2026-10-04T22:47:41.074649+00:00",
+  "clone": "/private/tmp/Tablekeeper-factory-preflight-doejonfc/factory",
+  "branch": "fix/docker-resource-preflight",
+  "base_commit": "a8562b2254400d7ed2793c6800597c3b78b6f644",
+  "origin": "https://github.com/Xuefeng-Zhu/Tablekeeper-factory.git",
+  "tests": {
+    "total": 253,
+    "new": 13,
+    "command": "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python -B -m unittest discover -s tests -v",
+    "log_path": "/private/tmp/Tablekeeper-factory-preflight-doejonfc/utility-tests.log",
+    "log_sha256": "fb9b301aaff596a4bd25b0f5161c12b6b1b74d81c3b4437cbd96ad88102cf2aa"
+  },
+  "diff_check": "PASS",
+  "patch_sha256": "28a1f3e6973cfd5fcddaffa81add7b0a793d457e54da274171bb05df6321dbff",
+  "files": {
+    "README.md": "bd9ff0fd41c5a93c8036d8fd4a6c0bf3bf440ff37f5fc7e19b607919ff667e46",
+    "config/factory.example.yaml": "c406b26f493f90520d646293cb391828b3f1b3e7f2cd7246cc1f5c2606c911bc",
+    "docs/docker-resources.md": "cb6e1b5088c5deb010c73e782d06ef6586d146067149081abe1bf183ffa56a92",
+    "factorykit/operations.py": "9a7b9d8c0ad6a70b57dc34229f073fb45cb42db6d3ff5076983c09f3c710b129",
+    "factorykit/runtime.py": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c",
+    "factorykit/validation.py": "33f8b79ed4b94da0b9894c52ed4f5e3fa01d335d30bb8f501a4f03d3442ac889",
+    "tests/test_attempt_branches.py": "7da67fdc7a763a3932d07117015b9009a4b58d3c1ea5363114b9dd8b9cbe8414",
+    "tests/test_budget_readiness.py": "ebeedaccad16c5c707e4c9132f153091966a73c594522f176c48e2caa4d1f7ca",
+    "tests/test_docker_resources.py": "23cc49705590d9dec77e2c9902c5269e4c53e100223b5a80c986ef95cf75ed9d",
+    "tests/test_toolkit.py": "64c20ae22c48ff340a1ded9310434353fa8e8daa9853b1b596a4518c6d36bf94"
+  },
+  "live_changes": false,
+  "docker_invoked": false,
+  "committed": true,
+  "pushed": true,
+  "limitation": "Required docker_resources intentionally blocks old configs; no Run5 input, readiness or product migration performed.",
+  "commit": "af329946b1f8282ecddbdebdbdb397849ef80a06"
+}

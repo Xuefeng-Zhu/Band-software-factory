@@ -1,0 +1,83 @@
+{
+  "schema": "run5-presentation-qa.v1",
+  "checked_at_utc": "2026-10-04T23:13:43.828419+00:00",
+  "snapshot_utc": "2026-10-04T23:03:00Z",
+  "snapshot_precision": "minute",
+  "presentation_sha256": "cac8393cfadc187525f5fb63010e5478a1c6b808918e10f1d194d2634a9e083c",
+  "pdf_sha256": "dd152dd59233d6b7c345d4be0a68e396244948c353e22c940097c561b23b48e7",
+  "slides": 6,
+  "native_table_count_by_slide": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    0
+  ],
+  "speaker_notes_parts": 6,
+  "artifact_tool_finalizer": "PASS; build/validation-2303-r3.json",
+  "artifact_tool_final_pptx_render": "PASS; six regenerated PNGs. Changed slides 1 and 6 inspected at full size; slides 2\u20135 pixel-identical to the previously inspected renders.",
+  "bundled_libreoffice_pdf_conversion": "PASS; no installation or desktop application automation",
+  "bundled_pdftoppm_render": "PASS; six regenerated 1280x720 PNGs. Changed slides 1 and 6 inspected at full size; slides 2\u20135 pixel-identical to the previously inspected renders.",
+  "visual_result": "No unintended clipping, overlap, overflowing text, or missing source image observed in either final render. Source image is a genuine uncropped still.",
+  "pdf_base_fonts": [
+    "BAAAAA+HelveticaNeue",
+    "CAAAAA+HelveticaNeue-Bold",
+    "DAAAAA+HelveticaNeue",
+    "EAAAAA+HelveticaNeue",
+    "FAAAAA+HelveticaNeue-Bold",
+    "GAAAAA+HelveticaNeue",
+    "HAAAAA+HelveticaNeue",
+    "IAAAAA+HelveticaNeue",
+    "JAAAAA+HelveticaNeue-Bold",
+    "KAAAAA+HelveticaNeue-Bold",
+    "LAAAAA+HelveticaNeue",
+    "MAAAAA+HelveticaNeue",
+    "NAAAAA+HelveticaNeue-Bold",
+    "OAAAAA+HelveticaNeue",
+    "PAAAAA+HelveticaNeue-Bold",
+    "QAAAAA+HelveticaNeue",
+    "RAAAAA+HelveticaNeue-Bold",
+    "SAAAAA+HelveticaNeue",
+    "TAAAAA+HelveticaNeue-Bold",
+    "UAAAAA+HelveticaNeue"
+  ],
+  "font_setup": "Initial bundled LibreOffice render substituted a serif font. Corrected with build/fonts.conf pointing at existing system fonts and a cache confined to this directory; final PDF and compatibility-fonts previews use the corrected render. No fonts installed.",
+  "native_powerpoint_execution": "NOT_TESTED",
+  "application_product_tests": "NOT_RUN by this packaging task",
+  "band_operations": "NONE",
+  "video": "NONE; deferred by participant",
+  "authoring": "AI-assisted factual draft; participant review required",
+  "claim_limits": [
+    "Frozen 23:03 UTC scope; no later outcome incorporated.",
+    "Rejected exact candidate 4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d; Stage 1 unaccepted; Stages 2\u20134 incomplete.",
+    "Final run outcome, consumption ledger, acceptance, public release and submission remain pending.",
+    "Two operator infrastructure interventions are disclosed."
+  ],
+  "source_integrity": {
+    "architecture_handoff_sha256": "58587a837d0c300d29a423fffcebdde624d9d23239d239c4b91ea8592625c4f9",
+    "reviewer_decision_sha256": "a816426a1f35aee9d151b057765520778f8717b08bb932e7d22545c5a1657ef5"
+  },
+  "copy_revision": {
+    "changes": {
+      "1": [
+        {
+          "before": "Seven BAND seats build and review",
+          "after": "Seven BAND seats are configured to build and review"
+        }
+      ],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [
+        {
+          "before": "Clean startup and actual UI use, if applicable",
+          "after": "Clean startup and real Stage 2\u20134 UI verification"
+        }
+      ]
+    },
+    "layout_adjustment": "Slide 6 left verification text box widened from 548 to 596 px to retain the requested item on one line in both renderers. No other layout or factual changes.",
+    "snapshot_unchanged": true
+  }
+}

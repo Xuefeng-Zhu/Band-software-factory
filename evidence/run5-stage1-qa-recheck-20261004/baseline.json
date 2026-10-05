@@ -1,0 +1,65 @@
+{
+  "work_item": "QA-S1",
+  "responsible_handle": "@frankzhu94/factory-qa",
+  "candidate_commit": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "environment": "HTTP endpoints supplied by runner; container/isolation provenance must accompany this report",
+  "started_at_utc": "2026-10-04T22:45:51.098678+00:00",
+  "results": [
+    {
+      "test": "test_auth",
+      "status": "PASS",
+      "elapsed_seconds": 0.252
+    },
+    {
+      "test": "test_types",
+      "status": "PASS",
+      "elapsed_seconds": 0.131
+    },
+    {
+      "test": "test_keys",
+      "status": "PASS",
+      "elapsed_seconds": 0.123
+    },
+    {
+      "test": "test_scope",
+      "status": "PASS",
+      "elapsed_seconds": 0.119
+    },
+    {
+      "test": "test_grid",
+      "status": "PASS",
+      "elapsed_seconds": 0.236
+    },
+    {
+      "test": "test_patch",
+      "status": "PASS",
+      "elapsed_seconds": 0.119
+    },
+    {
+      "test": "test_cutoff",
+      "status": "PASS",
+      "elapsed_seconds": 0.356
+    },
+    {
+      "test": "test_dst",
+      "status": "PASS",
+      "elapsed_seconds": 0.476
+    },
+    {
+      "test": "test_moves",
+      "status": "PASS",
+      "elapsed_seconds": 0.243
+    },
+    {
+      "test": "test_concurrency",
+      "status": "PASS",
+      "elapsed_seconds": 0.27
+    },
+    {
+      "test": "test_portability",
+      "status": "PASS",
+      "elapsed_seconds": 0.307
+    }
+  ],
+  "ended_at_utc": "2026-10-04T22:45:53.734081+00:00"
+}

@@ -1,0 +1,848 @@
+[
+  {
+    "name": "reset-valid",
+    "expected": 204,
+    "actual": 204,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.718935+00:00"
+  },
+  {
+    "name": "reset-wrong-type-slot_minutes-str",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.777756+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-slot_minutes-str",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.778421+00:00"
+  },
+  {
+    "name": "reset-wrong-type-slot_minutes-bool",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.807338+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-slot_minutes-bool",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.807947+00:00"
+  },
+  {
+    "name": "reset-wrong-type-slot_minutes-NoneType",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.836584+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-slot_minutes-NoneType",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.837207+00:00"
+  },
+  {
+    "name": "reset-wrong-type-slot_minutes-list",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.865893+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-slot_minutes-list",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.866503+00:00"
+  },
+  {
+    "name": "reset-wrong-type-slot_minutes-dict",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.895569+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-slot_minutes-dict",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.896175+00:00"
+  },
+  {
+    "name": "reset-wrong-type-reservation_duration_minutes-str",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.924823+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-reservation_duration_minutes-str",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.925392+00:00"
+  },
+  {
+    "name": "reset-wrong-type-reservation_duration_minutes-bool",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.954098+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-reservation_duration_minutes-bool",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.954677+00:00"
+  },
+  {
+    "name": "reset-wrong-type-reservation_duration_minutes-NoneType",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.983305+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-reservation_duration_minutes-NoneType",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:36.983919+00:00"
+  },
+  {
+    "name": "reset-wrong-type-reservation_duration_minutes-list",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.012559+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-reservation_duration_minutes-list",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.013126+00:00"
+  },
+  {
+    "name": "reset-wrong-type-reservation_duration_minutes-dict",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.041796+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-reservation_duration_minutes-dict",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.042369+00:00"
+  },
+  {
+    "name": "reset-wrong-type-cancellation_cutoff_minutes-str",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.070963+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-cancellation_cutoff_minutes-str",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.071534+00:00"
+  },
+  {
+    "name": "reset-wrong-type-cancellation_cutoff_minutes-bool",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.100117+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-cancellation_cutoff_minutes-bool",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.100642+00:00"
+  },
+  {
+    "name": "reset-wrong-type-cancellation_cutoff_minutes-NoneType",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.128992+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-cancellation_cutoff_minutes-NoneType",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.129507+00:00"
+  },
+  {
+    "name": "reset-wrong-type-cancellation_cutoff_minutes-list",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.158118+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-cancellation_cutoff_minutes-list",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.158748+00:00"
+  },
+  {
+    "name": "reset-wrong-type-cancellation_cutoff_minutes-dict",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.187192+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-cancellation_cutoff_minutes-dict",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.187806+00:00"
+  },
+  {
+    "name": "reset-wrong-type-capacity-str",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.218112+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-capacity-str",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.218744+00:00"
+  },
+  {
+    "name": "reset-wrong-type-capacity-bool",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.249312+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-capacity-bool",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.250069+00:00"
+  },
+  {
+    "name": "reset-wrong-type-capacity-NoneType",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.283547+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-capacity-NoneType",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.284351+00:00"
+  },
+  {
+    "name": "reset-wrong-type-capacity-list",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.315488+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-capacity-list",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.316193+00:00"
+  },
+  {
+    "name": "reset-wrong-type-capacity-dict",
+    "expected": [
+      400,
+      "malformed_request"
+    ],
+    "actual": [
+      400,
+      "malformed_request"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.345395+00:00"
+  },
+  {
+    "name": "reset-invalid-atomic-capacity-dict",
+    "expected": "unchanged",
+    "actual": "unchanged",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.345983+00:00"
+  },
+  {
+    "name": "create",
+    "expected": 201,
+    "actual": 201,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.346801+00:00"
+  },
+  {
+    "name": "amend",
+    "expected": 200,
+    "actual": 200,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.347360+00:00"
+  },
+  {
+    "name": "cancel",
+    "expected": 200,
+    "actual": 200,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.347936+00:00"
+  },
+  {
+    "name": "unchanged-export-import",
+    "expected": 204,
+    "actual": 204,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.352130+00:00"
+  },
+  {
+    "name": "historical-create-replay",
+    "expected": [
+      200,
+      {
+        "reservation_id": "cb41b2d2749affb829786a554505f2c8",
+        "reference": "5A55T7PVRC",
+        "restaurant_id": "r",
+        "table_id": "t",
+        "starts_at_local": "2096-09-24T18:00",
+        "party_size": 2,
+        "starts_at": "2096-09-24T18:00:00+00:00",
+        "ends_at": "2096-09-24T19:30:00+00:00",
+        "status": "confirmed",
+        "created_at": "2026-10-04T23:19:37+00:00"
+      }
+    ],
+    "actual": [
+      200,
+      {
+        "reservation_id": "cb41b2d2749affb829786a554505f2c8",
+        "reference": "5A55T7PVRC",
+        "restaurant_id": "r",
+        "table_id": "t",
+        "starts_at_local": "2096-09-24T18:00",
+        "party_size": 2,
+        "starts_at": "2096-09-24T18:00:00+00:00",
+        "ends_at": "2096-09-24T19:30:00+00:00",
+        "status": "confirmed",
+        "created_at": "2026-10-04T23:19:37+00:00"
+      }
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.352749+00:00"
+  },
+  {
+    "name": "password-after-import",
+    "expected": 200,
+    "actual": 200,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.382328+00:00"
+  },
+  {
+    "name": "import-receipt-missing-fields",
+    "expected": [
+      422,
+      "validation_failed"
+    ],
+    "actual": [
+      422,
+      "validation_failed"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.384468+00:00"
+  },
+  {
+    "name": "import-receipt-missing-fields-unchanged",
+    "expected": true,
+    "actual": true,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.385043+00:00"
+  },
+  {
+    "name": "import-receipt-unknown-reference",
+    "expected": [
+      422,
+      "validation_failed"
+    ],
+    "actual": [
+      422,
+      "validation_failed"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.386802+00:00"
+  },
+  {
+    "name": "import-receipt-unknown-reference-unchanged",
+    "expected": true,
+    "actual": true,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.387376+00:00"
+  },
+  {
+    "name": "import-receipt-wrong-owner-id",
+    "expected": [
+      422,
+      "validation_failed"
+    ],
+    "actual": [
+      422,
+      "validation_failed"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.389158+00:00"
+  },
+  {
+    "name": "import-receipt-wrong-owner-id-unchanged",
+    "expected": true,
+    "actual": true,
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.389760+00:00"
+  },
+  {
+    "name": "import-invalid-history-time",
+    "expected": [
+      422,
+      "validation_failed"
+    ],
+    "actual": [
+      422,
+      "validation_failed"
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.391117+00:00"
+  },
+  {
+    "name": "prior-date-max",
+    "expected": [
+      200,
+      [
+        {
+          "starts_at_local": "9999-12-31T18:00",
+          "starts_at": "9999-12-31T18:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T18:30",
+          "starts_at": "9999-12-31T18:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T19:00",
+          "starts_at": "9999-12-31T19:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T19:30",
+          "starts_at": "9999-12-31T19:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T20:00",
+          "starts_at": "9999-12-31T20:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T20:30",
+          "starts_at": "9999-12-31T20:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T21:00",
+          "starts_at": "9999-12-31T21:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T21:30",
+          "starts_at": "9999-12-31T21:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        }
+      ]
+    ],
+    "actual": [
+      200,
+      [
+        {
+          "starts_at_local": "9999-12-31T18:00",
+          "starts_at": "9999-12-31T18:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T18:30",
+          "starts_at": "9999-12-31T18:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T19:00",
+          "starts_at": "9999-12-31T19:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T19:30",
+          "starts_at": "9999-12-31T19:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T20:00",
+          "starts_at": "9999-12-31T20:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T20:30",
+          "starts_at": "9999-12-31T20:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T21:00",
+          "starts_at": "9999-12-31T21:00:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        },
+        {
+          "starts_at_local": "9999-12-31T21:30",
+          "starts_at": "9999-12-31T21:30:00+00:00",
+          "available_table_ids": [
+            "t"
+          ]
+        }
+      ]
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.421005+00:00"
+  },
+  {
+    "name": "prior-query-digits",
+    "expected": [
+      200,
+      [
+        {
+          "starts_at_local": "2096-09-24T18:00",
+          "starts_at": "2096-09-24T18:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T18:30",
+          "starts_at": "2096-09-24T18:30:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T19:00",
+          "starts_at": "2096-09-24T19:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T19:30",
+          "starts_at": "2096-09-24T19:30:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T20:00",
+          "starts_at": "2096-09-24T20:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T20:30",
+          "starts_at": "2096-09-24T20:30:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T21:00",
+          "starts_at": "2096-09-24T21:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T21:30",
+          "starts_at": "2096-09-24T21:30:00+00:00",
+          "available_table_ids": []
+        }
+      ]
+    ],
+    "actual": [
+      200,
+      [
+        {
+          "starts_at_local": "2096-09-24T18:00",
+          "starts_at": "2096-09-24T18:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T18:30",
+          "starts_at": "2096-09-24T18:30:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T19:00",
+          "starts_at": "2096-09-24T19:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T19:30",
+          "starts_at": "2096-09-24T19:30:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T20:00",
+          "starts_at": "2096-09-24T20:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T20:30",
+          "starts_at": "2096-09-24T20:30:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T21:00",
+          "starts_at": "2096-09-24T21:00:00+00:00",
+          "available_table_ids": []
+        },
+        {
+          "starts_at_local": "2096-09-24T21:30",
+          "starts_at": "2096-09-24T21:30:00+00:00",
+          "available_table_ids": []
+        }
+      ]
+    ],
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.421672+00:00"
+  },
+  {
+    "name": "historical-second-offset-rfc3339",
+    "expected": "1890-01-01T17:06:32+00:00",
+    "actual": "1890-01-01T17:06:32+00:00",
+    "status": "PASS",
+    "details": null,
+    "utc": "2026-10-04T23:19:37.451196+00:00"
+  },
+  {
+    "name": "valid-5000-digit-capacity-reset",
+    "expected": 204,
+    "actual": 204,
+    "status": "PASS",
+    "details": {
+      "error_code": null
+    },
+    "utc": "2026-10-04T23:19:37.482586+00:00"
+  }
+]

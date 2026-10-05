@@ -1,0 +1,10 @@
+stage-1/ ...
+building /Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/result/stage-1 ...
+  stage 1: pass  (log: /Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-1.log)
+  stage 2: fail  (log: /Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/stage-2.log)
+highest contiguous stage: 1
+claimed stage: 1 on the shipped checks
+report: /Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/stage-1/report.json
+  stage-1/: claims stage 1 on the shipped checks
+summary: /Users/frank/mygit/Tablekeeper/runs/run5-final-verification-20261004/isolated-all/summary.json
+NOTE: this run only includes a portion of the full tests that are applied before judging; this is meant to provide directional feedback, and ultimately you may not pass the stage with the full set of tests.

@@ -1,0 +1,158 @@
+{
+  "schema": "run5-presentation-manifest.v1",
+  "revision": "r4",
+  "status": "AI_ASSISTED_DRAFT_REVIEW_REQUIRED",
+  "snapshot_utc": "2026-10-04T23:46Z",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3574,
+      "sha256": "16c2061520b8c35a5fd3e4ef69af492fc76a3535e1c0162ae6c6fc8a809c9f5c"
+    },
+    {
+      "path": "QA.json",
+      "bytes": 4012,
+      "sha256": "7cefa81ae5b6aa753ef5acd1c90a33e937f7b1e4c11085ee8c1daf3f7fe507ba"
+    },
+    {
+      "path": "deck-source.json",
+      "bytes": 15796,
+      "sha256": "608bd09fdf4e0285b2911957cb0c7b9a235aa5e178654e4ad49bce66202db7e7"
+    },
+    {
+      "path": "build/build.mjs",
+      "bytes": 19080,
+      "sha256": "89297f2972265d00a260853684b740d865e4db59c0d67a91cff664cf3bb66425"
+    },
+    {
+      "path": "build/fonts.conf",
+      "bytes": 282,
+      "sha256": "33832a33306c8ec5f40b94f646e7682467fd1fb64608b5975d30c1fe52f1ab1a"
+    },
+    {
+      "path": "build/validation-2346-r4.json",
+      "bytes": 4126,
+      "sha256": "aacc3ba990fbb3139c21054f6cc2f9da111f486e67a736b5479b96b7a8d95454"
+    },
+    {
+      "path": "output/MillieMoon-Tablekeeper-Run5-DRAFT-2346-r4.pptx",
+      "bytes": 180936,
+      "sha256": "70b91cb8a4275f3d345ae9136832c3122fb5b88221a338ea0631a0c224adb1ad"
+    },
+    {
+      "path": "output/MillieMoon-Tablekeeper-Run5-DRAFT-2346-r4.pdf",
+      "bytes": 338106,
+      "sha256": "e3c59f375984f7e481f898d8d6eadd004349f530841cbe98f784ce5561b22969"
+    },
+    {
+      "path": "assets/terminal-outcome.jpg",
+      "bytes": 157457,
+      "sha256": "787944ce9efe0e6a9baad772decc2a38a4850c3e8295d6ad2e0a924eb7e93832"
+    },
+    {
+      "path": "assets/terminal-outcome.provenance.json",
+      "bytes": 681,
+      "sha256": "0890e1e853a6bae652f5a60c5cc7c9ead81d5be5b53138fd99fd150e0f880dbe"
+    },
+    {
+      "path": "assets/closure-receipt.json",
+      "bytes": 1136,
+      "sha256": "a2aecb2aa6973c5718c05fd274ac82c09c3a2cf0414319de0f74b21d95ca0238"
+    },
+    {
+      "path": "assets/final-accounting.json",
+      "bytes": 18593,
+      "sha256": "7ec9ca717668391c8efe62e70c38bba1d6572b6ad0242be9e39e54ab222f2028"
+    },
+    {
+      "path": "assets/room-download-receipt.json",
+      "bytes": 1431,
+      "sha256": "3e7c969398d5de1c7e1f7a61b8f7dad4c174551b1c03b7e71dc10ed3a00647d7"
+    },
+    {
+      "path": "assets/room-privacy-review.json",
+      "bytes": 4838,
+      "sha256": "52cd4025e92dd324cceb6ed88edde6767cbaca669fa14b8fc035d7f5e548a94b"
+    },
+    {
+      "path": "assets/isolated-command.json",
+      "bytes": 956,
+      "sha256": "1226ff72efe56d18296718757d76edf3d470ee13424add2ef50a7b459a2949a2"
+    },
+    {
+      "path": "assets/isolated-stage1-report.json",
+      "bytes": 1597,
+      "sha256": "3a937675ec346f65df860da95997ee2cb3b56421ab667261f4b441828f1cd424"
+    },
+    {
+      "path": "assets/package-check.json",
+      "bytes": 580,
+      "sha256": "eb5ff1ed54f7dc1d8fa5046f3becb0e36c97c09b207c959a2254456b6bdad366"
+    },
+    {
+      "path": "assets/gate-stage-1-final-review.md",
+      "bytes": 16283,
+      "sha256": "4f1d9b29cf0e07d5870e8fb67c7e757ce3eebb5fca7b26422ab4a73231f1b76e"
+    },
+    {
+      "path": "previews/r4-slide-1.png",
+      "bytes": 99960,
+      "sha256": "82183761bb885882e87b7978603fdaaa2e33e403981f225f727638ed2c68045f"
+    },
+    {
+      "path": "previews/r4-slide-2.png",
+      "bytes": 324512,
+      "sha256": "fd0cec7f187e3b5367a8ad307b457a44765b77e80872c21f3deba99737f6f115"
+    },
+    {
+      "path": "previews/r4-slide-3.png",
+      "bytes": 110834,
+      "sha256": "f6161bdcae629b048d3efc3bb4bcf052e5e4826281cbeb4cc300f845219880f4"
+    },
+    {
+      "path": "previews/r4-slide-4.png",
+      "bytes": 122004,
+      "sha256": "bc675ef3ba43c111b18517ff7ff7b14eb4172a66e60dde9b991e19bbe09859e1"
+    },
+    {
+      "path": "previews/r4-slide-5.png",
+      "bytes": 130272,
+      "sha256": "a8f1ac6448616830372c65872a2ced642e2e87dc0dc532eb57e47e50d111a2aa"
+    },
+    {
+      "path": "previews/r4-slide-6.png",
+      "bytes": 165481,
+      "sha256": "4e773de8430d3c60919699f6a63e11b79590ea5e906fee1374ea9e4fb0a3bb6b"
+    },
+    {
+      "path": "previews/r4-compatibility-slide-1.png",
+      "bytes": 80511,
+      "sha256": "5bec606309003121f6a6ccec5c9d70a2fd86d2f02c1b296b5cb44bf9226ebf9b"
+    },
+    {
+      "path": "previews/r4-compatibility-slide-2.png",
+      "bytes": 290427,
+      "sha256": "32e78ffd7aa68b4c60fc1c4c8c73d86990183ac68db3882605701499b1b44938"
+    },
+    {
+      "path": "previews/r4-compatibility-slide-3.png",
+      "bytes": 93495,
+      "sha256": "cdd3534073674340b8d6971813b40144880611e74ad1a0362eebb876f4624d3c"
+    },
+    {
+      "path": "previews/r4-compatibility-slide-4.png",
+      "bytes": 103225,
+      "sha256": "ac431898b7cb30af52ec86d3391b5528bce003c0176217275349d439b3815e22"
+    },
+    {
+      "path": "previews/r4-compatibility-slide-5.png",
+      "bytes": 111118,
+      "sha256": "bb3c7e11204dca31d66aca6a89faf3ab6e501113ce8f0bf355a26b41bc1f7a13"
+    },
+    {
+      "path": "previews/r4-compatibility-slide-6.png",
+      "bytes": 137888,
+      "sha256": "d95cd849b964927709fc647ee5277ca899fcbd062ac8b319b3c9608c5bee8873"
+    }
+  ]
+}

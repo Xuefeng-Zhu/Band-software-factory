@@ -1,0 +1,139 @@
+{
+  "observed_at_utc": "2026-10-04T23:26:28.728642+00:00",
+  "repository": "/Users/frank/mygit/Tablekeeper/result-run-5",
+  "candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "tested_implementation": "513db15d7b3a1b9a86d4e0fa15366c587c6c4e67",
+  "stage_1_tree": "13192852a7341f8d7e6b2bc6076c9e59cfa3843b",
+  "stage_tree_identity_verified": true,
+  "current_head": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "current_tracked_status": "",
+  "candidate_vs_tested_changed_paths": [
+    "records/backend-stage-1-repair3.md"
+  ],
+  "referenced_committed_scripts": [
+    {
+      "path": "stage-1/tests/http_repair3.py",
+      "candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+      "git_blob": "62db0780a3b3db6da2f3e129617fc7d88ce4c9bb",
+      "sha256": "3b8021e4f9fe0f5d641a28510cb470dd597e75ead6c0feb3775f09d9eae9ff86",
+      "working_bytes_match": true
+    },
+    {
+      "path": "tests/qa_stage1_boundaries.py",
+      "candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+      "git_blob": "2549ab4f85f0733b03dc3b74e424b67c5af0d1c3",
+      "sha256": "e4d196a216075fd1c92a540ed91c0de81b3e1743fe1e1ba90dffe78e25633841",
+      "working_bytes_match": true
+    },
+    {
+      "path": "records/backend-stage-1-repair3.md",
+      "candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+      "git_blob": "7a6c1299356ee2372342b59041bc660b131752fc",
+      "sha256": "72fa90d1fbb8bc49f168d020a541601a979dfb575cc7802638648242bcde7e92",
+      "working_bytes_match": true
+    }
+  ],
+  "selected_unchanged_copies": [
+    {
+      "archive": "verification.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/verification.json",
+      "bytes": 4334,
+      "sha256": "0f3f557e4bba1303e9084380887f4bfe67edb909c5c53dcde7d7724215040b02",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "final-revision.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/final-revision.json",
+      "bytes": 274,
+      "sha256": "f0372bf350a0f49e39c05bf908d6820b97a8bd64c97059416f007a4d95f8f9bf",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "http-repair3.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/http-repair3.json",
+      "bytes": 675,
+      "sha256": "66311799f9ebc11ef3a4cb99538b99efe211460ffc5e0996538160d592398090",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "http-baseline.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/http-baseline.json",
+      "bytes": 1449,
+      "sha256": "09fb62a5956fe6ebbab36faa906a7c195201abbd652e3f5613226ba527c7056e",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "return-events.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/return-events.json",
+      "bytes": 1225,
+      "sha256": "2830e163e358e46db64b184c391114e57eb06bc20ecc1c87aca8c359d4df6776",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "reviewer-repro/execution.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/reviewer-repro/execution.json",
+      "bytes": 1228,
+      "sha256": "76d84b2bc35adf7e3c56ce47550a8f9fea4cbc5069d4468c1a2673aef7ce8abe",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "reviewer-repro/results.json",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/reviewer-repro/results.json",
+      "bytes": 19942,
+      "sha256": "966e276e512e32c10a4704fce6fa638f10eba96a1857181575e94941a7ee35b7",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "reviewer-repro/check.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/reviewer-repro/check.py",
+      "bytes": 7561,
+      "sha256": "e43d5de226765d867e94b88a0d4e070788550e22f21d60f2375dbe82153b2176",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "verify.py",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/verify.py",
+      "bytes": 3932,
+      "sha256": "c4e19d1e4be3d6ba08b9e432ed2aafc983efd85278c0b62a9ed0cbc1de90c087",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "unit-committed.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/unit-committed.log",
+      "bytes": 10333,
+      "sha256": "5d9876cc0c109521763a3b22abf3b7b704714a0f949fa94f1862fdb9bd099d13",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "reviewer-repro.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/reviewer-repro.log",
+      "bytes": 193,
+      "sha256": "de9e5bb0660a00a7fde8978d550d51e3eaf4c575711f0fae8c562b37cb1e6b03",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "http-repair3.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/http-repair3.log",
+      "bytes": 30,
+      "sha256": "650ff5ef7b4dbab619c0640c22e3be0f2a3ee97b9bd7f1398e6e71fe558875ce",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "http-baseline.log",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair3-20261004T2307Z/http-baseline.log",
+      "bytes": 184,
+      "sha256": "f24c4175d9298bea2114ed0f8a03f0a6871a71fdfdaf89dee43680a17a4fc50d",
+      "unchanged_copy": true
+    },
+    {
+      "archive": "owner-record.md",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/records/backend-stage-1-repair3.md",
+      "bytes": 9032,
+      "sha256": "72fa90d1fbb8bc49f168d020a541601a979dfb575cc7802638648242bcde7e92",
+      "unchanged_copy": true
+    }
+  ],
+  "legacy_code_source_commit": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+  "legacy_code_archived": false,
+  "claim_limit": "Read-only metadata and evidence verification; no product tests, Docker operations or fresh acceptance performed by the archivist."
+}

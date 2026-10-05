@@ -1,0 +1,40 @@
+{
+  "observed_at": "2026-10-04T22:49:49.656218+00:00",
+  "candidate": "af329946b1f8282ecddbdebdbdb397849ef80a06",
+  "scope": "One read-only isolated-branch guard query with temporary in-memory minima; no runtime/configuration write or Docker mutation. User global2GiBcap retained.",
+  "expected_status": "FAIL",
+  "reason": "Configured3072MiB example minimum exceeds actual memory after user2GiBglobalcap.",
+  "result": {
+    "status": "FAIL",
+    "errors": [
+      "Docker daemon memory 2073866240 bytes is below configured minimum 3221225472 bytes (3072 MiB)"
+    ],
+    "endpoint": "unix:///Users/frank/.orbstack/run/docker.sock",
+    "scope": "Daemon total capacity only; not free memory, workload acceptance or concurrent-service proof",
+    "requirements": {
+      "min_cpus": 2,
+      "min_memory_mib": 3072
+    },
+    "command": {
+      "argv": [
+        "docker",
+        "--host",
+        "unix:///Users/frank/.orbstack/run/docker.sock",
+        "info",
+        "--format",
+        "{\"ServerVersion\":{{json .ServerVersion}},\"NCPU\":{{json .NCPU}},\"MemTotal\":{{json .MemTotal}}}"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/challenge",
+      "started_at": "2026-10-04T22:49:49.324803+00:00",
+      "finished_at": "2026-10-04T22:49:49.656129+00:00",
+      "exit_code": 0,
+      "stdout": "{\"ServerVersion\":\"29.4.0\",\"NCPU\":8,\"MemTotal\":2073866240}\n",
+      "stderr": ""
+    },
+    "observed": {
+      "ServerVersion": "29.4.0",
+      "NCPU": 8,
+      "MemTotal": 2073866240
+    }
+  }
+}

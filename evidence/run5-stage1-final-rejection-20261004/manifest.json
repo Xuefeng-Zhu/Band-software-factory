@@ -1,0 +1,139 @@
+{
+  "created_at_utc": "2026-10-04T23:30:06.322137+00:00",
+  "scope": "Final independent Run5 Stage1 rejection at fixed candidate; historical evidence archive only",
+  "candidate": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5078,
+      "sha256": "b9354fb20929fc7c99b853b5d0a3fdd716df70cc97614635af0880a08dbbd704"
+    },
+    {
+      "path": "archive-verification.json",
+      "bytes": 7596,
+      "sha256": "a2a0e2b7cf78561caf7925fd714781331f02b5dc4fb0e34bfeb138f622862d10"
+    },
+    {
+      "path": "baseline.json",
+      "bytes": 1448,
+      "sha256": "ddd86a07e551c25e2e8de0b6c3c0531bcae0708b70c092cbd56b912cfd8fa5d7"
+    },
+    {
+      "path": "baseline.log",
+      "bytes": 184,
+      "sha256": "f24c4175d9298bea2114ed0f8a03f0a6871a71fdfdaf89dee43680a17a4fc50d"
+    },
+    {
+      "path": "check.py",
+      "bytes": 7564,
+      "sha256": "11faa18733a2ed7c01d82e3e2df74f8aaa311a83a7591e188c1043aaaccb506b"
+    },
+    {
+      "path": "decision.md",
+      "bytes": 16283,
+      "sha256": "4f1d9b29cf0e07d5870e8fb67c7e757ce3eebb5fca7b26422ab4a73231f1b76e"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 1231,
+      "sha256": "a4e78a329e798a7b7d23626c3d2271fcca794778ce94710e24f8a3662bfa3cd5"
+    },
+    {
+      "path": "extended-results.json",
+      "bytes": 30224,
+      "sha256": "a778f5c304fea1cbc81df036d51f1bb9e438af1f7080d98159230d790955f15d"
+    },
+    {
+      "path": "extended.py",
+      "bytes": 11387,
+      "sha256": "4d16d7863891fbad5f309b9c5da0c3bd43aa733632b11d5f891b26126000443d"
+    },
+    {
+      "path": "incoming-integrity.json",
+      "bytes": 254,
+      "sha256": "5e150655891571e99b67f25d143bb5e280392d527daa86539711e782ae19e29b"
+    },
+    {
+      "path": "mechanisms-results.json",
+      "bytes": 513,
+      "sha256": "84705ee3e0ec2c545958fd4c8c32e3472b6033d1a53b3432aa86d5eccddd4f47"
+    },
+    {
+      "path": "mechanisms.py",
+      "bytes": 3922,
+      "sha256": "430548eb17e32a4839e56ad0d7cd4e9f85ba2842bc3c1bd8e3b6ddfa365f6e20"
+    },
+    {
+      "path": "packet-integrity.json",
+      "bytes": 1514,
+      "sha256": "91c0cd407a8506b5759216244b2e05eee27ca7c7f9e212c2944f494ea3500df3"
+    },
+    {
+      "path": "privacy-scan.json",
+      "bytes": 521,
+      "sha256": "0b9885b0fcb262007473fd84a09537cd2d78c074d788184386e837ddfbade9b7"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 2396,
+      "sha256": "304326c6ac9a1cbabba76e323cd11cc6be43ec8abd5942ed4ac57e0afc99048a"
+    },
+    {
+      "path": "public-events.json",
+      "bytes": 3759,
+      "sha256": "e4fb662346378dc59f0ed293a04042ec6c99ec877e4fc7a83d0f20f8d778d047"
+    },
+    {
+      "path": "receipt-pairs-confirmation/receipt-pairs-results.json",
+      "bytes": 2374,
+      "sha256": "502c2fa085647dd2c5ca671b815fb353e1dfa589b6673b4e5db27a1c40d85a85"
+    },
+    {
+      "path": "receipt-pairs-confirmation/receipt-pairs.py",
+      "bytes": 4578,
+      "sha256": "7fc4084136ebbe6c66b16f987932a81cad3cf57ed5c862856c299dd5feaa3a7c"
+    },
+    {
+      "path": "receipt-pairs-results.json",
+      "bytes": 2374,
+      "sha256": "38c7de9a7c72b61a43c2b94d16a29efc6225f8074ba82023062bfb400611c14f"
+    },
+    {
+      "path": "receipt-pairs.py",
+      "bytes": 4578,
+      "sha256": "7fc4084136ebbe6c66b16f987932a81cad3cf57ed5c862856c299dd5feaa3a7c"
+    },
+    {
+      "path": "repro-provenance.json",
+      "bytes": 618,
+      "sha256": "0f41310705c4cb268c7674823151a3c252db5f445cbbcf41b3b0fe9781eedaf8"
+    },
+    {
+      "path": "results.json",
+      "bytes": 19942,
+      "sha256": "2b7eb044faa4b58d4d54ad8122857c990ed6573bf8edd7d1f0a461ffade0f6a8"
+    },
+    {
+      "path": "return-events.json",
+      "bytes": 900,
+      "sha256": "d4eea6c00d44d48a61a21d6b9b3852e5f18e3850031b50730a4f34f9632344db"
+    },
+    {
+      "path": "subsequent-pm-closeout.json",
+      "bytes": 3503,
+      "sha256": "88cf33437dd5206f1a4d547e61cadb2e36311bed35504660460bd0bce7a5061f"
+    }
+  ],
+  "addendum": {
+    "recorded_at_utc": "2026-10-04T23:31:45.755485+00:00",
+    "file": "subsequent-pm-closeout.json",
+    "changed_files": [
+      "README.md",
+      "manifest.json",
+      "subsequent-pm-closeout.json"
+    ],
+    "all_original_pending_and_source_artifacts_unchanged": true,
+    "official_credential_scan_findings": [],
+    "prior_manifest_sha256": "2a2fed12558a5abc41def8ab55a0980fe2b42103764ae93811f21084b11fe58c"
+  }
+}

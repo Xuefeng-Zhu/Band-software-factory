@@ -1,0 +1,164 @@
+{
+  "started_at": "2026-10-04T22:49:05.909952+00:00",
+  "user_request": "Can we cap at 2gb",
+  "requested_global_memory_mib": 2048,
+  "scope": "Apply explicit user-requested global VM ceiling; one required stop/start and restore only the exact already-running Run5 owner containers. No BAND instructions, application edits or test reruns.",
+  "limitation": "Global VM memory includes operating-system/daemon overhead; not proof that a full 2 GiB is available to the application.",
+  "operations": [
+    {
+      "name": "running_machines_before",
+      "argv": [
+        "orb",
+        "list",
+        "--running",
+        "--format",
+        "json"
+      ],
+      "started_at": "2026-10-04T22:49:05.910311+00:00",
+      "finished_at": "2026-10-04T22:49:05.997029+00:00",
+      "returncode": 0,
+      "stdout": "[]",
+      "stderr": ""
+    },
+    {
+      "name": "running_containers_before",
+      "argv": [
+        "docker",
+        "ps",
+        "--no-trunc",
+        "--format",
+        "{{.ID}}"
+      ],
+      "started_at": "2026-10-04T22:49:05.997640+00:00",
+      "finished_at": "2026-10-04T22:49:06.276242+00:00",
+      "returncode": 0,
+      "stdout": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9\n5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd",
+      "stderr": ""
+    },
+    {
+      "name": "effective_memory_before",
+      "argv": [
+        "docker",
+        "info",
+        "--format",
+        "{{.MemTotal}}"
+      ],
+      "started_at": "2026-10-04T22:49:06.276603+00:00",
+      "finished_at": "2026-10-04T22:49:06.349508+00:00",
+      "returncode": 0,
+      "stdout": "4180443136",
+      "stderr": ""
+    },
+    {
+      "name": "set_2g_ceiling",
+      "argv": [
+        "orb",
+        "config",
+        "set",
+        "memory_mib",
+        "2048"
+      ],
+      "started_at": "2026-10-04T22:49:06.349817+00:00",
+      "finished_at": "2026-10-04T22:49:06.368464+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Restart OrbStack with \"orb stop\" to apply changes."
+    },
+    {
+      "name": "stop",
+      "argv": [
+        "orb",
+        "stop"
+      ],
+      "started_at": "2026-10-04T22:49:06.368697+00:00",
+      "finished_at": "2026-10-04T22:49:08.731617+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "start",
+      "argv": [
+        "orb",
+        "start"
+      ],
+      "started_at": "2026-10-04T22:49:08.732318+00:00",
+      "finished_at": "2026-10-04T22:49:11.668390+00:00",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "restore_existing_services",
+      "argv": [
+        "docker",
+        "start",
+        "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9",
+        "5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd"
+      ],
+      "started_at": "2026-10-04T22:49:11.670128+00:00",
+      "finished_at": "2026-10-04T22:49:13.347382+00:00",
+      "returncode": 0,
+      "stdout": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9\n5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd",
+      "stderr": ""
+    },
+    {
+      "name": "configured_memory_after",
+      "argv": [
+        "orb",
+        "config",
+        "get",
+        "memory_mib"
+      ],
+      "started_at": "2026-10-04T22:49:13.353867+00:00",
+      "finished_at": "2026-10-04T22:49:14.041995+00:00",
+      "returncode": 0,
+      "stdout": "2048",
+      "stderr": ""
+    },
+    {
+      "name": "effective_memory_after",
+      "argv": [
+        "docker",
+        "info",
+        "--format",
+        "{{.MemTotal}}"
+      ],
+      "started_at": "2026-10-04T22:49:14.042423+00:00",
+      "finished_at": "2026-10-04T22:49:14.336875+00:00",
+      "returncode": 0,
+      "stdout": "2073866240",
+      "stderr": ""
+    },
+    {
+      "name": "running_containers_after",
+      "argv": [
+        "docker",
+        "ps",
+        "--no-trunc",
+        "--format",
+        "{{.ID}} {{.Names}} {{.Status}}"
+      ],
+      "started_at": "2026-10-04T22:49:14.337275+00:00",
+      "finished_at": "2026-10-04T22:49:14.365489+00:00",
+      "returncode": 0,
+      "stdout": "3ebf63358e0c52133a73e0b046b94d25f5e60e64dc2e48568e1fd2b750a6e3b9 tk-s1-owner-b Up 1 second\n5af1a2eb159d080cd1832ec863bc9399e9c14fc9e0a884a4a99d037211a44acd tk-s1-owner-a Up 1 second",
+      "stderr": ""
+    },
+    {
+      "name": "running_machines_after",
+      "argv": [
+        "orb",
+        "list",
+        "--running",
+        "--format",
+        "json"
+      ],
+      "started_at": "2026-10-04T22:49:14.365819+00:00",
+      "finished_at": "2026-10-04T22:49:14.380067+00:00",
+      "returncode": 0,
+      "stdout": "[]",
+      "stderr": ""
+    }
+  ]
+}

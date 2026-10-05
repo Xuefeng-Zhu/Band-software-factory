@@ -1,0 +1,30 @@
+{
+  "saved_at": "2026-10-04T23:53:54.860404+00:00",
+  "files": [
+    {
+      "path": "FACTORY.draft.md",
+      "bytes": 28207,
+      "sha256": "f31ee06ebc895127398e8985bcb8dd8ccc3d3538e5af3973ffbe1dd3feb8ce35"
+    },
+    {
+      "path": "README.draft.md",
+      "bytes": 7209,
+      "sha256": "f18eb107e0d498868eb5c89a4b75a4b216ec964a9e5573252fe86cf9a7658bdf"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1435,
+      "sha256": "059eb01d499a120dec1e473e31eb669df28bbf6cf8b4a85eabcc3e6ae860f1ea"
+    },
+    {
+      "path": "draft-source-manifest.json",
+      "bytes": 17946,
+      "sha256": "f7d2a6efe9596a4ed1c62278a2adef19b3b56ccdd9360a14e725df2b0fa6f172"
+    },
+    {
+      "path": "submission-description.draft.md",
+      "bytes": 5309,
+      "sha256": "9ced987fdb45e02879d7466e5da9c0bd122ae36b19808bdfbf31620d2a39589f"
+    }
+  ]
+}

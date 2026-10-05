@@ -61,3 +61,61 @@ At 22:22 UTC, inspection confirmed an OOM-killed review container and a 1 GiB gl
 QA independently rejected the first repaired candidate for valid maximum-year availability and a 5,000-digit decimal query count. PM acknowledged the complete return at 22:31:47 UTC and accepted both findings for repair 2 of 3; Stage 1 remains unaccepted and later stages have not advanced.
 
 The [independent QA preservation package](../evidence/run5-stage1-independent-qa-20261004/README.md) retains the exact reviewed revision, two executable defect reproductions, overlapping passing groups, per-class limits, and the later actual PM receipt. Its host checks do not establish repaired-candidate container or isolated acceptance.
+
+## Second repair candidate
+
+Backend delivered `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d`, with the same product tree as tested implementation `7e82648b4f4feb1c74015f9c551626ba3a36851c`. Both independent QA failures have owner host fail-to-pass evidence; 14 unit tests and 11 HTTP groups passed on Python 3.13. PM acknowledged the complete return at 22:41:21 UTC. Independent QA, Reviewer acceptance and repaired-candidate container/isolation/resource checks remain pending. See [the retained repair record](../evidence/run5-stage1-repair2-20261004/README.md).
+
+## Portable setup draft
+
+The [expanded FACTORY draft](../evidence/run5-portable-setup-draft-20261004/FACTORY.draft.md) adds concrete installation, authentication, configuration, rehearsal and freeze command forms, linked to factory commit `a8562b2`. Seven shell blocks passed syntax checks and 13 command names matched parser source; no setup/auth/model/runtime command was executed. Clean-machine reproducibility remains unverified. Initial narrative manifests are retained alongside the revision, and AI assistance, participant review, private-access prerequisites and the operator infrastructure intervention remain disclosed.
+
+## Current user-selected memory cap and future preflight fix
+
+The participant requested a 2 GiB cap. At 22:49 UTC the operator set OrbStack to 2048 MiB, performed one required restart after scoped workload checks, and restored the same two owner containers. Docker reports 2,073,866,240 bytes; the earlier 4 GiB setting is historical. [Exact cap and verification evidence](../evidence/run5-user-2g-cap-20261004/README.md) discloses this second operator intervention and the resource-verification limits.
+
+The future [Docker resource-preflight PR](https://github.com/Xuefeng-Zhu/Tablekeeper-factory/pull/1) passed 253 utility tests. It checks configured capacity before doctor/start/dispatch readiness and detected the expected capacity shortfall in one read-only live query. It remains unmerged while Run 5 is frozen. It does not raise the user's cap or authorize another run.
+
+## Independent closure of the two behavioral defects
+
+QA closed both findings against fixed candidate `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d`: five focused, eleven baseline and seven additional host HTTP groups passed. These overlap and are not a count of distinct requirements. PM acknowledged the complete return at 22:50:04 UTC and assigned the independent Reviewer gate. [The preserved QA recheck](../evidence/run5-stage1-qa-recheck-20261004/README.md) includes original reports, command/source provenance and the actual receipt. Container/isolation/resource gates and Stage 1 acceptance remain unverified in this snapshot.
+
+The participant deferred video capture while the Mac is locked. Video remains an incomplete final deliverable; no replacement slideshow or fabricated recording is claimed.
+
+## Independent release rejection and final repair assignment
+
+Reviewer rejected `4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d` after reproducing reset numeric-type error-code failures, invalid imported receipt responses and a valid 5,000-digit fixture capacity failure. Its targeted HTTP probe passed 31 of 61 assertions, with 30 failures in those three families; two separate host mechanism groups passed. These are focused results, not an overall specification-completion score. [The retained rejection](../evidence/run5-stage1-reviewer-rejection-20261004/README.md) preserves the exact candidate, original sources/results and actual public final.
+
+PM assigned repair 3 of 3; Backend acknowledged the complete handoff and was observed active at 23:08:47 UTC. The accompanying [real room still](../evidence/run5-stage1-reviewer-rejection-20261004/media/repair3-handoff.jpg) is a screenshot, not video or product acceptance. Docker/resource verification remains separate, and no later stage has advanced.
+
+## Reviewable presentation draft
+
+A [six-slide editable presentation and PDF](../evidence/run5-presentation-draft-20261004/README.md) preserve the 23:03 UTC snapshot: factory design, actual room handoff, evidence chronology, Reviewer rejection, both infrastructure interventions and remaining verification. All 23 selected file hashes match the authoring package. Artifact Tool and bundled LibreOffice/PDF rendering passed visual inspection; native PowerPoint execution was not tested. This AI-assisted draft needs participant review and a final-outcome update. It is not a substitute for the deferred room video, Stage 1 acceptance or completion of Stages 2–4.
+
+## Third repair owner checkpoint
+
+Backend delivered `3329a8238ece53e06812cce4b5c6222476dd33ab`, with the same Stage 1 tree as tested implementation `513db15d7b3a1b9a86d4e0fa15366c587c6c4e67`. The [preserved owner return](../evidence/run5-stage1-repair3-20261004/README.md) records 18 unit tests, 58 adapted Reviewer assertions, three expanded HTTP groups and eleven unchanged QA groups passing on the host. These counts overlap and do not establish independent acceptance or container/resource conformance. PM froze the candidate at 23:16:06 UTC; Reviewer acknowledged the complete independent recheck handoff at 23:19:01 UTC. The PM delivery flag resolved through that acknowledgment; its turn had completed normally. This checkpoint does not include the subsequent Reviewer outcome.
+
+## Terminal product outcome
+
+Reviewer rejected final candidate `3329a8238ece53e06812cce4b5c6222476dd33ab` at 23:26:43 UTC. Reset numeric types and large fixture integers closed at the observed host scope, but contradictory historical create and batch request/response values were still accepted on import. Passing original samples did not establish complete repair. The [final rejection archive](../evidence/run5-stage1-final-rejection-20261004/README.md) preserves exact executable probes, failed and passing results, original receipt state, and the later actual PM acknowledgment. Container/resource acceptance remained separate and unresolved.
+
+PM issued the terminal product report at 23:29:24 UTC and pushed record-only closeout `350e3d95855a7b10eacafd59fca67ffaf48a348e`, preserving the rejected Stage 1 tree. Stage 1 is unaccepted; Stages 2–4 are unimplemented. The three-repair allowance is exhausted, with no fourth repair or later-stage advancement authorized. Runtime drain/shutdown, final accounting, full-room export and remaining factual packaging are separate post-run work; this record does not claim those steps complete.
+
+## Worker closure and final accounting
+
+The [terminal closure package](../evidence/run5-terminal-closure-20261004/README.md) records seven drained SDK contexts, verified owned-worker shutdown at 23:33:07 UTC, unchanged ledger bytes, and 75,831,611 reported Run 5 tokens (including 74,291,200 cached input). The genuine full-room export contains 4,602 unique events and the sole original human task. Bounded privacy review found no actionable findings; no public publication is authorized. A real terminal screenshot is retained, while video remains deferred. The two verified old test containers were stopped after worker closure; the 2 GiB cap remains unchanged. Frozen run inputs match, but additional global Codex configuration drift requires separate future reconciliation before restart readiness can be claimed.
+
+## Post-run supplied isolated checks under the user cap
+
+After worker closure, a fresh clean GitHub clone of `350e3d95855a7b10eacafd59fca67ffaf48a348e` passed all 120 supplied Stage 1 checks with zero failures, errors, skips or deselections. The [exact post-run operator evidence](../evidence/run5-postrun-isolated-20261004/README.md) retains the official isolated command, unchanged product tree and reports. Service containers were configured at 2 CPUs/2 GiB on the internal network; the global OrbStack cap remained 2048 MiB, and a later read-only receipt measured 2,073,866,240 bytes. This proves that the supplied suite ran successfully under that cap, not peak-load or full independent specification acceptance.
+
+The harness also probed Stage 2 against Stage 1 and stopped at the first expected unsupported behavior: 25 collected, zero passed, one failed, 24 unexecuted. No Stage 2 folder or acceptance is implied. The independent historical-receipt defects and terminal rejection remain unresolved; this operator check does not retroactively change the BAND Reviewer decision or implement Stages 2–4.
+
+## Terminal presentation and private package
+
+The [terminal outcome presentation draft](../evidence/run5-terminal-presentation-20261004/README.md) replaces the earlier snapshot for review. It contains six editable slides and a PDF, all visually checked in Artifact Tool and LibreOffice rendering, with genuine terminal room evidence. Its 23:46 UTC snapshot records the rejected product, later supplied-test pass, final accounting and deferred video; it does not claim independent acceptance, human authorship, public release or submission. All 30 selected files match their source manifest. The [unchanged terminal narrative sources](../evidence/run5-terminal-narratives-20261004/README.md) preserve the pre-packaging draft history separately from later factual wording corrections.
+
+## Final private package verification
+
+The [final package receipts](../evidence/run5-final-package-20261004/README.md) bind the canonical private `run-5` and synchronized clean local checkout at `268a0bb327ac6ec596f1c7bd4f2847e93f288d35`. The official offline check passed on the exact final metadata tree; product and full-room export bytes remain unchanged. The terminal presentation is complete as an AI-assisted draft, while video remains deferred. The retained whole-goal audit and its artifact-completion addendum explicitly leave the four-stage product, independent acceptance and remaining authorization/review obligations incomplete.

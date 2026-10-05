@@ -1,0 +1,1227 @@
+{
+  "work_item": "GATE-S1-RECHECK",
+  "revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+  "start": "2026-10-04T23:21:39.444306+00:00",
+  "end": "2026-10-04T23:21:44.626920+00:00",
+  "python": "3.13.5 (main, Jun 12 2025, 12:22:43) [Clang 20.1.4 ]",
+  "commands": [
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/private/tmp/gate-s1-recheck-20261004T2318Z",
+      "revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+      "pid": 32616,
+      "port": 51216,
+      "start": "2026-10-04T23:21:39.503195+00:00"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/private/tmp/gate-s1-recheck-20261004T2318Z",
+      "revision": "3329a8238ece53e06812cce4b5c6222476dd33ab",
+      "pid": 32619,
+      "port": 51222,
+      "start": "2026-10-04T23:21:39.648199+00:00"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "cwd": "/private/tmp/gate-s1-20261004T2254Z",
+      "revision": "4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d",
+      "pid": 32622,
+      "port": 51227,
+      "start": "2026-10-04T23:21:39.775345+00:00"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "/private/tmp/gate-s1-recheck-20261004T2318Z/tests/qa_stage1_boundaries.py",
+        "--base-url",
+        "http://127.0.0.1:51216",
+        "--destination-url",
+        "http://127.0.0.1:51222",
+        "--revision",
+        "3329a8238ece53e06812cce4b5c6222476dd33ab",
+        "--out",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/gate-s1-recheck-20261004T2318Z/baseline.json"
+      ],
+      "cwd": "/private/tmp/gate-s1-recheck-20261004T2318Z",
+      "start": "2026-10-04T23:21:41.921559+00:00",
+      "end": "2026-10-04T23:21:44.622231+00:00",
+      "exit": 0
+    }
+  ],
+  "cleanup": [
+    {
+      "pid": 32616,
+      "exit": -15,
+      "utc": "2026-10-04T23:21:44.623811+00:00"
+    },
+    {
+      "pid": 32619,
+      "exit": -15,
+      "utc": "2026-10-04T23:21:44.625350+00:00"
+    },
+    {
+      "pid": 32622,
+      "exit": -15,
+      "utc": "2026-10-04T23:21:44.626895+00:00"
+    }
+  ],
+  "results": [
+    {
+      "name": "numeric-value-slot_minutes-MISSING",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.033296+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-slot_minutes-MISSING",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.034044+00:00"
+    },
+    {
+      "name": "numeric-value-slot_minutes--1",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.091546+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-slot_minutes--1",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.092192+00:00"
+    },
+    {
+      "name": "numeric-value-slot_minutes-1.5",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.148575+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-slot_minutes-1.5",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.149423+00:00"
+    },
+    {
+      "name": "numeric-value-reservation_duration_minutes-MISSING",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.205701+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-reservation_duration_minutes-MISSING",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.206411+00:00"
+    },
+    {
+      "name": "numeric-value-reservation_duration_minutes--1",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.263891+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-reservation_duration_minutes--1",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.264579+00:00"
+    },
+    {
+      "name": "numeric-value-reservation_duration_minutes-1.5",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.321493+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-reservation_duration_minutes-1.5",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.322240+00:00"
+    },
+    {
+      "name": "numeric-value-cancellation_cutoff_minutes-MISSING",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.379100+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-cancellation_cutoff_minutes-MISSING",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.379797+00:00"
+    },
+    {
+      "name": "numeric-value-cancellation_cutoff_minutes--1",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.437344+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-cancellation_cutoff_minutes--1",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.438090+00:00"
+    },
+    {
+      "name": "numeric-value-cancellation_cutoff_minutes-1.5",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.494880+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-cancellation_cutoff_minutes-1.5",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.495691+00:00"
+    },
+    {
+      "name": "numeric-value-capacity-MISSING",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.552716+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-capacity-MISSING",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.555152+00:00"
+    },
+    {
+      "name": "numeric-value-capacity--1",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.612408+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-capacity--1",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.613096+00:00"
+    },
+    {
+      "name": "numeric-value-capacity-1.5",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.670011+00:00"
+    },
+    {
+      "name": "numeric-value-atomic-capacity-1.5",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.670767+00:00"
+    },
+    {
+      "name": "party-type-override-str",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.700707+00:00"
+    },
+    {
+      "name": "party-type-override-bool",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.701283+00:00"
+    },
+    {
+      "name": "party-type-override-NoneType",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.701757+00:00"
+    },
+    {
+      "name": "party-type-override-list",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.702189+00:00"
+    },
+    {
+      "name": "party-type-override-dict",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:40.702681+00:00"
+    },
+    {
+      "name": "huge-reset-capacity-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:40.761827+00:00"
+    },
+    {
+      "name": "huge-browse-capacity-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.763892+00:00"
+    },
+    {
+      "name": "huge-import-capacity-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:40.772557+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-capacity-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.774727+00:00"
+    },
+    {
+      "name": "huge-booking-capacity-integer",
+      "status": "PASS",
+      "expected": 201,
+      "actual": 201,
+      "utc": "2026-10-04T23:21:40.813732+00:00"
+    },
+    {
+      "name": "huge-replay-capacity-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.817848+00:00"
+    },
+    {
+      "name": "huge-party-response-capacity-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.817852+00:00"
+    },
+    {
+      "name": "huge-booking-import-capacity-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:40.840157+00:00"
+    },
+    {
+      "name": "huge-imported-replay-capacity-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.844422+00:00"
+    },
+    {
+      "name": "huge-reset-capacity-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:40.904029+00:00"
+    },
+    {
+      "name": "huge-browse-capacity-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.906217+00:00"
+    },
+    {
+      "name": "huge-import-capacity-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:40.912090+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-capacity-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.914232+00:00"
+    },
+    {
+      "name": "huge-booking-capacity-decimal",
+      "status": "PASS",
+      "expected": 201,
+      "actual": 201,
+      "utc": "2026-10-04T23:21:40.953767+00:00"
+    },
+    {
+      "name": "huge-replay-capacity-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.957774+00:00"
+    },
+    {
+      "name": "huge-party-response-capacity-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.957777+00:00"
+    },
+    {
+      "name": "huge-booking-import-capacity-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:40.979998+00:00"
+    },
+    {
+      "name": "huge-imported-replay-capacity-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:40.984179+00:00"
+    },
+    {
+      "name": "huge-reset-reservation_duration_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.044099+00:00"
+    },
+    {
+      "name": "huge-browse-reservation_duration_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.046170+00:00"
+    },
+    {
+      "name": "huge-import-reservation_duration_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.051569+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-reservation_duration_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.053575+00:00"
+    },
+    {
+      "name": "huge-booking-reservation_duration_minutes-integer",
+      "status": "PASS",
+      "expected": 422,
+      "actual": 422,
+      "utc": "2026-10-04T23:21:41.085795+00:00"
+    },
+    {
+      "name": "huge-reset-reservation_duration_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.145001+00:00"
+    },
+    {
+      "name": "huge-browse-reservation_duration_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.147138+00:00"
+    },
+    {
+      "name": "huge-import-reservation_duration_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.152600+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-reservation_duration_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.154608+00:00"
+    },
+    {
+      "name": "huge-booking-reservation_duration_minutes-decimal",
+      "status": "PASS",
+      "expected": 422,
+      "actual": 422,
+      "utc": "2026-10-04T23:21:41.186564+00:00"
+    },
+    {
+      "name": "huge-reset-slot_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.247655+00:00"
+    },
+    {
+      "name": "huge-browse-slot_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.250096+00:00"
+    },
+    {
+      "name": "huge-import-slot_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.256839+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-slot_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.259279+00:00"
+    },
+    {
+      "name": "huge-booking-slot_minutes-integer",
+      "status": "PASS",
+      "expected": 201,
+      "actual": 201,
+      "utc": "2026-10-04T23:21:41.294350+00:00"
+    },
+    {
+      "name": "huge-replay-slot_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.296220+00:00"
+    },
+    {
+      "name": "huge-grid-offgrid-slot_minutes-integer",
+      "status": "PASS",
+      "expected": [
+        422,
+        "not_on_slot_grid"
+      ],
+      "actual": [
+        422,
+        "not_on_slot_grid"
+      ],
+      "utc": "2026-10-04T23:21:41.298157+00:00"
+    },
+    {
+      "name": "huge-booking-import-slot_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.308088+00:00"
+    },
+    {
+      "name": "huge-imported-replay-slot_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.310022+00:00"
+    },
+    {
+      "name": "huge-reset-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.370104+00:00"
+    },
+    {
+      "name": "huge-browse-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.372140+00:00"
+    },
+    {
+      "name": "huge-import-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.377659+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.379695+00:00"
+    },
+    {
+      "name": "huge-booking-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": 201,
+      "actual": 201,
+      "utc": "2026-10-04T23:21:41.413678+00:00"
+    },
+    {
+      "name": "huge-replay-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.415514+00:00"
+    },
+    {
+      "name": "huge-grid-offgrid-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": [
+        422,
+        "not_on_slot_grid"
+      ],
+      "actual": [
+        422,
+        "not_on_slot_grid"
+      ],
+      "utc": "2026-10-04T23:21:41.417363+00:00"
+    },
+    {
+      "name": "huge-booking-import-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.427118+00:00"
+    },
+    {
+      "name": "huge-imported-replay-slot_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.429033+00:00"
+    },
+    {
+      "name": "huge-reset-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.489177+00:00"
+    },
+    {
+      "name": "huge-browse-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.491234+00:00"
+    },
+    {
+      "name": "huge-import-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.496831+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.498816+00:00"
+    },
+    {
+      "name": "huge-booking-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": 201,
+      "actual": 201,
+      "utc": "2026-10-04T23:21:41.532819+00:00"
+    },
+    {
+      "name": "huge-replay-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.534774+00:00"
+    },
+    {
+      "name": "huge-cutoff-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": [
+        409,
+        "cutoff_passed"
+      ],
+      "actual": [
+        409,
+        "cutoff_passed"
+      ],
+      "utc": "2026-10-04T23:21:41.536681+00:00"
+    },
+    {
+      "name": "huge-booking-import-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.546563+00:00"
+    },
+    {
+      "name": "huge-imported-replay-cancellation_cutoff_minutes-integer",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.548472+00:00"
+    },
+    {
+      "name": "huge-reset-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.608582+00:00"
+    },
+    {
+      "name": "huge-browse-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.610640+00:00"
+    },
+    {
+      "name": "huge-import-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.616452+00:00"
+    },
+    {
+      "name": "huge-state-roundtrip-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.618472+00:00"
+    },
+    {
+      "name": "huge-booking-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": 201,
+      "actual": 201,
+      "utc": "2026-10-04T23:21:41.652220+00:00"
+    },
+    {
+      "name": "huge-replay-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.654074+00:00"
+    },
+    {
+      "name": "huge-cutoff-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": [
+        409,
+        "cutoff_passed"
+      ],
+      "actual": [
+        409,
+        "cutoff_passed"
+      ],
+      "utc": "2026-10-04T23:21:41.655906+00:00"
+    },
+    {
+      "name": "huge-booking-import-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.665682+00:00"
+    },
+    {
+      "name": "huge-imported-replay-cancellation_cutoff_minutes-decimal",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.667597+00:00"
+    },
+    {
+      "name": "codec-first",
+      "status": "PASS",
+      "expected": 201,
+      "actual": 201,
+      "utc": "2026-10-04T23:21:41.754109+00:00"
+    },
+    {
+      "name": "codec-equivalent",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.754607+00:00"
+    },
+    {
+      "name": "codec-difference-number",
+      "status": "PASS",
+      "expected": [
+        409,
+        "idempotency_key_reuse"
+      ],
+      "actual": [
+        409,
+        "idempotency_key_reuse"
+      ],
+      "utc": "2026-10-04T23:21:41.755060+00:00"
+    },
+    {
+      "name": "codec-difference-boolean",
+      "status": "PASS",
+      "expected": [
+        409,
+        "idempotency_key_reuse"
+      ],
+      "actual": [
+        409,
+        "idempotency_key_reuse"
+      ],
+      "utc": "2026-10-04T23:21:41.755500+00:00"
+    },
+    {
+      "name": "codec-malformed",
+      "status": "PASS",
+      "expected": [
+        400,
+        "malformed_request"
+      ],
+      "actual": [
+        400,
+        "malformed_request"
+      ],
+      "utc": "2026-10-04T23:21:41.755870+00:00"
+    },
+    {
+      "name": "codec-malformed",
+      "status": "PASS",
+      "expected": [
+        400,
+        "malformed_request"
+      ],
+      "actual": [
+        400,
+        "malformed_request"
+      ],
+      "utc": "2026-10-04T23:21:41.756281+00:00"
+    },
+    {
+      "name": "codec-malformed",
+      "status": "PASS",
+      "expected": [
+        400,
+        "malformed_request"
+      ],
+      "actual": [
+        400,
+        "malformed_request"
+      ],
+      "utc": "2026-10-04T23:21:41.756654+00:00"
+    },
+    {
+      "name": "old-process-import",
+      "status": "PASS",
+      "expected": 204,
+      "actual": 204,
+      "utc": "2026-10-04T23:21:41.850223+00:00"
+    },
+    {
+      "name": "old-process-state",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.851050+00:00"
+    },
+    {
+      "name": "old-process-replay-one",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.851565+00:00"
+    },
+    {
+      "name": "old-process-replay-two",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.852047+00:00"
+    },
+    {
+      "name": "old-process-replay-batch",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.852521+00:00"
+    },
+    {
+      "name": "old-process-password-login",
+      "status": "PASS",
+      "expected": 200,
+      "actual": 200,
+      "utc": "2026-10-04T23:21:41.884320+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-reservation_id",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.886786+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-reservation_id",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.887556+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-restaurant_id",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.889839+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-restaurant_id",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.890739+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-party_size",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.893111+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-party_size",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.893834+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-status",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.896107+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-status",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.896863+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-starts_at",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.899057+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-starts_at",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.899804+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-created_at",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.902035+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-created_at",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.902954+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-owner",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.905068+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-owner",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.905817+00:00"
+    },
+    {
+      "name": "invalid-receipt-batch-order",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.907956+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-batch-order",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.908640+00:00"
+    },
+    {
+      "name": "invalid-receipt-batch-member-shape",
+      "status": "PASS",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        422,
+        "validation_failed"
+      ],
+      "utc": "2026-10-04T23:21:41.910870+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-batch-member-shape",
+      "status": "PASS",
+      "expected": true,
+      "actual": true,
+      "utc": "2026-10-04T23:21:41.911520+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-request-response-party",
+      "status": "FAIL",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        204,
+        null
+      ],
+      "utc": "2026-10-04T23:21:41.913949+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-request-response-party",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false,
+      "utc": "2026-10-04T23:21:41.914833+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-local-instant-inconsistent",
+      "status": "FAIL",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        204,
+        null
+      ],
+      "utc": "2026-10-04T23:21:41.917450+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-local-instant-inconsistent",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false,
+      "utc": "2026-10-04T23:21:41.918136+00:00"
+    },
+    {
+      "name": "invalid-receipt-create-elapsed-duration-inconsistent",
+      "status": "FAIL",
+      "expected": [
+        422,
+        "validation_failed"
+      ],
+      "actual": [
+        204,
+        null
+      ],
+      "utc": "2026-10-04T23:21:41.920707+00:00"
+    },
+    {
+      "name": "invalid-receipt-atomic-create-elapsed-duration-inconsistent",
+      "status": "FAIL",
+      "expected": true,
+      "actual": false,
+      "utc": "2026-10-04T23:21:41.921454+00:00"
+    },
+    {
+      "name": "baseline-process",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0,
+      "utc": "2026-10-04T23:21:44.622246+00:00"
+    }
+  ]
+}

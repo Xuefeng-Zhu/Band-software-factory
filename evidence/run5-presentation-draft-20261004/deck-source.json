@@ -1,0 +1,75 @@
+{
+  "title": "MillieMoon Tablekeeper Factory Run 5",
+  "status": "DRAFT",
+  "snapshot_utc": "2026-10-04T23:03:00Z",
+  "snapshot_precision": "minute; final gate event reported 23:01:56 UTC",
+  "authoring": "AI-assisted factual draft for participant review",
+  "font": "Helvetica Neue",
+  "slides": [
+    {
+      "title": "Factory objective and ownership",
+      "notes": "AI-assisted factual draft for participant review. Evidence scope: 2026-10-04 23:03 UTC. Stage 1 candidate 4026ec7 is rejected; final run outcome remains pending.\n\nFactory objective and ownership\nOne active model turn limits shared-checkout write conflicts. Seven registrations do not prove seven seats have completed meaningful work in this attempt. All efforts remain medium except Architect, QA and Reviewer, which use high. The single all-stage task dispatch occurred at 2026-10-04T21:06:55.943682Z in room 12cde259-0fcd-4551-84c7-52c443cb5600. This deck makes no final stage or dollar-spend claim.\n\nSources\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/FACTORY.draft.md\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/dispatch-verification.json\nhttps://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-launch-20261004\n\nPrivate source links may require repository access. This presentation is not room-video evidence.",
+      "sources": [
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/FACTORY.draft.md",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-launch-20261004/dispatch-verification.json",
+        "https://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-launch-20261004"
+      ]
+    },
+    {
+      "title": "Handoff and gate mechanism",
+      "notes": "AI-assisted factual draft for participant review. Evidence scope: 2026-10-04 23:03 UTC. Stage 1 candidate 4026ec7 is rejected; final run outcome remains pending.\n\nHandoff and gate mechanism\nThe still is the original real room image, preserved without cropping or content edits. It shows PM planning acceptance and the Architect ACK/IN_PROGRESS statement. Product behavior remains NOT_TESTED in that earlier screenshot. It is a still image, not a video or evidence of stage acceptance. Reviewer authority and finite repair limits come from the standing mandates and launch packet. The transport digest acknowledgment proves delivery only.\n\nSources\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/media/architecture-handoff.jpg\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/media/architecture-handoff.provenance.json\n/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md\n/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md\n/Users/frank/mygit/Tablekeeper/factory/protocols\n\nPrivate source links may require repository access. This presentation is not room-video evidence.",
+      "sources": [
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/media/architecture-handoff.jpg",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/media/architecture-handoff.provenance.json",
+        "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+        "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+        "/Users/frank/mygit/Tablekeeper/factory/protocols"
+      ]
+    },
+    {
+      "title": "Actual QA, fix and defect closure chronology",
+      "notes": "AI-assisted factual draft for participant review. Evidence scope: 2026-10-04 23:03 UTC. Stage 1 candidate 4026ec7 is rejected; final run outcome remains pending.\n\nActual QA, fix and defect closure chronology\nRejected candidate: 68afbf86127ae9b2b5dc8ecc56a0e9c78e6a69f1, implementation 249e5712624d20ca02c9680eb6ec60ff3865bcb8. QA found valid 9999-12-31 availability returned 422 and a valid 5,000-digit positive decimal query returned 400. PM accepted both defects for repair 2 of 3 at 2026-10-04T22:31:48.528483Z. Backend implementation 7e82648b4f4feb1c74015f9c551626ba3a36851c and record-only candidate 4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d share stage tree 6000d94a5acbcab53438120b6d7f2624b4eceba4. Owner return ACK: 22:41:21.572593Z. QA recheck execution: 22:45:49.499952–22:45:55.494112Z. QA final event eb1a0344-5318-49df-b642-dd4367139c9b at 22:48:51.604927Z. PM ACK da610b06-becf-4e27-b68e-48fbd0853caf at 22:50:04.354683Z confirms digest 55b42848be78b9a165d280f08247e69af53a1c8ef2175f47b6089b59aa306b9e. Defect closure is specific to that candidate and host layer.\n\nSources\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-independent-qa-20261004/README.md\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-repair2-20261004/manifest.json\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/report.md\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/execution.json\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/public-events.json\nhttps://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-stage1-qa-recheck-20261004\n\nPrivate source links may require repository access. This presentation is not room-video evidence.",
+      "sources": [
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-independent-qa-20261004/README.md",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-repair2-20261004/manifest.json",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/report.md",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/execution.json",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/public-events.json",
+        "https://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-stage1-qa-recheck-20261004"
+      ]
+    },
+    {
+      "title": "OOM, operator intervention and current user cap",
+      "notes": "AI-assisted factual draft for participant review. Evidence scope: 2026-10-04 23:03 UTC. Stage 1 candidate 4026ec7 is rejected; final run outcome remains pending.\n\nOOM, operator intervention and current user cap\nAt 22:07:51.903833782Z the architecture review container was OOM-killed under a 1,024 MiB global OrbStack ceiling despite a 2 GiB per-container limit. Docker responsiveness recovered before the first operator restart. The operator set 4,096 MiB at 22:30 and activated it with one stop/start at 22:31:18–22:31:24. Only the two verified existing Run 5 owner containers restarted. At the user’s later request, the operator set 2,048 MiB and performed a second stop/start at 22:49:06–22:49:11, restoring the same IDs. Docker reported 2,073,866,240 bytes of VM memory after the second intervention. Both changes interrupted the containers. Application/session-state continuity was not tested. No BAND instructions, product edits, model/seat restarts or operator product-test reruns accompanied these interventions. Do not claim fully autonomous or uninterrupted execution, full specified application capacity, or organizer acceptance of this intervention. A later independent gate must address the actual environment.\n\nSources\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-orbstack-memory-repair-20261004/README.md\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-orbstack-memory-repair-20261004/orbstack-memory-activation.json\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-user-2g-cap-20261004/orbstack-user-2g-cap.json\nhttps://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-orbstack-memory-repair-20261004\nhttps://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-user-2g-cap-20261004\n\nPrivate source links may require repository access. This presentation is not room-video evidence.",
+      "sources": [
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-orbstack-memory-repair-20261004/README.md",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-orbstack-memory-repair-20261004/orbstack-memory-activation.json",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-user-2g-cap-20261004/orbstack-user-2g-cap.json",
+        "https://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-orbstack-memory-repair-20261004",
+        "https://github.com/Xuefeng-Zhu/Tablekeeper-factory/tree/main/evidence/run5-user-2g-cap-20261004"
+      ]
+    },
+    {
+      "title": "Formal Reviewer rejection and unfinished stages",
+      "notes": "AI-assisted factual draft for participant review. Evidence scope: 2026-10-04 23:03 UTC. Stage 1 candidate 4026ec7 is rejected; final run outcome remains pending.\n\nFormal Reviewer rejection and unfinished stages\nIndependent gate decision GATE-S1 rejects exact candidate 4026ec71ac6cf5ae0ebe6e998d77fd4a475a8c4d. Final native public event 7f7848d9-1ce3-4f34-8f94-4f43643abf0c was recorded at 23:01:56 UTC (operator observation supplied by the coordinator); the unchanged Reviewer decision.md is preserved with this deck. Focused HTTP run at 22:56:50.326925–22:56:51.492479 UTC returned exit 1: 31 PASS / 30 FAIL assertions spanning three product defect families, not 30 independent defects. Ordinary fixture numeric fields with wrong JSON types returned 422 instead of required 400. Corrupted completed receipt responses imported with 204 and later replayed incomplete or inconsistent identities. A valid 5,000-digit fixture capacity returned 400 despite no specified maximum. Earlier date-max and long-query checks passed again. Two controlled host mechanism groups passed at 22:57:56.898707–22:57:57.182907 UTC; these do not establish HTTP or isolated concurrency conformance. Current clean container build, official isolated suite, Python 3.12 and exact resource gates remain separately BLOCKED/NOT_TESTED. As of the 23:03 UTC cutoff, PM was handling the bounded next repair; no new repaired candidate or acceptance is claimed. Stage 1 remains unaccepted and Stages 2–4 incomplete.\n\nSources\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/presentation/assets/reviewer-decision-2301.md\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/presentation-state-20261004T2301Z.json\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/coverage.json\n/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/completion.json\n\nPrivate source links may require repository access. This presentation is not room-video evidence.",
+      "sources": [
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/presentation/assets/reviewer-decision-2301.md",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/observation/presentation-state-20261004T2301Z.json",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/coverage.json",
+        "/Users/frank/mygit/Tablekeeper/factory/evidence/run5-stage1-qa-recheck-20261004/completion.json"
+      ]
+    },
+    {
+      "title": "Final package and unresolved evidence",
+      "notes": "AI-assisted factual draft for participant review. Evidence scope: 2026-10-04 23:03 UTC. Stage 1 candidate 4026ec7 is rejected; final run outcome remains pending.\n\nFinal package and unresolved evidence\nThe participant deferred video. No video was created, and this slide deck does not substitute for the guide’s required real factory footage. README and FACTORY remain AI-assisted factual drafts. Participant authorship/review requirements remain visible and are not satisfied merely by calling an AI draft human-written. After the final coordinator report, preserve exact accepted/rejected commits, genuine full-session download and final consumption ledger. Follow the existing post-run plan from a new clone at a full final commit. Public release/default-branch selection and actual submission follow their applicable separate authority. Private tools remain separate from the canonical application repository, whose attempt branch is run-5. Navigation main is not the selected submission. No monetary spend or final usage total is inferred from token snapshots.\n\nSources\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/post-run-verification-plan.md\n/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md\n/Users/frank/mygit/Tablekeeper/factory/docs/attempt-branches.md\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/README.draft.md\n/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/FACTORY.draft.md\nhttps://github.com/band-ai/dark-factory-wearedevs/blob/803560d2a678ace1414465c098eb0ab5380ffade/docs/participant-guide.md\n\nPrivate source links may require repository access. This presentation is not room-video evidence.",
+      "sources": [
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/post-run-verification-plan.md",
+        "/Users/frank/mygit/Tablekeeper/factory/submission-templates/final-checklist.md",
+        "/Users/frank/mygit/Tablekeeper/factory/docs/attempt-branches.md",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/README.draft.md",
+        "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/packaging/FACTORY.draft.md",
+        "https://github.com/band-ai/dark-factory-wearedevs/blob/803560d2a678ace1414465c098eb0ab5380ffade/docs/participant-guide.md"
+      ]
+    }
+  ]
+}

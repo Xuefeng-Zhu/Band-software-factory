@@ -1,0 +1,238 @@
+{
+  "work_item": "BUILD-S1-REPAIR2",
+  "owner": "@frankzhu94/factory-backend",
+  "revision": "7e82648b4f4feb1c74015f9c551626ba3a36851c",
+  "layer": "host Python 3.13; no container resource/isolation claims",
+  "start": "2026-10-04T22:37:04.940139+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/reproduce.py",
+        "http://127.0.0.1:18280",
+        "7e82648b4f4feb1c74015f9c551626ba3a36851c",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/after.json"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "start": "2026-10-04T22:37:05.119676+00:00",
+      "end": "2026-10-04T22:37:05.258098+00:00",
+      "exit_status": 0,
+      "log": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/after.log"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "stage-1/tests",
+        "-v"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "start": "2026-10-04T22:37:05.301352+00:00",
+      "end": "2026-10-04T22:37:05.747207+00:00",
+      "exit_status": 0,
+      "log": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/unit-committed.log"
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "tests/qa_stage1_boundaries.py",
+        "--base-url",
+        "http://127.0.0.1:18280",
+        "--destination-url",
+        "http://127.0.0.1:18281",
+        "--revision",
+        "7e82648b4f4feb1c74015f9c551626ba3a36851c",
+        "--out",
+        "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/http-results.json"
+      ],
+      "cwd": "/Users/frank/mygit/Tablekeeper/result-run-5",
+      "start": "2026-10-04T22:37:05.747318+00:00",
+      "end": "2026-10-04T22:37:08.466235+00:00",
+      "exit_status": 0,
+      "log": "/Users/frank/mygit/Tablekeeper/result-run-5/.evidence/backend-s1-repair2-20261004T2234Z/http-run.log"
+    }
+  ],
+  "services": [
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "port": 18280,
+      "pid": 19902,
+      "start": "2026-10-04T22:37:04.942153+00:00",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/stage-1",
+      "stopped_at": "2026-10-04T22:37:08.470941+00:00",
+      "exit_status": -15
+    },
+    {
+      "argv": [
+        "/Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python",
+        "-m",
+        "tablekeeper.server"
+      ],
+      "port": 18281,
+      "pid": 19903,
+      "start": "2026-10-04T22:37:05.042412+00:00",
+      "source": "/Users/frank/mygit/Tablekeeper/result-run-5/stage-1",
+      "stopped_at": "2026-10-04T22:37:08.475511+00:00",
+      "exit_status": -15
+    }
+  ],
+  "adjacent": [
+    {
+      "kind": "date",
+      "date": "0001-01-01",
+      "status": 200,
+      "slots": 8
+    },
+    {
+      "kind": "date",
+      "date": "2000-02-29",
+      "status": 200,
+      "slots": 8
+    },
+    {
+      "kind": "date",
+      "date": "2400-02-29",
+      "status": 200,
+      "slots": 8
+    },
+    {
+      "kind": "date",
+      "date": "9999-12-30",
+      "status": 200,
+      "slots": 8
+    },
+    {
+      "kind": "date",
+      "date": "9999-12-31",
+      "status": 200,
+      "slots": 8
+    },
+    {
+      "kind": "invalid_date",
+      "date": "0000-01-01",
+      "status": 422
+    },
+    {
+      "kind": "invalid_date",
+      "date": "1900-02-29",
+      "status": 422
+    },
+    {
+      "kind": "invalid_date",
+      "date": "2100-02-29",
+      "status": 422
+    },
+    {
+      "kind": "invalid_date",
+      "date": "2096-04-31",
+      "status": 422
+    },
+    {
+      "kind": "query",
+      "label": "long-positive",
+      "digits": 5000,
+      "status": 200,
+      "slots": 8,
+      "expected_tables": []
+    },
+    {
+      "kind": "query",
+      "label": "long-leading-zero",
+      "digits": 5001,
+      "status": 200,
+      "slots": 8,
+      "expected_tables": [
+        "r-a",
+        "r-b"
+      ]
+    },
+    {
+      "kind": "query",
+      "label": "long-leading-zero-four",
+      "digits": 5001,
+      "status": 200,
+      "slots": 8,
+      "expected_tables": [
+        "r-b"
+      ]
+    },
+    {
+      "kind": "query",
+      "label": "ordinary-four",
+      "digits": 1,
+      "status": 200,
+      "slots": 8,
+      "expected_tables": [
+        "r-b"
+      ]
+    },
+    {
+      "kind": "query",
+      "label": "ordinary-five",
+      "digits": 1,
+      "status": 200,
+      "slots": 8,
+      "expected_tables": []
+    },
+    {
+      "kind": "invalid_query",
+      "label": "zero",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "long-zero",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "empty",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "sign",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "negative",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "decimal",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "exponent",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "arabic",
+      "status": 422
+    },
+    {
+      "kind": "invalid_query",
+      "label": "fullwidth",
+      "status": 422
+    },
+    {
+      "kind": "create-at-date-boundary",
+      "valid_status": 201,
+      "overflow_status": 422,
+      "overflow_code": "outside_opening_hours"
+    }
+  ],
+  "outcome": "PASS",
+  "end": "2026-10-04T22:37:08.475534+00:00"
+}

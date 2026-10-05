@@ -1,0 +1,16 @@
+{
+  "observed_at_utc": "2026-10-04T23:42:13.822255+00:00",
+  "argv": [
+    "docker",
+    "--host",
+    "unix:///Users/frank/.orbstack/run/docker.sock",
+    "info",
+    "--format",
+    "{{json .MemTotal}}"
+  ],
+  "exit_code": 0,
+  "MemTotal": 2073866240,
+  "user_cap_mib": 2048,
+  "scope": "Read-only effective Docker memory after official suite; no config change and no peak-memory measurement",
+  "runtime_proof": "Official harness source configures each service --cpus=2 --memory=2g; global VM overhead reduces effective daemon total"
+}
