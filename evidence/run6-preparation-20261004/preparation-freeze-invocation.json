@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "freeze"
+  ],
+  "exit_code": 1,
+  "finished_at": "2026-10-05T00:22:38.433525+00:00",
+  "model_turns": 0,
+  "room_messages": 0,
+  "started_at": "2026-10-05T00:22:36.896205+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"BLOCKED_WITH_ACTIONS\",\n  \"blockers\": [\n    \"Approve finite active-work and consumption budgets before live seat work (budgets.approved=false)\",\n    \"Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required.\"\n  ],\n  \"dispatch_performed\": false,\n  \"usage\": {\n    \"measured_preparation_cost_usd\": null,\n    \"measured_rehearsal_cost_usd\": null,\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+}

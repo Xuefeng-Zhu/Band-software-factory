@@ -1,0 +1,110 @@
+{
+  "observed_at": "2026-10-05T00:14:48.570254+00:00",
+  "scope": "Actual BAND SDK CodexStdioClient transport; command/exec only, no model turn or BAND room message",
+  "configuration_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+  "configuration_sha256": "5a89b0520e26bdd304ca559a9348ec353426ce4c54df9926ea13d22383e3b7d5",
+  "source_lock_sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf",
+  "profile": {
+    "name": "factory-seats",
+    "domains": [
+      "registry.npmjs.org",
+      "pypi.org",
+      "files.pythonhosted.org",
+      "localhost",
+      "127.0.0.1",
+      "auth.docker.io",
+      "github.com"
+    ],
+    "allow_local_binding": true,
+    "unix_sockets": [
+      "/Users/frank/.orbstack/run/docker.sock"
+    ]
+  },
+  "profile_sha256": "a86af4bb6a72706bc3929765fb7c5e52a225c108dfb4250f5d5ad574a372aed9",
+  "docker_host": "unix:///Users/frank/.orbstack/run/docker.sock",
+  "probe_sha256": "34443edbd414b4959cfd91c3b9c141d1074539688dea4a185796d9119006392c",
+  "cwd": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch",
+  "command": [
+    "/usr/bin/env",
+    "-u",
+    "OPENAI_API_KEY",
+    "-u",
+    "CODEX_API_KEY",
+    "-u",
+    "OPENAI_BASE_URL",
+    "-u",
+    "CODEX_ACCESS_TOKEN",
+    "-u",
+    "OPENAI_FEDERATION_RULE_ID",
+    "-u",
+    "OPENAI_IDENTITY_TOKEN_FILE",
+    "-u",
+    "OPENAI_WORKLOAD_IDENTITY_CONTEXT",
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/codex-local",
+    "-c",
+    "forced_login_method=\"chatgpt\"",
+    "-c",
+    "model_provider=\"openai\"",
+    "-c",
+    "openai_base_url=\"\"",
+    "-c",
+    "permissions.factory-seats={\"extends\"=\":workspace\",\"filesystem\"={\":workspace_roots\"={\".git\"=\"write\"}},\"network\"={\"allow_local_binding\"=true,\"domains\"={\"127.0.0.1\"=\"allow\",\"auth.docker.io\"=\"allow\",\"files.pythonhosted.org\"=\"allow\",\"github.com\"=\"allow\",\"localhost\"=\"allow\",\"pypi.org\"=\"allow\",\"registry.npmjs.org\"=\"allow\"},\"enabled\"=true,\"unix_sockets\"={\"/Users/frank/.orbstack/run/docker.sock\"=\"allow\"}}}",
+    "-c",
+    "default_permissions=\"factory-seats\"",
+    "-c",
+    "features.network_proxy=true",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "memories.use_memories=false",
+    "-c",
+    "memories.generate_memories=false",
+    "-c",
+    "features.memories=false",
+    "app-server",
+    "--listen",
+    "stdio://"
+  ],
+  "official_harness_files": {
+    "Dockerfile": "34ea5a6e447f81434df9f81c3d291198da959880d068c67ea4dbe810629db2ad",
+    "requirements.txt": "eb28ad5850692f8597e2518d23a3d1979c72e746c9e511a90af825e0aef2a22a"
+  },
+  "phase": "cleanup",
+  "inference_started": false,
+  "room_messages_sent": false,
+  "legacy_sandbox_fields_omitted": true,
+  "adapter_route": {
+    "seat_id": "pm",
+    "mode": "judged",
+    "source": "factorykit.runtime.adapter_config",
+    "registered_room_connected": false,
+    "neutral_command_cwd_override": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch",
+    "configured_seat_cwd": "/Users/frank/mygit/Tablekeeper/result-run-6",
+    "model": "gpt-6-astra",
+    "sandbox": null,
+    "sandbox_policy": null,
+    "docker_env": {
+      "BUILDX_CONFIG": "/private/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/factory-buildx-9a40c149edaf4346-judged-pm",
+      "DOCKER_HOST": "unix:///Users/frank/.orbstack/run/docker.sock",
+      "DOCKER_CONTEXT": ""
+    },
+    "runtime_source_sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c"
+  },
+  "command_exec": {
+    "exitCode": 0,
+    "stdout": "{\"container_check\": {\"exit_code\": 1, \"stdout\": \"\\n\", \"stderr\": \"Error response from daemon: No such container: factory-browser-permission-a23b760144\\n\"}, \"image_remove\": {\"exit_code\": 0, \"stdout\": \"Untagged: factory-permission-probe:96b254b454\\nDeleted: sha256:aa272b529b7358574e1d2a954efe942b2bcef758c8c85a0645c6b5a23b760144\\n\", \"stderr\": \"\"}}\n",
+    "stderr": ""
+  },
+  "checks": {
+    "container_check": {
+      "exit_code": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such container: factory-browser-permission-a23b760144\n"
+    },
+    "image_remove": {
+      "exit_code": 0,
+      "stdout": "Untagged: factory-permission-probe:96b254b454\nDeleted: sha256:aa272b529b7358574e1d2a954efe942b2bcef758c8c85a0645c6b5a23b760144\n",
+      "stderr": ""
+    }
+  }
+}

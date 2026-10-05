@@ -1,0 +1,158 @@
+{
+  "observed_at": "2026-10-05T00:14:39.855853+00:00",
+  "scope": "Actual BAND SDK CodexStdioClient transport; command/exec only, no model turn or BAND room message",
+  "configuration_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+  "configuration_sha256": "5a89b0520e26bdd304ca559a9348ec353426ce4c54df9926ea13d22383e3b7d5",
+  "source_lock_sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf",
+  "profile": {
+    "name": "factory-seats",
+    "domains": [
+      "registry.npmjs.org",
+      "pypi.org",
+      "files.pythonhosted.org",
+      "localhost",
+      "127.0.0.1",
+      "auth.docker.io",
+      "github.com"
+    ],
+    "allow_local_binding": true,
+    "unix_sockets": [
+      "/Users/frank/.orbstack/run/docker.sock"
+    ]
+  },
+  "profile_sha256": "a86af4bb6a72706bc3929765fb7c5e52a225c108dfb4250f5d5ad574a372aed9",
+  "docker_host": "unix:///Users/frank/.orbstack/run/docker.sock",
+  "probe_sha256": "34443edbd414b4959cfd91c3b9c141d1074539688dea4a185796d9119006392c",
+  "cwd": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch",
+  "command": [
+    "/usr/bin/env",
+    "-u",
+    "OPENAI_API_KEY",
+    "-u",
+    "CODEX_API_KEY",
+    "-u",
+    "OPENAI_BASE_URL",
+    "-u",
+    "CODEX_ACCESS_TOKEN",
+    "-u",
+    "OPENAI_FEDERATION_RULE_ID",
+    "-u",
+    "OPENAI_IDENTITY_TOKEN_FILE",
+    "-u",
+    "OPENAI_WORKLOAD_IDENTITY_CONTEXT",
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/codex-local",
+    "-c",
+    "forced_login_method=\"chatgpt\"",
+    "-c",
+    "model_provider=\"openai\"",
+    "-c",
+    "openai_base_url=\"\"",
+    "-c",
+    "permissions.factory-seats={\"extends\"=\":workspace\",\"filesystem\"={\":workspace_roots\"={\".git\"=\"write\"}},\"network\"={\"allow_local_binding\"=true,\"domains\"={\"127.0.0.1\"=\"allow\",\"auth.docker.io\"=\"allow\",\"files.pythonhosted.org\"=\"allow\",\"github.com\"=\"allow\",\"localhost\"=\"allow\",\"pypi.org\"=\"allow\",\"registry.npmjs.org\"=\"allow\"},\"enabled\"=true,\"unix_sockets\"={\"/Users/frank/.orbstack/run/docker.sock\"=\"allow\"}}}",
+    "-c",
+    "default_permissions=\"factory-seats\"",
+    "-c",
+    "features.network_proxy=true",
+    "-c",
+    "approval_policy=\"never\"",
+    "-c",
+    "memories.use_memories=false",
+    "-c",
+    "memories.generate_memories=false",
+    "-c",
+    "features.memories=false",
+    "app-server",
+    "--listen",
+    "stdio://"
+  ],
+  "official_harness_files": {
+    "Dockerfile": "34ea5a6e447f81434df9f81c3d291198da959880d068c67ea4dbe810629db2ad",
+    "requirements.txt": "eb28ad5850692f8597e2518d23a3d1979c72e746c9e511a90af825e0aef2a22a"
+  },
+  "phase": "quick",
+  "inference_started": false,
+  "room_messages_sent": false,
+  "legacy_sandbox_fields_omitted": true,
+  "adapter_route": {
+    "seat_id": "pm",
+    "mode": "judged",
+    "source": "factorykit.runtime.adapter_config",
+    "registered_room_connected": false,
+    "neutral_command_cwd_override": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch",
+    "configured_seat_cwd": "/Users/frank/mygit/Tablekeeper/result-run-6",
+    "model": "gpt-6-astra",
+    "sandbox": null,
+    "sandbox_policy": null,
+    "docker_env": {
+      "BUILDX_CONFIG": "/private/var/folders/0k/rqgj4mxn54j3_78wyykw4xnh0000gn/T/factory-buildx-9a40c149edaf4346-judged-pm",
+      "DOCKER_HOST": "unix:///Users/frank/.orbstack/run/docker.sock",
+      "DOCKER_CONTEXT": ""
+    },
+    "runtime_source_sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c"
+  },
+  "command_exec": {
+    "exitCode": 0,
+    "stdout": "{\"workspace_write\": \"PASS\", \"git_commit\": {\"status\": \"PASS\", \"exit_code\": 0, \"stderr\": \"\"}, \"pypi\": {\"request_succeeded\": true, \"http_status\": 200}, \"npm\": {\"request_succeeded\": true, \"http_status\": 200}, \"blocked_external\": {\"request_succeeded\": false, \"error_type\": \"URLError\", \"detail\": \"<urlopen error Tunnel connection failed: 403 Forbidden>\"}, \"files_pythonhosted_download\": {\"status\": \"PASS\", \"http_status\": 206, \"bytes_read\": 32}, \"loopback_bind\": \"PASS\", \"exact_docker_socket\": \"PASS\", \"outside_workspace_write\": {\"status\": \"DENIED\", \"error_type\": \"PermissionError\"}, \"docker_version\": {\"exit_code\": 0, \"stdout\": \"{\\\"Platform\\\":{\\\"Name\\\":\\\"Docker Engine - Community\\\"},\\\"Version\\\":\\\"29.4.0\\\",\\\"ApiVersion\\\":\\\"1.54\\\",\\\"MinAPIVersion\\\":\\\"1.40\\\",\\\"Os\\\":\\\"linux\\\",\\\"Arch\\\":\\\"arm64\\\",\\\"Components\\\":[{\\\"Name\\\":\\\"Engine\\\",\\\"Version\\\":\\\"29.4.0\\\",\\\"Details\\\":{\\\"ApiVersion\\\":\\\"1.54\\\",\\\"Arch\\\":\\\"arm64\\\",\\\"BuildTime\\\":\\\"Tue Apr  7 08:35:43 2026\\\",\\\"Experimental\\\":\\\"true\\\",\\\"GitCommit\\\":\\\"daa0cb7f\\\",\\\"GoVersion\\\":\\\"go1.26.1\\\",\\\"KernelVersion\\\":\\\"7.0.14-orbstack-00380-ga7e0a2dc9535\\\",\\\"MinAPIVersion\\\":\\\"1.40\\\",\\\"Module\\\":\\\"github.com/moby/moby/v2\\\",\\\"ModuleVersion\\\":\\\"v2.0.0+unknown\\\",\\\"Os\\\":\\\"linux\\\"}},{\\\"Name\\\":\\\"containerd\\\",\\\"Version\\\":\\\"v2.2.2\\\",\\\"Details\\\":{\\\"GitCommit\\\":\\\"301b2dac98f15c27117da5c8af12118a041a31d9\\\"}},{\\\"Name\\\":\\\"runc\\\",\\\"Version\\\":\\\"1.5.1\\\",\\\"Details\\\":{\\\"GitCommit\\\":\\\"bb14dabeb7185bb72c8c86735d090dcb20f36587\\\"}},{\\\"Name\\\":\\\"docker-init\\\",\\\"Version\\\":\\\"0.19.0\\\",\\\"Details\\\":{\\\"GitCommit\\\":\\\"de40ad0\\\"}}],\\\"GitCommit\\\":\\\"daa0cb7f\\\",\\\"GoVersion\\\":\\\"go1.26.1\\\",\\\"KernelVersion\\\":\\\"7.0.14-orbstack-00380-ga7e0a2dc9535\\\",\\\"Experimental\\\":true,\\\"BuildTime\\\":\\\"2026-04-07T08:35:43.000000000+00:00\\\"}\\n\", \"stderr\": \"\"}}\n",
+    "stderr": ""
+  },
+  "checks": {
+    "workspace_write": "PASS",
+    "git_commit": {
+      "status": "PASS",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    "pypi": {
+      "request_succeeded": true,
+      "http_status": 200
+    },
+    "npm": {
+      "request_succeeded": true,
+      "http_status": 200
+    },
+    "blocked_external": {
+      "request_succeeded": false,
+      "error_type": "URLError",
+      "detail": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    "files_pythonhosted_download": {
+      "status": "PASS",
+      "http_status": 206,
+      "bytes_read": 32
+    },
+    "loopback_bind": "PASS",
+    "exact_docker_socket": "PASS",
+    "outside_workspace_write": {
+      "status": "DENIED",
+      "error_type": "PermissionError"
+    },
+    "docker_version": {
+      "exit_code": 0,
+      "stdout": "{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"29.4.0\",\"ApiVersion\":\"1.54\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"arm64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.4.0\",\"Details\":{\"ApiVersion\":\"1.54\",\"Arch\":\"arm64\",\"BuildTime\":\"Tue Apr  7 08:35:43 2026\",\"Experimental\":\"true\",\"GitCommit\":\"daa0cb7f\",\"GoVersion\":\"go1.26.1\",\"KernelVersion\":\"7.0.14-orbstack-00380-ga7e0a2dc9535\",\"MinAPIVersion\":\"1.40\",\"Module\":\"github.com/moby/moby/v2\",\"ModuleVersion\":\"v2.0.0+unknown\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.2.2\",\"Details\":{\"GitCommit\":\"301b2dac98f15c27117da5c8af12118a041a31d9\"}},{\"Name\":\"runc\",\"Version\":\"1.5.1\",\"Details\":{\"GitCommit\":\"bb14dabeb7185bb72c8c86735d090dcb20f36587\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"daa0cb7f\",\"GoVersion\":\"go1.26.1\",\"KernelVersion\":\"7.0.14-orbstack-00380-ga7e0a2dc9535\",\"Experimental\":true,\"BuildTime\":\"2026-04-07T08:35:43.000000000+00:00\"}\n",
+      "stderr": ""
+    }
+  },
+  "thread_start": {
+    "activePermissionProfile": {
+      "id": "factory-seats",
+      "extends": ":workspace"
+    },
+    "sandbox": {
+      "type": "workspaceWrite",
+      "writableRoots": [
+        "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch/.git"
+      ],
+      "networkAccess": true,
+      "excludeTmpdirEnvVar": false,
+      "excludeSlashTmp": false
+    },
+    "approvalPolicy": "never",
+    "model": "gpt-6-astra",
+    "modelProvider": "openai",
+    "cwd": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch",
+    "runtimeWorkspaceRoots": [
+      "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch"
+    ]
+  },
+  "thread_turn_count": 0
+}

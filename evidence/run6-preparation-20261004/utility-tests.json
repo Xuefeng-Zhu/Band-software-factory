@@ -1,0 +1,21 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "/Users/frank/mygit/Tablekeeper/factory",
+  "exit_code": 0,
+  "factory_commit": "9469c6da87f4445350eb28564459846d52df0b66",
+  "recorded_at": "2026-10-05T00:18:12.555803+00:00",
+  "scope": "Offline factory utility tests only; no new live model rehearsal or application acceptance",
+  "test_log": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/utility-tests.log",
+    "sha256": "c73de1b8dce48df0406549340937d95e75bcbc854128077c36ff7ac8bdae7a38"
+  },
+  "tests_passed": 254
+}

@@ -1,0 +1,45 @@
+{
+  "challenge_documents_refreshed": false,
+  "created_at": "2026-10-05T00:16:33.060004+00:00",
+  "current_scoped_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "global_configuration_manually_written": false,
+  "global_top_level_keys": [
+    "approval_policy",
+    "approvals_reviewer",
+    "apps",
+    "desktop",
+    "features",
+    "hooks",
+    "marketplaces",
+    "mcp_servers",
+    "memories",
+    "model",
+    "model_provider",
+    "model_reasoning_effort",
+    "notify",
+    "plugins",
+    "projects",
+    "sandbox_mode",
+    "service_tier",
+    "shell_environment_policy",
+    "skills",
+    "tui"
+  ],
+  "initial_history": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/source-lock-history-initial.json",
+    "sha256": "c397e1165539db81e863dddcf2c5270417b80bb4b8e2e053200e2489e861afa7"
+  },
+  "instruction_override_keys": [],
+  "new_global_delta": "Only SDK-created Run6 permissions/scratch trust section; exact removal reconstructs initial Run6 global configuration.",
+  "old_default_or_attempt_locks_modified": false,
+  "previous_lock": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/source-lock-before-probe-reconciliation.json",
+    "sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf"
+  },
+  "previous_scoped_lock_sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf",
+  "prior_global_drift": "Earlier Run5-to-Run6 global drift remains unclassified; no trust-only inference is made for that earlier delta.",
+  "probe_input_audit": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/probe-input-audit.json",
+    "sha256": "78039695977d4252b9049fb4fb79b5fa6897c978dfeb6ebee9a42037b1a9e995"
+  }
+}

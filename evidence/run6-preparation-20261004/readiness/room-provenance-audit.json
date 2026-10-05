@@ -1,0 +1,36 @@
+{
+  "actual_full_export": {
+    "path": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result/room.json",
+    "sha256": "50a9d8a5ca1b5fce202ca58cfd8c42414c9e1135c4607d65a4a94f28d9c5bfa1"
+  },
+  "all_latest_updates_precede_export": true,
+  "created_at": "2026-10-05T00:20:19.546623+00:00",
+  "events_compared": 100,
+  "exported_at": "2026-10-04T06:26:54.512Z",
+  "fields_compared": {
+    "content": "content",
+    "message_type": "messageType",
+    "sender_id": "senderId"
+  },
+  "has_more": true,
+  "invocation": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/rehearsal-read-invocation.json",
+    "sha256": "9a345bcac0093542e3a054664495cc6ba9dfe370aae3fedc969831128d615990"
+  },
+  "latest_inserted_at": "2026-10-04T06:26:01.323695Z",
+  "latest_snapshot": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/rehearsal-latest.json",
+    "sha256": "1a441e3d936c5bda1159259be6776823473d3ba93ce917aac5e7390c57ec1182"
+  },
+  "latest_updated_at": "2026-10-04T06:26:01.703609Z",
+  "limitations": [
+    "Only newest page reread; not proof every historical event is unchanged.",
+    "No new model execution, workflow rehearsal, product acceptance or approval."
+  ],
+  "messages_sent": 0,
+  "mismatches": [],
+  "model_turns": 0,
+  "room_id": "64e39921-47b1-4f55-8180-54edf5946c34",
+  "scope": "Fresh read-only newest-page comparison; original actual full export and timestamp preserved, not a new full export.",
+  "status": "PASS_HISTORICAL_EXPORT_FRESHNESS"
+}

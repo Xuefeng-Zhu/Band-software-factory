@@ -1,0 +1,37 @@
+{
+  "challenge_documents_refreshed": false,
+  "changes": [
+    {
+      "current_sha256": "f643637fb58523d915c005de174e1e974e792a5d5130d79a7b22aab6a6a49e10",
+      "path": "/Users/frank/.codex/config.toml",
+      "prior_sha256": "b27ac2e603b5937efcaf6f6ae298bc6f04ebc6534d0932521f978634ea5f6e92"
+    }
+  ],
+  "created_at": "2026-10-05T00:12:48.718555+00:00",
+  "global_configuration_manually_written": false,
+  "global_top_level_keys": [
+    "approval_policy",
+    "approvals_reviewer",
+    "apps",
+    "desktop",
+    "features",
+    "hooks",
+    "marketplaces",
+    "mcp_servers",
+    "memories",
+    "model",
+    "model_provider",
+    "model_reasoning_effort",
+    "notify",
+    "plugins",
+    "projects",
+    "sandbox_mode",
+    "service_tier",
+    "shell_environment_policy",
+    "skills",
+    "tui"
+  ],
+  "instruction_override_keys": [],
+  "old_lock_modified": false,
+  "scope": "Baseline current file hashes for a new attempt; no claim that prior drift was only trust metadata. Effective permissions and auth need fresh no-model probes."
+}

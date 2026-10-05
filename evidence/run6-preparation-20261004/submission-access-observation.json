@@ -1,0 +1,17 @@
+{
+  "factory_budget_deadline_unchanged": "2026-10-05T02:35:03.700437Z",
+  "form_edits": 0,
+  "form_scope": "Basic Information, Step 1 of 3, blank title and descriptions, Next button",
+  "form_submitted": false,
+  "limitation": "The countdown and public calendar end date appear inconsistent. No new exact event deadline is inferred; both observed availability and countdown extend beyond the unchanged factory budget deadline. Recheck before final submission.",
+  "method": "CUA Chrome authenticated DOM and AX read; web public event read",
+  "observed_at": "2026-10-05T00:15:12.302309+00:00",
+  "public_event_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon",
+  "public_schedule": "Sep 26 to Oct 5, 2026; Close 23:59 PDT",
+  "submission_form_accessible": true,
+  "submission_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon/submission",
+  "team_countdown_observed": "0 D 6 H 44 M TIME LEFT",
+  "team_status": "Closed solo team, Xuefeng Zhu displayed, Complete Submission link present",
+  "team_url": "https://lablab.ai/ai-hackathons/wearedevelopers-hackathon/milliemoon",
+  "video": "User deferred; no recording attempted"
+}

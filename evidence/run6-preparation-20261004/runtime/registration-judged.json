@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-10-05T00:18:04.069912+00:00",
+  "config_sha256": "8e09ee851717919341a3a295542d5278a7c896739a706830ec86288ddada8f00",
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "mode": "judged",
+  "verified": true,
+  "seats": [
+    {
+      "seat": "pm",
+      "agent_id": "7d26ccf7-2921-4b38-9e16-ca8ebfa2a448",
+      "name": "Factory PM",
+      "handle": "frankzhu94/factory-pm",
+      "room_member": true,
+      "matches_config": true
+    },
+    {
+      "seat": "architect",
+      "agent_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+      "name": "Factory Architect",
+      "handle": "frankzhu94/factory-architect",
+      "room_member": true,
+      "matches_config": true
+    },
+    {
+      "seat": "designer",
+      "agent_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+      "name": "Factory Designer",
+      "handle": "frankzhu94/factory-designer",
+      "room_member": true,
+      "matches_config": true
+    },
+    {
+      "seat": "backend",
+      "agent_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "name": "Factory Backend",
+      "handle": "frankzhu94/factory-backend",
+      "room_member": true,
+      "matches_config": true
+    },
+    {
+      "seat": "frontend",
+      "agent_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+      "name": "Factory Frontend",
+      "handle": "frankzhu94/factory-frontend",
+      "room_member": true,
+      "matches_config": true
+    },
+    {
+      "seat": "qa",
+      "agent_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "name": "Factory QA",
+      "handle": "frankzhu94/factory-qa",
+      "room_member": true,
+      "matches_config": true
+    },
+    {
+      "seat": "reviewer",
+      "agent_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "name": "Factory Reviewer",
+      "handle": "frankzhu94/factory-reviewer",
+      "room_member": true,
+      "matches_config": true
+    }
+  ]
+}

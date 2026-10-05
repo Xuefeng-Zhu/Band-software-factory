@@ -1,0 +1,14 @@
+{
+  "branch": "run-6",
+  "configuration_sha256": "05eb97f868ed5722a5c73b571859110d9cce5c571a5c95d3a21c44d891786406",
+  "created_at": "2026-10-05T00:11:32.066743+00:00",
+  "entries": [
+    ".git"
+  ],
+  "head_exists": false,
+  "old_inputs_modified": false,
+  "placeholder_commits": 0,
+  "product_files_copied": 0,
+  "remote_branch_absent": true,
+  "result_directory": "/Users/frank/mygit/Tablekeeper/result-run-6"
+}

@@ -1,0 +1,41 @@
+{
+  "all_seven_rendered_hashes_recomputed": true,
+  "checkout_roots": {
+    "rehearsal": {
+      "git_root": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result",
+      "instruction_files": [],
+      "path": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result"
+    },
+    "result": {
+      "git_root": "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "instruction_files": [],
+      "path": "/Users/frank/mygit/Tablekeeper/result-run-6"
+    }
+  },
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "created_at": "2026-10-05T00:21:44.314487+00:00",
+  "global_agents": {
+    "path": "/Users/frank/.codex/AGENTS.md",
+    "sha256": "c0457c99c6c0dfba1ccab3e3b93b774e834be5dc1765cfc5fa1d48c44bdc24f2"
+  },
+  "global_agents_semantics": "Generic GitHub workflow preferences only; fetching when safe does not require copying prior attempt history into an empty assigned branch.",
+  "global_config_sha256": "5bdeef0292b6d0dc9529e1d390da4cb6f2bd6f5a259b35339c07577ee865d91a",
+  "global_override_exists": false,
+  "independent_auditor": "Codex run4_readiness_audit; did not author PR2",
+  "limitations": [
+    "The independently checked composition is the injected custom section, not a live assembled provider prompt.",
+    "Global instruction discovery beyond separate Git roots follows pinned documented behavior; no live provider introspection.",
+    "Earlier Run5 global config drift remains unclassified; the current baseline and latest exact scratch trust change are separately recorded.",
+    "New generic workflow remains NOT_LIVE_REHEARSED. Approval is false; no historical approval is inherited.",
+    "Unchanged fallback mentions two repairs while configuration allows a maximum of three; either bounded interpretation cannot authorize a fourth, and no claim is made that all three will be used."
+  ],
+  "nondefault_instruction_override_keys": [],
+  "rendered_report": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/semantic-review.json",
+    "sha256": "762a6e26205078f907d5da5803d07c9f3e329bb6e9fbe80c23c85881051b28ac"
+  },
+  "reviewed_delta": "Four new generic paragraphs cover requirement relationships, independent oracles, valid controls and counterexamples. Planning never replaces independent candidate acceptance. No domain code/tests are seeded.",
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "source_verification_issues": [],
+  "status": "PASS_SCOPED_STATIC_INPUT_REVIEW"
+}

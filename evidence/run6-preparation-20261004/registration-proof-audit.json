@@ -1,0 +1,23 @@
+{
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "limitations": [
+    "Silent adapter identity/membership only; no model responsiveness, task delivery, acceptance, or room-text send."
+  ],
+  "model_turns": 0,
+  "observed_at": "2026-10-05T00:18:04.069912+00:00",
+  "proofs": {
+    "judged": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/registration-judged.json",
+      "sha256": "1ed0ec18c6791a982a69e5c2dde612ef20cd319dfdbfb0a47ddb91852e3f7cb4"
+    },
+    "rehearsal": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/registration-rehearsal.json",
+      "sha256": "af3817e8f540b09cdf66c47cd8f1e73929085c11384ce6b72526b8e9939e95cd"
+    }
+  },
+  "room_messages": 0,
+  "runtime_fingerprint": "8e09ee851717919341a3a295542d5278a7c896739a706830ec86288ddada8f00",
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "status": "PASS_REGISTRATION_ONLY",
+  "verified_seats_per_room": 7
+}

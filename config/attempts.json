@@ -103,6 +103,24 @@
       "task_sha256": "85ceb4e9574bf3e63355017708eff69b9894688732082e2f3c4af142ff9f9178",
       "unused_reported_token_headroom": 64496867,
       "video": "DEFERRED_BY_USER"
+    },
+    {
+      "accepted_stages": [],
+      "baseline_cumulative_reported_tokens": 221514710,
+      "branch": "run-6",
+      "checkout": "/Users/frank/mygit/Tablekeeper/result-run-6",
+      "configuration": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+      "cumulative_token_ceiling": 286011577,
+      "deadline_utc": "2026-10-05T02:35:03.700437Z",
+      "id": "run-6",
+      "launch_approved": false,
+      "launch_authorization_consumed": false,
+      "preparation_evidence": "evidence/run6-preparation-20261004/manifest.json",
+      "remaining_reported_tokens": 64496867,
+      "remote_branch_created": false,
+      "review_document": "docs/run-6-preparation.md",
+      "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+      "status": "PREPARED_PENDING_FRESH_APPROVAL"
     }
   ],
   "branch_pattern": "run-N",

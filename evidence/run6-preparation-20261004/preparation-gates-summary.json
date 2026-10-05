@@ -1,0 +1,52 @@
+{
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "created_at": "2026-10-05T00:22:38.434200+00:00",
+  "dispatches": 0,
+  "model_turns": 0,
+  "room_messages": 0,
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "steps": [
+    {
+      "command": "generate-tasks",
+      "exit_code": 0,
+      "status": "PASS",
+      "tasks": {
+        "judged-all-stages.md": "5d65c6cf441e7e402f354a42b8d9ce1f987d8cf421d19c640f879b71b9fefddf",
+        "judged-stage-1.md": "a4656ad81ef6d9279c5d52c1a09b962f1f464fc4fd939388d753a26846759cf2",
+        "judged-stage-2.md": "6b52a91fc7d4bdcd1a4989a91df898082fbb603756790adaec7b73820ea3dba6",
+        "judged-stage-3.md": "250e1ecb7cc3e02efe4057465b09808de6d62c86ab03b529b2391e2e7d9480b1",
+        "judged-stage-4.md": "a82023caae6ec5acb89f3884987c6eca6dacd7e24223e8a24c380aac8db83211",
+        "rehearsal-toy.md": "dab6229e3f044802ec251233dea99f87293a9029224351593587eff297c016ff"
+      }
+    },
+    {
+      "command": "verify-tasks",
+      "exit_code": 0,
+      "packet_count": 6,
+      "status": "PASS"
+    },
+    {
+      "command": "doctor",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command": "validate",
+      "errors": [],
+      "exit_code": 0,
+      "launch_blockers": [
+        "Approve finite active-work and consumption budgets before live seat work (budgets.approved=false)"
+      ],
+      "status": "PASS"
+    },
+    {
+      "blockers": [
+        "Approve finite active-work and consumption budgets before live seat work (budgets.approved=false)",
+        "Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required."
+      ],
+      "command": "freeze",
+      "exit_code": 1,
+      "status": "BLOCKED_WITH_ACTIONS"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "additional_evidence": {
+    "configuration-revalidation.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+      "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+    },
+    "model-discovery.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/model-discovery.json",
+      "sha256": "3af0b164d08ca066023c248ada6daec284367ec9bacae1bc1456ce45309177d8"
+    },
+    "probe-input-audit.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/probe-input-audit.json",
+      "sha256": "78039695977d4252b9049fb4fb79b5fa6897c978dfeb6ebee9a42037b1a9e995"
+    },
+    "subscription-auth.json": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/subscription-auth.json",
+      "sha256": "f0b415e623313b023744f4c6b5c8a0ad4ff006be0814a944d3c5afa9074954be"
+    }
+  },
+  "budget_approved": false,
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "configured_model": "gpt-6-astra",
+  "evidence": {
+    "assigned": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-2026-10-05T001438.053389+0000.json",
+      "sha256": "4f21459574c9ec31cd956def81f942764a99c9d8a59504359b0e80c9922c33d5"
+    },
+    "browser": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/browser-adapter-20261005T001444Z.json",
+      "sha256": "f77300953d1835772735dfaa5e693f0a1ef0508ca25b1e19de0121dbf4bc59dd"
+    },
+    "build": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/build-adapter-20261005T001441Z.json",
+      "sha256": "edc3dfc45380ef61a690b0849c09f59dd9e7a526ea73c177219f96afae89fd50"
+    },
+    "cleanup": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/cleanup-adapter-20261005T001448Z.json",
+      "sha256": "179440a544b2374ed860c60a05c052497a2166ad8751524d8127993f78a5ceb9"
+    },
+    "quick": {
+      "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/quick-adapter-20261005T001439Z.json",
+      "sha256": "96949b9046a651afa2e29f5c8be672db5e2ebe05a83d85dd0b42be3b3b18979c"
+    }
+  },
+  "limitations": [
+    "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+    "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+    "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+    "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+    "Raw proof hashes and timestamps retained. Only launch.submission_open_verified changed false to true after the raw probes, based on fresh authenticated submission access; adapter permission fields are byte-equivalent. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Earlier Run5-to-Run6 global drift remains unclassified. The four new generic mandate paragraphs do not change command/exec permissions and have separate static review only; no new model behavior is established. Later config/source changes require fresh reconciliation."
+  ],
+  "model_changed": false,
+  "model_turns": 0,
+  "observed_at": "2026-10-05T00:14:48.570254+00:00",
+  "original_probe_configuration_sha256": "5a89b0520e26bdd304ca559a9348ec353426ce4c54df9926ea13d22383e3b7d5",
+  "original_probe_source_lock_sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf",
+  "revalidated_at": "2026-10-05T00:18:42.190277+00:00",
+  "room_messages": 0,
+  "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+  "source_lock_reconciliation": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock-history.json",
+    "sha256": "2f9bb243142e3256fb2d493f2268814e2f30ff23c93e7a633ef44d4879007e87"
+  },
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "status": "PASS_PERMISSION_PREPARATION_ONLY"
+}

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python",
+    "-B",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-workspace.py",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "--mode",
+    "judged"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:14:39.622897+00:00",
+  "started_at": "2026-10-05T00:14:37.829252+00:00",
+  "stderr": "",
+  "stdout": "{\"status\": \"PASS\", \"evidence\": \"/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-2026-10-05T001438.053389+0000.json\", \"checks\": {\"workspace_write\": \"PASS\", \"git_metadata_write\": \"PASS\", \"entries_before\": [\".git\"], \"entries_after\": [\".git\"], \"git_status\": \"\", \"branch_matches\": true, \"remote_matches\": true, \"local_HEAD_exists\": false, \"ls_remote_exit\": 0, \"ls_remote_stdout\": \"\", \"ls_remote_stderr\": \"\", \"object_store_unchanged\": true, \"objects_before\": \"count: 0\\nsize: 0\\nin-pack: 0\\npacks: 0\\nsize-pack: 0\\nprune-packable: 0\\ngarbage: 0\\nsize-garbage: 0\\n\", \"objects_after\": \"count: 0\\nsize: 0\\nin-pack: 0\\npacks: 0\\nsize-pack: 0\\nprune-packable: 0\\ngarbage: 0\\nsize-garbage: 0\\n\"}, \"error_type\": null}\n"
+}

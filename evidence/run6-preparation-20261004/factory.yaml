@@ -1,0 +1,174 @@
+schema_version: 1
+paths:
+  challenge: /Users/frank/mygit/Tablekeeper/challenge
+  factory: /Users/frank/mygit/Tablekeeper/factory
+  rehearsal: /Users/frank/mygit/Tablekeeper/rehearsal/repair-result
+  runs: /Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004
+  result: /Users/frank/mygit/Tablekeeper/result-run-6
+runtime:
+  codex_command: /Users/frank/mygit/Tablekeeper/factory/scripts/codex-local
+  python: /Users/frank/mygit/Tablekeeper/factory/.venv/bin/python
+  harness_python: /Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python
+  browser_path: /Users/frank/mygit/Tablekeeper/runs/browsers
+  sandbox: workspace-write
+  approval_policy: never
+  approval_mode: auto_decline
+  model: gpt-6-astra
+  version: 0.160.0
+  sdk_version: 4.0.0
+  allow_network: false
+  permission_profile:
+    name: factory-seats
+    domains:
+    - registry.npmjs.org
+    - pypi.org
+    - files.pythonhosted.org
+    - localhost
+    - 127.0.0.1
+    - auth.docker.io
+    - github.com
+    allow_local_binding: true
+    unix_sockets:
+    - /Users/frank/.orbstack/run/docker.sock
+  docker_host: unix:///Users/frank/.orbstack/run/docker.sock
+  docker_resources:
+    min_cpus: 2
+    min_memory_mib: 1977
+band:
+  rest_url: https://app.band.ai
+  ws_url: wss://app.band.ai/api/v1/socket/websocket
+  rehearsal_room_id: 64e39921-47b1-4f55-8180-54edf5946c34
+  judged_room_id: d98df99d-77ad-441d-875c-6e38cdbef39d
+  archived_room_ids:
+  - 0b882870-2e49-4d39-bc40-2bf47cc46f08
+  - 12cde259-0fcd-4551-84c7-52c443cb5600
+  - 3a604b75-7691-4b8f-9d86-e7b2fdf66846
+  - 4ec4749d-5dff-4d41-ae9b-5a5bc82462ac
+  - 7ceee003-80f3-4dbc-abc1-d3a8a13d1800
+  - 9b059f6b-ee17-44bd-99cd-0277cf602a81
+  - cc7450cf-e003-4b3d-9baf-2d3ceb97d378
+  credentials_file: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/.factory-private/agent_config.yaml
+budgets:
+  max_active_seats: 1
+  max_repairs: 3
+  turn_timeout_seconds: 600
+  stage_timeout_seconds: 28800
+  overall_timeout_seconds: 117938
+  max_turns_per_seat: 1000
+  max_total_tokens: 286011577
+  approved: false
+  spend_cap_usd: null
+  ack_timeout_seconds: 120
+  billing_mode: subscription_only
+  api_billing_allowed: false
+  paid_provisioning_allowed: false
+launch:
+  mode: all
+  practice_mode: false
+  registration_verified: true
+  submission_open_verified: true
+seats:
+- id: pm
+  display_name: Factory PM
+  handle: frankzhu94/factory-pm
+  agent_id: 7d26ccf7-2921-4b38-9e16-ca8ebfa2a448
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md
+  harness: Codex
+  model: gpt-6-astra
+  reasoning_effort: medium
+  git_name: Factory PM
+  git_email: pm@factory.invalid
+  registration_verified: true
+  cli_version: 0.160.0
+  sdk_version: 4.0.0
+  judged_cwd: /Users/frank/mygit/Tablekeeper/result-run-6
+- id: architect
+  display_name: Factory Architect
+  handle: frankzhu94/factory-architect
+  agent_id: 974df2f1-b5e8-4873-a1ce-93658e0404a4
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md
+  harness: Codex
+  model: gpt-6-astra
+  reasoning_effort: high
+  git_name: Factory Architect
+  git_email: architect@factory.invalid
+  registration_verified: true
+  cli_version: 0.160.0
+  sdk_version: 4.0.0
+  judged_cwd: /Users/frank/mygit/Tablekeeper/result-run-6
+- id: designer
+  display_name: Factory Designer
+  handle: frankzhu94/factory-designer
+  agent_id: a6ee2e58-62bd-4ba9-b573-f164bb3e41d2
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md
+  harness: Codex
+  model: gpt-6-astra
+  reasoning_effort: medium
+  git_name: Factory Designer
+  git_email: designer@factory.invalid
+  registration_verified: true
+  cli_version: 0.160.0
+  sdk_version: 4.0.0
+  judged_cwd: /Users/frank/mygit/Tablekeeper/result-run-6
+- id: backend
+  display_name: Factory Backend
+  handle: frankzhu94/factory-backend
+  agent_id: b2f43e4e-7727-44bb-9154-6cdc2b781749
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md
+  harness: Codex
+  model: gpt-6-astra
+  reasoning_effort: medium
+  git_name: Factory Backend
+  git_email: backend@factory.invalid
+  registration_verified: true
+  cli_version: 0.160.0
+  sdk_version: 4.0.0
+  judged_cwd: /Users/frank/mygit/Tablekeeper/result-run-6
+- id: frontend
+  display_name: Factory Frontend
+  handle: frankzhu94/factory-frontend
+  agent_id: 5ba8923d-b3d9-4b56-818f-3bef60ea617d
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md
+  harness: Codex
+  model: gpt-6-astra
+  reasoning_effort: medium
+  git_name: Factory Frontend
+  git_email: frontend@factory.invalid
+  registration_verified: true
+  cli_version: 0.160.0
+  sdk_version: 4.0.0
+  judged_cwd: /Users/frank/mygit/Tablekeeper/result-run-6
+- id: qa
+  display_name: Factory QA
+  handle: frankzhu94/factory-qa
+  agent_id: 8e450576-69cd-416c-bc2a-a3a771f020d3
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md
+  harness: Codex
+  model: gpt-6-astra
+  reasoning_effort: high
+  git_name: Factory QA
+  git_email: qa@factory.invalid
+  registration_verified: true
+  cli_version: 0.160.0
+  sdk_version: 4.0.0
+  judged_cwd: /Users/frank/mygit/Tablekeeper/result-run-6
+- id: reviewer
+  display_name: Factory Reviewer
+  handle: frankzhu94/factory-reviewer
+  agent_id: 02e4a78d-7d9d-4c77-bf32-b3810a9cfacb
+  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md
+  harness: Codex
+  model: gpt-6-astra
+  reasoning_effort: high
+  git_name: Factory Reviewer
+  git_email: reviewer@factory.invalid
+  registration_verified: true
+  cli_version: 0.160.0
+  sdk_version: 4.0.0
+  judged_cwd: /Users/frank/mygit/Tablekeeper/result-run-6
+product:
+  repository_url: https://github.com/Xuefeng-Zhu/Tablekeeper.git
+  branch: run-6
+artifacts:
+  source_lock: /Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock.json
+  tasks: /Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks

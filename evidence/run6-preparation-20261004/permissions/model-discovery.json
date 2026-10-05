@@ -1,0 +1,22 @@
+{
+  "catalog": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/models.json",
+    "sha256": "69a41261e014fa157bf98acb8b3786172e6ffddc75b2ca1a71b47e038ad84373"
+  },
+  "configuration_sha256": "5a89b0520e26bdd304ca559a9348ec353426ce4c54df9926ea13d22383e3b7d5",
+  "configured_model": "gpt-6-astra",
+  "configured_model_advertised": true,
+  "inference_started": false,
+  "model_changed": false,
+  "model_ids": [
+    "gpt-6.1-sol",
+    "gpt-6-astra",
+    "gpt-6-sol",
+    "gpt-6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-5.6-luna",
+    "gpt-5.5"
+  ],
+  "observed_at": "2026-10-05T00:14:37.828866+00:00"
+}

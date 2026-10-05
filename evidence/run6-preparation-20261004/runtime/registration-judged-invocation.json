@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "probe-registration",
+    "--mode",
+    "judged"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:18:19.746804+00:00",
+  "model_turns": 0,
+  "room_messages": 0,
+  "started_at": "2026-10-05T00:18:03.789542+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"checked_at\": \"2026-10-05T00:18:04.069912+00:00\",\n  \"config_sha256\": \"8e09ee851717919341a3a295542d5278a7c896739a706830ec86288ddada8f00\",\n  \"room_id\": \"d98df99d-77ad-441d-875c-6e38cdbef39d\",\n  \"mode\": \"judged\",\n  \"verified\": true,\n  \"seats\": [\n    {\n      \"seat\": \"pm\",\n      \"agent_id\": \"7d26ccf7-2921-4b38-9e16-ca8ebfa2a448\",\n      \"name\": \"Factory PM\",\n      \"handle\": \"frankzhu94/factory-pm\",\n      \"room_member\": true,\n      \"matches_config\": true\n    },\n    {\n      \"seat\": \"architect\",\n      \"agent_id\": \"974df2f1-b5e8-4873-a1ce-93658e0404a4\",\n      \"name\": \"Factory Architect\",\n      \"handle\": \"frankzhu94/factory-architect\",\n      \"room_member\": true,\n      \"matches_config\": true\n    },\n    {\n      \"seat\": \"designer\",\n      \"agent_id\": \"a6ee2e58-62bd-4ba9-b573-f164bb3e41d2\",\n      \"name\": \"Factory Designer\",\n      \"handle\": \"frankzhu94/factory-designer\",\n      \"room_member\": true,\n      \"matches_config\": true\n    },\n    {\n      \"seat\": \"backend\",\n      \"agent_id\": \"b2f43e4e-7727-44bb-9154-6cdc2b781749\",\n      \"name\": \"Factory Backend\",\n      \"handle\": \"frankzhu94/factory-backend\",\n      \"room_member\": true,\n      \"matches_config\": true\n    },\n    {\n      \"seat\": \"frontend\",\n      \"agent_id\": \"5ba8923d-b3d9-4b56-818f-3bef60ea617d\",\n      \"name\": \"Factory Frontend\",\n      \"handle\": \"frankzhu94/factory-frontend\",\n      \"room_member\": true,\n      \"matches_config\": true\n    },\n    {\n      \"seat\": \"qa\",\n      \"agent_id\": \"8e450576-69cd-416c-bc2a-a3a771f020d3\",\n      \"name\": \"Factory QA\",\n      \"handle\": \"frankzhu94/factory-qa\",\n      \"room_member\": true,\n      \"matches_config\": true\n    },\n    {\n      \"seat\": \"reviewer\",\n      \"agent_id\": \"02e4a78d-7d9d-4c77-bf32-b3810a9cfacb\",\n      \"name\": \"Factory Reviewer\",\n      \"handle\": \"frankzhu94/factory-reviewer\",\n      \"room_member\": true,\n      \"matches_config\": true\n    }\n  ]\n}\n"
+}

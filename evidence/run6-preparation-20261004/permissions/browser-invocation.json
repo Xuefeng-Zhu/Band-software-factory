@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python",
+    "-B",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/container-probe.py",
+    "browser",
+    "--adapter",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "--mode",
+    "judged"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:14:48.227918+00:00",
+  "started_at": "2026-10-05T00:14:44.558141+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"evidence\": \"/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/browser-adapter-20261005T001444Z.json\",\n  \"checks\": {\n    \"docker_browser\": {\n      \"exit_code\": 0,\n      \"image_id\": \"sha256:aa272b529b7358574e1d2a954efe942b2bcef758c8c85a0645c6b5a23b760144\",\n      \"container_name\": \"factory-browser-permission-a23b760144\",\n      \"stdout\": \"{\\\"browser\\\": \\\"chromium\\\", \\\"version\\\": \\\"153.0.8010.12\\\", \\\"title\\\": \\\"Factory permission probe\\\", \\\"click_result\\\": \\\"1\\\", \\\"status\\\": \\\"PASS\\\", \\\"container_outbound\\\": {\\\"status\\\": \\\"DENIED\\\", \\\"error_type\\\": \\\"URLError\\\"}}\\n\",\n      \"stderr\": \"\"\n    }\n  },\n  \"error\": null,\n  \"command_exec_exit\": 0\n}\n"
+}

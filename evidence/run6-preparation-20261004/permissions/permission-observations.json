@@ -1,0 +1,176 @@
+{
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "created_at": "2026-10-05T00:18:42.191969+00:00",
+  "observations": [
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-2026-10-05T001438.053389+0000.json",
+          "sha256": "4f21459574c9ec31cd956def81f942764a99c9d8a59504359b0e80c9922c33d5"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/quick-adapter-20261005T001439Z.json",
+          "sha256": "96949b9046a651afa2e29f5c8be672db5e2ebe05a83d85dd0b42be3b3b18979c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/summary.json",
+          "sha256": "14b40d990a5f984e1348967e653c44ee36087e083a8534411c8952bbee4107d7"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock-history.json",
+          "sha256": "2f9bb243142e3256fb2d493f2268814e2f30ff23c93e7a633ef44d4879007e87"
+        }
+      ],
+      "id": "permissions_agent_write_git",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Only launch.submission_open_verified changed false to true after the raw probes, based on fresh authenticated submission access; adapter permission fields are byte-equivalent. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Earlier Run5-to-Run6 global drift remains unclassified. The four new generic mandate paragraphs do not change command/exec permissions and have separate static review only; no new model behavior is established. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-05T00:14:48.570254+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/quick-adapter-20261005T001439Z.json",
+          "sha256": "96949b9046a651afa2e29f5c8be672db5e2ebe05a83d85dd0b42be3b3b18979c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/build-adapter-20261005T001441Z.json",
+          "sha256": "edc3dfc45380ef61a690b0849c09f59dd9e7a526ea73c177219f96afae89fd50"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/cleanup-adapter-20261005T001448Z.json",
+          "sha256": "179440a544b2374ed860c60a05c052497a2166ad8751524d8127993f78a5ceb9"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/summary.json",
+          "sha256": "14b40d990a5f984e1348967e653c44ee36087e083a8534411c8952bbee4107d7"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock-history.json",
+          "sha256": "2f9bb243142e3256fb2d493f2268814e2f30ff23c93e7a633ef44d4879007e87"
+        }
+      ],
+      "id": "permissions_docker_build",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Only launch.submission_open_verified changed false to true after the raw probes, based on fresh authenticated submission access; adapter permission fields are byte-equivalent. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Earlier Run5-to-Run6 global drift remains unclassified. The four new generic mandate paragraphs do not change command/exec permissions and have separate static review only; no new model behavior is established. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-05T00:14:48.570254+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/browser-adapter-20261005T001444Z.json",
+          "sha256": "f77300953d1835772735dfaa5e693f0a1ef0508ca25b1e19de0121dbf4bc59dd"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/cleanup-adapter-20261005T001448Z.json",
+          "sha256": "179440a544b2374ed860c60a05c052497a2166ad8751524d8127993f78a5ceb9"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/summary.json",
+          "sha256": "14b40d990a5f984e1348967e653c44ee36087e083a8534411c8952bbee4107d7"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock-history.json",
+          "sha256": "2f9bb243142e3256fb2d493f2268814e2f30ff23c93e7a633ef44d4879007e87"
+        }
+      ],
+      "id": "permissions_browser",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Only launch.submission_open_verified changed false to true after the raw probes, based on fresh authenticated submission access; adapter permission fields are byte-equivalent. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Earlier Run5-to-Run6 global drift remains unclassified. The four new generic mandate paragraphs do not change command/exec permissions and have separate static review only; no new model behavior is established. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-05T00:14:48.570254+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/quick-adapter-20261005T001439Z.json",
+          "sha256": "96949b9046a651afa2e29f5c8be672db5e2ebe05a83d85dd0b42be3b3b18979c"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-2026-10-05T001438.053389+0000.json",
+          "sha256": "4f21459574c9ec31cd956def81f942764a99c9d8a59504359b0e80c9922c33d5"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/summary.json",
+          "sha256": "14b40d990a5f984e1348967e653c44ee36087e083a8534411c8952bbee4107d7"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+          "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+        },
+        {
+          "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock-history.json",
+          "sha256": "2f9bb243142e3256fb2d493f2268814e2f30ff23c93e7a633ef44d4879007e87"
+        }
+      ],
+      "id": "permissions_development_network",
+      "limitations": [
+        "Preparation-only zero-model diagnostic evidence; no BAND Agent, model turn, room message, application implementation or product acceptance.",
+        "Budget approved=false and copied global/room terminal halts remain unchanged; successful probes do not authorize any worker or launch.",
+        "Git ls-remote checked the configured private branch without fetching objects or creating commits; judged checkout remains .git-only and HEAD unborn.",
+        "Exact approved Docker socket grants daemon access; diagnostic browser container separately used network none, dropped capabilities, no host mounts and no-new-privileges.",
+        "Raw proof hashes and timestamps retained. Only launch.submission_open_verified changed false to true after the raw probes, based on fresh authenticated submission access; adapter permission fields are byte-equivalent. The scoped lock was separately reconciled only for SDK scratch trust, preserving challenge/docs; source-lock-history.json records old/new bindings. Earlier Run5-to-Run6 global drift remains unclassified. The four new generic mandate paragraphs do not change command/exec permissions and have separate static review only; no new model behavior is established. Later config/source changes require fresh reconciliation."
+      ],
+      "observed": true,
+      "observed_at": "2026-10-05T00:14:48.570254+00:00",
+      "observer": "Codex preparation operator using actual maintained BAND Codex adapter command/exec",
+      "revalidation": {
+        "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json",
+        "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb"
+      },
+      "scope": "Actual PM judged Codex adapter command/exec, assigned empty checkout, canonical private-origin ls-remote, neutral scratch Git/network/socket, Docker build and constrained Chromium",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Importable four permission entries only; main readiness state and original observations unchanged",
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac"
+}

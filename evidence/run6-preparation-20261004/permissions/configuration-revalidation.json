@@ -1,0 +1,36 @@
+{
+  "basis": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/submission-access-observation.json",
+    "sha256": "bf99b9eedd5f534f0adb5ad9064f0ef42f7363df1015ac1493911337939e64e6"
+  },
+  "budget_approved": false,
+  "configuration_before": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-before-submission-verification.yaml",
+    "sha256": "9c27dc8e3759f701fb0f28813b70d8127f9f026a37e4c8ea253213ad88ec9e1f"
+  },
+  "created_at": "2026-10-05T00:16:33.060625+00:00",
+  "current_configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "current_source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "exact_configuration_delta": {
+    "launch.submission_open_verified": {
+      "after": true,
+      "before": false
+    }
+  },
+  "model_turns": 0,
+  "original_probe_configuration_sha256": "5a89b0520e26bdd304ca559a9348ec353426ce4c54df9926ea13d22383e3b7d5",
+  "prior_approval_inherited": false,
+  "raw_proofs_unchanged": true,
+  "room_messages": 0,
+  "scope": "One factual submission-access flag does not affect adapter command/exec permissions; raw original timestamps and bindings remain unchanged. Source reconciliation separately records exact new trust delta and earlier unclassified drift.",
+  "source_lock_sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf",
+  "unchanged_permissions_fields": [
+    "runtime",
+    "paths",
+    "seats",
+    "product",
+    "band",
+    "budgets",
+    "artifacts"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "actions": {
+    "new_model_executions": 0,
+    "old_evidence_mutations": 0,
+    "product_edits": 0,
+    "room_messages": 0
+  },
+  "all_saved_hashes_match": true,
+  "authorization": {
+    "model_work_approved": false,
+    "prior_approval_inherited": false,
+    "run6_dispatches_authorized": 0
+  },
+  "changed_frozen_inputs_since_run5": [
+    {
+      "current_sha256": "9a7b9d8c0ad6a70b57dc34229f073fb45cb42db6d3ff5076983c09f3c710b129",
+      "old_sha256": "321c293942462673bb45089c1be9de5a148bd4b565f1c582fe3d8a416a5f8180",
+      "path": "factorykit/operations.py"
+    },
+    {
+      "current_sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c",
+      "old_sha256": "c7b4f7a16884cbd453fd32ff2d3fe449859d4ce4e44d357a3ccb4a21c4a2d341",
+      "path": "factorykit/runtime.py"
+    },
+    {
+      "current_sha256": "33f8b79ed4b94da0b9894c52ed4f5e3fa01d335d30bb8f501a4f03d3442ac889",
+      "old_sha256": "5ce7e1fa6b1af1e32b1c0a14dfbe3e4b635f625a7578399f991921e0d583b346",
+      "path": "factorykit/validation.py"
+    },
+    {
+      "current_sha256": "c31fbb19f863ae3c33ddbec54fa7c4c6b5bc03be91718b931203c0c8a5e85aa1",
+      "old_sha256": "703ad1ef3c58335b37268c03260253d70ffc1912743481e00fac031b7b7ce04f",
+      "path": "mandates/factory-backend.md"
+    },
+    {
+      "current_sha256": "f692a4a9186877590f1942cc828a039790f2d1ea5283fdd38fe6b919dd3dcf6e",
+      "old_sha256": "0e64c264f3fc7aa8310bb988146c8dcb0b60d5a51a23e60eb2318adfce0184b8",
+      "path": "mandates/factory-pm.md"
+    },
+    {
+      "current_sha256": "65ab42251a370c9cc897769659fb43c911556ac75132371114c58898811332fe",
+      "old_sha256": "6a825a40e4c5521ba2f9ca7fff24f0c777819ad26ab35a801ef36126d77f4651",
+      "path": "mandates/factory-qa.md"
+    },
+    {
+      "current_sha256": "51d92f5e42b3d0825081f59e0212b5c3c6e5e3093bbb141c790f1a1dc8284cc9",
+      "old_sha256": "73702baf4028b4f5c42a77d8d5f5f993e6fa192d244ce75e959538f1221c5870",
+      "path": "mandates/factory-reviewer.md"
+    }
+  ],
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "created_at": "2026-10-05T00:20:19.546623+00:00",
+  "historical_evidence_files_checked": 30,
+  "limitations": [
+    "Only historical rehearsal facts are carried; original dates, observer, raw bytes, room IDs, candidate identities and limitations remain unchanged.",
+    "Four additional generic Run6 mandate paragraphs have static review only. Their early independent-oracle/relationship workflow remains NOT_LIVE_REHEARSED.",
+    "Runtime source changed: preflight gained Docker resource admission checks. Adapter construction, communication/recovery definitions, shared protocols, task generation and budget-accounting definitions match the Run5 baseline; this does not prove behavior of the new admission gate in a live run.",
+    "Historical checkout visibility concerns the toy checkout, not new Run6 model-seat checkout behavior. Fresh command/exec proof covers Run6 assigned-path permissions only.",
+    "Toy harness and offline package evidence remain historical; they do not establish current VM workload fit or any judged-stage acceptance.",
+    "Historical approval references are provenance only. Run6 budgets.approved=false and scoped global halt remain in force; no model rehearsal or dispatch has been authorized.",
+    "Current baseline of inherited global configuration does not explain earlier Run5 drift. Fresh auth/permissions/static review apply only to the current baseline."
+  ],
+  "original_report": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/readiness/observations.json",
+    "sha256": "1f4c7557f545e3140dd650fe7db16e52165299330a1c52af3a6c38b469e0fb80"
+  },
+  "room_freshness": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/room-provenance-audit.json",
+    "sha256": "6bc2b017311a700545da774df7aad31f996df3189349f48289dec8b665b79d88"
+  },
+  "runtime_changed_definition_names": [
+    "preflight_runtime"
+  ],
+  "same_seven_identity_model_harness_effort_records": true,
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "status": "PASS_SCOPED_HISTORICAL_EVIDENCE_REVALIDATION",
+  "toy": {
+    "accepted_candidate": "bdfc842110f057ae4e9997d62f33196a6cbc03ed",
+    "accepted_is_ancestor": true,
+    "actual_export_valid_for_current_config": true,
+    "head": "40e1f166e1a501bdf5830c56ba8de638a30e2491",
+    "old_offline_invocation_matches_current_package_and_config": true,
+    "root": "/Users/frank/mygit/Tablekeeper/rehearsal/repair-result",
+    "whole_repository_digest": "a57846671b575a14853a78fa3101ddbc7551f8440d0733bf9f02bb07f2d5c630"
+  },
+  "unchanged_runtime_scope": "All other top-level runtime function/class ASTs, including adapter_config, standing_instructions, RoomPreprocessor, BudgetLedger, probe_registration, and worker behavior definitions; protocol/task/budget/permission source bytes unchanged."
+}

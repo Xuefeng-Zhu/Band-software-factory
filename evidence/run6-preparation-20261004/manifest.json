@@ -1,0 +1,415 @@
+{
+  "created_at": "2026-10-05T00:23:35.442521+00:00",
+  "factory_commit": "9469c6da87f4445350eb28564459846d52df0b66",
+  "files": [
+    {
+      "bytes": 908,
+      "path": "budget-carry-forward.json",
+      "sha256": "cd6c50a1db33aff35afad02601f59f4d30d7d89d0d93db5a6540524280f69e53",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/budget-carry-forward.json"
+    },
+    {
+      "bytes": 3190,
+      "path": "docker-capacity-observation.json",
+      "sha256": "c7cfb34d1bbe788ca4c5ac137720f4e32bc9cbf08b18557ce01b03caa16c5452",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/docker-capacity-observation.json"
+    },
+    {
+      "bytes": 145951,
+      "path": "doctor-latest.json",
+      "sha256": "375a8b4cdce3c5877b3a0444ba1f8ca2ab1ea99c2427bedc260ce5a8c2fbf86e",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/doctor-latest.json"
+    },
+    {
+      "bytes": 5849,
+      "path": "factory.yaml",
+      "sha256": "59e7add7b303d070e9d02f6cf8c76c7b30540e4f97201cc1da9da6de71b557da",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml"
+    },
+    {
+      "bytes": 146574,
+      "path": "freeze/latest.json",
+      "sha256": "8b66e9f3d9d648047b60c2d30ba2934702623c4361bd5a38d08cdb90e0b83e6a",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze/latest.json"
+    },
+    {
+      "bytes": 146574,
+      "path": "freeze-20261005T002238Z-a7d060891f/manifest.json",
+      "sha256": "8b66e9f3d9d648047b60c2d30ba2934702623c4361bd5a38d08cdb90e0b83e6a",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/freeze-20261005T002238Z-a7d060891f/manifest.json"
+    },
+    {
+      "bytes": 415,
+      "path": "initial-scaffold.json",
+      "sha256": "9760185ed7889a4d92c6c590d046086a82443758abd5831f4019289da5a1bb71",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/initial-scaffold.json"
+    },
+    {
+      "bytes": 2520,
+      "path": "instruction-inheritance-audit.json",
+      "sha256": "f78cf3be9b1015cf15f791baca789379e069061f3e6f5695f1a80622d2fb8497",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/instruction-inheritance-audit.json"
+    },
+    {
+      "bytes": 2252,
+      "path": "judged-room.json",
+      "sha256": "02947b26b3a84cf6af01fe1dd38481f6da388d789527956fe5f4d8ae4526fda1",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/judged-room.json"
+    },
+    {
+      "bytes": 2174,
+      "path": "launch-proposal.json",
+      "sha256": "9868fb12087d2162dda26728223f7ff4510063fe9a88f5fc441f88d8a0ddfb5c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/launch-proposal.json"
+    },
+    {
+      "bytes": 2213,
+      "path": "permissions/assigned-2026-10-05T001438.053389+0000.json",
+      "sha256": "4f21459574c9ec31cd956def81f942764a99c9d8a59504359b0e80c9922c33d5",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-2026-10-05T001438.053389+0000.json"
+    },
+    {
+      "bytes": 1291,
+      "path": "permissions/assigned-invocation.json",
+      "sha256": "9c1d3348f9c577ec09db55490968a6446f925a60f3476b258cbc0446f5327cb9",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-invocation.json"
+    },
+    {
+      "bytes": 4415,
+      "path": "permissions/assigned-workspace.py",
+      "sha256": "ed5a0745b95938f21bc3ea8b339a5ff5b80484e9b5740df40e850a7b97721fba",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-workspace.py"
+    },
+    {
+      "bytes": 4646,
+      "path": "permissions/browser-adapter-20261005T001444Z.json",
+      "sha256": "f77300953d1835772735dfaa5e693f0a1ef0508ca25b1e19de0121dbf4bc59dd",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/browser-adapter-20261005T001444Z.json"
+    },
+    {
+      "bytes": 1282,
+      "path": "permissions/browser-invocation.json",
+      "sha256": "beed0d29ac62fd8434d270993639e8277c0a634e606cb77383591e189d42a23c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/browser-invocation.json"
+    },
+    {
+      "bytes": 6642,
+      "path": "permissions/build-adapter-20261005T001441Z.json",
+      "sha256": "edc3dfc45380ef61a690b0849c09f59dd9e7a526ea73c177219f96afae89fd50",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/build-adapter-20261005T001441Z.json"
+    },
+    {
+      "bytes": 2271,
+      "path": "permissions/build-invocation.json",
+      "sha256": "917891979752727d83fa2d7831537b57a71e662e52aca18e3a47ff5677e72ee8",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/build-invocation.json"
+    },
+    {
+      "bytes": 4419,
+      "path": "permissions/cleanup-adapter-20261005T001448Z.json",
+      "sha256": "179440a544b2374ed860c60a05c052497a2166ad8751524d8127993f78a5ceb9",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/cleanup-adapter-20261005T001448Z.json"
+    },
+    {
+      "bytes": 1153,
+      "path": "permissions/cleanup-invocation.json",
+      "sha256": "3b1982ef8a1f6e7db625f8c6445f25621047cda10729506a1c14f8e4dd98019d",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/cleanup-invocation.json"
+    },
+    {
+      "bytes": 5850,
+      "path": "permissions/configuration-before-submission-verification.yaml",
+      "sha256": "9c27dc8e3759f701fb0f28813b70d8127f9f026a37e4c8ea253213ad88ec9e1f",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-before-submission-verification.yaml"
+    },
+    {
+      "bytes": 1578,
+      "path": "permissions/configuration-revalidation.json",
+      "sha256": "9d63fae5423a1c155ea4e6e814182bd25f085395134c97e71dca8b2dab0d49bb",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/configuration-revalidation.json"
+    },
+    {
+      "bytes": 10670,
+      "path": "permissions/container-probe.py",
+      "sha256": "34443edbd414b4959cfd91c3b9c141d1074539688dea4a185796d9119006392c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/container-probe.py"
+    },
+    {
+      "bytes": 649,
+      "path": "permissions/model-discovery.json",
+      "sha256": "3af0b164d08ca066023c248ada6daec284367ec9bacae1bc1456ce45309177d8",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/model-discovery.json"
+    },
+    {
+      "bytes": 13403,
+      "path": "permissions/permission-observations.json",
+      "sha256": "ca8d49cf74faac05f399a379067b295b0f4c4bbe717a4448de235982e21235f2",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/permission-observations.json"
+    },
+    {
+      "bytes": 3280,
+      "path": "permissions/probe-input-audit.json",
+      "sha256": "78039695977d4252b9049fb4fb79b5fa6897c978dfeb6ebee9a42037b1a9e995",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/probe-input-audit.json"
+    },
+    {
+      "bytes": 8430,
+      "path": "permissions/quick-adapter-20261005T001439Z.json",
+      "sha256": "96949b9046a651afa2e29f5c8be672db5e2ebe05a83d85dd0b42be3b3b18979c",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/quick-adapter-20261005T001439Z.json"
+    },
+    {
+      "bytes": 3043,
+      "path": "permissions/quick-invocation.json",
+      "sha256": "b46bbaaf335bf5dc69f55dc9c3fea4b88264d62ed62170af19cd39a208224817",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/quick-invocation.json"
+    },
+    {
+      "bytes": 4048,
+      "path": "permissions/run-probes.py",
+      "sha256": "1af3a149ab67cd54abcdd52c4864621993e91293e328c261a5593ea6313aabf3",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/run-probes.py"
+    },
+    {
+      "bytes": 18570,
+      "path": "permissions/source-lock-before-probe-reconciliation.json",
+      "sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/source-lock-before-probe-reconciliation.json"
+    },
+    {
+      "bytes": 1046,
+      "path": "permissions/source-lock-history-initial.json",
+      "sha256": "c397e1165539db81e863dddcf2c5270417b80bb4b8e2e053200e2489e861afa7",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/source-lock-history-initial.json"
+    },
+    {
+      "bytes": 481,
+      "path": "permissions/subscription-auth.json",
+      "sha256": "f0b415e623313b023744f4c6b5c8a0ad4ff006be0814a944d3c5afa9074954be",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/subscription-auth.json"
+    },
+    {
+      "bytes": 6118,
+      "path": "permissions/summarize.py",
+      "sha256": "e42f08de015749f91cdf2e0b622686e5fca5c93cc935311986822359a4420452",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/summarize.py"
+    },
+    {
+      "bytes": 4586,
+      "path": "permissions/summary.json",
+      "sha256": "14b40d990a5f984e1348967e653c44ee36087e083a8534411c8952bbee4107d7",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/summary.json"
+    },
+    {
+      "bytes": 729,
+      "path": "preparation-authorization.json",
+      "sha256": "982030a749810474084ad4053a5b148287d3fadc40a402c1d5c17227c299fb5d",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/preparation-authorization.json"
+    },
+    {
+      "bytes": 153635,
+      "path": "preparation-doctor-invocation.json",
+      "sha256": "c759ac6627a9197ec207559a629b83d0605aa59a88e01da04b27129c574ed5bb",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/preparation-doctor-invocation.json"
+    },
+    {
+      "bytes": 851,
+      "path": "preparation-freeze-invocation.json",
+      "sha256": "0ef3d3ef1182308d17f4c9b385e4684f8c67402436699f077d4c59d1e28af4af",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/preparation-freeze-invocation.json"
+    },
+    {
+      "bytes": 1816,
+      "path": "preparation-gates-summary.json",
+      "sha256": "f0bab30de50f79ad2531358e000b69903f8f3d737261b38de3adee9d50a42180",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/preparation-gates-summary.json"
+    },
+    {
+      "bytes": 1039,
+      "path": "preparation-generate-tasks-invocation.json",
+      "sha256": "57ae4bff3c6032275ddb831a795ed932472e5c2b8f894bf8bdadcd4ad3f8c137",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/preparation-generate-tasks-invocation.json"
+    },
+    {
+      "bytes": 730,
+      "path": "preparation-validate-invocation.json",
+      "sha256": "5f4ad787b6ffd32f7ea2c7fe6de25ca107cdac45d116b18df20bf6cdd0c24b1f",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/preparation-validate-invocation.json"
+    },
+    {
+      "bytes": 450,
+      "path": "preparation-verify-tasks-invocation.json",
+      "sha256": "8d22de6b9338178f7723d74e41cc10c80917abd78db35617c186c6405fce10dc",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/preparation-verify-tasks-invocation.json"
+    },
+    {
+      "bytes": 117783,
+      "path": "readiness/historical-observations.json",
+      "sha256": "7ab9ea4f125d725841ec9f386b0c233bcdaddcc0c139dc8de3346b5acd8e74f6",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/historical-observations.json"
+    },
+    {
+      "bytes": 3037,
+      "path": "readiness/judged-before-dispatch.json",
+      "sha256": "b9e02be68099e8e25ccb6ceaf35fbb23a8d774a904c5a26beb3fbec34265aa24",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/judged-before-dispatch.json"
+    },
+    {
+      "bytes": 133169,
+      "path": "readiness/observations.json",
+      "sha256": "29eab2a8a31a37f4272e9f97a12e8c943e545e82a4b0b907accd9948ea8ea968",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/observations.json"
+    },
+    {
+      "bytes": 107378,
+      "path": "readiness/rehearsal-latest.json",
+      "sha256": "1a441e3d936c5bda1159259be6776823473d3ba93ce917aac5e7390c57ec1182",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/rehearsal-latest.json"
+    },
+    {
+      "bytes": 653,
+      "path": "readiness/rehearsal-read-invocation.json",
+      "sha256": "9a345bcac0093542e3a054664495cc6ba9dfe370aae3fedc969831128d615990",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/rehearsal-read-invocation.json"
+    },
+    {
+      "bytes": 1527,
+      "path": "readiness/room-provenance-audit.json",
+      "sha256": "6bc2b017311a700545da774df7aad31f996df3189349f48289dec8b665b79d88",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/room-provenance-audit.json"
+    },
+    {
+      "bytes": 4939,
+      "path": "readiness-carry-forward-audit.json",
+      "sha256": "312b891f22dd2f6ed1064a62439610273b84782fa9a507b9ec805b1ef616f0ac",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness-carry-forward-audit.json"
+    },
+    {
+      "bytes": 1049,
+      "path": "registration-proof-audit.json",
+      "sha256": "74c4fd382a440ae9a69c60a3faadeb6da1404232b003c33ab663c7836a06235b",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/registration-proof-audit.json"
+    },
+    {
+      "bytes": 7618,
+      "path": "runtime/budget-subscription.json",
+      "sha256": "efe71024ea10d68daec17f64c43d5bbc9d4dc86234aca7a70d24746970fe2af2",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/budget-subscription.json"
+    },
+    {
+      "bytes": 13754,
+      "path": "runtime/models.json",
+      "sha256": "69a41261e014fa157bf98acb8b3786172e6ffddc75b2ca1a71b47e038ad84373",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/models.json"
+    },
+    {
+      "bytes": 2509,
+      "path": "runtime/registration-judged-invocation.json",
+      "sha256": "cf9f081a3542957831010b0e8f1ad31e0af5b4b0dd52e5a5e7f2b8739898afde",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/registration-judged-invocation.json"
+    },
+    {
+      "bytes": 1854,
+      "path": "runtime/registration-judged.json",
+      "sha256": "1ed0ec18c6791a982a69e5c2dde612ef20cd319dfdbfb0a47ddb91852e3f7cb4",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/registration-judged.json"
+    },
+    {
+      "bytes": 2515,
+      "path": "runtime/registration-rehearsal-invocation.json",
+      "sha256": "a0ef0d82277b1f5373fd1334ad6ac343751642ca53149a292d5ba8d38e24bd73",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/registration-rehearsal-invocation.json"
+    },
+    {
+      "bytes": 1857,
+      "path": "runtime/registration-rehearsal.json",
+      "sha256": "af3817e8f540b09cdf66c47cd8f1e73929085c11384ce6b72526b8e9939e95cd",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/runtime/registration-rehearsal.json"
+    },
+    {
+      "bytes": 10058,
+      "path": "semantic-review.json",
+      "sha256": "762a6e26205078f907d5da5803d07c9f3e329bb6e9fbe80c23c85881051b28ac",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/semantic-review.json"
+    },
+    {
+      "bytes": 4908,
+      "path": "semantic-root-review.json",
+      "sha256": "4df67b0039b4a8b6ed290ff6ffa73f62b8ab174418566c105f41539ca92fc31e",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/semantic-root-review.json"
+    },
+    {
+      "bytes": 1811,
+      "path": "source-lock-history.json",
+      "sha256": "2f9bb243142e3256fb2d493f2268814e2f30ff23c93e7a633ef44d4879007e87",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock-history.json"
+    },
+    {
+      "bytes": 18570,
+      "path": "source-lock.json",
+      "sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock.json"
+    },
+    {
+      "bytes": 1169,
+      "path": "submission-access-observation.json",
+      "sha256": "bf99b9eedd5f534f0adb5ad9064f0ef42f7363df1015ac1493911337939e64e6",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/submission-access-observation.json"
+    },
+    {
+      "bytes": 60954,
+      "path": "tasks/judged-all-stages.md",
+      "sha256": "5d65c6cf441e7e402f354a42b8d9ce1f987d8cf421d19c640f879b71b9fefddf",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-all-stages.md"
+    },
+    {
+      "bytes": 30264,
+      "path": "tasks/judged-stage-1.md",
+      "sha256": "a4656ad81ef6d9279c5d52c1a09b962f1f464fc4fd939388d753a26846759cf2",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-stage-1.md"
+    },
+    {
+      "bytes": 41042,
+      "path": "tasks/judged-stage-2.md",
+      "sha256": "6b52a91fc7d4bdcd1a4989a91df898082fbb603756790adaec7b73820ea3dba6",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-stage-2.md"
+    },
+    {
+      "bytes": 54426,
+      "path": "tasks/judged-stage-3.md",
+      "sha256": "250e1ecb7cc3e02efe4057465b09808de6d62c86ab03b529b2391e2e7d9480b1",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-stage-3.md"
+    },
+    {
+      "bytes": 61026,
+      "path": "tasks/judged-stage-4.md",
+      "sha256": "a82023caae6ec5acb89f3884987c6eca6dacd7e24223e8a24c380aac8db83211",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-stage-4.md"
+    },
+    {
+      "bytes": 14722,
+      "path": "tasks/rehearsal-toy.md",
+      "sha256": "dab6229e3f044802ec251233dea99f87293a9029224351593587eff297c016ff",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/rehearsal-toy.md"
+    },
+    {
+      "bytes": 5429,
+      "path": "tasks/task-manifest.json",
+      "sha256": "dff8535f12ade8feb06e232ddee2937f2596bedafcd5acdf09024ebc1f41c01f",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/task-manifest.json"
+    },
+    {
+      "bytes": 631,
+      "path": "utility-tests.json",
+      "sha256": "d86a4da9fa15dd6b2437680aa3970efd1bb0f9e200624d4a44c7a7da109f5b3a",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/utility-tests.json"
+    },
+    {
+      "bytes": 41118,
+      "path": "utility-tests.log",
+      "sha256": "c73de1b8dce48df0406549340937d95e75bcbc854128077c36ff7ac8bdae7a38",
+      "source": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/utility-tests.log"
+    }
+  ],
+  "scope": "Private preparation snapshot; unapproved and not dispatched. Referenced historical evidence retains its original scope."
+}

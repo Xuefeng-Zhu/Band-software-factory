@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "branch_matches": true,
+    "entries_after": [
+      ".git"
+    ],
+    "entries_before": [
+      ".git"
+    ],
+    "git_metadata_write": "PASS",
+    "git_status": "",
+    "local_HEAD_exists": false,
+    "ls_remote_exit": 0,
+    "ls_remote_stderr": "",
+    "ls_remote_stdout": "",
+    "object_store_unchanged": true,
+    "objects_after": "count: 0\nsize: 0\nin-pack: 0\npacks: 0\nsize-pack: 0\nprune-packable: 0\ngarbage: 0\nsize-garbage: 0\n",
+    "objects_before": "count: 0\nsize: 0\nin-pack: 0\npacks: 0\nsize-pack: 0\nprune-packable: 0\ngarbage: 0\nsize-garbage: 0\n",
+    "remote_matches": true,
+    "workspace_write": "PASS"
+  },
+  "command_exec": {
+    "exitCode": 0,
+    "stderr": "",
+    "stdout": "{\"workspace_write\": \"PASS\", \"git_metadata_write\": \"PASS\", \"entries_before\": [\".git\"], \"entries_after\": [\".git\"], \"git_status\": \"\", \"branch_matches\": true, \"remote_matches\": true, \"local_HEAD_exists\": false, \"ls_remote_exit\": 0, \"ls_remote_stdout\": \"\", \"ls_remote_stderr\": \"\", \"object_store_unchanged\": true, \"objects_before\": \"count: 0\\nsize: 0\\nin-pack: 0\\npacks: 0\\nsize-pack: 0\\nprune-packable: 0\\ngarbage: 0\\nsize-garbage: 0\\n\", \"objects_after\": \"count: 0\\nsize: 0\\nin-pack: 0\\npacks: 0\\nsize-pack: 0\\nprune-packable: 0\\ngarbage: 0\\nsize-garbage: 0\\n\"}\n"
+  },
+  "command_exit": 0,
+  "configuration_path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+  "configuration_sha256": "5a89b0520e26bdd304ca559a9348ec353426ce4c54df9926ea13d22383e3b7d5",
+  "created_at": "2026-10-05T00:14:38.053389+00:00",
+  "cwd": "/Users/frank/mygit/Tablekeeper/result-run-6",
+  "mode": "judged",
+  "model_turns": 0,
+  "probe_sha256": "ed5a0745b95938f21bc3ea8b339a5ff5b80484e9b5740df40e850a7b97721fba",
+  "room_messages": 0,
+  "runtime_source_sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c",
+  "scope": "Exact assigned checkout temporary workspace/Git metadata writes removed and git ls-remote of configured branch; no source, commits, fetched objects, Agent or turn",
+  "source_lock_sha256": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf",
+  "status": "PASS"
+}

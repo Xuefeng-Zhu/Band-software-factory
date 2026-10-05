@@ -1,0 +1,158 @@
+{
+  "recovery_membership_attempts": {
+    "9ba849f873600abec7841c486c9f0312": 1
+  },
+  "recovery_seen_events": {
+    "9ba849f873600abec7841c486c9f0312": [
+      "ac7381c8-0911-441d-9202-6c6fa1df8c8b",
+      "976a947a-bf87-4a86-b7da-1c438f786aa9",
+      "7aebf4a2-8f03-4ce4-ae9e-d96936a91fa1",
+      "e23c1783-0c93-4129-b948-2f1186178bb2"
+    ],
+    "d9bfcea7e1ca1480da210a6728679272": [
+      "9b91d90e-7868-4831-9118-a1076872613c",
+      "61fed7b8-c3e7-400e-a636-b37cf76a7c1e"
+    ]
+  },
+  "room_id": null,
+  "room_ids": [
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08",
+    "12cde259-0fcd-4551-84c7-52c443cb5600",
+    "3a604b75-7691-4b8f-9d86-e7b2fdf66846",
+    "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac",
+    "64e39921-47b1-4f55-8180-54edf5946c34",
+    "7ceee003-80f3-4dbc-abc1-d3a8a13d1800",
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81",
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378",
+    "d98df99d-77ad-441d-875c-6e38cdbef39d"
+  ],
+  "room_started_epochs": {
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08": 1791139367.698096,
+    "12cde259-0fcd-4551-84c7-52c443cb5600": 1791148046.201921,
+    "3a604b75-7691-4b8f-9d86-e7b2fdf66846": 1791085729.563489,
+    "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac": 1791134533.644233,
+    "64e39921-47b1-4f55-8180-54edf5946c34": 1791094616.6771672,
+    "7ceee003-80f3-4dbc-abc1-d3a8a13d1800": 1791088215.4345238,
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81": 1791095927.783212,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378": 1791049765.700445
+  },
+  "room_stopped_reasons": {
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08": "Final Stage1 rejected; repair ceiling exhausted; closed after complete acknowledged handoffs.",
+    "12cde259-0fcd-4551-84c7-52c443cb5600": "Run5 final Stage1 rejected; three repairs exhausted; workers stopped with terminal evidence preserved.",
+    "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac": "completed communication-only rehearsal; no further work authorized",
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378": "conservative whole-session stage time budget exhausted"
+  },
+  "room_turns": {
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08": {
+      "architect": 8,
+      "backend": 33,
+      "pm": 98,
+      "qa": 8,
+      "reviewer": 21
+    },
+    "12cde259-0fcd-4551-84c7-52c443cb5600": {
+      "architect": 12,
+      "backend": 27,
+      "designer": 1,
+      "frontend": 1,
+      "pm": 119,
+      "qa": 29,
+      "reviewer": 14
+    },
+    "3a604b75-7691-4b8f-9d86-e7b2fdf66846": {
+      "pm": 1
+    },
+    "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac": {
+      "backend": 17,
+      "pm": 5
+    },
+    "64e39921-47b1-4f55-8180-54edf5946c34": {
+      "architect": 1,
+      "backend": 3,
+      "designer": 1,
+      "frontend": 1,
+      "pm": 9,
+      "qa": 1,
+      "reviewer": 1
+    },
+    "7ceee003-80f3-4dbc-abc1-d3a8a13d1800": {
+      "architect": 7,
+      "backend": 5,
+      "pm": 22
+    },
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81": {
+      "architect": 18,
+      "backend": 27,
+      "designer": 10,
+      "pm": 99,
+      "qa": 6,
+      "reviewer": 14
+    },
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378": {
+      "architect": 7,
+      "backend": 2,
+      "designer": 4,
+      "frontend": 4,
+      "pm": 47,
+      "qa": 4,
+      "reviewer": 7
+    }
+  },
+  "started_epoch": 1791049765.700437,
+  "stopped_reason": "Run6 preparation only; fresh model-work and exact-once dispatch authorization required.",
+  "token_threads": {
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08:architect:01a1083b-e9a2-75d1-84e8-c760161eb0bc": 1810587,
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08:backend:01a10846-6cd7-7c00-b827-f092fa407ab8": 15835518,
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08:pm:01a10839-cbd5-7700-b8af-f0a78c783582": 33294264,
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08:qa:01a1085e-e41a-7582-b71f-28f55bd3e14b": 1770447,
+    "0b882870-2e49-4d39-bc40-2bf47cc46f08:reviewer:01a10872-3d00-7711-8de8-f47e175fda38": 6960706,
+    "12cde259-0fcd-4551-84c7-52c443cb5600:architect:01a108ce-e454-74a0-99a5-f9248977f1ae": 5769216,
+    "12cde259-0fcd-4551-84c7-52c443cb5600:backend:01a108da-efc1-7c43-a4ce-2043a6af4dc8": 12764974,
+    "12cde259-0fcd-4551-84c7-52c443cb5600:designer:01a10941-0146-7192-aed7-e056bfbd463e": 53059,
+    "12cde259-0fcd-4551-84c7-52c443cb5600:frontend:01a10941-2e35-77c3-ac5a-daaa976712a2": 52823,
+    "12cde259-0fcd-4551-84c7-52c443cb5600:pm:01a108be-3814-7d02-981e-8f474d538fb1": 42379597,
+    "12cde259-0fcd-4551-84c7-52c443cb5600:qa:01a108c0-9a57-7ed0-bcb5-2971e0dabdac": 10549893,
+    "12cde259-0fcd-4551-84c7-52c443cb5600:reviewer:01a1091d-89b6-7822-8a10-b769c229d0f3": 4262049,
+    "3a604b75-7691-4b8f-9d86-e7b2fdf66846:pm:01a10507-59bd-7683-bca3-5a56e9663642": 528741,
+    "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac:backend:01a107f1-50b1-7641-b09e-28fc741a218c": 1440362,
+    "4ec4749d-5dff-4d41-ae9b-5a5bc82462ac:pm:01a107f0-0ad5-7cd1-bc75-fae85d27aea4": 491049,
+    "64e39921-47b1-4f55-8180-54edf5946c34:architect:01a10593-4970-7520-bfe7-57a76626caea": 114848,
+    "64e39921-47b1-4f55-8180-54edf5946c34:backend:01a10592-ad1d-7581-9dba-927da7b0b67d": 366282,
+    "64e39921-47b1-4f55-8180-54edf5946c34:designer:01a10591-5e83-7a73-8f92-51bab5b37fe0": 114686,
+    "64e39921-47b1-4f55-8180-54edf5946c34:frontend:01a10590-c40d-7a01-bb58-6be6f5f2f7ac": 114585,
+    "64e39921-47b1-4f55-8180-54edf5946c34:pm:01a1058e-f4ea-7781-8c51-d5caab961077": 893700,
+    "64e39921-47b1-4f55-8180-54edf5946c34:qa:01a10591-a58c-7be2-8562-b947f2fa78b0": 114897,
+    "64e39921-47b1-4f55-8180-54edf5946c34:reviewer:01a10592-2f61-7531-a5e4-b676cec6bb49": 86497,
+    "7ceee003-80f3-4dbc-abc1-d3a8a13d1800:architect:01a1052f-eb29-7301-a64b-901233a83258": 1532371,
+    "7ceee003-80f3-4dbc-abc1-d3a8a13d1800:backend:01a1053a-9388-7002-bb28-596470a15f0a": 1006057,
+    "7ceee003-80f3-4dbc-abc1-d3a8a13d1800:pm:01a1052d-4832-75f2-8dc4-938472bb7edb": 4105980,
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81:architect:01a105a6-aca1-7da1-bb97-6e23cb4af8a9": 4520764,
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81:backend:01a105b5-2e30-7f80-9999-9539a67c463c": 9941147,
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81:designer:01a10609-61a1-7d23-8a5b-3952918e6a89": 1992933,
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81:pm:01a105a2-f68d-7a33-820d-cc4db463756b": 35846303,
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81:qa:01a105cd-2c7b-7b62-b082-7748cba28561": 1230945,
+    "9b059f6b-ee17-44bd-99cd-0277cf602a81:reviewer:01a105da-4c50-7262-8e3a-f7d403701950": 4732946,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:architect:01a10355-0e0f-7de3-b532-6a285e9d18d4": 928324,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:architect:01a103fa-0572-7292-9bba-a441ab5d5ae8": 119531,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:backend:01a10358-bd50-7cf3-b444-b042b6535015": 772813,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:designer:01a10371-a774-7580-b4d5-6075aba31a13": 1006424,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:frontend:01a10374-1ce3-79b0-81a3-d3ae0b705e6c": 1144983,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:pm:01a102e2-95e2-7ae3-b987-3526e8cb947c": 952004,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:pm:01a10352-6cc3-7021-ae03-0459de234fd7": 7607746,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:pm:01a103ea-4749-7920-b52a-c0ffff33eab5": 125382,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:pm:01a103f9-8ee9-7562-b9b3-d49add252ba4": 200350,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:qa:01a1035f-1ac9-7dd1-a4d6-54bd9d209207": 1027460,
+    "cc7450cf-e003-4b3d-9baf-2d3ceb97d378:reviewer:01a10369-a62c-7a32-b1d5-5daabc58e9a4": 2951467
+  },
+  "tokens": 221514710,
+  "turns": {
+    "architect": 53,
+    "backend": 114,
+    "designer": 16,
+    "frontend": 6,
+    "pm": 400,
+    "qa": 48,
+    "reviewer": 57
+  },
+  "updated_at": "2026-10-05T00:12:48.714343+00:00"
+}

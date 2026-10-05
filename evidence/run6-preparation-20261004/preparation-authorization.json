@@ -1,0 +1,16 @@
+{
+  "cumulative_token_ceiling": 286011577,
+  "deadline_utc": "2026-10-05T02:35:03.700437Z",
+  "dispatches_authorized": 0,
+  "global_memory_cap_mib": 2048,
+  "model_work_approved": false,
+  "preparation_authorized": true,
+  "prior_ledger": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run5-preparation-20261004/runtime/budget-subscription.json",
+    "sha256": "13631cb7cde562f45029c659cff613fc5f61c1d256bb77717dc41ecfbf2394f2"
+  },
+  "prior_run_dispatch_consumed": true,
+  "recorded_at": "2026-10-05T00:11:32.065355+00:00",
+  "scope": "Continue authorized preparation for a future attempt; no new model work or judged dispatch approved. User deferred video and capped OrbStack at 2048 MiB.",
+  "video": "DEFERRED_BY_USER"
+}

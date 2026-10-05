@@ -1,0 +1,44 @@
+{
+  "active_seat_limit": 1,
+  "approved": false,
+  "blockers": [
+    "Approve finite active-work and consumption budgets before live seat work (budgets.approved=false)",
+    "Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required."
+  ],
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "configured_capacity_floor_mib": 1977,
+  "created_at": "2026-10-05T00:23:35.265846+00:00",
+  "cumulative_reported_tokens": 221514710,
+  "deadline_utc": "2026-10-05T02:35:03.700437Z",
+  "dispatches_authorized": 0,
+  "factory_commit": "9469c6da87f4445350eb28564459846d52df0b66",
+  "freeze_sha256": "8b66e9f3d9d648047b60c2d30ba2934702623c4361bd5a38d08cdb90e0b83e6a",
+  "global_memory_cap_mib": 2048,
+  "limitations": [
+    "Historical rehearsal evidence retains its original scope; changed mandates and resource guard were not live model-rehearsed.",
+    "Configured capacity floor checks measured daemon total only, not free memory or all four workloads.",
+    "Prior global configuration drift was not reconstructed; new baseline and effective permissions checked separately.",
+    "Stage completion is unverified; the remaining time and tokens do not guarantee all four stages.",
+    "Guide does not explicitly address publishing independent local attempts as branches in one repository."
+  ],
+  "max_total_tokens": 286011577,
+  "mode": "all",
+  "model_turns_started": 0,
+  "product": {
+    "branch": "run-6",
+    "repository_url": "https://github.com/Xuefeng-Zhu/Tablekeeper.git"
+  },
+  "product_code_seeded": false,
+  "proposed_dispatches": 1,
+  "remaining_reported_tokens": 64496867,
+  "result": "/Users/frank/mygit/Tablekeeper/result-run-6",
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "status": "PREPARED_PENDING_FRESH_APPROVAL",
+  "task": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/tasks/judged-all-stages.md",
+    "sha256": "5d65c6cf441e7e402f354a42b8d9ce1f987d8cf421d19c640f879b71b9fefddf"
+  },
+  "utility_tests_passed": 254,
+  "video": "DEFERRED_BY_USER"
+}

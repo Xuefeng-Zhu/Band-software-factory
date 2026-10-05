@@ -1,0 +1,70 @@
+{
+  "exact_previous_reconstructed_after_removing_only_new_trust_sections": true,
+  "global_after_sha256": "5bdeef0292b6d0dc9529e1d390da4cb6f2bd6f5a259b35339c07577ee865d91a",
+  "global_before_sha256": "f643637fb58523d915c005de174e1e974e792a5d5130d79a7b22aab6a6a49e10",
+  "global_file_manually_written": false,
+  "new_trust_key_paths": [
+    "projects./Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/scratch.trust_level"
+  ],
+  "observed_at": "2026-10-05T00:14:49.261897+00:00",
+  "scope": "Preparation-only probes. No model turns, room messages, Agent creation or model/config/budget/source-lock changes. SDK may auto-add exact probed-directory trust metadata.",
+  "source_lock_manually_written": false,
+  "steps": [
+    {
+      "command_exec_exit": null,
+      "error": null,
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/assigned-2026-10-05T001438.053389+0000.json",
+      "phase": "assigned",
+      "process_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "command_exec_exit": 0,
+      "error": null,
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/quick-adapter-20261005T001439Z.json",
+      "phase": "quick",
+      "process_exit_code": 0,
+      "status": null
+    },
+    {
+      "command_exec_exit": 0,
+      "error": null,
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/build-adapter-20261005T001441Z.json",
+      "phase": "build",
+      "process_exit_code": 0,
+      "status": null
+    },
+    {
+      "command_exec_exit": 0,
+      "error": null,
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/browser-adapter-20261005T001444Z.json",
+      "phase": "browser",
+      "process_exit_code": 0,
+      "status": null
+    },
+    {
+      "command_exec_exit": 0,
+      "error": null,
+      "evidence": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/cleanup-adapter-20261005T001448Z.json",
+      "phase": "cleanup",
+      "process_exit_code": 0,
+      "status": null
+    }
+  ],
+  "watched_after_sha256": {
+    "default_config": "729b9461b8ff462d6101da994ac679fa9eeede7babd0f5638b055396ed60df47",
+    "default_ledger": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e",
+    "default_source_lock": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+    "scoped_config": "9c27dc8e3759f701fb0f28813b70d8127f9f026a37e4c8ea253213ad88ec9e1f",
+    "scoped_ledger": "efe71024ea10d68daec17f64c43d5bbc9d4dc86234aca7a70d24746970fe2af2",
+    "scoped_source_lock": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf"
+  },
+  "watched_before_sha256": {
+    "default_config": "729b9461b8ff462d6101da994ac679fa9eeede7babd0f5638b055396ed60df47",
+    "default_ledger": "a308c22c960c1f6f7f714eeb18ec99244fc925033d482657d95770ab8a4c5e1e",
+    "default_source_lock": "d3f76b3b943326f85d2f126b619e1d59be434f0c5ab8103d67418f1575d54d1a",
+    "scoped_config": "9c27dc8e3759f701fb0f28813b70d8127f9f026a37e4c8ea253213ad88ec9e1f",
+    "scoped_ledger": "efe71024ea10d68daec17f64c43d5bbc9d4dc86234aca7a70d24746970fe2af2",
+    "scoped_source_lock": "fe3622dd6d336776a79b3a572e4e19826b317d52561911c160b90f18e698d5bf"
+  }
+}

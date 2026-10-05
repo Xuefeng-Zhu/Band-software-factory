@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-05T00:19:58.577808+00:00",
+  "status": "PASS",
+  "scope": "Offline semantic review of all seven actual factorykit.runtime.standing_instructions custom-section outputs. Not launch readiness, live execution or product acceptance.",
+  "reviewer": "Codex preparation subagent /root/run4_branch_metadata",
+  "reviewer_independence_disclosure": "This subagent authored the four PR2 additions. A separate toolkit subagent reviewed that diff with no material finding before merge, and the parent reports an independent PR review. This compositional rendering audit is not an author-independent product release gate.",
+  "factory_commit": "9469c6da87f4445350eb28564459846d52df0b66",
+  "factory_clean_at_review": true,
+  "configuration": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "file_sha256": "59e7add7b303d070e9d02f6cf8c76c7b30540e4f97201cc1da9da6de71b557da",
+    "canonical_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+    "budgets_sha256": "bd0b3634d58e8dc6ff766ae5334e13818050fd81823a7637a4d60384bd8ec1e0",
+    "budgets_approved": false
+  },
+  "source_lock": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/source-lock.json",
+    "sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac"
+  },
+  "renderer": {
+    "function": "factorykit.runtime.standing_instructions",
+    "function_sha256": "c83f4f8b6a76ff53b94376ee2e79b0b89edd8e22e0490be15ef15d0767f85a34",
+    "method": "Called the inert local function directly for each configured seat; did not construct adapters, initialize app servers, read credentials, call BAND or invoke any worker/model."
+  },
+  "input_files": [
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/runtime.py",
+      "bytes": 71892,
+      "sha256": "41ba08afee40058a788724d0f2094045266b70607f6cd9f5e644c962d38ddb1c"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/factorykit/tasks.py",
+      "bytes": 16525,
+      "sha256": "d949f232e04119b171833af00da6be4b12072cf4efb91f6bfcd5873c8ffd20c3"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/collaboration.md",
+      "bytes": 8027,
+      "sha256": "631129ca46cca5c9f8c46499d740524aa0a6d3ca5d906ed89b6dcd6f35daa46b"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/git-and-review.md",
+      "bytes": 2708,
+      "sha256": "09e212f1ff2c4f8c31383e721e4fb9e3ce4d1b5098cfe4596bd3a1e0ef8b31f7"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/protocols/evidence-and-limits.md",
+      "bytes": 3542,
+      "sha256": "950cf571b1c41b5e2a211af499aac260d41709ea891b09ee457233764e166ce6"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md",
+      "bytes": 7444,
+      "sha256": "f692a4a9186877590f1942cc828a039790f2d1ea5283fdd38fe6b919dd3dcf6e"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md",
+      "bytes": 5722,
+      "sha256": "c613e55d3d2af4c20814d305270290c93979df12d367532db022141a42bab1e5"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md",
+      "bytes": 5761,
+      "sha256": "f01611180f98a11e8711ba7c85f7e30f79d338063cd3243de02652ccf2c5ea65"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md",
+      "bytes": 6451,
+      "sha256": "c31fbb19f863ae3c33ddbec54fa7c4c6b5bc03be91718b931203c0c8a5e85aa1"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md",
+      "bytes": 5664,
+      "sha256": "2faf05aaba37d42ed37bc4eb8f976b4f2d627eac90cdcf8820f839aa671b51ae"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md",
+      "bytes": 6459,
+      "sha256": "65ab42251a370c9cc897769659fb43c911556ac75132371114c58898811332fe"
+    },
+    {
+      "path": "/Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md",
+      "bytes": 6564,
+      "sha256": "51d92f5e42b3d0825081f59e0212b5c3c6e5e3093bbb141c790f1a1dc8284cc9"
+    }
+  ],
+  "launcher_boundary_sha256": "6a90cda43946aa7a0a0eed6425e71bc1c68ed1e616fbab76eb64ee3c2eb469ae",
+  "shared_mandate_contract_identical_across_seats": true,
+  "rendered_seats": [
+    {
+      "seat": "pm",
+      "utf8_bytes": 25288,
+      "sha256": "bc34d309ce81bb842ebdc4ca9cba578269f8e2ae60a52ad632c5b37292a23efc",
+      "model": "gpt-6-astra",
+      "harness": "Codex",
+      "configured_max_repairs": 3,
+      "approved": false,
+      "generic_keyword_hits": 0,
+      "credential_pattern_hits": 0
+    },
+    {
+      "seat": "architect",
+      "utf8_bytes": 23573,
+      "sha256": "84ca242e90d54afbd0611e388df8d2194576929cd5c439a7eb0768c14006797b",
+      "model": "gpt-6-astra",
+      "harness": "Codex",
+      "configured_max_repairs": 3,
+      "approved": false,
+      "generic_keyword_hits": 0,
+      "credential_pattern_hits": 0
+    },
+    {
+      "seat": "designer",
+      "utf8_bytes": 23611,
+      "sha256": "5dae9dbde9929b999cc241932940a06e0989da95023c05c9894a5f2aa7aa91e2",
+      "model": "gpt-6-astra",
+      "harness": "Codex",
+      "configured_max_repairs": 3,
+      "approved": false,
+      "generic_keyword_hits": 0,
+      "credential_pattern_hits": 0
+    },
+    {
+      "seat": "backend",
+      "utf8_bytes": 24300,
+      "sha256": "65988156c8f61acb1c492b4aea0f7d18ffcdfb0182d47fc2b815546ec0b23d5d",
+      "model": "gpt-6-astra",
+      "harness": "Codex",
+      "configured_max_repairs": 3,
+      "approved": false,
+      "generic_keyword_hits": 0,
+      "credential_pattern_hits": 0
+    },
+    {
+      "seat": "frontend",
+      "utf8_bytes": 23514,
+      "sha256": "2c2eb063b87d50abef694de66654ca97fbc112537991be43896b398d8b938a20",
+      "model": "gpt-6-astra",
+      "harness": "Codex",
+      "configured_max_repairs": 3,
+      "approved": false,
+      "generic_keyword_hits": 0,
+      "credential_pattern_hits": 0
+    },
+    {
+      "seat": "qa",
+      "utf8_bytes": 24303,
+      "sha256": "28ff8cb35573c89767a7f489c4d487ab1145f4c4600a31f7be23433f7bb0c659",
+      "model": "gpt-6-astra",
+      "harness": "Codex",
+      "configured_max_repairs": 3,
+      "approved": false,
+      "generic_keyword_hits": 0,
+      "credential_pattern_hits": 0
+    },
+    {
+      "seat": "reviewer",
+      "utf8_bytes": 24414,
+      "sha256": "df30fec9d72c2d7bc7229f60bf44932b5021525475cd1039e0d4f8f753c6c05f",
+      "model": "gpt-6-astra",
+      "harness": "Codex",
+      "configured_max_repairs": 3,
+      "approved": false,
+      "generic_keyword_hits": 0,
+      "credential_pattern_hits": 0
+    }
+  ],
+  "rendered_fingerprint_sha256": "7e18c2f67644bb69eb89906083b803c4062b237191e5add2fcc4b02a4358fcf3",
+  "checks": [
+    {
+      "id": "generic_instructions",
+      "status": "PASS",
+      "evidence": "Each seat mandate and all three shared protocols were read compositionally, including the identical shared mandate contract, launcher boundary and rendered roster/budgets. New paragraphs describe requirement relationships, independent oracles, counterexamples, valid controls, side effects and coverage without product entities or seeded tests. Keyword/credential scans are supplementary only."
+    },
+    {
+      "id": "independent_acceptance",
+      "status": "PASS",
+      "evidence": "Planning review explicitly is not product acceptance. Owner and QA evidence cannot replace the separate Reviewer decision; exact committed candidates, clean separate review checkout, required isolation, and full handoffs remain required. Reviewer cannot repair and approve the same candidate. Coordinator cannot waive required behavior or a failed gate."
+    },
+    {
+      "id": "repair_and_consumption_limits",
+      "status": "PASS",
+      "evidence": "Every actual render injects max_repairs=3, max_active_seats=1 and approved=false from the same configuration. Shared protocols prioritize task-configured limits, require changed diagnosis after repeated failures, forbid exceeding finite limits, and require bounded outcomes. New paragraphs do not add attempts or reset budgets."
+    },
+    {
+      "id": "truthful_contribution_and_rehearsal_scope",
+      "status": "PASS",
+      "evidence": "Roster metadata describes configured seats. Standing text says connected smoke execution remains unverified until checked, membership is insufficient proof of responsiveness, admission does not establish collaboration or acceptance, and nominal ownership must not simulate contribution. No new live rehearsal or material-contribution claim is made."
+    },
+    {
+      "id": "required_user_interface_and_evidence",
+      "status": "PASS",
+      "evidence": "Designer retains rendered review tied to revision/viewports/browser evidence; Frontend distinguishes mocked, real-browser and connected-service proof. Missing tools, skipped/empty suites and generated configuration cannot prove integration."
+    }
+  ],
+  "material_findings": [],
+  "limits_and_notes": [
+    "The unchanged mandate fallback mentions at most two repairs, while the shared protocol prioritizes task-configured limits and the rendered numeric ceiling is three. This audit confirms no permission to exceed three; it does not prove agents will consume all three attempts or resolve every interpretation identically.",
+    "Reviewed the factory-injected custom section, not a live SDK/Codex conversation, inherited host configuration layers, prior conversation history or all possible dynamic tool messages.",
+    "No task packet was dispatched or used to create product code/tests. No runtime, BAND messages, auth probes, model inference, dependency installation or new rehearsal was performed.",
+    "No empirical guarantee that these process additions prevent a future invariant defect. Seven configured seats do not establish seven material contributors.",
+    "Budgets remain unapproved. Hashes bind this snapshot only; later input or configuration changes require review reconciliation. No launch authorization is provided."
+  ]
+}

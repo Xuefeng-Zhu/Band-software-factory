@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/scripts/factory",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "generate-tasks"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:22:33.201961+00:00",
+  "model_turns": 0,
+  "room_messages": 0,
+  "started_at": "2026-10-05T00:22:33.022399+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"PASS\",\n  \"tasks\": {\n    \"rehearsal-toy.md\": \"dab6229e3f044802ec251233dea99f87293a9029224351593587eff297c016ff\",\n    \"judged-all-stages.md\": \"5d65c6cf441e7e402f354a42b8d9ce1f987d8cf421d19c640f879b71b9fefddf\",\n    \"judged-stage-1.md\": \"a4656ad81ef6d9279c5d52c1a09b962f1f464fc4fd939388d753a26846759cf2\",\n    \"judged-stage-2.md\": \"6b52a91fc7d4bdcd1a4989a91df898082fbb603756790adaec7b73820ea3dba6\",\n    \"judged-stage-3.md\": \"250e1ecb7cc3e02efe4057465b09808de6d62c86ab03b529b2391e2e7d9480b1\",\n    \"judged-stage-4.md\": \"a82023caae6ec5acb89f3884987c6eca6dacd7e24223e8a24c380aac8db83211\"\n  }\n}\n"
+}

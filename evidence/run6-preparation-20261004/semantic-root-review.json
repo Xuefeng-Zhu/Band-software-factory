@@ -1,0 +1,77 @@
+{
+  "all_seven_rendered_sections_checked": true,
+  "base_factory_commit": "00411eae4680f493b8c308c3267e499930cdd47e",
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "created_at": "2026-10-05T00:21:49.424693+00:00",
+  "current_factory_commit": "9469c6da87f4445350eb28564459846d52df0b66",
+  "files": [
+    {
+      "current_rendered_sha256": "bc34d309ce81bb842ebdc4ca9cba578269f8e2ae60a52ad632c5b37292a23efc",
+      "new_paragraphs": [
+        "Before dependent implementation, ask the Reviewer to challenge the highest-risk requirement relationships and proposed independent oracles in the existing requirements map. Schedule those checks at the first runnable fixed candidate within the existing budgets. Planning review does not constitute product acceptance."
+      ],
+      "prior_rendered_with_same_metadata_sha256": "9e464f43750d9952432f0f856005acd1db52a51bf4f7145fc78e81aaa8ea1008",
+      "removed_paragraphs": [],
+      "seat": "pm"
+    },
+    {
+      "current_rendered_sha256": "84ca242e90d54afbd0611e388df8d2194576929cd5c439a7eb0768c14006797b",
+      "new_paragraphs": [],
+      "prior_rendered_with_same_metadata_sha256": "84ca242e90d54afbd0611e388df8d2194576929cd5c439a7eb0768c14006797b",
+      "removed_paragraphs": [],
+      "seat": "architect"
+    },
+    {
+      "current_rendered_sha256": "5dae9dbde9929b999cc241932940a06e0989da95023c05c9894a5f2aa7aa91e2",
+      "new_paragraphs": [],
+      "prior_rendered_with_same_metadata_sha256": "5dae9dbde9929b999cc241932940a06e0989da95023c05c9894a5f2aa7aa91e2",
+      "removed_paragraphs": [],
+      "seat": "designer"
+    },
+    {
+      "current_rendered_sha256": "65988156c8f61acb1c492b4aea0f7d18ffcdfb0182d47fc2b815546ec0b23d5d",
+      "new_paragraphs": [
+        "For each repair, identify the violated requirement and shared mechanism. Check the original reproduction, a distinct counterexample, and a valid control. Where values are correlated, include individually valid fields in an invalid combination, while preserving legitimate transformations permitted by the requirements."
+      ],
+      "prior_rendered_with_same_metadata_sha256": "fb32de0ffd949cc78ad5a03a2d7a430940355bc3dd09476eab471dbb9b4c4b16",
+      "removed_paragraphs": [],
+      "seat": "backend"
+    },
+    {
+      "current_rendered_sha256": "2c2eb063b87d50abef694de66654ca97fbc112537991be43896b398d8b938a20",
+      "new_paragraphs": [],
+      "prior_rendered_with_same_metadata_sha256": "2c2eb063b87d50abef694de66654ca97fbc112537991be43896b398d8b938a20",
+      "removed_paragraphs": [],
+      "seat": "frontend"
+    },
+    {
+      "current_rendered_sha256": "28ff8cb35573c89767a7f489c4d487ab1145f4c4600a31f7be23433f7bb0c659",
+      "new_paragraphs": [
+        "Include a few high-risk relationships and state-transition invariants in the existing input-class map. Give each an independent oracle, a violating case and a valid control. Check the required result and side effects. Distinguish observed example coverage from remaining invariant coverage."
+      ],
+      "prior_rendered_with_same_metadata_sha256": "6cb8a83ed0b6083813375bddb9a9b7674a6e4aeb7f2a1bf3ac8b90d87e2107c6",
+      "removed_paragraphs": [],
+      "seat": "qa"
+    },
+    {
+      "current_rendered_sha256": "df30fec9d72c2d7bc7229f60bf44932b5021525475cd1039e0d4f8f753c6c05f",
+      "new_paragraphs": [
+        "Challenge the highest-risk proposed oracles before dependent implementation. At the earliest runnable fixed candidate and after repair, independently derive a case beyond the submitted examples that exercises the same requirement. Retain exact-candidate release verification and report untested obligations explicitly."
+      ],
+      "prior_rendered_with_same_metadata_sha256": "8212a6e3da150d0e4db1aa3affa87e1d97a487d7d21e96ae2c0ec594f951d801",
+      "removed_paragraphs": [],
+      "seat": "reviewer"
+    }
+  ],
+  "findings": [],
+  "limitations": [
+    "Static rendered-delta review built on the prior seven-seat baseline; not a new live rehearsal or claim of seven material contributors.",
+    "Original fallback of two repairs is subordinate to the explicit configured three-repair ceiling."
+  ],
+  "protocols_and_task_launcher_boundary_unchanged": true,
+  "renderer_ast_unchanged": true,
+  "reviewer": "root; did not author the four mandate additions",
+  "semantic_assessment": "All four exact additions were independently read by root: generic requirement relationships, counterexamples, valid controls and early independent verification; no domain detail, implementation prescription, weakened acceptance or extra repair authority. The other three sections and common protocols are unchanged from the prior reviewed baseline. All budgets remain unapproved with maximum repairs three.",
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "status": "PASS_SCOPED_INDEPENDENT_RENDERED_DELTA_REVIEW"
+}

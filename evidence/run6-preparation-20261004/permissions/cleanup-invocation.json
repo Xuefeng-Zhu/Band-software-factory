@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/Users/frank/mygit/Tablekeeper/factory/.venv/bin/python",
+    "-B",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/container-probe.py",
+    "cleanup",
+    "--adapter",
+    "--config",
+    "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/factory.yaml",
+    "--mode",
+    "judged"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:14:49.260002+00:00",
+  "started_at": "2026-10-05T00:14:48.229240+00:00",
+  "stderr": "",
+  "stdout": "{\n  \"evidence\": \"/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/permissions/cleanup-adapter-20261005T001448Z.json\",\n  \"checks\": {\n    \"container_check\": {\n      \"exit_code\": 1,\n      \"stdout\": \"\\n\",\n      \"stderr\": \"Error response from daemon: No such container: factory-browser-permission-a23b760144\\n\"\n    },\n    \"image_remove\": {\n      \"exit_code\": 0,\n      \"stdout\": \"Untagged: factory-permission-probe:96b254b454\\nDeleted: sha256:aa272b529b7358574e1d2a954efe942b2bcef758c8c85a0645c6b5a23b760144\\n\",\n      \"stderr\": \"\"\n    }\n  },\n  \"error\": null,\n  \"command_exec_exit\": 0\n}\n"
+}

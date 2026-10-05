@@ -1,0 +1,90 @@
+{
+  "argv": [
+    "/Applications/Band.app/Contents/MacOS/band",
+    "room",
+    "messages",
+    "d98df99d-77ad-441d-875c-6e38cdbef39d",
+    "--page",
+    "1",
+    "--json"
+  ],
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "content_types": [
+    "str",
+    "str",
+    "str",
+    "str",
+    "str",
+    "str",
+    "str"
+  ],
+  "events": [
+    {
+      "id": "9d342031-018f-4575-ba35-8a870ce972cc",
+      "inserted_at": "2026-10-05T00:11:36.721706Z",
+      "message_type": "participant",
+      "sender_id": "974df2f1-b5e8-4873-a1ce-93658e0404a4",
+      "system_event": "participant_added",
+      "updated_at": "2026-10-05T00:11:36.721706Z"
+    },
+    {
+      "id": "6e1b9648-5933-46cf-83c7-857f02a40863",
+      "inserted_at": "2026-10-05T00:11:36.900102Z",
+      "message_type": "participant",
+      "sender_id": "a6ee2e58-62bd-4ba9-b573-f164bb3e41d2",
+      "system_event": "participant_added",
+      "updated_at": "2026-10-05T00:11:36.900102Z"
+    },
+    {
+      "id": "b261c981-8ba4-40c8-9f87-7fb5836dab7e",
+      "inserted_at": "2026-10-05T00:11:37.081747Z",
+      "message_type": "participant",
+      "sender_id": "b2f43e4e-7727-44bb-9154-6cdc2b781749",
+      "system_event": "participant_added",
+      "updated_at": "2026-10-05T00:11:37.081747Z"
+    },
+    {
+      "id": "027350e6-6db5-4664-8bb5-fc650ae9e23a",
+      "inserted_at": "2026-10-05T00:11:37.253954Z",
+      "message_type": "participant",
+      "sender_id": "5ba8923d-b3d9-4b56-818f-3bef60ea617d",
+      "system_event": "participant_added",
+      "updated_at": "2026-10-05T00:11:37.253954Z"
+    },
+    {
+      "id": "23d7be29-49f8-4327-9a47-01a2c288b8a9",
+      "inserted_at": "2026-10-05T00:11:37.414336Z",
+      "message_type": "participant",
+      "sender_id": "8e450576-69cd-416c-bc2a-a3a771f020d3",
+      "system_event": "participant_added",
+      "updated_at": "2026-10-05T00:11:37.414336Z"
+    },
+    {
+      "id": "a52737fc-6b6c-45a6-9d45-3dc8a2d9b60c",
+      "inserted_at": "2026-10-05T00:11:37.613271Z",
+      "message_type": "participant",
+      "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+      "system_event": "participant_added",
+      "updated_at": "2026-10-05T00:11:37.613271Z"
+    },
+    {
+      "id": "6f433dea-d74a-460d-bc34-1844761da264",
+      "inserted_at": "2026-10-05T00:11:37.793102Z",
+      "message_type": "participant",
+      "sender_id": "7f9319c7-ef4f-4c9b-88aa-97e1edb15c60",
+      "system_event": "participant_added",
+      "updated_at": "2026-10-05T00:11:37.793102Z"
+    }
+  ],
+  "exit_code": 0,
+  "has_more": false,
+  "message_count": 7,
+  "messages_sent": 0,
+  "model_turns": 0,
+  "observed_at": "2026-10-05T00:23:01.913203+00:00",
+  "page": 1,
+  "room_id": "d98df99d-77ad-441d-875c-6e38cdbef39d",
+  "scope": "Fresh public event metadata only; content omitted. Inspect system event types before concluding room remains undispatched.",
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "started_at": "2026-10-05T00:23:01.643310+00:00"
+}

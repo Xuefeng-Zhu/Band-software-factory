@@ -1,0 +1,9 @@
+{
+  "configuration_sha256": "200ba0ae8a7600ff2c39a9ba697c12f6303ccc7b3606f9ad28bef4e34dc5c600",
+  "model_turns": 0,
+  "observed_at": "2026-10-05T00:16:34.180203+00:00",
+  "room_messages": 0,
+  "scope": "Fresh supported account/read and config/read; ChatGPT type plus effective OpenAI/ChatGPT login required at all configured workspaces. No personal values retained.",
+  "source_lock_sha256": "a8628300437211d50af622fc2a112e9addcb8976641ded31c60f42a588d326ac",
+  "status": "PASS"
+}

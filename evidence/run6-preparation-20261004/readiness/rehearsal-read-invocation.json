@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "/Applications/Band.app/Contents/MacOS/band",
+    "room",
+    "messages",
+    "64e39921-47b1-4f55-8180-54edf5946c34",
+    "--page",
+    "1",
+    "--json"
+  ],
+  "exit_code": 0,
+  "finished_at": "2026-10-05T00:16:57.891691+00:00",
+  "messages_sent": 0,
+  "model_turns": 0,
+  "room_id": "64e39921-47b1-4f55-8180-54edf5946c34",
+  "snapshot": {
+    "path": "/Users/frank/mygit/Tablekeeper/runs/run6-preparation-20261004/readiness/rehearsal-latest.json",
+    "sha256": "1a441e3d936c5bda1159259be6776823473d3ba93ce917aac5e7390c57ec1182"
+  },
+  "started_at": "2026-10-05T00:16:57.571334+00:00",
+  "whole_parsed_snapshot_matches_run5": true
+}
