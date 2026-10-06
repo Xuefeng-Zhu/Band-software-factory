@@ -1,4 +1,4 @@
-"""Official BAND CodexAdapter integration and narrowly owned process lifecycle.
+"""Maintained BAND harness adapters and narrowly owned process lifecycle.
 
 All network/model operations are explicit CLI commands. Importing this module is inert.
 """
@@ -20,14 +20,20 @@ import re
 import secrets
 import signal
 import stat
+import sys
 import subprocess
+import sys
 import tempfile
 import time
 from typing import Any
 
 import psutil
 import yaml
-from .budgets import API_ENVIRONMENT, budget_blockers, codex_argv, persisted_budget_blockers, room_scope, subscription_auth_errors, subscription_only
+from .budgets import (
+    API_ENVIRONMENT, accounting_ledger_conflicts, budget_blockers,
+    budget_ledger_path, codex_argv, persisted_budget_blockers, room_scope,
+    session_accounting, subscription_auth_errors, subscription_only,
+)
 
 SDK_VERSION = "4.0.0"
 EMITTED = ("tool_calls", "task_events", "usage")
@@ -70,6 +76,11 @@ def get_config(args) -> dict:
 
 async def discover_models(config: dict) -> dict:
     """Only initialize + model/list; never create a thread or inference turn."""
+    from .harnesses import selected_harness, discover_models as discover_alternate
+    if selected_harness(config) != "codex":
+        result = await discover_alternate(config)
+        return {**result, "configuration_sha256": fingerprint(config),
+                "checked_at": timestamp(), "inference_started": False}
     from band.integrations.codex.stdio_client import CodexStdioClient
     # Discovery reads the existing account without imposing login restrictions.
     # Subscription authentication is checked separately before any seat launch.
@@ -92,7 +103,7 @@ async def discover_models(config: dict) -> dict:
                     break
             else:
                 raise RuntimeError("model/list pagination exceeded bound")
-            return {"checked_at": timestamp(), "method": "initialize + model/list", "inference_started": False, "sdk_version": SDK_VERSION, "codex_version": config["runtime"].get("version"), "server": initialized, "models": models}
+            return {"checked_at": timestamp(), "harness": "codex", "method": "initialize + model/list", "inference_started": False, "sdk_version": SDK_VERSION, "codex_version": config["runtime"].get("version"), "server": initialized, "models": models}
     finally:
         await client.close()
 
@@ -107,7 +118,9 @@ def cmd_discover(args) -> int:
 
 
 def register_commands(subparsers) -> None:
-    parser = subparsers.add_parser("discover-models", help="Read authenticated Codex model/list; no inference")
+    from .runtime_profiles import register_commands as register_profiles
+    register_profiles(subparsers)
+    parser = subparsers.add_parser("discover-models", help="Read the selected harness model catalog; no inference")
     parser.add_argument("--output")
     parser.set_defaults(func=cmd_discover)
     parser = subparsers.add_parser("probe-registration", help="Read BAND identity and room membership; no model or room messages")
@@ -115,7 +128,10 @@ def register_commands(subparsers) -> None:
     parser.set_defaults(func=cmd_probe)
     parser = subparsers.add_parser("start-seats", help="Start gated BAND seats as one owned supervisor")
     parser.add_argument("--mode", choices=["rehearsal", "judged"], default="rehearsal")
+    parser.add_argument("--hold-admission", action="store_true", help="Rehearsal only: connect all seven seats, then wait for owned release")
     parser.set_defaults(func=cmd_start)
+    parser = subparsers.add_parser("release-admission", help="Release one exact owned warm-ready rehearsal supervisor")
+    parser.set_defaults(func=cmd_release_admission)
     parser = subparsers.add_parser("authorize-recovery", help="Record an explicitly approved one-use rehearsal stage-limit exception; no seats start")
     parser.add_argument("--operator-id", required=True)
     parser.add_argument("--approval-reference", required=True)
@@ -127,6 +143,9 @@ def register_commands(subparsers) -> None:
     parser.set_defaults(func=cmd_start_recovery, mode="rehearsal")
     parser = subparsers.add_parser("seat-status", help="Inspect the owned supervisor and local budget state")
     parser.set_defaults(func=cmd_status)
+    parser = subparsers.add_parser("factory-status", help="Read current runtime, progress, source and acceptance evidence without inference")
+    parser.add_argument("--mode", choices=["rehearsal", "judged"], default="judged")
+    parser.set_defaults(func=cmd_factory_status)
     parser = subparsers.add_parser("stop-seats", help="Stop only identity-verified factory-owned processes")
     parser.set_defaults(func=cmd_stop)
 
@@ -140,6 +159,8 @@ def main() -> int:
     worker.add_argument("--mode", required=True, choices=["rehearsal", "judged"])
     worker.add_argument("--owner-token", required=True)
     worker.add_argument("--recovery-id")
+    worker.add_argument("--source-snapshot")
+    worker.add_argument("--hold-admission", action="store_true")
     worker.set_defaults(func=cmd_serve)
     args = parser.parse_args()
     try:
@@ -238,6 +259,7 @@ def load_recovery(config, identity, owner_token=None):
 
 def cmd_authorize_recovery(args):
     config = get_config(args)
+    require_codex_continuity(config)
     if not args.confirm_stage_limit_exception:
         raise GateError("Explicit approval of the expired stage-limit exception is required.")
     with launch_lock(config):
@@ -370,8 +392,21 @@ def credentials(config: dict) -> dict:
 def preflight_runtime(config: dict, mode: str = "rehearsal", *, effective_budgets: dict | None = None,
                       effective_models: dict | None = None, model_catalog: dict | None = None) -> list[str]:
     from .common import FactoryError
+    from .harnesses import selected_harness, validate_selection, model_errors, adapter_class
     from .validation import observations, runtime_permission_arguments, docker_resource_requirements, docker_resource_check
-    errors = []
+    errors = validate_selection(config)
+    selected = selected_harness(config)
+    profile = config.get("runtime_profile", {})
+    source_rooms = profile.get("source_rooms", [])
+    if isinstance(source_rooms, dict):
+        source_rooms = list(source_rooms.values())
+    if profile.get("source_session_consumed") and config["band"].get(f"{mode}_room_id") in source_rooms:
+        errors.append("Selected profile inherits a consumed room; prepare a fresh attempt and reconcile its retained accounting before launch.")
+    if selected != "codex":
+        try:
+            adapter_class(config)
+        except ImportError:
+            errors.append("Install the locked BAND harness dependencies with scripts/bootstrap.py before starting seats.")
     rt, bd = config["runtime"], config["band"]
     limits = config["budgets"] if effective_budgets is None else effective_budgets
     budget_config = dict(config, budgets=limits)
@@ -405,8 +440,7 @@ def preflight_runtime(config: dict, mode: str = "rehearsal", *, effective_budget
             errors.append(f"Verified agent permission evidence is required: {check} (host-only checks do not suffice).")
     errors.extend(budget_blockers(limits))
     errors.extend(subscription_auth_errors(config))
-    if subscription_only(limits) and any((state_dir(config) / f"budget-{other}.json").exists() for other in ("rehearsal", "judged")):
-        errors.append("Subscription aggregate accounting cannot migrate existing per-mode ledgers automatically; reconcile prior consumption before authorizing a new session.")
+    errors.extend(accounting_ledger_conflicts(budget_config))
     assigned = [room_workspace(config, seat, mode) for seat in config["seats"]]
     if limits.get("max_active_seats", 3) > 1 and len(assigned) != len(set(assigned)):
         errors.append("Shared checkouts require max_active_seats=1; use the real single-writer fallback.")
@@ -429,24 +463,32 @@ def preflight_runtime(config: dict, mode: str = "rehearsal", *, effective_budget
         if any(path != root and path.is_relative_to(root) for root in roots):
             errors.append("Seat worktrees must live outside result and rehearsal result directories.")
     if limits.get("max_active_seats", 3) > 2:
-        errors.append("At most two seats may run Codex turns concurrently.")
+        errors.append("At most two seats may run harness turns concurrently.")
     try:
         credentials(config)
     except GateError as error:
         errors.append(str(error))
     models_path = state_dir(config) / "models.json"
-    models = json.loads(models_path.read_text()).get("models", []) if models_path.is_file() else []
+    catalog = json.loads(models_path.read_text()) if models_path.is_file() else {}
+    models = catalog.get("models", [])
     if model_catalog is not None:
+        catalog = model_catalog
         models = model_catalog.get("models", [])
+    if selected != "codex":
+        errors.extend(model_errors(config, catalog))
+        if catalog.get("configuration_sha256") != fingerprint(config):
+            errors.append("Run discover-models after finalizing this profile; alternate model evidence does not match its configuration.")
+    elif catalog.get("harness", "codex") != "codex":
+        errors.append("Model catalog belongs to a different harness; run discover-models for Codex.")
     if effective_models is not None and set(effective_models) != {s["id"] for s in config["seats"]}:
         errors.append("Effective model mapping must include exactly the original seat roster.")
     known = {m.get("model", m.get("id")): m for m in models}
     for seat in config["seats"]:
         model = (effective_models.get(seat["id"]) if effective_models is not None
                  else seat.get("model") or rt.get("model"))
-        if not model or model not in known:
+        if selected == "codex" and (not model or model not in known):
             errors.append(f"Seat {seat['id']} needs an explicit model verified by discover-models.")
-        elif seat.get("reasoning_effort") not in {e.get("reasoningEffort") for e in known[model].get("supportedReasoningEfforts", [])}:
+        elif selected == "codex" and seat.get("reasoning_effort") not in {e.get("reasoningEffort") for e in known[model].get("supportedReasoningEfforts", [])}:
             errors.append(f"Seat {seat['id']} reasoning_effort is not advertised by that model.")
         if not seat.get("handle") or not seat.get("agent_id") or not seat.get("registration_verified"):
             errors.append(f"Seat {seat['id']} needs its real BAND handle/id and registration verification.")
@@ -502,6 +544,13 @@ def docker_environment(config: dict, seat: dict, mode: str) -> dict[str, str]:
 
 
 def adapter_config(config: dict, seat: dict, mode: str):
+    from .harnesses import selected_harness, alternate_adapter_config
+    if selected_harness(config) != "codex":
+        environment = {"GIT_AUTHOR_NAME": seat["git_name"], "GIT_COMMITTER_NAME": seat["git_name"],
+                       "GIT_AUTHOR_EMAIL": seat["git_email"], "GIT_COMMITTER_EMAIL": seat["git_email"],
+                       **docker_environment(config, seat, mode)}
+        return alternate_adapter_config(config, seat, mode, room_workspace(config, seat, mode),
+                                        standing_instructions(config, seat), environment)
     from band.adapters import CodexAdapterConfig
     from .validation import runtime_permission_arguments
     profile_args = runtime_permission_arguments(config["runtime"])
@@ -536,14 +585,26 @@ def adapter_config(config: dict, seat: dict, mode: str):
     return CodexAdapterConfig(**(defaults | options))
 
 
+def effective_budget_metadata(config):
+    limits = config["budgets"]
+    if limits.get("balance_only") is not True:
+        return limits
+    active = {key: value for key, value in limits.items()
+              if key in {"balance_only", "approved", "billing_mode", "spend_cap_usd", "max_active_seats",
+                         "api_billing_allowed", "provisioning_allowed", "accounting_scope"}
+              or key.endswith("_approved") or key.endswith("_allowed")}
+    return dict(active, time_token_turn_repair_limits_enforced=False)
+
+
 def standing_instructions(config: dict, seat: dict) -> str:
-    from .tasks import LAUNCHER_BOUNDARY
-    root = Path(config["paths"]["factory"])
-    sections = [Path(seat["mandate"]).read_text()]
+    from .tasks import launcher_boundary
+    from .source_snapshot import factory_source_root, snapshot_input_path
+    root = factory_source_root(config)
+    sections = [snapshot_input_path(config, seat["mandate"]).read_text()]
     sections.extend(path.read_text() for path in sorted((root / "protocols").glob("*.md")))
-    sections.append(LAUNCHER_BOUNDARY)
+    sections.append(launcher_boundary(config))
     roster = [{k: s.get(k) for k in ("id", "display_name", "handle", "agent_id", "model", "harness", "reasoning_effort")} for s in config["seats"]]
-    sections.append("# Frozen runtime metadata\n" + json.dumps({"seat": seat["id"], "roster": roster, "budgets": config["budgets"], "slash_commands": "disabled; model, reasoning and permissions are immutable"}, indent=2))
+    sections.append("# Frozen runtime metadata\n" + json.dumps({"seat": seat["id"], "roster": roster, "budgets": effective_budget_metadata(config), "slash_commands": "disabled; model, reasoning and permissions are immutable"}, indent=2))
     return "\n\n".join(sections)
 
 
@@ -555,9 +616,13 @@ def slash_command(content: str) -> bool:
 
 class RoomPreprocessor:
     """Supported Agent.create(preprocessor=) seam; filters before hydration/tools."""
-    def __init__(self, room: str | None, recovery=None):
+    def __init__(self, room: str | None, recovery=None, *, batching=None, halt=None, workflow_path=None, can_process=None):
         from band.preprocessing.default import DefaultPreprocessor
         self.room, self.recovery = room, recovery
+        self.batching, self.halt, self.workflow_path = batching, halt, workflow_path
+        self.can_process = can_process
+        if batching is not None and (recovery is not None or halt is None or workflow_path is None or can_process is None):
+            raise GateError("Batching requires its visible halt callback and normal fresh-run mode.")
         self.default = DefaultPreprocessor()
 
     async def process(self, ctx, event, agent_id):
@@ -568,10 +633,47 @@ class RoomPreprocessor:
             return None
         if self.recovery and not recovery_message_allowed(self.recovery, event.payload):
             return None
-        inp = await self.default.process(ctx=ctx, event=event, agent_id=agent_id)
-        if inp and slash_command(inp.msg.content):
+        if event.payload.sender_type == "Agent" and event.payload.sender_id == agent_id:
             return None
-        return inp
+        try:
+            decision = None
+            if self.batching:
+                if (agent_id != self.batching.scope['recipient_id']
+                        or (hasattr(ctx, 'room_id') and ctx.room_id != event.room_id)):
+                    raise GateError("Handoff execution context does not match its routed room and recipient.")
+                if not self.can_process():
+                    raise GateError("Stopped or expired run cannot process handoff input.")
+                from .handoff_batching import split_fragment
+                confirmed = None
+                if split_fragment(event.payload.content) is not None:
+                    # WS delivery can race the sender's REST response. Wait only
+                    # for the already-owned watchdog to confirm that same send;
+                    # never infer recipient authority from untrusted header text.
+                    for attempt in range(51):
+                        if not self.can_process():
+                            raise GateError("Stopped or expired run cannot await handoff authority.")
+                        state = json.loads(Path(self.workflow_path).read_text())
+                        confirmed = state['events'].get(event.payload.id)
+                        if confirmed is not None or attempt == 50:
+                            break
+                        await asyncio.sleep(0.1)
+                decision = self.batching.observe(event.payload, event_room_id=event.room_id, confirmed=confirmed)
+            if decision and decision.kind == 'skip':
+                return None  # The journal is durable before SDK mark_processed.
+            inp = await self.default.process(ctx=ctx, event=event, agent_id=agent_id)
+            if decision and decision.kind == 'complete':
+                if inp is None:
+                    raise GateError("Complete handoff was not hydrated; execution remains unclaimed.")
+                # Preserve actual ID/sender/time/tools/session metadata. Never
+                # normalize, strip, or re-split the verified raw payload.
+                inp = replace(inp, msg=replace(inp.msg, content=decision.content))
+            if inp and slash_command(inp.msg.content):
+                return None
+            return inp
+        except Exception:
+            if self.batching:
+                self.halt("inbound handoff preprocessing failed; preserve journal")
+            raise
 
 
 class BudgetLedger:
@@ -587,12 +689,12 @@ class BudgetLedger:
             if (len(active) != 2 or len(set(active)) != 2 or room not in active
                     or not set(active).issubset(self.allowed_rooms)
                     or len(set(self.allowed_rooms)) != len(self.allowed_rooms)):
-                raise GateError("Subscription ledger requires two distinct current rooms; archived rooms are accounting-only.")
+                raise GateError("Session ledger requires two distinct current rooms; archived rooms are accounting-only.")
         self.stop = asyncio.Event()
         self.semaphore = asyncio.Semaphore(int(limits["max_active_seats"]))
         self.data = json.loads(path.read_text()) if path.exists() else {"room_id": None if self.allowed_rooms else room, "room_ids": self.allowed_rooms, "started_epoch": None if self.allowed_rooms else time.time(), "turns": {}, "tokens": 0, "token_threads": {}, "stopped_reason": None}
         if self.allowed_rooms and (self.data.get("room_ids") != self.allowed_rooms or self.data.get("room_id") is not None):
-            raise GateError("Subscription ledger room scope changed; reconcile consumption before authorizing a new session.")
+            raise GateError("Session ledger room scope changed; reconcile consumption before authorizing a new session.")
         if not self.allowed_rooms and self.data["room_id"] != room:
             raise GateError("Budget ledger belongs to another room; select a new runs directory.")
         self.save()
@@ -605,11 +707,11 @@ class BudgetLedger:
         if self.data.get("stopped_reason"):
             return self.data["stopped_reason"]
         elapsed = time.time() - self.data["started_epoch"] if self.data["started_epoch"] is not None else 0
-        if elapsed >= self.limits["overall_timeout_seconds"]:
+        if not self.limits.get("balance_only") and elapsed >= self.limits["overall_timeout_seconds"]:
             return "overall time budget exhausted"
-        if self.data["tokens"] >= self.limits["max_total_tokens"]:
+        if not self.limits.get("balance_only") and self.data["tokens"] >= self.limits["max_total_tokens"]:
             return "observed token budget exhausted"
-        if seat and self.data["turns"].get(seat, 0) >= self.limits["max_turns_per_seat"]:
+        if not self.limits.get("balance_only") and seat and self.data["turns"].get(seat, 0) >= self.limits["max_turns_per_seat"]:
             return f"turn budget exhausted for {seat}"
         room_stop = self.data.get("room_stopped_reasons", {}).get(self.room) if self.allowed_rooms else None
         if room_stop and room_stop != STAGE_STOP:
@@ -628,7 +730,7 @@ class BudgetLedger:
             return None
         if room_stop:
             return room_stop
-        if stage_started is not None and time.time() - stage_started >= self.limits["stage_timeout_seconds"]:
+        if not self.limits.get("balance_only") and stage_started is not None and time.time() - stage_started >= self.limits["stage_timeout_seconds"]:
             return STAGE_STOP
         return None
 
@@ -656,19 +758,26 @@ class BudgetLedger:
             self.save()
         return True
 
-    def record(self, seat: str, metadata: dict):
+    def record(self, seat: str, metadata: dict, *, harness="codex", turn_id=None):
         # Codex task metadata has cumulative counters. Account deltas once per
         # thread, ignoring duplicate lifecycle/usage events and restart replay.
         thread = metadata.get("codex_thread_id")
         total = metadata.get("codex_total_tokens")
-        if thread and isinstance(total, int) and total >= 0:
+        if harness == "codex" and thread and type(total) is int and total >= 0:
             key = (self.room + ":" if self.allowed_rooms else "") + seat + ":" + thread
-            previous = self.data["token_threads"].get(key, 0)
-            self.data["tokens"] += max(0, total - previous)
-            self.data["token_threads"][key] = max(previous, total)
-            self.save()
-            if self.reason():
-                self.halt(self.reason())
+        else:
+            from .harness_usage import usage_record
+            observation = usage_record(metadata, turn_id=turn_id, harness=harness)
+            if observation is None:
+                return
+            identity, total = observation
+            key = (self.room + ":" if self.allowed_rooms else "") + seat + ":" + identity
+        previous = self.data["token_threads"].get(key, 0)
+        self.data["tokens"] += max(0, total - previous)
+        self.data["token_threads"][key] = max(previous, total)
+        self.save()
+        if self.reason():
+            self.halt(self.reason())
 
     def halt(self, reason: str):
         # Turn cleanup must not replace the global cause that initiated shutdown.
@@ -689,40 +798,65 @@ class BudgetLedger:
 
 
 def session_ledger(config: dict, mode: str, recovery=None) -> BudgetLedger:
-    """Subscription caps are shared across rehearsal and judged sessions."""
+    """Share opted-in session caps, including verification charged to rehearsal."""
     if mode not in ("rehearsal", "judged"):
         raise GateError("Only the current rehearsal or judged room can be active.")
     room = config["band"][f"{mode}_room_id"]
     if recovery and mode != "rehearsal":
         raise GateError("Judged recovery allowances are prohibited.")
-    if subscription_only(config["budgets"]):
-        if any((state_dir(config) / f"budget-{other}.json").exists() for other in ("rehearsal", "judged")):
-            raise GateError("Existing per-mode ledgers require explicit consumption reconciliation before subscription-only work.")
+    if errors := accounting_ledger_conflicts(config):
+        raise GateError("; ".join(errors))
+    if session_accounting(config["budgets"]):
         try:
             active, rooms = room_scope(config)
         except ValueError as error:
             raise GateError(str(error)) from None
-        path = state_dir(config) / "budget-subscription.json"
+        path = budget_ledger_path(config)
         if len(rooms) > len(active) and not path.exists():
             raise GateError("Archived room accounting requires its existing cumulative ledger; no reset is allowed.")
         return BudgetLedger(config["budgets"], path, room, allowed_rooms=rooms, recovery=recovery, active_rooms=active)
-    return BudgetLedger(config["budgets"], state_dir(config) / f"budget-{mode}.json", room)
+    return BudgetLedger(config["budgets"], budget_ledger_path(config, mode), room)
+
+
+def sync_request_guard_stop(config: dict, ledger: BudgetLedger) -> bool:
+    """Stop the factory when its owned HTTP guard has stopped or lost evidence."""
+    from .budgets import persisted_guard_blockers
+    blockers = persisted_guard_blockers(config, require_existing=True, allow_in_flight=True)
+    if not blockers:
+        return False
+    ledger.halt("Request budget guard blocked: " + "; ".join(blockers))
+    return True
+
+
+def workflow_requires_stop(workflow: dict, *, balance_only: bool) -> bool:
+    """A rejected confirmed receipt blocks acceptance, not dollar-only work."""
+    return workflow.get("state") == "blocked" and not (
+        balance_only and workflow.get("communication_advisory") is True
+        and not workflow.get("recovery_blocker"))
 
 
 class AuditedTools:
     """SDK-supported tools wrapper. Suppresses thoughts and observes task usage."""
-    def __init__(self, tools, ledger: BudgetLedger, seat: str, audit_path: Path, roster: list[dict] | None = None):
+    def __init__(self, tools, ledger: BudgetLedger, seat: str, audit_path: Path, roster: list[dict] | None = None,
+                 *, harness="codex", turn_id=None):
         self.tools, self.ledger, self.seat, self.audit_path = tools, ledger, seat, audit_path
         self.roster = roster or []
+        self.harness, self.turn_id = harness, turn_id
+        self.usage_observed = False
 
     def __getattr__(self, name):
         return getattr(self.tools, name)
 
+    def authorize_mcp_tool(self, tool_name, arguments):
+        """Apply the model-input boundary to maintained MCP direct dispatch too."""
+        from .harness_usage import is_trusted_metadata_key
+        metadata = arguments.get("metadata") or {}
+        if tool_name == "band_send_event" and any(is_trusted_metadata_key(k) for k in metadata):
+            raise GateError("Model-authored events cannot forge adapter accounting or thread metadata.")
+
     async def execute_tool_call_structured(self, tool_name, arguments):
         from band.runtime.tools.agent import AgentTools
-        metadata = arguments.get("metadata") or {}
-        if tool_name == "band_send_event" and any(k.startswith("codex_") or k == "band_usage" for k in metadata):
-            raise GateError("Model-authored events cannot forge adapter accounting or thread metadata.")
+        self.authorize_mcp_tool(tool_name, arguments)
         return await AgentTools.execute_tool_call_structured(self, tool_name, arguments)
 
     async def execute_tool_call(self, tool_name, arguments):
@@ -739,7 +873,7 @@ class AuditedTools:
             if value.get("id") == agent_id:
                 return {"id": agent_id, "name": matched["display_name"], "role": "member", "status": "already_in_room"}
         attempts = self.ledger.data.setdefault("membership_attempts", {})
-        if attempts.get(agent_id, 0) >= min(2, self.ledger.limits["max_repairs"]):
+        if getattr(self, "strict_membership_recovery", False) and attempts.get(agent_id, 0) >= min(2, self.ledger.limits["max_repairs"]):
             raise GateError("Bounded membership recovery is exhausted for this configured peer.")
         attempts[agent_id] = attempts.get(agent_id, 0) + 1
         self.ledger.save()
@@ -749,13 +883,36 @@ class AuditedTools:
         if message_type == "thought":
             return None
         metadata = metadata or {}
-        self.ledger.record(self.seat, metadata)
+        from .harness_usage import usage_record
+        reported_usage = usage_record(metadata, turn_id=self.turn_id, harness=self.harness)
+        if self.harness == "codex":
+            self.ledger.record(self.seat, metadata)
+        else:
+            self.ledger.record(self.seat, metadata, harness=self.harness, turn_id=self.turn_id)
+        if reported_usage is not None:
+            self.usage_observed = True
         self.audit_path.parent.mkdir(parents=True, exist_ok=True)
         with self.audit_path.open("a") as output:
             # Only structured execution data, never message content or thoughts.
-            safe = {k: v for k, v in metadata.items() if k in {"codex_event_type", "codex_thread_id", "codex_turn_id", "codex_room_id", "codex_turn_status", "codex_duration_s", "codex_total_tokens", "codex_input_tokens", "codex_output_tokens", "codex_reasoning_tokens", "codex_turn_total_tokens", "band_usage"}}
+            safe = {k: v for k, v in metadata.items() if k in {"codex_event_type", "codex_thread_id", "codex_turn_id", "codex_room_id", "codex_turn_status", "codex_duration_s", "codex_total_tokens", "codex_input_tokens", "codex_output_tokens", "codex_reasoning_tokens", "codex_turn_total_tokens", "band_usage", "claude_sdk_session_id", "opencode_session_id", "opencode_mcp_server_name", "opencode_room_id", "opencode_created_at", "factory_event_type", "factory_turn_status"}}
             output.write(json.dumps({"at": timestamp(), "seat": self.seat, "type": message_type, "metadata": safe}) + "\n")
         return await self.tools.send_event(content=content, message_type=message_type, metadata=metadata)
+
+    async def send_failure(self, failure):
+        # Mark the local turn even when the SDK's best-effort room report fails.
+        from band.runtime.tools.agent import AgentTools
+        self.terminal_status = "failed"
+        return await AgentTools.send_failure(self, failure)
+
+
+async def accounted_adapter_turn(callback, inp, wrapped):
+    """Do not admit later alternate turns after incomplete usage reporting."""
+    try:
+        return await callback(inp)
+    finally:
+        if wrapped.harness != "codex" and not wrapped.usage_observed:
+            wrapped.terminal_status = "failed"
+            wrapped.ledger.halt("Alternate harness usage was not reported; reconcile consumption before further turns")
 
 
 class RecoveryTools(AuditedTools):
@@ -950,9 +1107,10 @@ def require_ready(config, mode):
 
 def judged_launch_errors(config: dict) -> list[str]:
     """Connect judged seats only against the exact ready frozen launch."""
-    from .common import artifact_path, canonical, digest, verify_sources
+    from .common import artifact_path, canonical, digest, verify_sources, scoped_mandate_errors
     from .tasks import verify_tasks
     from .operations import pristine_result
+    from .validation import frozen_readiness_errors
     errors = persisted_budget_blockers(config, require_existing=True)
     freeze = Path(config["paths"]["runs"]) / "freeze/latest.json"
     if not freeze.is_file():
@@ -962,11 +1120,10 @@ def judged_launch_errors(config: dict) -> list[str]:
         errors.append("Judged start requires a READY_TO_LAUNCH freeze.")
     if frozen.get("configuration_sha256") != digest(canonical(config)):
         errors.append("Configuration changed after freeze.")
-    root = Path(config["paths"]["factory"]).resolve()
-    for name, expected in frozen.get("files", {}).items():
-        path = (root / name).resolve()
-        if not path.is_relative_to(root) or not path.is_file() or digest(path) != expected:
-            errors.append(f"Frozen input changed: {name}")
+    errors.extend(scoped_mandate_errors(config, frozen))
+    errors.extend(frozen_readiness_errors(config, frozen))
+    from .source_snapshot import frozen_source_errors
+    errors.extend(frozen_source_errors(config, frozen))
     lock_path = artifact_path(config, "source_lock")
     if not lock_path.is_file() or digest(lock_path) != frozen.get("source_lock_sha256"):
         errors.append("Configured source lock changed after freeze.")
@@ -995,7 +1152,24 @@ def cmd_start_recovery(args) -> int:
 
 def start_supervisor(args, recovery_id=None) -> int:
     config = get_config(args)
+    if not recovery_id and config["budgets"].get("balance_only") is not True:
+        from .progress import progress_policy
+        policy = progress_policy(config)
+        if policy is None:
+            raise GateError("Fresh sessions require a finite runnable-checkpoint progress policy")
+        if any(not Path(row["command"][0]).is_file() or not os.access(row["command"][0], os.X_OK)
+               for row in policy["milestones"]):
+            raise GateError("Configure each reviewed checkpoint executable before launching")
+    if recovery_id:
+        require_codex_continuity(config)
+    hold = bool(getattr(args, "hold_admission", False))
+    if hold and (args.mode != "rehearsal" or recovery_id or len(config["seats"]) != 7):
+        raise GateError("Admission hold requires a normal seven-seat rehearsal")
     require_ready(config, args.mode)
+    if (not recovery_id and len(config["seats"]) == 7
+            and config.get("runtime", {}).get("strict_membership_recovery") is True):
+        from .membership_gap import retained_startup_check
+        retained_startup_check(config, args.mode)
     with launch_lock(config):
         old = read_registry(config)
         if old and is_owned(old.get("parent", {}), old.get("token")):
@@ -1010,45 +1184,108 @@ def start_supervisor(args, recovery_id=None) -> int:
             fd = os.open(claim, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
             with os.fdopen(fd, "w") as output:
                 json.dump({"owner_token": token, "allowance_sha256": digest(recovery_path(config, recovery_id)), "claimed_at": timestamp()}, output)
-        command = [config["runtime"]["python"], "-m", "factorykit.runtime", "--config", str(Path(args.config).resolve()), "_serve", "--mode", args.mode, "--owner-token", token]
+        snapshot = None
+        if not recovery:
+            from .common import canonical, digest, artifact_path
+            from .source_snapshot import materialize_source_snapshot, source_inventory
+            if args.mode == "judged":
+                frozen = json.loads((Path(config["paths"]["runs"]) / "freeze/latest.json").read_text())
+            else:
+                from .tasks import verify_tasks
+                files, errors = source_inventory(config)
+                if errors:
+                    raise GateError("; ".join(errors))
+                frozen = {"files": files, "configuration_sha256": digest(canonical(config)),
+                          "source_lock_sha256": digest(artifact_path(config, "source_lock")),
+                          "tasks": verify_tasks(config)["tasks"]}
+                if "mandates" in config.get("artifacts", {}):
+                    frozen["mandate_files"] = {str(Path(s["mandate"]).resolve()): digest(Path(s["mandate"])) for s in config["seats"]}
+            snapshot = materialize_source_snapshot(config, frozen)
+        config_path = snapshot["config_path"] if snapshot else str(Path(args.config).resolve())
+        command = [config["runtime"]["python"], "-B", "-m", "factorykit.runtime", "--config", config_path, "_serve", "--mode", args.mode, "--owner-token", token]
+        if snapshot:
+            command.extend(["--source-snapshot", snapshot["root"]])
+        if hold:
+            command.append("--hold-admission")
         if recovery:
             command.extend(["--recovery-id", recovery_id])
         logfile = state_dir(config) / "supervisor.log"
         with logfile.open("ab") as output:
-            child = subprocess.Popen(command, cwd=config["paths"]["factory"], stdout=output, stderr=output, start_new_session=True)
+            child = subprocess.Popen(command, cwd=snapshot["source_root"] if snapshot else config["paths"]["factory"], stdout=output, stderr=output, start_new_session=True)
         record = {"token": token, "parent": process_identity(psutil.Process(child.pid)), "children": [], "mode": args.mode, "started_at": timestamp(), "config_sha256": fingerprint(config), "log": str(logfile)}
+        if snapshot:
+            record["source_snapshot"] = {k: snapshot[k] for k in ("root", "source_root", "manifest_sha256")}
         if recovery:
             record["recovery"] = {"id": recovery_id, "expires_epoch": recovery["expires_epoch"]}
         save_json(registry_path(config), record)
     # Read local ready-state handshake; PID existence alone is never success.
-    deadline = time.monotonic() + min(45 * len(config["seats"]) + 10, config["budgets"]["overall_timeout_seconds"])
+    startup_wait = 45 * len(config["seats"]) + 10
+    deadline = time.monotonic() + (startup_wait if config["budgets"].get("balance_only") is True
+                                 else min(startup_wait, config["budgets"]["overall_timeout_seconds"]))
     if recovery:
         deadline = min(deadline, time.monotonic() + max(0, recovery["expires_epoch"] - time.time()))
     while time.monotonic() < deadline:
         if not is_owned(record["parent"], token):
             raise GateError("Supervisor exited before all seats connected; consult sanitized supervisor status.")
         current = read_registry(config)
-        if current.get("token") == token and current.get("status") == "running":
-            print(json.dumps({"status": "running", "pid": child.pid, "mode": args.mode, "seats": current.get("seats"), "active_turn_limit": config["budgets"]["max_active_seats"]}, indent=2))
+        if current.get("token") == token and current.get("status") in ("running", "ready_held"):
+            print(json.dumps({"status": current["status"], "admission": current.get("admission"), "pid": child.pid, "mode": args.mode, "seats": current.get("seats"), "active_turn_limit": config["budgets"]["max_active_seats"]}, indent=2))
             return 0
         time.sleep(0.2)
     raise GateError("Supervisor startup timed out; inspect seat-status and stop-seats before retrying.")
+
+
+def cmd_release_admission(args) -> int:
+    from .startup_admission import read, request_release
+    config = get_config(args)
+    with launch_lock(config):
+        record = read_registry(config)
+        if not record or not is_owned(record.get("parent", {}), record.get("token")):
+            raise GateError("Release requires the exact live owned supervisor")
+        path = request_release(config, record)
+        current = read_registry(config)
+        if (current.get("token") != record["token"] or current.get("config_sha256") != fingerprint(config)
+                or not is_owned(record["parent"], record["token"])):
+            raise GateError("Release owner changed after publication; preserve the claim")
+    deadline = time.monotonic() + 20
+    while time.monotonic() < deadline:
+        current = read_registry(config)
+        if (current.get("token") != record["token"]
+                or not is_owned(record["parent"], record["token"])):
+            raise GateError("Release owner stopped or changed; preserve the claim")
+        state = read(path)
+        if state.get("release_outcome") == "released":
+            print(json.dumps({"status": "released", "room_id": state["binding"]["room_id"],
+                              "sdk_processing_claims_possible": True}))
+            return 0
+        if state.get("release_outcome") == "blocked" or state.get("state") == "stopped":
+            raise GateError("Release blocked; preserve the one-use claim and inspect seat-status")
+        time.sleep(0.1)
+    raise GateError("Release outcome pending; inspect seat-status without retrying the claim")
 
 
 def cmd_status(args) -> int:
     config = get_config(args)
     record = read_registry(config)
     if not record:
-        print(json.dumps({"status": "not_started"}))
+        result = {"status": "not_started"}
+        if config.get("runtime", {}).get("featherless_budget_guard") is not None:
+            from .budgets import persisted_guard_blockers
+            result["request_guard_blockers"] = persisted_guard_blockers(config)
+        print(json.dumps(result))
         return 0
     live = is_owned(record.get("parent", {}), record.get("token"))
     result = {"status": record.get("status", "starting") if live else "stopped", "owned_parent_alive": live, "pid": record.get("parent", {}).get("pid"), "mode": record.get("mode"), "seats": record.get("seats", []), "owned_children_alive": sum(is_owned(p) for p in record.get("children", [])), "updated_at": record.get("updated_at"), "last_error": record.get("last_error"), "recovery": record.get("recovery")}
+    result["admission"] = record.get("admission")
     result["process_status"] = result["status"]
     result["workflow"] = record.get("workflow", {"state": "unobserved", "detail": "This supervisor did not record workflow health."})
-    ledger = state_dir(config) / ("budget-subscription.json" if subscription_only(config["budgets"]) else f"budget-{record.get('mode')}.json")
+    ledger = budget_ledger_path(config, record.get("mode"))
     if ledger.exists():
         data = json.loads(ledger.read_text())
         result["budget"] = {k: data.get(k) for k in ["tokens", "turns", "stopped_reason", "started_epoch", "room_ids", "room_started_epochs", "room_turns", "room_stopped_reasons"]}
+    if config.get("runtime", {}).get("featherless_budget_guard") is not None:
+        from .budgets import persisted_guard_blockers
+        result["request_guard_blockers"] = persisted_guard_blockers(config, require_existing=True, allow_in_flight=live)
     print(json.dumps(result, indent=2))
     return 0
 
@@ -1132,13 +1369,85 @@ def continuation_notice_tools(agents, room_id, participant_ids, available_tools)
     return additions
 
 
-async def serve(config: dict, mode: str, token: str, recovery_id=None, continuation=None):
+def require_codex_continuity(config):
+    from .harnesses import selected_harness
+    if selected_harness(config) != "codex":
+        raise GateError("Existing continuation and recovery bind Codex threads; select another harness only for a fresh prepared attempt.")
+
+def create_handoff_journals(config, room, seats, ledger, watchdog, *, recovery=None, continuation=None):
+    """Fresh-run boundary; old continuations cannot bypass retained claims."""
+    from .handoff_batching import HandoffJournal
+    journals = {}
+    try:
+        retained = list(state_dir(config).glob(f"handoffs-{room}-*.json*"))
+        if recovery is not None or continuation is not None:
+            if retained:
+                raise GateError("Batched room continuation/recovery requires journal-aware reconciliation; unsupported.")
+            return journals
+        workflow_state = json.loads(watchdog.path.read_text())
+        from .local_terminal_reconciliation import load_terminal_reconciliations
+        terminal = load_terminal_reconciliations(config, room, workflow_state)
+        previous_turns = workflow_state["turns"]
+        expected = {state_dir(config) / f"handoffs-{room}-{seat['id']}.json" for seat in seats}
+        expected |= {p.with_suffix(p.suffix + ".lock") for p in expected}
+        if set(retained) - expected:
+            raise GateError("Unknown retained handoff journal prevents startup.")
+        for seat in seats:
+            path = state_dir(config) / f"handoffs-{room}-{seat['id']}.json"
+            if previous_turns and not path.exists():
+                raise GateError("Existing run has no batching journal; automatic migration is blocked.")
+            journals[seat['id']] = HandoffJournal(path, room, seat['agent_id'], [s['agent_id'] for s in seats], workflow=workflow_state,
+                                                terminal_reconciliations=terminal.get(seat['id']))
+        return journals
+    except Exception:
+        ledger.halt("handoff journal startup failed; preserve existing runtime state")
+        raise
+
+
+async def serve(config: dict, mode: str, token: str, recovery_id=None, continuation=None, *, hold_admission=False):
+    from .startup_telemetry import startup_telemetry
+    if recovery_id or continuation is not None:
+        require_codex_continuity(config)
+    if hold_admission and (mode != "rehearsal" or recovery_id or continuation is not None or len(config["seats"]) != 7):
+        raise GateError("Admission hold requires a normal seven-seat rehearsal")
+    if (not recovery_id and continuation is None and len(config['seats']) == 7
+            and config.get('runtime', {}).get('strict_membership_recovery') is True):
+        from .membership_gap import retained_startup_check
+        retained_startup_check(config, mode)
+    with startup_telemetry(config):
+        return await _serve_with_harness(config, mode, token, recovery_id, continuation,
+                                        hold_admission=hold_admission)
+
+
+async def _serve_with_harness(config: dict, mode: str, token: str, recovery_id=None,
+                              continuation=None, *, hold_admission=False):
+    from .harnesses import selected_harness, start_runtime
+    if hold_admission and (mode != "rehearsal" or recovery_id or continuation is not None or len(config["seats"]) != 7):
+        raise GateError("Admission hold requires a normal seven-seat rehearsal")
+    if recovery_id or continuation is not None:
+        require_codex_continuity(config)
+    if selected_harness(config) == "codex":
+        return await _serve(config, mode, token, recovery_id, continuation, hold_admission=hold_admission)
+    # Check the stable profile before starting even a local auxiliary server.
+    # Endpoints/passwords live only in this context, never in config fingerprints.
+    require_ready(config, mode)
+    async with start_runtime(config, mode, config["seats"]) as adapter_runtime:
+        return await _serve(config, mode, token, adapter_runtime=adapter_runtime, hold_admission=hold_admission)
+
+
+async def _serve(config: dict, mode: str, token: str, recovery_id=None, continuation=None,
+                 *, adapter_runtime=None, hold_admission=False):
     from band import Agent
-    from band.adapters import CodexAdapter
-    from band.core.types import Emit, Capability
+    from .startup_telemetry import record_startup
+    from band.core.types import Capability
     from band.runtime.types import SessionConfig
+    from .harnesses import selected_harness, adapter_class, adapter_options
     from .workflow import WorkflowWatchdog
+    from .task_board import MUTATION_TOOLS, TaskBoard
+    from .task_board_adapters import TaskBoardAdapterTools
     from .workflow_runtime import WorkflowTools, observed_turn, send_due_notice, sdk_execution_activity
+    from .progress import ProgressGuard, progress_policy
+    from .progress_tools import ProgressWorkflowTools
     if continuation is not None:
         from .continuation_runner import ContinuityContext
         if not isinstance(continuation, ContinuityContext) or mode != "judged" or recovery_id:
@@ -1155,8 +1464,12 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
         if errors:
             raise GateError("; ".join(errors))
         config = continuation.effective_config
-    else:
+    elif adapter_runtime is None:
         require_ready(config, mode)
+    balance_only = config["budgets"].get("balance_only") is True
+    strict_membership = config.get("runtime", {}).get("strict_membership_recovery") is True
+    selected = selected_harness(config)
+    backend_type = adapter_class(config)
     room = config["band"][f"{mode}_room_id"]
     recovery = load_recovery(config, recovery_id, token) if recovery_id else None
     ledger = session_ledger(config, mode, recovery)
@@ -1180,12 +1493,77 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
     watchdog = None if recovery else WorkflowWatchdog(
         state_dir(config) / f"workflow-{room}.json", room, pm["agent_id"],
         [s["agent_id"] for s in seats], config["budgets"]["ack_timeout_seconds"],
-        max_notices=min(2, config["budgets"]["max_repairs"]))
+        max_notices=min(2, config["budgets"]["max_repairs"]), balance_only=balance_only)
+    task_board = None if recovery else TaskBoard(state_dir(config) / f"task-board-{room}.json", room, config["seats"])
+    # Every normal startup authenticates the full roster. Later membership
+    # diagnostics are advisory unless the bounded strict mode is explicit.
+    membership_observer = None
+    if watchdog is not None and continuation is None and len(seats) == 7:
+        if strict_membership:
+            from .membership_gap import MembershipGapObserver
+            membership_observer = MembershipGapObserver(
+                state_dir(config) / f"membership-{room}.json", config, room, ledger)
+        else:
+            from .membership_advisory import AdvisoryMembershipObserver
+            membership_observer = AdvisoryMembershipObserver(
+                state_dir(config) / f"membership-advisory-{room}-{fingerprint(config)[:16]}.json",
+                config, room, ledger)
+
+    admission = None
+
+    def admission_owner():
+        record = read_registry(config)
+        if (record.get("token") != token or record.get("config_sha256") != fingerprint(config)
+                or record.get("mode") != mode or record.get("parent", {}).get("pid") != os.getpid()
+                or not is_owned(record.get("parent", {}), token)):
+            raise GateError("Startup admission ownership or configuration changed")
+        if (sync_request_guard_stop(config, ledger) or ledger.stop.is_set() or ledger.reason()
+                or all(ledger.reason(s["id"]) for s in seats)):
+            raise GateError("Startup admission budget or stop gate is closed")
+        return record
+
+    async def admission_check(warm):
+        admission_owner()
+        try:
+            if warm is True:
+                proof = await membership_observer.full_ready(agents)
+            else:
+                proof = await membership_observer.snapshot(agents)
+                if warm is False and not proof.get('membership_gap'):
+                    proof = await membership_observer.full_ready(agents)
+            admission_owner()  # REST awaits cannot make stale ownership authoritative.
+            return proof
+        except BaseException:
+            ledger.stop.set()  # Local operational failure; never reset consumption.
+            raise
+
+    async def execution_activity():
+        if membership_observer is not None:
+            return await membership_observer.snapshot(agents)
+        return sdk_execution_activity(agents, room, [s['agent_id'] for s in seats])
+
+    def record_activity(workflow, activity):
+        workflow["sdk_execution_contexts"] = activity['contexts']
+        if activity.get('membership_gap'):
+            workflow['membership_gap'] = activity['membership_gap']
+        if activity.get('membership_restored'):
+            workflow['membership_restored'] = activity['membership_restored']
+        if activity.get('membership_advisory'):
+            workflow['membership_advisory'] = activity['membership_advisory']
+
+    journals = create_handoff_journals(config, room, seats, ledger, watchdog,
+                                       recovery=recovery, continuation=continuation)
+    # The finite checkpoint guard remains available to legacy policies. Do not
+    # instantiate or rewrite its journal under the dollar-only policy.
+    policy = None if balance_only else progress_policy(config)
+    progress = (ProgressGuard(state_dir(config) / f"progress-{room}.json", room,
+                config["paths"]["rehearsal" if mode == "rehearsal" else "result"], policy)
+                if policy is not None and not recovery else None)
     loop = asyncio.get_running_loop()
     for sig in (signal.SIGTERM, signal.SIGINT):
         loop.add_signal_handler(sig, ledger.stop.set)
 
-    class ContinuationWorkflowTools(WorkflowTools):
+    class ContinuationWorkflowTools(ProgressWorkflowTools):
         async def execute_tool_call_structured(self, tool_name, arguments):
             result = await super().execute_tool_call_structured(tool_name, arguments)
             if continuation is not None and tool_name == "factory_turn_budget" and result.ok:
@@ -1194,13 +1572,24 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                     "approved_clock_amendment": continuation.metadata()}, ok=True)
             return result
 
-    class GuardedCodexAdapter(CodexAdapter):
+    class GuardedHarnessAdapter(backend_type):
         def __init__(self, seat):
             self.seat = seat
             excluded = ["band_remove_participant", "band_create_chatroom", "band_lookup_peers"]
+            if task_board is not None:
+                excluded.extend(sorted(MUTATION_TOOLS))
             if seat["id"] != "pm":
                 excluded.append("band_add_participant")
-            super().__init__(config=configs[seat["id"]] if recovery else adapter_config(config, seat, mode), emit=[Emit.TOOL_CALLS, Emit.TASK_EVENTS, Emit.USAGE], capabilities=[Capability.TASKS], exclude_tools=excluded, history_converter=RecoveryHistoryConverter() if recovery else None)
+            options = adapter_options(config)
+            self.task_board_tools = (TaskBoardAdapterTools(room, seat["agent_id"],
+                                    include_operational=True, include_progress=progress is not None)
+                                     if task_board is not None else None)
+            if self.task_board_tools is not None:
+                options["additional_tools"] = self.task_board_tools.additional_tools
+            if selected == "codex":
+                options["history_converter"] = RecoveryHistoryConverter() if recovery else None
+            super().__init__(config=configs[seat["id"]] if recovery else adapter_config(adapter_runtime or config, seat, mode),
+                             capabilities=[Capability.TASKS], exclude_tools=excluded, **options)
 
         def _build_client(self, adapter_configuration):
             try:
@@ -1220,7 +1609,15 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                 return
             if recovery and not recovery_message_allowed(recovery, inp.msg):
                 return
+            if admission is not None:
+                await admission.wait()
             async with ledger.semaphore:
+                if admission is not None:
+                    await admission.before_reserve()
+                if sync_request_guard_stop(config, ledger):
+                    if admission is not None:
+                        raise asyncio.CancelledError("Factory request guard is stopped")
+                    return
                 if recovery and not recovery_message_allowed(recovery, inp.msg):
                     return
                 if continuation is not None:
@@ -1233,53 +1630,107 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                         diagnose_continuation(error, self.seat["id"], "event_admission")
                         ledger.halt("continuation event admission failed")
                         raise
-                if ledger.stop.is_set() or not ledger.reserve_event(self.seat["id"], inp.msg):
-                    return
-                if ledger.stop.is_set():
-                    return
-                base_args = (inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
-                if recovery:
-                    wrapped = RecoveryTools(*base_args)
-                else:
-                    # This conservative deadline begins at admission, before SDK
-                    # initialization, so it can never promise an extra 600s later.
-                    deadline_at = time.time() + config["budgets"]["turn_timeout_seconds"]
-                    turn_id = self.seat["id"] + ":" + str(ledger.data["turns"][self.seat["id"]]) + ":" + inp.msg.id
-                    available_tools[self.seat["agent_id"]] = inp.tools
-                    tools_type = ContinuationWorkflowTools if continuation is not None else WorkflowTools
-                    wrapped = tools_type(*base_args, watchdog=watchdog,
-                        actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
+                journal = journals.get(self.seat['id'])
+                batch_claim = None
+                turn_id = None
                 try:
-                    timeout = config["budgets"]["turn_timeout_seconds"] + 15
+                    if journal is not None:
+                        try:
+                            batch_claim = journal.claim(inp.msg.id)
+                        except Exception:
+                            ledger.halt("handoff admission failed; preserve journal")
+                            raise
+                        if batch_claim is False:
+                            return
+                    if ledger.stop.is_set() or not ledger.reserve_event(self.seat["id"], inp.msg):
+                        if admission is not None:
+                            ledger.stop.set()
+                            raise asyncio.CancelledError("Factory turn allowance is closed")
+                        return
+                    if progress is not None:
+                        progress_id = self.seat["id"] + ":" + inp.msg.id
+                        checkpoint = progress.admit_turn(progress_id)
+                        if not checkpoint["admitted"]:
+                            ledger.stop.set()
+                            raise GateError("Runnable checkpoint limit reached: " + str(checkpoint["reason"]))
+                    if ledger.stop.is_set():
+                        if admission is not None:
+                            raise asyncio.CancelledError("Factory stopped after reservation")
+                        return
+                    if admission is not None:
+                        admission.reserved()
+                    base_args = (inp.tools, ledger, self.seat["id"], state_dir(config) / "execution-events.jsonl", config["seats"])
                     if recovery:
-                        timeout = min(timeout, max(0, recovery["expires_epoch"] - time.time()))
-                    async with asyncio.timeout(timeout):
+                        wrapped = RecoveryTools(*base_args)
+                    else:
+                        # Finite legacy clocks start at admission; dollar-only
+                        # work retains usage accounting without a turn deadline.
+                        deadline_at = None if balance_only else time.time() + config["budgets"]["turn_timeout_seconds"]
+                        turn_id = self.seat["id"] + ":" + str(ledger.data["turns"][self.seat["id"]]) + ":" + inp.msg.id
+                        available_tools[self.seat["agent_id"]] = inp.tools
+                        tools_type = (ContinuationWorkflowTools if continuation is not None else
+                                      WorkflowTools if balance_only else ProgressWorkflowTools)
+                        progress_options = {} if balance_only else {"progress_guard": progress}
+                        wrapped = tools_type(*base_args, watchdog=watchdog,
+                            actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at,
+                            harness=selected, task_board=task_board, handoff_journal=journal,
+                            **progress_options)
+                    wrapped.strict_membership_recovery = strict_membership or bool(recovery)
+                    try:
+                        timeout = None if balance_only else config["budgets"]["turn_timeout_seconds"] + 15
                         if recovery:
-                            await super().on_event(replace(inp, tools=wrapped))
-                        else:
-                            await observed_turn(super().on_event, inp, wrapped, watchdog,
-                                actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
-                except TimeoutError as error:
-                    diagnose_continuation(error, self.seat["id"], "adapter_event")
-                    ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
-                except Exception as error:
-                    diagnose_continuation(error, self.seat["id"], "adapter_event")
-                    raise
+                            timeout = min(timeout, max(0, recovery["expires_epoch"] - time.time()))
+                        async with asyncio.timeout(timeout):
+                            if recovery:
+                                await super().on_event(replace(inp, tools=wrapped))
+                            else:
+                                provider_callback = super().on_event
+                                async def callback(admitted):
+                                    return await accounted_adapter_turn(provider_callback, admitted, wrapped)
+                                with self.task_board_tools.bind(wrapped) if self.task_board_tools else contextlib.nullcontext():
+                                    await observed_turn(callback, inp, wrapped, watchdog,
+                                        actor_id=self.seat["agent_id"], turn_id=turn_id, deadline_at=deadline_at)
+                    except TimeoutError as error:
+                        if balance_only:
+                            raise  # A transport failure is not a factory deadline.
+                        diagnose_continuation(error, self.seat["id"], "adapter_event")
+                        ledger.halt("recovery allowance expired" if recovery and time.time() >= recovery["expires_epoch"] else "outer turn deadline exceeded")
+                    except Exception as error:
+                        diagnose_continuation(error, self.seat["id"], "adapter_event")
+                        raise
+                    finally:
+                        if continuation is not None:
+                            try:
+                                state = json.loads(watchdog.path.read_text())
+                                completed = state["turns"].get(turn_id, {}).get("status") == "completed"
+                                continuation.finish_event(self.seat["id"], inp.msg.id, completed=completed)
+                                if not completed:
+                                    ledger.halt("continuation turn did not complete; preserve before retry")
+                            except Exception as error:
+                                diagnose_continuation(error, self.seat["id"], "event_completion")
+                                ledger.halt("continuation completion record failed")
+                                raise
                 finally:
-                    if continuation is not None:
+                    if batch_claim is True:
                         try:
                             state = json.loads(watchdog.path.read_text())
-                            completed = state["turns"].get(turn_id, {}).get("status") == "completed"
-                            continuation.finish_event(self.seat["id"], inp.msg.id, completed=completed)
-                            if not completed:
-                                ledger.halt("continuation turn did not complete; preserve before retry")
-                        except Exception as error:
-                            diagnose_continuation(error, self.seat["id"], "event_completion")
-                            ledger.halt("continuation completion record failed")
+                            completed = turn_id is not None and state['turns'].get(turn_id, {}).get('status') == 'completed'
+                            journal.finish(inp.msg.id, completed=completed)
+                            journal.reconcile_acknowledgements(state)
+                        except Exception:
+                            ledger.halt("handoff completion recording failed; preserve journal")
                             raise
+                        if not completed:
+                            ledger.halt("handoff model claim did not complete; preserve before retry")
+                            if sys.exc_info()[0] is None:
+                                # A caught timeout/SDK failed lifecycle must not
+                                # turn into mark_processed at the callback seam.
+                                raise GateError("Batched handoff did not complete; retained claim blocks replay.")
 
     async def heartbeat():
         while not ledger.stop.is_set():
+            if sync_request_guard_stop(config, ledger):
+                return
             record = read_registry(config)
             if record.get("token") != token:
                 ledger.halt("ownership registry mismatch")
@@ -1288,32 +1739,62 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                 record["children"] = [process_identity(p) for p in psutil.Process().children(recursive=True)]
             except psutil.Error:
                 pass
-            record.update(status="running", updated_at=timestamp(), seats=[s["id"] for s in seats])
+            if admission is not None:
+                was_held = admission.state['state'] == 'ready_held'
+                await admission.poll_release(record['parent'])
+                if was_held and admission.state['state'] == 'open':
+                    record_startup('admission_released')
+                record['admission'] = admission.summary()
+            record.update(status="ready_held" if admission is not None and admission.state['state'] == 'ready_held' else "running",
+                          updated_at=timestamp(), seats=[s["id"] for s in seats])
             if watchdog:
-                activity = sdk_execution_activity(agents, room, [s['agent_id'] for s in seats])
-                record["workflow"] = watchdog.queue_timeout_notices(execution_busy=activity['busy'])
-                record["workflow"]["sdk_execution_contexts"] = activity['contexts']
+                activity = await execution_activity()
+                if progress is not None:
+                    record["progress"] = progress.health(execution_busy=activity["busy"])
+                    if record["progress"]["state"] == "blocked":
+                        record["stop_reason"] = "progress: " + str(record["progress"]["reason"])
+                        ledger.stop.set()
+                record["workflow"] = (watchdog.health(execution_busy=activity['busy'])
+                    if admission is not None and admission.state['state'] == 'ready_held'
+                    else watchdog.queue_timeout_notices(execution_busy=activity['busy']))
+                record_activity(record["workflow"], activity)
+                try:
+                    workflow_state = json.loads(watchdog.path.read_text())
+                    for journal in journals.values():
+                        journal.reconcile_acknowledgements(workflow_state)
+                    record['handoff_batching'] = {seat: journal.summary() for seat, journal in journals.items()}
+                except Exception:
+                    ledger.halt("handoff journal reconciliation failed; preserve state")
+                    raise
                 # Reconcile the audited pending callbacks before sending old
                 # timeout notices. No receipt or incident is resolved by this gate.
                 pending_continuation = continuation is not None and continuation.pending_events_unsettled()
-                if record["workflow"]["state"] != "blocked" and not pending_continuation:
+                if (record["workflow"]["state"] != "blocked" and not pending_continuation
+                        and not activity.get('membership_gap') and not activity.get('membership_advisory')
+                        and (admission is None or admission.state["state"] == "open")):
                     try:
-                        if continuation is not None and not activity['busy']:
+                        if not activity['busy'] and (continuation is not None
+                                or watchdog.due_notice(can_notify=True) is not None):
+                            # A normal restart has live authenticated SDK contexts
+                            # before any new model callback supplies sender tools.
+                            if continuation is None:
+                                admission_owner()
                             available_tools.update(continuation_notice_tools(
                                 agents, room, [s['agent_id'] for s in seats], available_tools))
                         notification = await send_due_notice(watchdog, ledger, available_tools, config["seats"],
-                            execution_activity=lambda: sdk_execution_activity(agents, room, [s['agent_id'] for s in seats]))
+                            execution_activity=execution_activity)
                     except Exception:
                         notification = "blocked_notice_delivery_unknown"
-                    activity = sdk_execution_activity(agents, room, [s['agent_id'] for s in seats])
+                    activity = await execution_activity()
                     record["workflow"] = watchdog.health(execution_busy=activity['busy'])
-                    record["workflow"]["sdk_execution_contexts"] = activity['contexts']
+                    record_activity(record["workflow"], activity)
                     if notification.startswith("blocked_"):
                         record["workflow"].update(state="blocked", recovery_blocker=notification)
-                if record["workflow"]["state"] == "blocked":
+                if workflow_requires_stop(record["workflow"], balance_only=balance_only):
                     # Operational failures are local to this run. Do not reset or
                     # poison the shared consumption ledger for a later fresh run.
                     ledger.stop.set()
+                    record.setdefault("stop_reason", "workflow_blocked")
             save_json(registry_path(config), record)
             reason = ledger.reason()
             if all(ledger.reason(s["id"]) for s in seats):
@@ -1334,12 +1815,37 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
             await asyncio.sleep(0.1)
         else:
             raise GateError("Missing matching supervisor ownership registry.")
+        if membership_observer is not None:
+            from .startup_admission import AdmissionController
+            admission_owner()
+            # Reject a retained failure before any SDK callback can be admitted.
+            if strict_membership:
+                membership_observer._validate()
+                if membership_observer.state['blocked_reason'] or membership_observer._active() is not None:
+                    raise GateError("Warm startup cannot bypass retained or active membership failure")
+            now = time.time()
+            started = ledger.data.get('started_epoch')
+            room_started = ledger.data.get('room_started_epochs', {}).get(room) if ledger.allowed_rooms else started
+            budget_deadline = None if balance_only else min(
+                (started if started is not None else now) + ledger.limits['overall_timeout_seconds'],
+                (room_started if room_started is not None else now) + ledger.limits['stage_timeout_seconds'])
+            admission = AdmissionController(config, mode, token, ledger.stop, admission_check,
+                                            hold=hold_admission, budget_deadline=budget_deadline)
         for seat in seats:
+            if ledger.stop.is_set():
+                raise asyncio.CancelledError("Factory stopped during SDK startup")
+            if sync_request_guard_stop(config, ledger):
+                raise GateError(ledger.reason())
             if ledger.reason():
                 raise GateError(ledger.reason())
             value = creds[seat["id"]]
-            adapter = GuardedCodexAdapter(seat)
-            session_config = SessionConfig(max_message_retries=1, max_cycle_seconds=config["budgets"]["turn_timeout_seconds"] + 20)
+            adapter = GuardedHarnessAdapter(seat)
+            # Legacy SDK cycle clocks include startup waiting. Dollar-only
+            # operation disables the SDK execution timer as well as the factory
+            # and provider timers; startup health checks remain separate.
+            wait_allowance = math.ceil(admission.wait_allowance) if admission is not None else 0
+            session_config = SessionConfig(max_message_retries=1,
+                max_cycle_seconds=None if balance_only else config["budgets"]["turn_timeout_seconds"] + 20 + wait_allowance)
             if continuation is not None:
                 from .continuation_platform import ReceiptPreservingPlatformRuntime
                 platform = ReceiptPreservingPlatformRuntime(agent_id=value["agent_id"], api_key=value["api_key"],
@@ -1348,31 +1854,62 @@ async def serve(config: dict, mode: str, token: str, recovery_id=None, continuat
                     on_filter_failure=ledger.halt)
                 agent = Agent(runtime=platform, adapter=adapter, preprocessor=RoomPreprocessor(room))
             else:
-                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery))
+                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery, batching=journals.get(seat["id"]), halt=ledger.halt, workflow_path=watchdog.path if watchdog else None, can_process=lambda: not ledger.stop.is_set() and not ledger.reason()))
             agents.append(agent)
+            record_startup("sdk_agent_start_begin", seat["id"])
             await asyncio.wait_for(agent.start(), timeout=min(45, max(0, recovery["expires_epoch"] - time.time())) if recovery else 45)
+            record_startup("sdk_agent_start_complete", seat["id"])
             record = read_registry(config)
             if record.get("token") == token:
                 record["children"] = [process_identity(p) for p in psutil.Process().children(recursive=True)]
                 save_json(registry_path(config), record)
             if agent.agent_name != seat["display_name"]:
                 raise GateError(f"Platform display name changed for {seat['id']}.")
+        if admission is not None:
+            await admission.ready()
+            record_startup("startup_ready")
+            record_startup("admission_held" if hold_admission else "admission_released")
         await heartbeat()
     finally:
+        original_error = sys.exc_info()[1]
+        close_error = None
+        if admission is not None:
+            try:
+                await admission.close()
+            except BaseException as error:
+                close_error = error
+                ledger.stop.set()
         record = read_registry(config)
         if record.get("token") == token:
             try:
                 record["children"] = [process_identity(p) for p in psutil.Process().children(recursive=True)]
             except psutil.Error:
                 pass
-            save_json(registry_path(config), record)
-        await asyncio.gather(*(agent.stop(timeout=0 if recovery else 5) for agent in agents), return_exceptions=True)
+            try:
+                save_json(registry_path(config), record)
+            finally:
+                await asyncio.gather(*(agent.stop(timeout=0 if recovery else 5) for agent in agents), return_exceptions=True)
+        else:
+            await asyncio.gather(*(agent.stop(timeout=0 if recovery else 5) for agent in agents), return_exceptions=True)
         record = read_registry(config)
         if record.get("token") == token:
             record.update(status="stopped", updated_at=timestamp())
+            if admission is not None:
+                record['admission'] = admission.summary()
+                if close_error:
+                    record['admission']['close_evidence_failed'] = True
             if watchdog and not record.get("workflow", {}).get("recovery_blocker"):
                 record["workflow"] = watchdog.health()
             save_json(registry_path(config), record)
+        if close_error is not None and original_error is None:
+            raise GateError("Admission close evidence failed after owned seat cleanup") from None
+
+
+def cmd_factory_status(args) -> int:
+    from .status import status_report
+    from .common import redact
+    print(redact(json.dumps(status_report(get_config(args), mode=args.mode), indent=2)))
+    return 0
 
 
 def cmd_serve(args) -> int:
@@ -1380,7 +1917,13 @@ def cmd_serve(args) -> int:
     logging.disable(logging.CRITICAL)
     config = get_config(args)
     try:
-        asyncio.run(serve(config, args.mode, args.owner_token, args.recovery_id))
+        if getattr(args, "source_snapshot", None):
+            from .source_snapshot import activate_source_snapshot
+            snapshot = activate_source_snapshot(config, Path(args.source_snapshot))
+            if Path(__file__).resolve().parents[1] != Path(snapshot["source_root"]).resolve():
+                raise GateError("Supervisor was not imported from its verified source snapshot")
+        options = {"hold_admission": True} if getattr(args, "hold_admission", False) else {}
+        asyncio.run(serve(config, args.mode, args.owner_token, args.recovery_id, **options))
         return 0
     except Exception as error:
         record = read_registry(config)

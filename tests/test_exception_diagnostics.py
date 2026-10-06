@@ -34,7 +34,7 @@ def captured_failure():
 
 class ExceptionLocationsTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(dir='/private/tmp')
+        self.temp = tempfile.TemporaryDirectory(dir=Path(tempfile.gettempdir()).resolve())
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.directory = self.root / 'diagnostics'

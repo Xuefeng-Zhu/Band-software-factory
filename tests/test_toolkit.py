@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import copy
 import json
-import os
 import runpy
 import signal
 from pathlib import Path
@@ -64,6 +63,16 @@ class Fixture(unittest.TestCase):
 
     def save(self):
         self.config_path.write_text(yaml.safe_dump(self.config))
+
+    def source_binding(self):
+        """Supply only synthetic complete source inputs for readiness fixtures."""
+        from factorykit.source_snapshot import SOURCE_FILES, source_fingerprint
+        for name in SOURCE_FILES:
+            path = Path(self.config["paths"]["factory"]) / name
+            if not path.exists():
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("Synthetic source binding fixture only.\n")
+        return source_fingerprint(self.config)
 
     def tearDown(self):
         self.temp.cleanup()
@@ -158,11 +167,14 @@ class ConfigTests(Fixture):
     def test_doctor_preserves_verified_failed_permission_observation(self):
         proof = self.root / "permission-evidence.json"
         proof.write_text('{"actual_exit_code": 1}')
+        factory_source_sha256 = self.source_binding()
         write_json(Path(self.config["paths"]["runs"]) / "readiness/observations.json", {
             "configuration_sha256": digest(canonical(self.config)),
             "source_lock_sha256": digest(Path(self.config["paths"]["factory"]) / "config/source-lock.json"),
+            "factory_source_sha256": factory_source_sha256,
             "observations": [{"id": "permissions_agent_write_git", "status": "FAIL", "observed": True,
                               "observer": "utility test", "observed_at": "2026-10-03T00:00:00Z",
+                              "factory_source_sha256": factory_source_sha256,
                               "evidence": [{"path": str(proof), "sha256": digest(proof)}]}]})
         with patch("factorykit.validation.run_command", return_value={"exit_code": 0, "stdout": "fixture", "stderr": ""}):
             report = doctor(self.config)
@@ -426,10 +438,13 @@ class LaunchTests(Fixture):
         self.assertGreater(len(blockers), 5)
 
     def test_claimed_pass_without_hashed_evidence_rejected(self):
+        factory_source_sha256 = self.source_binding()
         write_json(Path(self.config["paths"]["runs"]) / "readiness/observations.json", {
             "configuration_sha256": digest(canonical(self.config)),
             "source_lock_sha256": digest(Path(self.config["paths"]["factory"]) / "config/source-lock.json"),
+            "factory_source_sha256": factory_source_sha256,
             "observations": [{"id": "toy_isolated_harness", "status": "PASS", "observed": True,
+                              "factory_source_sha256": factory_source_sha256,
                               "observed_at": "test", "observer": "test", "evidence": [{"path": "/missing", "sha256": "madeup"}]}]})
         records, blockers = observations(self.config)
         self.assertFalse(records)
@@ -460,12 +475,15 @@ class ToyFinishLoopTests(Fixture):
         self.save_observations()
 
     def save_observations(self, include_export=True):
+        factory_source_sha256 = self.source_binding()
         write_json(self.invocation_path, self.invocation)
         ref = {"path": str(self.invocation_path), "sha256": digest(self.invocation_path)}
-        self.check.update(evidence=[ref], invocation=ref)
+        self.check.update(evidence=[ref], invocation=ref, factory_source_sha256=factory_source_sha256)
+        self.export["factory_source_sha256"] = factory_source_sha256
         write_json(Path(self.config["paths"]["runs"]) / "readiness/observations.json", {
             "configuration_sha256": digest(canonical(self.config)),
             "source_lock_sha256": digest(Path(self.config["paths"]["factory"]) / "config/source-lock.json"),
+            "factory_source_sha256": factory_source_sha256,
             "observations": ([self.export] if include_export else []) + [self.check]})
 
     def accepted(self):

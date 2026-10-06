@@ -23,6 +23,14 @@ collaboration or stage acceptance. Perform those assigned checks and retain thei
 actual evidence within the existing permissions and limits.
 """
 
+
+def launcher_boundary(config: dict) -> str:
+    if config['budgets'].get('balance_only') is True:
+        return LAUNCHER_BOUNDARY.replace('approved finite budgets', 'the approved $25 balance cap')\
+            .replace('roster, limits and workspace metadata', 'roster, balance policy and workspace metadata')\
+            .replace('within the existing permissions and limits', 'within the existing permissions and $25 balance cap')
+    return LAUNCHER_BOUNDARY
+
 JUDGED_PREFERENCES = """## Task preferences and ownership
 Product proposal: Tablekeeper, a coherent restaurant reservation experience.
 Starting technical proposal: TypeScript, React/Vite, a small Node HTTP API, SQLite,
@@ -52,17 +60,25 @@ covering late search responses, conflicts, lost responses, retries and upgrades.
 """
 
 
-def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
+def _header(config: dict, track: str, stages: list[int], mode: str, *, locked_sources: dict | None = None) -> str:
+    balance_only = config['budgets'].get('balance_only') is True
+    execution_platform = config["runtime"].get("execution_platform", "darwin")
+    if execution_platform not in ("darwin", "linux"):
+        raise FactoryError("runtime.execution_platform must be darwin or linux")
     unresolved = any(not s.get("handle") or not s.get("model") for s in config["seats"])
     paths = config["paths"]
     practice = track == "toy" or config["launch"].get("practice_mode", False)
     run_label = "Practice (unscored; eligibility not claimed)" if practice else "Judged"
+    stage_label = (f"{stages[0]} through {stages[-1]}" if len(stages) > 1
+                   and stages == list(range(stages[0], stages[-1] + 1)) else ", ".join(map(str, stages)))
     lines = [f"# {run_label} dispatch packet — {track}", "",
              f"Packet state: {'BLOCKED_UNRESOLVED_ROSTER' if unresolved else 'REQUIRES_READY_FREEZE' if track == 'tablekeeper' else 'REQUIRES_REHEARSAL_PREFLIGHT'}",
              f"Dispatch mode: {mode}; stages: {', '.join(map(str, stages))}.",
-             (f"Execute only stage {stages[0]}. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch." if mode == "separate" else "Execute stages 1 through 4 once in increasing order, with an independent gate before advancing."),
-             ("This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH." if track == "tablekeeper" else "Operator dispatch prerequisite: rehearsal runtime preflight must pass and finite live budgets must be approved before the launcher connects seats. A judged freeze is not required for rehearsal. Seats do not rerun operator preflight."),
-             f"Pinned challenge commit: {source_lock(config)['challenge']['commit']}",
+             (f"Execute only stage {stages[0]}. Earlier specifications are inherited requirements, not new dispatches. Do not execute a future stage until its own separate dispatch." if mode == "separate" else f"Execute {'stage' if len(stages) == 1 else 'stages'} {stage_label} once in increasing order, with an independent gate before advancing."),
+             ("This file is preparation only. Do not dispatch before the freeze reports READY_TO_LAUNCH." if track == "tablekeeper" else
+              "Operator dispatch prerequisite: rehearsal runtime preflight must pass and the $25 balance cap must be approved before the launcher connects seats. A judged freeze is not required for rehearsal. Seats do not rerun operator preflight." if balance_only else
+              "Operator dispatch prerequisite: rehearsal runtime preflight must pass and finite live budgets must be approved before the launcher connects seats. A judged freeze is not required for rehearsal. Seats do not rerun operator preflight."),
+             f"Pinned challenge commit: {(source_lock(config) if locked_sources is None else locked_sources)['challenge']['commit']}",
              f"Configuration SHA-256: {digest(canonical(config))}", "", "## Absolute workspace paths"]
     lines.extend(f"- {name}: `{value}`" for name, value in paths.items())
     lines.extend([f"- Assigned output checkout: `{paths['result'] if track == 'tablekeeper' else paths['rehearsal']}`", "", "## Actual roster"])
@@ -76,7 +92,7 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
             "",
         ]
     # Operational guidance belongs in dispatch metadata, not track-specific mandates.
-    lines[-1] = LAUNCHER_BOUNDARY + "\n## Execution environment"
+    lines[-1] = launcher_boundary(config) + "\n## Execution environment"
     output = paths["result"] if track == "tablekeeper" else paths["rehearsal"]
     lines.extend([
         f"- Writable product checkout and Git metadata: `{output}`. One active writer is enforced.",
@@ -85,8 +101,10 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
         "- The runs directory contains operator-owned control records. Do not alter launcher, usage, dispatch or readiness files or attempt to broaden permissions.",
         f"- Pinned harness interpreter: `{config['runtime']['harness_python']}`. Run the official `-m harness run` from the challenge directory, with `--track {track}`, an absolute `--repo` and `--out` inside your writable evidence directory. Use `--mode isolated` for acceptance; inspect its `--help` for the exact stage options.",
         "- The factory harness wrapper writes operator evidence under runs; use the official harness directly for seat-owned checks.",
-        "- Docker uses the pinned local socket and private temporary buildx state supplied by the launcher. Do not override them or mount host credentials, broaden host access, or run privileged containers.",
-        "- Browser execution on this Mac uses Chromium inside the official harness Docker image. Native macOS Chromium is blocked by the seat sandbox. For rendered checks, use an isolated test network and copy screenshots back into your evidence directory; the final service must still satisfy the official no-outbound-network harness.",
+        ("- Docker uses the configured Linux daemon. Keep containers, networks and build state scoped to this attempt. Do not prune unrelated resources, mount host credentials, broaden host access, or run privileged containers."
+         if execution_platform == "linux" else "- Docker uses the pinned local socket and private temporary buildx state supplied by the launcher. Do not override them or mount host credentials, broaden host access, or run privileged containers."),
+        ("- This execution host is Linux; build images for its native architecture. Use the installed Playwright Chromium or the official harness Docker browser for rendered checks. Keep evidence in the assigned checkout and use an isolated test network; the final service must satisfy the official no-outbound-network harness."
+         if execution_platform == "linux" else "- Browser execution on this Mac uses Chromium inside the official harness Docker image. Native macOS Chromium is blocked by the seat sandbox. For rendered checks, use an isolated test network and copy screenshots back into your evidence directory; the final service must still satisfy the official no-outbound-network harness."),
         "- Put npm/pip/uv dependency caches inside the writable checkout or temporary directory. No global package or system configuration changes are needed.",
         "", "## Required repository packaging",
         "The submission repository root contains README.md, FACTORY.md, mandates/, room.json, and only genuinely completed stage-1/ through stage-4/ directories.",
@@ -99,19 +117,27 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
     for seat in config["seats"]:
         handle = "@" + seat["handle"].lstrip("@") if seat.get("handle") else "UNRESOLVED — do not send"
         lines.append(f"- {seat['id']}: {seat['display_name']}; handle: {handle}; identity: {seat.get('agent_id') or 'UNRESOLVED'}; harness: {seat['harness']}; model: {seat.get('model') or 'UNRESOLVED'}")
-    lines.extend(["", "## Finite work limits", "```json", canonical(config["budgets"]).decode().rstrip(), "```", "",
+    if config["runtime"].get("featherless_budget_guard"):
+        lines.extend(["", "## Provider input limits",
+            "This attempt's billing guard permits text and tool messages only. Do not attach image, audio or video inputs to model requests. Use browser DOM, accessibility and layout measurements for automated inspection; retain screenshots as review artifacts and clearly label visual checks that could not be performed."])
+    policy = ({key: config['budgets'][key] for key in ('approved', 'balance_only', 'spend_cap_usd', 'billing_mode', 'accounting_scope')
+               if key in config['budgets']} if balance_only else config['budgets'])
+    lines.extend(["", "## Balance policy" if balance_only else "## Finite work limits", "```json", canonical(policy).decode().rstrip(), "```", "",
+        "Only the existing $25 balance cap limits work. There is no factory time, token, turn, repair or receipt deadline. Do not purchase credits or top up. Preserve cumulative usage and charges across all phases and attempts." if balance_only else
         "Budgets are ceilings, never permission to spend; approved must be true before live work.",
         "Work stages in increasing order with an independent release gate for each exact commit.",
         "Every later stage inherits every earlier specification included below.",
         "PM assigns material work in the BAND room using the verified actual handles. Handoffs",
         "carry requirements, owner, revision, paths, evidence, limitations and next recipient.",
         "For oversized packets, number every part and obtain complete-set receipt before execution.",
+        "Keep all seven identities registered; preserve the shared checkout's single active writer." if balance_only else
         "Keep all seven identities registered; keep implementation concurrency within the limit.",
         "Use the assigned shared checkout with one active writer. Use separate worktrees only",
         "after the operator has provisioned their writable roots and enabled parallel mode;",
         "do not create worktrees under operator-owned runs. PM integrates attributable commits",
         "without rewriting history.",
         "Reviewer independently verifies a clean checkout of an exact integrated candidate.",
+        "Retain failed evidence and revise the approach when a failure repeats. Reconcile any uncertain write before retrying it; do not mistake a request or acknowledgment for accepted work." if balance_only else
         "Retain failed evidence; stop/replan after the repair ceiling or repeated identical failure.",
         ("This is unscored practice; eligibility is not claimed. Simulate an autonomous run:" if practice else "Human stage dispatch is the only human input during the judged run. Do not solicit"),
         ("use stage dispatch as the only human input, and do not solicit" if practice else ""),
@@ -125,21 +151,25 @@ def _header(config: dict, track: str, stages: list[int], mode: str) -> str:
     else:
         lines.extend(["## Toy rehearsal scope", "Build only the official toy track in the assigned rehearsal checkout.",
             "Exercise PM assignment, peer handoffs, engineer commits and fixed-candidate review.",
+            "Observe ordinary message delivery. Do not remove participants or create a missing-peer fixture; record any naturally occurring membership issue as an observation." if balance_only else
             "Observe missing-peer and delayed-message handling without manufacturing a rejection.",
             "Check every seat can see its assigned checkout and a committed change; preserve",
             "directed replies for every seat and isolated final-container evidence.", ""])
     return "\n".join(lines) + "\n"
 
 
-def render_packet(config: dict, track: str, stages: list[int], mode: str) -> tuple[bytes, list[dict]]:
-    content = _header(config, track, stages, mode).encode()
+def render_packet(config: dict, track: str, stages: list[int], mode: str, *, locked_sources: dict | None = None) -> tuple[bytes, list[dict]]:
+    # A profile may stage packets with final absolute paths before publishing its
+    # copied lock. Supplied lock data still authenticates every embedded payload.
+    locked = source_lock(config) if locked_sources is None else locked_sources
+    content = _header(config, track, stages, mode, locked_sources=locked).encode()
     payloads = []
     # A stage-N packet includes stages 1..N, not only stage N's delta.
     for stage in range(1, max(stages) + 1):
         relative = f"{track}/spec/stage-{stage}.md"
         path = Path(config["paths"]["challenge"]) / relative
         raw = path.read_bytes()
-        expected = source_lock(config)["challenge"]["files"].get(relative)
+        expected = locked["challenge"]["files"].get(relative)
         if not expected or digest(raw) != expected:
             raise FactoryError(f"Missing or changed locked specification: {relative}")
         label = f"## Exact official specification — {relative}\nSource: {path}\nSHA-256: {expected}\n\n<!-- BEGIN EXACT SPEC {relative} -->\n".encode()

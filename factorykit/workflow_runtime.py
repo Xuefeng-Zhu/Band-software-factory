@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import asyncio
 from datetime import datetime, timezone
+import inspect
 import re
 import time
 from uuid import UUID
@@ -20,6 +21,16 @@ CLOCK_TOOL = {
         "name": "factory_turn_budget",
         "description": "Read this admitted turn's remaining time and handoff deadline. This does not renew a lease or extend any approved limit. Call before work and before expensive checks; reserve time for the full handoff.",
         "parameters": {"type": "object", "properties": {}, "additionalProperties": False},
+    },
+}
+
+ACK_TOOL = {
+    "type": "function",
+    "function": {
+        "name": "factory_handoff_ack",
+        "description": "Acknowledge a complete verified handoff by delivery ID. The factory generates the exact receipt and original recipient binding. Confirms communication only, never work acceptance. A confirmed prior receipt is returned without resending.",
+        "parameters": {"type": "object", "properties": {"delivery_id": {"type": "string"}},
+                       "required": ["delivery_id"], "additionalProperties": False},
     },
 }
 
@@ -73,6 +84,8 @@ def canonical_mentions(mentions, roster):
 
 def send_window(ledger, deadline_at=None):
     """Remaining wall-time for a request; never adds time to approved limits."""
+    if ledger.limits.get('balance_only') is True:
+        return 10.0  # Transport timeout only; no turn, stage, or overall budget.
     now = time.time()
     deadlines = [] if deadline_at is None else [deadline_at]
     started = ledger.data.get("started_epoch")
@@ -120,10 +133,12 @@ def sdk_execution_activity(agents, room_id, participant_ids):
                 contexts=contexts)
 
 
-def _execution_busy(snapshot):
+async def _execution_busy(snapshot):
     if snapshot is None:
         return False
     value=snapshot()
+    if inspect.isawaitable(value):
+        value = await value
     if not isinstance(value,dict) or type(value.get('busy')) is not bool:
         raise GateError("SDK execution activity is unknown.")
     return value['busy']
@@ -149,25 +164,106 @@ async def post_once(tools, room_id, content, mentions, ledger, *, deadline_at=No
 
 
 class WorkflowTools(AuditedTools):
-    def __init__(self, *args, watchdog, actor_id, turn_id, deadline_at, clock=time.time, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, *args, watchdog, actor_id, turn_id, deadline_at, clock=time.time, task_board=None, handoff_journal=None, **kwargs):
+        super().__init__(*args, turn_id=turn_id, **kwargs)
         self.watchdog, self.actor_id, self.turn_id = watchdog, actor_id, turn_id
         self.deadline_at, self.clock = deadline_at, clock
         self.terminal_status = None
         self.delivery_blocked = False
-        self.handoff_reserve = min(60, self.ledger.limits["turn_timeout_seconds"] / 4)
+        self.balance_only = self.ledger.limits.get('balance_only') is True
+        self.handoff_reserve = 0 if self.balance_only else min(60, self.ledger.limits["turn_timeout_seconds"] / 4)
+        self.task_board = task_board
+        self.handoff_journal = handoff_journal
 
     def get_openai_tool_schemas(self, **kwargs):
         from copy import deepcopy
-        return [*self.tools.get_openai_tool_schemas(**kwargs), deepcopy(CLOCK_TOOL)]
+        from .task_board import MUTATION_TOOLS, TOOLS
+        schemas = self.tools.get_openai_tool_schemas(**kwargs)
+        if self.task_board is not None:
+            schemas = [s for s in schemas if s.get("function", s).get("name") not in MUTATION_TOOLS]
+            schemas = [*schemas, *deepcopy(TOOLS)]
+        clock_tool = deepcopy(CLOCK_TOOL)
+        if self.balance_only:
+            clock_tool['function']['description'] = "Read the admitted turn's policy. Only the approved $25 balance cap limits work; there is no turn, stage, overall, token, repair or receipt deadline. Usage and exact delivery evidence remain recorded. This tool changes no policy."
+        return [*schemas, clock_tool, *([deepcopy(ACK_TOOL)] if self.handoff_journal is not None else [])]
+
+    def board_window(self):
+        # This turn already consumed its reservation. The final admitted turn
+        # may finish its board updates; this never admits an additional turn.
+        if self.ledger.stop.is_set() or self.ledger.reason():
+            return 0
+        return max(0, send_window(self.ledger, self.deadline_at))
+
+    async def sync_task_board(self):
+        if self.task_board is not None:
+            await self.task_board.sync_owner(self.tools, self.actor_id, self.board_window)
+
+    async def create_task(self, *args, **kwargs):
+        if self.task_board is not None:
+            raise GateError("Use factory_work_item for guarded task creation")
+        return await self.tools.create_task(*args, **kwargs)
+
+    async def update_task(self, *args, **kwargs):
+        if self.task_board is not None:
+            raise GateError("Use factory_work_item for guarded task updates")
+        return await self.tools.update_task(*args, **kwargs)
+
+    async def set_board(self, *args, **kwargs):
+        if self.task_board is not None:
+            raise GateError("Shared board goal edits are outside work-item synchronization")
+        return await self.tools.set_board(*args, **kwargs)
 
     async def execute_tool_call_structured(self, tool_name, arguments):
         from band.runtime.tools.schema import ToolCallOutcome
+        from .common import FactoryError
+        from .task_board import MUTATION_TOOLS, TOOLS
+        if tool_name == "factory_handoff_ack":
+            try:
+                if not isinstance(arguments, dict) or set(arguments) != {"delivery_id"} or not isinstance(arguments["delivery_id"], str):
+                    raise GateError("factory_handoff_ack requires delivery_id only.")
+                return ToolCallOutcome(value=await self.acknowledge_handoff(arguments["delivery_id"]), ok=True)
+            except Exception as error:
+                from .handoff_batching import BatchingError
+                from .workflow import WorkflowError
+                message = str(error) if isinstance(error, (GateError, BatchingError, WorkflowError)) else "Handoff receipt could not be confirmed; preserve the current delivery state before any further action."
+                return ToolCallOutcome(value=message, ok=False, error_message="handoff_ack_blocked")
+        if self.task_board is not None and (tool_name in MUTATION_TOOLS
+                or tool_name in {t["function"]["name"] for t in TOOLS}):
+            try:
+                if tool_name in MUTATION_TOOLS:
+                    raise FactoryError("Use factory_work_item for guarded task changes; direct board mutations are disabled")
+                if tool_name == "factory_task_board":
+                    if not isinstance(arguments, dict) or set(arguments) - {"id"}:
+                        raise FactoryError("factory_task_board accepts only an optional id")
+                    result = self.task_board.read(arguments.get("id"))
+                elif tool_name == "factory_work_item":
+                    if not isinstance(arguments, dict) or set(arguments) != {"item", "expected_version"}:
+                        raise FactoryError("factory_work_item requires item and expected_version only")
+                    result = await self.task_board.publish(self.tools, self.actor_id, arguments["item"],
+                        arguments["expected_version"], self.board_window)
+                else:
+                    if not isinstance(arguments, dict) or set(arguments) != {"id", "task_id"}:
+                        raise FactoryError("factory_reconcile_task requires id and task_id only")
+                    result = await self.task_board.reconcile(self.tools, arguments["id"], arguments["task_id"], self.board_window)
+                return ToolCallOutcome(value=result, ok=True)
+            except FactoryError as error:
+                return ToolCallOutcome(value=str(error), ok=False, error_message="task_board_blocked")
+            except Exception:
+                return ToolCallOutcome(value="Task board operation could not be confirmed; read factory_task_board and reconcile pending writes.",
+                    ok=False, error_message="task_board_unavailable")
         if tool_name == "factory_turn_budget":
             if arguments != {}:
                 return ToolCallOutcome(value="This read-only clock takes no arguments.", ok=False,
                                        error_message="invalid_clock_arguments")
             now = self.clock()
+            if self.balance_only:
+                return ToolCallOutcome(value={
+                    'turn_id': self.turn_id, 'remaining_seconds': None, 'deadline_utc': None,
+                    'finish_work_by_utc': None, 'handoff_reserve_seconds': 0,
+                    'balance_only': True, 'time_limits_enforced': False,
+                    'approved_spend_cap_usd': self.ledger.limits['spend_cap_usd'],
+                    'extends_limits': False,
+                }, ok=True)
             return ToolCallOutcome(value={
                 "turn_id": self.turn_id,
                 "remaining_seconds": max(0, self.deadline_at - now),
@@ -178,11 +274,37 @@ class WorkflowTools(AuditedTools):
             }, ok=True)
         return await super().execute_tool_call_structured(tool_name, arguments)
 
+    async def acknowledge_handoff(self, delivery_id):
+        if (self.handoff_journal is None or self.delivery_blocked or self.ledger.stop.is_set()
+                or self.ledger.reason() or send_window(self.ledger, self.deadline_at) <= 0):
+            raise GateError("A verified handoff journal and remaining admitted-turn budget are required for this receipt.")
+        binding = self.handoff_journal.acknowledgement_binding(delivery_id)
+        ack = self.watchdog.prepare_acknowledgement(self.actor_id, delivery_id, self.turn_id, binding)
+        if ack['event_id'] is not None:
+            return dict(status="already_acknowledged", delivery_id=delivery_id, event_id=ack['event_id'], receipt_only=True)
+        try:
+            self.handoff_journal.claim_acknowledgement(delivery_id)
+            response = await self.send_message(ack['content'], [ack['sender_id']])
+            event_id, recipients = confirmed_message(response)
+            if recipients != [ack['sender_id']]:
+                raise GateError("Handoff receipt returned unexpected recipients.")
+            self.handoff_journal.confirm_acknowledgement(delivery_id, event_id)
+        except BaseException:
+            self.delivery_blocked = True
+            self.ledger.stop.set()
+            raise
+        return dict(status="acknowledged", delivery_id=delivery_id, event_id=event_id, receipt_only=True)
+
     async def send_message(self, content, mentions=None, *, attachment_ids=None):
         if self.delivery_blocked or self.ledger.stop.is_set():
             raise GateError("An uncertain delivery or stopped run blocks further sends.")
         tracked = protocol_header(content)
         canonical = canonical_mentions(mentions, self.roster) if tracked else None
+        normalized = normalize_header(content, self.roster) if tracked else content
+        if tracked:
+            # Correctable syntax and binding errors precede the uncertain-send
+            # boundary; preserve the admitted turn so the model can correct them.
+            self.watchdog.preview_outbound(self.actor_id, [m['id'] for m in canonical], normalized, self.turn_id)
         try:
             response = (await post_once(self.tools, self.watchdog.scope["room_id"], content, canonical,
                 self.ledger, deadline_at=self.deadline_at, attachment_ids=attachment_ids)) if tracked else (
@@ -190,10 +312,23 @@ class WorkflowTools(AuditedTools):
             if tracked:
                 event_id, recipients = confirmed_message(response)
                 observed = self.watchdog.observe_outbound(event_id, self.actor_id, recipients,
-                                               normalize_header(content, self.roster), self.turn_id)
+                                               normalized, self.turn_id)
                 if observed.get("blocked"):
-                    self.delivery_blocked = True
-                    self.ledger.stop.set()
+                    if self.balance_only and self.watchdog.health().get("communication_advisory") is True:
+                        # The POST is confirmed; its invalid protocol text is
+                        # retained for diagnosis, never treated as a receipt.
+                        # Let the agent correct communication without stopping
+                        # unrelated roles or marking the failed message unknown.
+                        data = response if isinstance(response, dict) else response.model_dump()
+                        response = {**data, "factory_protocol_validation": {
+                            "status": "REJECTED", "delivery_confirmed": True,
+                            "receipt_validated": False,
+                            "reason": "invalid_or_conflicting_multipart"}}
+                    else:
+                        self.delivery_blocked = True
+                        self.ledger.stop.set()
+            if self.task_board is not None:
+                self.task_board.observe_message(self.actor_id, response, content)
             return response
         except BaseException:
             if tracked:
@@ -206,10 +341,10 @@ class WorkflowTools(AuditedTools):
 
     async def send_event(self, content, message_type, metadata=None):
         metadata = metadata or {}
-        if metadata.get("codex_event_type") == "turn_lifecycle":
-            status = metadata.get("codex_turn_status")
-            if status in {"completed", "failed", "interrupted"}:
-                self.terminal_status = status
+        from .harness_usage import lifecycle_status
+        status = lifecycle_status(metadata)
+        if status is not None and self.terminal_status not in {"failed", "interrupted"}:
+            self.terminal_status = status
         return await super().send_event(content, message_type, metadata)
 
 
@@ -220,6 +355,7 @@ async def observed_turn(callback, inp, wrapped, watchdog, *, actor_id, turn_id, 
     watchdog.begin_turn(actor_id, turn_id, deadline_at, trigger_event_id=inp.msg.id)
     status, reason = "unknown", "unknown"
     try:
+        await wrapped.sync_task_board()
         result = await callback(replace(inp, tools=wrapped))
         status = wrapped.terminal_status or "completed"
         reason = "provider_failure" if status == "failed" else "interrupted" if status == "interrupted" else ""
@@ -252,7 +388,7 @@ async def send_due_notice(watchdog, ledger, available_tools, roster, *, executio
     if ledger.stop.is_set() or ledger.reason() or ledger.semaphore.locked():
         return "deferred"
     async with ledger.semaphore:
-        if ledger.stop.is_set() or ledger.reason() or _execution_busy(execution_activity):
+        if ledger.stop.is_set() or ledger.reason() or await _execution_busy(execution_activity):
             return "deferred"
         notice = watchdog.due_notice(can_notify=True)
         if not notice:

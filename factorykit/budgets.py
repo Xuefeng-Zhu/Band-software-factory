@@ -15,12 +15,66 @@ FINITE_LIMITS = (
 )
 
 
+def balance_only(limits: dict) -> bool:
+    """Only the explicitly approved cumulative dollar ceiling limits work."""
+    return limits.get("balance_only") is True
+
+
 def subscription_only(limits: dict) -> bool:
     return limits.get("billing_mode", "spend_cap") == "subscription_only"
 
 
+def session_accounting(limits: dict) -> bool:
+    """Accounting scope is independent of how the provider bills the work."""
+    return subscription_only(limits) or limits.get("accounting_scope") == "session"
+
+
+def accounting_scope_errors(limits: dict) -> list[str]:
+    scope = limits.get("accounting_scope", "session" if subscription_only(limits) else "mode")
+    if not isinstance(scope, str) or scope not in ("mode", "session"):
+        return ["budgets.accounting_scope must be mode or session"]
+    if subscription_only(limits) and scope != "session":
+        return ["subscription_only requires session accounting; existing cumulative consumption cannot become per-mode"]
+    return []
+
+
+def budget_ledger_path(config: dict, mode: str | None = None) -> Path:
+    """Keep historical filenames stable; spend-cap sessions use their own ledger."""
+    limits = config["budgets"]
+    if errors := accounting_scope_errors(limits):
+        raise ValueError("; ".join(errors))
+    if subscription_only(limits):
+        name = "budget-subscription.json"
+    elif session_accounting(limits):
+        name = "budget-session.json"
+    elif mode in ("rehearsal", "judged"):
+        name = f"budget-{mode}.json"
+    else:
+        raise ValueError("Per-mode accounting requires rehearsal or judged mode")
+    return Path(config["paths"]["runs"]) / "runtime" / name
+
+
+def accounting_ledger_conflicts(config: dict) -> list[str]:
+    """Never silently renew consumption by selecting another ledger filename."""
+    if errors := accounting_scope_errors(config["budgets"]):
+        return errors
+    directory = Path(config["paths"]["runs"]) / "runtime"
+    names = {"budget-subscription.json", "budget-session.json"}
+    if session_accounting(config["budgets"]):
+        names |= {"budget-rehearsal.json", "budget-judged.json"}
+        names.remove(budget_ledger_path(config).name)
+    if any((directory / name).exists() or (directory / name).is_symlink() for name in names):
+        return ["Existing ledgers use a different accounting or billing scope; reconcile retained consumption before selecting another ledger"]
+    return []
+
+
 def budget_errors(limits: dict) -> list[str]:
-    errors = []
+    errors = accounting_scope_errors(limits)
+    if "balance_only" in limits and type(limits["balance_only"]) is not bool:
+        errors.append("budgets.balance_only must be an explicit boolean")
+    if balance_only(limits) and (limits.get("billing_mode") != "spend_cap"
+            or limits.get("accounting_scope") != "session" or limits.get("spend_cap_usd") != 25):
+        errors.append("balance_only requires the existing $25 cumulative spend cap")
     for name in FINITE_LIMITS + (("ack_timeout_seconds",) if "ack_timeout_seconds" in limits else ()):
         value = limits.get(name)
         if isinstance(value, bool) or not isinstance(value, int) or value < 1:
@@ -43,7 +97,7 @@ def budget_errors(limits: dict) -> list[str]:
         return errors
     if limits["max_active_seats"] > 7:
         errors.append("max_active_seats cannot exceed seven")
-    if limits["turn_timeout_seconds"] > limits["stage_timeout_seconds"] or limits["stage_timeout_seconds"] > limits["overall_timeout_seconds"]:
+    if not balance_only(limits) and (limits["turn_timeout_seconds"] > limits["stage_timeout_seconds"] or limits["stage_timeout_seconds"] > limits["overall_timeout_seconds"]):
         errors.append("Timeouts must satisfy turn <= stage <= overall")
     return errors
 
@@ -80,21 +134,87 @@ def room_scope(config: dict) -> tuple[list[str], list[str]]:
     return active, sorted(active + archived)
 
 
+def persisted_guard_blockers(config: dict, *, now: float | None = None,
+                             require_existing: bool = False, allow_in_flight: bool = False) -> list[str]:
+    """Read the pinned request ledger without creating, locking or changing it.
+
+    An active supervisor may inspect its own in-flight reservations. Preparation,
+    freeze and launch must treat unfinished requests as unresolved liabilities.
+    No provider requests, credential access or guard startup occur here.
+    """
+    guard = config.get("runtime", {}).get("featherless_budget_guard")
+    if guard is None:
+        return []
+    invalid = ["Featherless request accounting is missing, malformed or differs from its pinned policy."]
+    try:
+        import os
+        import stat
+        from .harnesses import _featherless_metadata
+        from .featherless_guard import _Ledger, _policy
+        models = _featherless_metadata(config)
+        path = Path(guard["ledger"])
+        root = Path(config["paths"]["runs"]).resolve()
+        if any(item.is_symlink() for item in (path, *path.parents)
+               if item.resolve() == root or root in item.resolve().parents):
+            return invalid
+        if not path.exists():
+            return invalid if require_existing or guard.get("time_renewal") is not None else []
+        info = path.stat()
+        if (not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid() or info.st_nlink != 1
+                or stat.S_IMODE(info.st_mode) != 0o600 or info.st_size > 16 * 1024 * 1024):
+            return invalid
+        policy = _policy(models, guard["approved_credit_nano_usd"], guard["max_total_tokens"],
+                         guard["overall_timeout_seconds"], time_renewal=guard.get("time_renewal"),
+                         balance_only=guard.get("balance_only", False))
+        snapshot = _Ledger(path, policy)
+        snapshot.data = json.loads(path.read_text())
+        snapshot._validate()
+        data, totals = snapshot.data, snapshot.totals()
+        instant = time.time() if now is None else now
+        if type(instant) not in (int, float) or not math.isfinite(instant):
+            return invalid
+        blockers = []
+        if data["stopped_reason"]:
+            blockers.append("Featherless request guard is persistently stopped; reconciliation is required.")
+        unfinished = [item["status"] for item in data["requests"].values() if item["status"] != "settled"]
+        if "unknown" in unfinished or (unfinished and not allow_in_flight):
+            blockers.append("Featherless request guard has unfinished or unknown provider usage.")
+        if not policy.get("balance_only") and data["started_epoch"] is not None and instant - data["started_epoch"] >= policy["overall_timeout_seconds"]:
+            blockers.append("Featherless request guard overall time budget exhausted.")
+        # In-flight holds can exactly fill a cap and later settle lower. They
+        # remain protected by atomic admission, without cancelling valid work.
+        if not policy.get("balance_only") and totals["observed_tokens"] >= policy["max_total_tokens"]:
+            blockers.append("Featherless request guard observed token budget exhausted.")
+        if totals["charged_nano_usd"] >= policy["approved_credit_nano_usd"]:
+            blockers.append("Featherless request guard conservative money budget exhausted.")
+        return blockers
+    except Exception:
+        return invalid
+
+
 def persisted_budget_blockers(config: dict, *, now: float | None = None, require_existing: bool = False) -> list[str]:
+    """Read both overlapping ledgers; neither can authorize resetting the other."""
+    return [*_persisted_factory_budget_blockers(config, now=now, require_existing=require_existing),
+            *persisted_guard_blockers(config, now=now, require_existing=require_existing)]
+
+
+def _persisted_factory_budget_blockers(config: dict, *, now: float | None = None, require_existing: bool = False) -> list[str]:
     """Inspect aggregate consumption without constructing/writing a ledger.
 
     An absent ledger is normal before first rehearsal. Room stage halts remain
     live-start concerns: a completed rehearsal must not block a fresh judged room.
     """
     limits = config["budgets"]
-    if not subscription_only(limits):
+    if conflicts := accounting_ledger_conflicts(config):
+        return conflicts
+    if not session_accounting(limits):
         return []
     invalid = ["Existing cumulative budget ledger is malformed or has changed scope; preserve it before launch."]
     try:
         active, rooms = room_scope(config)
     except (ValueError, TypeError, KeyError):
         return invalid
-    path = Path(config["paths"]["runs"]) / "runtime/budget-subscription.json"
+    path = budget_ledger_path(config)
     if not path.exists() and not path.is_symlink():
         return ["Judged readiness requires the existing cumulative budget ledger; preserve rehearsal accounting before launch."] if require_existing or len(rooms) > len(active) else []
     try:
@@ -124,6 +244,10 @@ def persisted_budget_blockers(config: dict, *, now: float | None = None, require
                 or any(not isinstance(value, str) or not value for value in room_stops.values())):
             return invalid
         start = data["started_epoch"]
+        renewal = config.get("runtime", {}).get("featherless_budget_guard", {}).get("time_renewal")
+        if renewal is not None:
+            from .allowance_renewal import validate_retained_factory_accounting
+            validate_retained_factory_accounting(config, data, now=instant)
         if start is None:
             if data["tokens"] or any(data["turns"].values()) or data["token_threads"] or origins or room_turns or room_stops:
                 return invalid
@@ -132,11 +256,12 @@ def persisted_budget_blockers(config: dict, *, now: float | None = None, require
         blockers = []
         if data["stopped_reason"]:
             blockers.append("Persisted cumulative budget has a global stopped_reason; explicit reconciliation is required.")
-        if start is not None and instant - start >= limits["overall_timeout_seconds"]:
+        if not balance_only(limits) and start is not None and instant - start >= limits["overall_timeout_seconds"]:
             blockers.append("Cumulative overall time budget exhausted.")
-        if data["tokens"] >= limits["max_total_tokens"]:
+        if not balance_only(limits) and data["tokens"] >= limits["max_total_tokens"]:
             blockers.append("Cumulative observed token budget exhausted.")
-        blockers.extend(f"Cumulative turn budget exhausted for {seat}." for seat, value in sorted(data["turns"].items()) if value >= limits["max_turns_per_seat"])
+        if not balance_only(limits):
+            blockers.extend(f"Cumulative turn budget exhausted for {seat}." for seat, value in sorted(data["turns"].items()) if value >= limits["max_turns_per_seat"])
         return blockers
     except (OSError, ValueError, TypeError, KeyError):
         return invalid
@@ -162,6 +287,9 @@ def codex_argv(config: dict, *arguments: str) -> list[str]:
 
 def subscription_auth_errors(config: dict) -> list[str]:
     """Read local login status only; never create a thread/turn or echo keys."""
+    from .harnesses import selected_harness, auth_errors
+    if selected_harness(config) != "codex":
+        return auth_errors(config)
     if not subscription_only(config["budgets"]):
         return []
     import os

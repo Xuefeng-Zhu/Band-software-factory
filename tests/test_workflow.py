@@ -40,6 +40,20 @@ class WorkflowTests(unittest.TestCase):
         claimed=self.w.claim_notice(p['notice_id'],can_notify=True);self.assertEqual(claimed,p)
         return p
 
+    def test_outbound_preview_is_read_only_and_reuses_post_validation(self):
+        before=self.path.read_bytes()
+        self.w.preview_outbound(BACKEND,[PM],part(1),'backend-turn')
+        self.assertEqual(self.path.read_bytes(),before)
+        self.assertTrue(self.send(1)['multipart'])
+        before=self.path.read_bytes()
+        with self.assertRaises(WorkflowError):
+            self.w.preview_outbound(BACKEND,[PM],part(1,body='changed'),'backend-turn')
+        self.assertEqual(self.path.read_bytes(),before)
+        # A real already-posted conflict still fails closed and retains evidence.
+        result=self.w.observe_outbound(eid(999),BACKEND,[PM],part(1,body='changed'),'backend-turn')
+        self.assertTrue(result['blocked'])
+        self.assertEqual(self.w.health()['state'],'blocked')
+
     def test_four_of_five_timeout_produces_pm_only_notice_with_original_ids(self):
         for i in range(1,5):self.send(i)
         self.now=1600.26

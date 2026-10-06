@@ -2,9 +2,9 @@
 
 No Agent, app-server, credentials, model turn or live BAND request is created.
 """
-import asyncio
 from contextlib import redirect_stdout
 from dataclasses import replace
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -17,11 +17,13 @@ from unittest.mock import AsyncMock, patch
 
 from band.adapters import CodexAdapter, CodexAdapterConfig
 from band.client.rest import MessageSentResponse
+from band.client.streaming import MessageCreatedPayload
 from band.core.protocols import TurnResultAlreadyReported
 from band.core.types import AgentInput, Capability, Emit
 from band.runtime.tools.agent import AgentTools
 
 from factorykit.runtime import BudgetLedger, GateError, cmd_status
+from factorykit.handoff_batching import HandoffJournal
 from factorykit.workflow import WorkflowWatchdog
 from factorykit.workflow_runtime import WorkflowTools, confirmed_message, observed_turn, send_due_notice
 
@@ -121,9 +123,143 @@ class WorkflowIntegrationTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(state['deliveries']['RESULT-1']['acknowledged'])
         self.assertNotIn('accepted',self.watchdog.path.read_text())
 
+    async def test_ack_prose_is_correctable_before_post_without_poisoning_receipt(self):
+        for i in range(1,6):
+            self.watchdog.observe_outbound(eid(500+i),BACKEND,[PM],part(i).replace('@owner/pm','@[['+PM+']]'))
+        guard=self.wrapper(PM,'ack-correction')
+        self.post.return_value=response(600,BACKEND)
+        ack=f'HANDOFF-ACK delivery RESULT-1; SHA-256 {DIGEST}; sender @owner/backend'
+        async def adapter(inp):
+            before=self.watchdog.path.read_bytes();budget=self.ledger.path.read_bytes()
+            failed=await inp.tools.execute_tool_call_structured('band_send_message',{
+                'content':ack+'. Verified 5/5 parts; receipt is not acceptance.','mentions':[BACKEND]})
+            self.assertFalse(failed.ok)
+            self.assertIn('standalone canonical HANDOFF-ACK',failed.error_message)
+            self.post.assert_not_awaited()
+            self.assertEqual(self.watchdog.path.read_bytes(),before)
+            self.assertEqual(self.ledger.path.read_bytes(),budget)
+            self.assertFalse(self.ledger.stop.is_set());self.assertFalse(inp.tools.delivery_blocked)
+            corrected=await inp.tools.execute_tool_call_structured('band_send_message',{'content':ack,'mentions':[BACKEND]})
+            self.assertTrue(corrected.ok)
+        await self.run_callback(adapter,guard)
+        self.assertEqual(self.post.await_count,1)
+        self.assertTrue(json.loads(self.watchdog.path.read_text())['deliveries']['RESULT-1']['acknowledged'])
+        self.assertEqual(self.watchdog.health()['state'],'idle')
+
+    async def test_malformed_part_and_recipient_mismatch_do_not_post_or_mutate(self):
+        async def adapter(inp):
+            before=self.watchdog.path.read_bytes()
+            invalid=[(part(1).replace('part 1/5','part 0/5'),[PM]),
+                     (part(5).replace('END OF HANDOFF','still incomplete'),[PM]),
+                     (part(1),[BACKEND])]
+            for text,mentions in invalid:
+                outcome=await inp.tools.execute_tool_call_structured('band_send_message',{'content':text,'mentions':mentions})
+                self.assertFalse(outcome.ok)
+                self.assertEqual(self.watchdog.path.read_bytes(),before)
+                self.assertFalse(self.ledger.stop.is_set());self.assertFalse(inp.tools.delivery_blocked)
+            self.post.assert_not_awaited()
+            corrected=await inp.tools.execute_tool_call_structured('band_send_message',{'content':part(1),'mentions':[PM]})
+            self.assertTrue(corrected.ok)
+        await self.run_callback(adapter)
+        self.assertEqual(self.post.await_count,1)
+        self.assertNotEqual(self.watchdog.health()['state'],'blocked')
+
+    async def test_existing_part_binding_conflicts_are_correctable_without_post(self):
+        async def adapter(inp):
+            self.post.return_value=response(610)
+            first=await inp.tools.execute_tool_call_structured('band_send_message',{'content':part(1),'mentions':[PM]})
+            self.assertTrue(first.ok)
+            before=self.watchdog.path.read_bytes();self.post.reset_mock()
+            for text in (part(1).replace('Original','Altered').replace('Existing','Altered'),part(2).replace(DIGEST,'b'*64),part(2).replace('2/5','2/6')):
+                outcome=await inp.tools.execute_tool_call_structured('band_send_message',{'content':text,'mentions':[PM]})
+                self.assertFalse(outcome.ok)
+                self.assertEqual(self.watchdog.path.read_bytes(),before)
+                self.assertFalse(self.ledger.stop.is_set());self.assertFalse(inp.tools.delivery_blocked)
+            self.post.assert_not_awaited()
+            self.post.return_value=response(611)
+            corrected=await inp.tools.execute_tool_call_structured('band_send_message',{'content':part(2),'mentions':[PM]})
+            self.assertTrue(corrected.ok)
+        await self.run_callback(adapter)
+        self.assertEqual(self.post.await_count,1)
+        self.assertNotEqual(self.watchdog.health()['state'],'blocked')
+
     async def test_normal_non_pm_completion_does_not_require_notice_authority(self):
         await self.run_callback(AsyncMock())
         self.assertEqual(self.watchdog.health()['state'],'idle')
+
+    def ack_guard(self, *, complete=True, claim=True):
+        journal = HandoffJournal(self.root/'handoffs.json', ROOM, PM, [PM, BACKEND])
+        digest = hashlib.sha256('first\nsecond'.encode()).hexdigest()
+        for n, body in enumerate(('first\n', 'second'), 1):
+            if n == 2 and not complete:
+                break
+            content = f'WORK-1 delivery VERIFIED-1 part {n}/2; SHA-256 {digest}; recipient @[[{PM}]]\n{body}'
+            if n == 2:
+                content += '\nEND OF HANDOFF'
+            event_id = eid(700+n)
+            self.watchdog.observe_outbound(event_id, BACKEND, [PM], content)
+            payload = MessageCreatedPayload(id=event_id, content=content, sender_id=BACKEND, sender_type='Agent',
+                message_type='text', chat_room_id=ROOM, inserted_at='2026-10-05T01:00:00+00:00', updated_at='2026-10-05T01:00:00+00:00')
+            journal.observe(payload, event_room_id=ROOM, confirmed=json.loads(self.watchdog.path.read_text())['events'][event_id])
+        if complete and claim:
+            journal.claim(eid(702))
+        guard = self.wrapper(PM, 'structured-ack')
+        guard.handoff_journal = journal
+        self.post.return_value = response(703, BACKEND)
+        return guard, digest
+
+    async def test_structured_ack_uses_verified_binding_and_never_resends_confirmed_receipt(self):
+        guard, digest = self.ack_guard()
+        schema = next(s for s in guard.get_openai_tool_schemas() if s.get('function',s).get('name') == 'factory_handoff_ack')
+        self.assertEqual(schema['function']['parameters']['required'], ['delivery_id'])
+        async def adapter(inp):
+            # The final already-admitted turn may finish its receipt.
+            self.ledger.data['turns']['pm'] = self.ledger.limits['max_turns_per_seat']
+            first = await inp.tools.execute_tool_call_structured('factory_handoff_ack', {'delivery_id':'VERIFIED-1'})
+            self.assertTrue(first.ok); self.assertTrue(first.value['receipt_only'])
+            self.assertEqual(first.value['event_id'], eid(703))
+            request = self.post.await_args.kwargs['message']
+            self.assertEqual(request.content, f'HANDOFF-ACK delivery VERIFIED-1; SHA-256 {digest}; sender @[[{BACKEND}]]')
+            self.assertEqual([m.id for m in request.mentions], [BACKEND])
+            second = await inp.tools.execute_tool_call_structured('factory_handoff_ack', {'delivery_id':'VERIFIED-1'})
+            self.assertTrue(second.ok); self.assertEqual(second.value['status'],'already_acknowledged')
+        await self.run_callback(adapter, guard)
+        self.post.assert_awaited_once()
+
+    async def test_structured_ack_partial_or_unadmitted_delivery_is_local_error(self):
+        guard, _ = self.ack_guard(complete=False)
+        async def adapter(inp):
+            for args in ({'delivery_id':'VERIFIED-1'}, {'delivery_id':'missing'}, {'delivery_id':'VERIFIED-1','sender':BACKEND}):
+                result = await inp.tools.execute_tool_call_structured('factory_handoff_ack', args)
+                self.assertFalse(result.ok)
+                self.assertFalse(self.ledger.stop.is_set())
+            self.post.assert_not_awaited()
+        await self.run_callback(adapter, guard)
+
+    async def test_structured_ack_requires_matching_actor_and_live_deadline(self):
+        guard, _ = self.ack_guard()
+        async def adapter(inp):
+            original_actor = inp.tools.actor_id
+            inp.tools.actor_id = BACKEND
+            wrong_actor = await inp.tools.execute_tool_call_structured('factory_handoff_ack', {'delivery_id':'VERIFIED-1'})
+            self.assertFalse(wrong_actor.ok)
+            inp.tools.actor_id = original_actor
+            inp.tools.deadline_at = time.time()-1
+            late = await inp.tools.execute_tool_call_structured('factory_handoff_ack', {'delivery_id':'VERIFIED-1'})
+            self.assertFalse(late.ok)
+            self.post.assert_not_awaited()
+        await self.run_callback(adapter, guard)
+
+    async def test_structured_ack_uncertain_post_blocks_subsequent_attempt(self):
+        guard, _ = self.ack_guard()
+        self.post.side_effect = RuntimeError('synthetic unknown delivery')
+        async def adapter(inp):
+            for _ in range(2):
+                result = await inp.tools.execute_tool_call_structured('factory_handoff_ack', {'delivery_id':'VERIFIED-1'})
+                self.assertFalse(result.ok)
+            self.assertTrue(self.ledger.stop.is_set()); self.assertTrue(inp.tools.delivery_blocked)
+        await self.run_callback(adapter, guard)
+        self.post.assert_awaited_once()
 
     async def test_sdk_lifecycle_failure_survives_best_effort_broadcast_loss(self):
         self.base.send_event.side_effect=RuntimeError('unavailable')

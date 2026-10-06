@@ -12,6 +12,13 @@ def settings(arguments):
 
 
 class PermissionProfileTests(unittest.TestCase):
+    def test_codex_alias_keeps_exact_profile_validation(self):
+        base = {"harness": "Codex", "sandbox": "workspace-write", "approval_policy": "never"}
+        profile = {"name": "factory-seat", "domains": ["pypi.org"]}
+        self.assertEqual(runtime_permission_arguments(dict(base, permission_profile=profile)), profile_arguments(**profile))
+        with self.assertRaises(FactoryError):
+            runtime_permission_arguments(dict(base, sandbox="danger-full-access"))
+
     def test_docker_host_requires_exact_allowlisted_unix_socket(self):
         base = {"sandbox": "workspace-write", "allow_network": False, "approval_policy": "never"}
         profile = {"name": "factory-seat", "domains": ["pypi.org"], "unix_sockets": ["/tmp/factory.sock"]}

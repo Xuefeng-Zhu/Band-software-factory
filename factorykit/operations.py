@@ -13,7 +13,8 @@ from datetime import datetime, timezone
 from .common import FactoryError, artifact_path, canonical, digest, product_repository, run_command, source_lock, utc_now, verify_sources, write_json
 from .budgets import persisted_budget_blockers
 from .tasks import verify_tasks
-from .validation import docker_resource_check, observations, validate
+from .validation import docker_resource_check, observations, validate, frozen_readiness_authorization, frozen_readiness_errors
+from .source_snapshot import frozen_source_errors, source_fingerprint, source_inventory
 
 
 def evidence_directory(config: dict, prefix: str) -> Path:
@@ -113,21 +114,13 @@ def freeze(config: dict) -> dict:
         blockers.extend(preflight_runtime(config, mode="judged"))
     except ImportError:
         blockers.append("Runtime adapter preflight is unavailable")
-    files = {}
-    root = Path(config["paths"]["factory"])
-    for folder in ("mandates", "protocols", "agents", "factorykit", "scripts"):
-        for path in sorted((root / folder).rglob("*")):
-            if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc":
-                files[str(path.relative_to(root))] = digest(path)
-    for name in ("AGENTS.md", "pyproject.toml", "uv.lock", "config/source-lock.json", "config/harness-requirements.lock",
-                 "tooling/codex/package.json", "tooling/codex/package-lock.json"):
-        if name == "config/source-lock.json" and "source_lock" in config.get("artifacts", {}):
-            continue
-        path = root / name
-        if path.is_file():
-            files[name] = digest(path)
-        else:
-            blockers.append(f"Freeze input missing: {name}")
+    files, inventory_errors = source_inventory(config)
+    blockers.extend(inventory_errors)
+    try:
+        factory_source_sha256 = source_fingerprint(config)
+    except (OSError, FactoryError) as exc:
+        blockers.append(f"Cannot bind frozen factory source: {exc}")
+        factory_source_sha256 = None
     lock_path = artifact_path(config, "source_lock")
     lock_sha256 = digest(lock_path) if lock_path.is_file() else None
     if lock_sha256 is None:
@@ -137,12 +130,20 @@ def freeze(config: dict) -> dict:
     manifest = {"schema_version": 1, "created_at": utc_now(),
                 "status": "BLOCKED_WITH_ACTIONS" if blockers else "READY_TO_LAUNCH",
                 "configuration_sha256": digest(canonical(config)), "source_lock_sha256": lock_sha256,
-                "files": files, "tasks": tasks["tasks"], "seats": config["seats"], "budgets": config["budgets"],
+                "files": files, "source_inventory_version": 1,
+                "factory_source_sha256": factory_source_sha256,
+                "tasks": tasks["tasks"], "seats": config["seats"], "budgets": config["budgets"],
                 "observed_checks": evidence, "blockers": blockers,
                 "usage": {"measured_preparation_cost_usd": None, "measured_rehearsal_cost_usd": None, "status": "UNAVAILABLE"},
                 "dispatch_performed": False}
     if "source_lock" in config.get("artifacts", {}):
         manifest["source_lock_path"] = str(lock_path)
+    if "mandates" in config.get("artifacts", {}):
+        manifest["mandate_files"] = {str(Path(seat["mandate"]).resolve()): digest(Path(seat["mandate"]))
+                                    for seat in config["seats"] if Path(seat["mandate"]).is_file()}
+    authorization = frozen_readiness_authorization(config)
+    if authorization is not None:
+        manifest["operator_readiness_authorization"] = authorization
     path = Path(config["paths"]["runs"]) / "freeze/latest.json"
     write_json(path, manifest)
     archive = evidence_directory(config, "freeze")
@@ -191,10 +192,10 @@ def launch_prepare(config: dict, mode: str, stage: int | None) -> dict:
             blockers.append("Freeze is not READY_TO_LAUNCH")
         if frozen.get("configuration_sha256") != digest(canonical(config)):
             blockers.append("Configuration changed after freeze")
-        for name, expected in frozen.get("files", {}).items():
-            target = Path(config["paths"]["factory"]) / name
-            if not target.is_file() or digest(target) != expected:
-                blockers.append(f"Frozen input changed: {name}")
+        blockers.extend(frozen_source_errors(config, frozen))
+        from .common import scoped_mandate_errors
+        blockers.extend(scoped_mandate_errors(config, frozen))
+        blockers.extend(frozen_readiness_errors(config, frozen))
         lock_path = artifact_path(config, "source_lock")
         if not lock_path.is_file() or digest(lock_path) != frozen.get("source_lock_sha256"):
             blockers.append("Configured source lock changed after freeze")

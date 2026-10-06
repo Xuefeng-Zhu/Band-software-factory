@@ -6,6 +6,8 @@ paths:
   runs: /Users/frank/mygit/Tablekeeper/runs
   result: /Users/frank/mygit/Tablekeeper/result
 runtime:
+  # Use runtime-select to prepare an isolated codex, claude-code or opencode profile.
+  harness: codex
   codex_command: /Users/frank/mygit/Tablekeeper/factory/scripts/codex-local
   python: /Users/frank/mygit/Tablekeeper/factory/.venv/bin/python
   harness_python: /Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python
@@ -44,6 +46,17 @@ launch:
   practice_mode: false
   registration_verified: false
   submission_open_verified: false
+# Fresh sessions require a reviewed, finite runnable-checkpoint policy. Replace
+# the executable below with a real smoke check before enabling this block. It
+# runs in the assigned clean candidate checkout and must prove runnable behavior.
+# progress:
+#   milestones:
+#   - id: first-runnable
+#     max_turns: 20
+#     max_seconds: 1800
+#     command: [/absolute/path/to/reviewed-smoke-check]
+#     timeout_seconds: 120
+#     max_attempts: 2
 seats:
 - id: pm
   display_name: Factory PM

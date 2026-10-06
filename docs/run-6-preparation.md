@@ -1,5 +1,7 @@
 # Run 6 preparation and launch
 
+> Historical preparation and initial launch record. The later model/time continuation and token-ceiling stop are recorded in [Run 6 continuation](run-6-continuation.md).
+
 **Dispatched once; runtime in progress at the initial `2026-10-05T00:53Z` snapshot. No accepted stage is claimed.** The verified human task event is `2657292f-0e48-4396-b7a5-e5294bd311f7`, sent at `2026-10-05T00:49:46.849584Z` (October 4 at 5:49 PM PDT). Run 6 started from an empty independent local repository and a fresh room, with no earlier application code, domain tests or placeholder commits copied in. Run 5 remains closed after three repairs and independent rejection; its product, room export and accounting are preserved.
 
 The application target is the existing private [Tablekeeper repository](https://github.com/Xuefeng-Zhu/Tablekeeper), branch `run-6`. The dispatched task directs agent progress commits to that branch. The checkout is `/Users/frank/mygit/Tablekeeper/result-run-6`; the room is **MillieMoon · Tablekeeper · Run 6**, `d98df99d-77ad-441d-875c-6e38cdbef39d`, with the same seven identities plus Frank. Factory tools stay separate.

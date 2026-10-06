@@ -156,6 +156,11 @@ def load_config(path: str | Path) -> dict:
     for key in ("paths", "runtime", "band", "budgets", "launch"):
         if not isinstance(config.get(key), dict):
             raise FactoryError(f"Configuration requires a {key} mapping")
+    for mapping, flag in (("budgets", "balance_only"), ("runtime", "strict_membership_recovery")):
+        if flag in config[mapping] and type(config[mapping][flag]) is not bool:
+            raise FactoryError(f"{mapping}.{flag} must be an explicit boolean")
+    if config["budgets"].get("balance_only") is True and config["runtime"].get("strict_membership_recovery") is not False:
+        raise FactoryError("balance_only requires runtime.strict_membership_recovery=false")
     for key in ("challenge", "factory", "rehearsal", "runs", "result"):
         value = config["paths"].get(key)
         if not isinstance(value, str) or not Path(value).is_absolute():
@@ -164,9 +169,10 @@ def load_config(path: str | Path) -> dict:
     if len(set(paths)) != len(paths) or any(a in b.parents for a in paths for b in paths if a != b):
         raise FactoryError("Operational workspace paths must be distinct, non-nested directories")
     product_repository(config)
-    for name in ("source_lock", "tasks"):
+    for name in ("source_lock", "tasks", "mandates"):
         artifact_path(config, name)
-    for key in ("python", "harness_python", "codex_command", "browser_path"):
+    from .harnesses import command_key, selected_harness, validate_selection
+    for key in ("python", "harness_python", command_key(selected_harness(config)), "browser_path"):
         value = config["runtime"].get(key)
         if not isinstance(value, str) or not Path(value).is_absolute():
             raise FactoryError(f"runtime.{key} must be an absolute path")
@@ -192,8 +198,10 @@ def load_config(path: str | Path) -> dict:
                 raise FactoryError(f"Seat {seat['id']} requires {field}")
         if not Path(seat["mandate"]).is_absolute():
             raise FactoryError(f"Seat {seat['id']} mandate path must be absolute")
-        if Path(seat["mandate"]).resolve().parent != Path(config["paths"]["factory"]).resolve() / "mandates":
-            raise FactoryError("Mandates must be direct children of factory/mandates")
+        if Path(seat["mandate"]).resolve().parent != artifact_path(config, "mandates").resolve():
+            raise FactoryError("Mandates must be direct children of the configured mandates directory")
+    if errors := validate_selection(config):
+        raise FactoryError("; ".join(errors))
     from .budgets import budget_errors, room_scope
     if "archived_room_ids" in config["band"]:
         try:
@@ -226,12 +234,16 @@ def product_repository(config: dict) -> dict | None:
 
 def artifact_path(config: dict, name: str) -> Path:
     """Resolve optional run-owned inputs without overwriting historical defaults."""
-    defaults = {"source_lock": "config/source-lock.json", "tasks": "tasks"}
+    from .source_snapshot import snapshot_artifact_path
+    snapshot = snapshot_artifact_path(config, name)
+    if snapshot is not None:
+        return snapshot
+    defaults = {"source_lock": "config/source-lock.json", "tasks": "tasks", "mandates": "mandates"}
     if name not in defaults:
         raise FactoryError("Unknown factory artifact")
     artifacts = config.get("artifacts", {})
     if not isinstance(artifacts, dict) or set(artifacts) - defaults.keys():
-        raise FactoryError("artifacts permits only source_lock and tasks paths")
+        raise FactoryError("artifacts permits only source_lock, tasks and mandates paths")
     scoped = {}
     runs = Path(config["paths"]["runs"]).resolve()
     for key, value in artifacts.items():
@@ -240,16 +252,37 @@ def artifact_path(config: dict, name: str) -> Path:
         path = Path(value).resolve()
         if runs not in path.parents:
             raise FactoryError(f"artifacts.{key} must remain under paths.runs, including symlink targets")
-        if (key == "source_lock" and path.is_dir()) or (key == "tasks" and path.exists() and not path.is_dir()):
+        if (key == "source_lock" and path.is_dir()) or (key in ("tasks", "mandates") and path.exists() and not path.is_dir()):
             raise FactoryError(f"artifacts.{key} has the wrong file type")
-        if key == "tasks" and path.exists() and any(child.is_symlink() for child in path.rglob("*")):
-            raise FactoryError("artifacts.tasks must not contain symlinks")
+        if key == "mandates" and path.name != "mandates":
+            raise FactoryError("artifacts.mandates must name a mandates directory for the official vocabulary check")
+        if key in ("tasks", "mandates") and path.exists() and any(child.is_symlink() for child in path.rglob("*")):
+            raise FactoryError(f"artifacts.{key} must not contain symlinks")
         scoped[key] = path
-    if len(scoped) == 2:
-        lock, tasks = scoped["source_lock"], scoped["tasks"]
-        if lock == tasks or lock in tasks.parents or tasks in lock.parents:
-            raise FactoryError("Artifact source lock and task paths must not overlap")
+    from itertools import combinations
+    for left, right in combinations(scoped.values(), 2):
+        if left == right or left in right.parents or right in left.parents:
+            raise FactoryError("Artifact paths must not overlap")
     return scoped.get(name, Path(config["paths"]["factory"]) / defaults[name])
+
+
+def scoped_mandate_errors(config: dict, frozen: dict) -> list[str]:
+    """Bind profile-owned mandates without changing historical factory snapshots."""
+    if "mandates" not in config.get("artifacts", {}):
+        return []
+    directory = artifact_path(config, "mandates").resolve()
+    paths = {str(Path(seat["mandate"]).resolve()) for seat in config["seats"]}
+    recorded = frozen.get("mandate_files")
+    if not isinstance(recorded, dict) or set(recorded) != paths:
+        return ["Frozen profile mandate inventory differs from the configured roster"]
+    errors = []
+    for name, expected in recorded.items():
+        from .source_snapshot import snapshot_input_path
+        path = snapshot_input_path(config, name)
+        if (path.parent != directory or not path.is_file() or path.is_symlink()
+                or digest(path) != expected):
+            errors.append(f"Frozen profile mandate changed: {path.name}")
+    return errors
 
 
 def source_lock(config: dict) -> dict:

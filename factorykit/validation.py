@@ -25,12 +25,80 @@ REQUIRED_OBSERVATIONS = (
 )
 
 
+def required_observations(config: dict) -> tuple[str, ...]:
+    """Normal balance-only work does not require an induced recovery fixture."""
+    if (config.get("budgets", {}).get("balance_only") is True
+            and config.get("runtime", {}).get("strict_membership_recovery", False) is False):
+        return tuple(name for name in REQUIRED_OBSERVATIONS if name != "toy_missing_peer_delayed_message")
+    return REQUIRED_OBSERVATIONS
+
+
+# These prove the rehearsal loop, not launch authentication, permissions or cost.
+REHEARSAL_OBSERVATIONS = frozenset(name for name in REQUIRED_OBSERVATIONS
+    if name.startswith("toy_") or name in {"all_seat_directed_replies", "all_seat_checkout_commit_visibility"})
+
+
+def operator_readiness_authorization(config: dict, report: dict | None = None) -> dict | None:
+    """Retain an explicit human decision to proceed without unfinished rehearsal."""
+    path = Path(config["paths"]["runs"]) / "readiness/observations.json"
+    if report is None:
+        try:
+            report = json.loads(path.read_text())
+        except (OSError, ValueError):
+            return None
+    if not isinstance(report, dict) or "operator_authorization" not in report:
+        return None
+    value = report["operator_authorization"]
+    lock = artifact_path(config, "source_lock")
+    if not lock.is_file():
+        raise FactoryError("Operator readiness authorization requires the current source lock")
+    binding = {"configuration_sha256": digest(canonical(config)),
+               "source_lock_sha256": digest(lock), "judged_room_id": config["band"].get("judged_room_id")}
+    skipped = value.get("skipped_observations") if isinstance(value, dict) else None
+    if (not isinstance(value, dict) or value.get("kind") != "proceed_with_incomplete_rehearsal"
+            or any(value.get(key) != expected or report.get(key, expected) != expected for key, expected in binding.items())
+            or not binding["judged_room_id"]
+            or not isinstance(value.get("user_request"), str) or not value["user_request"].strip()
+            or not isinstance(value.get("authorized_at"), str) or not value["authorized_at"].strip()
+            or not isinstance(skipped, list) or not skipped or any(not isinstance(x, str) for x in skipped)
+            or len(skipped) != len(set(skipped)) or not set(skipped) <= REHEARSAL_OBSERVATIONS):
+        raise FactoryError("Operator readiness authorization is invalid or outside rehearsal scope")
+    # Keep the original observation records, including NOT_TESTED/FAIL. This is
+    # authorization to proceed, never a synthetic observation or acceptance.
+    return {**value, "skipped_observations": list(skipped)}
+
+
+def frozen_readiness_authorization(config: dict) -> dict | None:
+    authorization = operator_readiness_authorization(config)
+    if authorization is None:
+        return None
+    path = Path(config["paths"]["runs"]) / "readiness/observations.json"
+    return {"authorization": authorization, "observations_sha256": digest(path)}
+
+
+def frozen_readiness_errors(config: dict, frozen: dict) -> list[str]:
+    try:
+        actual = frozen_readiness_authorization(config)
+    except FactoryError as error:
+        return [str(error)]
+    expected = frozen.get("operator_readiness_authorization")
+    if actual != expected:
+        return ["Operator readiness authorization or its retained observations changed after freeze"]
+    return []
+
+
 def runtime_permission_arguments(runtime: dict) -> list[str]:
     """Validate configured isolation and return immutable named-profile args.
 
     Legacy settings remain a narrow fallback only. Profile-backed adapters must
     omit both SDK sandbox fields so they cannot replace the selected profile.
     """
+    from .harnesses import selected_harness, permission_errors
+    if selected_harness({"runtime": runtime}) != "codex":
+        errors = permission_errors({"runtime": runtime})
+        if errors:
+            raise FactoryError("; ".join(errors))
+        return []
     if runtime.get("approval_policy") != "never":
         raise FactoryError("Runtime requires never approval policy")
     if runtime.get("allow_network", False) is not False:
@@ -120,6 +188,19 @@ def docker_resource_check(config: dict) -> dict:
 
 def validate(config: dict, check_sources: bool = True) -> dict:
     errors, blockers = [], []
+    from .harnesses import validate_selection
+    errors.extend(validate_selection(config))
+    if config.get("budgets", {}).get("balance_only") is not True:
+        from .progress import progress_policy
+        try:
+            policy = progress_policy(config)
+            if policy is None:
+                blockers.append("Fresh sessions require a finite runnable-checkpoint progress policy")
+            elif any(not Path(row["command"][0]).is_file() or not os.access(row["command"][0], os.X_OK)
+                     for row in policy["milestones"]):
+                blockers.append("Configure each reviewed checkpoint executable before launching")
+        except FactoryError as exc:
+            blockers.append(f"Progress policy is invalid: {exc}")
     if check_sources:
         try:
             errors.extend(verify_sources(config))
@@ -155,8 +236,6 @@ def validate(config: dict, check_sources: bool = True) -> dict:
                 errors.append(f"{name} mandate lacks {field}: metadata")
             elif expected and found.group(1).strip().strip("`") != expected:
                 errors.append(f"{name} mandate {field}: differs from configured runtime")
-        if seat.get("model") != model:
-            errors.append(f"{name} model differs from pinned common runtime model")
         if not seat.get("handle") or not seat.get("agent_id") or not seat.get("registration_verified"):
             blockers.append(f"Verify actual BAND identity, handle and room visibility for {name}")
         if not seat.get("model"):
@@ -169,7 +248,7 @@ def validate(config: dict, check_sources: bool = True) -> dict:
         if explicit_sentinel or metadata_placeholder:
             blockers.append(f"Resolve placeholders in {name}'s mandate")
     # Scan every standing instruction surface, not only final mandate files.
-    standing = [Path(paths["factory"]) / part for part in ("mandates", "protocols", "agents")]
+    standing = [artifact_path(config, "mandates"), *(Path(paths["factory"]) / part for part in ("protocols", "agents"))]
     suspicious = re.compile(r"\b(?:tablekeeper|pocketful|restaurant|reservations?|sqlite|typescript|vite)\b|\b(?:GET|POST|PATCH|DELETE)\s+/[a-z]", re.I)
     for directory in standing:
         for path in sorted(directory.rglob("*.md")) if directory.exists() else []:
@@ -181,7 +260,8 @@ def validate(config: dict, check_sources: bool = True) -> dict:
     # Run organizer vocabulary implementation from the pinned checkout.
     if Path(config["runtime"]["harness_python"]).is_file():
         script = "from harness.check import _mandates; import pathlib,json,sys; print(json.dumps(_mandates(pathlib.Path(sys.argv[1]), 'tablekeeper')))"
-        check = run_command([config["runtime"]["harness_python"], "-c", script, paths["factory"]], paths["challenge"])
+        check = run_command([config["runtime"]["harness_python"], "-c", script,
+                             str(artifact_path(config, "mandates").parent)], paths["challenge"])
         if check["exit_code"]:
             errors.append("Official mandate vocabulary check could not run")
         else:
@@ -205,6 +285,8 @@ def validate(config: dict, check_sources: bool = True) -> dict:
 
 
 def doctor(config: dict) -> dict:
+    from .harnesses import selected_harness, command_key, adapter_class
+    selected = selected_harness(config)
     checks = []
     def add(name, status, evidence):
         checks.append({"id": name, "status": status, "evidence": evidence})
@@ -213,10 +295,11 @@ def doctor(config: dict) -> dict:
     commands = {
         "git": ["git", "--version"], "node": ["node", "--version"],
         "npm": ["npm", "--version"], "docker_cli": ["docker", "--version"],
-        "codex_version": [config["runtime"]["codex_command"], "--version"],
-        "codex_auth": [config["runtime"]["codex_command"], "login", "status"],
         "harness_help": [config["runtime"]["harness_python"], "-m", "harness", "--help"],
     }
+    commands[f"{selected}_version"] = [config["runtime"][command_key(selected)], "--version"]
+    if selected == "codex":
+        commands["codex_auth"] = [config["runtime"]["codex_command"], "login", "status"]
     for name, argv in commands.items():
         result = run_command(argv, config["paths"]["challenge"], timeout=15)
         add(name, "PASS" if result["exit_code"] == 0 else "FAIL", result)
@@ -224,12 +307,13 @@ def doctor(config: dict) -> dict:
     add("docker_daemon", docker["status"], docker)
     if subscription_only(config["budgets"]):
         auth_errors = subscription_auth_errors(config)
-        add("subscription_auth", "FAIL" if auth_errors else "PASS", auth_errors or "ChatGPT authentication verified without inference; provider costs unmeasured")
+        add("subscription_auth", "FAIL" if auth_errors else "PASS", auth_errors or "Selected harness subscription authentication verified without inference; provider costs unmeasured")
     try:
-        from band.adapters import CodexAdapter, CodexAdapterConfig  # noqa: F401
-        add("band_sdk", "PASS", {"version": version("band-sdk"), "adapter": "band.adapters.CodexAdapter"})
+        adapter = adapter_class(config)
+        add("band_sdk", "PASS", {"version": version("band-sdk"), "harness": selected,
+                                 "adapter": adapter.__name__})
     except (ImportError, PackageNotFoundError):
-        add("band_sdk", "FAIL", "Supported Codex adapter cannot be imported")
+        add("band_sdk", "FAIL", "Selected harness adapter cannot be imported; restore the locked dependencies")
     band_cli = {name: shutil.which(name) for name in ("band", "jam")}
     add("band_cli", "PASS" if any(band_cli.values()) else "NOT_TESTED",
         {"executables": band_cli, "required": False, "note": "The supported Python SDK is the selected transport; a separate CLI is optional"})
@@ -267,7 +351,12 @@ def doctor(config: dict) -> dict:
             saved = {}
     except (OSError, ValueError, AttributeError):
         saved = {}
-    for check in REQUIRED_OBSERVATIONS:
+    try:
+        from .source_snapshot import source_fingerprint
+        factory_source_sha256 = source_fingerprint(config)
+    except (OSError, FactoryError):
+        factory_source_sha256 = None
+    for check in required_observations(config):
         matches = [r for r in saved.get("observations", []) if isinstance(r, dict) and r.get("id") == check]
         item = matches[0] if len(matches) == 1 else {}
         status = item.get("status", "NOT_TESTED")
@@ -276,12 +365,22 @@ def doctor(config: dict) -> dict:
         for entry in evidence if isinstance(evidence, list) else []:
             path = Path(entry.get("path", "")) if isinstance(entry, dict) else Path()
             verified = verified and path.is_absolute() and path.is_file() and entry.get("sha256") == digest(path)
+        if status == "PASS":
+            verified = (verified and factory_source_sha256 is not None
+                        and saved.get("factory_source_sha256") == factory_source_sha256
+                        and item.get("factory_source_sha256") == factory_source_sha256)
         if status in ("PASS", "FAIL") and verified:
             add(check, status, item)
         else:
             add(check, "NOT_TESTED", "Requires current recorded live evidence; host checks alone do not prove a seat's permission or BAND collaboration")
-    report = {"created_at": utc_now(), "configuration_sha256": digest(canonical(config)), "status": "FAIL" if any(c["status"] == "FAIL" for c in checks) else "PASS",
+    authorization = operator_readiness_authorization(config, saved)
+    skipped = set(authorization["skipped_observations"]) if authorization else set()
+    report = {"created_at": utc_now(), "configuration_sha256": digest(canonical(config)),
+              "factory_source_sha256": factory_source_sha256,
+              "status": "FAIL" if any(c["status"] == "FAIL" and c["id"] not in skipped for c in checks) else "PASS",
               "checks": checks, "usage": {"measured_cost_usd": None, "status": "UNAVAILABLE"}}
+    if authorization:
+        report["operator_readiness_authorization"] = authorization
     write_json(Path(config["paths"]["runs"]) / "doctor-latest.json", report)
     return report
 
@@ -373,17 +472,35 @@ def observations(config: dict) -> tuple[list[dict], list[str]]:
     try:
         report = json.loads(path.read_text())
     except (OSError, ValueError):
-        return [], [f"Observed readiness evidence missing: {name}" for name in REQUIRED_OBSERVATIONS]
+        return [], [f"Observed readiness evidence missing: {name}" for name in required_observations(config)]
     records, blockers = [], []
     lock_path = artifact_path(config, "source_lock")
     if (not isinstance(report, dict) or report.get("configuration_sha256") != digest(canonical(config))
             or not lock_path.is_file() or report.get("source_lock_sha256") != digest(lock_path)):
         return [], ["Readiness observations do not match the current configuration and source lock"]
-    entries = report.get("observations", []) if isinstance(report, dict) else []
-    for name in REQUIRED_OBSERVATIONS:
+    try:
+        from .source_snapshot import source_fingerprint
+        factory_source_sha256 = source_fingerprint(config)
+    except (OSError, FactoryError):
+        return [], ["Cannot verify factory source for readiness observations; repair source inputs before collecting fresh evidence"]
+    if report.get("factory_source_sha256") != factory_source_sha256:
+        return [], ["Readiness observations have a stale or missing factory source binding; retain historical evidence and collect fresh permission/rehearsal observations", *[
+            f"Observed readiness evidence missing/invalid: {name}" for name in required_observations(config)]]
+    entries = report.get("observations", [])
+    if not isinstance(entries, list):
+        entries = []
+    try:
+        authorization = operator_readiness_authorization(config, report)
+    except FactoryError as error:
+        return [], [str(error)]
+    skipped = set(authorization["skipped_observations"]) if authorization else set()
+    for name in required_observations(config):
         match = [r for r in entries if isinstance(r, dict) and r.get("id") == name]
         valid = len(match) == 1
         item = match[0] if valid else {}
+        if item.get("status") == "PASS" and item.get("factory_source_sha256") != factory_source_sha256:
+            blockers.append(f"Observed readiness evidence has a stale or missing factory source binding: {name}")
+            continue
         evidence = item.get("evidence", [])
         valid = valid and item.get("status") == "PASS" and item.get("observed") is True and bool(item.get("observed_at")) and bool(item.get("observer")) and bool(evidence)
         for entry in evidence if isinstance(evidence, list) else []:
@@ -399,12 +516,14 @@ def observations(config: dict) -> tuple[list[dict], list[str]]:
                 if name == "toy_full_room_export":
                     valid = _toy_export_valid(config, item)
                 else:
-                    exports = [entry for entry in entries if isinstance(entry, dict) and entry.get("id") == "toy_full_room_export"]
+                    exports = [entry for entry in entries if isinstance(entry, dict) and entry.get("id") == "toy_full_room_export"
+                               and entry.get("factory_source_sha256") == factory_source_sha256]
                     valid = _toy_check_valid(config, item, exports)
             except (OSError, ValueError, TypeError, KeyError):
                 valid = False
         if not valid:
-            blockers.append(f"Observed readiness evidence missing/invalid: {name}")
+            if name not in skipped:
+                blockers.append(f"Observed readiness evidence missing/invalid: {name}")
         else:
             records.append(item)
     return records, blockers

@@ -217,6 +217,8 @@ def _trust_input(base, record, amendment):
 
 
 def _sources(base, frozen, lock, amendment):
+    from .common import scoped_mandate_errors
+    _require(not scoped_mandate_errors(base, frozen), "Frozen profile mandates changed")
     root = Path(base["paths"]["factory"]).resolve()
     deltas = amendment["source_deltas"]
     _require(isinstance(deltas, list) and len(deltas) <= 1, "Only one reviewed runtime source delta is permitted")

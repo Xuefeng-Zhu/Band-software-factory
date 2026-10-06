@@ -1,5 +1,5 @@
 {
-  "$schema": "../schemas/readiness-observations.schema.json",
+  "$schema": "../docs/schemas/readiness-observations.schema.json",
   "configuration_sha256": null,
   "source_lock_sha256": null,
   "observations": [
@@ -9,7 +9,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "permissions_docker_build",
@@ -17,7 +18,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "permissions_browser",
@@ -25,7 +27,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "permissions_development_network",
@@ -33,7 +36,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "band_registration_room_visibility",
@@ -41,7 +45,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "all_seat_directed_replies",
@@ -49,7 +54,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "all_seat_checkout_commit_visibility",
@@ -57,7 +63,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "toy_pm_assignment_peer_handoffs",
@@ -65,7 +72,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "toy_independent_fixed_candidate_review",
@@ -73,7 +81,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "toy_missing_peer_delayed_message",
@@ -81,7 +90,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "toy_isolated_harness",
@@ -89,7 +99,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "semantic_generic_instructions",
@@ -97,7 +108,8 @@
       "observed": false,
       "observed_at": null,
       "observer": null,
-      "evidence": []
+      "evidence": [],
+      "factory_source_sha256": null
     },
     {
       "id": "toy_full_room_export",
@@ -106,7 +118,8 @@
       "observed_at": null,
       "observer": null,
       "evidence": [],
-      "room_export": null
+      "room_export": null,
+      "factory_source_sha256": null
     },
     {
       "id": "toy_offline_submission_check",
@@ -115,7 +128,9 @@
       "observed_at": null,
       "observer": null,
       "evidence": [],
-      "invocation": null
+      "invocation": null,
+      "factory_source_sha256": null
     }
-  ]
+  ],
+  "factory_source_sha256": null
 }

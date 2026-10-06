@@ -1,7 +1,6 @@
 """Offline recovery authority/accounting tests. Never operate real state or seats."""
 import argparse
 import copy
-import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -12,7 +11,7 @@ import yaml
 
 from factorykit.common import canonical, digest
 from factorykit.runtime import (
-    BudgetLedger, GateError, STAGE_STOP, cmd_authorize_recovery,
+    GateError, STAGE_STOP, cmd_authorize_recovery,
     load_recovery, recovery_digest, recovery_path, recovery_record,
     save_json, session_ledger, start_supervisor, state_dir,
 )

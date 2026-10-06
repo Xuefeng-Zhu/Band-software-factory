@@ -27,7 +27,7 @@ CUTOFF = '2026-10-05T02:45:00+00:00'
 
 class ContinuationFixture(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory(dir='/private/tmp')
+        self.tmp = tempfile.TemporaryDirectory(dir=Path(tempfile.gettempdir()).resolve())
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.factory = self.root / 'factory'

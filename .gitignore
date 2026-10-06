@@ -1,11 +1,22 @@
+# Local environments and Python caches
 .venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Private machine configuration
 .env
 .env.*
 !.env.example
 config/factory.yaml
 agent_config.yaml
+
+# Logs, macOS metadata and installed tooling
 *.log
 .DS_Store
 tooling/codex/node_modules/

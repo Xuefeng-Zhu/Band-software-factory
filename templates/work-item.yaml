@@ -23,3 +23,6 @@ remaining_limits: {}
 bounded_next_action: null
 reviewer: null
 room_event: null
+review_commands: []
+review_results: []
+review_evidence_paths: []

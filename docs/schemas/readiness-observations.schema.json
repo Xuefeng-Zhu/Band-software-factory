@@ -6,7 +6,8 @@
   "required": [
     "configuration_sha256",
     "source_lock_sha256",
-    "observations"
+    "observations",
+    "factory_source_sha256"
   ],
   "properties": {
     "configuration_sha256": {
@@ -26,6 +27,13 @@
       "items": {
         "$ref": "#/$defs/observation"
       }
+    },
+    "factory_source_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
     }
   },
   "$defs": {
@@ -53,7 +61,8 @@
         "id",
         "status",
         "observed",
-        "evidence"
+        "evidence",
+        "factory_source_sha256"
       ],
       "properties": {
         "id": {
@@ -118,6 +127,13 @@
               "type": "null"
             }
           ]
+        },
+        "factory_source_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
         }
       },
       "allOf": [

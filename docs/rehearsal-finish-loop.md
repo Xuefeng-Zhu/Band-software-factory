@@ -2,7 +2,7 @@
 
 The pinned participant guide explicitly permits stopping the toy at any completed stage (lines 746–749). It also directs the participant to finish the toy submission loop: download the full room and run the official offline check, fixing its findings before the real repository matters (lines 817–830). These are preparation instructions, not an extra claim that all four toy stages are an eligibility gate. The factory now requires both observations before a judged freeze or launch preparation can succeed. Existing isolated-harness and collaboration observations remain required.
 
-The two new IDs are `toy_full_room_export` and `toy_offline_submission_check`. Their structural format is in [the JSON schema](../schemas/readiness-observations.schema.json); the [pending example](../templates/readiness-observations.example.json) contains no passing evidence. Merge newly observed records into the existing `runs/readiness/observations.json`, preserving other records and archiving the previous version. Do not replace real history with the example. Bind the report to the current canonical configuration SHA-256 and source-lock file SHA-256.
+The two new IDs are `toy_full_room_export` and `toy_offline_submission_check`. Their structural format is in [the JSON schema](schemas/readiness-observations.schema.json); the [pending example](../templates/readiness-observations.example.json) contains no passing evidence. Merge newly observed records into the existing `runs/readiness/observations.json`, preserving other records and archiving the previous version. Do not replace real history with the example. Bind the report to the current canonical configuration SHA-256 and source-lock file SHA-256.
 
 ## Actual full-session export
 

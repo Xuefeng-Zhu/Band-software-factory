@@ -2,7 +2,7 @@
 
 The participant chose this workflow on October 4, 2026: application attempts share [Xuefeng-Zhu/Tablekeeper](https://github.com/Xuefeng-Zhu/Tablekeeper); reusable factory tools stay in [Xuefeng-Zhu/Tablekeeper-factory](https://github.com/Xuefeng-Zhu/Tablekeeper-factory).
 
-## Current branch map
+## Recorded branch map
 
 | Attempt | Canonical branch | Head | Local checkout |
 | --- | --- | --- | --- |
@@ -10,7 +10,9 @@ The participant chose this workflow on October 4, 2026: application attempts sha
 | Run 3 | `run-3` | `dc4cf0c4dcf8b96e155f156694960df7fc1f4745` | `../result-run-3` remains unchanged as the historical checkout |
 | Run 4 | `run-4` | Final preserved head `13bc38fc1d4396c70c42b529eab369d6f84a0186`; BLOCKED with no accepted stage | `../result-run-4`; origin is the canonical repository |
 | Run 5 | `run-5` | Final private metadata head `268a0bb327ac6ec596f1c7bd4f2847e93f288d35`; stopped and closed BLOCKED, no accepted stage | `../result-run-5`; independently initialized empty before launch, same canonical origin |
-| Run 6 | `run-6` | Unborn local branch; no remote branch or dispatch yet; [prepared pending fresh approval](run-6-preparation.md) | `../result-run-6`; empty independent checkout, same canonical origin |
+| Run 6 | `run-6` | Repaired candidate `fea243fb5bd9e38a246c086a81dad337866f1b64`; [stopped at the token ceiling](run-6-continuation.md), independent acceptance pending | `../result-run-6`; one verified dispatch, same canonical origin |
+
+The Run 6 row reflects the later [operator verification record](../evidence/run6-sol-repair-verification-20261005/README.md). Its entry in [`config/attempts.json`](../config/attempts.json) remains the original preparation-time checkpoint; the registry does not track live state or grant launch approval.
 
 Run 2 and Run 3 were copied as exact commit histories, without rewriting, merging or squashing. The old Run 3 GitHub repository remains available. The canonical `main` is an attempt index with retained Run 2 files; it is not the base for a fresh judged build.
 

@@ -5,12 +5,13 @@ for the stdio app server. The npm package and integrity lock live in
 `tooling/codex/`; `scripts/codex-local` selects that local executable without
 changing the user's global CLI or configuration.
 
-All seven seats explicitly select **gpt-6-astra**, the current flagship identified
-by OpenAI's [latest-model guidance](https://developers.openai.com/api/docs/guides/latest-model). Fresh authenticated
-`initialize` + `model/list` confirmed Astra and support for the existing medium/high
-role efforts; see `runs/model-upgrade/models-0.160.0.json`. No inference turn was
-started. The same catalog lists gpt-6.1-sol as its default, so this is a deliberate
-flagship selection rather than a newest-chronological-model or default claim.
+The original frozen launch selected **gpt-6-astra** for all seven seats. The
+recorded authenticated `initialize` + `model/list` check confirmed Astra and the
+existing medium/high role efforts; see `runs/model-upgrade/models-0.160.0.json`.
+That check started no inference turn. Run 6 later used **gpt-6.1-sol** under a
+separate model/time amendment; see [Run 6 continuation](run-6-continuation.md).
+Original model-discovery evidence and frozen mandates retain their historical
+values. The effective run configuration determines the selected model.
 
 Earlier CLI 0.133.0 discovery offered gpt-5.5 as its default and did not list Astra.
 That observation and its initial configuration workaround remain historical evidence.

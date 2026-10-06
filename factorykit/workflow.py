@@ -50,6 +50,17 @@ def _finite(value):
     return type(value) in (int, float) and math.isfinite(value)
 
 
+def parse_ack(content: str):
+    """Read one canonical receipt line; tolerate only nonprotocol prose after it."""
+    lines = content.strip().splitlines()
+    match = _ACK.fullmatch(lines[0]) if lines else None
+    if match and any(re.search(r"\bHANDOFF-ACK(?:\s+delivery\b|$)", line, re.I)
+                     or re.match(r"^\s*(?:INCOMPLETE|REJECTED)(?:\s*:|\s*$)", line, re.I)
+                     or _CANDIDATE.search(line) for line in lines[1:]):
+        raise WorkflowError("Receipt contains an additional or conflicting protocol header.")
+    return match
+
+
 def parse_header(content: str):
     """Return None for ordinary text; malformed protocol headers fail closed."""
     if not isinstance(content, str):
@@ -76,16 +87,27 @@ def parse_header(content: str):
 
 class WorkflowWatchdog:
     def __init__(self, path, room_id, pm_id, participant_ids, ack_timeout_seconds,
-                 max_notices=2, clock=time.time):
+                 max_notices=2, clock=time.time, *, balance_only=False):
         ids = list(participant_ids)
+        if type(balance_only) is not bool:
+            raise WorkflowError("balance_only must be an explicit boolean.")
+        if balance_only:
+            # This interval schedules advisory messages only, never a work,
+            # repair, receipt, or model-turn deadline.
+            if ack_timeout_seconds is None:
+                ack_timeout_seconds = 60
+            max_notices = None
         if (not _uuid(room_id) or not _uuid(pm_id) or not ids or any(not _uuid(x) for x in ids)
                 or len(set(ids)) != len(ids) or pm_id not in ids
                 or type(ack_timeout_seconds) is not int or ack_timeout_seconds < 1
-                or type(max_notices) is not int or not 1 <= max_notices <= 2):
+                or (not balance_only and (type(max_notices) is not int or not 1 <= max_notices <= 2))):
             raise WorkflowError("Watchdog requires exact room/agent UUIDs and finite notice limits of one or two.")
         self.path, self.clock = Path(path), clock
+        self.balance_only = balance_only
         self.scope = dict(room_id=room_id, pm_id=pm_id, participant_ids=sorted(ids),
                           ack_timeout_seconds=ack_timeout_seconds, max_notices=max_notices)
+        if balance_only:
+            self.scope['balance_only'] = True
         self.path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
         with self._transaction(create=True) as data:
             for notice in data['notices'].values():
@@ -155,7 +177,9 @@ class WorkflowWatchdog:
                 need(_uuid(event) and b['sender_id'] in agents and unique(b['recipient_ids']) and b['recipient_ids'] and set(b['recipient_ids'])<=agents and sha(b['content_sha256']))
                 need(b['turn_id'] is None or (b['turn_id'] in d['turns'] and d['turns'][b['turn_id']]['agent_id']==b['sender_id']))
             for key,t in d['turns'].items():
-                need(isinstance(key,str) and key and t['agent_id'] in agents and moment(t['started_at']) and moment(t['deadline_at']) and t['deadline_at']>t['started_at'])
+                valid_deadline = (self.balance_only and t['deadline_at'] is None) or (
+                    moment(t['deadline_at']) and (self.balance_only or t['deadline_at'] > t['started_at']))
+                need(isinstance(key,str) and key and t['agent_id'] in agents and moment(t['started_at']) and valid_deadline)
                 need(t['status'] in ('running','completed','failed','interrupted','unknown') and t['reason_code'] in ('','timeout','interrupted','unknown','provider_failure'))
                 need(unique(t['incident_ids']) and set(t['incident_ids'])<=set(d['incidents']))
                 need(t.get('trigger_event_id') is None or _uuid(t['trigger_event_id']))
@@ -176,6 +200,14 @@ class WorkflowWatchdog:
             for key,i in d['incidents'].items():
                 need(isinstance(key,str) and key and i['sender_id'] in agents and integer(i['attempts'],0,cap) and moment(i['created_at']) and moment(i['next_at']))
                 need(type(i['failed']) is bool and type(i['closed']) is bool and i['blocked'] in (None,'notice_delivery_unknown_after_restart','invalid_or_conflicting_multipart','notice_delivery_unknown','conflicting_duplicate_event','outbound_delivery_unknown','notice_trigger_binding_conflict'))
+                revalidations=i.get('receipt_revalidations', [])
+                need(isinstance(revalidations,list) and len({r['event_id'] for r in revalidations})==len(revalidations))
+                for receipt in revalidations:
+                    need(set(receipt)=={'event_id','content_sha256','delivery_id','observed_at'})
+                    event=d['events'][receipt['event_id']]; delivery=d['deliveries'][receipt['delivery_id']]
+                    need(key == ('turn:' + event['turn_id'] if event['turn_id'] else 'event:' + receipt['event_id']))
+                    need(receipt['content_sha256']==event['content_sha256'] and moment(receipt['observed_at']))
+                    need(delivery['acks'].get(event['sender_id'])==receipt['event_id'])
                 need(unique(i['deliveries']) and all(x in d['deliveries'] and d['deliveries'][x]['incident_id']==key for x in i['deliveries']))
                 attempts=[n['attempt'] for n in d['notices'].values() if n['incident_id']==key]
                 need(sorted(attempts)==list(range(1,i['attempts']+1)))
@@ -208,7 +240,9 @@ class WorkflowWatchdog:
     def begin_turn(self, agent_id, turn_id, deadline_at, trigger_event_id=None):
         self._agent(agent_id)
         now = self._now()
-        if not isinstance(turn_id, str) or not turn_id or not _finite(deadline_at) or deadline_at <= now:
+        valid_deadline = (self.balance_only and deadline_at is None) or (
+            _finite(deadline_at) and (self.balance_only or deadline_at > now))
+        if not isinstance(turn_id, str) or not turn_id or not valid_deadline:
             raise WorkflowError("Turn requires a real identity and future finite deadline.")
         with self._transaction() as d:
             old = d['turns'].get(turn_id)
@@ -260,7 +294,107 @@ class WorkflowWatchdog:
                     inc['failed']=False
                     inc['closed']=not inc['deliveries']
 
-    def observe_outbound(self, event_id, sender_id, recipient_ids, content, turn_id=None):
+    @staticmethod
+    def _protocol_input(d, content):
+        first = content.splitlines()[0] if content.splitlines() else ''
+        if first.startswith('HANDOFF-ACK'):
+            ack = parse_ack(content)
+            return 'ack', ack, d['deliveries'].get(ack['delivery']) if ack else None
+        header = parse_header(content)
+        return 'part', header, d['deliveries'].get(header['delivery']) if header else None
+
+    @staticmethod
+    def _validate_protocol(parsed, sender_id, recipients, content):
+        """Pure shared validation before send and again against confirmed output."""
+        kind, header, value = parsed
+        if kind == 'ack':
+            if (not header or not value or not value['complete']
+                    or header['digest'].lower() != value['digest'] or header['sender'] != value['sender_id']
+                    or sender_id not in value['recipient_ids'] or value['sender_id'] not in recipients):
+                raise WorkflowError('Receipt is incomplete or has a conflicting identity binding. Use a standalone canonical HANDOFF-ACK first line; following text must be nonprotocol prose.')
+            return
+        if header is None:
+            return
+        if header['recipients'] != recipients:
+            raise WorkflowError('Header recipients differ from send recipients.')
+        if value:
+            expected = dict(sender_id=sender_id, recipient_ids=recipients, digest=header['digest'], total=header['total'])
+            if any(value[k] != v for k, v in expected.items()):
+                raise WorkflowError('Conflicting multipart identity, digest or recipient binding.')
+            part = value['parts'].get(str(header['index']))
+            if part and part['sha256'] != hashlib.sha256(content.encode()).hexdigest():
+                raise WorkflowError('Conflicting multipart payload under an existing part identity.')
+
+    def preview_outbound(self, sender_id, recipient_ids, content, turn_id=None):
+        """Read-only protocol preview: no event ID, receipt, incident or send claim.
+
+        A subsequent real send is revalidated against its actual returned identity
+        and recipients. This preview cannot turn an uncertain post into a retry.
+        """
+        self._agent(sender_id)
+        recipients = list(recipient_ids)
+        if (not recipients or any(x not in self.scope['participant_ids'] for x in recipients)
+                or len(set(recipients)) != len(recipients) or not isinstance(content, str)):
+            raise WorkflowError('Outbound text requires exact distinct roster recipients.')
+        recipients.sort()
+        with self._transaction() as d:
+            if turn_id is not None and (turn_id not in d['turns'] or d['turns'][turn_id]['agent_id'] != sender_id):
+                raise WorkflowError('Outbound message does not match its observed sending turn.')
+            self._validate_protocol(self._protocol_input(d, content), sender_id, recipients, content)
+
+    def prepare_acknowledgement(self, actor_id, delivery_id, turn_id, binding):
+        """Generate a canonical receipt from matching inbound and outbound evidence.
+
+        This method is read-only. A retained confirmed receipt is returned instead
+        of authorizing another send; an uncertain send still blocks its turn.
+        """
+        self._agent(actor_id)
+        with self._transaction() as d:
+            turn = d['turns'].get(turn_id)
+            delivery = d['deliveries'].get(delivery_id)
+            if (not turn or turn['agent_id'] != actor_id or turn['status'] != 'running'
+                    or not delivery or not delivery['complete']
+                    or not isinstance(binding, dict) or binding.get('room_id') != self.scope['room_id']
+                    or binding.get('recipient_id') != actor_id or binding.get('delivery') != delivery_id
+                    or actor_id not in delivery['recipient_ids']
+                    or any(binding.get(key) != delivery[field] for key, field in (
+                        ('sender_id', 'sender_id'), ('recipients', 'recipient_ids'),
+                        ('digest', 'digest'), ('total', 'total')))):
+                raise WorkflowError('Acknowledgement requires matching complete inbound and confirmed outbound delivery evidence in this admitted turn.')
+            content = (f"HANDOFF-ACK delivery {delivery_id}; SHA-256 {delivery['digest']}; "
+                       f"sender @[[{delivery['sender_id']}]]")
+            return dict(content=content, sender_id=delivery['sender_id'],
+                        event_id=delivery['acks'].get(actor_id))
+
+    def _revalidate_receipt(self, d, event_id, binding, content):
+        # Explicit reprocessing of an already-confirmed event under the current
+        # parser. The old incident remains recorded; no other failure is cleared.
+        key = 'turn:' + binding['turn_id'] if binding['turn_id'] else 'event:' + event_id
+        incident = d['incidents'].get(key)
+        if not incident or incident['blocked'] != 'invalid_or_conflicting_multipart':
+            return None
+        try:
+            ack = parse_ack(content)
+        except WorkflowError:
+            return None
+        value = d['deliveries'].get(ack['delivery']) if ack else None
+        if (not ack or not value or not value['complete'] or ack['digest'].lower() != value['digest']
+                or ack['sender'] != value['sender_id'] or binding['sender_id'] not in value['recipient_ids']
+                or value['sender_id'] not in binding['recipient_ids']
+                or value['acks'].get(binding['sender_id']) not in (None, event_id)):
+            return None
+        value['acks'][binding['sender_id']] = event_id
+        value['acknowledged'] = set(value['acks']) == set(value['recipient_ids'])
+        history = incident.setdefault('receipt_revalidations', [])
+        if not any(row['event_id'] == event_id for row in history):
+            history.append(dict(event_id=event_id, content_sha256=binding['content_sha256'],
+                                delivery_id=ack['delivery'], observed_at=self._now()))
+        return dict(duplicate=True, receipt=True, revalidated=True,
+                    delivery_id=ack['delivery'], acknowledged=value['acknowledged'])
+
+    def observe_outbound(self, event_id, sender_id, recipient_ids, content, turn_id=None, *, revalidate_receipt=False):
+        if type(revalidate_receipt) is not bool:
+            raise WorkflowError('Receipt revalidation must be explicit.')
         self._agent(sender_id)
         recipients = list(recipient_ids)
         if (not _uuid(event_id) or not recipients or any(x not in self.scope['participant_ids'] for x in recipients)
@@ -276,7 +410,11 @@ class WorkflowWatchdog:
                 if d['events'][event_id] != binding:
                     self._incident(d, 'event:'+event_id, sender_id, self._now())['blocked']='conflicting_duplicate_event'
                     return {'blocked':True}
+                if revalidate_receipt:
+                    return self._revalidate_receipt(d, event_id, binding, content) or {'duplicate': True}
                 return {'duplicate': True}
+            if revalidate_receipt:
+                raise WorkflowError('Only an existing confirmed event can be revalidated.')
             if turn_id is not None and (turn_id not in d['turns'] or d['turns'][turn_id]['agent_id'] != sender_id):
                 raise WorkflowError("Outbound delivery does not match its observed sending turn.")
             d['events'][event_id] = binding
@@ -284,32 +422,21 @@ class WorkflowWatchdog:
             linked=d['turns'][turn_id]['incident_ids'] if turn_id else []
             incident_id=linked[0] if linked else 'turn:'+turn_id if turn_id else 'event:'+event_id
             try:
-                first=content.splitlines()[0] if content.splitlines() else ''
-                if first.startswith('HANDOFF-ACK'):
-                    ack=_ACK.fullmatch(content.strip())
-                    value=d['deliveries'].get(ack['delivery']) if ack else None
-                    if value:
-                        incident_id=value['incident_id']
-                    if (not ack or not value or not value['complete']
-                            or ack['digest'].lower()!=value['digest'] or ack['sender']!=value['sender_id']
-                            or sender_id not in value['recipient_ids'] or value['sender_id'] not in recipients):
-                        raise WorkflowError('Receipt is incomplete or has a conflicting identity binding.')
+                parsed = self._protocol_input(d, content)
+                kind, header, value = parsed
+                if value:
+                    incident_id = value['incident_id']
+                self._validate_protocol(parsed, sender_id, recipients, content)
+                if kind == 'ack':
+                    ack = header
                     value['acks'].setdefault(sender_id,event_id)
                     value['acknowledged']=set(value['acks'])==set(value['recipient_ids'])
                     return {'receipt':True,'delivery_id':ack['delivery'],'acknowledged':value['acknowledged']}
-                header = parse_header(content)
                 if header is None:
                     return {'multipart': False}
-                if header['recipients'] != recipients:
-                    raise WorkflowError("Header recipients differ from confirmed send recipients.")
                 key = header['delivery']
-                value = d['deliveries'].get(key)
                 expected = dict(sender_id=sender_id, recipient_ids=recipients, digest=header['digest'], total=header['total'])
-                if value:
-                    incident_id = value['incident_id']
-                    if any(value[k] != v for k,v in expected.items()):
-                        raise WorkflowError("Conflicting multipart identity, digest or recipient binding.")
-                else:
+                if not value:
                     value = d['deliveries'][key] = dict(**expected, incident_id=incident_id, parts={}, acks={}, first_at=now, complete=False, acknowledged=False)
                     inc = d['incidents'].get(incident_id) or self._incident(d, incident_id, sender_id, now)
                     inc['deliveries'].append(key)
@@ -317,8 +444,6 @@ class WorkflowWatchdog:
                 if turn_id and incident_id not in d['turns'][turn_id]['incident_ids']:
                     d['turns'][turn_id]['incident_ids'].append(incident_id)
                 part = str(header['index'])
-                if part in value['parts'] and value['parts'][part]['sha256'] != message_hash:
-                    raise WorkflowError("Conflicting multipart payload under an existing part identity.")
                 value['parts'].setdefault(part, dict(sha256=message_hash, event_id=event_id))
                 value['complete'] = len(value['parts']) == value['total']
                 return {'multipart': True, 'delivery_id':key, 'complete':value['complete']}
@@ -329,6 +454,8 @@ class WorkflowWatchdog:
                 return {'multipart': True, 'blocked': True}
 
     def _refresh(self, d, now):
+        if self.balance_only:
+            return  # Actual callback lifecycle alone settles an uncapped turn.
         for key, turn in d['turns'].items():
             if turn['status'] == 'running' and now >= turn['deadline_at']:
                 turn.update(status='unknown', reason_code='unknown', ended_at=now)
@@ -369,7 +496,7 @@ class WorkflowWatchdog:
 
     def _proposal(self, d, incident_id, inc, now):
         if (inc['blocked'] or self._resolved(d, inc) or now < inc['next_at']
-                or inc['attempts'] >= self.scope['max_notices']
+                or (self.scope['max_notices'] is not None and inc['attempts'] >= self.scope['max_notices'])
                 or any(n['incident_id']==incident_id and n['status']=='claimed' for n in d['notices'].values())):
             return None
         if not inc['failed'] and not inc['deliveries']:
@@ -385,7 +512,8 @@ class WorkflowWatchdog:
             elif not delivery['acknowledged']:
                 facts.append(f"Delivery {name}: all {delivery['total']} numbered parts observed; canonical recipient acknowledgment is still missing; declared SHA-256 {delivery['digest']}.")
         if inc['failed']:
-            facts.append('The original turn failed, was interrupted, or has no confirmed outcome by its recorded deadline.')
+            facts.append('The original turn failed, was interrupted, or has no confirmed lifecycle outcome.' if self.balance_only else
+                         'The original turn failed, was interrupted, or has no confirmed outcome by its recorded deadline.')
         recipients=self._notice_recipients(d,inc)
         request=('Request bounded receipt/reassembly only for the original delivery. Preserve its exact original payload, digest and part identities. '
                  'If every original part is available, verify the complete payload and send its standalone canonical HANDOFF-ACK to the original sender; '
@@ -394,8 +522,14 @@ class WorkflowWatchdog:
                  if inc['sender_id']==self.scope['pm_id'] else
                  'Request bounded operational recovery of the existing task and delivery within remaining approved limits. Preserve original requirements, candidate and failure evidence. '
                  'This notice is not a complete handoff or acceptance; do not execute from partial requirements.')
+        if self.balance_only:
+            request = request.replace('bounded receipt/reassembly', 'receipt/reassembly')\
+                .replace('bounded operational recovery', 'operational recovery')\
+                .replace('within remaining approved limits', 'under the approved $25 balance cap')\
+                .replace(', or renew any deadline', '')
         mentions=' '.join('@[['+agent+']]' for agent in recipients)
-        text = (f"{mentions} WORKFLOW NOTICE {identity}; incident {incident_id}; attempt {number}/{self.scope['max_notices']}.\n"
+        attempt_label = str(number) if self.balance_only else f"{number}/{self.scope['max_notices']}"
+        text = (f"{mentions} WORKFLOW NOTICE {identity}; incident {incident_id}; attempt {attempt_label}.\n"
                 + '\n'.join(facts) + '\n' + request)
         return dict(notice_id=identity, incident_id=incident_id, sender_id=inc['sender_id'],
                     recipient_ids=recipients, content=text, attempt=number)
@@ -503,10 +637,16 @@ class WorkflowWatchdog:
             # Receipt wait expiry cannot shorten an admitted turn's deadline.
             # Conflicts/unknown delivery still block immediately; exhausted
             # recovery is assessed after serialized active work has settled.
-            blocked=any(i['blocked'] or (not running and not execution_busy and i['attempts']>=self.scope['max_notices'] and now>=i['next_at']) for _,i in unresolved)
+            blocked=any(i['blocked'] or (not self.balance_only and not running and not execution_busy and i['attempts']>=self.scope['max_notices'] and now>=i['next_at']) for _,i in unresolved)
             stalled=any(self._proposal(d,key,i,now) for key,i in unresolved)
             state='blocked' if blocked else 'busy' if running or execution_busy else 'stalled' if stalled else 'waiting' if unresolved else 'idle'
-            return dict(state=state,active_turn_ids=running,sdk_execution_busy=execution_busy,unresolved_incident_ids=[k for k,_ in unresolved],
-                seconds_to_next_deadline=min((d['turns'][k]['deadline_at']-now for k in running),default=None),
+            result = dict(state=state,revalidated_receipt_event_ids=sorted({row['event_id'] for i in d['incidents'].values()
+                for row in i.get('receipt_revalidations', [])}),active_turn_ids=running,sdk_execution_busy=execution_busy,unresolved_incident_ids=[k for k,_ in unresolved],
+                seconds_to_next_deadline=None if self.balance_only else min((d['turns'][k]['deadline_at']-now for k in running),default=None),
                 notice_attempts=sum(i['attempts'] for i in d['incidents'].values()),
                 unknown_notices=[k for k,n in d['notices'].items() if n['status']=='unknown'])
+            if self.balance_only:
+                result.update(time_limits_enforced=False, notice_limits_enforced=False, ack_wait_advisory=True,
+                    communication_advisory=state == 'blocked' and not result['unknown_notices'] and all(
+                        i['blocked'] in (None, 'invalid_or_conflicting_multipart') for _, i in unresolved))
+            return result

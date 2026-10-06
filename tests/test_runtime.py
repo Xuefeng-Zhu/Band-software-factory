@@ -10,7 +10,7 @@ from unittest.mock import AsyncMock, patch
 
 from factorykit.runtime import (
     AuditedTools, BudgetLedger, GateError, RoomPreprocessor, adapter_config,
-    credentials, is_owned, preflight_runtime, process_identity, room_workspace,
+    credentials, is_owned, preflight_runtime, process_identity,
     slash_command,
     judged_launch_errors,
     docker_environment,
@@ -64,6 +64,30 @@ class RuntimeTests(unittest.TestCase):
         self.assertTrue(any("budget" in text for text in blockers))
         self.assertTrue(any("permissions_agent_write_git" in text for text in blockers))
         self.assertTrue(any("registration" in text for text in blockers))
+
+    def test_alternate_discovery_binds_catalog_to_current_configuration(self):
+        from factorykit.runtime import discover_models
+        for harness, label, model in (("claude-code", "Claude Code", "sonnet"),
+                                      ("opencode", "OpenCode", "anthropic/test-model")):
+            with self.subTest(harness=harness):
+                self.config["runtime"].update(harness=harness, model=model,
+                    claude_command="/not-executed/claude", opencode_command="/not-executed/opencode",
+                    sandbox="native-policy", native_permissions=dict(read=True, write=False, bash=False, network=False))
+                for seat in self.config["seats"]:
+                    seat.update(harness=label, model=model, reasoning_effort=None)
+                raw = {"harness": harness, "models": [{"id": model, "connected": True}]}
+                with patch("factorykit.harnesses.discover_models", new=AsyncMock(return_value=raw)):
+                    catalog = asyncio.run(discover_models(self.config))
+                self.assertFalse(catalog["inference_started"])
+                with patch("factorykit.runtime.subscription_auth_errors", return_value=[]):
+                    errors = preflight_runtime(self.config, model_catalog=catalog)
+                    self.assertFalse(any("alternate model evidence" in error for error in errors), errors)
+                    wrong = dict(catalog, harness="opencode" if harness == "claude-code" else "claude-code")
+                    errors = preflight_runtime(self.config, model_catalog=wrong)
+                    self.assertTrue(any("different or unknown harness" in error for error in errors), errors)
+                    self.config["budgets"]["max_total_tokens"] += 1
+                    errors = preflight_runtime(self.config, model_catalog=catalog)
+                    self.assertTrue(any("alternate model evidence" in error for error in errors), errors)
 
     def test_effective_model_catalog_validates_requested_model_without_rebinding_registration(self):
         from factorykit.runtime import fingerprint
@@ -212,6 +236,7 @@ class RuntimeTests(unittest.TestCase):
             base = SimpleNamespace(get_participants=AsyncMock(return_value=[]), add_participant=AsyncMock(return_value={"status": "added"}))
             roster = [{"id": "qa", "agent_id": "registered-qa", "handle": "owner/qa", "display_name": "Factory QA"}]
             pm = AuditedTools(base, ledger, "pm", self.root / "events", roster)
+            pm.strict_membership_recovery = True
             with self.assertRaises(GateError):
                 await pm.add_participant("some-stranger")
             peer = AuditedTools(base, ledger, "qa", self.root / "events", roster)

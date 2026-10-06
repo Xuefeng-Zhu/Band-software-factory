@@ -209,14 +209,17 @@ class ScopedArtifactTests(Fixture):
 
     def test_readiness_and_doctor_use_scoped_lock_hash(self):
         self.scoped()
+        factory_source_sha256 = self.source_binding()
         proof = self.root / "permission-proof.json"
         proof.write_text('{"exit_code": 0}')
         lock = artifact_path(self.config, "source_lock")
         lock.write_text(lock.read_text() + "\n")
         write_json(Path(self.config["paths"]["runs"]) / "readiness/observations.json", {
             "configuration_sha256": digest(canonical(self.config)), "source_lock_sha256": digest(lock),
+            "factory_source_sha256": factory_source_sha256,
             "observations": [{"id": "permissions_agent_write_git", "status": "PASS", "observed": True,
                               "observed_at": utc_now(), "observer": "offline test",
+                              "factory_source_sha256": factory_source_sha256,
                               "evidence": [{"path": str(proof), "sha256": digest(proof)}]}]})
         records, blockers = observations(self.config)
         self.assertEqual([item["id"] for item in records], ["permissions_agent_write_git"])
