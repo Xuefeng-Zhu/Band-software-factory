@@ -1,8 +1,8 @@
 # Factory documentation
 
-Use [factory reliability](factory-reliability.md) for the current runtime changes and `factory-status` command. Run 7's latest saved state is stopped/blocked; launch-time snapshots remain historical.
+Use [factory reliability](factory-reliability.md) for the runtime changes and `factory-status` command. Dated run records preserve historical observations; read saved runtime state separately for a current status report.
 
-Start with the [repository overview](../README.md) and [operator guide](operator-guide.md). The latest recorded run is [Run 7](run-7-preparation.md); preparation snapshots describe the approvals and evidence available at their own dates.
+Start with the [repository overview](../README.md) and [operator guide](operator-guide.md). See the [Run 8 launch record](run8-launch-proof.md) for the dated dispatch and transport rehearsal evidence. Preparation snapshots describe the approvals and evidence available at their own dates.
 
 ## Operating the factory
 
@@ -32,6 +32,8 @@ Start with the [repository overview](../README.md) and [operator guide](operator
 | [Run 6 launch](run-6-preparation.md) | One verified initial dispatch; historical launch snapshot |
 | [Run 6 continuation](run-6-continuation.md) | Token-ceiling stop; operator checks passed, independent acceptance pending |
 | [Run 6 verification evidence](../evidence/run6-sol-repair-verification-20261005/README.md) | Exact repaired candidate, checks and stop accounting |
+| [Run 7](run-7-preparation.md) / [handoff diagnosis](run7-handoff-diagnosis.md) | Historical launch and stopped handoff incident |
+| [Run 8 preparation](run8-preparation.md) / [launch proof](run8-launch-proof.md) | Initial rehearsal failure, envelope repair and later verified dispatch; dated observations |
 
 [`config/attempts.json`](../config/attempts.json) retains operator registry checkpoints. Its Run 6 entry predates launch; it is not current runtime state or authorization. Use the dated launch, continuation and verification records above for later events.
 

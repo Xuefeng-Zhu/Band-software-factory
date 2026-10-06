@@ -1,17 +1,17 @@
 schema_version: 1
 paths:
-  challenge: /Users/frank/mygit/Tablekeeper/challenge
-  factory: /Users/frank/mygit/Tablekeeper/factory
-  rehearsal: /Users/frank/mygit/Tablekeeper/rehearsal/toy-result
-  runs: /Users/frank/mygit/Tablekeeper/runs
-  result: /Users/frank/mygit/Tablekeeper/result
+  challenge: /absolute/path/to/workspace/challenge
+  factory: /absolute/path/to/workspace/factory
+  rehearsal: /absolute/path/to/workspace/rehearsal/toy-result
+  runs: /absolute/path/to/workspace/runs
+  result: /absolute/path/to/workspace/result
 runtime:
   # Use runtime-select to prepare an isolated codex, claude-code or opencode profile.
   harness: codex
-  codex_command: /Users/frank/mygit/Tablekeeper/factory/scripts/codex-local
-  python: /Users/frank/mygit/Tablekeeper/factory/.venv/bin/python
-  harness_python: /Users/frank/mygit/Tablekeeper/runs/harness-venv/bin/python
-  browser_path: /Users/frank/mygit/Tablekeeper/runs/browsers
+  codex_command: /absolute/path/to/workspace/factory/scripts/codex-local
+  python: /absolute/path/to/workspace/factory/.venv/bin/python
+  harness_python: /absolute/path/to/workspace/runs/harness-venv/bin/python
+  browser_path: /absolute/path/to/workspace/runs/browsers
   sandbox: workspace-write
   approval_policy: never
   approval_mode: auto_decline
@@ -29,7 +29,7 @@ band:
   ws_url: wss://app.band.ai/api/v1/socket/websocket
   rehearsal_room_id: null
   judged_room_id: null
-  credentials_file: /Users/frank/Documents/Codex/2026-10-02/files-pasted-by-the-user-you/outputs/.factory-private/agent_config.yaml
+  credentials_file: /absolute/private/path/agent_config.yaml
 budgets:
   max_active_seats: 1
   max_repairs: 2
@@ -62,7 +62,7 @@ seats:
   display_name: Factory PM
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-pm.md
   harness: Codex
   model: gpt-6.1-sol
   reasoning_effort: medium
@@ -75,7 +75,7 @@ seats:
   display_name: Factory Architect
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-architect.md
   harness: Codex
   model: gpt-6.1-sol
   reasoning_effort: high
@@ -88,7 +88,7 @@ seats:
   display_name: Factory Designer
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-designer.md
   harness: Codex
   model: gpt-6.1-sol
   reasoning_effort: medium
@@ -101,7 +101,7 @@ seats:
   display_name: Factory Backend
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-backend.md
   harness: Codex
   model: gpt-6.1-sol
   reasoning_effort: medium
@@ -114,7 +114,7 @@ seats:
   display_name: Factory Frontend
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-frontend.md
   harness: Codex
   model: gpt-6.1-sol
   reasoning_effort: medium
@@ -127,7 +127,7 @@ seats:
   display_name: Factory QA
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-qa.md
   harness: Codex
   model: gpt-6.1-sol
   reasoning_effort: high
@@ -140,7 +140,7 @@ seats:
   display_name: Factory Reviewer
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-reviewer.md
   harness: Codex
   model: gpt-6.1-sol
   reasoning_effort: high

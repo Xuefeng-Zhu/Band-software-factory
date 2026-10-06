@@ -3,9 +3,9 @@ seats:
   display_name: Factory PM
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-pm.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-pm.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory PM
   git_email: pm@factory.invalid
@@ -16,9 +16,9 @@ seats:
   display_name: Factory Architect
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-architect.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-architect.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: high
   git_name: Factory Architect
   git_email: architect@factory.invalid
@@ -29,9 +29,9 @@ seats:
   display_name: Factory Designer
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-designer.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-designer.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory Designer
   git_email: designer@factory.invalid
@@ -42,9 +42,9 @@ seats:
   display_name: Factory Backend
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-backend.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-backend.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory Backend
   git_email: backend@factory.invalid
@@ -55,9 +55,9 @@ seats:
   display_name: Factory Frontend
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-frontend.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-frontend.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: medium
   git_name: Factory Frontend
   git_email: frontend@factory.invalid
@@ -68,9 +68,9 @@ seats:
   display_name: Factory QA
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-qa.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-qa.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: high
   git_name: Factory QA
   git_email: qa@factory.invalid
@@ -81,9 +81,9 @@ seats:
   display_name: Factory Reviewer
   handle: null
   agent_id: null
-  mandate: /Users/frank/mygit/Tablekeeper/factory/mandates/factory-reviewer.md
+  mandate: /absolute/path/to/workspace/factory/mandates/factory-reviewer.md
   harness: Codex
-  model: gpt-6-astra
+  model: gpt-6.1-sol
   reasoning_effort: high
   git_name: Factory Reviewer
   git_email: reviewer@factory.invalid

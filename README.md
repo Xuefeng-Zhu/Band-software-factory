@@ -1,14 +1,14 @@
-# Tablekeeper factory
+# BAND software factory
 
 Reusable preparation and runtime tools for a seven-seat BAND factory using Codex, Claude Code or OpenCode: PM, Architect, Designer, Backend, Frontend, QA and Reviewer. The toolkit pins official sources, generates complete task packets, enforces bounded execution, and retains rehearsal and run evidence.
 
 The application lives in the separate [Tablekeeper repository](https://github.com/Xuefeng-Zhu/Tablekeeper), with one branch per attempt. This repository contains the factory and its records. Read [AGENTS.md](AGENTS.md) before changing it.
 
-## Latest recorded state
+## Factory reliability and recorded runs
 
-Run 7's persisted supervisor state is **stopped/blocked**, last updated at **2026-10-05T08:18:55Z** (1:18 AM Pacific). Its final receipt contained extra prose that failed the exact ACK parser. The checkout contains planning artifacts; no application stage is accepted. This is a saved-state observation, not a new process-liveness check.
+The [Run 8 launch record](docs/run8-launch-proof.md) preserves the dated dispatch and transport rehearsal evidence. Earlier attempts remain in the [factory history](docs/factory-history.md). These records describe their observation dates; they do not establish current process liveness or product acceptance.
 
-The [factory reliability changes](docs/factory-reliability.md) batch complete handoffs before model admission, generate structured receipts, isolate future supervisor source, enforce runnable checkpoints, and bind rehearsal evidence to the exact factory source. They do not alter Run 7's frozen inputs, dispatch, accounting or product history. A fresh authorized rehearsal remains required before a new judged launch.
+The [factory reliability changes](docs/factory-reliability.md) batch complete handoffs before model admission, generate structured receipts, isolate future supervisor source, enforce runnable checkpoints, and bind rehearsal evidence to the exact factory source. Runtime profiles, task-board synchronization and terminal reconciliation retain the configured accounting and execution bounds. Fresh readiness evidence remains required before a new judged launch.
 
 Use `scripts/runtime --config /absolute/path/to/factory.yaml factory-status` for a timestamped read of persisted runtime, budget, source, progress and product evidence. Historical launch documents are not live status.
 
