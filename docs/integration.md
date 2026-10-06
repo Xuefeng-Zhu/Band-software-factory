@@ -56,6 +56,9 @@ All seven seats initially share the actual checkout. Configuration permits one
 active turn in that state: this is an enforced single-writer fallback. A later
 team-created worktree must be outside result directories, configured explicitly
 as a seat's `rehearsal_cwd`/`judged_cwd`, and based on a real team-authored commit.
+Use `runs/worktrees/<mode>/<seat>` for these worktrees. Before local app or auth
+verification, securely copy the matching non-versioned `.env*` files from the
+main/master checkout into the worktree without printing their values.
 At most two turns may run with distinct assigned checkout paths. The runner never
 creates commits, worktrees, or result implementation during setup.
 

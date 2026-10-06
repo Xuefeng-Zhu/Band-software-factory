@@ -33,7 +33,7 @@ The tests verify factory utilities; they do not establish live BAND collaboratio
 | [`scripts/`](scripts/) | Factory/runtime entrypoints, pinned dependency bootstrap and permission probes |
 | [`tests/`](tests/) | Offline utility and regression tests |
 | [`config/`](config/) | Examples, source and dependency locks, historical attempt registry |
-| [`mandates/`](mandates/), [`protocols/`](protocols/), [`agents/`](agents/) | Generic roles and collaboration rules |
+| [`mandates/`](mandates/), [`protocols/`](protocols/) | Generic roles and collaboration rules |
 | [`tasks/`](tasks/) | Generated packets and their manifest; verify instead of hand-editing |
 | [`templates/`](templates/), [`submission-templates/`](submission-templates/) | Empty records and submission authoring aids |
 | [`docs/`](docs/README.md) | Operator guides, integration notes and run history |
