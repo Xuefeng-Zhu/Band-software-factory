@@ -314,6 +314,27 @@ class PreprocessorTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.halt.call_count,2)
         self.assertFalse(json.loads(self.path.read_text())['events'])
 
+    async def test_preprocessor_diagnostic_is_private_and_contains_no_payload_or_error_text(self):
+        from factorykit.exception_diagnostics import record_exception
+        directory=self.root.resolve()/'diagnostics'
+        self.guard.on_exception=lambda error:record_exception(directory,error,seat='backend',phase='preprocessor')
+        p=payload(fragments(['synthetic-private-body'])[0],100,chat_room_id=OTHER)
+        with self.assertRaises(BatchingError):await self.send(p)
+        self.halt.assert_called_once()
+        record=json.loads((directory/'exceptions.jsonl').read_text())
+        self.assertEqual((record['seat'],record['phase']),('backend','preprocessor'))
+        self.assertEqual(record['exceptions'][0]['type']['name'],'BatchingError')
+        self.assertNotIn(p.content,(directory/'exceptions.jsonl').read_text())
+        self.assertNotIn('synthetic-private-body',(directory/'exceptions.jsonl').read_text())
+        self.assertEqual((directory/'exceptions.jsonl').stat().st_mode & 0o777,0o600)
+
+    async def test_preprocessor_diagnostic_failure_cannot_replace_error_or_halt(self):
+        self.guard.on_exception=Mock(side_effect=RuntimeError('diagnostic failure'))
+        p=payload(fragments(['a'])[0],100,chat_room_id=OTHER)
+        with self.assertRaises(BatchingError):await self.send(p)
+        self.halt.assert_called_once();self.guard.on_exception.assert_called_once()
+        self.adapter.on_event.assert_not_called()
+
     async def test_partial_persist_failure_halts_before_successful_callback(self):
         p=payload(fragments(['a','b'])[0],100)
         with patch.object(self.j,'_write',side_effect=OSError('disk full')):

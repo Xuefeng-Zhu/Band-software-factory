@@ -20,7 +20,6 @@ import re
 import secrets
 import signal
 import stat
-import sys
 import subprocess
 import sys
 import tempfile
@@ -616,11 +615,11 @@ def slash_command(content: str) -> bool:
 
 class RoomPreprocessor:
     """Supported Agent.create(preprocessor=) seam; filters before hydration/tools."""
-    def __init__(self, room: str | None, recovery=None, *, batching=None, halt=None, workflow_path=None, can_process=None):
+    def __init__(self, room: str | None, recovery=None, *, batching=None, halt=None, workflow_path=None, can_process=None, on_exception=None):
         from band.preprocessing.default import DefaultPreprocessor
         self.room, self.recovery = room, recovery
         self.batching, self.halt, self.workflow_path = batching, halt, workflow_path
-        self.can_process = can_process
+        self.can_process, self.on_exception = can_process, on_exception
         if batching is not None and (recovery is not None or halt is None or workflow_path is None or can_process is None):
             raise GateError("Batching requires its visible halt callback and normal fresh-run mode.")
         self.default = DefaultPreprocessor()
@@ -670,9 +669,14 @@ class RoomPreprocessor:
             if inp and slash_command(inp.msg.content):
                 return None
             return inp
-        except Exception:
+        except Exception as error:
             if self.batching:
                 self.halt("inbound handoff preprocessing failed; preserve journal")
+            if self.on_exception is not None:
+                try:
+                    self.on_exception(error)
+                except Exception:
+                    pass  # Diagnostic failure cannot suppress the original halt.
             raise
 
 
@@ -1846,15 +1850,18 @@ async def _serve(config: dict, mode: str, token: str, recovery_id=None, continua
             wait_allowance = math.ceil(admission.wait_allowance) if admission is not None else 0
             session_config = SessionConfig(max_message_retries=1,
                 max_cycle_seconds=None if balance_only else config["budgets"]["turn_timeout_seconds"] + 20 + wait_allowance)
+            from .exception_diagnostics import record_exception
+            def preprocessing_error(error, seat_id=seat['id']):
+                record_exception(state_dir(config) / "diagnostics", error, seat=seat_id, phase="preprocessor")
             if continuation is not None:
                 from .continuation_platform import ReceiptPreservingPlatformRuntime
                 platform = ReceiptPreservingPlatformRuntime(agent_id=value["agent_id"], api_key=value["api_key"],
                     rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config,
                     continuation_room_id=room, excluded_event_ids=continuation.excluded_event_ids(seat["id"]),
                     on_filter_failure=ledger.halt)
-                agent = Agent(runtime=platform, adapter=adapter, preprocessor=RoomPreprocessor(room))
+                agent = Agent(runtime=platform, adapter=adapter, preprocessor=RoomPreprocessor(room, on_exception=preprocessing_error))
             else:
-                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery, batching=journals.get(seat["id"]), halt=ledger.halt, workflow_path=watchdog.path if watchdog else None, can_process=lambda: not ledger.stop.is_set() and not ledger.reason()))
+                agent = Agent.create(adapter=adapter, agent_id=value["agent_id"], api_key=value["api_key"], rest_url=config["band"]["rest_url"], ws_url=config["band"]["ws_url"], session_config=session_config, preprocessor=RoomPreprocessor(room, recovery, batching=journals.get(seat["id"]), halt=ledger.halt, workflow_path=watchdog.path if watchdog else None, can_process=lambda: not ledger.stop.is_set() and not ledger.reason(), on_exception=preprocessing_error))
             agents.append(agent)
             record_startup("sdk_agent_start_begin", seat["id"])
             await asyncio.wait_for(agent.start(), timeout=min(45, max(0, recovery["expires_epoch"] - time.time())) if recovery else 45)

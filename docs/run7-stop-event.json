@@ -1,0 +1,13 @@
+{
+  "observed_at": "2026-10-05T08:24:48.358730+00:00",
+  "event_id": "96693c5b-ad0d-48b7-9684-50b910043e39",
+  "room_id": "7f255b86-3e14-44ab-a9cb-7cacdacf4515",
+  "inserted_at": "2026-10-05T08:18:49.733838Z",
+  "sender_id": "02e4a78d-7d9d-4c77-bf32-b3810a9cfacb",
+  "first_line": "HANDOFF-ACK delivery ARCH-REVIEW-A1-002; SHA-256 c267efafff55a9c6cdeb182fbfedb91db54e1f76f7df5f68cbf923613c81a1f6; sender @[[7d26ccf7-2921-4b38-9e16-ca8ebfa2a448]]. Verified 11/11 parts, 130633 UTF-8 bytes; receipt is not acceptance.",
+  "content_sha256": "2d0597924bd1f5cde19fa4face3a52d46fdd067c100237d4440b53e48c1d79d6",
+  "content_bytes": 233,
+  "lines": 1,
+  "trailing_text_bytes": 0,
+  "scope": "One identified public text event from one text-only page; no sends or full-session export."
+}

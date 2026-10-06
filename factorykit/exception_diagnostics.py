@@ -13,7 +13,7 @@ MAX_CHAIN = 4
 MAX_FRAMES = 20
 MAX_FILE_BYTES = 512 * 1024
 SEATS = frozenset({'pm', 'architect', 'designer', 'backend', 'frontend', 'qa', 'reviewer'})
-PHASES = frozenset({'client_build', 'adapter_event', 'event_admission', 'event_completion',
+PHASES = frozenset({'preprocessor', 'client_build', 'adapter_event', 'event_admission', 'event_completion',
                     'request_thread_start', 'request_thread_resume', 'request_turn_start',
                     'request_turn_steer', 'request_other'})
 _IDENTIFIER = re.compile(r'[A-Za-z_][A-Za-z_0-9]*(?:\.[A-Za-z_][A-Za-z_0-9]*)*\Z')

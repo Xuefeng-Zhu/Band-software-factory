@@ -302,8 +302,9 @@ class WorkflowTools(AuditedTools):
         canonical = canonical_mentions(mentions, self.roster) if tracked else None
         normalized = normalize_header(content, self.roster) if tracked else content
         if tracked:
-            # Correctable syntax and binding errors precede the uncertain-send
-            # boundary; preserve the admitted turn so the model can correct them.
+            # Correctable local input errors precede the uncertain-send boundary.
+            # The SDK dispatcher returns them as structured tool errors, allowing
+            # the same admitted turn to correct syntax without posting bad text.
             self.watchdog.preview_outbound(self.actor_id, [m['id'] for m in canonical], normalized, self.turn_id)
         try:
             response = (await post_once(self.tools, self.watchdog.scope["room_id"], content, canonical,
